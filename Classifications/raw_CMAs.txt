@@ -1,0 +1,530 @@
+932 - Abbotsford--Mission
+5909052 - Abbotsford
+5909878 - Matsqui Main 2
+5909056 - Mission
+5909877 - Upper Sumas 6
+568 - Barrie
+3543042 - Barrie
+3543017 - Innisfil
+3543009 - Springwater
+522 - Belleville
+3512005 - Belleville
+3512015 - Quinte West
+3512020 - Stirling-Rawdon
+3512001 - Tyendinaga
+543 - Brantford
+3529005 - Brant
+3529006 - Brantford
+3529020 - Six Nations (Part) 40
+825 - Calgary
+4806021 - Airdrie
+4806024 - Beiseker
+4806016 - Calgary
+4806017 - Chestermere
+4806019 - Cochrane
+4806026 - Crossfield
+4806022 - Irricana
+4806014 - Rocky View County
+4806804 - Tsuu T'ina Nation 145 (Sarcee 145)
+835 - Edmonton
+4811805 - Alexander 134
+4811013 - Beaumont
+4811039 - Betula Beach
+4811066 - Bon Accord
+4810066 - Bruderheim
+4811019 - Calmar
+4811018 - Devon
+4811061 - Edmonton
+4811056 - Fort Saskatchewan
+4811064 - Gibbons
+4811023 - Golden Days
+4811022 - Itaska Beach
+4811044 - Kapasiwin
+4811042 - Lakeview
+4811016 - Leduc
+4811012 - Leduc County
+4811069 - Legal
+4811068 - Morinville
+4811034 - Parkland County
+4811041 - Point Alison
+4811065 - Redwater
+4811038 - Seba Beach
+4811046 - Spring Lake
+4811049 - Spruce Grove
+4811062 - St. Albert
+4811048 - Stony Plain
+4811804 - Stony Plain 135
+4811052 - Strathcona County
+4811059 - Sturgeon County
+4811020 - Sundance Beach
+4811021 - Thorsby
+4811045 - Wabamun
+4811806 - Wabamun 133A
+4811807 - Wabamun 133B
+4811024 - Warburg
+580 - Greater Sudbury
+3553005 - Greater Sudbury
+3552013 - Markstay-Warren
+3553040 - Wahnapitei 11
+3552051 - Whitefish Lake 6
+550 - Guelph
+3523008 - Guelph
+3523009 - Guelph/Eramosa
+3523001 - Puslinch
+205 - Halifax
+1209037 - Beaver Lake 17
+1209019 - Cole Harbour 30
+1209034 - Halifax
+1209038 - Sheet Harbour 36
+1209029 - Shubenacadie 13
+1209800 - Wallace Hills 14A
+537 - Hamilton
+3524002 - Burlington
+3526065 - Grimsby
+3525005 - Hamilton
+915 - Kelowna
+5935012 - Central Okanagan
+5935020 - Central Okanagan J
+5935801 - Duck Lake 7
+5935010 - Kelowna
+5935016 - Lake Country
+5935018 - Peachland
+5935802 - Tsinstikeptum 9
+5935803 - Tsinstikeptum 10
+5935029 - West Kelowna
+521 - Kingston
+3510005 - Frontenac Islands
+3510010 - Kingston
+3511005 - Loyalist
+3510020 - South Frontenac
+541 - Kitchener--Cambridge--Waterloo
+3530010 - Cambridge
+3530013 - Kitchener
+3530004 - North Dumfries
+3530016 - Waterloo
+3530020 - Wilmot
+3530035 - Woolwich
+810 - Lethbridge
+4802016 - Barons
+4802019 - Coaldale
+4802013 - Coalhurst
+4802012 - Lethbridge
+4802011 - Lethbridge County
+4802014 - Nobleford
+4802018 - Picture Butte
+555 - London
+3539047 - Adelaide-Metcalfe
+3534020 - Central Elgin
+3539036 - London
+3539033 - Middlesex Centre
+3534024 - Southwold
+3534021 - St. Thomas
+3539015 - Strathroy-Caradoc
+3539027 - Thames Centre
+305 - Moncton
+1306014 - Coverdale
+1307045 - Dieppe
+1307011 - Dorchester
+1307012 - Dorchester
+1306008 - Elgin
+1307014 - Fort Folly 1
+1306011 - Hillsborough
+1306025 - Hillsborough
+1306001 - Hopewell
+1307013 - Memramcook
+1307019 - Moncton
+1307022 - Moncton
+1306020 - Riverview
+1308008 - Saint-Paul
+1307028 - Salisbury
+462 - Montréal
+2466112 - Baie-D'Urfé
+2466107 - Beaconsfield
+2470022 - Beauharnois
+2457040 - Beloeil
+2473015 - Blainville
+2473005 - Boisbriand
+2473030 - Bois-des-Filion
+2458033 - Boucherville
+2458007 - Brossard
+2467020 - Candiac
+2457010 - Carignan
+2457005 - Chambly
+2460005 - Charlemagne
+2467050 - Châteauguay
+2471040 - Coteau-du-Lac
+2466058 - Côte-Saint-Luc
+2467025 - Delson
+2472010 - Deux-Montagnes
+2466142 - Dollard-Des Ormeaux
+2466087 - Dorval
+2476025 - Gore
+2466062 - Hampstead
+2471100 - Hudson
+2467802 - Kahnawake
+2472802 - Kanesatake
+2466102 - Kirkland
+2467015 - La Prairie
+2460028 - L'Assomption
+2465005 - Laval
+2452007 - Lavaltrie
+2460035 - L'Épiphanie
+2460040 - L'Épiphanie
+2467055 - Léry
+2471050 - Les Cèdres
+2471033 - Les Coteaux
+2471095 - L'Île-Cadieux
+2466092 - L'Île-Dorval
+2471060 - L'Île-Perrot
+2458227 - Longueuil
+2473025 - Lorraine
+2464015 - Mascouche
+2457025 - McMasterville
+2467045 - Mercier
+2474005 - Mirabel
+2466023 - Montréal
+2466007 - Montréal-Est
+2466047 - Montréal-Ouest
+2466072 - Mont-Royal
+2457035 - Mont-Saint-Hilaire
+2471065 - Notre-Dame-de-l'Île-Perrot
+2472032 - Oka
+2457030 - Otterburn Park
+2471070 - Pincourt
+2472020 - Pointe-Calumet
+2466097 - Pointe-Claire
+2471055 - Pointe-des-Cascades
+2460013 - Repentigny
+2455057 - Richelieu
+2473020 - Rosemère
+2459015 - Saint-Amable
+2457020 - Saint-Basile-le-Grand
+2458037 - Saint-Bruno-de-Montarville
+2475005 - Saint-Colomban
+2467035 - Saint-Constant
+2466117 - Sainte-Anne-de-Bellevue
+2473035 - Sainte-Anne-des-Plaines
+2467030 - Sainte-Catherine
+2459010 - Sainte-Julie
+2472015 - Sainte-Marthe-sur-le-Lac
+2473010 - Sainte-Thérèse
+2472005 - Saint-Eustache
+2467040 - Saint-Isidore
+2456083 - Saint-Jean-sur-Richelieu
+2475017 - Saint-Jérôme
+2472025 - Saint-Joseph-du-Lac
+2458012 - Saint-Lambert
+2471105 - Saint-Lazare
+2463048 - Saint-Lin--Laurentides
+2455065 - Saint-Mathias-sur-Richelieu
+2467005 - Saint-Mathieu
+2457045 - Saint-Mathieu-de-Beloeil
+2467010 - Saint-Philippe
+2472043 - Saint-Placide
+2460020 - Saint-Sulpice
+2471025 - Saint-Zotique
+2466127 - Senneville
+2471075 - Terrasse-Vaudreuil
+2464008 - Terrebonne
+2459020 - Varennes
+2471083 - Vaudreuil-Dorion
+2471090 - Vaudreuil-sur-le-Lac
+2459025 - Verchères
+2466032 - Westmount
+532 - Oshawa
+3518017 - Clarington
+3518013 - Oshawa
+3518009 - Whitby
+505 - Ottawa--Gatineau
+2480145 - Bowman
+2482020 - Cantley
+2482025 - Chelsea
+3502036 - Clarence-Rockland
+2483005 - Denholm
+2481017 - Gatineau
+2482035 - La Pêche
+2482005 - L'Ange-Gardien
+2480055 - Lochaber
+2480060 - Lochaber-Partie-Ouest
+2480065 - Mayo
+3507065 - North Grenville
+2482010 - Notre-Dame-de-la-Salette
+3506008 - Ottawa
+2482030 - Pontiac
+3502048 - Russell
+2480050 - Thurso
+2480140 - Val-des-Bois
+2482015 - Val-des-Monts
+529 - Peterborough
+3515013 - Cavan Monaghan
+3515019 - Curve Lake First Nation 35
+3515023 - Douro-Dummer
+3515008 - Hiawatha First Nation
+3515005 - Otonabee-South Monaghan
+3515014 - Peterborough
+3515015 - Selwyn
+421 - Québec
+2419105 - Beaumont
+2421045 - Boischatel
+2421035 - Château-Richer
+2422010 - Fossambault-sur-le-Lac
+2422040 - Lac-Beauport
+2422030 - Lac-Delage
+2422015 - Lac-Saint-Joseph
+2423057 - L'Ancienne-Lorette
+2421040 - L'Ange-Gardien
+2425213 - Lévis
+2434007 - Neuville
+2423015 - Notre-Dame-des-Anges
+2423027 - Québec
+2433095 - Saint-Antoine-de-Tilly
+2423072 - Saint-Augustin-de-Desmaures
+2422045 - Sainte-Brigitte-de-Laval
+2422005 - Sainte-Catherine-de-la-Jacques-Cartier
+2420010 - Sainte-Famille
+2420030 - Sainte-Pétronille
+2420005 - Saint-François-de-l'Île-d'Orléans
+2422025 - Saint-Gabriel-de-Valcartier
+2419068 - Saint-Henri
+2420015 - Saint-Jean-de-l'Île-d'Orléans
+2426070 - Saint-Lambert-de-Lauzon
+2420020 - Saint-Laurent-de-l'Île-d'Orléans
+2420025 - Saint-Pierre-de-l'Île-d'Orléans
+2422020 - Shannon
+2422035 - Stoneham-et-Tewkesbury
+2423802 - Wendake
+705 - Regina
+4706032 - Balgonie
+4706022 - Belle Plaine
+4706055 - Buena Vista
+4706054 - Disley
+4706033 - Edenwold
+4706029 - Edenwold No. 158
+4706028 - Grand Coulee
+4706011 - Lajord No. 128
+4706056 - Lumsden
+4706057 - Lumsden Beach
+4706053 - Lumsden No. 189
+4706023 - Pense
+4706021 - Pense No. 160
+4706031 - Pilot Butte
+4706027 - Regina
+4706058 - Regina Beach
+4706026 - Sherwood No. 159
+4706030 - White City
+408 - Saguenay
+2494250 - Bégin
+2494265 - Larouche
+2494068 - Saguenay
+2494260 - Saint-Charles-de-Bourget
+2494245 - Saint-David-de-Falardeau
+2494230 - Sainte-Rose-du-Nord
+2494225 - Saint-Félix-d'Otis
+2494235 - Saint-Fulgence
+2494240 - Saint-Honoré
+310 - Saint John
+1305015 - Grand Bay-Westfield
+1305038 - Greenwich
+1305006 - Hampton
+1305007 - Hampton
+1305014 - Kingston
+1302008 - Lepreau
+1301016 - Musquash
+1305016 - Norton
+1304001 - Petersville
+1305057 - Quispamsis
+1305008 - Rothesay
+1305045 - Rothesay
+1301006 - Saint John
+1301001 - Saint Martins
+1301004 - Simonds
+1301002 - St. Martins
+1305004 - Upham
+1305011 - Westfield
+725 - Saskatoon
+4715019 - Aberdeen
+4715018 - Aberdeen No. 373
+4711072 - Allan
+4712059 - Asquith
+4711069 - Blucher No. 343
+4711071 - Bradwell
+4711077 - Clavet
+4711079 - Colonsay
+4711076 - Colonsay No. 342
+4711065 - Corman Park No. 344
+4711073 - Dalmeny
+4712056 - Delisle
+4711063 - Dundurn
+4711061 - Dundurn No. 314
+4711067 - Langham
+4711070 - Martensville
+4711078 - Meacham
+4711075 - Osler
+4711066 - Saskatoon
+4711064 - Shields
+4711060 - Thode
+4712058 - Vanscoy
+4712054 - Vanscoy No. 345
+4711068 - Warman
+4711828 - Whitecap
+433 - Sherbrooke
+2441055 - Ascot Corner
+2444071 - Compton
+2445055 - Hatley
+2445072 - Magog
+2445050 - North Hatley
+2445115 - Orford
+2442025 - Saint-Denis-de-Brompton
+2443027 - Sherbrooke
+2442005 - Stoke
+2442095 - Val-Joli
+2444080 - Waterville
+539 - St. Catharines--Niagara
+3526003 - Fort Erie
+3526057 - Lincoln
+3526043 - Niagara Falls
+3526047 - Niagara-on-the-Lake
+3526028 - Pelham
+3526011 - Port Colborne
+3526053 - St. Catharines
+3526037 - Thorold
+3526014 - Wainfleet
+3526032 - Welland
+001 - St. John's
+1001512 - Bauline
+1001557 - Bay Bulls
+1001485 - Conception Bay South
+1001507 - Flatrock
+1001511 - Logy Bay-Middle Cove-Outer Cove
+1001542 - Mount Pearl
+1001517 - Paradise
+1001551 - Petty Harbour-Maddox Cove
+1001504 - Portugal Cove-St. Philip's
+1001505 - Pouch Cove
+1001519 - St. John's
+1001509 - Torbay
+1001559 - Witless Bay
+595 - Thunder Bay
+3558019 - Conmee
+3558003 - Fort William 52
+3558012 - Gillies
+3558001 - Neebing
+3558016 - O'Connor
+3558011 - Oliver Paipoonge
+3558028 - Shuniah
+3558004 - Thunder Bay
+535 - Toronto
+3518005 - Ajax
+3519046 - Aurora
+3543014 - Bradford West Gwillimbury
+3521010 - Brampton
+3521024 - Caledon
+3519076 - Chippewas of Georgina Island First Nation
+3519054 - East Gwillimbury
+3519070 - Georgina
+3524015 - Halton Hills
+3519049 - King
+3519036 - Markham
+3524009 - Milton
+3521005 - Mississauga
+3522012 - Mono
+3543007 - New Tecumseth
+3519048 - Newmarket
+3524001 - Oakville
+3522014 - Orangeville
+3518001 - Pickering
+3519038 - Richmond Hill
+3520005 - Toronto
+3518029 - Uxbridge
+3519028 - Vaughan
+3519044 - Whitchurch-Stouffville
+442 - Trois-Rivières
+2438010 - Bécancour
+2437220 - Champlain
+2437225 - Saint-Luc-de-Vincennes
+2437230 - Saint-Maurice
+2437067 - Trois-Rivières
+2438802 - Wôlinak
+2451020 - Yamachiche
+933 - Vancouver
+5915038 - Anmore
+5915809 - Barnston Island 3
+5915036 - Belcarra
+5915062 - Bowen Island
+5915025 - Burnaby
+5915806 - Burrard Inlet 3
+5915808 - Capilano 5
+5915034 - Coquitlam
+5915805 - Coquitlam 1
+5915804 - Coquitlam 2
+5915011 - Delta
+5915020 - Greater Vancouver A
+5915830 - Katzie 1
+5915813 - Katzie 2
+5915001 - Langley
+5915002 - Langley
+5915835 - Langley 5
+5915065 - Lions Bay
+5915075 - Maple Ridge
+5915825 - Matsqui 4
+5915816 - McMillan Island 6
+5915807 - Mission 1
+5915803 - Musqueam 2
+5915810 - Musqueam 4
+5915029 - New Westminster
+5915046 - North Vancouver
+5915051 - North Vancouver
+5915070 - Pitt Meadows
+5915039 - Port Coquitlam
+5915043 - Port Moody
+5915015 - Richmond
+5915801 - Semiahmoo
+5915811 - Seymour Creek 2
+5915004 - Surrey
+5915802 - Tsawwassen
+5915022 - Vancouver
+5915055 - West Vancouver
+5915007 - White Rock
+5915840 - Whonnock 1
+935 - Victoria
+5917809 - Becher Bay 1
+5917054 - Juan de Fuca (Part 1)
+5917015 - Central Saanich
+5917801 - Cole Bay 3
+5917041 - Colwood
+5917803 - East Saanich 2
+5917040 - Esquimalt
+5917811 - Esquimalt
+5917049 - Highlands
+5917044 - Langford
+5917042 - Metchosin
+5917812 - New Songhees 1A
+5917005 - North Saanich
+5917030 - Oak Bay
+5917021 - Saanich
+5917010 - Sidney
+5917052 - Sooke
+5917804 - South Saanich 1
+5917819 - T'Sou-ke
+5917802 - Union Bay 4
+5917034 - Victoria
+5917047 - View Royal
+559 - Windsor
+3537028 - Amherstburg
+3537064 - Lakeshore
+3537034 - LaSalle
+3537048 - Tecumseh
+3537039 - Windsor
+602 - Winnipeg
+4613062 - Brokenhead 4
+4613032 - East St. Paul
+4611042 - Headingley
+4610035 - Macdonald
+4602075 - Ritchot
+4614015 - Rosser
+4612047 - Springfield
+4613056 - St. Clements
+4610052 - St. François Xavier
+4602069 - Taché
+4613037 - West St. Paul
+4611040 - Winnipeg

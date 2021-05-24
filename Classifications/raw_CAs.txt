@@ -1,0 +1,588 @@
+410 - Alma
+2493042 - Alma
+2493045 - Saint-Nazaire
+507 - Arnprior
+3547002 - Arnprior
+3547003 - McNab/Braeside
+406 - Baie-Comeau
+2496020 - Baie-Comeau
+2496035 - Chute-aux-Outardes
+2496030 - Pointe-aux-Outardes
+2496025 - Pointe-Lebel
+2496040 - Ragueneau
+328 - Bathurst
+1315008 - Bathurst
+1315011 - Bathurst
+1315012 - Beresford
+1315015 - Beresford
+1315037 - Nigadoo
+1315010 - Pabineau 11
+1315014 - Petit-Rocher
+1315013 - Pointe-Verte
+005 - Bay Roberts
+1001409 - Bay Roberts
+1001394 - Bishop's Cove
+1001426 - North River
+1001396 - Spaniard's Bay
+1001385 - Upper Island Cove
+610 - Brandon
+4607062 - Brandon
+4607060 - Cornwallis
+4607071 - Elton
+4607046 - Oakland-Wawanesa
+4607057 - Whitehead
+512 - Brockville
+3507006 - Augusta
+3507015 - Brockville
+3507014 - Elizabethtown-Kitley
+806 - Brooks
+4802039 - Bassano
+4802034 - Brooks
+4802036 - Duchess
+4802031 - Newell County
+4802038 - Rosemary
+944 - Campbell River
+5924034 - Campbell River
+5924804 - Campbell River 11
+5924840 - Homalco 9
+5924812 - Quinsam 12
+5924042 - Strathcona D (Oyster Bay - Buttle Lake)
+330 - Campbellton
+1314012 - Addington
+1314013 - Atholville
+1314014 - Campbellton
+1314008 - Dalhousie
+2406804 - Listuguj
+2406030 - Pointe-à-la-Croix
+1314015 - Tide Head
+833 - Camrose
+4810011 - Camrose
+828 - Canmore
+4815023 - Canmore
+225 - Cape Breton
+1217030 - Cape Breton
+1217020 - Eskasoni 3
+1217008 - Membertou 28B
+509 - Carleton Place
+3509024 - Beckwith
+3509028 - Carleton Place
+3509030 - Mississippi Mills
+531 - Centre Wellington
+3523025 - Centre Wellington
+105 - Charlottetown
+1102048 - Brackley
+1102075 - Charlottetown
+1102037 - Clyde River
+1102085 - Cornwall
+1102026 - Lot 31
+1102049 - Lot 33
+1102052 - Lot 34
+1102054 - Lot 35
+1102056 - Lot 36
+1102058 - Lot 37
+1102014 - Lot 48
+1102012 - Lot 49
+1102028 - Lot 65
+1102033 - Meadowbank
+1102040 - Miltonvale Park
+1102059 - Mount Stewart
+1102030 - Rocky Point 3
+1102057 - Scotchfort 4
+1102080 - Stratford
+1102050 - Union Road
+1102070 - Warren Grove
+1102065 - Winsloe South
+556 - Chatham-Kent
+3536020 - Chatham-Kent
+3536029 - Moravian 47
+930 - Chilliwack
+5909835 - Aitchelitch 9
+5909837 - Cheam 1
+5909020 - Chilliwack
+5909034 - Fraser Valley D
+5909036 - Fraser Valley E
+5909035 - Fraser Valley H
+5909027 - Harrison Hot Springs
+5909032 - Kent
+5909821 - Kwawkwawapilt 6
+5909844 - Popkum 1
+5909838 - Schelowat 1
+5909833 - Scowlitz 1
+5909832 - Seabird Island
+5909884 - Skowkale
+5909824 - Skwah 4
+5909849 - Skwahla 2
+5909825 - Skwali 3
+5909826 - Skway 5
+5909827 - Soowahlie 14
+5909885 - Squiaala
+5909834 - Tseatah 2
+5909830 - Tzeachten 13
+5909831 - Yakweakwioose 12
+527 - Cobourg
+3514021 - Cobourg
+845 - Cold Lake
+4812002 - Cold Lake
+567 - Collingwood
+3543031 - Collingwood
+015 - Corner Brook
+1005018 - Corner Brook
+1005010 - Division No. 5, Subd. F
+1005015 - Gillams
+1005028 - Hughes Brook
+1005020 - Humber Arm South
+1005030 - Irishtown-Summerside
+1005017 - Massey Drive
+1005022 - McIvers
+1005025 - Meadows
+1005033 - Mount Moriah
+1005012 - Pasadena
+1005011 - Steady Brook
+501 - Cornwall
+3501012 - Cornwall
+3501011 - South Stormont
+943 - Courtenay
+5926005 - Comox
+5926801 - Comox 1
+5926021 - Comox Valley A
+5926022 - Comox Valley B (Lazo North)
+5926010 - Courtenay
+437 - Cowansville
+2446080 - Cowansville
+905 - Cranbrook
+5901805 - Cassimayooks (Mayook) 5
+5901022 - Cranbrook
+5901035 - East Kootenay C
+5901802 - Isidore's Ranch 4
+975 - Dawson Creek
+5955014 - Dawson Creek
+411 - Dolbeau-Mistassini
+2492022 - Dolbeau-Mistassini
+2492015 - Sainte-Jeanne-d'Arc
+2492070 - Saint-Stanislas
+447 - Drummondville
+2449058 - Drummondville
+2449025 - L'Avenir
+2449020 - Lefebvre
+2449075 - Notre-Dame-du-Bon-Conseil
+2449080 - Notre-Dame-du-Bon-Conseil
+2449070 - Saint-Cyrille-de-Wendover
+2449100 - Saint-Edmond-de-Grantham
+2449048 - Saint-Germain-de-Grantham
+2449030 - Saint-Lucien
+2449095 - Saint-Majorique-de-Grantham
+2449040 - Wickham
+937 - Duncan
+5919822 - Cowichan
+5919013 - Cowichan Valley D
+5919051 - Cowichan Valley E
+5919012 - Duncan
+5919801 - Halalt 2
+5919808 - Kil-pah-las 3
+5919008 - North Cowichan
+5919802 - Squaw-hay-one 11
+5919818 - Theik 2
+5919803 - Tsussie 6
+5919821 - Tzart-Lam 5
+335 - Edmundston
+1313034 - Baker Brook
+1313035 - Baker-Brook
+1313027 - Edmundston
+1313014 - Rivière-Verte
+1313015 - Rivière-Verte
+1313018 - Saint-Basile
+1313032 - Saint-Hilaire
+1313024 - Saint-Jacques
+1313022 - Saint-Joseph
+1313020 - St. Basile 10
+1313033 - St. Hilaire
+582 - Elliot Lake
+3557041 - Elliot Lake
+750 - Estevan
+4701021 - Bienfait
+4701024 - Estevan
+4701022 - Estevan No. 5
+977 - Fort St. John
+5955034 - Fort St. John
+5955042 - Peace River C
+5955030 - Taylor
+320 - Fredericton
+1310026 - Bright
+1310034 - Devon 30
+1310028 - Douglas
+1310032 - Fredericton
+1303004 - Gladstone
+1310017 - Hanwell
+1310005 - Harvey
+1310018 - Kingsclear
+1310019 - Kingsclear 6
+1303008 - Lincoln
+1310004 - Manners Sutton
+1303016 - Maugerville
+1310001 - New Maryland
+1310002 - New Maryland
+1310021 - Queensbury
+1310031 - Saint Marys
+1303005 - Tracy
+011 - Gander
+1006011 - Appleton
+1006008 - Division No. 6, Subd. E
+1006009 - Gander
+1006012 - Glenwood
+450 - Granby
+2446078 - Bromont
+2447017 - Granby
+2447047 - Roxton Pond
+2447010 - Saint-Alphonse-de-Granby
+2455015 - Saint-Paul-d'Abbotsford
+010 - Grand Falls-Windsor
+1006017 - Grand Falls-Windsor
+850 - Grande Prairie
+4819012 - Grande Prairie
+502 - Hawkesbury
+2476055 - Grenville
+3502008 - Hawkesbury
+821 - High River
+4806006 - High River
+533 - Ingersoll
+3532018 - Ingersoll
+456 - Joliette
+2461025 - Joliette
+2461030 - Notre-Dame-des-Prairies
+2461035 - Saint-Charles-Borromée
+2461005 - Saint-Paul
+925 - Kamloops
+5933054 - Chase
+5933042 - Kamloops
+5933880 - Kamloops 1
+5933035 - Logan Lake
+5933884 - Sahhaltkum 4
+5933045 - Sun Peaks Mountain
+5933039 - Thompson-Nicola J (Copper Desert Country)
+5933044 - Thompson-Nicola P (Rivers and the Peaks)
+5933877 - Whispering Pines 4
+530 - Kawartha Lakes
+3516010 - Kawartha Lakes
+598 - Kenora
+3560010 - Kenora
+210 - Kentville
+1207012 - Kentville
+1207016 - Kings, Subd. B
+1207011 - Kings, Subd. C
+468 - Lachute
+2476020 - Lachute
+832 - Lacombe
+4808031 - Lacombe
+557 - Leamington
+3537013 - Kingsville
+3537003 - Leamington
+840 - Lloydminster
+4717024 - Lashburn
+4717029 - Lloydminster (Part)
+4810039 - Lloydminster (Part)
+4717026 - Marshall
+4717022 - Wilton No. 472
+403 - Matane
+2408053 - Matane
+2408023 - Sainte-Félicité
+2408035 - Saint-René-de-Matane
+2408073 - Saint-Ulric
+805 - Medicine Hat
+4801003 - Cypress County
+4801006 - Medicine Hat
+4801018 - Redcliff
+571 - Midland
+3543074 - Midland
+3543072 - Penetanguishene
+3543071 - Tay
+329 - Miramichi
+1309034 - Big Hole Tract 8 (South Half)
+1309006 - Chatham
+1309011 - Derby
+1309035 - Eel Ground 2
+1309004 - Glenelg
+1309050 - Miramichi
+1309014 - Nelson
+1309031 - Newcastle
+1309028 - Northesk
+1309023 - Red Bank 4
+1309026 - Southesk
+715 - Moose Jaw
+4707039 - Moose Jaw
+4707038 - Moose Jaw No. 161
+938 - Nanaimo
+5921008 - Lantzville
+5921007 - Nanaimo
+5921010 - Nanaimo A
+5921016 - Nanaimo C
+5921807 - Nanaimo River
+5921804 - Nanaimo Town 1
+5921805 - Nanoose
+907 - Nelson
+5903041 - Central Kootenay E
+5903043 - Central Kootenay F
+5903015 - Nelson
+220 - New Glasgow
+1212019 - Fisher's Grant 24
+1212023 - Merigomish Harbour 31
+1212014 - New Glasgow
+1212006 - Pictou, Subd. B
+1212011 - Pictou, Subd. C
+1212009 - Stellarton
+1212016 - Trenton
+1212008 - Westville
+547 - Norfolk
+3528052 - Norfolk County
+735 - North Battleford
+4712079 - Battleford
+4716027 - North Battleford
+4716029 - North Battleford
+4716028 - North Battleford No. 437
+575 - North Bay
+3548027 - Bonfield
+3549066 - Callander
+3548031 - Chisholm
+3548034 - East Ferris
+3549071 - Nipissing
+3548094 - Nipissing, Unorganized, North Part
+3548044 - North Bay
+3549060 - Powassan
+820 - Okotoks
+4806012 - Okotoks
+569 - Orillia
+3543052 - Orillia
+566 - Owen Sound
+3542053 - Georgian Bluffs
+3542059 - Owen Sound
+939 - Parksville
+5921034 - Nanaimo G
+5921018 - Parksville
+5921023 - Qualicum Beach
+515 - Pembroke
+3547075 - Laurentian Valley
+3547064 - Pembroke
+913 - Penticton
+5907047 - Okanagan-Similkameen D
+5907051 - Okanagan-Similkameen F
+5907041 - Penticton
+5907803 - Penticton 1
+516 - Petawawa
+3547076 - Petawawa
+940 - Port Alberni
+5923801 - Ahahswinis 1
+5923802 - Alberni 2
+5923033 - Alberni-Clayoquot B
+5923035 - Alberni-Clayoquot D
+5923037 - Alberni-Clayoquot E
+5923039 - Alberni-Clayoquot F
+5923822 - Klehkoot 2
+5923008 - Port Alberni
+5923816 - Tsahaheh 1
+528 - Port Hope
+3514020 - Port Hope
+607 - Portage la Prairie
+4609029 - Portage la Prairie
+945 - Powell River
+5927008 - Powell River
+5927012 - Powell River B
+5927016 - Powell River C
+5927806 - Sechelt (Part)
+745 - Prince Albert
+4715085 - Albertville
+4715094 - Buckland No. 491
+4715079 - Garden River No. 490
+4715092 - Meath Park
+4715066 - Prince Albert
+4715064 - Prince Albert No. 461
+4715848 - Wahpaton 94A
+970 - Prince George
+5953801 - Fort George (Shelley) 2
+5953038 - Fraser-Fort George A
+5953042 - Fraser-Fort George C
+5953044 - Fraser-Fort George D
+5953048 - Fraser-Fort George F
+5953023 - Prince George
+955 - Prince Rupert
+5947007 - Port Edward
+5947012 - Prince Rupert
+952 - Quesnel
+5941882 - Alexandria
+5941881 - Baezaeko River 27
+5941019 - Cariboo A
+5941021 - Cariboo B
+5941026 - Cariboo C
+5941027 - Cariboo I
+5941835 - Coglistiko River 29
+5941866 - Euchinico Creek 17
+5941833 - Kluskus 1
+5941837 - Nazco 20
+5941013 - Quesnel
+5941809 - Quesnel 1
+5941864 - Sundayman's Meadow 3
+5941852 - Trout Lake Alec 16
+5941025 - Wells
+830 - Red Deer
+4808011 - Red Deer
+404 - Rimouski
+2410043 - Rimouski
+2410030 - Saint-Anaclet-de-Lessard
+2410070 - Saint-Fabien
+2410015 - Saint-Narcisse-de-Rimouski
+2410060 - Saint-Valérien
+405 - Rivière-du-Loup
+2412057 - Cacouna
+2412080 - Notre-Dame-du-Portage
+2412072 - Rivière-du-Loup
+2412015 - Saint-Antonin
+2412065 - Saint-Arsène
+2412020 - Saint-Modeste
+485 - Rouyn-Noranda
+2486042 - Rouyn-Noranda
+423 - Sainte-Marie
+2426030 - Sainte-Marie
+428 - Saint-Georges
+2429073 - Saint-Georges
+452 - Saint-Hyacinthe
+2454060 - Saint-Dominique
+2454048 - Saint-Hyacinthe
+2454090 - Saint-Simon
+465 - Salaberry-de-Valleyfield
+2470052 - Salaberry-de-Valleyfield
+920 - Salmon Arm
+5939032 - Salmon Arm
+5939811 - Switsemalph
+5939808 - Switsemalph 3
+562 - Sarnia
+3538035 - Plympton-Wyoming
+3538031 - Point Edward
+3538030 - Sarnia
+3538025 - Sarnia 45
+3538003 - St. Clair
+590 - Sault Ste. Marie
+3557074 - Garden River 14
+3557011 - Laird
+3557051 - Macdonald, Meredith and Aberdeen Additional
+3557066 - Prince
+3557075 - Rankin Location 15D
+3557061 - Sault Ste. Marie
+412 - Sept-Îles
+2497804 - Maliotenam
+2497007 - Sept-Îles
+2497802 - Uashat
+444 - Shawinigan
+2451085 - Saint-Boniface
+2436033 - Shawinigan
+454 - Sorel-Tracy
+2453065 - Sainte-Anne-de-Sorel
+2453025 - Sainte-Victoire-de-Sorel
+2453050 - Saint-Joseph-de-Sorel
+2453052 - Sorel-Tracy
+934 - Squamish
+5931802 - Kowtain 17
+5931806 - Seaichem 16
+5931006 - Squamish
+5931807 - Stawamus 24
+5931808 - Waiwakum 14
+5931809 - Yekwaupsum 18
+605 - Steinbach
+4602044 - Steinbach
+553 - Stratford
+3531011 - Stratford
+826 - Strathmore
+4805018 - Strathmore
+110 - Summerside
+1103023 - Linkletter
+1103019 - Lot 17
+1103024 - Miscouche
+1103025 - Summerside
+720 - Swift Current
+4708004 - Swift Current
+4708001 - Swift Current No. 137
+831 - Sylvan Lake
+4808005 - Jarvis Bay
+4808013 - Norglenwold
+4808012 - Sylvan Lake
+965 - Terrace
+5949018 - Kitimat-Stikine E
+5949807 - Kulspai 6
+5949011 - Terrace
+430 - Thetford Mines
+2431040 - Irlande
+2431095 - Saint-Adrien-d'Irlande
+2431045 - Saint-Joseph-de-Coleraine
+2431084 - Thetford Mines
+640 - Thompson
+4622026 - Thompson
+546 - Tillsonburg
+3532004 - Tillsonburg
+586 - Timmins
+3556027 - Timmins
+215 - Truro
+1210008 - Colchester, Subd. B
+1210001 - Colchester, Subd. C
+1210003 - Millbrook 27
+1210006 - Truro
+480 - Val-d'Or
+2489804 - Lac-Simon
+2489008 - Val-d'Or
+918 - Vernon
+5937010 - Coldstream
+5937017 - North Okanagan B
+5937021 - North Okanagan C
+5937801 - Okanagan (Part) 1
+5937803 - Priest's Valley 6
+5937014 - Vernon
+440 - Victoriaville
+2439060 - Saint-Christophe-d'Arthabaska
+2439062 - Victoriaville
+565 - Wasaga Beach
+3543064 - Wasaga Beach
+865 - Wetaskiwin
+4811002 - Wetaskiwin
+755 - Weyburn
+4702047 - Weyburn
+990 - Whitehorse
+6001055 - Ibex Valley
+6001010 - Lake Laberge 1
+6001059 - Macpherson-Grizzly Valley
+6001058 - Marsh Lake
+6001044 - Mt. Lorne
+6001009 - Whitehorse
+6001060 - Whitehorse, Unorganized
+950 - Williams Lake
+5941801 - Alkali Lake 1
+5941873 - Alkali Lake 4A
+5941010 - Cariboo D
+5941012 - Cariboo E
+5941806 - Dog Creek 1
+5941807 - Dog Creek 2
+5941811 - Johny Sticks 2
+5941885 - Little Springs
+5941868 - Sandy Harry 4
+5941810 - Soda Creek 1
+5941872 - Swan Lake 3
+5941009 - Williams Lake
+603 - Winkler
+4603053 - Morden
+4603047 - Stanley
+4603050 - Winkler
+860 - Wood Buffalo
+4816850 - Allison Bay 219
+4816831 - Chipewyan 201A
+4816852 - Dog Head 218
+4816859 - Fort Mackay
+4816821 - Gregoire Lake 176
+4816822 - Gregoire Lake 176A
+4816817 - Janvier 194
+4816849 - Old Fort 217
+4816861 - Thabacha Náre 196A
+4816037 - Wood Buffalo
+544 - Woodstock
+3532042 - Woodstock
+995 - Yellowknife
+6106023 - Yellowknife
+710 - Yorkton
+4709014 - Ebenezer
+4709011 - Orkney No. 244
+4709016 - Springside
+4709012 - Yorkton
