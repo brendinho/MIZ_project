@@ -431,6 +431,8 @@ date,HA,cases,province
 2021-05-27,Algoma_Public_Health_Unit,3,Ontario
 2021-05-28,Algoma_Public_Health_Unit,1,Ontario
 2021-05-29,Algoma_Public_Health_Unit,1,Ontario
+2021-05-30,Algoma_Public_Health_Unit,-2,Ontario
+2021-05-31,Algoma_Public_Health_Unit,0,Ontario
 2020-03-24,Brant_County_Health_Unit,,Ontario
 2020-03-25,Brant_County_Health_Unit,1,Ontario
 2020-03-26,Brant_County_Health_Unit,0,Ontario
@@ -863,6 +865,8 @@ date,HA,cases,province
 2021-05-27,Brant_County_Health_Unit,14,Ontario
 2021-05-28,Brant_County_Health_Unit,15,Ontario
 2021-05-29,Brant_County_Health_Unit,17,Ontario
+2021-05-30,Brant_County_Health_Unit,11,Ontario
+2021-05-31,Brant_County_Health_Unit,9,Ontario
 2020-03-24,Chatham-Kent_Health_Unit,,Ontario
 2020-03-25,Chatham-Kent_Health_Unit,0,Ontario
 2020-03-26,Chatham-Kent_Health_Unit,0,Ontario
@@ -1295,6 +1299,8 @@ date,HA,cases,province
 2021-05-27,Chatham-Kent_Health_Unit,1,Ontario
 2021-05-28,Chatham-Kent_Health_Unit,1,Ontario
 2021-05-29,Chatham-Kent_Health_Unit,0,Ontario
+2021-05-30,Chatham-Kent_Health_Unit,1,Ontario
+2021-05-31,Chatham-Kent_Health_Unit,5,Ontario
 2020-03-24,Durham_Region_Health_Department,,Ontario
 2020-03-25,Durham_Region_Health_Department,3,Ontario
 2020-03-26,Durham_Region_Health_Department,1,Ontario
@@ -1727,6 +1733,8 @@ date,HA,cases,province
 2021-05-27,Durham_Region_Health_Department,25,Ontario
 2021-05-28,Durham_Region_Health_Department,72,Ontario
 2021-05-29,Durham_Region_Health_Department,54,Ontario
+2021-05-30,Durham_Region_Health_Department,54,Ontario
+2021-05-31,Durham_Region_Health_Department,67,Ontario
 2020-03-24,Eastern_Ontario_Health_Unit,,Ontario
 2020-03-25,Eastern_Ontario_Health_Unit,0,Ontario
 2020-03-26,Eastern_Ontario_Health_Unit,0,Ontario
@@ -2159,6 +2167,8 @@ date,HA,cases,province
 2021-05-27,Eastern_Ontario_Health_Unit,2,Ontario
 2021-05-28,Eastern_Ontario_Health_Unit,13,Ontario
 2021-05-29,Eastern_Ontario_Health_Unit,11,Ontario
+2021-05-30,Eastern_Ontario_Health_Unit,4,Ontario
+2021-05-31,Eastern_Ontario_Health_Unit,3,Ontario
 2020-03-24,Grey_Bruce_Health_Unit,,Ontario
 2020-03-25,Grey_Bruce_Health_Unit,1,Ontario
 2020-03-26,Grey_Bruce_Health_Unit,0,Ontario
@@ -2591,6 +2601,8 @@ date,HA,cases,province
 2021-05-27,Grey_Bruce_Health_Unit,2,Ontario
 2021-05-28,Grey_Bruce_Health_Unit,1,Ontario
 2021-05-29,Grey_Bruce_Health_Unit,0,Ontario
+2021-05-30,Grey_Bruce_Health_Unit,0,Ontario
+2021-05-31,Grey_Bruce_Health_Unit,1,Ontario
 2020-03-24,Haldimand-Norfolk_Health_Unit,,Ontario
 2020-03-25,Haldimand-Norfolk_Health_Unit,0,Ontario
 2020-03-26,Haldimand-Norfolk_Health_Unit,0,Ontario
@@ -3023,6 +3035,8 @@ date,HA,cases,province
 2021-05-27,Haldimand-Norfolk_Health_Unit,4,Ontario
 2021-05-28,Haldimand-Norfolk_Health_Unit,7,Ontario
 2021-05-29,Haldimand-Norfolk_Health_Unit,6,Ontario
+2021-05-30,Haldimand-Norfolk_Health_Unit,9,Ontario
+2021-05-31,Haldimand-Norfolk_Health_Unit,2,Ontario
 2020-03-24,"Haliburton,_Kawartha,_Pine_Ridge_District_Health_Unit",,Ontario
 2020-03-25,"Haliburton,_Kawartha,_Pine_Ridge_District_Health_Unit",0,Ontario
 2020-03-26,"Haliburton,_Kawartha,_Pine_Ridge_District_Health_Unit",1,Ontario
@@ -3455,6 +3469,8 @@ date,HA,cases,province
 2021-05-27,"Haliburton,_Kawartha,_Pine_Ridge_District_Health_Unit",3,Ontario
 2021-05-28,"Haliburton,_Kawartha,_Pine_Ridge_District_Health_Unit",27,Ontario
 2021-05-29,"Haliburton,_Kawartha,_Pine_Ridge_District_Health_Unit",2,Ontario
+2021-05-30,"Haliburton,_Kawartha,_Pine_Ridge_District_Health_Unit",18,Ontario
+2021-05-31,"Haliburton,_Kawartha,_Pine_Ridge_District_Health_Unit",11,Ontario
 2020-03-24,Halton_Region_Health_Department,,Ontario
 2020-03-25,Halton_Region_Health_Department,1,Ontario
 2020-03-26,Halton_Region_Health_Department,4,Ontario
@@ -3887,6 +3903,8 @@ date,HA,cases,province
 2021-05-27,Halton_Region_Health_Department,46,Ontario
 2021-05-28,Halton_Region_Health_Department,51,Ontario
 2021-05-29,Halton_Region_Health_Department,37,Ontario
+2021-05-30,Halton_Region_Health_Department,30,Ontario
+2021-05-31,Halton_Region_Health_Department,26,Ontario
 2020-03-24,Hamilton_Public_Health_Services,,Ontario
 2020-03-25,Hamilton_Public_Health_Services,3,Ontario
 2020-03-26,Hamilton_Public_Health_Services,4,Ontario
@@ -4319,6 +4337,8 @@ date,HA,cases,province
 2021-05-27,Hamilton_Public_Health_Services,66,Ontario
 2021-05-28,Hamilton_Public_Health_Services,78,Ontario
 2021-05-29,Hamilton_Public_Health_Services,71,Ontario
+2021-05-30,Hamilton_Public_Health_Services,59,Ontario
+2021-05-31,Hamilton_Public_Health_Services,52,Ontario
 2020-03-24,Hastings_and_Prince_Edward_Counties_Health_Unit,,Ontario
 2020-03-25,Hastings_and_Prince_Edward_Counties_Health_Unit,0,Ontario
 2020-03-26,Hastings_and_Prince_Edward_Counties_Health_Unit,2,Ontario
@@ -4751,6 +4771,8 @@ date,HA,cases,province
 2021-05-27,Hastings_and_Prince_Edward_Counties_Health_Unit,9,Ontario
 2021-05-28,Hastings_and_Prince_Edward_Counties_Health_Unit,8,Ontario
 2021-05-29,Hastings_and_Prince_Edward_Counties_Health_Unit,0,Ontario
+2021-05-30,Hastings_and_Prince_Edward_Counties_Health_Unit,2,Ontario
+2021-05-31,Hastings_and_Prince_Edward_Counties_Health_Unit,0,Ontario
 2020-03-24,Huron_Perth_District_Health_Unit,,Ontario
 2020-03-25,Huron_Perth_District_Health_Unit,0,Ontario
 2020-03-26,Huron_Perth_District_Health_Unit,0,Ontario
@@ -5183,6 +5205,8 @@ date,HA,cases,province
 2021-05-27,Huron_Perth_District_Health_Unit,2,Ontario
 2021-05-28,Huron_Perth_District_Health_Unit,12,Ontario
 2021-05-29,Huron_Perth_District_Health_Unit,15,Ontario
+2021-05-30,Huron_Perth_District_Health_Unit,9,Ontario
+2021-05-31,Huron_Perth_District_Health_Unit,3,Ontario
 2020-03-24,"Kingston,_Frontenac_and_Lennox_&_Addington_Public_Health",,Ontario
 2020-03-25,"Kingston,_Frontenac_and_Lennox_&_Addington_Public_Health",3,Ontario
 2020-03-26,"Kingston,_Frontenac_and_Lennox_&_Addington_Public_Health",5,Ontario
@@ -5615,6 +5639,8 @@ date,HA,cases,province
 2021-05-27,"Kingston,_Frontenac_and_Lennox_&_Addington_Public_Health",2,Ontario
 2021-05-28,"Kingston,_Frontenac_and_Lennox_&_Addington_Public_Health",0,Ontario
 2021-05-29,"Kingston,_Frontenac_and_Lennox_&_Addington_Public_Health",3,Ontario
+2021-05-30,"Kingston,_Frontenac_and_Lennox_&_Addington_Public_Health",-1,Ontario
+2021-05-31,"Kingston,_Frontenac_and_Lennox_&_Addington_Public_Health",0,Ontario
 2020-03-24,Lambton_Public_Health,,Ontario
 2020-03-25,Lambton_Public_Health,0,Ontario
 2020-03-26,Lambton_Public_Health,0,Ontario
@@ -6047,6 +6073,8 @@ date,HA,cases,province
 2021-05-27,Lambton_Public_Health,1,Ontario
 2021-05-28,Lambton_Public_Health,13,Ontario
 2021-05-29,Lambton_Public_Health,4,Ontario
+2021-05-30,Lambton_Public_Health,8,Ontario
+2021-05-31,Lambton_Public_Health,0,Ontario
 2020-03-24,"Leeds,_Grenville_and_Lanark_District_Health_Unit",,Ontario
 2020-03-25,"Leeds,_Grenville_and_Lanark_District_Health_Unit",0,Ontario
 2020-03-26,"Leeds,_Grenville_and_Lanark_District_Health_Unit",0,Ontario
@@ -6479,6 +6507,8 @@ date,HA,cases,province
 2021-05-27,"Leeds,_Grenville_and_Lanark_District_Health_Unit",3,Ontario
 2021-05-28,"Leeds,_Grenville_and_Lanark_District_Health_Unit",2,Ontario
 2021-05-29,"Leeds,_Grenville_and_Lanark_District_Health_Unit",2,Ontario
+2021-05-30,"Leeds,_Grenville_and_Lanark_District_Health_Unit",0,Ontario
+2021-05-31,"Leeds,_Grenville_and_Lanark_District_Health_Unit",0,Ontario
 2020-03-24,Middlesex-London_Health_Unit,,Ontario
 2020-03-25,Middlesex-London_Health_Unit,0,Ontario
 2020-03-26,Middlesex-London_Health_Unit,2,Ontario
@@ -6911,6 +6941,8 @@ date,HA,cases,province
 2021-05-27,Middlesex-London_Health_Unit,35,Ontario
 2021-05-28,Middlesex-London_Health_Unit,39,Ontario
 2021-05-29,Middlesex-London_Health_Unit,41,Ontario
+2021-05-30,Middlesex-London_Health_Unit,20,Ontario
+2021-05-31,Middlesex-London_Health_Unit,20,Ontario
 2020-03-24,Niagara_Region_Public_Health_Department,,Ontario
 2020-03-25,Niagara_Region_Public_Health_Department,1,Ontario
 2020-03-26,Niagara_Region_Public_Health_Department,1,Ontario
@@ -7343,6 +7375,8 @@ date,HA,cases,province
 2021-05-27,Niagara_Region_Public_Health_Department,22,Ontario
 2021-05-28,Niagara_Region_Public_Health_Department,55,Ontario
 2021-05-29,Niagara_Region_Public_Health_Department,22,Ontario
+2021-05-30,Niagara_Region_Public_Health_Department,16,Ontario
+2021-05-31,Niagara_Region_Public_Health_Department,43,Ontario
 2020-03-24,North_Bay_Parry_Sound_District_Health_Unit,,Ontario
 2020-03-25,North_Bay_Parry_Sound_District_Health_Unit,0,Ontario
 2020-03-26,North_Bay_Parry_Sound_District_Health_Unit,0,Ontario
@@ -7775,6 +7809,8 @@ date,HA,cases,province
 2021-05-27,North_Bay_Parry_Sound_District_Health_Unit,1,Ontario
 2021-05-28,North_Bay_Parry_Sound_District_Health_Unit,3,Ontario
 2021-05-29,North_Bay_Parry_Sound_District_Health_Unit,2,Ontario
+2021-05-30,North_Bay_Parry_Sound_District_Health_Unit,1,Ontario
+2021-05-31,North_Bay_Parry_Sound_District_Health_Unit,1,Ontario
 2020-03-24,Northwestern_Health_Unit,,Ontario
 2020-03-25,Northwestern_Health_Unit,0,Ontario
 2020-03-26,Northwestern_Health_Unit,0,Ontario
@@ -8207,6 +8243,8 @@ date,HA,cases,province
 2021-05-27,Northwestern_Health_Unit,6,Ontario
 2021-05-28,Northwestern_Health_Unit,0,Ontario
 2021-05-29,Northwestern_Health_Unit,1,Ontario
+2021-05-30,Northwestern_Health_Unit,0,Ontario
+2021-05-31,Northwestern_Health_Unit,1,Ontario
 2020-03-24,Ottawa_Public_Health,,Ontario
 2020-03-25,Ottawa_Public_Health,3,Ontario
 2020-03-26,Ottawa_Public_Health,0,Ontario
@@ -8639,6 +8677,8 @@ date,HA,cases,province
 2021-05-27,Ottawa_Public_Health,37,Ontario
 2021-05-28,Ottawa_Public_Health,101,Ontario
 2021-05-29,Ottawa_Public_Health,64,Ontario
+2021-05-30,Ottawa_Public_Health,50,Ontario
+2021-05-31,Ottawa_Public_Health,50,Ontario
 2020-03-24,Peel_Public_Health,,Ontario
 2020-03-25,Peel_Public_Health,3,Ontario
 2020-03-26,Peel_Public_Health,13,Ontario
@@ -9071,6 +9111,8 @@ date,HA,cases,province
 2021-05-27,Peel_Public_Health,271,Ontario
 2021-05-28,Peel_Public_Health,268,Ontario
 2021-05-29,Peel_Public_Health,178,Ontario
+2021-05-30,Peel_Public_Health,214,Ontario
+2021-05-31,Peel_Public_Health,165,Ontario
 2020-03-24,Peterborough_Public_Health,,Ontario
 2020-03-25,Peterborough_Public_Health,0,Ontario
 2020-03-26,Peterborough_Public_Health,2,Ontario
@@ -9503,6 +9545,8 @@ date,HA,cases,province
 2021-05-27,Peterborough_Public_Health,4,Ontario
 2021-05-28,Peterborough_Public_Health,14,Ontario
 2021-05-29,Peterborough_Public_Health,5,Ontario
+2021-05-30,Peterborough_Public_Health,6,Ontario
+2021-05-31,Peterborough_Public_Health,1,Ontario
 2020-03-24,Porcupine_Health_Unit,,Ontario
 2020-03-25,Porcupine_Health_Unit,0,Ontario
 2020-03-26,Porcupine_Health_Unit,3,Ontario
@@ -9935,6 +9979,8 @@ date,HA,cases,province
 2021-05-27,Porcupine_Health_Unit,36,Ontario
 2021-05-28,Porcupine_Health_Unit,22,Ontario
 2021-05-29,Porcupine_Health_Unit,43,Ontario
+2021-05-30,Porcupine_Health_Unit,51,Ontario
+2021-05-31,Porcupine_Health_Unit,30,Ontario
 2020-03-24,"Region_of_Waterloo,_Public_Health",,Ontario
 2020-03-25,"Region_of_Waterloo,_Public_Health",2,Ontario
 2020-03-26,"Region_of_Waterloo,_Public_Health",0,Ontario
@@ -10367,6 +10413,8 @@ date,HA,cases,province
 2021-05-27,"Region_of_Waterloo,_Public_Health",44,Ontario
 2021-05-28,"Region_of_Waterloo,_Public_Health",46,Ontario
 2021-05-29,"Region_of_Waterloo,_Public_Health",58,Ontario
+2021-05-30,"Region_of_Waterloo,_Public_Health",37,Ontario
+2021-05-31,"Region_of_Waterloo,_Public_Health",49,Ontario
 2020-03-24,Renfrew_County_and_District_Health_Unit,,Ontario
 2020-03-25,Renfrew_County_and_District_Health_Unit,0,Ontario
 2020-03-26,Renfrew_County_and_District_Health_Unit,0,Ontario
@@ -10799,6 +10847,8 @@ date,HA,cases,province
 2021-05-27,Renfrew_County_and_District_Health_Unit,-2,Ontario
 2021-05-28,Renfrew_County_and_District_Health_Unit,2,Ontario
 2021-05-29,Renfrew_County_and_District_Health_Unit,3,Ontario
+2021-05-30,Renfrew_County_and_District_Health_Unit,10,Ontario
+2021-05-31,Renfrew_County_and_District_Health_Unit,1,Ontario
 2020-03-24,Simcoe_Muskoka_District_Health_Unit,,Ontario
 2020-03-25,Simcoe_Muskoka_District_Health_Unit,0,Ontario
 2020-03-26,Simcoe_Muskoka_District_Health_Unit,1,Ontario
@@ -11231,6 +11281,8 @@ date,HA,cases,province
 2021-05-27,Simcoe_Muskoka_District_Health_Unit,47,Ontario
 2021-05-28,Simcoe_Muskoka_District_Health_Unit,28,Ontario
 2021-05-29,Simcoe_Muskoka_District_Health_Unit,45,Ontario
+2021-05-30,Simcoe_Muskoka_District_Health_Unit,31,Ontario
+2021-05-31,Simcoe_Muskoka_District_Health_Unit,20,Ontario
 2020-03-24,Southwestern_Public_Health,,Ontario
 2020-03-25,Southwestern_Public_Health,0,Ontario
 2020-03-26,Southwestern_Public_Health,0,Ontario
@@ -11663,6 +11715,8 @@ date,HA,cases,province
 2021-05-27,Southwestern_Public_Health,9,Ontario
 2021-05-28,Southwestern_Public_Health,4,Ontario
 2021-05-29,Southwestern_Public_Health,4,Ontario
+2021-05-30,Southwestern_Public_Health,17,Ontario
+2021-05-31,Southwestern_Public_Health,4,Ontario
 2020-03-24,Sudbury_&_District_Health_Unit,,Ontario
 2020-03-25,Sudbury_&_District_Health_Unit,1,Ontario
 2020-03-26,Sudbury_&_District_Health_Unit,0,Ontario
@@ -12095,6 +12149,8 @@ date,HA,cases,province
 2021-05-27,Sudbury_&_District_Health_Unit,9,Ontario
 2021-05-28,Sudbury_&_District_Health_Unit,2,Ontario
 2021-05-29,Sudbury_&_District_Health_Unit,1,Ontario
+2021-05-30,Sudbury_&_District_Health_Unit,6,Ontario
+2021-05-31,Sudbury_&_District_Health_Unit,1,Ontario
 2020-03-24,Thunder_Bay_District_Health_Unit,,Ontario
 2020-03-25,Thunder_Bay_District_Health_Unit,0,Ontario
 2020-03-26,Thunder_Bay_District_Health_Unit,0,Ontario
@@ -12527,6 +12583,8 @@ date,HA,cases,province
 2021-05-27,Thunder_Bay_District_Health_Unit,3,Ontario
 2021-05-28,Thunder_Bay_District_Health_Unit,16,Ontario
 2021-05-29,Thunder_Bay_District_Health_Unit,3,Ontario
+2021-05-30,Thunder_Bay_District_Health_Unit,19,Ontario
+2021-05-31,Thunder_Bay_District_Health_Unit,9,Ontario
 2020-03-24,Timiskaming_Health_Unit,,Ontario
 2020-03-25,Timiskaming_Health_Unit,0,Ontario
 2020-03-26,Timiskaming_Health_Unit,1,Ontario
@@ -12959,6 +13017,8 @@ date,HA,cases,province
 2021-05-27,Timiskaming_Health_Unit,-1,Ontario
 2021-05-28,Timiskaming_Health_Unit,0,Ontario
 2021-05-29,Timiskaming_Health_Unit,0,Ontario
+2021-05-30,Timiskaming_Health_Unit,0,Ontario
+2021-05-31,Timiskaming_Health_Unit,0,Ontario
 2020-03-24,Toronto_Public_Health,,Ontario
 2020-03-25,Toronto_Public_Health,17,Ontario
 2020-03-26,Toronto_Public_Health,21,Ontario
@@ -13391,6 +13451,8 @@ date,HA,cases,province
 2021-05-27,Toronto_Public_Health,316,Ontario
 2021-05-28,Toronto_Public_Health,269,Ontario
 2021-05-29,Toronto_Public_Health,228,Ontario
+2021-05-30,Toronto_Public_Health,237,Ontario
+2021-05-31,Toronto_Public_Health,226,Ontario
 2020-03-24,Wellington-Dufferin-Guelph_Public_Health,,Ontario
 2020-03-25,Wellington-Dufferin-Guelph_Public_Health,1,Ontario
 2020-03-26,Wellington-Dufferin-Guelph_Public_Health,1,Ontario
@@ -13823,6 +13885,8 @@ date,HA,cases,province
 2021-05-27,Wellington-Dufferin-Guelph_Public_Health,16,Ontario
 2021-05-28,Wellington-Dufferin-Guelph_Public_Health,22,Ontario
 2021-05-29,Wellington-Dufferin-Guelph_Public_Health,23,Ontario
+2021-05-30,Wellington-Dufferin-Guelph_Public_Health,16,Ontario
+2021-05-31,Wellington-Dufferin-Guelph_Public_Health,8,Ontario
 2020-03-24,Windsor-Essex_County_Health_Unit,,Ontario
 2020-03-25,Windsor-Essex_County_Health_Unit,1,Ontario
 2020-03-26,Windsor-Essex_County_Health_Unit,2,Ontario
@@ -14255,6 +14319,8 @@ date,HA,cases,province
 2021-05-27,Windsor-Essex_County_Health_Unit,24,Ontario
 2021-05-28,Windsor-Essex_County_Health_Unit,25,Ontario
 2021-05-29,Windsor-Essex_County_Health_Unit,31,Ontario
+2021-05-30,Windsor-Essex_County_Health_Unit,20,Ontario
+2021-05-31,Windsor-Essex_County_Health_Unit,23,Ontario
 2020-03-24,York_Region_Public_Health_Services,,Ontario
 2020-03-25,York_Region_Public_Health_Services,5,Ontario
 2020-03-26,York_Region_Public_Health_Services,5,Ontario
@@ -14687,3 +14753,5 @@ date,HA,cases,province
 2021-05-27,York_Region_Public_Health_Services,75,Ontario
 2021-05-28,York_Region_Public_Health_Services,56,Ontario
 2021-05-29,York_Region_Public_Health_Services,82,Ontario
+2021-05-30,York_Region_Public_Health_Services,80,Ontario
+2021-05-31,York_Region_Public_Health_Services,85,Ontario

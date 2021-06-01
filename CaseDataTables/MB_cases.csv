@@ -489,7 +489,9 @@ Manitoba,2021-05-25,Interlake-Eastern,15
 Manitoba,2021-05-26,Interlake-Eastern,14
 Manitoba,2021-05-27,Interlake-Eastern,21
 Manitoba,2021-05-28,Interlake-Eastern,34
-Manitoba,2021-05-29,Interlake-Eastern,36
+Manitoba,2021-05-29,Interlake-Eastern,35
+Manitoba,2021-05-30,Interlake-Eastern,10
+Manitoba,2021-05-31,Interlake-Eastern,12
 Manitoba,2020-01-25,Northern,0
 Manitoba,2020-01-26,Northern,0
 Manitoba,2020-01-27,Northern,0
@@ -981,6 +983,8 @@ Manitoba,2021-05-26,Northern,2
 Manitoba,2021-05-27,Northern,22
 Manitoba,2021-05-28,Northern,24
 Manitoba,2021-05-29,Northern,24
+Manitoba,2021-05-30,Northern,19
+Manitoba,2021-05-31,Northern,13
 Manitoba,2020-01-25,Not Reported,0
 Manitoba,2020-01-26,Not Reported,0
 Manitoba,2020-01-27,Not Reported,0
@@ -1472,6 +1476,8 @@ Manitoba,2021-05-26,Not Reported,0
 Manitoba,2021-05-27,Not Reported,0
 Manitoba,2021-05-28,Not Reported,0
 Manitoba,2021-05-29,Not Reported,0
+Manitoba,2021-05-30,Not Reported,0
+Manitoba,2021-05-31,Not Reported,0
 Manitoba,2020-01-25,Prairie Mountain,0
 Manitoba,2020-01-26,Prairie Mountain,0
 Manitoba,2020-01-27,Prairie Mountain,0
@@ -1962,7 +1968,9 @@ Manitoba,2021-05-25,Prairie Mountain,15
 Manitoba,2021-05-26,Prairie Mountain,10
 Manitoba,2021-05-27,Prairie Mountain,20
 Manitoba,2021-05-28,Prairie Mountain,78
-Manitoba,2021-05-29,Prairie Mountain,13
+Manitoba,2021-05-29,Prairie Mountain,11
+Manitoba,2021-05-30,Prairie Mountain,32
+Manitoba,2021-05-31,Prairie Mountain,15
 Manitoba,2020-01-25,Southern Health,0
 Manitoba,2020-01-26,Southern Health,0
 Manitoba,2020-01-27,Southern Health,0
@@ -2454,6 +2462,8 @@ Manitoba,2021-05-26,Southern Health,32
 Manitoba,2021-05-27,Southern Health,64
 Manitoba,2021-05-28,Southern Health,34
 Manitoba,2021-05-29,Southern Health,47
+Manitoba,2021-05-30,Southern Health,44
+Manitoba,2021-05-31,Southern Health,37
 Manitoba,2020-01-25,Winnipeg,0
 Manitoba,2020-01-26,Winnipeg,0
 Manitoba,2020-01-27,Winnipeg,0
@@ -2944,4 +2954,6 @@ Manitoba,2021-05-25,Winnipeg,185
 Manitoba,2021-05-26,Winnipeg,252
 Manitoba,2021-05-27,Winnipeg,166
 Manitoba,2021-05-28,Winnipeg,325
-Manitoba,2021-05-29,Winnipeg,237
+Manitoba,2021-05-29,Winnipeg,239
+Manitoba,2021-05-30,Winnipeg,184
+Manitoba,2021-05-31,Winnipeg,226

@@ -1,11 +1,12 @@
 library(cancensus)
+library(CanCovidData)
 
 replaceAccents <- function(string)
 {
     accentedCharacters <- list("é"="e", "è"="e", "ô"="o", "Î"="I")
     for(index in 1:length(accentedCharacters))
     {
-        string <- gsub(names(accentedCharacters)[index],  accentedCharacters[[1]], string)
+        string <- gsub(names(accentedCharacters)[index], accentedCharacters[[index]], string)
     }
     return(string)
 }
@@ -22,7 +23,7 @@ zone_scores <- function(vec)
 
 # https://www150.statcan.gc.ca/n1/pub/92-195-x/2011001/geo/prov/tbl/tbl8-eng.htm
 province_LUT <- data.table(rbind(
-    c("Newfoundland and Labrador", "N.L.",	"NL", "10", "Atlantic"),
+    c("Newfoundland and Labrador", "N.L.","NL", "10", "Atlantic"),
     c("Prince Edward Island", "P.E.I.",	"PE", "11", "Atlantic"),
     c("Nova Scotia", "N.S.", "NS", "12", "Atlantic"),
     c("New Brunswick", "N.B.", "NB", "13", "Atlantic"),
@@ -79,97 +80,97 @@ strip_region_types <- function(theList) unlist(lapply(theList, strip_region_type
 
 ########################################## DATA ACQUISITION
 
-# UofT_api_case_data <- jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=cases&loc=hr")$cases %>%
-#     mutate(date_report=as.Date(date_report, format="%d-%m-%Y")) %>%
-#    data.table()
-# fwrite(UofT_api_case_data, "CaseDataTables/UofT_cases.csv")
-# 
-# Case_Data <- data.table(province=character(), region=character(), date=numeric(), cases=numeric())
-# 
-# BC_cases <- fread("http://www.bccdc.ca/Health-Info-Site/Documents/BCCDC_COVID19_Regional_Summary_Data.csv") %>%
-#     select(-c(Province, HA, Cases_Reported_Smoothed)) %>%
-#     filter(! HSDA %in% c("All", "Unknown", "Out of Canada")) %>%
-#     rename(date=Date, HA=HSDA, cases=Cases_Reported) %>%
-#     mutate(date=as.Date(date), province="British Columbia")
-# fwrite(BC_cases, "CaseDataTables/BC_cases.csv")
-# 
-# QC_cases <- fread("https://www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv") %>%
-#     select(Date, Nom, cas_quo_tot_n) %>%
-#     filter(grepl("\\d", Date) & grepl("\\d - [a-zA-Z]", Nom)) %>%
-#     mutate(Nom = Nom %>% replace_accents %>% trim_numbers) %>%
-#     rename(date=Date, HA=Nom, cases=cas_quo_tot_n) %>%
-#     data.table %>%
-#     mutate(date=as.Date(date), province="Quebec")
-# fwrite(QC_cases, "CaseDataTables/QC_cases.csv")
-# 
-# MB_cases <- UofT_api_case_data %>%
-#     filter(province == "Manitoba") %>%
-#     select(province, date_report, health_region, cases) %>%
-#     rename(date=date_report, HA=health_region) %>%
-#     mutate(date=as.Date(date), province="Manitoba")
-# fwrite(MB_cases, "CaseDataTables/MB_cases.csv")
-# 
-# SK_cases <- get_saskatchewan_case_data() %>%
-#     select("Date", "Region", "New Cases") %>%
-#     rename(date=Date, HA=Region, cases="New Cases") %>%
-#     mutate(date=as.Date(date), province="Saskatchewan") %>%
-#     data.table
-# fwrite(SK_cases, "CaseDataTables/SK_cases.csv")
-# 
-# province_rename_helper <- function(x)
-# {
-#     if(x=="PEI") return("Prince Edward Island")
-#     if(x=="NWT") return("Northwest Territories")
-#     return(x)
-# }
-# rename_PEI_and_NWT <- function(theList) unlist(lapply(theList, province_rename_helper))
-# Territories_cases <- UofT_api_case_data %>%
-#     filter(province %in% c("PEI", "Yukon", "NWT", "Nunavut")) %>%
-#     select(province, date_report, health_region, cases) %>%
-#     rename(date=date_report, HA=health_region) %>%
-#     mutate(province=rename_PEI_and_NWT(province), HA=rename_PEI_and_NWT(HA), date=as.Date(date))
-# fwrite(Territories_cases, "CaseDataTables/Territories_cases.csv")
-# 
-# # Ontario data for confirmed cases - useful for delay distribution, etc
-# # https://data.ontario.ca/dataset/status-of-covid-19-cases-in-ontario/resource/8a88fe6d-d8fb-41a3-9d04-f0550a44999f
-# ON_cases <- fread("https://data.ontario.ca/dataset/f4f86e54-872d-43f8-8a86-3892fd3cb5e6/resource/8a88fe6d-d8fb-41a3-9d04-f0550a44999f/download/daily_change_in_cases_by_phu.csv") %>%
-#     select(-Total) %>%
-#     melt(., id.vars="Date") %>%
-#     rename(date=Date, HA=variable, cases=value) %>%
-#     mutate(province="Ontario") %>%
-#     data.table
-# fwrite(ON_cases, "CaseDataTables/ON_cases.csv")
-# 
-# # Alberta data from https://www.alberta.ca/stats/covid-19-alberta-statistics.htm#data-export
-# AB_cases <- fread("https://www.alberta.ca/data/stats/covid-19-alberta-statistics-data.csv") %>%
-#     select(-V1) %>%
-#     rename(date="Date reported", HA="Alberta Health Services Zone", type="Case type", age="Age group", status="Case status") %>%
-#     mutate(date=as.Date(date)) %>%
-#     data.table
-# AB_cases <- AB_cases[HA!="Unknown", .N, by=c("date", "HA")][order(date)] %>%
-#     rename(cases=N) %>% mutate(province="Alberta")
-# fwrite(AB_cases, "CaseDataTables/AB_cases.csv")
-# 
-# NB_cases <- UofT_api_case_data %>%
-#     filter(province=="New Brunswick") %>%
-#     select(province, date_report, health_region, cases) %>%
-#     rename(date=date_report, HA=health_region) %>%
-#     mutate(date=as.Date(date))
-# fwrite(NB_cases, "CaseDataTables/NB_cases.csv")
-# 
-# NS_cases <- UofT_api_case_data %>%
-#     filter(province=="Nova Scotia") %>%
-#     select(province, date_report, health_region, cases) %>%
-#     rename(date=date_report, HA=health_region) %>%
-#     mutate(date=as.Date(date))
-# fwrite(NS_cases, "CaseDataTables/NS_cases.csv")
-# 
-# NL_cases <- UofT_api_case_data %>%
-#     filter(province=="NL") %>%
-#     select(province, date_report, health_region, cases) %>%
-#     rename(date=date_report, HA=health_region) %>%
-#     mutate(date=as.Date(date), province="Newfoundland and Labrador")
-# fwrite(NL_cases, "CaseDataTables/NL_cases.csv")
+UofT_api_case_data <- jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=cases&loc=hr")$cases %>%
+    mutate(date_report=as.Date(date_report, format="%d-%m-%Y")) %>%
+   data.table()
+fwrite(UofT_api_case_data, "CaseDataTables/UofT_cases.csv")
+
+Case_Data <- data.table(province=character(), region=character(), date=numeric(), cases=numeric())
+
+BC_cases <- fread("http://www.bccdc.ca/Health-Info-Site/Documents/BCCDC_COVID19_Regional_Summary_Data.csv") %>%
+    select(-c(Province, HA, Cases_Reported_Smoothed)) %>%
+    filter(! HSDA %in% c("All", "Unknown", "Out of Canada")) %>%
+    rename(date=Date, HA=HSDA, cases=Cases_Reported) %>%
+    mutate(date=as.Date(date), province="British Columbia")
+fwrite(BC_cases, "CaseDataTables/BC_cases.csv")
+
+QC_cases <- fread("https://www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv") %>%
+    select(Date, Nom, cas_quo_tot_n) %>%
+    filter(grepl("\\d", Date) & grepl("\\d - [a-zA-Z]", Nom)) %>%
+    mutate(Nom = Nom %>% replace_accents %>% trim_numbers) %>%
+    rename(date=Date, HA=Nom, cases=cas_quo_tot_n) %>%
+    data.table %>%
+    mutate(date=as.Date(date), province="Quebec")
+fwrite(QC_cases, "CaseDataTables/QC_cases.csv")
+
+MB_cases <- UofT_api_case_data %>%
+    filter(province == "Manitoba") %>%
+    select(province, date_report, health_region, cases) %>%
+    rename(date=date_report, HA=health_region) %>%
+    mutate(date=as.Date(date), province="Manitoba")
+fwrite(MB_cases, "CaseDataTables/MB_cases.csv")
+
+SK_cases <- get_saskatchewan_case_data() %>%
+    select("Date", "Region", "New Cases") %>%
+    rename(date=Date, HA=Region, cases="New Cases") %>%
+    mutate(date=as.Date(date), province="Saskatchewan") %>%
+    data.table
+fwrite(SK_cases, "CaseDataTables/SK_cases.csv")
+
+province_rename_helper <- function(x)
+{
+    if(x=="PEI") return("Prince Edward Island")
+    if(x=="NWT") return("Northwest Territories")
+    return(x)
+}
+rename_PEI_and_NWT <- function(theList) unlist(lapply(theList, province_rename_helper))
+Territories_cases <- UofT_api_case_data %>%
+    filter(province %in% c("PEI", "Yukon", "NWT", "Nunavut")) %>%
+    select(province, date_report, health_region, cases) %>%
+    rename(date=date_report, HA=health_region) %>%
+    mutate(province=rename_PEI_and_NWT(province), HA=rename_PEI_and_NWT(HA), date=as.Date(date))
+fwrite(Territories_cases, "CaseDataTables/Territories_cases.csv")
+
+# Ontario data for confirmed cases - useful for delay distribution, etc
+# https://data.ontario.ca/dataset/status-of-covid-19-cases-in-ontario/resource/8a88fe6d-d8fb-41a3-9d04-f0550a44999f
+ON_cases <- fread("https://data.ontario.ca/dataset/f4f86e54-872d-43f8-8a86-3892fd3cb5e6/resource/8a88fe6d-d8fb-41a3-9d04-f0550a44999f/download/daily_change_in_cases_by_phu.csv") %>%
+    select(-Total) %>%
+    melt(., id.vars="Date") %>%
+    rename(date=Date, HA=variable, cases=value) %>%
+    mutate(province="Ontario") %>%
+    data.table
+fwrite(ON_cases, "CaseDataTables/ON_cases.csv")
+
+# Alberta data from https://www.alberta.ca/stats/covid-19-alberta-statistics.htm#data-export
+AB_cases <- fread("https://www.alberta.ca/data/stats/covid-19-alberta-statistics-data.csv") %>%
+    select(-V1) %>%
+    rename(date="Date reported", HA="Alberta Health Services Zone", type="Case type", age="Age group", status="Case status") %>%
+    mutate(date=as.Date(date)) %>%
+    data.table
+AB_cases <- AB_cases[HA!="Unknown", .N, by=c("date", "HA")][order(date)] %>%
+    rename(cases=N) %>% mutate(province="Alberta")
+fwrite(AB_cases, "CaseDataTables/AB_cases.csv")
+
+NB_cases <- UofT_api_case_data %>%
+    filter(province=="New Brunswick") %>%
+    select(province, date_report, health_region, cases) %>%
+    rename(date=date_report, HA=health_region) %>%
+    mutate(date=as.Date(date))
+fwrite(NB_cases, "CaseDataTables/NB_cases.csv")
+
+NS_cases <- UofT_api_case_data %>%
+    filter(province=="Nova Scotia") %>%
+    select(province, date_report, health_region, cases) %>%
+    rename(date=date_report, HA=health_region) %>%
+    mutate(date=as.Date(date))
+fwrite(NS_cases, "CaseDataTables/NS_cases.csv")
+
+NL_cases <- UofT_api_case_data %>%
+    filter(province=="NL") %>%
+    select(province, date_report, health_region, cases) %>%
+    rename(date=date_report, HA=health_region) %>%
+    mutate(date=as.Date(date), province="Newfoundland and Labrador")
+fwrite(NL_cases, "CaseDataTables/NL_cases.csv")
 
 # CSD_info <-  tibble()
 # for(csd_number in list_of_levels %>% filter(level=="CSD") %>% pull(region))

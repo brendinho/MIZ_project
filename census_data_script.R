@@ -6,6 +6,8 @@ library(dplyr)
 library(readxl)
 library(XLConnect)
 library(stringr)
+library(ggplot2)
+library(ggpubr)
 
 source("LUT_header.R")
 
@@ -30,6 +32,11 @@ CSD_info <- read.csv("Classifications/csd_information.csv") %>%
         Not_in_families = "v_CA16_501..Total...Persons.not.in.census.families.in.private.households...100..data"
     ) %>%
     mutate(Region = strip_region_types(Region)) %>%
+# mutate(HA_code = extract_codes(GeoUID)) %>%
+# mutate(HA=lookup_HAs(HA_code)) %>%
+# mutate(province=lookup_provinces(HA_code)) %>%
+# arrange(HA_code) %>%
+# as.data.table %>%
     select(-X, -Type)
     
 xl_data <- "Classifications/CONNECT1_Mixing matrices_20210512.xlsx"
@@ -199,23 +206,110 @@ for(prov in unique(CSDs$province))
 
 ######################################################################
 
-Total_Info <- Reduce(
-        function(...) merge(..., all=TRUE, by=c("Province", "HA")),
-        list(Scores, CSD_info, Remoteness)
-    )
-
 Case_Data <- rbind(
-    fread("CaseDataTables/BC_cases.csv"),
-    fread("CaseDataTables/QC_cases.csv"),
-    fread("CaseDataTables/MB_cases.csv"),
-    fread("CaseDataTables/SK_cases.csv"),
-    fread("CaseDataTables/Territories_cases.csv"),
-    fread("CaseDataTables/ON_cases.csv"),
-    fread("CaseDataTables/AB_cases.csv"),
-    fread("CaseDataTables/NB_cases.csv"),
-    fread("CaseDataTables/NS_cases.csv"),
-    fread("CaseDataTables/NL_cases.csv")
-)
+        fread("CaseDataTables/BC_cases.csv"),
+        fread("CaseDataTables/QC_cases.csv"),
+        fread("CaseDataTables/MB_cases.csv"),
+        fread("CaseDataTables/SK_cases.csv"),
+        fread("CaseDataTables/Territories_cases.csv"),
+        fread("CaseDataTables/ON_cases.csv"),
+        fread("CaseDataTables/AB_cases.csv"),
+        fread("CaseDataTables/NB_cases.csv"),
+        fread("CaseDataTables/NS_cases.csv"),
+        fread("CaseDataTables/NL_cases.csv")
+    ) %>% 
+    mutate(HA = get_standard_names(HA)) %>%
+    filter(HA != "Not Reported") %>%
+    rename(Province = province)
 
-Case_Data[, HA:=get_standard_names(HA)]
+Summary_Case_Data <- Case_Data[, .(Cumul_Cases=sum(cases, na.rm=T)), by=c("Province", "HA")]
+
+Peak_Data <- Case_Data[Case_Data[,.I[which.max(cases)], by=.(Province, HA)]$V1] %>% 
+    mutate(Days_In=as.IDate(date)-as.IDate('2020-01-23')) %>% 
+    rename(Peak_Cases=cases, Peak_Date=date)
+
+Total_HA_Info <- Reduce(
+        function(...) merge(..., all=TRUE, by=c("Province", "HA")),
+        list(Scores, CSD_info, Remoteness, Summary_Case_Data, Peak_Data)
+    ) %>%
+    subset(HA != "") %>%
+    filter(! is.na(MIZ_score))
+
+x_vars <- c("MIZ_score", "Cumul_Index", "Area", "Population", "Dwellings", "Households", 
+    "Cpls_w_0_ch", "Cpls_w_children", "Cpls_w_1_ch", "Cpls_w_2_ch", "Cpls_w_3_or_more_ch",
+    "Sgls_w_ch", "Sgls_w_1_ch", "Sgls_w_2_ch", "Sgls_w_3_or_more_ch", "Not_in_families") # ,
+
+# not including these one, since they just multiply the number of couples by a constant factor
+# becomes important whe we start looking at the effects of adding an adult or child in the home
+#     "Cpls_w_0_ch_interac", "Cpls_w_1_ch_interac", "Cpls_w_2_ch_interac", "Cpls_w_3_or_more_ch_interac",
+#     "Sgls_w_1_ch_interac", "Sgls_w_2_ch_interac", "Sgls_w_3_or_more_ch_interac"
+# )
+
+y_vars <- c("Cumul_Cases", "Peak_Date", "Peak_Cases", "Days_In")
+
+dir.create(file.path(getwd(), "Graphs/Canada"), showWarnings = FALSE)
+for(x_var in x_vars){ for(y_var in y_vars){
+
+    the_plot <- ggscatter(Total_HA_Info, 
+                          x=x_var, y=y_var, 
+                          add="reg.line",
+                          conf.int = TRUE, 
+                          add.params = list(color = "blue", fill = "lightgray")
+                          )+
+        stat_cor(method="pearson", aes(label = paste(..rr.label.., ..p.label.., sep = "~`,`~"))) +
+        # stat_regline_equation() +
+        labs(x=x_var, y=y_var) +
+        ggtitle("Canada") +
+        theme_bw()
+
+    ggsave(
+        plot = the_plot,
+        file = sprintf("Graphs/Canada/%s_vs_%s.png", y_var, x_var),
+        width = 10, height = 5
+    )
+}}
+
+for(prov in unique(Total_HA_Info$Province))
+{
+    prov_print <- paste(strsplit(prov, ' ')[[1]], collapse='_')
+
+    dir.create(file.path(getwd(), sprintf("Graphs/%s", prov_print)), showWarnings = FALSE)
+
+    for(x_var in x_vars){ for(y_var in y_vars){
+
+        the_plot <- ggplot(Total_HA_Info[Province == prov], aes(x=get(x_var), y=get(y_var))) +
+            geom_point(size=2) +
+            labs(x=x_var, y=y_var) +
+            ggtitle(prov) +
+            theme_bw()
+
+        ggsave(
+            plot = the_plot,
+            file = sprintf("Graphs/%s/%s_vs_%s.png", prov_print, y_var, x_var),
+            width = 10, height = 5
+        )
+    }}
+}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
 

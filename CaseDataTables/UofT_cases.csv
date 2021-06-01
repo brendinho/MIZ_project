@@ -490,6 +490,8 @@ cases,cumulative_cases,date_report,health_region,province
 207,91824,2021-05-27,Calgary,Alberta
 206,92030,2021-05-28,Calgary,Alberta
 171,92201,2021-05-29,Calgary,Alberta
+158,92359,2021-05-30,Calgary,Alberta
+96,92455,2021-05-31,Calgary,Alberta
 0,0,2020-01-25,Central,Alberta
 0,0,2020-01-26,Central,Alberta
 0,0,2020-01-27,Central,Alberta
@@ -981,6 +983,8 @@ cases,cumulative_cases,date_report,health_region,province
 72,19979,2021-05-27,Central,Alberta
 82,20061,2021-05-28,Central,Alberta
 65,20126,2021-05-29,Central,Alberta
+61,20187,2021-05-30,Central,Alberta
+34,20221,2021-05-31,Central,Alberta
 0,0,2020-01-25,Edmonton,Alberta
 0,0,2020-01-26,Edmonton,Alberta
 0,0,2020-01-27,Edmonton,Alberta
@@ -1472,6 +1476,8 @@ cases,cumulative_cases,date_report,health_region,province
 136,76345,2021-05-27,Edmonton,Alberta
 133,76478,2021-05-28,Edmonton,Alberta
 102,76580,2021-05-29,Edmonton,Alberta
+102,76682,2021-05-30,Edmonton,Alberta
+78,76760,2021-05-31,Edmonton,Alberta
 0,0,2020-01-25,North,Alberta
 0,0,2020-01-26,North,Alberta
 0,0,2020-01-27,North,Alberta
@@ -1963,6 +1969,8 @@ cases,cumulative_cases,date_report,health_region,province
 71,25538,2021-05-27,North,Alberta
 58,25596,2021-05-28,North,Alberta
 50,25646,2021-05-29,North,Alberta
+51,25697,2021-05-30,North,Alberta
+35,25732,2021-05-31,North,Alberta
 0,0,2020-01-25,Not Reported,Alberta
 0,0,2020-01-26,Not Reported,Alberta
 0,0,2020-01-27,Not Reported,Alberta
@@ -2454,6 +2462,8 @@ cases,cumulative_cases,date_report,health_region,province
 0,16,2021-05-27,Not Reported,Alberta
 0,16,2021-05-28,Not Reported,Alberta
 0,16,2021-05-29,Not Reported,Alberta
+2,18,2021-05-30,Not Reported,Alberta
+4,22,2021-05-31,Not Reported,Alberta
 0,0,2020-01-25,South,Alberta
 0,0,2020-01-26,South,Alberta
 0,0,2020-01-27,South,Alberta
@@ -2945,6 +2955,8 @@ cases,cumulative_cases,date_report,health_region,province
 27,12235,2021-05-27,South,Alberta
 33,12268,2021-05-28,South,Alberta
 18,12286,2021-05-29,South,Alberta
+17,12303,2021-05-30,South,Alberta
+16,12319,2021-05-31,South,Alberta
 0,0,2020-01-25,Fraser,BC
 0,0,2020-01-26,Fraser,BC
 0,0,2020-01-27,Fraser,BC
@@ -3436,6 +3448,8 @@ cases,cumulative_cases,date_report,health_region,province
 191,83523,2021-05-27,Fraser,BC
 163,83686,2021-05-28,Fraser,BC
 0,83686,2021-05-29,Fraser,BC
+0,83686,2021-05-30,Fraser,BC
+394,84080,2021-05-31,Fraser,BC
 0,0,2020-01-25,Interior,BC
 0,0,2020-01-26,Interior,BC
 0,0,2020-01-27,Interior,BC
@@ -3925,8 +3939,10 @@ cases,cumulative_cases,date_report,health_region,province
 34,12121,2021-05-25,Interior,BC
 41,12162,2021-05-26,Interior,BC
 67,12229,2021-05-27,Interior,BC
-60,12289,2021-05-28,Interior,BC
-0,12289,2021-05-29,Interior,BC
+65,12294,2021-05-28,Interior,BC
+0,12294,2021-05-29,Interior,BC
+0,12294,2021-05-30,Interior,BC
+108,12402,2021-05-31,Interior,BC
 0,0,2020-01-25,Island,BC
 0,0,2020-01-26,Island,BC
 0,0,2020-01-27,Island,BC
@@ -4418,6 +4434,8 @@ cases,cumulative_cases,date_report,health_region,province
 11,5036,2021-05-27,Island,BC
 5,5041,2021-05-28,Island,BC
 0,5041,2021-05-29,Island,BC
+0,5041,2021-05-30,Island,BC
+18,5059,2021-05-31,Island,BC
 0,0,2020-01-25,Northern,BC
 0,0,2020-01-26,Northern,BC
 0,0,2020-01-27,Northern,BC
@@ -4909,6 +4927,8 @@ cases,cumulative_cases,date_report,health_region,province
 15,7625,2021-05-27,Northern,BC
 16,7641,2021-05-28,Northern,BC
 0,7641,2021-05-29,Northern,BC
+0,7641,2021-05-30,Northern,BC
+42,7683,2021-05-31,Northern,BC
 0,0,2020-01-25,Not Reported,BC
 0,0,2020-01-26,Not Reported,BC
 0,0,2020-01-27,Not Reported,BC
@@ -5400,6 +5420,8 @@ cases,cumulative_cases,date_report,health_region,province
 0,198,2021-05-27,Not Reported,BC
 0,198,2021-05-28,Not Reported,BC
 0,198,2021-05-29,Not Reported,BC
+0,198,2021-05-30,Not Reported,BC
+1,199,2021-05-31,Not Reported,BC
 0,0,2020-01-25,Vancouver Coastal,BC
 0,0,2020-01-26,Vancouver Coastal,BC
 0,0,2020-01-27,Vancouver Coastal,BC
@@ -5889,8 +5911,10 @@ cases,cumulative_cases,date_report,health_region,province
 62,34486,2021-05-25,Vancouver Coastal,BC
 73,34559,2021-05-26,Vancouver Coastal,BC
 94,34653,2021-05-27,Vancouver Coastal,BC
-73,34726,2021-05-28,Vancouver Coastal,BC
-0,34726,2021-05-29,Vancouver Coastal,BC
+68,34721,2021-05-28,Vancouver Coastal,BC
+0,34721,2021-05-29,Vancouver Coastal,BC
+0,34721,2021-05-30,Vancouver Coastal,BC
+145,34866,2021-05-31,Vancouver Coastal,BC
 0,0,2020-01-25,Interlake-Eastern,Manitoba
 0,0,2020-01-26,Interlake-Eastern,Manitoba
 0,0,2020-01-27,Interlake-Eastern,Manitoba
@@ -6381,7 +6405,9 @@ cases,cumulative_cases,date_report,health_region,province
 14,3285,2021-05-26,Interlake-Eastern,Manitoba
 21,3306,2021-05-27,Interlake-Eastern,Manitoba
 34,3340,2021-05-28,Interlake-Eastern,Manitoba
-36,3376,2021-05-29,Interlake-Eastern,Manitoba
+35,3375,2021-05-29,Interlake-Eastern,Manitoba
+10,3385,2021-05-30,Interlake-Eastern,Manitoba
+12,3397,2021-05-31,Interlake-Eastern,Manitoba
 0,0,2020-01-25,Northern,Manitoba
 0,0,2020-01-26,Northern,Manitoba
 0,0,2020-01-27,Northern,Manitoba
@@ -6873,6 +6899,8 @@ cases,cumulative_cases,date_report,health_region,province
 22,7248,2021-05-27,Northern,Manitoba
 24,7272,2021-05-28,Northern,Manitoba
 24,7296,2021-05-29,Northern,Manitoba
+19,7315,2021-05-30,Northern,Manitoba
+13,7328,2021-05-31,Northern,Manitoba
 0,0,2020-01-25,Not Reported,Manitoba
 0,0,2020-01-26,Not Reported,Manitoba
 0,0,2020-01-27,Not Reported,Manitoba
@@ -7364,6 +7392,8 @@ cases,cumulative_cases,date_report,health_region,province
 0,0,2021-05-27,Not Reported,Manitoba
 0,0,2021-05-28,Not Reported,Manitoba
 0,0,2021-05-29,Not Reported,Manitoba
+0,0,2021-05-30,Not Reported,Manitoba
+0,0,2021-05-31,Not Reported,Manitoba
 0,0,2020-01-25,Prairie Mountain,Manitoba
 0,0,2020-01-26,Prairie Mountain,Manitoba
 0,0,2020-01-27,Prairie Mountain,Manitoba
@@ -7854,7 +7884,9 @@ cases,cumulative_cases,date_report,health_region,province
 10,3392,2021-05-26,Prairie Mountain,Manitoba
 20,3412,2021-05-27,Prairie Mountain,Manitoba
 78,3490,2021-05-28,Prairie Mountain,Manitoba
-13,3503,2021-05-29,Prairie Mountain,Manitoba
+11,3501,2021-05-29,Prairie Mountain,Manitoba
+32,3533,2021-05-30,Prairie Mountain,Manitoba
+15,3548,2021-05-31,Prairie Mountain,Manitoba
 0,0,2020-01-25,Southern Health,Manitoba
 0,0,2020-01-26,Southern Health,Manitoba
 0,0,2020-01-27,Southern Health,Manitoba
@@ -8346,6 +8378,8 @@ cases,cumulative_cases,date_report,health_region,province
 64,6400,2021-05-27,Southern Health,Manitoba
 34,6434,2021-05-28,Southern Health,Manitoba
 47,6481,2021-05-29,Southern Health,Manitoba
+44,6525,2021-05-30,Southern Health,Manitoba
+37,6562,2021-05-31,Southern Health,Manitoba
 0,0,2020-01-25,Winnipeg,Manitoba
 0,0,2020-01-26,Winnipeg,Manitoba
 0,0,2020-01-27,Winnipeg,Manitoba
@@ -8836,7 +8870,9 @@ cases,cumulative_cases,date_report,health_region,province
 252,29115,2021-05-26,Winnipeg,Manitoba
 166,29281,2021-05-27,Winnipeg,Manitoba
 325,29606,2021-05-28,Winnipeg,Manitoba
-237,29843,2021-05-29,Winnipeg,Manitoba
+239,29845,2021-05-29,Winnipeg,Manitoba
+184,30029,2021-05-30,Winnipeg,Manitoba
+226,30255,2021-05-31,Winnipeg,Manitoba
 0,0,2020-01-25,Not Reported,New Brunswick
 0,0,2020-01-26,Not Reported,New Brunswick
 0,0,2020-01-27,Not Reported,New Brunswick
@@ -9328,6 +9364,8 @@ cases,cumulative_cases,date_report,health_region,province
 0,0,2021-05-27,Not Reported,New Brunswick
 0,0,2021-05-28,Not Reported,New Brunswick
 0,0,2021-05-29,Not Reported,New Brunswick
+0,0,2021-05-30,Not Reported,New Brunswick
+0,0,2021-05-31,Not Reported,New Brunswick
 0,0,2020-01-25,Zone 1 (Moncton area),New Brunswick
 0,0,2020-01-26,Zone 1 (Moncton area),New Brunswick
 0,0,2020-01-27,Zone 1 (Moncton area),New Brunswick
@@ -9819,6 +9857,8 @@ cases,cumulative_cases,date_report,health_region,province
 3,444,2021-05-27,Zone 1 (Moncton area),New Brunswick
 1,445,2021-05-28,Zone 1 (Moncton area),New Brunswick
 5,450,2021-05-29,Zone 1 (Moncton area),New Brunswick
+5,455,2021-05-30,Zone 1 (Moncton area),New Brunswick
+5,460,2021-05-31,Zone 1 (Moncton area),New Brunswick
 0,0,2020-01-25,Zone 2 (Saint John area),New Brunswick
 0,0,2020-01-26,Zone 2 (Saint John area),New Brunswick
 0,0,2020-01-27,Zone 2 (Saint John area),New Brunswick
@@ -10310,6 +10350,8 @@ cases,cumulative_cases,date_report,health_region,province
 0,291,2021-05-27,Zone 2 (Saint John area),New Brunswick
 2,293,2021-05-28,Zone 2 (Saint John area),New Brunswick
 0,293,2021-05-29,Zone 2 (Saint John area),New Brunswick
+1,294,2021-05-30,Zone 2 (Saint John area),New Brunswick
+0,294,2021-05-31,Zone 2 (Saint John area),New Brunswick
 0,0,2020-01-25,Zone 3 (Fredericton area),New Brunswick
 0,0,2020-01-26,Zone 3 (Fredericton area),New Brunswick
 0,0,2020-01-27,Zone 3 (Fredericton area),New Brunswick
@@ -10801,6 +10843,8 @@ cases,cumulative_cases,date_report,health_region,province
 5,374,2021-05-27,Zone 3 (Fredericton area),New Brunswick
 4,378,2021-05-28,Zone 3 (Fredericton area),New Brunswick
 4,382,2021-05-29,Zone 3 (Fredericton area),New Brunswick
+2,384,2021-05-30,Zone 3 (Fredericton area),New Brunswick
+5,389,2021-05-31,Zone 3 (Fredericton area),New Brunswick
 0,0,2020-01-25,Zone 4 (Edmundston area),New Brunswick
 0,0,2020-01-26,Zone 4 (Edmundston area),New Brunswick
 0,0,2020-01-27,Zone 4 (Edmundston area),New Brunswick
@@ -11292,6 +11336,8 @@ cases,cumulative_cases,date_report,health_region,province
 0,751,2021-05-27,Zone 4 (Edmundston area),New Brunswick
 0,751,2021-05-28,Zone 4 (Edmundston area),New Brunswick
 0,751,2021-05-29,Zone 4 (Edmundston area),New Brunswick
+0,751,2021-05-30,Zone 4 (Edmundston area),New Brunswick
+0,751,2021-05-31,Zone 4 (Edmundston area),New Brunswick
 0,0,2020-01-25,Zone 5 (Campbellton area),New Brunswick
 0,0,2020-01-26,Zone 5 (Campbellton area),New Brunswick
 0,0,2020-01-27,Zone 5 (Campbellton area),New Brunswick
@@ -11783,6 +11829,8 @@ cases,cumulative_cases,date_report,health_region,province
 0,185,2021-05-27,Zone 5 (Campbellton area),New Brunswick
 0,185,2021-05-28,Zone 5 (Campbellton area),New Brunswick
 0,185,2021-05-29,Zone 5 (Campbellton area),New Brunswick
+0,185,2021-05-30,Zone 5 (Campbellton area),New Brunswick
+0,185,2021-05-31,Zone 5 (Campbellton area),New Brunswick
 0,0,2020-01-25,Zone 6 (Bathurst area),New Brunswick
 0,0,2020-01-26,Zone 6 (Bathurst area),New Brunswick
 0,0,2020-01-27,Zone 6 (Bathurst area),New Brunswick
@@ -12274,6 +12322,8 @@ cases,cumulative_cases,date_report,health_region,province
 1,90,2021-05-27,Zone 6 (Bathurst area),New Brunswick
 2,92,2021-05-28,Zone 6 (Bathurst area),New Brunswick
 1,93,2021-05-29,Zone 6 (Bathurst area),New Brunswick
+0,93,2021-05-30,Zone 6 (Bathurst area),New Brunswick
+2,95,2021-05-31,Zone 6 (Bathurst area),New Brunswick
 0,0,2020-01-25,Zone 7 (Miramichi area),New Brunswick
 0,0,2020-01-26,Zone 7 (Miramichi area),New Brunswick
 0,0,2020-01-27,Zone 7 (Miramichi area),New Brunswick
@@ -12765,6 +12815,8 @@ cases,cumulative_cases,date_report,health_region,province
 0,37,2021-05-27,Zone 7 (Miramichi area),New Brunswick
 0,37,2021-05-28,Zone 7 (Miramichi area),New Brunswick
 0,37,2021-05-29,Zone 7 (Miramichi area),New Brunswick
+1,38,2021-05-30,Zone 7 (Miramichi area),New Brunswick
+0,38,2021-05-31,Zone 7 (Miramichi area),New Brunswick
 0,0,2020-01-25,Central,NL
 0,0,2020-01-26,Central,NL
 0,0,2020-01-27,Central,NL
@@ -13256,6 +13308,8 @@ cases,cumulative_cases,date_report,health_region,province
 4,132,2021-05-27,Central,NL
 11,143,2021-05-28,Central,NL
 1,144,2021-05-29,Central,NL
+1,145,2021-05-30,Central,NL
+1,146,2021-05-31,Central,NL
 0,0,2020-01-25,Eastern,NL
 0,0,2020-01-26,Eastern,NL
 0,0,2020-01-27,Eastern,NL
@@ -13747,6 +13801,8 @@ cases,cumulative_cases,date_report,health_region,province
 1,1034,2021-05-27,Eastern,NL
 2,1036,2021-05-28,Eastern,NL
 2,1038,2021-05-29,Eastern,NL
+2,1040,2021-05-30,Eastern,NL
+0,1040,2021-05-31,Eastern,NL
 0,0,2020-01-25,Labrador-Grenfell,NL
 0,0,2020-01-26,Labrador-Grenfell,NL
 0,0,2020-01-27,Labrador-Grenfell,NL
@@ -14238,6 +14294,8 @@ cases,cumulative_cases,date_report,health_region,province
 0,13,2021-05-27,Labrador-Grenfell,NL
 0,13,2021-05-28,Labrador-Grenfell,NL
 0,13,2021-05-29,Labrador-Grenfell,NL
+0,13,2021-05-30,Labrador-Grenfell,NL
+0,13,2021-05-31,Labrador-Grenfell,NL
 0,0,2020-01-25,Not Reported,NL
 0,0,2020-01-26,Not Reported,NL
 0,0,2020-01-27,Not Reported,NL
@@ -14729,6 +14787,8 @@ cases,cumulative_cases,date_report,health_region,province
 0,0,2021-05-27,Not Reported,NL
 0,0,2021-05-28,Not Reported,NL
 0,0,2021-05-29,Not Reported,NL
+0,0,2021-05-30,Not Reported,NL
+0,0,2021-05-31,Not Reported,NL
 0,0,2020-01-25,Western,NL
 0,0,2020-01-26,Western,NL
 0,0,2020-01-27,Western,NL
@@ -15220,6 +15280,8 @@ cases,cumulative_cases,date_report,health_region,province
 1,100,2021-05-27,Western,NL
 1,101,2021-05-28,Western,NL
 6,107,2021-05-29,Western,NL
+4,111,2021-05-30,Western,NL
+1,112,2021-05-31,Western,NL
 0,0,2020-01-25,Not Reported,Nova Scotia
 0,0,2020-01-26,Not Reported,Nova Scotia
 0,0,2020-01-27,Not Reported,Nova Scotia
@@ -15711,6 +15773,8 @@ cases,cumulative_cases,date_report,health_region,province
 0,0,2021-05-27,Not Reported,Nova Scotia
 0,0,2021-05-28,Not Reported,Nova Scotia
 0,0,2021-05-29,Not Reported,Nova Scotia
+0,0,2021-05-30,Not Reported,Nova Scotia
+0,0,2021-05-31,Not Reported,Nova Scotia
 0,0,2020-01-25,Zone 1 - Western,Nova Scotia
 0,0,2020-01-26,Zone 1 - Western,Nova Scotia
 0,0,2020-01-27,Zone 1 - Western,Nova Scotia
@@ -16202,6 +16266,8 @@ cases,cumulative_cases,date_report,health_region,province
 0,271,2021-05-27,Zone 1 - Western,Nova Scotia
 2,273,2021-05-28,Zone 1 - Western,Nova Scotia
 3,276,2021-05-29,Zone 1 - Western,Nova Scotia
+1,277,2021-05-30,Zone 1 - Western,Nova Scotia
+0,277,2021-05-31,Zone 1 - Western,Nova Scotia
 0,0,2020-01-25,Zone 2 - Northern,Nova Scotia
 0,0,2020-01-26,Zone 2 - Northern,Nova Scotia
 0,0,2020-01-27,Zone 2 - Northern,Nova Scotia
@@ -16693,6 +16759,8 @@ cases,cumulative_cases,date_report,health_region,province
 1,283,2021-05-27,Zone 2 - Northern,Nova Scotia
 4,287,2021-05-28,Zone 2 - Northern,Nova Scotia
 2,289,2021-05-29,Zone 2 - Northern,Nova Scotia
+0,289,2021-05-30,Zone 2 - Northern,Nova Scotia
+0,289,2021-05-31,Zone 2 - Northern,Nova Scotia
 0,0,2020-01-25,Zone 3 - Eastern,Nova Scotia
 0,0,2020-01-26,Zone 3 - Eastern,Nova Scotia
 0,0,2020-01-27,Zone 3 - Eastern,Nova Scotia
@@ -17184,6 +17252,8 @@ cases,cumulative_cases,date_report,health_region,province
 19,515,2021-05-27,Zone 3 - Eastern,Nova Scotia
 5,520,2021-05-28,Zone 3 - Eastern,Nova Scotia
 7,527,2021-05-29,Zone 3 - Eastern,Nova Scotia
+5,532,2021-05-30,Zone 3 - Eastern,Nova Scotia
+0,532,2021-05-31,Zone 3 - Eastern,Nova Scotia
 0,0,2020-01-25,Zone 4 - Central,Nova Scotia
 0,0,2020-01-26,Zone 4 - Central,Nova Scotia
 0,0,2020-01-27,Zone 4 - Central,Nova Scotia
@@ -17675,6 +17745,8 @@ cases,cumulative_cases,date_report,health_region,province
 13,4388,2021-05-27,Zone 4 - Central,Nova Scotia
 29,4417,2021-05-28,Zone 4 - Central,Nova Scotia
 21,4438,2021-05-29,Zone 4 - Central,Nova Scotia
+14,4452,2021-05-30,Zone 4 - Central,Nova Scotia
+17,4469,2021-05-31,Zone 4 - Central,Nova Scotia
 0,0,2020-01-25,Nunavut,Nunavut
 0,0,2020-01-26,Nunavut,Nunavut
 0,0,2020-01-27,Nunavut,Nunavut
@@ -18166,6 +18238,8 @@ cases,cumulative_cases,date_report,health_region,province
 0,647,2021-05-27,Nunavut,Nunavut
 1,648,2021-05-28,Nunavut,Nunavut
 0,648,2021-05-29,Nunavut,Nunavut
+0,648,2021-05-30,Nunavut,Nunavut
+0,648,2021-05-31,Nunavut,Nunavut
 0,0,2020-01-25,NWT,NWT
 0,0,2020-01-26,NWT,NWT
 0,0,2020-01-27,NWT,NWT
@@ -18657,6 +18731,8 @@ cases,cumulative_cases,date_report,health_region,province
 0,127,2021-05-27,NWT,NWT
 0,127,2021-05-28,NWT,NWT
 0,127,2021-05-29,NWT,NWT
+0,127,2021-05-30,NWT,NWT
+2,129,2021-05-31,NWT,NWT
 0,0,2020-01-25,Algoma,Ontario
 0,0,2020-01-26,Algoma,Ontario
 0,0,2020-01-27,Algoma,Ontario
@@ -19148,6 +19224,8 @@ cases,cumulative_cases,date_report,health_region,province
 1,392,2021-05-27,Algoma,Ontario
 0,392,2021-05-28,Algoma,Ontario
 0,392,2021-05-29,Algoma,Ontario
+0,392,2021-05-30,Algoma,Ontario
+0,392,2021-05-31,Algoma,Ontario
 0,0,2020-01-25,Brant,Ontario
 0,0,2020-01-26,Brant,Ontario
 0,0,2020-01-27,Brant,Ontario
@@ -19639,6 +19717,8 @@ cases,cumulative_cases,date_report,health_region,province
 15,3206,2021-05-27,Brant,Ontario
 15,3221,2021-05-28,Brant,Ontario
 17,3238,2021-05-29,Brant,Ontario
+11,3249,2021-05-30,Brant,Ontario
+9,3258,2021-05-31,Brant,Ontario
 0,0,2020-01-25,Chatham-Kent,Ontario
 0,0,2020-01-26,Chatham-Kent,Ontario
 0,0,2020-01-27,Chatham-Kent,Ontario
@@ -20130,6 +20210,8 @@ cases,cumulative_cases,date_report,health_region,province
 1,1851,2021-05-27,Chatham-Kent,Ontario
 2,1853,2021-05-28,Chatham-Kent,Ontario
 0,1853,2021-05-29,Chatham-Kent,Ontario
+0,1853,2021-05-30,Chatham-Kent,Ontario
+7,1860,2021-05-31,Chatham-Kent,Ontario
 0,0,2020-01-25,Durham,Ontario
 0,0,2020-01-26,Durham,Ontario
 0,0,2020-01-27,Durham,Ontario
@@ -20621,6 +20703,8 @@ cases,cumulative_cases,date_report,health_region,province
 38,24350,2021-05-27,Durham,Ontario
 88,24438,2021-05-28,Durham,Ontario
 50,24488,2021-05-29,Durham,Ontario
+71,24559,2021-05-30,Durham,Ontario
+51,24610,2021-05-31,Durham,Ontario
 0,0,2020-01-25,Eastern,Ontario
 0,0,2020-01-26,Eastern,Ontario
 0,0,2020-01-27,Eastern,Ontario
@@ -21112,6 +21196,8 @@ cases,cumulative_cases,date_report,health_region,province
 17,4776,2021-05-27,Eastern,Ontario
 10,4786,2021-05-28,Eastern,Ontario
 0,4786,2021-05-29,Eastern,Ontario
+0,4786,2021-05-30,Eastern,Ontario
+7,4793,2021-05-31,Eastern,Ontario
 0,0,2020-01-25,Grey Bruce,Ontario
 0,0,2020-01-26,Grey Bruce,Ontario
 0,0,2020-01-27,Grey Bruce,Ontario
@@ -21603,6 +21689,8 @@ cases,cumulative_cases,date_report,health_region,province
 2,1342,2021-05-27,Grey Bruce,Ontario
 0,1342,2021-05-28,Grey Bruce,Ontario
 0,1342,2021-05-29,Grey Bruce,Ontario
+0,1342,2021-05-30,Grey Bruce,Ontario
+3,1345,2021-05-31,Grey Bruce,Ontario
 0,0,2020-01-25,Haldimand-Norfolk,Ontario
 0,0,2020-01-26,Haldimand-Norfolk,Ontario
 0,0,2020-01-27,Haldimand-Norfolk,Ontario
@@ -22094,6 +22182,8 @@ cases,cumulative_cases,date_report,health_region,province
 5,2625,2021-05-27,Haldimand-Norfolk,Ontario
 10,2635,2021-05-28,Haldimand-Norfolk,Ontario
 8,2643,2021-05-29,Haldimand-Norfolk,Ontario
+2,2645,2021-05-30,Haldimand-Norfolk,Ontario
+1,2646,2021-05-31,Haldimand-Norfolk,Ontario
 0,0,2020-01-25,Haliburton Kawartha Pineridge,Ontario
 0,0,2020-01-26,Haliburton Kawartha Pineridge,Ontario
 0,0,2020-01-27,Haliburton Kawartha Pineridge,Ontario
@@ -22585,6 +22675,8 @@ cases,cumulative_cases,date_report,health_region,province
 4,2001,2021-05-27,Haliburton Kawartha Pineridge,Ontario
 22,2023,2021-05-28,Haliburton Kawartha Pineridge,Ontario
 6,2029,2021-05-29,Haliburton Kawartha Pineridge,Ontario
+0,2029,2021-05-30,Haliburton Kawartha Pineridge,Ontario
+23,2052,2021-05-31,Haliburton Kawartha Pineridge,Ontario
 0,0,2020-01-25,Halton,Ontario
 0,0,2020-01-26,Halton,Ontario
 0,0,2020-01-27,Halton,Ontario
@@ -23076,6 +23168,8 @@ cases,cumulative_cases,date_report,health_region,province
 49,16831,2021-05-27,Halton,Ontario
 47,16878,2021-05-28,Halton,Ontario
 40,16918,2021-05-29,Halton,Ontario
+24,16942,2021-05-30,Halton,Ontario
+21,16963,2021-05-31,Halton,Ontario
 0,0,2020-01-25,Hamilton,Ontario
 0,0,2020-01-26,Hamilton,Ontario
 0,0,2020-01-27,Hamilton,Ontario
@@ -23567,6 +23661,8 @@ cases,cumulative_cases,date_report,health_region,province
 64,20288,2021-05-27,Hamilton,Ontario
 77,20365,2021-05-28,Hamilton,Ontario
 71,20436,2021-05-29,Hamilton,Ontario
+56,20492,2021-05-30,Hamilton,Ontario
+53,20545,2021-05-31,Hamilton,Ontario
 0,0,2020-01-25,Hastings Prince Edward,Ontario
 0,0,2020-01-26,Hastings Prince Edward,Ontario
 0,0,2020-01-27,Hastings Prince Edward,Ontario
@@ -24058,6 +24154,8 @@ cases,cumulative_cases,date_report,health_region,province
 6,1118,2021-05-27,Hastings Prince Edward,Ontario
 1,1119,2021-05-28,Hastings Prince Edward,Ontario
 1,1120,2021-05-29,Hastings Prince Edward,Ontario
+0,1120,2021-05-30,Hastings Prince Edward,Ontario
+3,1123,2021-05-31,Hastings Prince Edward,Ontario
 0,0,2020-01-25,Huron Perth,Ontario
 0,0,2020-01-26,Huron Perth,Ontario
 0,0,2020-01-27,Huron Perth,Ontario
@@ -24549,6 +24647,8 @@ cases,cumulative_cases,date_report,health_region,province
 4,1780,2021-05-27,Huron Perth,Ontario
 24,1804,2021-05-28,Huron Perth,Ontario
 0,1804,2021-05-29,Huron Perth,Ontario
+0,1804,2021-05-30,Huron Perth,Ontario
+12,1816,2021-05-31,Huron Perth,Ontario
 0,0,2020-01-25,Kingston Frontenac Lennox & Addington,Ontario
 0,0,2020-01-26,Kingston Frontenac Lennox & Addington,Ontario
 0,0,2020-01-27,Kingston Frontenac Lennox & Addington,Ontario
@@ -25032,14 +25132,16 @@ cases,cumulative_cases,date_report,health_region,province
 5,1507,2021-05-19,Kingston Frontenac Lennox & Addington,Ontario
 7,1514,2021-05-20,Kingston Frontenac Lennox & Addington,Ontario
 3,1517,2021-05-21,Kingston Frontenac Lennox & Addington,Ontario
-6,1523,2021-05-22,Kingston Frontenac Lennox & Addington,Ontario
-3,1526,2021-05-23,Kingston Frontenac Lennox & Addington,Ontario
-0,1526,2021-05-24,Kingston Frontenac Lennox & Addington,Ontario
-0,1526,2021-05-25,Kingston Frontenac Lennox & Addington,Ontario
-2,1528,2021-05-26,Kingston Frontenac Lennox & Addington,Ontario
-0,1528,2021-05-27,Kingston Frontenac Lennox & Addington,Ontario
-1,1529,2021-05-28,Kingston Frontenac Lennox & Addington,Ontario
-2,1531,2021-05-29,Kingston Frontenac Lennox & Addington,Ontario
+5,1522,2021-05-22,Kingston Frontenac Lennox & Addington,Ontario
+3,1525,2021-05-23,Kingston Frontenac Lennox & Addington,Ontario
+0,1525,2021-05-24,Kingston Frontenac Lennox & Addington,Ontario
+0,1525,2021-05-25,Kingston Frontenac Lennox & Addington,Ontario
+2,1527,2021-05-26,Kingston Frontenac Lennox & Addington,Ontario
+0,1527,2021-05-27,Kingston Frontenac Lennox & Addington,Ontario
+1,1528,2021-05-28,Kingston Frontenac Lennox & Addington,Ontario
+2,1530,2021-05-29,Kingston Frontenac Lennox & Addington,Ontario
+0,1530,2021-05-30,Kingston Frontenac Lennox & Addington,Ontario
+0,1530,2021-05-31,Kingston Frontenac Lennox & Addington,Ontario
 0,0,2020-01-25,Lambton,Ontario
 0,0,2020-01-26,Lambton,Ontario
 0,0,2020-01-27,Lambton,Ontario
@@ -25531,6 +25633,8 @@ cases,cumulative_cases,date_report,health_region,province
 1,3463,2021-05-27,Lambton,Ontario
 13,3476,2021-05-28,Lambton,Ontario
 5,3481,2021-05-29,Lambton,Ontario
+7,3488,2021-05-30,Lambton,Ontario
+0,3488,2021-05-31,Lambton,Ontario
 0,0,2020-01-25,Leeds Grenville and Lanark,Ontario
 0,0,2020-01-26,Leeds Grenville and Lanark,Ontario
 0,0,2020-01-27,Leeds Grenville and Lanark,Ontario
@@ -26022,6 +26126,8 @@ cases,cumulative_cases,date_report,health_region,province
 3,1743,2021-05-27,Leeds Grenville and Lanark,Ontario
 2,1745,2021-05-28,Leeds Grenville and Lanark,Ontario
 0,1745,2021-05-29,Leeds Grenville and Lanark,Ontario
+0,1745,2021-05-30,Leeds Grenville and Lanark,Ontario
+1,1746,2021-05-31,Leeds Grenville and Lanark,Ontario
 0,0,2020-01-25,Middlesex-London,Ontario
 0,0,2020-01-26,Middlesex-London,Ontario
 0,0,2020-01-27,Middlesex-London,Ontario
@@ -26513,6 +26619,8 @@ cases,cumulative_cases,date_report,health_region,province
 50,12126,2021-05-27,Middlesex-London,Ontario
 31,12157,2021-05-28,Middlesex-London,Ontario
 35,12192,2021-05-29,Middlesex-London,Ontario
+21,12213,2021-05-30,Middlesex-London,Ontario
+18,12231,2021-05-31,Middlesex-London,Ontario
 0,0,2020-01-25,Niagara,Ontario
 0,0,2020-01-26,Niagara,Ontario
 0,0,2020-01-27,Niagara,Ontario
@@ -27004,6 +27112,8 @@ cases,cumulative_cases,date_report,health_region,province
 57,15660,2021-05-27,Niagara,Ontario
 20,15680,2021-05-28,Niagara,Ontario
 21,15701,2021-05-29,Niagara,Ontario
+45,15746,2021-05-30,Niagara,Ontario
+9,15755,2021-05-31,Niagara,Ontario
 0,0,2020-01-25,North Bay Parry Sound,Ontario
 0,0,2020-01-26,North Bay Parry Sound,Ontario
 0,0,2020-01-27,North Bay Parry Sound,Ontario
@@ -27495,6 +27605,8 @@ cases,cumulative_cases,date_report,health_region,province
 3,445,2021-05-27,North Bay Parry Sound,Ontario
 1,446,2021-05-28,North Bay Parry Sound,Ontario
 0,446,2021-05-29,North Bay Parry Sound,Ontario
+0,446,2021-05-30,North Bay Parry Sound,Ontario
+3,449,2021-05-31,North Bay Parry Sound,Ontario
 0,0,2020-01-25,Northwestern,Ontario
 0,0,2020-01-26,Northwestern,Ontario
 0,0,2020-01-27,Northwestern,Ontario
@@ -27986,6 +28098,8 @@ cases,cumulative_cases,date_report,health_region,province
 0,1061,2021-05-27,Northwestern,Ontario
 1,1062,2021-05-28,Northwestern,Ontario
 1,1063,2021-05-29,Northwestern,Ontario
+0,1063,2021-05-30,Northwestern,Ontario
+0,1063,2021-05-31,Northwestern,Ontario
 0,0,2020-01-25,Not Reported,Ontario
 0,0,2020-01-26,Not Reported,Ontario
 0,0,2020-01-27,Not Reported,Ontario
@@ -28477,6 +28591,8 @@ cases,cumulative_cases,date_report,health_region,province
 0,0,2021-05-27,Not Reported,Ontario
 0,0,2021-05-28,Not Reported,Ontario
 0,0,2021-05-29,Not Reported,Ontario
+0,0,2021-05-30,Not Reported,Ontario
+0,0,2021-05-31,Not Reported,Ontario
 0,0,2020-01-25,Ottawa,Ontario
 0,0,2020-01-26,Ottawa,Ontario
 0,0,2020-01-27,Ottawa,Ontario
@@ -28968,6 +29084,8 @@ cases,cumulative_cases,date_report,health_region,province
 45,26799,2021-05-27,Ottawa,Ontario
 107,26906,2021-05-28,Ottawa,Ontario
 61,26967,2021-05-29,Ottawa,Ontario
+52,27019,2021-05-30,Ottawa,Ontario
+39,27058,2021-05-31,Ottawa,Ontario
 0,0,2020-01-25,Peel,Ontario
 0,0,2020-01-26,Peel,Ontario
 0,0,2020-01-27,Peel,Ontario
@@ -29459,6 +29577,8 @@ cases,cumulative_cases,date_report,health_region,province
 299,108565,2021-05-27,Peel,Ontario
 187,108752,2021-05-28,Peel,Ontario
 209,108961,2021-05-29,Peel,Ontario
+191,109152,2021-05-30,Peel,Ontario
+139,109291,2021-05-31,Peel,Ontario
 0,0,2020-01-25,Peterborough,Ontario
 0,0,2020-01-26,Peterborough,Ontario
 0,0,2020-01-27,Peterborough,Ontario
@@ -29950,6 +30070,8 @@ cases,cumulative_cases,date_report,health_region,province
 7,1487,2021-05-27,Peterborough,Ontario
 6,1493,2021-05-28,Peterborough,Ontario
 2,1495,2021-05-29,Peterborough,Ontario
+3,1498,2021-05-30,Peterborough,Ontario
+1,1499,2021-05-31,Peterborough,Ontario
 0,0,2020-01-25,Porcupine,Ontario
 0,0,2020-01-26,Porcupine,Ontario
 0,0,2020-01-27,Porcupine,Ontario
@@ -30441,6 +30563,8 @@ cases,cumulative_cases,date_report,health_region,province
 24,1225,2021-05-27,Porcupine,Ontario
 41,1266,2021-05-28,Porcupine,Ontario
 0,1266,2021-05-29,Porcupine,Ontario
+0,1266,2021-05-30,Porcupine,Ontario
+96,1362,2021-05-31,Porcupine,Ontario
 0,0,2020-01-25,Renfrew,Ontario
 0,0,2020-01-26,Renfrew,Ontario
 0,0,2020-01-27,Renfrew,Ontario
@@ -30932,6 +31056,8 @@ cases,cumulative_cases,date_report,health_region,province
 3,700,2021-05-27,Renfrew,Ontario
 0,700,2021-05-28,Renfrew,Ontario
 10,710,2021-05-29,Renfrew,Ontario
+3,713,2021-05-30,Renfrew,Ontario
+2,715,2021-05-31,Renfrew,Ontario
 0,0,2020-01-25,Simcoe Muskoka,Ontario
 0,0,2020-01-26,Simcoe Muskoka,Ontario
 0,0,2020-01-27,Simcoe Muskoka,Ontario
@@ -31421,8 +31547,10 @@ cases,cumulative_cases,date_report,health_region,province
 141,11722,2021-05-25,Simcoe Muskoka,Ontario
 28,11750,2021-05-26,Simcoe Muskoka,Ontario
 40,11790,2021-05-27,Simcoe Muskoka,Ontario
-44,11834,2021-05-28,Simcoe Muskoka,Ontario
-0,11834,2021-05-29,Simcoe Muskoka,Ontario
+40,11830,2021-05-28,Simcoe Muskoka,Ontario
+0,11830,2021-05-29,Simcoe Muskoka,Ontario
+0,11830,2021-05-30,Simcoe Muskoka,Ontario
+88,11918,2021-05-31,Simcoe Muskoka,Ontario
 0,0,2020-01-25,Southwestern,Ontario
 0,0,2020-01-26,Southwestern,Ontario
 0,0,2020-01-27,Southwestern,Ontario
@@ -31914,6 +32042,8 @@ cases,cumulative_cases,date_report,health_region,province
 10,3761,2021-05-27,Southwestern,Ontario
 4,3765,2021-05-28,Southwestern,Ontario
 0,3765,2021-05-29,Southwestern,Ontario
+0,3765,2021-05-30,Southwestern,Ontario
+26,3791,2021-05-31,Southwestern,Ontario
 0,0,2020-01-25,Sudbury,Ontario
 0,0,2020-01-26,Sudbury,Ontario
 0,0,2020-01-27,Sudbury,Ontario
@@ -32405,6 +32535,8 @@ cases,cumulative_cases,date_report,health_region,province
 3,2082,2021-05-27,Sudbury,Ontario
 1,2083,2021-05-28,Sudbury,Ontario
 5,2088,2021-05-29,Sudbury,Ontario
+4,2092,2021-05-30,Sudbury,Ontario
+1,2093,2021-05-31,Sudbury,Ontario
 0,0,2020-01-25,Thunder Bay,Ontario
 0,0,2020-01-26,Thunder Bay,Ontario
 0,0,2020-01-27,Thunder Bay,Ontario
@@ -32896,6 +33028,8 @@ cases,cumulative_cases,date_report,health_region,province
 5,3190,2021-05-27,Thunder Bay,Ontario
 18,3208,2021-05-28,Thunder Bay,Ontario
 9,3217,2021-05-29,Thunder Bay,Ontario
+0,3217,2021-05-30,Thunder Bay,Ontario
+17,3234,2021-05-31,Thunder Bay,Ontario
 0,0,2020-01-25,Timiskaming,Ontario
 0,0,2020-01-26,Timiskaming,Ontario
 0,0,2020-01-27,Timiskaming,Ontario
@@ -33387,6 +33521,8 @@ cases,cumulative_cases,date_report,health_region,province
 0,203,2021-05-27,Timiskaming,Ontario
 3,206,2021-05-28,Timiskaming,Ontario
 0,206,2021-05-29,Timiskaming,Ontario
+0,206,2021-05-30,Timiskaming,Ontario
+0,206,2021-05-31,Timiskaming,Ontario
 1,1,2020-01-25,Toronto,Ontario
 0,1,2020-01-26,Toronto,Ontario
 1,2,2020-01-27,Toronto,Ontario
@@ -33878,6 +34014,8 @@ cases,cumulative_cases,date_report,health_region,province
 256,166020,2021-05-27,Toronto,Ontario
 236,166256,2021-05-28,Toronto,Ontario
 228,166484,2021-05-29,Toronto,Ontario
+237,166721,2021-05-30,Toronto,Ontario
+207,166928,2021-05-31,Toronto,Ontario
 0,0,2020-01-25,Waterloo,Ontario
 0,0,2020-01-26,Waterloo,Ontario
 0,0,2020-01-27,Waterloo,Ontario
@@ -34369,6 +34507,8 @@ cases,cumulative_cases,date_report,health_region,province
 55,15796,2021-05-27,Waterloo,Ontario
 36,15832,2021-05-28,Waterloo,Ontario
 59,15891,2021-05-29,Waterloo,Ontario
+39,15930,2021-05-30,Waterloo,Ontario
+31,15961,2021-05-31,Waterloo,Ontario
 0,0,2020-01-25,Wellington Dufferin Guelph,Ontario
 0,0,2020-01-26,Wellington Dufferin Guelph,Ontario
 0,0,2020-01-27,Wellington Dufferin Guelph,Ontario
@@ -34860,6 +35000,8 @@ cases,cumulative_cases,date_report,health_region,province
 17,7844,2021-05-27,Wellington Dufferin Guelph,Ontario
 20,7864,2021-05-28,Wellington Dufferin Guelph,Ontario
 0,7864,2021-05-29,Wellington Dufferin Guelph,Ontario
+0,7864,2021-05-30,Wellington Dufferin Guelph,Ontario
+56,7920,2021-05-31,Wellington Dufferin Guelph,Ontario
 0,0,2020-01-25,Windsor-Essex,Ontario
 0,0,2020-01-26,Windsor-Essex,Ontario
 0,0,2020-01-27,Windsor-Essex,Ontario
@@ -35351,6 +35493,8 @@ cases,cumulative_cases,date_report,health_region,province
 24,16460,2021-05-27,Windsor-Essex,Ontario
 24,16484,2021-05-28,Windsor-Essex,Ontario
 28,16512,2021-05-29,Windsor-Essex,Ontario
+21,16533,2021-05-30,Windsor-Essex,Ontario
+25,16558,2021-05-31,Windsor-Essex,Ontario
 0,0,2020-01-25,York,Ontario
 0,0,2020-01-26,York,Ontario
 0,0,2020-01-27,York,Ontario
@@ -35842,6 +35986,8 @@ cases,cumulative_cases,date_report,health_region,province
 60,51655,2021-05-27,York,Ontario
 85,51740,2021-05-28,York,Ontario
 99,51839,2021-05-29,York,Ontario
+95,51934,2021-05-30,York,Ontario
+52,51986,2021-05-31,York,Ontario
 0,0,2020-01-25,Prince Edward Island,PEI
 0,0,2020-01-26,Prince Edward Island,PEI
 0,0,2020-01-27,Prince Edward Island,PEI
@@ -36333,6 +36479,8 @@ cases,cumulative_cases,date_report,health_region,province
 0,200,2021-05-27,Prince Edward Island,PEI
 2,202,2021-05-28,Prince Edward Island,PEI
 0,202,2021-05-29,Prince Edward Island,PEI
+0,202,2021-05-30,Prince Edward Island,PEI
+2,204,2021-05-31,Prince Edward Island,PEI
 0,0,2020-01-25,Abitibi-Témiscamingue,Quebec
 0,0,2020-01-26,Abitibi-Témiscamingue,Quebec
 0,0,2020-01-27,Abitibi-Témiscamingue,Quebec
@@ -36824,6 +36972,8 @@ cases,cumulative_cases,date_report,health_region,province
 1,1112,2021-05-27,Abitibi-Témiscamingue,Quebec
 0,1112,2021-05-28,Abitibi-Témiscamingue,Quebec
 1,1113,2021-05-29,Abitibi-Témiscamingue,Quebec
+0,1113,2021-05-30,Abitibi-Témiscamingue,Quebec
+0,1113,2021-05-31,Abitibi-Témiscamingue,Quebec
 0,0,2020-01-25,Bas-Saint-Laurent,Quebec
 0,0,2020-01-26,Bas-Saint-Laurent,Quebec
 0,0,2020-01-27,Bas-Saint-Laurent,Quebec
@@ -37315,6 +37465,8 @@ cases,cumulative_cases,date_report,health_region,province
 6,3888,2021-05-27,Bas-Saint-Laurent,Quebec
 4,3892,2021-05-28,Bas-Saint-Laurent,Quebec
 5,3897,2021-05-29,Bas-Saint-Laurent,Quebec
+0,3897,2021-05-30,Bas-Saint-Laurent,Quebec
+6,3903,2021-05-31,Bas-Saint-Laurent,Quebec
 0,0,2020-01-25,Capitale-Nationale,Quebec
 0,0,2020-01-26,Capitale-Nationale,Quebec
 0,0,2020-01-27,Capitale-Nationale,Quebec
@@ -37806,6 +37958,8 @@ cases,cumulative_cases,date_report,health_region,province
 36,32502,2021-05-27,Capitale-Nationale,Quebec
 25,32527,2021-05-28,Capitale-Nationale,Quebec
 16,32543,2021-05-29,Capitale-Nationale,Quebec
+19,32562,2021-05-30,Capitale-Nationale,Quebec
+16,32578,2021-05-31,Capitale-Nationale,Quebec
 0,0,2020-01-25,Chaudière-Appalaches,Quebec
 0,0,2020-01-26,Chaudière-Appalaches,Quebec
 0,0,2020-01-27,Chaudière-Appalaches,Quebec
@@ -38297,6 +38451,8 @@ cases,cumulative_cases,date_report,health_region,province
 21,18765,2021-05-27,Chaudière-Appalaches,Quebec
 33,18798,2021-05-28,Chaudière-Appalaches,Quebec
 42,18840,2021-05-29,Chaudière-Appalaches,Quebec
+27,18867,2021-05-30,Chaudière-Appalaches,Quebec
+31,18898,2021-05-31,Chaudière-Appalaches,Quebec
 0,0,2020-01-25,Côte-Nord,Quebec
 0,0,2020-01-26,Côte-Nord,Quebec
 0,0,2020-01-27,Côte-Nord,Quebec
@@ -38788,6 +38944,8 @@ cases,cumulative_cases,date_report,health_region,province
 0,570,2021-05-27,Côte-Nord,Quebec
 0,570,2021-05-28,Côte-Nord,Quebec
 0,570,2021-05-29,Côte-Nord,Quebec
+1,571,2021-05-30,Côte-Nord,Quebec
+0,571,2021-05-31,Côte-Nord,Quebec
 0,0,2020-01-25,Estrie,Quebec
 0,0,2020-01-26,Estrie,Quebec
 0,0,2020-01-27,Estrie,Quebec
@@ -39279,6 +39437,8 @@ cases,cumulative_cases,date_report,health_region,province
 40,14601,2021-05-27,Estrie,Quebec
 29,14630,2021-05-28,Estrie,Quebec
 24,14654,2021-05-29,Estrie,Quebec
+29,14683,2021-05-30,Estrie,Quebec
+20,14703,2021-05-31,Estrie,Quebec
 0,0,2020-01-25,Gaspésie-Îles-de-la-Madeleine,Quebec
 0,0,2020-01-26,Gaspésie-Îles-de-la-Madeleine,Quebec
 0,0,2020-01-27,Gaspésie-Îles-de-la-Madeleine,Quebec
@@ -39770,6 +39930,8 @@ cases,cumulative_cases,date_report,health_region,province
 3,2000,2021-05-27,Gaspésie-Îles-de-la-Madeleine,Quebec
 4,2004,2021-05-28,Gaspésie-Îles-de-la-Madeleine,Quebec
 7,2011,2021-05-29,Gaspésie-Îles-de-la-Madeleine,Quebec
+3,2014,2021-05-30,Gaspésie-Îles-de-la-Madeleine,Quebec
+3,2017,2021-05-31,Gaspésie-Îles-de-la-Madeleine,Quebec
 0,0,2020-01-25,Lanaudière,Quebec
 0,0,2020-01-26,Lanaudière,Quebec
 0,0,2020-01-27,Lanaudière,Quebec
@@ -40261,6 +40423,8 @@ cases,cumulative_cases,date_report,health_region,province
 12,23726,2021-05-27,Lanaudière,Quebec
 20,23746,2021-05-28,Lanaudière,Quebec
 10,23756,2021-05-29,Lanaudière,Quebec
+11,23767,2021-05-30,Lanaudière,Quebec
+9,23776,2021-05-31,Lanaudière,Quebec
 0,0,2020-01-25,Laurentides,Quebec
 0,0,2020-01-26,Laurentides,Quebec
 0,0,2020-01-27,Laurentides,Quebec
@@ -40752,6 +40916,8 @@ cases,cumulative_cases,date_report,health_region,province
 15,20661,2021-05-27,Laurentides,Quebec
 29,20690,2021-05-28,Laurentides,Quebec
 27,20717,2021-05-29,Laurentides,Quebec
+21,20738,2021-05-30,Laurentides,Quebec
+13,20751,2021-05-31,Laurentides,Quebec
 0,0,2020-01-25,Laval,Quebec
 0,0,2020-01-26,Laval,Quebec
 0,0,2020-01-27,Laval,Quebec
@@ -41243,6 +41409,8 @@ cases,cumulative_cases,date_report,health_region,province
 29,31116,2021-05-27,Laval,Quebec
 35,31151,2021-05-28,Laval,Quebec
 26,31177,2021-05-29,Laval,Quebec
+23,31200,2021-05-30,Laval,Quebec
+17,31217,2021-05-31,Laval,Quebec
 0,0,2020-01-25,Mauricie,Quebec
 0,0,2020-01-26,Mauricie,Quebec
 0,0,2020-01-27,Mauricie,Quebec
@@ -41734,6 +41902,8 @@ cases,cumulative_cases,date_report,health_region,province
 18,15033,2021-05-27,Mauricie,Quebec
 17,15050,2021-05-28,Mauricie,Quebec
 16,15066,2021-05-29,Mauricie,Quebec
+0,15066,2021-05-30,Mauricie,Quebec
+3,15069,2021-05-31,Mauricie,Quebec
 0,0,2020-01-25,Montérégie,Quebec
 0,0,2020-01-26,Montérégie,Quebec
 0,0,2020-01-27,Montérégie,Quebec
@@ -42225,6 +42395,8 @@ cases,cumulative_cases,date_report,health_region,province
 58,50554,2021-05-27,Montérégie,Quebec
 47,50601,2021-05-28,Montérégie,Quebec
 46,50647,2021-05-29,Montérégie,Quebec
+46,50693,2021-05-30,Montérégie,Quebec
+56,50749,2021-05-31,Montérégie,Quebec
 0,0,2020-01-25,Montréal,Quebec
 0,0,2020-01-26,Montréal,Quebec
 0,0,2020-01-27,Montréal,Quebec
@@ -42715,7 +42887,9 @@ cases,cumulative_cases,date_report,health_region,province
 96,130562,2021-05-26,Montréal,Quebec
 158,130720,2021-05-27,Montréal,Quebec
 131,130851,2021-05-28,Montréal,Quebec
-138,130989,2021-05-29,Montréal,Quebec
+139,130990,2021-05-29,Montréal,Quebec
+104,131094,2021-05-30,Montréal,Quebec
+79,131173,2021-05-31,Montréal,Quebec
 0,0,2020-01-25,Nord-du-Québec,Quebec
 0,0,2020-01-26,Nord-du-Québec,Quebec
 0,0,2020-01-27,Nord-du-Québec,Quebec
@@ -43207,6 +43381,8 @@ cases,cumulative_cases,date_report,health_region,province
 0,109,2021-05-27,Nord-du-Québec,Quebec
 0,109,2021-05-28,Nord-du-Québec,Quebec
 0,109,2021-05-29,Nord-du-Québec,Quebec
+0,109,2021-05-30,Nord-du-Québec,Quebec
+0,109,2021-05-31,Nord-du-Québec,Quebec
 0,0,2020-01-25,Not Reported,Quebec
 0,0,2020-01-26,Not Reported,Quebec
 0,0,2020-01-27,Not Reported,Quebec
@@ -43697,7 +43873,9 @@ cases,cumulative_cases,date_report,health_region,province
 2,423,2021-05-26,Not Reported,Quebec
 3,426,2021-05-27,Not Reported,Quebec
 2,428,2021-05-28,Not Reported,Quebec
-2,430,2021-05-29,Not Reported,Quebec
+1,429,2021-05-29,Not Reported,Quebec
+0,429,2021-05-30,Not Reported,Quebec
+0,429,2021-05-31,Not Reported,Quebec
 0,0,2020-01-25,Nunavik,Quebec
 0,0,2020-01-26,Nunavik,Quebec
 0,0,2020-01-27,Nunavik,Quebec
@@ -44189,6 +44367,8 @@ cases,cumulative_cases,date_report,health_region,province
 0,47,2021-05-27,Nunavik,Quebec
 0,47,2021-05-28,Nunavik,Quebec
 0,47,2021-05-29,Nunavik,Quebec
+0,47,2021-05-30,Nunavik,Quebec
+0,47,2021-05-31,Nunavik,Quebec
 0,0,2020-01-25,Outaouais,Quebec
 0,0,2020-01-26,Outaouais,Quebec
 0,0,2020-01-27,Outaouais,Quebec
@@ -44680,6 +44860,8 @@ cases,cumulative_cases,date_report,health_region,province
 29,12106,2021-05-27,Outaouais,Quebec
 28,12134,2021-05-28,Outaouais,Quebec
 34,12168,2021-05-29,Outaouais,Quebec
+17,12185,2021-05-30,Outaouais,Quebec
+16,12201,2021-05-31,Outaouais,Quebec
 0,0,2020-01-25,Saguenay,Quebec
 0,0,2020-01-26,Saguenay,Quebec
 0,0,2020-01-27,Saguenay,Quebec
@@ -45171,6 +45353,8 @@ cases,cumulative_cases,date_report,health_region,province
 7,10844,2021-05-27,Saguenay,Quebec
 15,10859,2021-05-28,Saguenay,Quebec
 16,10875,2021-05-29,Saguenay,Quebec
+14,10889,2021-05-30,Saguenay,Quebec
+7,10896,2021-05-31,Saguenay,Quebec
 0,0,2020-01-25,Terres-Cries-de-la-Baie-James,Quebec
 0,0,2020-01-26,Terres-Cries-de-la-Baie-James,Quebec
 0,0,2020-01-27,Terres-Cries-de-la-Baie-James,Quebec
@@ -45662,6 +45846,8 @@ cases,cumulative_cases,date_report,health_region,province
 0,119,2021-05-27,Terres-Cries-de-la-Baie-James,Quebec
 0,119,2021-05-28,Terres-Cries-de-la-Baie-James,Quebec
 0,119,2021-05-29,Terres-Cries-de-la-Baie-James,Quebec
+0,119,2021-05-30,Terres-Cries-de-la-Baie-James,Quebec
+0,119,2021-05-31,Terres-Cries-de-la-Baie-James,Quebec
 0,0,2020-01-25,Not Reported,Repatriated
 0,0,2020-01-26,Not Reported,Repatriated
 0,0,2020-01-27,Not Reported,Repatriated
@@ -46153,6 +46339,8 @@ cases,cumulative_cases,date_report,health_region,province
 0,13,2021-05-27,Not Reported,Repatriated
 0,13,2021-05-28,Not Reported,Repatriated
 0,13,2021-05-29,Not Reported,Repatriated
+0,13,2021-05-30,Not Reported,Repatriated
+0,13,2021-05-31,Not Reported,Repatriated
 0,0,2020-01-25,Central,Saskatchewan
 0,0,2020-01-26,Central,Saskatchewan
 0,0,2020-01-27,Central,Saskatchewan
@@ -46642,8 +46830,10 @@ cases,cumulative_cases,date_report,health_region,province
 9,2997,2021-05-25,Central,Saskatchewan
 3,3000,2021-05-26,Central,Saskatchewan
 6,3006,2021-05-27,Central,Saskatchewan
-16,3022,2021-05-28,Central,Saskatchewan
-12,3034,2021-05-29,Central,Saskatchewan
+18,3024,2021-05-28,Central,Saskatchewan
+12,3036,2021-05-29,Central,Saskatchewan
+9,3045,2021-05-30,Central,Saskatchewan
+8,3053,2021-05-31,Central,Saskatchewan
 0,0,2020-01-25,Far North,Saskatchewan
 0,0,2020-01-26,Far North,Saskatchewan
 0,0,2020-01-27,Far North,Saskatchewan
@@ -47135,6 +47325,8 @@ cases,cumulative_cases,date_report,health_region,province
 5,4897,2021-05-27,Far North,Saskatchewan
 5,4902,2021-05-28,Far North,Saskatchewan
 10,4912,2021-05-29,Far North,Saskatchewan
+9,4921,2021-05-30,Far North,Saskatchewan
+6,4927,2021-05-31,Far North,Saskatchewan
 0,0,2020-01-25,North,Saskatchewan
 0,0,2020-01-26,North,Saskatchewan
 0,0,2020-01-27,North,Saskatchewan
@@ -47624,8 +47816,10 @@ cases,cumulative_cases,date_report,health_region,province
 31,9901,2021-05-25,North,Saskatchewan
 27,9928,2021-05-26,North,Saskatchewan
 29,9957,2021-05-27,North,Saskatchewan
-21,9978,2021-05-28,North,Saskatchewan
-44,10022,2021-05-29,North,Saskatchewan
+22,9979,2021-05-28,North,Saskatchewan
+44,10023,2021-05-29,North,Saskatchewan
+33,10056,2021-05-30,North,Saskatchewan
+20,10076,2021-05-31,North,Saskatchewan
 0,0,2020-01-25,Not Reported,Saskatchewan
 0,0,2020-01-26,Not Reported,Saskatchewan
 0,0,2020-01-27,Not Reported,Saskatchewan
@@ -48115,8 +48309,10 @@ cases,cumulative_cases,date_report,health_region,province
 0,499,2021-05-25,Not Reported,Saskatchewan
 4,503,2021-05-26,Not Reported,Saskatchewan
 6,509,2021-05-27,Not Reported,Saskatchewan
-3,512,2021-05-28,Not Reported,Saskatchewan
-0,512,2021-05-29,Not Reported,Saskatchewan
+0,509,2021-05-28,Not Reported,Saskatchewan
+0,509,2021-05-29,Not Reported,Saskatchewan
+0,509,2021-05-30,Not Reported,Saskatchewan
+2,511,2021-05-31,Not Reported,Saskatchewan
 0,0,2020-01-25,Regina,Saskatchewan
 0,0,2020-01-26,Regina,Saskatchewan
 0,0,2020-01-27,Regina,Saskatchewan
@@ -48608,6 +48804,8 @@ cases,cumulative_cases,date_report,health_region,province
 23,11544,2021-05-27,Regina,Saskatchewan
 22,11566,2021-05-28,Regina,Saskatchewan
 27,11593,2021-05-29,Regina,Saskatchewan
+19,11612,2021-05-30,Regina,Saskatchewan
+24,11636,2021-05-31,Regina,Saskatchewan
 0,0,2020-01-25,Saskatoon,Saskatchewan
 0,0,2020-01-26,Saskatoon,Saskatchewan
 0,0,2020-01-27,Saskatoon,Saskatchewan
@@ -49099,6 +49297,8 @@ cases,cumulative_cases,date_report,health_region,province
 33,10912,2021-05-27,Saskatoon,Saskatchewan
 38,10950,2021-05-28,Saskatoon,Saskatchewan
 38,10988,2021-05-29,Saskatoon,Saskatchewan
+70,11058,2021-05-30,Saskatoon,Saskatchewan
+24,11082,2021-05-31,Saskatoon,Saskatchewan
 0,0,2020-01-25,South,Saskatchewan
 0,0,2020-01-26,South,Saskatchewan
 0,0,2020-01-27,South,Saskatchewan
@@ -49590,6 +49790,8 @@ cases,cumulative_cases,date_report,health_region,province
 16,5338,2021-05-27,South,Saskatchewan
 17,5355,2021-05-28,South,Saskatchewan
 48,5403,2021-05-29,South,Saskatchewan
+31,5434,2021-05-30,South,Saskatchewan
+29,5463,2021-05-31,South,Saskatchewan
 0,0,2020-01-25,Yukon,Yukon
 0,0,2020-01-26,Yukon,Yukon
 0,0,2020-01-27,Yukon,Yukon
@@ -50081,3 +50283,5 @@ cases,cumulative_cases,date_report,health_region,province
 0,84,2021-05-27,Yukon,Yukon
 0,84,2021-05-28,Yukon,Yukon
 0,84,2021-05-29,Yukon,Yukon
+0,84,2021-05-30,Yukon,Yukon
+0,84,2021-05-31,Yukon,Yukon
