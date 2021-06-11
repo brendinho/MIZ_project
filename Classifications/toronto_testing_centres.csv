@@ -1,0 +1,89 @@
+centre_name,fsa,address,requirement,appointment_required,tests_for_those_with_symptoms_exposure,neighbourhood_name,neighbourhood_number
+William Osler Health System,M9V,101 Humber College Boulevard,Over 2 yr,YES,YES,West Humber-Clairville,1
+Humber River Hospital Assessment Centre – Finch,M3N,2111 Finch Avenue East,Over 6 mths,YES,YES,Glenfield-Jane Heights,25
+Michael Garron Hospital COVID-19 Assessment Centre,M4C,825 Coxwell Avenue,,YES,YES,Danforth East York,59
+Taylor-Massey (Crescent Town) Temporary Testing Site,M4C,4 The Market Place,,YES,YES,Taylor-Massey,61
+Mount Sinai Hospital,M5G,600 University Avenue,,YES,YES,Kensington-Chinatown,78
+North York General Hospital – Branson,M2R,555 Finch Avenue West,,YES,YES,Westminster-Branson,35
+Sunnybrook Health Sciences Centre,M4N,80 Armistice Drive,Over 1 yr,YES,YES,Bridle Path-Sunnybrook-York Mills,42
+Toronto Western Hispital,M5T,347 Bathurst Street,Over 1 yr,YES,YES,Kensington-Chinatown,78
+St. Joseph’s Health Centre,M6R,30 The Queensway,Over 1 yr,YES,YES,High Park-Swansea,87
+St. Michael’s Hospital,M5B,"38 Shuter Street, 1st Floor",Over 6 mths,YES,YES,Church-Yonge Corridor,75
+Women’s College Hospital,M5S,76 Grenville Street,,YES,YES,Bay Street Corridor,76
+Shopper’s Drug Mart,M4C,1630 Danforth Avenue,maybe newborns and children,YES,NO,Danforth East York,66
+Shopper’s Drug Mart,M4G,1601 Bayview Avenue,maybe newborns and children,YES,NO,Leaside-Bennington,56
+Shopper’s Drug Mart,M4W,1027 Yonge Street,maybe newborns and children,YES,NO,Rosedale-Moore Park,98
+Shopper’s Drug Mart,M6S,3446 Dundas Street West,maybe newborns and children,YES,NO,Runnymede-Bloor West Village,89
+Shopper’s Drug Mart,M6H,1400 Dupont Street,maybe newborns and children,YES,NO,Dovercourt-Wallace Emerson-Junction,93
+Shopper’s Drug Mart,M5S,360A Bloor Street West,maybe newborns and children,YES,NO,Annex,95
+Shopper’s Drug Mart,M9W,123 Rexdale Boulevard,maybe newborns and children,YES,NO,West Humber-Clairville,1
+Shopper’s Drug Mart,M9V,900 Albion Road,maybe newborns and children,YES,NO,Thistletown-Beaumond Heights,3
+Shopper’s Drug Mart,M2N,4841 Yonge Street,maybe newborns and children,YES,NO,Willowdale East,51
+Shopper’s Drug Mart,M3H,3874 Bathurst Street,maybe newborns and children,YES,NO,Clanton Park,33
+Shopper’s Drug Mart,M9M,2550 Finch Avenue West,maybe newborns and children,YES,NO,Humber Summit,21
+Shopper’s Drug Mart,M1J,2751 Eglinton Avenue East,maybe newborns and children,YES,NO,Eglinton East,138
+Shopper’s Drug Mart,M1N,2301 Kingston Road,maybe newborns and children,YES,NO,Birchcliffe-Cliffside,122
+Shopper’s Drug Mart,M1B,1780 Markham Road,maybe newborns and children,YES,NO,Agincourt South-Malvern West,128
+Shopper’s Drug Mart,M8V,2206 Lake Shore Boulevard West,maybe newborns and children,YES,NO,Mimico (includes Humber Bay Shores),
+Junction Chemist Pharmacy,M6P,17 St. John’s Road,maybe newborns and children,YES,NO,Junction Area,90
+Liberty Market Pharmacy,M6K,171 East Liberty Street,Over 2 yrs,YES,NO,Niagara,82
+The Medicine Shoppe Pharmacy,M6M,2600 Eglinton Avenue West,maybe newborns and children,YES,NO,Beechborough-Greenbrook,112
+Village Square Pharmacy,M1W,2942 Finch Avenue East,,YES,NO,L'Amoreaux,117
+Rexall,M1E,4459 Kingston Road,Over 2 yr,YES,NO,West Hill,136
+Rexall,M9R,250 Wincott Drive,Over 2 yr,YES,NO,Willowridge-Martingrove-Richview,7
+Rexall,M6C,901 Eglinton Avenue West,Over 2 yr,YES,NO,Humewood-Cedarvale,106
+Glen Cade Pharmacy,M9C,290 The West Mall,maybe newborns and children,YES,NO,Markland Wood,12
+Humber River Hospital – Church Street,M9N,200 Church Street,Over 2 yr,YES,YES,Church-Yonge Corridor,75
+Thorncliffe Park Temporary Testing Site,M4H,"45 Overlea Boulevard, Unit 108A",maybe newborns and children,YES,YES,Thorncliffe Park,55
+Scarborough Health Network – General Hospital,M1P,3050 Lawrence Avenue East,Over 6 mths,YES,YES,Bendale,127
+Shopper’s Drug Mart,M6K,1090 King Street West,maybe newborns and children,YES,NO,South Parkdale,85
+Shopper’s Drug Mart,M5V,"390 Queens Quay West, Unit 110",maybe newborns and children,YES,NO,Waterfront Communities-The Island,77
+Shopper’s Drug Mart,M5V,388 King Street West,maybe newborns and children,YES,NO,Waterfront Communities-The Island,77
+Shopper’s Drug Mart,M5B,279 Yonge Street,maybe newborns and children,YES,NO,Church-Yonge Corridor,75
+Shopper’s Drug Mart,M5S,"951 Bay Street, Unit G41",maybe newborns and children,YES,NO,Bay Street Corridor,76
+Shopper’s Drug Mart,M4M,970 Queen Street East,maybe newborns and children,YES,NO,South Riverdale,70
+Shopper’s Drug Mart,M5A,"593 Dundas Street East, South Tower",maybe newborns and children,YES,NO,Regent Park,72
+Shopper’s Drug Mart,M4P,2345 Yonge Street,maybe newborns and children,YES,NO,Mount Pleasant West,104
+Shopper’s Drug Mart,M3K,1084 Wilson Avenue,maybe newborns and children,YES,NO,Downsview-Roding-CFB,26
+Shopper’s Drug Mart,M3N,3975 Jane Street,maybe newborns and children,YES,NO,Glenfield-Jane Heights,25
+Shopper’s Drug Mart,M3C,946 Lawrence Avenue East,maybe newborns and children,YES,NO,Banbury-Don Mills,42
+Rexall,M1H,1127 Markham Road,Over 2 yr,YES,NO,Woburn,137
+Rexall,M3M,1115 Wilson Avenue,Over 2 yr,YES,NO,Downsview-Roding-CFB,26
+Rexall,M9A,4890 Dundas Street West,Over 2 yr,YES,NO,Islington-City Centre West,14
+Metro Drugs,M5R,844 Bathurst Street,Over 1 yr,YES,NO,Annex,95
+Metro Drugs,M5B,129 Dundas Street East,Over 1 yr,YES,NO,Church-Yonge Corridor,75
+Dale’s Pharmacy Parliament,M4X,572 Parliament Street,Over 5 yr,YES,NO,Cabbagetown-South St. James Town,71
+Pharmasave Keele and Finch Pharmacy,M3J,1275 Finch Avenue West,Over 5 yr,YES,NO,York University Heights,27
+Bloor-Sherbourne Pharmacy,M4X,608 Sherbourne Street,maybe newborns and children,YES,NO,North St. James Town,74
+Main Drug Mart,M2J,1333 Sheppard Avenue East,Over 6 yr,YES,NO,Henry Farm,53
+Walmart,M1B,799 Milner Avenue,maybe newborns and children,YES,NO,Malvern,132
+Pharmasave Eagle Manor,M9N,1901 Weston Road,Over 5 yr,YES,NO,Weston,113
+Auduzhe Mino Nesewinong (Place of Healthy Breathing),M6G,22 Vaughan Road,Indigenous and close contacts,YES,YES,Wychwood,94
+Central Weston Pharmacy,M9N,2105 Weston Road ,maybe newborns and children,YES,NO,Weston,113
+East York Temporary Testing Site,M4K,1081 1/2 Pape Avenue,,NO,YES,Old East York,58
+Flemingdon Park Temporary Testing Site #1,M3C,29 St. Dennis Drive,,YES,YES,Flemingdon Park,44
+Flemingdon Park Temporary Testing Site #2,M3C,165 Grenoble Drive,,YES,YES,Flemingdon Park,44
+South Riverdale Temporary Testing Site,M4M,955 Queen Street East,,YES,YES,South Riverdale,70
+Warden Woods (Scarborough) Temporary Testing Site,M1L,76 Firvalley Court,,YES,YES,Oakridge,121
+Shopper’s Drug Mart,M2N,5576 Yonge Street,maybe newborns and children,YES,NO,Willowdale West,37
+Shopper’s Drug Mart,M1E,255 Morningside Avenue,maybe newborns and children,YES,NO,West Hill,136
+Shopper’s Drug Mart,M1B,"91 Rylander Boulevard, Unit 1022",maybe newborns and children,YES,NO,Rouge,131
+Shopper’s Drug Mart,M6A,770 Lawrence Avenue West,maybe newborns and children,YES,NO,Yorkdale-Glen Park,31
+Shopper’s Drug Mart,M9V,1530 Albion Road,maybe newborns and children,YES,NO,Mount Olive-Silverstone-Jamestown,2
+"COVID-19 Assessment Centre for Children with Medical Complexity (CMC) and Children with Developmental Disorders (CDD), Holland Bloorview Kids Rehab Hospital",M4G,150 Kilgour Road,Challenged children,YES,YES,Bridle Path-Sunnybrook-York Mills,41
+"COVID-19 Assessment Centre for Children with Medical Complexity (CMC) and Children with Developmental Disorders (CDD), SickKids",M5G,555 University Avenue,challenged children,YES,YES,Bay Street Corridor,76
+Oakridge (Scarborough) Temporary Testing Site,M1L,63 Pharmacy Avenue,,YES,YES,Oakridge,121
+Rexdale Hub COVID-19 Community Testing Site,M9V,21 Panorama Court,Over 2 yr,YES,YES,Mount Olive-Silverstone-Jamestown,2
+Carefirst One-Stop Multi-Services Centre,M1V,300 Silver Star Boulevard,Over 2 yr,YES,YES,Milliken,130
+Black Creek Community Health Centre - Sheridan Mall,M3N,"2202 Jane Street, Unit 5",Over 6 yr,YES ,YES,Downsview-Roding-CFB,26
+Etobicoke UCC COVID -19 Testing Site,M9W,"25 Woodbine Downs Boulevard, Unit 10",Over 2 yr,YES,YES,West Humber-Clairville,1
+Mount Dennis Temporary Testing Site,M9N,1541 Jane Street,maybe newborns and children,YES,YES,Brookhaven-Amesbury,30
+Keelesdale Eglinton Community Testing Site,M6M,115 Black Creek Drive,maybe newborns and children,YES,YES,Keelesdale-Eglinton West,110
+Lawrence Heights Temporary Testing Site,M5A,5 Replin Road,maybe newborns and children,YES,YES,Englemount-Lawrence,32
+Shoppers Drug Mart,M2N,5095 Yonge Street,maybe newborns and children,YES,NO,Willowdale East,51
+St. James Town Temporary COVID-19 Testing,M4X,200 Wellesley Street East,maybe newborns and children,NO,YES,North St. James Town,74
+SHN COVID-19 Assessment Centre – Centenary,M1E,2867 Ellesmere Road,Over 6 mths,YES,YES,Morningside,135
+SHN Covid-19 Assessment Centre – Birchmount,M1W,3030 Birchmount Road,Over 6 mths,YES,YES,L'Amoreaux,117
+#,,,,,,,
+# address-neighbourhood lookup: https://www.toronto.ca/city-government/data-research-maps/neighbourhoods-communities/neighbourhood-profiles/,,,,,,,
+# list of toronto testing sites: https://covid-19.ontario.ca/assessment-centre-locations,,,,,,,

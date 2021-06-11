@@ -4,7 +4,8 @@ Chaudière-Appalaches,Chaudiere-Appalaches
 Côte-Nord,Cote-Nord
 Gaspésie-Îles-de-la-Madeleine,Gaspesie-Iles-de-la-Madeleine
 Lanaudière,Lanaudiere
-Mauricie,Mauricie et Centre-du-Quebec
+Mauricie,Mauricie et du Centre-du-Quebec
+Mauricie et Centre-du-Quebec,Mauricie et du Centre-du-Quebec
 Montérégie,Monteregie
 Montréal,Montreal
 Nord-du-Québec,Nord-du-Quebec
@@ -43,3 +44,102 @@ Toronto_Public_Health,Toronto
 Wellington-Dufferin-Guelph_Public_Health,Wellington Dufferin Guelph
 Windsor-Essex_County_Health_Unit,Windsor-Essex
 York_Region_Public_Health_Services,York
+,
+Eastern Regional Health Authority                       ,Eastern
+Central Regional Health Authority                       ,Central
+Labrador-Grenfell Regional Health Authority             ,Labrador-Grenfell
+Western Regional Health Authority                       ,Western
+Region du Saguenay-Lac-Saint-Jean                       ,Saguenay-Lac-Saint-Jean
+Region de Lanaudiere                                    ,Lanaudiere
+Region des Laurentides                                  ,Laurentides
+Region de la Monteregie                                 ,Monteregie
+Region de Montreal                                      ,Montreal
+Region de l'Estrie                                      ,Estrie
+Region de la Chaudiere-Appalaches                       ,Chaudiere-Appalaches
+Region de la Cote-Nord                                  ,Cote-Nord
+Region de la Capitale-Nationale                         ,Capitale-Nationale
+Region du Bas-Saint-Laurent                             ,Bas-Saint-Laurent
+Region de la Gaspesie-Iles-de-la-Madeleine              ,Gaspesie-Iles-de-la-Madeleine
+Region de la Mauricie et du Centre-du-Quebec            ,Mauricie et du Centre-du-Quebec
+Region de Laval                                         ,Laval
+Region de l'Outaouais                                   ,Outaouais
+Region de l'Abitibi-Temiscamingue                       ,Abitibi-Temiscamingue
+Region du Nunavik                                       ,Nunavik
+Region du Nord-du-Quebec                                ,Nord-du-Quebec
+Region des Terres-Cries-de-la-Baie-James                ,Terres-Cries-de-la-Baie-James
+Peel Regional Health Unit                               ,Peel
+City of Ottawa Health Unit                              ,Ottawa
+The District of Algoma Health Unit                      ,Algoma
+"Haliburton, Kawartha, Pine Ridge District Health Unit   ",Haliburton Kawartha Pine Ridge
+City of Hamilton Health Unit                            ,Hamilton
+York Regional Health Unit                               ,York
+Peterborough County-City Health Unit                 ,Peterborough
+Chatham-Kent Health Unit                                ,Chatham-Kent
+Grey Bruce Health Unit                                  ,Grey Bruce
+Thunder Bay District Health Unit                        ,Thunder Bay
+Hastings and Prince Edward Counties Health Unit         ,Hastings Prince Edward
+"Kingston, Frontenac and Lennox and Addington Health Unit",Kingston Frontenac Lennox and Addington
+Northwestern Health Unit                                ,Northwestern
+City of Toronto Health Unit                             ,Toronto
+Porcupine Health Unit                                   ,Porcupine
+Wellington-Dufferin-Guelph Health Unit                  ,Wellington Dufferin Guelph
+"Leeds, Grenville and Lanark District Health Unit        ",Leeds Grenville and Lanark
+Durham Regional Health Unit                             ,Durham
+The Eastern Ontario Health Unit                         ,Eastern
+North Bay Parry Sound District Health Unit              ,North Bay Parry Sound
+Sudbury and District Health Unit                        ,Sudbury
+Huron County Health Unit                                ,Huron
+Waterloo Health Unit                                    ,Waterloo
+Halton Regional Health Unit                             ,Halton
+Windsor-Essex County Health Unit                        ,Windsor-Essex
+Simcoe Muskoka District Health Unit                     ,Simcoe Muskoka
+Middlesex-London Health Unit                            ,Middlesex-London
+Haldimand-Norfolk Health Unit                           ,Haldimand-Norfolk
+Brant County Health Unit                                ,Brant
+Lambton Health Unit                                     ,Lambton
+Niagara Regional Area Health Unit                       ,Niagara
+Timiskaming Health Unit                                 ,Timiskaming
+Renfrew County and District Health Unit                 ,Renfrew
+Oxford Elgin St. Thomas Health Unit                     ,Oxford Elgin St. Thomas
+Perth District Health Unit                              ,Perth
+Southern Health-Sante Sud                               ,Southern Health
+Prairie Mountain Health                                 ,Prairie Mountain
+Interlake-Eastern Regional Health Authority             ,Interlake-Eastern
+Winnipeg Regional Health Authority                      ,Winnipeg
+Northern Regional Health Authority                      ,Northern
+Cypress Regional Health Authority                       ,Cypress
+Heartland Regional Health Authority                     ,Heartland
+Keewatin Yatthe Regional Health Authority               ,Keewatin Yatthe
+Sunrise Regional Health Authority                       ,Sunrise
+Saskatoon Regional Health Authority                     ,Saskatoon
+Prince Albert Parkland Regional Health Authority        ,Prince Albert
+Kelsey Trail Regional Health Authority                  ,Kelsey Trail
+Regina Qu'Appelle Regional Health Authority             ,Regina Qu’Appelle
+Five Hills Regional Health Authority                    ,Five Hills
+Prairie North Regional Health Authority                 ,Prairie North
+Sun Country Regional Health Authority                   ,Sun Country
+Mamawetan Churchill River Regional Health Authority     ,Mamawetan Churchill River
+Athabasca Health Authority                              ,Athabasca
+Edmonton Zone                                           ,Edmonton
+North Zone                                              ,North
+Central Zone                                            ,Central
+South Zone                                              ,South
+Calgary Zone                                            ,Calgary
+South Vancouver Island Health Service Delivery Area     ,South Vancouver Island
+East Kootenay Health Service Delivery Area              ,East Kootenay
+Central Vancouver Island Health Service Delivery Area   ,Central Vancouver Island
+North Shore/Coast Garibaldi Health Service Delivery Area,North Shore/Coast Garibaldi
+Fraser North Health Service Delivery Area               ,Fraser North
+North Vancouver Island Health Service Delivery Area     ,North Vancouver Island
+Fraser South Health Service Delivery Area               ,Fraser South
+Northwest Health Service Delivery Area                  ,Northwest
+Thompson/Cariboo Health Service Delivery Area           ,Thompson Cariboo Shuswap
+Okanagan Health Service Delivery Area                   ,Okanagan
+Kootenay-Boundary Health Service Delivery Area          ,Kootenay-Boundary
+Northern Interior Health Service Delivery Area          ,Northern Interior
+Richmond Health Service Delivery Area                   ,Richmond
+Fraser East Health Service Delivery Area                ,Fraser East
+Northeast Health Service Delivery Area                  ,Northeast
+Vancouver Health Service Delivery Area                  ,Vancouver 
+,
+Kootenay Boundary,Kootenay-Boundary

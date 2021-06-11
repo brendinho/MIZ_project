@@ -1247,9 +1247,9 @@ date,HA,cases,province
 2020-04-15,Central Vancouver Island,0,British Columbia
 2020-04-15,North Vancouver Island,2,British Columbia
 2020-04-15,South Vancouver Island,0,British Columbia
-2020-04-16,Fraser East,17,British Columbia
+2020-04-16,Fraser East,16,British Columbia
 2020-04-16,Fraser North,5,British Columbia
-2020-04-16,Fraser South,3,British Columbia
+2020-04-16,Fraser South,4,British Columbia
 2020-04-16,East Kootenay,2,British Columbia
 2020-04-16,Kootenay Boundary,0,British Columbia
 2020-04-16,Okanagan,0,British Columbia
@@ -1350,7 +1350,7 @@ date,HA,cases,province
 2020-04-22,Kootenay Boundary,0,British Columbia
 2020-04-22,Okanagan,4,British Columbia
 2020-04-22,Thompson Cariboo Shuswap,1,British Columbia
-2020-04-22,Northeast,1,British Columbia
+2020-04-22,Northeast,0,British Columbia
 2020-04-22,Northern Interior,1,British Columbia
 2020-04-22,Northwest,0,British Columbia
 2020-04-22,North Shore/Coast Garibaldi,4,British Columbia
@@ -1371,7 +1371,7 @@ date,HA,cases,province
 2020-04-23,Northwest,0,British Columbia
 2020-04-23,North Shore/Coast Garibaldi,5,British Columbia
 2020-04-23,Richmond,0,British Columbia
-2020-04-23,Vancouver,6,British Columbia
+2020-04-23,Vancouver,7,British Columbia
 2020-04-23,Central Vancouver Island,2,British Columbia
 2020-04-23,North Vancouver Island,2,British Columbia
 2020-04-23,South Vancouver Island,0,British Columbia
@@ -1387,7 +1387,7 @@ date,HA,cases,province
 2020-04-24,Northwest,0,British Columbia
 2020-04-24,North Shore/Coast Garibaldi,3,British Columbia
 2020-04-24,Richmond,0,British Columbia
-2020-04-24,Vancouver,8,British Columbia
+2020-04-24,Vancouver,7,British Columbia
 2020-04-24,Central Vancouver Island,0,British Columbia
 2020-04-24,North Vancouver Island,1,British Columbia
 2020-04-24,South Vancouver Island,0,British Columbia
@@ -1409,7 +1409,7 @@ date,HA,cases,province
 2020-04-25,South Vancouver Island,0,British Columbia
 2020-04-26,Fraser East,2,British Columbia
 2020-04-26,Fraser North,9,British Columbia
-2020-04-26,Fraser South,10,British Columbia
+2020-04-26,Fraser South,9,British Columbia
 2020-04-26,East Kootenay,0,British Columbia
 2020-04-26,Kootenay Boundary,0,British Columbia
 2020-04-26,Okanagan,3,British Columbia
@@ -1425,7 +1425,7 @@ date,HA,cases,province
 2020-04-26,South Vancouver Island,0,British Columbia
 2020-04-27,Fraser East,9,British Columbia
 2020-04-27,Fraser North,8,British Columbia
-2020-04-27,Fraser South,18,British Columbia
+2020-04-27,Fraser South,19,British Columbia
 2020-04-27,East Kootenay,0,British Columbia
 2020-04-27,Kootenay Boundary,0,British Columbia
 2020-04-27,Okanagan,0,British Columbia
@@ -2619,7 +2619,7 @@ date,HA,cases,province
 2020-07-10,Northwest,0,British Columbia
 2020-07-10,North Shore/Coast Garibaldi,1,British Columbia
 2020-07-10,Richmond,1,British Columbia
-2020-07-10,Vancouver,8,British Columbia
+2020-07-10,Vancouver,9,British Columbia
 2020-07-10,Central Vancouver Island,0,British Columbia
 2020-07-10,North Vancouver Island,0,British Columbia
 2020-07-10,South Vancouver Island,0,British Columbia
@@ -2981,7 +2981,7 @@ date,HA,cases,province
 2020-08-02,East Kootenay,0,British Columbia
 2020-08-02,Kootenay Boundary,0,British Columbia
 2020-08-02,Okanagan,2,British Columbia
-2020-08-02,Thompson Cariboo Shuswap,0,British Columbia
+2020-08-02,Thompson Cariboo Shuswap,1,British Columbia
 2020-08-02,Northeast,0,British Columbia
 2020-08-02,Northern Interior,0,British Columbia
 2020-08-02,Northwest,0,British Columbia
@@ -4320,7 +4320,7 @@ date,HA,cases,province
 2020-10-24,North Vancouver Island,0,British Columbia
 2020-10-24,South Vancouver Island,0,British Columbia
 2020-10-25,Fraser East,14,British Columbia
-2020-10-25,Fraser North,30,British Columbia
+2020-10-25,Fraser North,31,British Columbia
 2020-10-25,Fraser South,143,British Columbia
 2020-10-25,East Kootenay,1,British Columbia
 2020-10-25,Kootenay Boundary,0,British Columbia
@@ -4356,7 +4356,7 @@ date,HA,cases,province
 2020-10-27,Fraser South,119,British Columbia
 2020-10-27,East Kootenay,1,British Columbia
 2020-10-27,Kootenay Boundary,0,British Columbia
-2020-10-27,Okanagan,8,British Columbia
+2020-10-27,Okanagan,9,British Columbia
 2020-10-27,Thompson Cariboo Shuswap,10,British Columbia
 2020-10-27,Northeast,5,British Columbia
 2020-10-27,Northern Interior,6,British Columbia
@@ -4980,7 +4980,7 @@ date,HA,cases,province
 2020-12-05,Fraser South,302,British Columbia
 2020-12-05,East Kootenay,2,British Columbia
 2020-12-05,Kootenay Boundary,0,British Columbia
-2020-12-05,Okanagan,78,British Columbia
+2020-12-05,Okanagan,77,British Columbia
 2020-12-05,Thompson Cariboo Shuswap,8,British Columbia
 2020-12-05,Northeast,10,British Columbia
 2020-12-05,Northern Interior,28,British Columbia
@@ -6159,7 +6159,7 @@ date,HA,cases,province
 2021-02-16,Central Vancouver Island,15,British Columbia
 2021-02-16,North Vancouver Island,4,British Columbia
 2021-02-16,South Vancouver Island,2,British Columbia
-2021-02-17,Fraser East,77,British Columbia
+2021-02-17,Fraser East,76,British Columbia
 2021-02-17,Fraser North,107,British Columbia
 2021-02-17,Fraser South,157,British Columbia
 2021-02-17,East Kootenay,0,British Columbia
@@ -6432,7 +6432,7 @@ date,HA,cases,province
 2021-03-05,North Vancouver Island,6,British Columbia
 2021-03-05,South Vancouver Island,3,British Columbia
 2021-03-06,Fraser East,40,British Columbia
-2021-03-06,Fraser North,113,British Columbia
+2021-03-06,Fraser North,114,British Columbia
 2021-03-06,Fraser South,153,British Columbia
 2021-03-06,East Kootenay,0,British Columbia
 2021-03-06,Kootenay Boundary,0,British Columbia
@@ -6441,7 +6441,7 @@ date,HA,cases,province
 2021-03-06,Northeast,2,British Columbia
 2021-03-06,Northern Interior,2,British Columbia
 2021-03-06,Northwest,30,British Columbia
-2021-03-06,North Shore/Coast Garibaldi,36,British Columbia
+2021-03-06,North Shore/Coast Garibaldi,35,British Columbia
 2021-03-06,Richmond,19,British Columbia
 2021-03-06,Vancouver,100,British Columbia
 2021-03-06,Central Vancouver Island,18,British Columbia
@@ -6608,8 +6608,8 @@ date,HA,cases,province
 2021-03-16,North Vancouver Island,3,British Columbia
 2021-03-16,South Vancouver Island,3,British Columbia
 2021-03-17,Fraser East,39,British Columbia
-2021-03-17,Fraser North,70,British Columbia
-2021-03-17,Fraser South,192,British Columbia
+2021-03-17,Fraser North,69,British Columbia
+2021-03-17,Fraser South,193,British Columbia
 2021-03-17,East Kootenay,2,British Columbia
 2021-03-17,Kootenay Boundary,0,British Columbia
 2021-03-17,Okanagan,13,British Columbia
@@ -6656,7 +6656,7 @@ date,HA,cases,province
 2021-03-19,North Vancouver Island,1,British Columbia
 2021-03-19,South Vancouver Island,16,British Columbia
 2021-03-20,Fraser East,51,British Columbia
-2021-03-20,Fraser North,87,British Columbia
+2021-03-20,Fraser North,88,British Columbia
 2021-03-20,Fraser South,216,British Columbia
 2021-03-20,East Kootenay,0,British Columbia
 2021-03-20,Kootenay Boundary,1,British Columbia
@@ -6666,12 +6666,12 @@ date,HA,cases,province
 2021-03-20,Northern Interior,7,British Columbia
 2021-03-20,Northwest,26,British Columbia
 2021-03-20,North Shore/Coast Garibaldi,55,British Columbia
-2021-03-20,Richmond,27,British Columbia
+2021-03-20,Richmond,26,British Columbia
 2021-03-20,Vancouver,69,British Columbia
 2021-03-20,Central Vancouver Island,6,British Columbia
 2021-03-20,North Vancouver Island,4,British Columbia
 2021-03-20,South Vancouver Island,9,British Columbia
-2021-03-21,Fraser East,37,British Columbia
+2021-03-21,Fraser East,36,British Columbia
 2021-03-21,Fraser North,101,British Columbia
 2021-03-21,Fraser South,268,British Columbia
 2021-03-21,East Kootenay,2,British Columbia
@@ -6720,7 +6720,7 @@ date,HA,cases,province
 2021-03-23,North Vancouver Island,0,British Columbia
 2021-03-23,South Vancouver Island,9,British Columbia
 2021-03-24,Fraser East,34,British Columbia
-2021-03-24,Fraser North,118,British Columbia
+2021-03-24,Fraser North,120,British Columbia
 2021-03-24,Fraser South,228,British Columbia
 2021-03-24,East Kootenay,1,British Columbia
 2021-03-24,Kootenay Boundary,4,British Columbia
@@ -6730,8 +6730,8 @@ date,HA,cases,province
 2021-03-24,Northern Interior,12,British Columbia
 2021-03-24,Northwest,26,British Columbia
 2021-03-24,North Shore/Coast Garibaldi,63,British Columbia
-2021-03-24,Richmond,21,British Columbia
-2021-03-24,Vancouver,180,British Columbia
+2021-03-24,Richmond,20,British Columbia
+2021-03-24,Vancouver,179,British Columbia
 2021-03-24,Central Vancouver Island,20,British Columbia
 2021-03-24,North Vancouver Island,6,British Columbia
 2021-03-24,South Vancouver Island,14,British Columbia
@@ -6981,13 +6981,13 @@ date,HA,cases,province
 2021-04-09,East Kootenay,10,British Columbia
 2021-04-09,Kootenay Boundary,2,British Columbia
 2021-04-09,Okanagan,56,British Columbia
-2021-04-09,Thompson Cariboo Shuswap,32,British Columbia
+2021-04-09,Thompson Cariboo Shuswap,31,British Columbia
 2021-04-09,Northeast,29,British Columbia
 2021-04-09,Northern Interior,20,British Columbia
 2021-04-09,Northwest,15,British Columbia
 2021-04-09,North Shore/Coast Garibaldi,93,British Columbia
 2021-04-09,Richmond,23,British Columbia
-2021-04-09,Vancouver,191,British Columbia
+2021-04-09,Vancouver,192,British Columbia
 2021-04-09,Central Vancouver Island,32,British Columbia
 2021-04-09,North Vancouver Island,6,British Columbia
 2021-04-09,South Vancouver Island,42,British Columbia
@@ -7023,7 +7023,7 @@ date,HA,cases,province
 2021-04-11,Central Vancouver Island,13,British Columbia
 2021-04-11,North Vancouver Island,1,British Columbia
 2021-04-11,South Vancouver Island,38,British Columbia
-2021-04-12,Fraser East,114,British Columbia
+2021-04-12,Fraser East,115,British Columbia
 2021-04-12,Fraser North,153,British Columbia
 2021-04-12,Fraser South,253,British Columbia
 2021-04-12,East Kootenay,10,British Columbia
@@ -7039,8 +7039,8 @@ date,HA,cases,province
 2021-04-12,Central Vancouver Island,18,British Columbia
 2021-04-12,North Vancouver Island,4,British Columbia
 2021-04-12,South Vancouver Island,20,British Columbia
-2021-04-13,Fraser East,68,British Columbia
-2021-04-13,Fraser North,175,British Columbia
+2021-04-13,Fraser East,67,British Columbia
+2021-04-13,Fraser North,174,British Columbia
 2021-04-13,Fraser South,302,British Columbia
 2021-04-13,East Kootenay,12,British Columbia
 2021-04-13,Kootenay Boundary,6,British Columbia
@@ -7099,7 +7099,7 @@ date,HA,cases,province
 2021-04-16,Northwest,8,British Columbia
 2021-04-16,North Shore/Coast Garibaldi,59,British Columbia
 2021-04-16,Richmond,49,British Columbia
-2021-04-16,Vancouver,162,British Columbia
+2021-04-16,Vancouver,163,British Columbia
 2021-04-16,Central Vancouver Island,7,British Columbia
 2021-04-16,North Vancouver Island,9,British Columbia
 2021-04-16,South Vancouver Island,13,British Columbia
@@ -7136,7 +7136,7 @@ date,HA,cases,province
 2021-04-18,North Vancouver Island,7,British Columbia
 2021-04-18,South Vancouver Island,23,British Columbia
 2021-04-19,Fraser East,77,British Columbia
-2021-04-19,Fraser North,108,British Columbia
+2021-04-19,Fraser North,109,British Columbia
 2021-04-19,Fraser South,235,British Columbia
 2021-04-19,East Kootenay,7,British Columbia
 2021-04-19,Kootenay Boundary,7,British Columbia
@@ -7147,7 +7147,7 @@ date,HA,cases,province
 2021-04-19,Northwest,1,British Columbia
 2021-04-19,North Shore/Coast Garibaldi,44,British Columbia
 2021-04-19,Richmond,21,British Columbia
-2021-04-19,Vancouver,162,British Columbia
+2021-04-19,Vancouver,161,British Columbia
 2021-04-19,Central Vancouver Island,13,British Columbia
 2021-04-19,North Vancouver Island,4,British Columbia
 2021-04-19,South Vancouver Island,11,British Columbia
@@ -7185,7 +7185,7 @@ date,HA,cases,province
 2021-04-21,South Vancouver Island,30,British Columbia
 2021-04-22,Fraser East,137,British Columbia
 2021-04-22,Fraser North,136,British Columbia
-2021-04-22,Fraser South,382,British Columbia
+2021-04-22,Fraser South,381,British Columbia
 2021-04-22,East Kootenay,7,British Columbia
 2021-04-22,Kootenay Boundary,8,British Columbia
 2021-04-22,Okanagan,47,British Columbia
@@ -7200,7 +7200,7 @@ date,HA,cases,province
 2021-04-22,North Vancouver Island,2,British Columbia
 2021-04-22,South Vancouver Island,18,British Columbia
 2021-04-23,Fraser East,99,British Columbia
-2021-04-23,Fraser North,114,British Columbia
+2021-04-23,Fraser North,115,British Columbia
 2021-04-23,Fraser South,346,British Columbia
 2021-04-23,East Kootenay,11,British Columbia
 2021-04-23,Kootenay Boundary,5,British Columbia
@@ -7211,7 +7211,7 @@ date,HA,cases,province
 2021-04-23,Northwest,1,British Columbia
 2021-04-23,North Shore/Coast Garibaldi,43,British Columbia
 2021-04-23,Richmond,27,British Columbia
-2021-04-23,Vancouver,110,British Columbia
+2021-04-23,Vancouver,109,British Columbia
 2021-04-23,Central Vancouver Island,16,British Columbia
 2021-04-23,North Vancouver Island,2,British Columbia
 2021-04-23,South Vancouver Island,19,British Columbia
@@ -7280,7 +7280,7 @@ date,HA,cases,province
 2021-04-27,North Vancouver Island,2,British Columbia
 2021-04-27,South Vancouver Island,22,British Columbia
 2021-04-28,Fraser East,111,British Columbia
-2021-04-28,Fraser North,135,British Columbia
+2021-04-28,Fraser North,136,British Columbia
 2021-04-28,Fraser South,336,British Columbia
 2021-04-28,East Kootenay,7,British Columbia
 2021-04-28,Kootenay Boundary,3,British Columbia
@@ -7290,7 +7290,7 @@ date,HA,cases,province
 2021-04-28,Northern Interior,10,British Columbia
 2021-04-28,Northwest,2,British Columbia
 2021-04-28,North Shore/Coast Garibaldi,45,British Columbia
-2021-04-28,Richmond,19,British Columbia
+2021-04-28,Richmond,18,British Columbia
 2021-04-28,Vancouver,119,British Columbia
 2021-04-28,Central Vancouver Island,10,British Columbia
 2021-04-28,North Vancouver Island,4,British Columbia
@@ -7391,7 +7391,7 @@ date,HA,cases,province
 2021-05-04,Central Vancouver Island,2,British Columbia
 2021-05-04,North Vancouver Island,2,British Columbia
 2021-05-04,South Vancouver Island,16,British Columbia
-2021-05-05,Fraser East,98,British Columbia
+2021-05-05,Fraser East,97,British Columbia
 2021-05-05,Fraser North,80,British Columbia
 2021-05-05,Fraser South,298,British Columbia
 2021-05-05,East Kootenay,8,British Columbia
@@ -7524,7 +7524,7 @@ date,HA,cases,province
 2021-05-13,Fraser South,168,British Columbia
 2021-05-13,East Kootenay,1,British Columbia
 2021-05-13,Kootenay Boundary,2,British Columbia
-2021-05-13,Okanagan,24,British Columbia
+2021-05-13,Okanagan,23,British Columbia
 2021-05-13,Thompson Cariboo Shuswap,6,British Columbia
 2021-05-13,Northeast,11,British Columbia
 2021-05-13,Northern Interior,9,British Columbia
@@ -7537,7 +7537,7 @@ date,HA,cases,province
 2021-05-13,South Vancouver Island,5,British Columbia
 2021-05-14,Fraser East,44,British Columbia
 2021-05-14,Fraser North,79,British Columbia
-2021-05-14,Fraser South,159,British Columbia
+2021-05-14,Fraser South,160,British Columbia
 2021-05-14,East Kootenay,4,British Columbia
 2021-05-14,Kootenay Boundary,2,British Columbia
 2021-05-14,Okanagan,29,British Columbia
@@ -7609,7 +7609,7 @@ date,HA,cases,province
 2021-05-18,Northeast,11,British Columbia
 2021-05-18,Northern Interior,16,British Columbia
 2021-05-18,Northwest,3,British Columbia
-2021-05-18,North Shore/Coast Garibaldi,15,British Columbia
+2021-05-18,North Shore/Coast Garibaldi,16,British Columbia
 2021-05-18,Richmond,3,British Columbia
 2021-05-18,Vancouver,54,British Columbia
 2021-05-18,Central Vancouver Island,11,British Columbia
@@ -7620,19 +7620,19 @@ date,HA,cases,province
 2021-05-19,Fraser South,116,British Columbia
 2021-05-19,East Kootenay,1,British Columbia
 2021-05-19,Kootenay Boundary,0,British Columbia
-2021-05-19,Okanagan,23,British Columbia
+2021-05-19,Okanagan,24,British Columbia
 2021-05-19,Thompson Cariboo Shuswap,10,British Columbia
 2021-05-19,Northeast,12,British Columbia
 2021-05-19,Northern Interior,11,British Columbia
 2021-05-19,Northwest,0,British Columbia
 2021-05-19,North Shore/Coast Garibaldi,8,British Columbia
 2021-05-19,Richmond,10,British Columbia
-2021-05-19,Vancouver,62,British Columbia
+2021-05-19,Vancouver,61,British Columbia
 2021-05-19,Central Vancouver Island,4,British Columbia
 2021-05-19,North Vancouver Island,4,British Columbia
 2021-05-19,South Vancouver Island,4,British Columbia
 2021-05-20,Fraser East,52,British Columbia
-2021-05-20,Fraser North,57,British Columbia
+2021-05-20,Fraser North,58,British Columbia
 2021-05-20,Fraser South,138,British Columbia
 2021-05-20,East Kootenay,2,British Columbia
 2021-05-20,Kootenay Boundary,1,British Columbia
@@ -7642,14 +7642,14 @@ date,HA,cases,province
 2021-05-20,Northern Interior,7,British Columbia
 2021-05-20,Northwest,4,British Columbia
 2021-05-20,North Shore/Coast Garibaldi,6,British Columbia
-2021-05-20,Richmond,9,British Columbia
-2021-05-20,Vancouver,72,British Columbia
+2021-05-20,Richmond,8,British Columbia
+2021-05-20,Vancouver,73,British Columbia
 2021-05-20,Central Vancouver Island,4,British Columbia
 2021-05-20,North Vancouver Island,2,British Columbia
 2021-05-20,South Vancouver Island,1,British Columbia
 2021-05-21,Fraser East,45,British Columbia
 2021-05-21,Fraser North,45,British Columbia
-2021-05-21,Fraser South,118,British Columbia
+2021-05-21,Fraser South,117,British Columbia
 2021-05-21,East Kootenay,2,British Columbia
 2021-05-21,Kootenay Boundary,0,British Columbia
 2021-05-21,Okanagan,36,British Columbia
@@ -7663,12 +7663,12 @@ date,HA,cases,province
 2021-05-21,Central Vancouver Island,7,British Columbia
 2021-05-21,North Vancouver Island,2,British Columbia
 2021-05-21,South Vancouver Island,7,British Columbia
-2021-05-22,Fraser East,52,British Columbia
+2021-05-22,Fraser East,53,British Columbia
 2021-05-22,Fraser North,49,British Columbia
 2021-05-22,Fraser South,109,British Columbia
 2021-05-22,East Kootenay,1,British Columbia
 2021-05-22,Kootenay Boundary,0,British Columbia
-2021-05-22,Okanagan,33,British Columbia
+2021-05-22,Okanagan,32,British Columbia
 2021-05-22,Thompson Cariboo Shuswap,4,British Columbia
 2021-05-22,Northeast,14,British Columbia
 2021-05-22,Northern Interior,2,British Columbia
@@ -7681,7 +7681,7 @@ date,HA,cases,province
 2021-05-22,South Vancouver Island,3,British Columbia
 2021-05-23,Fraser East,37,British Columbia
 2021-05-23,Fraser North,48,British Columbia
-2021-05-23,Fraser South,106,British Columbia
+2021-05-23,Fraser South,105,British Columbia
 2021-05-23,East Kootenay,2,British Columbia
 2021-05-23,Kootenay Boundary,0,British Columbia
 2021-05-23,Okanagan,35,British Columbia
@@ -7713,15 +7713,15 @@ date,HA,cases,province
 2021-05-24,South Vancouver Island,1,British Columbia
 2021-05-25,Fraser East,27,British Columbia
 2021-05-25,Fraser North,36,British Columbia
-2021-05-25,Fraser South,62,British Columbia
+2021-05-25,Fraser South,61,British Columbia
 2021-05-25,East Kootenay,4,British Columbia
 2021-05-25,Kootenay Boundary,0,British Columbia
-2021-05-25,Okanagan,30,British Columbia
+2021-05-25,Okanagan,32,British Columbia
 2021-05-25,Thompson Cariboo Shuswap,5,British Columbia
 2021-05-25,Northeast,8,British Columbia
 2021-05-25,Northern Interior,2,British Columbia
 2021-05-25,Northwest,0,British Columbia
-2021-05-25,North Shore/Coast Garibaldi,10,British Columbia
+2021-05-25,North Shore/Coast Garibaldi,9,British Columbia
 2021-05-25,Richmond,16,British Columbia
 2021-05-25,Vancouver,42,British Columbia
 2021-05-25,Central Vancouver Island,5,British Columbia
@@ -7730,80 +7730,192 @@ date,HA,cases,province
 2021-05-26,Fraser East,27,British Columbia
 2021-05-26,Fraser North,43,British Columbia
 2021-05-26,Fraser South,125,British Columbia
-2021-05-26,East Kootenay,8,British Columbia
+2021-05-26,East Kootenay,7,British Columbia
 2021-05-26,Kootenay Boundary,1,British Columbia
 2021-05-26,Okanagan,56,British Columbia
-2021-05-26,Thompson Cariboo Shuswap,9,British Columbia
+2021-05-26,Thompson Cariboo Shuswap,7,British Columbia
 2021-05-26,Northeast,15,British Columbia
 2021-05-26,Northern Interior,2,British Columbia
 2021-05-26,Northwest,1,British Columbia
 2021-05-26,North Shore/Coast Garibaldi,21,British Columbia
 2021-05-26,Richmond,6,British Columbia
-2021-05-26,Vancouver,68,British Columbia
+2021-05-26,Vancouver,67,British Columbia
 2021-05-26,Central Vancouver Island,3,British Columbia
 2021-05-26,North Vancouver Island,1,British Columbia
 2021-05-26,South Vancouver Island,10,British Columbia
-2021-05-27,Fraser East,24,British Columbia
-2021-05-27,Fraser North,60,British Columbia
-2021-05-27,Fraser South,82,British Columbia
-2021-05-27,East Kootenay,1,British Columbia
-2021-05-27,Kootenay Boundary,0,British Columbia
-2021-05-27,Okanagan,48,British Columbia
+2021-05-27,Fraser East,26,British Columbia
+2021-05-27,Fraser North,56,British Columbia
+2021-05-27,Fraser South,80,British Columbia
+2021-05-27,East Kootenay,2,British Columbia
+2021-05-27,Kootenay Boundary,1,British Columbia
+2021-05-27,Okanagan,51,British Columbia
 2021-05-27,Thompson Cariboo Shuswap,8,British Columbia
-2021-05-27,Northeast,6,British Columbia
+2021-05-27,Northeast,7,British Columbia
 2021-05-27,Northern Interior,9,British Columbia
 2021-05-27,Northwest,0,British Columbia
-2021-05-27,North Shore/Coast Garibaldi,24,British Columbia
+2021-05-27,North Shore/Coast Garibaldi,23,British Columbia
 2021-05-27,Richmond,5,British Columbia
-2021-05-27,Vancouver,40,British Columbia
+2021-05-27,Vancouver,43,British Columbia
 2021-05-27,Central Vancouver Island,2,British Columbia
 2021-05-27,North Vancouver Island,0,British Columbia
 2021-05-27,South Vancouver Island,1,British Columbia
-2021-05-28,Fraser East,21,British Columbia
+2021-05-28,Fraser East,24,British Columbia
 2021-05-28,Fraser North,35,British Columbia
-2021-05-28,Fraser South,65,British Columbia
-2021-05-28,East Kootenay,8,British Columbia
+2021-05-28,Fraser South,72,British Columbia
+2021-05-28,East Kootenay,7,British Columbia
 2021-05-28,Kootenay Boundary,1,British Columbia
-2021-05-28,Okanagan,28,British Columbia
-2021-05-28,Thompson Cariboo Shuswap,2,British Columbia
-2021-05-28,Northeast,14,British Columbia
+2021-05-28,Okanagan,29,British Columbia
+2021-05-28,Thompson Cariboo Shuswap,1,British Columbia
+2021-05-28,Northeast,12,British Columbia
 2021-05-28,Northern Interior,4,British Columbia
 2021-05-28,Northwest,0,British Columbia
-2021-05-28,North Shore/Coast Garibaldi,16,British Columbia
-2021-05-28,Richmond,5,British Columbia
-2021-05-28,Vancouver,34,British Columbia
+2021-05-28,North Shore/Coast Garibaldi,17,British Columbia
+2021-05-28,Richmond,4,British Columbia
+2021-05-28,Vancouver,36,British Columbia
 2021-05-28,Central Vancouver Island,2,British Columbia
 2021-05-28,North Vancouver Island,0,British Columbia
 2021-05-28,South Vancouver Island,9,British Columbia
-2021-05-29,Fraser East,33,British Columbia
+2021-05-29,Fraser East,31,British Columbia
 2021-05-29,Fraser North,54,British Columbia
-2021-05-29,Fraser South,70,British Columbia
-2021-05-29,East Kootenay,0,British Columbia
+2021-05-29,Fraser South,75,British Columbia
+2021-05-29,East Kootenay,1,British Columbia
 2021-05-29,Kootenay Boundary,0,British Columbia
-2021-05-29,Okanagan,28,British Columbia
-2021-05-29,Thompson Cariboo Shuswap,6,British Columbia
-2021-05-29,Northeast,8,British Columbia
-2021-05-29,Northern Interior,3,British Columbia
+2021-05-29,Okanagan,29,British Columbia
+2021-05-29,Thompson Cariboo Shuswap,7,British Columbia
+2021-05-29,Northeast,10,British Columbia
+2021-05-29,Northern Interior,2,British Columbia
 2021-05-29,Northwest,1,British Columbia
 2021-05-29,North Shore/Coast Garibaldi,4,British Columbia
-2021-05-29,Richmond,5,British Columbia
+2021-05-29,Richmond,6,British Columbia
 2021-05-29,Vancouver,21,British Columbia
-2021-05-29,Central Vancouver Island,4,British Columbia
+2021-05-29,Central Vancouver Island,5,British Columbia
 2021-05-29,North Vancouver Island,0,British Columbia
 2021-05-29,South Vancouver Island,1,British Columbia
-2021-05-30,Fraser East,18,British Columbia
+2021-05-30,Fraser East,21,British Columbia
 2021-05-30,Fraser North,15,British Columbia
-2021-05-30,Fraser South,73,British Columbia
+2021-05-30,Fraser South,75,British Columbia
 2021-05-30,East Kootenay,1,British Columbia
 2021-05-30,Kootenay Boundary,0,British Columbia
-2021-05-30,Okanagan,26,British Columbia
-2021-05-30,Thompson Cariboo Shuswap,8,British Columbia
+2021-05-30,Okanagan,28,British Columbia
+2021-05-30,Thompson Cariboo Shuswap,10,British Columbia
 2021-05-30,Northeast,8,British Columbia
 2021-05-30,Northern Interior,2,British Columbia
 2021-05-30,Northwest,0,British Columbia
-2021-05-30,North Shore/Coast Garibaldi,11,British Columbia
+2021-05-30,North Shore/Coast Garibaldi,10,British Columbia
 2021-05-30,Richmond,9,British Columbia
-2021-05-30,Vancouver,40,British Columbia
+2021-05-30,Vancouver,42,British Columbia
 2021-05-30,Central Vancouver Island,1,British Columbia
 2021-05-30,North Vancouver Island,0,British Columbia
 2021-05-30,South Vancouver Island,0,British Columbia
+2021-05-31,Fraser East,21,British Columbia
+2021-05-31,Fraser North,34,British Columbia
+2021-05-31,Fraser South,44,British Columbia
+2021-05-31,East Kootenay,3,British Columbia
+2021-05-31,Kootenay Boundary,0,British Columbia
+2021-05-31,Okanagan,5,British Columbia
+2021-05-31,Thompson Cariboo Shuswap,3,British Columbia
+2021-05-31,Northeast,1,British Columbia
+2021-05-31,Northern Interior,1,British Columbia
+2021-05-31,Northwest,0,British Columbia
+2021-05-31,North Shore/Coast Garibaldi,13,British Columbia
+2021-05-31,Richmond,4,British Columbia
+2021-05-31,Vancouver,24,British Columbia
+2021-05-31,Central Vancouver Island,0,British Columbia
+2021-05-31,North Vancouver Island,0,British Columbia
+2021-05-31,South Vancouver Island,0,British Columbia
+2021-06-01,Fraser East,38,British Columbia
+2021-06-01,Fraser North,37,British Columbia
+2021-06-01,Fraser South,43,British Columbia
+2021-06-01,East Kootenay,4,British Columbia
+2021-06-01,Kootenay Boundary,1,British Columbia
+2021-06-01,Okanagan,25,British Columbia
+2021-06-01,Thompson Cariboo Shuswap,3,British Columbia
+2021-06-01,Northeast,4,British Columbia
+2021-06-01,Northern Interior,0,British Columbia
+2021-06-01,Northwest,0,British Columbia
+2021-06-01,North Shore/Coast Garibaldi,6,British Columbia
+2021-06-01,Richmond,4,British Columbia
+2021-06-01,Vancouver,29,British Columbia
+2021-06-01,Central Vancouver Island,0,British Columbia
+2021-06-01,North Vancouver Island,1,British Columbia
+2021-06-01,South Vancouver Island,1,British Columbia
+2021-06-02,Fraser East,19,British Columbia
+2021-06-02,Fraser North,34,British Columbia
+2021-06-02,Fraser South,41,British Columbia
+2021-06-02,East Kootenay,0,British Columbia
+2021-06-02,Kootenay Boundary,2,British Columbia
+2021-06-02,Okanagan,29,British Columbia
+2021-06-02,Thompson Cariboo Shuswap,3,British Columbia
+2021-06-02,Northeast,2,British Columbia
+2021-06-02,Northern Interior,4,British Columbia
+2021-06-02,Northwest,1,British Columbia
+2021-06-02,North Shore/Coast Garibaldi,11,British Columbia
+2021-06-02,Richmond,12,British Columbia
+2021-06-02,Vancouver,41,British Columbia
+2021-06-02,Central Vancouver Island,0,British Columbia
+2021-06-02,North Vancouver Island,1,British Columbia
+2021-06-02,South Vancouver Island,1,British Columbia
+2021-06-03,Fraser East,24,British Columbia
+2021-06-03,Fraser North,28,British Columbia
+2021-06-03,Fraser South,45,British Columbia
+2021-06-03,East Kootenay,1,British Columbia
+2021-06-03,Kootenay Boundary,3,British Columbia
+2021-06-03,Okanagan,24,British Columbia
+2021-06-03,Thompson Cariboo Shuswap,2,British Columbia
+2021-06-03,Northeast,4,British Columbia
+2021-06-03,Northern Interior,3,British Columbia
+2021-06-03,Northwest,0,British Columbia
+2021-06-03,North Shore/Coast Garibaldi,3,British Columbia
+2021-06-03,Richmond,7,British Columbia
+2021-06-03,Vancouver,32,British Columbia
+2021-06-03,Central Vancouver Island,1,British Columbia
+2021-06-03,North Vancouver Island,1,British Columbia
+2021-06-03,South Vancouver Island,1,British Columbia
+2021-06-04,Fraser East,18,British Columbia
+2021-06-04,Fraser North,51,British Columbia
+2021-06-04,Fraser South,49,British Columbia
+2021-06-04,East Kootenay,6,British Columbia
+2021-06-04,Kootenay Boundary,5,British Columbia
+2021-06-04,Okanagan,42,British Columbia
+2021-06-04,Thompson Cariboo Shuswap,2,British Columbia
+2021-06-04,Northeast,3,British Columbia
+2021-06-04,Northern Interior,3,British Columbia
+2021-06-04,Northwest,1,British Columbia
+2021-06-04,North Shore/Coast Garibaldi,6,British Columbia
+2021-06-04,Richmond,4,British Columbia
+2021-06-04,Vancouver,26,British Columbia
+2021-06-04,Central Vancouver Island,0,British Columbia
+2021-06-04,North Vancouver Island,0,British Columbia
+2021-06-04,South Vancouver Island,1,British Columbia
+2021-06-05,Fraser East,14,British Columbia
+2021-06-05,Fraser North,23,British Columbia
+2021-06-05,Fraser South,41,British Columbia
+2021-06-05,East Kootenay,1,British Columbia
+2021-06-05,Kootenay Boundary,1,British Columbia
+2021-06-05,Okanagan,25,British Columbia
+2021-06-05,Thompson Cariboo Shuswap,1,British Columbia
+2021-06-05,Northeast,0,British Columbia
+2021-06-05,Northern Interior,1,British Columbia
+2021-06-05,Northwest,0,British Columbia
+2021-06-05,North Shore/Coast Garibaldi,6,British Columbia
+2021-06-05,Richmond,4,British Columbia
+2021-06-05,Vancouver,9,British Columbia
+2021-06-05,Central Vancouver Island,2,British Columbia
+2021-06-05,North Vancouver Island,0,British Columbia
+2021-06-05,South Vancouver Island,3,British Columbia
+2021-06-06,Fraser East,17,British Columbia
+2021-06-06,Fraser North,31,British Columbia
+2021-06-06,Fraser South,36,British Columbia
+2021-06-06,East Kootenay,4,British Columbia
+2021-06-06,Kootenay Boundary,0,British Columbia
+2021-06-06,Okanagan,12,British Columbia
+2021-06-06,Thompson Cariboo Shuswap,1,British Columbia
+2021-06-06,Northeast,3,British Columbia
+2021-06-06,Northern Interior,4,British Columbia
+2021-06-06,Northwest,2,British Columbia
+2021-06-06,North Shore/Coast Garibaldi,1,British Columbia
+2021-06-06,Richmond,6,British Columbia
+2021-06-06,Vancouver,12,British Columbia
+2021-06-06,Central Vancouver Island,1,British Columbia
+2021-06-06,North Vancouver Island,0,British Columbia
+2021-06-06,South Vancouver Island,2,British Columbia
