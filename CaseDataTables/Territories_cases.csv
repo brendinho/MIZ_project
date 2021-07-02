@@ -1,4 +1,4 @@
-province,date,HA,cases
+province,date,HR,cases
 Nunavut,2020-01-25,Nunavut,0
 Nunavut,2020-01-26,Nunavut,0
 Nunavut,2020-01-27,Nunavut,0
@@ -499,6 +499,26 @@ Nunavut,2021-06-04,Nunavut,1
 Nunavut,2021-06-05,Nunavut,0
 Nunavut,2021-06-06,Nunavut,0
 Nunavut,2021-06-07,Nunavut,0
+Nunavut,2021-06-08,Nunavut,0
+Nunavut,2021-06-09,Nunavut,0
+Nunavut,2021-06-10,Nunavut,1
+Nunavut,2021-06-11,Nunavut,4
+Nunavut,2021-06-12,Nunavut,3
+Nunavut,2021-06-13,Nunavut,0
+Nunavut,2021-06-14,Nunavut,0
+Nunavut,2021-06-15,Nunavut,0
+Nunavut,2021-06-16,Nunavut,0
+Nunavut,2021-06-17,Nunavut,0
+Nunavut,2021-06-18,Nunavut,0
+Nunavut,2021-06-19,Nunavut,0
+Nunavut,2021-06-20,Nunavut,0
+Nunavut,2021-06-21,Nunavut,0
+Nunavut,2021-06-22,Nunavut,0
+Nunavut,2021-06-23,Nunavut,0
+Nunavut,2021-06-24,Nunavut,0
+Nunavut,2021-06-25,Nunavut,0
+Nunavut,2021-06-26,Nunavut,0
+Nunavut,2021-06-27,Nunavut,0
 Northwest Territories,2020-01-25,Northwest Territories,0
 Northwest Territories,2020-01-26,Northwest Territories,0
 Northwest Territories,2020-01-27,Northwest Territories,0
@@ -999,6 +1019,26 @@ Northwest Territories,2021-06-04,Northwest Territories,0
 Northwest Territories,2021-06-05,Northwest Territories,0
 Northwest Territories,2021-06-06,Northwest Territories,0
 Northwest Territories,2021-06-07,Northwest Territories,0
+Northwest Territories,2021-06-08,Northwest Territories,0
+Northwest Territories,2021-06-09,Northwest Territories,0
+Northwest Territories,2021-06-10,Northwest Territories,0
+Northwest Territories,2021-06-11,Northwest Territories,0
+Northwest Territories,2021-06-12,Northwest Territories,0
+Northwest Territories,2021-06-13,Northwest Territories,0
+Northwest Territories,2021-06-14,Northwest Territories,0
+Northwest Territories,2021-06-15,Northwest Territories,0
+Northwest Territories,2021-06-16,Northwest Territories,0
+Northwest Territories,2021-06-17,Northwest Territories,0
+Northwest Territories,2021-06-18,Northwest Territories,0
+Northwest Territories,2021-06-19,Northwest Territories,0
+Northwest Territories,2021-06-20,Northwest Territories,0
+Northwest Territories,2021-06-21,Northwest Territories,0
+Northwest Territories,2021-06-22,Northwest Territories,0
+Northwest Territories,2021-06-23,Northwest Territories,0
+Northwest Territories,2021-06-24,Northwest Territories,0
+Northwest Territories,2021-06-25,Northwest Territories,0
+Northwest Territories,2021-06-26,Northwest Territories,0
+Northwest Territories,2021-06-27,Northwest Territories,0
 Prince Edward Island,2020-01-25,Prince Edward Island,0
 Prince Edward Island,2020-01-26,Prince Edward Island,0
 Prince Edward Island,2020-01-27,Prince Edward Island,0
@@ -1499,6 +1539,26 @@ Prince Edward Island,2021-06-04,Prince Edward Island,0
 Prince Edward Island,2021-06-05,Prince Edward Island,0
 Prince Edward Island,2021-06-06,Prince Edward Island,0
 Prince Edward Island,2021-06-07,Prince Edward Island,0
+Prince Edward Island,2021-06-08,Prince Edward Island,0
+Prince Edward Island,2021-06-09,Prince Edward Island,0
+Prince Edward Island,2021-06-10,Prince Edward Island,0
+Prince Edward Island,2021-06-11,Prince Edward Island,0
+Prince Edward Island,2021-06-12,Prince Edward Island,0
+Prince Edward Island,2021-06-13,Prince Edward Island,0
+Prince Edward Island,2021-06-14,Prince Edward Island,0
+Prince Edward Island,2021-06-15,Prince Edward Island,0
+Prince Edward Island,2021-06-16,Prince Edward Island,0
+Prince Edward Island,2021-06-17,Prince Edward Island,0
+Prince Edward Island,2021-06-18,Prince Edward Island,0
+Prince Edward Island,2021-06-19,Prince Edward Island,0
+Prince Edward Island,2021-06-20,Prince Edward Island,0
+Prince Edward Island,2021-06-21,Prince Edward Island,0
+Prince Edward Island,2021-06-22,Prince Edward Island,0
+Prince Edward Island,2021-06-23,Prince Edward Island,0
+Prince Edward Island,2021-06-24,Prince Edward Island,0
+Prince Edward Island,2021-06-25,Prince Edward Island,0
+Prince Edward Island,2021-06-26,Prince Edward Island,0
+Prince Edward Island,2021-06-27,Prince Edward Island,0
 Yukon,2020-01-25,Yukon,0
 Yukon,2020-01-26,Yukon,0
 Yukon,2020-01-27,Yukon,0
@@ -1999,3 +2059,23 @@ Yukon,2021-06-04,Yukon,0
 Yukon,2021-06-05,Yukon,0
 Yukon,2021-06-06,Yukon,3
 Yukon,2021-06-07,Yukon,0
+Yukon,2021-06-08,Yukon,1
+Yukon,2021-06-09,Yukon,4
+Yukon,2021-06-10,Yukon,4
+Yukon,2021-06-11,Yukon,2
+Yukon,2021-06-12,Yukon,0
+Yukon,2021-06-13,Yukon,6
+Yukon,2021-06-14,Yukon,0
+Yukon,2021-06-15,Yukon,16
+Yukon,2021-06-16,Yukon,16
+Yukon,2021-06-17,Yukon,9
+Yukon,2021-06-18,Yukon,0
+Yukon,2021-06-19,Yukon,42
+Yukon,2021-06-20,Yukon,0
+Yukon,2021-06-21,Yukon,0
+Yukon,2021-06-22,Yukon,33
+Yukon,2021-06-23,Yukon,4
+Yukon,2021-06-24,Yukon,18
+Yukon,2021-06-25,Yukon,22
+Yukon,2021-06-26,Yukon,0
+Yukon,2021-06-27,Yukon,0

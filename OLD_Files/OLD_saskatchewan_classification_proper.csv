@@ -1,0 +1,503 @@
+district,town,population,commuting_population,commute_1,commute_2,commute_3,commute_4
+Central East,Alice Beach,51.00,,,,,
+Central East,Annaheim,210.00,100.00,55.00,40.00,10.00,0.00
+Central East,Arran,25.00,,,,,
+Central East,Atwater,30.00,,,,,
+Central East,Bangor,38.00,,,,,
+Central East,Bird's Point,112.00,40.00,0.00,45.00,0.00,0.00
+Central East,Bredenbury,372.00,145.00,10.00,70.00,70.00,0.00
+Central East,Bruno,611.00,175.00,55.00,60.00,50.00,0.00
+Central East,Buchanan,519.00,100.00,15.00,70.00,10.00,0.00
+Central East,Bulyea,113.00,20.00,10.00,8.00,0.00,0.00
+Central East,Calder,460.00,75.00,0.00,55.00,10.00,0.00
+Central East,Canoe Narrows,,,,,,
+Central East,Chamberlain,90.00,60.00,25.00,25.00,15.00,0.00
+Central East,Chorney Beach,24.00,,,,,
+Central East,Churchbridge,"1,515.00",585.00,90.00,400.00,55.00,35.00
+Central East,Cote First Nation,748.00,120.00,80.00,40.00,0.00,10.00
+Central East,Dafoe,15.00,,,,,
+Central East,Dilke,98.00,25.00,0.00,25.00,0.00,0.00
+Central East,Drake,197.00,60.00,20.00,35.00,10.00,0.00
+Central East,Dubuc,61.00,20.00,0.00,20.00,0.00,0.00
+Central East,Duff,30.00,,,,,
+Central East,Duval,83.00,25.00,10.00,0.00,25.00,0.00
+Central East,Ebenezer,185.00,70.00,0.00,65.00,0.00,0.00
+Central East,Elfros,441.00,120.00,0.00,100.00,25.00,0.00
+Central East,Endeavour,65.00,15.00,0.00,15.00,0.00,0.00
+Central East,Englefeld,285.00,115.00,35.00,30.00,50.00,0.00
+Central East,Esterhazy,"2,502.00","1,075.00",910.00,125.00,35.00,10.00
+Central East,Etters Beach,30.00,,,,,
+Central East,Fenwood,30.00,,,,,
+Central East,Foam Lake,"1,727.00",515.00,325.00,140.00,55.00,0.00
+Central East,Fosston,45.00,0.00,0.00,0.00,0.00,0.00
+Central East,Gerald,136.00,65.00,0.00,60.00,10.00,0.00
+Central East,Glen Harbour,67.00,35.00,0.00,35.00,0.00,0.00
+Central East,Goodeve,40.00,10.00,0.00,10.00,0.00,0.00
+Central East,Govan,194.00,80.00,35.00,25.00,20.00,0.00
+Central East,Grandview Beach,35.00,,,,,
+Central East,Grayson,723.00,230.00,20.00,195.00,20.00,0.00
+Central East,Holdfast,247.00,70.00,35.00,25.00,10.00,0.00
+Central East,Hubbard,35.00,,,,,
+Central East,Humboldt,"6,804.00","2,735.00","1,855.00",775.00,390.00,20.00
+Central East,Hyas,70.00,35.00,0.00,35.00,0.00,0.00
+Central East,Imperial,360.00,65.00,35.00,30.00,0.00,0.00
+Central East,Invermay,273.00,90.00,30.00,30.00,20.00,10.00
+Central East,Island View,74.00,,,,,
+Central East,Ituna,"1,075.00",245.00,115.00,95.00,40.00,0.00
+Central East,Jansen,96.00,30.00,0.00,15.00,10.00,0.00
+Central East,Kamsack,"1,898.00",680.00,530.00,130.00,25.00,0.00
+Central East,Kelliher,217.00,90.00,55.00,25.00,10.00,0.00
+Central East,Kelvington,"1,232.00",375.00,230.00,125.00,30.00,0.00
+Central East,Killaly,65.00,10.00,0.00,10.00,0.00,0.00
+Central East,Lake Lenore,871.00,380.00,65.00,245.00,55.00,0.00
+Central East,Langenburg,"1,722.00",680.00,290.00,335.00,35.00,25.00
+Central East,Lanigan,"1,377.00",535.00,320.00,110.00,95.00,10.00
+Central East,Lemberg,313.00,60.00,20.00,15.00,15.00,0.00
+Central East,Leross,46.00,,,,,
+Central East,LeRoy,952.00,345.00,100.00,60.00,185.00,0.00
+Central East,Leslie Beach,10.00,,,,,
+Central East,Lestock,95.00,10.00,10.00,0.00,0.00,0.00
+Central East,Lintlaw,172.00,40.00,0.00,20.00,20.00,10.00
+Central East,MacNutt,65.00,25.00,10.00,10.00,0.00,10.00
+Central East,Manitou Beach,314.00,130.00,45.00,75.00,10.00,0.00
+Central East,Margo,83.00,10.00,0.00,0.00,0.00,0.00
+Central East,Melville,"4,562.00","1,700.00","1,280.00",80.00,335.00,10.00
+Central East,Melville Beach,19.00,,,,,
+Central East,Middle Lake,241.00,85.00,50.00,35.00,0.00,0.00
+Central East,Muenster,430.00,195.00,45.00,115.00,40.00,0.00
+Central East,Muskowekwan First Nation,456.00,50.00,35.00,10.00,0.00,0.00
+Central East,Neudorf,263.00,65.00,20.00,25.00,10.00,10.00
+Central East,Nokomis,404.00,185.00,120.00,55.00,20.00,0.00
+Central East,Norquay,434.00,95.00,70.00,10.00,0.00,10.00
+Central East,Pelly,285.00,50.00,25.00,25.00,0.00,0.00
+Central East,Pilger,65.00,35.00,10.00,25.00,0.00,0.00
+Central East,Preeceville,"2,044.00",495.00,245.00,210.00,30.00,10.00
+Central East,Punnichy,213.00,75.00,40.00,25.00,0.00,0.00
+Central East,Quill Lake,387.00,115.00,60.00,25.00,30.00,0.00
+Central East,Quinton,101.00,20.00,0.00,15.00,10.00,0.00
+Central East,Rama,80.00,10.00,0.00,0.00,0.00,0.00
+Central East,Raymore,575.00,195.00,125.00,50.00,20.00,0.00
+Central East,Rhein,170.00,80.00,10.00,65.00,0.00,0.00
+Central East,Rose Valley,282.00,100.00,60.00,25.00,15.00,0.00
+Central East,Saltcoats,"1,196.00",365.00,60.00,95.00,210.00,0.00
+Central East,Semans,196.00,75.00,30.00,20.00,25.00,10.00
+Central East,Sheho,105.00,20.00,10.00,0.00,0.00,0.00
+Central East,Simpson,127.00,30.00,15.00,0.00,10.00,0.00
+Central East,Spalding,697.00,165.00,30.00,40.00,110.00,0.00
+Central East,Springside,502.00,215.00,25.00,175.00,10.00,0.00
+Central East,Spy Hill,491.00,195.00,15.00,165.00,10.00,0.00
+Central East,St. Benedict,84.00,25.00,0.00,10.00,10.00,0.00
+Central East,St. Gregor,97.00,30.00,15.00,20.00,0.00,0.00
+Central East,Stenen,90.00,15.00,20.00,0.00,0.00,0.00
+Central East,Strasbourg,800.00,280.00,160.00,115.00,10.00,0.00
+Central East,Sturgis,644.00,185.00,95.00,75.00,15.00,0.00
+Central East,Sunset Cove,18.00,,,,,
+Central East,Tantallon,91.00,45.00,0.00,50.00,0.00,0.00
+Central East,Theodore,323.00,145.00,25.00,100.00,20.00,0.00
+Central East,Togo,86.00,15.00,0.00,10.00,10.00,0.00
+Central East,Wadena,"1,288.00",420.00,320.00,60.00,35.00,15.00
+Central East,Waldron,15.00,,,,,
+Central East,Watrous,"1,900.00",775.00,555.00,180.00,35.00,0.00
+Central East,Watson,697.00,215.00,145.00,15.00,65.00,0.00
+Central East,Wee Too Beach,79.00,20.00,0.00,25.00,0.00,0.00
+Central East,West End,37.00,,,,,
+Central East,Wynyard,"1,798.00",770.00,635.00,60.00,80.00,0.00
+Central East,Yarbo,57.00,20.00,0.00,20.00,0.00,0.00
+Central East,Yorkton,"16,343.00","6,985.00","6,150.00",385.00,405.00,40.00
+Central East,Young,244.00,115.00,15.00,90.00,0.00,0.00
+Central East,Zelma,35.00,,,,,
+Central West,Aylesbury,40.00,,,,,
+Central West,Beechy,228.00,45.00,35.00,0.00,10.00,0.00
+Central West,Biggar,"3,024.00",955.00,645.00,180.00,120.00,10.00
+Central West,Bladworth,65.00,20.00,0.00,140.00,0.00,0.00
+Central West,Brock,409.00,120.00,10.00,90.00,10.00,0.00
+Central West,Broderick,85.00,35.00,10.00,25.00,0.00,0.00
+Central West,Coleville,305.00,120.00,65.00,45.00,10.00,10.00
+Central West,Conquest,160.00,60.00,10.00,10.00,35.00,0.00
+Central West,Coteau Beach,475.00,110.00,30.00,45.00,30.00,10.00
+Central West,Craik,651.00,150.00,50.00,50.00,55.00,0.00
+Central West,Davidson,"1,048.00",440.00,375.00,45.00,25.00,0.00
+Central West,Dinsmore,289.00,60.00,35.00,15.00,15.00,0.00
+Central West,Dodsland,215.00,40.00,15.00,20.00,0.00,0.00
+Central West,Eatonia,524.00,195.00,80.00,40.00,75.00,0.00
+Central West,Elbow,337.00,70.00,45.00,15.00,10.00,0.00
+Central West,Elrose,496.00,200.00,145.00,10.00,55.00,0.00
+Central West,Eston,"1,061.00",380.00,295.00,45.00,35.00,0.00
+Central West,Flaxcombe,124.00,40.00,10.00,30.00,0.00,0.00
+Central West,Glenside,76.00,15.00,0.00,15.00,0.00,0.00
+Central West,Harris,386.00,125.00,10.00,75.00,45.00,0.00
+Central West,Hawarden,52.00,20.00,0.00,20.00,10.00,0.00
+Central West,Kenaston,282.00,120.00,65.00,45.00,0.00,0.00
+Central West,Kerrobert,"1,026.00",405.00,290.00,105.00,10.00,10.00
+Central West,Kindersley,"5,620.00","2,225.00","1,815.00",310.00,45.00,10.00
+Central West,Kinley,60.00,25.00,0.00,25.00,0.00,0.00
+Central West,Kyle,449.00,145.00,100.00,40.00,15.00,0.00
+Central West,Loreburn,464.00,80.00,15.00,65.00,0.00,10.00
+Central West,Lucky Lake,289.00,65.00,45.00,15.00,10.00,10.00
+Central West,Luseland,623.00,210.00,105.00,85.00,0.00,20.00
+Central West,Macrorie,68.00,45.00,15.00,10.00,20.00,0.00
+Central West,Major,35.00,,,,,
+Central West,Marengo,166.00,25.00,0.00,20.00,0.00,0.00
+Central West,Milden,494.00,150.00,15.00,80.00,45.00,0.00
+Central West,Mistusinne,77.00,,,,,
+Central West,Netherhill,25.00,,,,,
+Central West,Outlook,"2,279.00",760.00,605.00,80.00,65.00,10.00
+Central West,Perdue,779.00,200.00,55.00,50.00,95.00,0.00
+Central West,Plenty,164.00,95.00,60.00,30.00,10.00,0.00
+Central West,Riverhurst,130.00,45.00,15.00,30.00,0.00,0.00
+Central West,Rosetown,"2,451.00","1,055.00",905.00,45.00,95.00,0.00
+Central West,Smiley,60.00,,,,,
+Central West,Strongfield,40.00,,,,,
+Central West,Tessier,25.00,,,,,
+Central West,Tramping Lake,435.00,55.00,10.00,45.00,0.00,0.00
+Central West,Tugaske,75.00,15.00,0.00,10.00,0.00,0.00
+Central West,Wiseton,79.00,30.00,15.00,10.00,10.00,0.00
+Central West,Zealandia,80.00,35.00,10.00,30.00,0.00,0.00
+Far North Central,Fond du Lac,903.00,215.00,150.00,60.00,10.00,0.00
+Far North Central,Stony Rapids,262.00,120.00,85.00,30.00,0.00,0.00
+Far North Central,Uranium City,73.00,20.00,15.00,0.00,0.00,0.00
+Far North East,Air Ronge,"1,016.00",490.00,115.00,360.00,0.00,0.00
+Far North East,Brabant Lake,62.00,15.00,10.00,10.00,0.00,0.00
+Far North East,Creighton,"1,402.00",635.00,155.00,40.00,10.00,440.00
+Far North East,Denare Beach,779.00,310.00,40.00,70.00,0.00,200.00
+Far North East,Flin Flon,203.00,75.00,10.00,10.00,0.00,55.00
+Far North East,Hatchet Lake First Nation,,,,,,
+Far North East,La Ronge,"2,688.00","1,140.00",890.00,230.00,10.00,10.00
+Far North East,Lac La Ronge Indian Band,"2,017.00",310.00,50.00,255.00,10.00,0.00
+Far North East,Missinipe,5.00,,,,,
+Far North East,Pelican Narrows,"2,499.00",235.00,70.00,170.00,0.00,0.00
+Far North East,Peter Ballantyne Cree Nation,,,,,,
+Far North East,Pinehouse,"1,052.00",255.00,185.00,65.00,0.00,0.00
+Far North East,Sandy Bay,697.00,90.00,85.00,10.00,0.00,0.00
+Far North East,Southend,"1,045.00",175.00,140.00,35.00,0.00,0.00
+Far North East,Wollaston Lake,99.00,20.00,15.00,0.00,0.00,0.00
+Far North West,Beauval,640.00,140.00,85.00,30.00,25.00,0.00
+Far North West,Canora,"2,024.00",605.00,375.00,215.00,15.00,0.00
+Far North West,Clearwater River Dene Nation,857.00,125.00,70.00,50.00,0.00,0.00
+Far North West,Cole Bay,170.00,25.00,15.00,0.00,0.00,0.00
+Far North West,Dore Lake,30.00,,,,,
+Far North West,Dorintosh,134.00,25.00,15.00,10.00,0.00,0.00
+Far North West,English River First Nation,,,,,,
+Far North West,Goodsoil,282.00,60.00,45.00,20.00,0.00,0.00
+Far North West,Green Lake,429.00,65.00,20.00,10.00,30.00,0.00
+Far North West,Greig Lake,10.00,,,,,
+Far North West,Ile-a-la-Crosse,"1,296.00",370.00,245.00,120.00,0.00,10.00
+Far North West,Jans Bay,152.00,20.00,0.00,10.00,0.00,0.00
+Far North West,La Loche,"2,372.00",330.00,290.00,20.00,10.00,15.00
+Far North West,Loon Lake,"1,044.00",305.00,45.00,230.00,0.00,15.00
+Far North West,Makwa,"1,091.00",105.00,50.00,60.00,0.00,0.00
+Far North West,Meadow Lake,"7,845.00","3,040.00","1,805.00","1,055.00",435.00,100.00
+Far North West,Michel Village,57.00,10.00,10.00,10.00,10.00,0.00
+Far North West,Patuanak,73.00,10.00,0.00,0.00,0.00,0.00
+Far North West,Pierceland,598.00,205.00,85.00,15.00,0.00,110.00
+Far North West,St. George’s Hill,131.00,20.00,0.00,15.00,0.00,0.00
+Far North West,Turnor Lake,625.00,105.00,30.00,45.00,10.00,0.00
+North Central,Albertville,86.00,45.00,10.00,35.00,,
+North Central,Alvena,60.00,20.00,0.00,10.00,10.00,0.00
+North Central,Big River,"3,142.00",730.00,370.00,250.00,65.00,50.00
+North Central,Birch Hills,"1,689.00",545.00,135.00,400.00,10.00,0.00
+North Central,Blaine Lake,790.00,175.00,75.00,55.00,55.00,0.00
+North Central,Candle Lake,840.00,275.00,80.00,130.00,65.00,0.00
+North Central,Canwood,"1,713.00",465.00,45.00,335.00,85.00,0.00
+North Central,Chitek Lake,959.00,150.00,45.00,80.00,15.00,0.00
+North Central,Christopher Lake,289.00,70.00,20.00,45.00,10.00,0.00
+North Central,Cudworth,814.00,225.00,75.00,80.00,70.00,0.00
+North Central,Debden,337.00,105.00,70.00,15.00,20.00,0.00
+North Central,Duck Lake,"1,573.00",475.00,45.00,370.00,50.00,10.00
+North Central,Hague,874.00,340.00,135.00,25.00,175.00,0.00
+North Central,Hepburn,688.00,205.00,40.00,30.00,130.00,0.00
+North Central,Laird,"1,654.00",470.00,30.00,145.00,290.00,0.00
+North Central,Leask,399.00,85.00,50.00,25.00,10.00,0.00
+North Central,Marcelin,153.00,25.00,15.00,10.00,0.00,0.00
+North Central,Meath Park,175.00,65.00,0.00,70.00,0.00,0.00
+North Central,Paddockwood,"1,049.00",315.00,15.00,250.00,40.00,20.00
+North Central,Parkside,121.00,60.00,0.00,35.00,20.00,0.00
+North Central,Pebble Baye,45.00,,,,,
+North Central,Prince Albert,"39,644.00","14,620.00","11,940.00","1,750.00",755.00,135.00
+North Central,Rostern,"3,988.00","1,230.00",320.00,430.00,465.00,10.00
+North Central,Shellbrook,"3,031.00","1,085.00",390.00,275.00,415.00,0.00
+North Central,St. Louis,"1,501.00",480.00,95.00,340.00,50.00,0.00
+North Central,Timer Bay,82.00,10.00,10.00,0.00,0.00,0.00
+North Central,Wakaw,922.00,270.00,165.00,50.00,50.00,0.00
+North Central,Wakaw Lake,72.00,35.00,0.00,25.00,10.00,0.00
+North Central,Waldheim,"1,213.00",350.00,160.00,25.00,160.00,0.00
+North Central,Waskesiu,,,,,,
+North Central,Weirdale,50.00,,,,,
+North East,Arborfield,655.00,190.00,65.00,120.00,0.00,0.00
+North East,Archerwill,166.00,55.00,25.00,30.00,0.00,0.00
+North East,Aylsham,65.00,10.00,0.00,0.00,0.00,0.00
+North East,Beatty,60.00,45.00,0.00,15.00,25.00,0.00
+North East,Bjorkdale,"1,052.00",340.00,35.00,280.00,25.00,0.00
+North East,Carrot River,"1,802.00",490.00,295.00,180.00,20.00,0.00
+North East,Choiceland,359.00,105.00,45.00,45.00,10.00,0.00
+North East,Codette,198.00,100.00,0.00,100.00,0.00,0.00
+North East,Cumberland House,"1,466.00",245.00,125.00,105.00,0.00,20.00
+North East,Hudson Bay,"2,511.00",780.00,380.00,355.00,30.00,15.00
+North East,Kinistino,"1,208.00",320.00,85.00,100.00,125.00,0.00
+North East,Love,50.00,35.00,0.00,30.00,0.00,0.00
+North East,Melfort,"5,992.00","2,345.00","1,830.00",160.00,330.00,20.00
+North East,Mistatim,101.00,20.00,0.00,20.00,0.00,0.00
+North East,Naicam,661.00,250.00,155.00,50.00,40.00,0.00
+North East,Nipawin,"5,405.00","1,780.00","1,300.00",410.00,60.00,10.00
+North East,Pleasantdale,672.00,250.00,0.00,165.00,80.00,0.00
+North East,Porcupine Plain,862.00,275.00,205.00,55.00,10.00,10.00
+North East,Ridgedale,55.00,,,,,
+North East,Smeaton,182.00,40.00,10.00,10.00,25.00,0.00
+North East,St. Brieux,667.00,315.00,285.00,10.00,15.00,0.00
+North East,Star City,"1,305.00",313.00,10.00,370.00,10.00,0.00
+North East,Tisdale,"3,235.00","1,215.00","1,045.00",110.00,55.00,10.00
+North East,Tobin Lake,89.00,20.00,0.00,20.00,0.00,0.00
+North East,Valparaiso,15.00,,,,,
+North East,Weekes,40.00,25.00,0.00,25.00,0.00,0.00
+North East,Weldon,197.00,65.00,0.00,50.00,20.00,0.00
+North East,White Fox,355.00,65.00,20.00,45.00,0.00,0.00
+North East,Zenon Park,194.00,40.00,10.00,35.00,0.00,0.00
+North West,Aquadeo,111.00,20.00,0.00,10.00,15.00,0.00
+North West,Battleford,"4,429.00","1,780.00",295.00,20.00,"1,450.00",10.00
+North West,Big Shell,48.00,10.00,0.00,0.00,0.00,0.00
+North West,Cochin,148.00,30.00,0.00,10.00,25.00,0.00
+North West,Cut Knife,937.00,295.00,120.00,100.00,70.00,10.00
+North West,Denholm,88.00,20.00,0.00,20.00,0.00,0.00
+North West,Denzil,143.00,25.00,0.00,20.00,0.00,10.00
+North West,Echo Bay,40.00,,,,,
+North West,Edam,480.00,100.00,45.00,40.00,0.00,10.00
+North West,Glaslyn,387.00,120.00,85.00,15.00,25.00,0.00
+North West,Hafford,407.00,90.00,40.00,20.00,35.00,0.00
+North West,Kivimaa-Moonlight Bay,84.00,20.00,10.00,10.00,0.00,0.00
+North West,Krydor,15.00,,,,,
+North West,Landis,152.00,40.00,10.00,10.00,20.00,0.00
+North West,Lashburn,983.00,325.00,50.00,110.00,10.00,160.00
+North West,Leoville,375.00,100.00,60.00,30.00,0.00,0.00
+North West,Lloydminster,"11,765.00","4,855.00","1,310.00",290.00,35.00,"3,220.00"
+North West,Macklin,"1,374.00",410.00,280.00,25.00,0.00,95.00
+North West,Maidstone,"1,185.00",355.00,245.00,55.00,25.00,30.00
+North West,Marsden,297.00,60.00,30.00,15.00,10.00,15.00
+North West,Marshall,561.00,145.00,15.00,30.00,10.00,100.00
+North West,Maymont,138.00,60.00,10.00,30.00,15.00,0.00
+North West,Medstead ,638.00,180.00,25.00,80.00,65.00,0.00
+North West,Meota,"1,237.00",450.00,30.00,65.00,330.00,30.00
+North West,Mervin,"1,415.00",365.00,55.00,250.00,30.00,15.00
+North West,Metinota,80.00,25.00,0.00,0.00,25.00,0.00
+North West,Neilburg,379.00,170.00,115.00,15.00,10.00,30.00
+North West,North Battleford,"15,194.00","5,880.00","4,690.00",530.00,921.00,50.00
+North West,Onion Lake Cree Nation,0.00,,,,,
+North West,Paradise Hill,491.00,205.00,125.00,65.00,0.00,10.00
+North West,Paynton,403.00,115.00,10.00,90.00,0.00,15.00
+North West,Poundmaker Cree Nation,547.00,60.00,0.00,45.00,10.00,0.00
+North West,Primate,52.00,,,,,
+North West,Richard,20.00,,,,,
+North West,Ruddell,20.00,,,,,
+North West,Scott,268.00,55.00,0.00,35.00,15.00,0.00
+North West,Senlac,246.00,30.00,0.00,20.00,0.00,0.00
+North West,Shell Lake,175.00,25.00,0.00,20.00,10.00,0.00
+North West,Speers,60.00,15.00,10.00,10.00,0.00,0.00
+North West,Spiritwood,"2,133.00",620.00,240.00,325.00,45.00,10.00
+North West,St. Walburg,689.00,185.00,130.00,35.00,0.00,20.00
+North West,Sweetgrass First Nation,643.00,95.00,35.00,10.00,55.00,10.00
+North West,Thunderchild First Nation,740.00,80.00,0.00,75.00,0.00,0.00
+North West,Turtleford,496.00,205.00,35.00,160.00,10.00,10.00
+North West,Unity,"2,573.00",975.00,830.00,95.00,35.00,15.00
+North West,Waseca,149.00,85.00,0.00,65.00,0.00,0.00
+North West,Wilkie,"1,219.00",395.00,285.00,40.00,60.00,0.00
+Regina,Balgonie,"1,765.00",825.00,80.00,740.00,0.00,0.00
+Regina,Belle Plaine,85.00,30.00,0.00,0.00,25.00,0.00
+Regina,Bethune,399.00,165.00,15.00,135.00,15.00,0.00
+Regina,Buena Vista,612.00,195.00,0.00,180.00,0.00,0.00
+Regina,Buffalo Narrows,"1,110.00",360.00,305.00,35.00,10.00,10.00
+Regina,Craven,214.00,155.00,20.00,125.00,10.00,0.00
+Regina,Cupar,"1,067.00",335.00,45.00,270.00,20.00,0.00
+Regina,Disley,67.00,35.00,0.00,35.00,0.00,0.00
+Regina,Earl Grey,246.00,95.00,15.00,80.00,0.00,0.00
+Regina,Edenwold,"4,723.00","2,045.00",225.00,"1,805.00",10.00,10.00
+Regina,Findlater,45.00,0.00,0.00,0.00,0.00,0.00
+Regina,Grand Coulee,649.00,310.00,0.00,300.00,0.00,10.00
+Regina,Kannata Valley,88.00,40.00,10.00,30.00,10.00,0.00
+Regina,Lumsden,"1,824.00",765.00,170.00,580.00,10.00,0.00
+Regina,Lumsden Beach,30.00,,,,,
+Regina,Markinch,58.00,30.00,0.00,25.00,10.00,0.00
+Regina,Milestone,699.00,210.00,85.00,30.00,105.00,0.00
+Regina,North Grove,132.00,35.00,0.00,0.00,30.00,0.00
+Regina,Pelican Pointe,28.00,,,,,
+Regina,Pense,"1,095.00",345.00,35.00,275.00,35.00,0.00
+Regina,Pilot Butte,"2,137.00","1,035.00",70.00,955.00,10.00,0.00
+Regina,Regina,"215,106.00","97,275.00","89,145.00","6,690.00","1,065.00",370.00
+Regina,Regina Beach,"1,145.00",470.00,75.00,390.00,10.00,0.00
+Regina,Saskatchewan Beach,258.00,85.00,0.00,85.00,0.00,0.00
+Regina,Silton,71.00,30.00,10.00,15.00,0.00,10.00
+Regina,Southey,804.00,295.00,90.00,200.00,10.00,0.00
+Regina,White City,"3,099.00","1,405.00",50.00,"1,340.00",15.00,0.00
+Regina,Wilcox,264.00,70.00,30.00,35.00,0.00,0.00
+Saskatoon,Aberdeen,"2,001.00",760.00,60.00,55.00,645.00,0.00
+Saskatoon,Allan,644.00,235.00,20.00,195.00,0.00,15.00
+Saskatoon,Asquith,639.00,270.00,35.00,30.00,205.00,0.00
+Saskatoon,Borden,287.00,100.00,35.00,10.00,55.00,0.00
+Saskatoon,Bradwell,166.00,60.00,0.00,60.00,0.00,10.00
+Saskatoon,Clavet,410.00,165.00,0.00,150.00,10.00,0.00
+Saskatoon,Colonsay,720.00,230.00,50.00,175.00,0.00,0.00
+Saskatoon,Dalmeny,"1,826.00",770.00,95.00,630.00,35.00,10.00
+Saskatoon,Delisle,"1,038.00",425.00,90.00,95.00,240.00,0.00
+Saskatoon,Dundurn,"3,015.00",895.00,30.00,805.00,45.00,20.00
+Saskatoon,Hanley,511.00,195.00,45.00,135.00,20.00,0.00
+Saskatoon,Langham,"1,496.00",615.00,120.00,455.00,35.00,10.00
+Saskatoon,Martensville,"9,645.00","4,290.00",650.00,"3,385.00",215.00,40.00
+Saskatoon,Meacham,99.00,50.00,10.00,25.00,15.00,10.00
+Saskatoon,Osler,"1,237.00",425.00,80.00,330.00,15.00,0.00
+Saskatoon,Plunkett,60.00,25.00,0.00,0.00,15.00,0.00
+Saskatoon,Prud'Homme,167.00,55.00,0.00,25.00,20.00,10.00
+Saskatoon,Radisson,514.00,185.00,75.00,30.00,80.00,10.00
+Saskatoon,Saskatoon,"246,376.00","106,560.00","97,990.00","4,660.00","3,110.00",795.00
+Saskatoon,Shields,288.00,125.00,10.00,110.00,10.00,0.00
+Saskatoon,Thode,148.00,80.00,0.00,75.00,0.00,0.00
+Saskatoon,Vanscoy,"3,302.00","1,335.00",110.00,195.00,"1,030.00",0.00
+Saskatoon,Viscount,523.00,145.00,10.00,120.00,25.00,0.00
+Saskatoon,Vonda,384.00,155.00,80.00,20.00,60.00,0.00
+Saskatoon,Warman,"11,020.00","4,620.00",905.00,"3,370.00",290.00,50.00
+Saskatoon,White Cap Dakota First Nation,451.00,140.00,90.00,40.00,0.00,0.00
+South Central,Assiniboia,"2,389.00",920.00,735.00,115.00,65.00,0.00
+South Central,Avonlea,393.00,175.00,135.00,0.00,40.00,0.00
+South Central,Beaver Flat,"1,288.00",400.00,30.00,195.00,35.00,130.00
+South Central,Briercrest,159.00,75.00,10.00,20.00,45.00,0.00
+South Central,Brownlee,55.00,20.00,0.00,15.00,0.00,0.00
+South Central,Cadillac,92.00,30.00,10.00,0.00,20.00,0.00
+South Central,Caronport,994.00,375.00,160.00,200.00,15.00,0.00
+South Central,Central Butte,372.00,140.00,110.00,25.00,10.00,0.00
+South Central,Chaplin,342.00,85.00,35.00,35.00,10.00,0.00
+South Central,Coderre,30.00,,,,,
+South Central,Coronach,643.00,245.00,230.00,0.00,10.00,10.00
+South Central,Drinkwater,70.00,45.00,0.00,15.00,30.00,0.00
+South Central,Ernfold,15.00,,,,,
+South Central,Eyebrow,314.00,105.00,20.00,70.00,20.00,0.00
+South Central,Gravelbourg,"1,083.00",430.00,360.00,30.00,35.00,0.00
+South Central,Hazenmore,70.00,50.00,35.00,10.00,0.00,0.00
+South Central,Herbert,856.00,270.00,175.00,10.00,80.00,0.00
+South Central,Hodgeville,172.00,35.00,10.00,15.00,15.00,0.00
+South Central,Keeler,15.00,,,,,
+South Central,Kincaid,111.00,40.00,20.00,15.00,0.00,0.00
+South Central,Lafleche,382.00,125.00,65.00,40.00,20.00,0.00
+South Central,Limerick,115.00,40.00,10.00,20.00,10.00,0.00
+South Central,Mankota,497.00,70.00,55.00,10.00,0.00,0.00
+South Central,Marquis,394.00,135.00,10.00,115.00,10.00,0.00
+South Central,Moose Jaw,"35,503.00","14,060.00","11,125.00","1,085.00","1,730.00",120.00
+South Central,Morse,290.00,100.00,0.00,100.00,0.00,0.00
+South Central,Mortlach,261.00,75.00,20.00,50.00,0.00,0.00
+South Central,Mossbank,360.00,115.00,75.00,25.00,10.00,0.00
+South Central,Neville,87.00,20.00,0.00,0.00,15.00,0.00
+South Central,Ponteix,563.00,170.00,120.00,15.00,30.00,10.00
+South Central,Rockglen,441.00,65.00,55.00,0.00,10.00,0.00
+South Central,Rouleau,540.00,205.00,70.00,125.00,15.00,0.00
+South Central,Rush Lake,53.00,15.00,10.00,10.00,0.00,0.00
+South Central,Shamrock,225.00,45.00,0.00,30.00,10.00,0.00
+South Central,South Lake,169.00,75.00,0.00,50.00,25.00,0.00
+South Central,Sun Valley,118.00,55.00,0.00,50.00,10.00,0.00
+South Central,Tuxford,113.00,50.00,10.00,30.00,20.00,0.00
+South Central,Vanguard,134.00,40.00,30.00,0.00,10.00,0.00
+South Central,Waldeck,277.00,120.00,0.00,0.00,115.00,0.00
+South Central,Willow Bunch,578.00,155.00,50.00,100.00,0.00,0.00
+South Central,Wood Mountain,40.00,,,,,
+South East ,Abernethy,566.00,200.00,15.00,140.00,40.00,0.00
+South East ,Alameda,369.00,115.00,60.00,55.00,0.00,0.00
+South East ,Alida,120.00,40.00,35.00,10.00,0.00,0.00
+South East ,Arcola,657.00,285.00,190.00,91.00,10.00,0.00
+South East ,B-Say-Tah,156.00,40.00,0.00,35.00,0.00,0.00
+South East ,Balcarres,587.00,220.00,130.00,80.00,0.00,0.00
+South East ,Bengough,603.00,135.00,60.00,35.00,35.00,0.00
+South East ,Bienfait,762.00,290.00,30.00,255.00,10.00,0.00
+South East ,Broadview,552.00,170.00,145.00,30.00,0.00,0.00
+South East ,Carievale,240.00,110.00,25.00,75.00,10.00,10.00
+South East ,Carlyle,"1,508.00",590.00,485.00,80.00,20.00,0.00
+South East ,Carnduff,"1,099.00",325.00,225.00,85.00,0.00,10.00
+South East ,Ceylon,111.00,25.00,10.00,20.00,0.00,0.00
+South East ,Cowessess First Nation,540.00,115.00,65.00,40.00,10.00,0.00
+South East ,Creelman,113.00,50.00,15.00,20.00,15.00,0.00
+South East ,Dysart,200.00,55.00,10.00,40.00,0.00,0.00
+South East ,Estevan,"12,513.00","5,765.00","4,165.00","1,425.00",140.00,45.00
+South East ,Fairlight,40.00,,,,,
+South East ,Fillmore,534.00,125.00,30.00,70.00,30.00,0.00
+South East ,Fleming,84.00,25.00,10.00,0.00,0.00,10.00
+South East ,Forget,55.00,15.00,0.00,15.00,0.00,0.00
+South East ,Fort Qu'Appelle,"2,027.00",680.00,440.00,210.00,25.00,0.00
+South East ,Fort San,222.00,65.00,0.00,65.00,0.00,0.00
+South East ,Francis,217.00,75.00,0.00,50.00,10.00,0.00
+South East ,Gainsborough,254.00,85.00,35.00,45.00,0.00,0.00
+South East ,Glen Ewan,154.00,55.00,20.00,35.00,0.00,0.00
+South East ,Glenavon,182.00,40.00,15.00,20.00,10.00,0.00
+South East ,Goodwater,30.00,,,,,
+South East ,Grenfell,"1,099.00",315.00,230.00,65.00,15.00,0.00
+South East ,Halbrite,119.00,45.00,0.00,35.00,10.00,0.00
+South East ,Heward,44.00,,,,,
+South East ,Indian Head,"2,246.00",835.00,400.00,380.00,55.00,0.00
+South East ,Katepwa,312.00,80.00,10.00,70.00,10.00,0.00
+South East ,Kendal,83.00,40.00,0.00,40.00,0.00,0.00
+South East ,Kennedy,216.00,60.00,0.00,25.00,35.00,0.00
+South East ,Kenossee Lake,234.00,85.00,10.00,70.00,0.00,10.00
+South East ,Kipling,"1,074.00",310.00,235.00,65.00,0.00,0.00
+South East ,Kisbey,153.00,75.00,25.00,40.00,0.00,0.00
+South East ,Lake Alma,272.00,40.00,10.00,20.00,10.00,0.00
+South East ,Lampman,675.00,280.00,155.00,125.00,0.00,0.00
+South East ,Lang,189.00,40.00,0.00,20.00,25.00,0.00
+South East ,Lebret,216.00,80.00,10.00,70.00,0.00,0.00
+South East ,Lipton,726.00,205.00,50.00,150.00,0.00,0.00
+South East ,Macoun,269.00,100.00,10.00,15.00,70.00,0.00
+South East ,Manor,295.00,70.00,15.00,60.00,0.00,10.00
+South East ,Maryfield,"1,049.00",260.00,25.00,112.00,80.00,35.00
+South East ,McLean,405.00,160.00,10.00,150.00,0.00,0.00
+South East ,McTaggart,121.00,50.00,0.00,50.00,0.00,0.00
+South East ,Midale,604.00,190.00,60.00,55.00,75.00,0.00
+South East ,Minton,55.00,0.00,0.00,0.00,0.00,0.00
+South East ,Montmartre,973.00,285.00,100.00,150.00,35.00,0.00
+South East ,Moosomin,"3,937.00","1,440.00",910.00,415.00,100.00,20.00
+South East ,Odessa,205.00,85.00,25.00,60.00,0.00,0.00
+South East ,Ogema,403.00,170.00,110.00,40.00,15.00,0.00
+South East ,Osage,20.00,,,,,
+South East ,Oxbow,"1,328.00",470.00,340.00,120.00,0.00,10.00
+South East ,Pangman,232.00,50.00,30.00,20.00,0.00,0.00
+South East ,Qu'Appelle,639.00,315.00,70.00,235.00,0.00,0.00
+South East ,Radville,807.00,235.00,160.00,65.00,10.00,0.00
+South East ,Redvers,"1,042.00",365.00,225.00,75.00,55.00,10.00
+South East ,Rocanville,863.00,380.00,235.00,100.00,35.00,10.00
+South East ,Roche Percee,110.00,35.00,0.00,35.00,0.00,0.00
+South East ,Sedley,358.00,145.00,30.00,105.00,0.00,0.00
+South East ,Sintaluta,119.00,60.00,15.00,30.00,10.00,0.00
+South East ,Storthoaks,390.00,120.00,20.00,90.00,0.00,0.00
+South East ,Stoughton,649.00,285.00,200.00,55.00,25.00,10.00
+South East ,Torquay,255.00,80.00,40.00,10.00,35.00,0.00
+South East ,Tribune,45.00,,,,,
+South East ,Vibank,385.00,190.00,30.00,145.00,20.00,0.00
+South East ,Wapella,326.00,130.00,45.00,75.00,10.00,0.00
+South East ,Wawota,543.00,150.00,80.00,60.00,10.00,0.00
+South East ,Welwyn,133.00,30.00,0.00,30.00,0.00,0.00
+South East ,Weyburn,"11,934.00","4,425.00","3,430.00",800.00,190.00,0.00
+South East ,White Bear First Nation,691.00,170.00,95.00,65.00,10.00,0.00
+South East ,Whitewood,862.00,325.00,185.00,125.00,15.00,0.00
+South East ,Windthorst,211.00,75.00,25.00,35.00,10.00,0.00
+South East ,Wolseley,"1,226.00",385.00,165.00,140.00,70.00,10.00
+South East ,Yellow Grass,478.00,175.00,30.00,135.00,0.00,0.00
+South West,Abbey,129.00,45.00,25.00,20.00,0.00,0.00
+South West,Bracken,20.00,,,,,
+South West,Burstall,378.00,100.00,55.00,15.00,0.00,25.00
+South West,Cabri,390.00,110.00,85.00,25.00,0.00,0.00
+South West,Carmichael,502.00,65.00,0.00,20.00,45.00,0.00
+South West,Climax,195.00,70.00,0.00,60.00,0.00,0.00
+South West,Consul,73.00,15.00,0.00,10.00,0.00,0.00
+South West,Eastend,503.00,195.00,150.00,45.00,0.00,0.00
+South West,Fox Valley,249.00,70.00,30.00,10.00,15.00,15.00
+South West,Frontier,698.00,180.00,105.00,65.00,10.00,0.00
+South West,Golden Prairie,30.00,,,,,
+South West,Gull Lake,"1,247.00",410.00,245.00,125.00,30.00,10.00
+South West,Hazlet,106.00,20.00,10.00,15.00,0.00,0.00
+South West,Lancer,69.00,,,,,
+South West,Leader,863.00,300.00,245.00,20.00,20.00,25.00
+South West,Maple Creek,"2,084.00",820.00,730.00,20.00,45.00,30.00
+South West,Mendham,30.00,,,,,
+South West,Nekaneet First Nation,182.00,45.00,0.00,40.00,0.00,0.00
+South West,Pennant,130.00,65.00,10.00,65.00,0.00,0.00
+South West,Prelate,154.00,30.00,0.00,20.00,0.00,10.00
+South West,Richmound,147.00,40.00,10.00,15.00,0.00,10.00
+South West,Sceptre,94.00,10.00,10.00,0.00,0.00,0.00
+South West,Shaunavon,"1,714.00",620.00,535.00,40.00,35.00,10.00
+South West,Stewart Valley,91.00,55.00,20.00,30.00,0.00,0.00
+South West,Success,45.00,,,,,
+South West,Swift Current,"16,604.00","7,190.00","6,370.00",630.00,170.00,25.00
+South West,Tompkins,152.00,35.00,10.00,25.00,0.00,0.00
+South West,Val Marie,539.00,95.00,40.00,45.00,10.00,0.00
+South West,Webb,591.00,75.00,0.00,60.00,10.00,0.00
