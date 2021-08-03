@@ -13,7 +13,7 @@ PROJECT_FOLDER <- "~/Documents/GitHub/MIZ_project/"
 source(sprintf("%s/NOW_function_header.R", PROJECT_FOLDER))
 
 intervention_dates <- readWorksheetFromFile(
-        sprintf("%s/%s", PROJECT_FOLDER, "covid-19-intervention-timeline-in-canada-en.xlsx"),
+        sprintf("%s/%s", PROJECT_FOLDER, "Classifications/covid-19-intervention-timeline-in-canada-en.xlsx"),
         sheet="Tool interventions", 
         startRow=3, 
         endCol=8
@@ -147,11 +147,11 @@ results_I <- ggplot(AB_true_data, aes(x=date)) +
     ) +
     labs(
         x="Date", 
-        y="log(New Cases), log(Vaccinations)",
-        title="Semi-log plot: Alberta
-        COVID-19 daily cases (blue curve), daily vaccinations (red curve), segmented regressions (black lines),
-        tightened restrictions (vertical red dashed lines), some restrictions loosened (green vertical dashed lines),
-        period where both infections and vaccinations increase roughly exponentially (orange shaded area)"
+        y="log(New Cases), log(Vaccinations)"
+        # title="Semi-log plot: Alberta
+        # COVID-19 daily cases (blue curve), daily vaccinations (red curve), segmented regressions (black lines),
+        # tightened restrictions (vertical red dashed lines), some restrictions loosened (green vertical dashed lines),
+        # period where both infections and vaccinations increase roughly exponentially (orange shaded area)"
     ) +
     scale_x_date(date_breaks = "1 month", date_labels =  "%b %Y") +
     ggsave(sprintf("%s/AB_I_plot.png", PROJECT_FOLDER), height=5, width=10)

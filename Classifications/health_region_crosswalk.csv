@@ -89,7 +89,7 @@ Peterborough_Public_Health,Peterborough
 Porcupine Health Unit                                   ,Porcupine
 Porcupine_Health_Unit,Porcupine
 Prairie Mountain Health                                 ,Prairie Mountain
-Prairie North Regional Health Authority                 ,Prairie North
+ON_cases,Prairie North
 Prince Albert Parkland Regional Health Authority        ,Prince Albert
 Regina Qu'Appelle Regional Health Authority             ,Regina Qu’Appelle
 Region de l'Abitibi-Temiscamingue                       ,Abitibi-Temiscamingue
@@ -148,3 +148,33 @@ Windsor-Essex_County_Health_Unit,Windsor-Essex
 Winnipeg Regional Health Authority                      ,Winnipeg
 York Regional Health Unit                               ,York
 York_Region_Public_Health_Services,York
+,
+Algoma_District,Algoma
+Brant_County,Brant
+Chatham_Kent,Chatham-Kent
+Durham_Region,Durham
+Eastern_Ontario,Eastern
+Grey_Bruce,Grey Bruce
+Haldimand_Norfolk,Haldimand-Norfolk
+Haliburton_Kawartha_Pine_Ridge,Haliburton Kawartha Pine Ridge
+Halton_Region,Halton
+City_of_Hamilton,Hamilton
+Hastings_Prince_Edward,Hastings Prince Edward
+Huron_Perth,Huron Perth
+KFLA,Kingston Frontenac Lennox and Addington
+Lambton_County,Lambton
+Leeds_Grenville_Lanark,Leeds Grenville and Lanark
+Middlesex_London          ,Middlesex-London
+Niagara_Region,Niagara
+North_Bay_Parry_Sound_District,North Bay Parry Sound
+City_of_Ottawa,Ottawa
+Peel_Region,Peel
+Peterborough_County_City,Peterborough
+Waterloo_Region,Waterloo
+Renfrew_County_and_District,Renfrew
+Simcoe_Muskoka_District,Simcoe Muskoka
+Sudbury_and_District,Sudbury
+Thunder_Bay_District,Thunder Bay
+Wellington_Dufferin_Guelph,Wellington Dufferin Guelph
+Windsor_Essex_County,Windsor-Essex
+York_Region,York

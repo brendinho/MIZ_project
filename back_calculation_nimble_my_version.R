@@ -7,7 +7,7 @@ library(dplyr)
 
 source("~/Documents/GitHub/MIZ_project/function_header.R")
 
-MAX_DELAY <- 60
+# MAX_DELAY <- 60
 
 # ON_cases <- fread("https://data.ontario.ca/dataset/f4f86e54-872d-43f8-8a86-3892fd3cb5e6/resource/8a88fe6d-d8fb-41a3-9d04-f0550a44999f/download/daily_change_in_cases_by_phu.csv") |> 
 # write.csv("~/Documents/GitHub/MIZ_project/ON_cases.csv", row.names=FALSE)
@@ -76,7 +76,7 @@ BackCalc_code <- nimbleCode({
         for(j in (i-max_delay):i)
         {
             Z[i,j] <- f[(i-j)+1] * I[j]
-        }
+        # }
         D[i] ~ dpois(sum(Z[i,]))
     }
 })

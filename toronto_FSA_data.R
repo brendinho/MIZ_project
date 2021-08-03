@@ -18,91 +18,78 @@ setwd('/home/bren/Documents/GitHub/MIZ_project/')
 source("NOW_function_header.R")
 
 # raw_toronto_fsa_data <- fread("https://ckan0.cf.opendata.inter.prod-toronto.ca/download_resource/e5bf35bc-e681-43da-b2ce-0242d00922ad?format=csv")
-# raw_toronto_fsa_data <- get_toronto_neighbourhood_cases()
-# raw_toronto_fsa_data |>
-#     dplyr::rename(ID = "_id") |>
-#     dplyr::rename_with(~ tolower(gsub(" ", "_", .x, fixed = TRUE))) |>
-#     dplyr::mutate(
-#         reporting_delay = as.numeric(reported_date-episode_date, units="days"),
-#         # lower_age = unlist(lapply(age_group, age_range_min)),
-#         # upper_age = unlist(lapply(age_group, age_range_max)),
-#         currently_hospitalized = (currently_hospitalized == "Yes"),
-#         currently_in_icu = (currently_in_icu == "Yes"),
-#         currently_intubated = (currently_intubated == "Yes"),
-#         ever_hospitalized = (ever_hospitalized == "Yes"),
-#         ever_in_icu = (ever_in_icu == "Yes"),
-#         ever_intubated  = (ever_intubated == "Yes"),
-#         num_case = TRUE
-#     ) |>
-#     dplyr::filter(reporting_delay >= 0 & reporting_delay <= 60) |>
-#     dplyr::filter(classification == "CONFIRMED") |>
-#     dplyr::select(id, neighbourhood_name, fsa, age_group, classification, client_gender, age_group, episode_date, reported_date, reporting_delay) |>
-#     write.csv("Toronto_FSA_Reporting_Delay_Data.csv", row.names = FALSE)
+raw_toronto_fsa_data <- get_toronto_neighbourhood_cases()
+raw_toronto_fsa_data |>
+    dplyr::rename(ID = "_id") |>
+    dplyr::rename_with(~ tolower(gsub(" ", "_", .x, fixed = TRUE))) |>
+    dplyr::mutate(
+        reporting_delay = as.numeric(reported_date-episode_date, units="days"),
+        # lower_age = unlist(lapply(age_group, age_range_min)),
+        # upper_age = unlist(lapply(age_group, age_range_max)),
+        currently_hospitalized = (currently_hospitalized == "Yes"),
+        currently_in_icu = (currently_in_icu == "Yes"),
+        currently_intubated = (currently_intubated == "Yes"),
+        ever_hospitalized = (ever_hospitalized == "Yes"),
+        ever_in_icu = (ever_in_icu == "Yes"),
+        ever_intubated  = (ever_intubated == "Yes"),
+        num_case = TRUE
+    ) |>
+    dplyr::filter(reporting_delay >= 0 & reporting_delay <= 60) |>
+    dplyr::filter(classification == "CONFIRMED") |>
+    # dplyr::select(id, neighbourhood_name, fsa, age_group, classification, client_gender, age_group, episode_date, reported_date, reporting_delay, outbreak_associated, source_of_) |>
+    write.csv("Toronto_FSA_Reporting_Delay_Data.csv", row.names = FALSE)
 
 toronto_fsa_data <- fread("Toronto_FSA_Reporting_Delay_Data.csv")
 
-# # TO ESTABLISH/CONFIRM THAT EVERY FSA HERE IS FROM THE TORONTO AREA
-# # THIS CORRESPONDENCE TABLE IS OUTDATED
-# # Public health units to postal code correspondence table
-# # https://mdl.library.utoronto.ca/collections/numeric-data/statistical-reference-tools/geographic-codes-classification
-# # text find and replace for "Leeds,Grenville,Lanark" -> "Leeds Grenville Lanark"
-# haha <- fread("data") |>
-#     dplyr::mutate(POSTCD = substr(POSTCD, 1, 3)) |>
-#     dplyr::filter(POSTCD %in% toronto_fsa_data[, unique(fsa)]) |>
-#     unique()
+exp_fit <- fitdistr(toronto_fsa_data$reporting_delay, "exponential")
+weib_fit <- fitdistr(toronto_fsa_data[reporting_delay>0, reporting_delay], "weibull")
+delay_distro <- ggplot(toronto_fsa_data, aes(x=reporting_delay)) +
+    geom_histogram(binwidth=1, aes(y=..density..), colour="black", fill="grey") +
+    theme_bw() +
+    theme(axis.text = element_text(size=12), axis.title=element_text(size=13)) +
+    labs(x="Reporting Delay", y="Density") +
+    stat_function(fun=dweibull, args=list(shape=weib_fit$estimate[["shape"]], scale=weib_fit$estimate[["scale"]]), col="blue", size=1) +
+    stat_function(fun=dexp, args=(mean=exp_fit$estimate[["rate"]]), col="red", size=1) +
+    ggsave("Graphs/entire_delay_distribution_plot.jpg", width=10, height=4)
 
-# exp_fit <- fitdistr(Toronto_FSA_Data$reporting_delay, "exponential") 
-# dweib <- data.table(x = seq(0, Toronto_FSA_Data[, max(reporting_delay)], 0.001))
-# dweib$top <- dweibull(dweib$x, shape=MLE_res$estimate[1], scale=MLE_res$estimate[2]) # * max(unname(table(Toronto_FSA_Data$reporting_delay))) * 7
-# delay_distro <- ggplot(Toronto_FSA_Data, aes(x=reporting_delay)) +
-#     geom_histogram(binwidth=1, aes(y=..density..), colour="black", fill="grey") +
-#     theme_bw() +
-#     # geom_line(data=dweib, aes(x=x, y=top))
-#     stat_function(fun=dweibull, args=list(shape=MLE_res$estimate[1], scale=MLE_res$estimate[2]), col="blue", size=1) +
-#     stat_function(fun=dexp, args=(mean=exp_fit$estimate[["rate"]]), col="red", size=1)
+# Sources of Infection
+sources_of_infection <- 
+    
+ggplot(toronto_fsa_data, aes(x=str_wrap(source_of_infection,20))) +
+    geom_bar(fill="blue") +
+    labs(x="Sources of infection", y="Case count") +
+    theme_bw() +
+    theme(axis.text=element_text(size=11))
 
-# # Sources of Infection
-# sources_of_infection <- ggplot(Toronto_FSA_Data, aes(x=str_wrap(source_of_infection,20))) +
-#     geom_bar(fill="blue") +
-#     labs(x="Sources of infection", y="Case count") +
-#     theme_bw()
-# 
-# # infections by age group
-# case_distribution_by_age <- ggplot(
-#         Toronto_FSA_Data |> filter(!is.na(age_group)), 
-#         aes(x=str_wrap(age_group,20))
-#     ) +
-#     geom_bar(fill="blue") +
-#     labs(x="Age Group", y="Case count") +
-#     theme_bw()
-# 
-# outbreak_type <- ggplot(
-#         Toronto_FSA_Data,
-#         aes(x=str_wrap(outbreak_associated, 20))
-#     ) +
-#     geom_bar(fill="blue") +
-#     labs(x="Context", y="Case count") +
-#     theme_bw()
-# 
-# distrib_by_FSA <- ggplot(
-#         Toronto_FSA_Data,
-#         aes(x=str_wrap(fsa, 20))
-#     ) +
-#     geom_bar(fill="blue") +
-#     labs(x="Context", y="Case count") +
-#     theme_bw()
-# 
-# # there's no overlap between the list of CSDs and these neighbourhood names, so
-# # there's no remoteness information here
-# CSD_info <- fread("Classifications/Classification_HR_Households_Commute.csv")
-# overlap <- intersect(unique(Toronto_FSA_Data$neighbourhood_name), unique(CSD_info$region))
-# 
-# # Toronto - table of neighbourhood crime rates - this gives us the population and maybe a crude indication of QOL
-# Toronto_crime_rates <- fread("https://ckan0.cf.opendata.inter.prod-toronto.ca/download_resource/4754baf5-3715-4166-a347-eda9813521de?format=csv&projection=4326") |>
-#     select(-"_id", -geometry, -OBJECTID) |>
-#     select(contains("2020") | !contains("20")) |>
-#     rename(neighbourhood_name = Neighbourhood)
-# 
+# infections by age group
+case_distribution_by_age <- ggplot(
+        toronto_fsa_data |> dplyr::filter(!is.na(age_group)) |> mutate(age_group = gsub(" Year", "", age_group)),
+        aes(x=str_wrap(age_group,20))
+    ) +
+    geom_bar(fill="grey20") +
+    labs(x="Age Group", y="Incidence") +
+    theme_bw() +
+    theme(axis.text=element_text(size=12), axis.title=element_text(13)) +
+    ggsave("Graphs/Toronto_case_distribution_by_age.jpg", width=10, height=4)
+
+distrib_by_FSA <- ggplot(
+        toronto_fsa_data,
+        aes(x=fsa, 20)
+    ) +
+    geom_bar(fill="blue", stat="identity") +
+    # labs(x="Context", y="Case count") +
+    theme_bw() # +
+    # theme(
+    #     axis.text.x = element_text(angle = 90, vjust = 0.5)
+    # )
+   
+
+# Toronto - table of neighbourhood crime rates - this gives us the population and maybe a crude indication of QOL
+toronto_crime_rates <- fread("https://ckan0.cf.opendata.inter.prod-toronto.ca/download_resource/4754baf5-3715-4166-a347-eda9813521de?format=csv&projection=4326") |>
+    dplyr::select(-"_id", -geometry, -OBJECTID) |>
+    dplyr::select(contains("2020") | !contains("20")) |>
+    rename(neighbourhood_name = Neighbourhood)
+
 # # toronto_testing_sites <- fread("grep -v '^#' Classifications/toronto_testing_centres.csv") |> 
 # #     select(-address, -neighbourhood_number) |> 
 # #     mutate(
@@ -132,7 +119,7 @@ toronto_fsa_data <- fread("Toronto_FSA_Reporting_Delay_Data.csv")
 # Total_Toronto_Info <- Reduce(
 #     function(...) merge(..., by="neighbourhood_name", all = TRUE),
 #     list(
-#         Toronto_FSA_Data[, 
+#         toronto_fsa_data[, 
 #                          lapply(.SD, sum), 
 #                          .SDcols=c("num_case", "currently_hospitalized", "currently_in_icu", "currently_intubated", 
 #                                    "ever_hospitalized", "ever_in_icu", "ever_intubated"), 

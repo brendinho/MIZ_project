@@ -522,6 +522,38 @@ date,wave,province,HR,cases
 2021-06-28,2,Manitoba,Interlake-Eastern,18
 2021-06-29,2,Manitoba,Interlake-Eastern,8
 2021-06-30,2,Manitoba,Interlake-Eastern,7
+2021-07-01,2,Manitoba,Interlake-Eastern,0
+2021-07-02,2,Manitoba,Interlake-Eastern,22
+2021-07-03,2,Manitoba,Interlake-Eastern,1
+2021-07-04,2,Manitoba,Interlake-Eastern,7
+2021-07-05,2,Manitoba,Interlake-Eastern,10
+2021-07-06,2,Manitoba,Interlake-Eastern,-2
+2021-07-07,2,Manitoba,Interlake-Eastern,18
+2021-07-08,2,Manitoba,Interlake-Eastern,17
+2021-07-09,2,Manitoba,Interlake-Eastern,23
+2021-07-10,2,Manitoba,Interlake-Eastern,22
+2021-07-11,2,Manitoba,Interlake-Eastern,14
+2021-07-12,2,Manitoba,Interlake-Eastern,3
+2021-07-13,2,Manitoba,Interlake-Eastern,3
+2021-07-14,2,Manitoba,Interlake-Eastern,9
+2021-07-15,2,Manitoba,Interlake-Eastern,16
+2021-07-16,2,Manitoba,Interlake-Eastern,8
+2021-07-17,2,Manitoba,Interlake-Eastern,14
+2021-07-18,2,Manitoba,Interlake-Eastern,7
+2021-07-19,2,Manitoba,Interlake-Eastern,8
+2021-07-20,2,Manitoba,Interlake-Eastern,7
+2021-07-21,2,Manitoba,Interlake-Eastern,11
+2021-07-22,2,Manitoba,Interlake-Eastern,12
+2021-07-23,2,Manitoba,Interlake-Eastern,19
+2021-07-24,2,Manitoba,Interlake-Eastern,23
+2021-07-25,2,Manitoba,Interlake-Eastern,17
+2021-07-26,2,Manitoba,Interlake-Eastern,0
+2021-07-27,2,Manitoba,Interlake-Eastern,12
+2021-07-28,2,Manitoba,Interlake-Eastern,15
+2021-07-29,2,Manitoba,Interlake-Eastern,21
+2021-07-30,2,Manitoba,Interlake-Eastern,8
+2021-07-31,2,Manitoba,Interlake-Eastern,0
+2021-08-01,2,Manitoba,Interlake-Eastern,0
 2020-01-25,1,Manitoba,Northern,0
 2020-01-26,1,Manitoba,Northern,0
 2020-01-27,1,Manitoba,Northern,0
@@ -1045,6 +1077,38 @@ date,wave,province,HR,cases
 2021-06-28,2,Manitoba,Northern,6
 2021-06-29,2,Manitoba,Northern,16
 2021-06-30,2,Manitoba,Northern,21
+2021-07-01,2,Manitoba,Northern,0
+2021-07-02,2,Manitoba,Northern,19
+2021-07-03,2,Manitoba,Northern,5
+2021-07-04,2,Manitoba,Northern,9
+2021-07-05,2,Manitoba,Northern,7
+2021-07-06,2,Manitoba,Northern,3
+2021-07-07,2,Manitoba,Northern,4
+2021-07-08,2,Manitoba,Northern,9
+2021-07-09,2,Manitoba,Northern,4
+2021-07-10,2,Manitoba,Northern,8
+2021-07-11,2,Manitoba,Northern,0
+2021-07-12,2,Manitoba,Northern,3
+2021-07-13,2,Manitoba,Northern,4
+2021-07-14,2,Manitoba,Northern,-1
+2021-07-15,2,Manitoba,Northern,2
+2021-07-16,2,Manitoba,Northern,1
+2021-07-17,2,Manitoba,Northern,1
+2021-07-18,2,Manitoba,Northern,3
+2021-07-19,2,Manitoba,Northern,-1
+2021-07-20,2,Manitoba,Northern,4
+2021-07-21,2,Manitoba,Northern,5
+2021-07-22,2,Manitoba,Northern,4
+2021-07-23,2,Manitoba,Northern,3
+2021-07-24,2,Manitoba,Northern,3
+2021-07-25,2,Manitoba,Northern,-2
+2021-07-26,2,Manitoba,Northern,0
+2021-07-27,2,Manitoba,Northern,2
+2021-07-28,2,Manitoba,Northern,-1
+2021-07-29,2,Manitoba,Northern,5
+2021-07-30,2,Manitoba,Northern,16
+2021-07-31,2,Manitoba,Northern,0
+2021-08-01,2,Manitoba,Northern,0
 2020-01-25,1,Manitoba,Not Reported,0
 2020-01-26,1,Manitoba,Not Reported,0
 2020-01-27,1,Manitoba,Not Reported,0
@@ -1568,6 +1632,38 @@ date,wave,province,HR,cases
 2021-06-28,2,Manitoba,Not Reported,0
 2021-06-29,2,Manitoba,Not Reported,0
 2021-06-30,2,Manitoba,Not Reported,0
+2021-07-01,2,Manitoba,Not Reported,0
+2021-07-02,2,Manitoba,Not Reported,0
+2021-07-03,2,Manitoba,Not Reported,0
+2021-07-04,2,Manitoba,Not Reported,0
+2021-07-05,2,Manitoba,Not Reported,0
+2021-07-06,2,Manitoba,Not Reported,0
+2021-07-07,2,Manitoba,Not Reported,0
+2021-07-08,2,Manitoba,Not Reported,0
+2021-07-09,2,Manitoba,Not Reported,0
+2021-07-10,2,Manitoba,Not Reported,0
+2021-07-11,2,Manitoba,Not Reported,0
+2021-07-12,2,Manitoba,Not Reported,0
+2021-07-13,2,Manitoba,Not Reported,0
+2021-07-14,2,Manitoba,Not Reported,0
+2021-07-15,2,Manitoba,Not Reported,0
+2021-07-16,2,Manitoba,Not Reported,0
+2021-07-17,2,Manitoba,Not Reported,0
+2021-07-18,2,Manitoba,Not Reported,0
+2021-07-19,2,Manitoba,Not Reported,0
+2021-07-20,2,Manitoba,Not Reported,0
+2021-07-21,2,Manitoba,Not Reported,0
+2021-07-22,2,Manitoba,Not Reported,0
+2021-07-23,2,Manitoba,Not Reported,0
+2021-07-24,2,Manitoba,Not Reported,0
+2021-07-25,2,Manitoba,Not Reported,0
+2021-07-26,2,Manitoba,Not Reported,0
+2021-07-27,2,Manitoba,Not Reported,0
+2021-07-28,2,Manitoba,Not Reported,0
+2021-07-29,2,Manitoba,Not Reported,0
+2021-07-30,2,Manitoba,Not Reported,0
+2021-07-31,2,Manitoba,Not Reported,0
+2021-08-01,2,Manitoba,Not Reported,0
 2020-01-25,1,Manitoba,Prairie Mountain,0
 2020-01-26,1,Manitoba,Prairie Mountain,0
 2020-01-27,1,Manitoba,Prairie Mountain,0
@@ -2091,6 +2187,38 @@ date,wave,province,HR,cases
 2021-06-28,2,Manitoba,Prairie Mountain,0
 2021-06-29,2,Manitoba,Prairie Mountain,0
 2021-06-30,2,Manitoba,Prairie Mountain,2
+2021-07-01,2,Manitoba,Prairie Mountain,0
+2021-07-02,2,Manitoba,Prairie Mountain,17
+2021-07-03,2,Manitoba,Prairie Mountain,9
+2021-07-04,2,Manitoba,Prairie Mountain,6
+2021-07-05,2,Manitoba,Prairie Mountain,11
+2021-07-06,2,Manitoba,Prairie Mountain,2
+2021-07-07,2,Manitoba,Prairie Mountain,4
+2021-07-08,2,Manitoba,Prairie Mountain,12
+2021-07-09,2,Manitoba,Prairie Mountain,0
+2021-07-10,2,Manitoba,Prairie Mountain,8
+2021-07-11,2,Manitoba,Prairie Mountain,0
+2021-07-12,2,Manitoba,Prairie Mountain,4
+2021-07-13,2,Manitoba,Prairie Mountain,1
+2021-07-14,2,Manitoba,Prairie Mountain,-2
+2021-07-15,2,Manitoba,Prairie Mountain,5
+2021-07-16,2,Manitoba,Prairie Mountain,3
+2021-07-17,2,Manitoba,Prairie Mountain,0
+2021-07-18,2,Manitoba,Prairie Mountain,6
+2021-07-19,2,Manitoba,Prairie Mountain,0
+2021-07-20,2,Manitoba,Prairie Mountain,2
+2021-07-21,2,Manitoba,Prairie Mountain,1
+2021-07-22,2,Manitoba,Prairie Mountain,2
+2021-07-23,2,Manitoba,Prairie Mountain,4
+2021-07-24,2,Manitoba,Prairie Mountain,3
+2021-07-25,2,Manitoba,Prairie Mountain,2
+2021-07-26,2,Manitoba,Prairie Mountain,0
+2021-07-27,2,Manitoba,Prairie Mountain,3
+2021-07-28,2,Manitoba,Prairie Mountain,5
+2021-07-29,2,Manitoba,Prairie Mountain,1
+2021-07-30,2,Manitoba,Prairie Mountain,1
+2021-07-31,2,Manitoba,Prairie Mountain,0
+2021-08-01,2,Manitoba,Prairie Mountain,0
 2020-01-25,1,Manitoba,Southern Health,0
 2020-01-26,1,Manitoba,Southern Health,0
 2020-01-27,1,Manitoba,Southern Health,0
@@ -2614,6 +2742,38 @@ date,wave,province,HR,cases
 2021-06-28,2,Manitoba,Southern Health,4
 2021-06-29,2,Manitoba,Southern Health,13
 2021-06-30,2,Manitoba,Southern Health,12
+2021-07-01,2,Manitoba,Southern Health,0
+2021-07-02,2,Manitoba,Southern Health,18
+2021-07-03,2,Manitoba,Southern Health,2
+2021-07-04,2,Manitoba,Southern Health,11
+2021-07-05,2,Manitoba,Southern Health,5
+2021-07-06,2,Manitoba,Southern Health,3
+2021-07-07,2,Manitoba,Southern Health,10
+2021-07-08,2,Manitoba,Southern Health,9
+2021-07-09,2,Manitoba,Southern Health,14
+2021-07-10,2,Manitoba,Southern Health,15
+2021-07-11,2,Manitoba,Southern Health,8
+2021-07-12,2,Manitoba,Southern Health,1
+2021-07-13,2,Manitoba,Southern Health,6
+2021-07-14,2,Manitoba,Southern Health,10
+2021-07-15,2,Manitoba,Southern Health,3
+2021-07-16,2,Manitoba,Southern Health,8
+2021-07-17,2,Manitoba,Southern Health,12
+2021-07-18,2,Manitoba,Southern Health,7
+2021-07-19,2,Manitoba,Southern Health,8
+2021-07-20,2,Manitoba,Southern Health,10
+2021-07-21,2,Manitoba,Southern Health,10
+2021-07-22,2,Manitoba,Southern Health,13
+2021-07-23,2,Manitoba,Southern Health,4
+2021-07-24,2,Manitoba,Southern Health,7
+2021-07-25,2,Manitoba,Southern Health,5
+2021-07-26,2,Manitoba,Southern Health,6
+2021-07-27,2,Manitoba,Southern Health,4
+2021-07-28,2,Manitoba,Southern Health,0
+2021-07-29,2,Manitoba,Southern Health,6
+2021-07-30,2,Manitoba,Southern Health,4
+2021-07-31,2,Manitoba,Southern Health,0
+2021-08-01,2,Manitoba,Southern Health,0
 2020-01-25,1,Manitoba,Winnipeg,0
 2020-01-26,1,Manitoba,Winnipeg,0
 2020-01-27,1,Manitoba,Winnipeg,0
@@ -3137,3 +3297,35 @@ date,wave,province,HR,cases
 2021-06-28,2,Manitoba,Winnipeg,33
 2021-06-29,2,Manitoba,Winnipeg,24
 2021-06-30,2,Manitoba,Winnipeg,28
+2021-07-01,2,Manitoba,Winnipeg,0
+2021-07-02,2,Manitoba,Winnipeg,63
+2021-07-03,2,Manitoba,Winnipeg,30
+2021-07-04,2,Manitoba,Winnipeg,31
+2021-07-05,2,Manitoba,Winnipeg,32
+2021-07-06,2,Manitoba,Winnipeg,28
+2021-07-07,2,Manitoba,Winnipeg,34
+2021-07-08,2,Manitoba,Winnipeg,34
+2021-07-09,2,Manitoba,Winnipeg,31
+2021-07-10,2,Manitoba,Winnipeg,34
+2021-07-11,2,Manitoba,Winnipeg,41
+2021-07-12,2,Manitoba,Winnipeg,20
+2021-07-13,2,Manitoba,Winnipeg,9
+2021-07-14,2,Manitoba,Winnipeg,28
+2021-07-15,2,Manitoba,Winnipeg,15
+2021-07-16,2,Manitoba,Winnipeg,17
+2021-07-17,2,Manitoba,Winnipeg,34
+2021-07-18,2,Manitoba,Winnipeg,19
+2021-07-19,2,Manitoba,Winnipeg,21
+2021-07-20,2,Manitoba,Winnipeg,9
+2021-07-21,2,Manitoba,Winnipeg,6
+2021-07-22,2,Manitoba,Winnipeg,22
+2021-07-23,2,Manitoba,Winnipeg,7
+2021-07-24,2,Manitoba,Winnipeg,22
+2021-07-25,2,Manitoba,Winnipeg,7
+2021-07-26,2,Manitoba,Winnipeg,4
+2021-07-27,2,Manitoba,Winnipeg,-1
+2021-07-28,2,Manitoba,Winnipeg,7
+2021-07-29,2,Manitoba,Winnipeg,13
+2021-07-30,2,Manitoba,Winnipeg,16
+2021-07-31,2,Manitoba,Winnipeg,0
+2021-08-01,2,Manitoba,Winnipeg,0
