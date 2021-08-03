@@ -37,3 +37,18 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+# pkgdown site
+docs/
+
+# translation temp files
+po/*~
+
+# brute force linear combos
+all*.csv
+
+# back-calculation samples
+*mcmc_samples*.rds
+
+# canada-wide line list
+canada_complete*.csv
