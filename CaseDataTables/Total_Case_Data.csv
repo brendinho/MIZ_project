@@ -4976,8 +4976,8 @@ date,wave,HR,province,cases,HRUID2018
 2020-12-04,1,North Vancouver Island,British Columbia,7,5943
 2020-12-04,1,South Vancouver Island,British Columbia,5,5941
 2020-12-05,1,Fraser East,British Columbia,100,5921
-2020-12-05,1,Fraser North,British Columbia,116,5922
-2020-12-05,1,Fraser South,British Columbia,303,5923
+2020-12-05,1,Fraser North,British Columbia,117,5922
+2020-12-05,1,Fraser South,British Columbia,302,5923
 2020-12-05,1,East Kootenay,British Columbia,2,5911
 2020-12-05,1,Kootenay-Boundary,British Columbia,0,5912
 2020-12-05,1,Okanagan,British Columbia,77,5913
@@ -5255,7 +5255,7 @@ date,wave,HR,province,cases,HRUID2018
 2020-12-22,1,Okanagan,British Columbia,45,5913
 2020-12-22,1,Thompson Cariboo Shuswap,British Columbia,9,5914
 2020-12-22,1,Northeast,British Columbia,14,5953
-2020-12-22,1,Northern Interior,British Columbia,8,5952
+2020-12-22,1,Northern Interior,British Columbia,10,5952
 2020-12-22,1,Northwest,British Columbia,21,5951
 2020-12-22,1,North Shore/Coast Garibaldi,British Columbia,15,5933
 2020-12-22,1,Richmond,British Columbia,18,5931
@@ -5967,7 +5967,7 @@ date,wave,HR,province,cases,HRUID2018
 2021-02-04,2,Central Vancouver Island,British Columbia,20,5942
 2021-02-04,2,North Vancouver Island,British Columbia,1,5943
 2021-02-04,2,South Vancouver Island,British Columbia,7,5941
-2021-02-05,2,Fraser East,British Columbia,46,5921
+2021-02-05,2,Fraser East,British Columbia,47,5921
 2021-02-05,2,Fraser North,British Columbia,55,5922
 2021-02-05,2,Fraser South,British Columbia,95,5923
 2021-02-05,2,East Kootenay,British Columbia,0,5911
@@ -5977,7 +5977,7 @@ date,wave,HR,province,cases,HRUID2018
 2021-02-05,2,Northeast,British Columbia,13,5953
 2021-02-05,2,Northern Interior,British Columbia,5,5952
 2021-02-05,2,Northwest,British Columbia,9,5951
-2021-02-05,2,North Shore/Coast Garibaldi,British Columbia,35,5933
+2021-02-05,2,North Shore/Coast Garibaldi,British Columbia,36,5933
 2021-02-05,2,Richmond,British Columbia,10,5931
 2021-02-05,2,Vancouver,British Columbia,52,5932
 2021-02-05,2,Central Vancouver Island,British Columbia,29,5942
@@ -6641,7 +6641,7 @@ date,wave,HR,province,cases,HRUID2018
 2021-03-18,2,South Vancouver Island,British Columbia,17,5941
 2021-03-19,2,Fraser East,British Columbia,25,5921
 2021-03-19,2,Fraser North,British Columbia,84,5922
-2021-03-19,2,Fraser South,British Columbia,185,5923
+2021-03-19,2,Fraser South,British Columbia,186,5923
 2021-03-19,2,East Kootenay,British Columbia,1,5911
 2021-03-19,2,Kootenay-Boundary,British Columbia,0,5912
 2021-03-19,2,Okanagan,British Columbia,10,5913
@@ -6736,7 +6736,7 @@ date,wave,HR,province,cases,HRUID2018
 2021-03-24,2,North Vancouver Island,British Columbia,6,5943
 2021-03-24,2,South Vancouver Island,British Columbia,14,5941
 2021-03-25,2,Fraser East,British Columbia,60,5921
-2021-03-25,2,Fraser North,British Columbia,137,5922
+2021-03-25,2,Fraser North,British Columbia,138,5922
 2021-03-25,2,Fraser South,British Columbia,290,5923
 2021-03-25,2,East Kootenay,British Columbia,4,5911
 2021-03-25,2,Kootenay-Boundary,British Columbia,3,5912
@@ -6747,7 +6747,7 @@ date,wave,HR,province,cases,HRUID2018
 2021-03-25,2,Northwest,British Columbia,41,5951
 2021-03-25,2,North Shore/Coast Garibaldi,British Columbia,117,5933
 2021-03-25,2,Richmond,British Columbia,21,5931
-2021-03-25,2,Vancouver,British Columbia,166,5932
+2021-03-25,2,Vancouver,British Columbia,167,5932
 2021-03-25,2,Central Vancouver Island,British Columbia,28,5942
 2021-03-25,2,North Vancouver Island,British Columbia,6,5943
 2021-03-25,2,South Vancouver Island,British Columbia,23,5941
@@ -7024,7 +7024,7 @@ date,wave,HR,province,cases,HRUID2018
 2021-04-11,2,North Vancouver Island,British Columbia,1,5943
 2021-04-11,2,South Vancouver Island,British Columbia,37,5941
 2021-04-12,2,Fraser East,British Columbia,114,5921
-2021-04-12,2,Fraser North,British Columbia,154,5922
+2021-04-12,2,Fraser North,British Columbia,153,5922
 2021-04-12,2,Fraser South,British Columbia,253,5923
 2021-04-12,2,East Kootenay,British Columbia,10,5911
 2021-04-12,2,Kootenay-Boundary,British Columbia,8,5912
@@ -8278,7 +8278,7 @@ date,wave,HR,province,cases,HRUID2018
 2021-06-29,2,Kootenay-Boundary,British Columbia,0,5912
 2021-06-29,2,Okanagan,British Columbia,9,5913
 2021-06-29,2,Thompson Cariboo Shuswap,British Columbia,1,5914
-2021-06-29,2,Northeast,British Columbia,0,5953
+2021-06-29,2,Northeast,British Columbia,1,5953
 2021-06-29,2,Northern Interior,British Columbia,0,5952
 2021-06-29,2,Northwest,British Columbia,0,5951
 2021-06-29,2,North Shore/Coast Garibaldi,British Columbia,3,5933
@@ -8512,7 +8512,7 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-13,2,North Vancouver Island,British Columbia,0,5943
 2021-07-13,2,South Vancouver Island,British Columbia,0,5941
 2021-07-14,2,Fraser East,British Columbia,2,5921
-2021-07-14,2,Fraser North,British Columbia,13,5922
+2021-07-14,2,Fraser North,British Columbia,12,5922
 2021-07-14,2,Fraser South,British Columbia,8,5923
 2021-07-14,2,East Kootenay,British Columbia,0,5911
 2021-07-14,2,Kootenay-Boundary,British Columbia,2,5912
@@ -8569,7 +8569,7 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-17,2,Northeast,British Columbia,1,5953
 2021-07-17,2,Northern Interior,British Columbia,2,5952
 2021-07-17,2,Northwest,British Columbia,0,5951
-2021-07-17,2,North Shore/Coast Garibaldi,British Columbia,0,5933
+2021-07-17,2,North Shore/Coast Garibaldi,British Columbia,1,5933
 2021-07-17,2,Richmond,British Columbia,2,5931
 2021-07-17,2,Vancouver,British Columbia,4,5932
 2021-07-17,2,Central Vancouver Island,British Columbia,1,5942
@@ -8612,7 +8612,7 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-20,2,Fraser South,British Columbia,15,5923
 2021-07-20,2,East Kootenay,British Columbia,0,5911
 2021-07-20,2,Kootenay-Boundary,British Columbia,6,5912
-2021-07-20,2,Okanagan,British Columbia,19,5913
+2021-07-20,2,Okanagan,British Columbia,20,5913
 2021-07-20,2,Thompson Cariboo Shuswap,British Columbia,6,5914
 2021-07-20,2,Northeast,British Columbia,0,5953
 2021-07-20,2,Northern Interior,British Columbia,0,5952
@@ -8656,11 +8656,11 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-22,2,North Vancouver Island,British Columbia,0,5943
 2021-07-22,2,South Vancouver Island,British Columbia,5,5941
 2021-07-23,2,Fraser East,British Columbia,0,5921
-2021-07-23,2,Fraser North,British Columbia,12,5922
-2021-07-23,2,Fraser South,British Columbia,5,5923
+2021-07-23,2,Fraser North,British Columbia,11,5922
+2021-07-23,2,Fraser South,British Columbia,4,5923
 2021-07-23,2,East Kootenay,British Columbia,1,5911
 2021-07-23,2,Kootenay-Boundary,British Columbia,4,5912
-2021-07-23,2,Okanagan,British Columbia,35,5913
+2021-07-23,2,Okanagan,British Columbia,36,5913
 2021-07-23,2,Thompson Cariboo Shuswap,British Columbia,5,5914
 2021-07-23,2,Northeast,British Columbia,0,5953
 2021-07-23,2,Northern Interior,British Columbia,1,5952
@@ -8670,13 +8670,13 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-23,2,Vancouver,British Columbia,11,5932
 2021-07-23,2,Central Vancouver Island,British Columbia,0,5942
 2021-07-23,2,North Vancouver Island,British Columbia,0,5943
-2021-07-23,2,South Vancouver Island,British Columbia,5,5941
+2021-07-23,2,South Vancouver Island,British Columbia,6,5941
 2021-07-24,2,Fraser East,British Columbia,3,5921
 2021-07-24,2,Fraser North,British Columbia,4,5922
 2021-07-24,2,Fraser South,British Columbia,5,5923
 2021-07-24,2,East Kootenay,British Columbia,2,5911
 2021-07-24,2,Kootenay-Boundary,British Columbia,1,5912
-2021-07-24,2,Okanagan,British Columbia,44,5913
+2021-07-24,2,Okanagan,British Columbia,45,5913
 2021-07-24,2,Thompson Cariboo Shuswap,British Columbia,9,5914
 2021-07-24,2,Northeast,British Columbia,1,5953
 2021-07-24,2,Northern Interior,British Columbia,1,5952
@@ -8705,14 +8705,14 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-25,2,South Vancouver Island,British Columbia,2,5941
 2021-07-26,2,Fraser East,British Columbia,12,5921
 2021-07-26,2,Fraser North,British Columbia,9,5922
-2021-07-26,2,Fraser South,British Columbia,7,5923
+2021-07-26,2,Fraser South,British Columbia,8,5923
 2021-07-26,2,East Kootenay,British Columbia,2,5911
-2021-07-26,2,Kootenay-Boundary,British Columbia,10,5912
-2021-07-26,2,Okanagan,British Columbia,65,5913
-2021-07-26,2,Thompson Cariboo Shuswap,British Columbia,7,5914
+2021-07-26,2,Kootenay-Boundary,British Columbia,11,5912
+2021-07-26,2,Okanagan,British Columbia,66,5913
+2021-07-26,2,Thompson Cariboo Shuswap,British Columbia,6,5914
 2021-07-26,2,Northeast,British Columbia,0,5953
 2021-07-26,2,Northern Interior,British Columbia,0,5952
-2021-07-26,2,Northwest,British Columbia,3,5951
+2021-07-26,2,Northwest,British Columbia,2,5951
 2021-07-26,2,North Shore/Coast Garibaldi,British Columbia,1,5933
 2021-07-26,2,Richmond,British Columbia,2,5931
 2021-07-26,2,Vancouver,British Columbia,10,5932
@@ -8720,13 +8720,13 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-26,2,North Vancouver Island,British Columbia,0,5943
 2021-07-26,2,South Vancouver Island,British Columbia,3,5941
 2021-07-27,2,Fraser East,British Columbia,12,5921
-2021-07-27,2,Fraser North,British Columbia,14,5922
-2021-07-27,2,Fraser South,British Columbia,14,5923
+2021-07-27,2,Fraser North,British Columbia,15,5922
+2021-07-27,2,Fraser South,British Columbia,12,5923
 2021-07-27,2,East Kootenay,British Columbia,6,5911
 2021-07-27,2,Kootenay-Boundary,British Columbia,9,5912
 2021-07-27,2,Okanagan,British Columbia,89,5913
-2021-07-27,2,Thompson Cariboo Shuswap,British Columbia,9,5914
-2021-07-27,2,Northeast,British Columbia,2,5953
+2021-07-27,2,Thompson Cariboo Shuswap,British Columbia,10,5914
+2021-07-27,2,Northeast,British Columbia,1,5953
 2021-07-27,2,Northern Interior,British Columbia,0,5952
 2021-07-27,2,Northwest,British Columbia,2,5951
 2021-07-27,2,North Shore/Coast Garibaldi,British Columbia,3,5933
@@ -8735,38 +8735,134 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-27,2,Central Vancouver Island,British Columbia,3,5942
 2021-07-27,2,North Vancouver Island,British Columbia,1,5943
 2021-07-27,2,South Vancouver Island,British Columbia,5,5941
-2021-07-28,2,Fraser East,British Columbia,17,5921
-2021-07-28,2,Fraser North,British Columbia,15,5922
-2021-07-28,2,Fraser South,British Columbia,25,5923
-2021-07-28,2,East Kootenay,British Columbia,4,5911
-2021-07-28,2,Kootenay-Boundary,British Columbia,12,5912
-2021-07-28,2,Okanagan,British Columbia,77,5913
-2021-07-28,2,Thompson Cariboo Shuswap,British Columbia,8,5914
+2021-07-28,2,Fraser East,British Columbia,15,5921
+2021-07-28,2,Fraser North,British Columbia,14,5922
+2021-07-28,2,Fraser South,British Columbia,24,5923
+2021-07-28,2,East Kootenay,British Columbia,5,5911
+2021-07-28,2,Kootenay-Boundary,British Columbia,13,5912
+2021-07-28,2,Okanagan,British Columbia,81,5913
+2021-07-28,2,Thompson Cariboo Shuswap,British Columbia,11,5914
 2021-07-28,2,Northeast,British Columbia,0,5953
 2021-07-28,2,Northern Interior,British Columbia,1,5952
 2021-07-28,2,Northwest,British Columbia,3,5951
 2021-07-28,2,North Shore/Coast Garibaldi,British Columbia,1,5933
 2021-07-28,2,Richmond,British Columbia,1,5931
-2021-07-28,2,Vancouver,British Columbia,23,5932
-2021-07-28,2,Central Vancouver Island,British Columbia,9,5942
+2021-07-28,2,Vancouver,British Columbia,24,5932
+2021-07-28,2,Central Vancouver Island,British Columbia,8,5942
 2021-07-28,2,North Vancouver Island,British Columbia,1,5943
-2021-07-28,2,South Vancouver Island,British Columbia,3,5941
-2021-07-29,2,Fraser East,British Columbia,17,5921
-2021-07-29,2,Fraser North,British Columbia,16,5922
-2021-07-29,2,Fraser South,British Columbia,19,5923
-2021-07-29,2,East Kootenay,British Columbia,7,5911
+2021-07-28,2,South Vancouver Island,British Columbia,2,5941
+2021-07-29,2,Fraser East,British Columbia,19,5921
+2021-07-29,2,Fraser North,British Columbia,17,5922
+2021-07-29,2,Fraser South,British Columbia,21,5923
+2021-07-29,2,East Kootenay,British Columbia,6,5911
 2021-07-29,2,Kootenay-Boundary,British Columbia,16,5912
-2021-07-29,2,Okanagan,British Columbia,91,5913
+2021-07-29,2,Okanagan,British Columbia,100,5913
 2021-07-29,2,Thompson Cariboo Shuswap,British Columbia,10,5914
 2021-07-29,2,Northeast,British Columbia,2,5953
-2021-07-29,2,Northern Interior,British Columbia,1,5952
-2021-07-29,2,Northwest,British Columbia,3,5951
-2021-07-29,2,North Shore/Coast Garibaldi,British Columbia,7,5933
+2021-07-29,2,Northern Interior,British Columbia,2,5952
+2021-07-29,2,Northwest,British Columbia,1,5951
+2021-07-29,2,North Shore/Coast Garibaldi,British Columbia,9,5933
 2021-07-29,2,Richmond,British Columbia,2,5931
-2021-07-29,2,Vancouver,British Columbia,21,5932
+2021-07-29,2,Vancouver,British Columbia,19,5932
 2021-07-29,2,Central Vancouver Island,British Columbia,7,5942
 2021-07-29,2,North Vancouver Island,British Columbia,0,5943
 2021-07-29,2,South Vancouver Island,British Columbia,8,5941
+2021-07-30,2,Fraser East,British Columbia,9,5921
+2021-07-30,2,Fraser North,British Columbia,21,5922
+2021-07-30,2,Fraser South,British Columbia,15,5923
+2021-07-30,2,East Kootenay,British Columbia,4,5911
+2021-07-30,2,Kootenay-Boundary,British Columbia,7,5912
+2021-07-30,2,Okanagan,British Columbia,59,5913
+2021-07-30,2,Thompson Cariboo Shuswap,British Columbia,3,5914
+2021-07-30,2,Northeast,British Columbia,1,5953
+2021-07-30,2,Northern Interior,British Columbia,1,5952
+2021-07-30,2,Northwest,British Columbia,0,5951
+2021-07-30,2,North Shore/Coast Garibaldi,British Columbia,6,5933
+2021-07-30,2,Richmond,British Columbia,4,5931
+2021-07-30,2,Vancouver,British Columbia,26,5932
+2021-07-30,2,Central Vancouver Island,British Columbia,9,5942
+2021-07-30,2,North Vancouver Island,British Columbia,0,5943
+2021-07-30,2,South Vancouver Island,British Columbia,10,5941
+2021-07-31,2,Fraser East,British Columbia,6,5921
+2021-07-31,2,Fraser North,British Columbia,16,5922
+2021-07-31,2,Fraser South,British Columbia,15,5923
+2021-07-31,2,East Kootenay,British Columbia,1,5911
+2021-07-31,2,Kootenay-Boundary,British Columbia,1,5912
+2021-07-31,2,Okanagan,British Columbia,110,5913
+2021-07-31,2,Thompson Cariboo Shuswap,British Columbia,9,5914
+2021-07-31,2,Northeast,British Columbia,1,5953
+2021-07-31,2,Northern Interior,British Columbia,3,5952
+2021-07-31,2,Northwest,British Columbia,0,5951
+2021-07-31,2,North Shore/Coast Garibaldi,British Columbia,11,5933
+2021-07-31,2,Richmond,British Columbia,5,5931
+2021-07-31,2,Vancouver,British Columbia,20,5932
+2021-07-31,2,Central Vancouver Island,British Columbia,1,5942
+2021-07-31,2,North Vancouver Island,British Columbia,0,5943
+2021-07-31,2,South Vancouver Island,British Columbia,7,5941
+2021-08-01,2,Fraser East,British Columbia,12,5921
+2021-08-01,2,Fraser North,British Columbia,9,5922
+2021-08-01,2,Fraser South,British Columbia,21,5923
+2021-08-01,2,East Kootenay,British Columbia,1,5911
+2021-08-01,2,Kootenay-Boundary,British Columbia,15,5912
+2021-08-01,2,Okanagan,British Columbia,95,5913
+2021-08-01,2,Thompson Cariboo Shuswap,British Columbia,7,5914
+2021-08-01,2,Northeast,British Columbia,1,5953
+2021-08-01,2,Northern Interior,British Columbia,3,5952
+2021-08-01,2,Northwest,British Columbia,0,5951
+2021-08-01,2,North Shore/Coast Garibaldi,British Columbia,3,5933
+2021-08-01,2,Richmond,British Columbia,3,5931
+2021-08-01,2,Vancouver,British Columbia,14,5932
+2021-08-01,2,Central Vancouver Island,British Columbia,6,5942
+2021-08-01,2,North Vancouver Island,British Columbia,1,5943
+2021-08-01,2,South Vancouver Island,British Columbia,5,5941
+2021-08-02,2,Fraser East,British Columbia,16,5921
+2021-08-02,2,Fraser North,British Columbia,15,5922
+2021-08-02,2,Fraser South,British Columbia,26,5923
+2021-08-02,2,East Kootenay,British Columbia,2,5911
+2021-08-02,2,Kootenay-Boundary,British Columbia,3,5912
+2021-08-02,2,Okanagan,British Columbia,79,5913
+2021-08-02,2,Thompson Cariboo Shuswap,British Columbia,8,5914
+2021-08-02,2,Northeast,British Columbia,3,5953
+2021-08-02,2,Northern Interior,British Columbia,10,5952
+2021-08-02,2,Northwest,British Columbia,3,5951
+2021-08-02,2,North Shore/Coast Garibaldi,British Columbia,11,5933
+2021-08-02,2,Richmond,British Columbia,3,5931
+2021-08-02,2,Vancouver,British Columbia,22,5932
+2021-08-02,2,Central Vancouver Island,British Columbia,1,5942
+2021-08-02,2,North Vancouver Island,British Columbia,3,5943
+2021-08-02,2,South Vancouver Island,British Columbia,6,5941
+2021-08-03,2,Fraser East,British Columbia,12,5921
+2021-08-03,2,Fraser North,British Columbia,24,5922
+2021-08-03,2,Fraser South,British Columbia,25,5923
+2021-08-03,2,East Kootenay,British Columbia,5,5911
+2021-08-03,2,Kootenay-Boundary,British Columbia,10,5912
+2021-08-03,2,Okanagan,British Columbia,114,5913
+2021-08-03,2,Thompson Cariboo Shuswap,British Columbia,19,5914
+2021-08-03,2,Northeast,British Columbia,4,5953
+2021-08-03,2,Northern Interior,British Columbia,8,5952
+2021-08-03,2,Northwest,British Columbia,1,5951
+2021-08-03,2,North Shore/Coast Garibaldi,British Columbia,12,5933
+2021-08-03,2,Richmond,British Columbia,5,5931
+2021-08-03,2,Vancouver,British Columbia,24,5932
+2021-08-03,2,Central Vancouver Island,British Columbia,16,5942
+2021-08-03,2,North Vancouver Island,British Columbia,1,5943
+2021-08-03,2,South Vancouver Island,British Columbia,11,5941
+2021-08-04,2,Fraser East,British Columbia,14,5921
+2021-08-04,2,Fraser North,British Columbia,31,5922
+2021-08-04,2,Fraser South,British Columbia,25,5923
+2021-08-04,2,East Kootenay,British Columbia,7,5911
+2021-08-04,2,Kootenay-Boundary,British Columbia,38,5912
+2021-08-04,2,Okanagan,British Columbia,165,5913
+2021-08-04,2,Thompson Cariboo Shuswap,British Columbia,16,5914
+2021-08-04,2,Northeast,British Columbia,1,5953
+2021-08-04,2,Northern Interior,British Columbia,14,5952
+2021-08-04,2,Northwest,British Columbia,4,5951
+2021-08-04,2,North Shore/Coast Garibaldi,British Columbia,3,5933
+2021-08-04,2,Richmond,British Columbia,8,5931
+2021-08-04,2,Vancouver,British Columbia,31,5932
+2021-08-04,2,Central Vancouver Island,British Columbia,7,5942
+2021-08-04,2,North Vancouver Island,British Columbia,4,5943
+2021-08-04,2,South Vancouver Island,British Columbia,12,5941
 2020-01-23,1,Bas-Saint-Laurent,Quebec,0,2401
 2020-01-23,1,Saguenay-Lac-Saint-Jean,Quebec,0,2402
 2020-01-23,1,Capitale-Nationale,Quebec,0,2403
@@ -10860,7 +10956,7 @@ date,wave,HR,province,cases,HRUID2018
 2020-05-18,1,Capitale-Nationale,Quebec,28,2403
 2020-05-18,1,Mauricie et du Centre-du-Quebec,Quebec,21,2404
 2020-05-18,1,Estrie,Quebec,2,2405
-2020-05-18,1,Montreal,Quebec,330,2406
+2020-05-18,1,Montreal,Quebec,331,2406
 2020-05-18,1,Outaouais,Quebec,24,2407
 2020-05-18,1,Abitibi-Temiscamingue,Quebec,0,2408
 2020-05-18,1,Cote-Nord,Quebec,0,2409
@@ -10870,7 +10966,7 @@ date,wave,HR,province,cases,HRUID2018
 2020-05-18,1,Laval,Quebec,62,2413
 2020-05-18,1,Lanaudiere,Quebec,53,2414
 2020-05-18,1,Laurentides,Quebec,40,2415
-2020-05-18,1,Monteregie,Quebec,95,2416
+2020-05-18,1,Monteregie,Quebec,94,2416
 2020-05-18,1,Nunavik,Quebec,0,2417
 2020-05-18,1,Terres-Cries-de-la-Baie-James,Quebec,0,2418
 2020-05-19,1,Bas-Saint-Laurent,Quebec,1,2401
@@ -14830,7 +14926,7 @@ date,wave,HR,province,cases,HRUID2018
 2020-12-24,1,Laval,Quebec,184,2413
 2020-12-24,1,Lanaudiere,Quebec,165,2414
 2020-12-24,1,Laurentides,Quebec,168,2415
-2020-12-24,1,Monteregie,Quebec,308,2416
+2020-12-24,1,Monteregie,Quebec,307,2416
 2020-12-24,1,Nunavik,Quebec,0,2417
 2020-12-24,1,Terres-Cries-de-la-Baie-James,Quebec,0,2418
 2020-12-25,1,Bas-Saint-Laurent,Quebec,7,2401
@@ -15018,7 +15114,7 @@ date,wave,HR,province,cases,HRUID2018
 2021-01-04,1,Capitale-Nationale,Quebec,203,2403
 2021-01-04,1,Mauricie et du Centre-du-Quebec,Quebec,144,2404
 2021-01-04,1,Estrie,Quebec,124,2405
-2021-01-04,1,Montreal,Quebec,764,2406
+2021-01-04,1,Montreal,Quebec,763,2406
 2021-01-04,1,Outaouais,Quebec,42,2407
 2021-01-04,1,Abitibi-Temiscamingue,Quebec,16,2408
 2021-01-04,1,Cote-Nord,Quebec,1,2409
@@ -17034,7 +17130,7 @@ date,wave,HR,province,cases,HRUID2018
 2021-04-26,2,Capitale-Nationale,Quebec,109,2403
 2021-04-26,2,Mauricie et du Centre-du-Quebec,Quebec,2,2404
 2021-04-26,2,Estrie,Quebec,34,2405
-2021-04-26,2,Montreal,Quebec,243,2406
+2021-04-26,2,Montreal,Quebec,244,2406
 2021-04-26,2,Outaouais,Quebec,95,2407
 2021-04-26,2,Abitibi-Temiscamingue,Quebec,0,2408
 2021-04-26,2,Cote-Nord,Quebec,12,2409
@@ -18634,7 +18730,7 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-24,2,Bas-Saint-Laurent,Quebec,0,2401
 2021-07-24,2,Saguenay-Lac-Saint-Jean,Quebec,0,2402
 2021-07-24,2,Capitale-Nationale,Quebec,3,2403
-2021-07-24,2,Mauricie et du Centre-du-Quebec,Quebec,8,2404
+2021-07-24,2,Mauricie et du Centre-du-Quebec,Quebec,9,2404
 2021-07-24,2,Estrie,Quebec,0,2405
 2021-07-24,2,Montreal,Quebec,34,2406
 2021-07-24,2,Outaouais,Quebec,2,2407
@@ -18645,7 +18741,7 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-24,2,Chaudiere-Appalaches,Quebec,0,2412
 2021-07-24,2,Laval,Quebec,18,2413
 2021-07-24,2,Lanaudiere,Quebec,4,2414
-2021-07-24,2,Laurentides,Quebec,1,2415
+2021-07-24,2,Laurentides,Quebec,0,2415
 2021-07-24,2,Monteregie,Quebec,8,2416
 2021-07-24,2,Nunavik,Quebec,0,2417
 2021-07-24,2,Terres-Cries-de-la-Baie-James,Quebec,0,2418
@@ -18654,7 +18750,7 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-25,2,Capitale-Nationale,Quebec,1,2403
 2021-07-25,2,Mauricie et du Centre-du-Quebec,Quebec,5,2404
 2021-07-25,2,Estrie,Quebec,2,2405
-2021-07-25,2,Montreal,Quebec,34,2406
+2021-07-25,2,Montreal,Quebec,35,2406
 2021-07-25,2,Outaouais,Quebec,0,2407
 2021-07-25,2,Abitibi-Temiscamingue,Quebec,0,2408
 2021-07-25,2,Cote-Nord,Quebec,0,2409
@@ -18670,7 +18766,7 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-26,2,Bas-Saint-Laurent,Quebec,0,2401
 2021-07-26,2,Saguenay-Lac-Saint-Jean,Quebec,0,2402
 2021-07-26,2,Capitale-Nationale,Quebec,6,2403
-2021-07-26,2,Mauricie et du Centre-du-Quebec,Quebec,8,2404
+2021-07-26,2,Mauricie et du Centre-du-Quebec,Quebec,7,2404
 2021-07-26,2,Estrie,Quebec,4,2405
 2021-07-26,2,Montreal,Quebec,38,2406
 2021-07-26,2,Outaouais,Quebec,3,2407
@@ -18687,7 +18783,7 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-26,2,Terres-Cries-de-la-Baie-James,Quebec,0,2418
 2021-07-27,2,Bas-Saint-Laurent,Quebec,0,2401
 2021-07-27,2,Saguenay-Lac-Saint-Jean,Quebec,0,2402
-2021-07-27,2,Capitale-Nationale,Quebec,6,2403
+2021-07-27,2,Capitale-Nationale,Quebec,7,2403
 2021-07-27,2,Mauricie et du Centre-du-Quebec,Quebec,22,2404
 2021-07-27,2,Estrie,Quebec,5,2405
 2021-07-27,2,Montreal,Quebec,53,2406
@@ -18708,14 +18804,14 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-28,2,Capitale-Nationale,Quebec,4,2403
 2021-07-28,2,Mauricie et du Centre-du-Quebec,Quebec,11,2404
 2021-07-28,2,Estrie,Quebec,4,2405
-2021-07-28,2,Montreal,Quebec,52,2406
+2021-07-28,2,Montreal,Quebec,50,2406
 2021-07-28,2,Outaouais,Quebec,0,2407
 2021-07-28,2,Abitibi-Temiscamingue,Quebec,1,2408
 2021-07-28,2,Cote-Nord,Quebec,1,2409
 2021-07-28,2,Nord-du-Quebec,Quebec,0,2410
 2021-07-28,2,Gaspesie-Iles-de-la-Madeleine,Quebec,0,2411
 2021-07-28,2,Chaudiere-Appalaches,Quebec,0,2412
-2021-07-28,2,Laval,Quebec,17,2413
+2021-07-28,2,Laval,Quebec,18,2413
 2021-07-28,2,Lanaudiere,Quebec,11,2414
 2021-07-28,2,Laurentides,Quebec,7,2415
 2021-07-28,2,Monteregie,Quebec,21,2416
@@ -18723,22 +18819,130 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-28,2,Terres-Cries-de-la-Baie-James,Quebec,0,2418
 2021-07-29,2,Bas-Saint-Laurent,Quebec,0,2401
 2021-07-29,2,Saguenay-Lac-Saint-Jean,Quebec,0,2402
-2021-07-29,2,Capitale-Nationale,Quebec,3,2403
+2021-07-29,2,Capitale-Nationale,Quebec,8,2403
 2021-07-29,2,Mauricie et du Centre-du-Quebec,Quebec,13,2404
-2021-07-29,2,Estrie,Quebec,0,2405
-2021-07-29,2,Montreal,Quebec,13,2406
+2021-07-29,2,Estrie,Quebec,1,2405
+2021-07-29,2,Montreal,Quebec,16,2406
 2021-07-29,2,Outaouais,Quebec,1,2407
 2021-07-29,2,Abitibi-Temiscamingue,Quebec,0,2408
 2021-07-29,2,Cote-Nord,Quebec,0,2409
 2021-07-29,2,Nord-du-Quebec,Quebec,0,2410
 2021-07-29,2,Gaspesie-Iles-de-la-Madeleine,Quebec,0,2411
-2021-07-29,2,Chaudiere-Appalaches,Quebec,0,2412
-2021-07-29,2,Laval,Quebec,18,2413
-2021-07-29,2,Lanaudiere,Quebec,3,2414
-2021-07-29,2,Laurentides,Quebec,5,2415
-2021-07-29,2,Monteregie,Quebec,5,2416
+2021-07-29,2,Chaudiere-Appalaches,Quebec,1,2412
+2021-07-29,2,Laval,Quebec,33,2413
+2021-07-29,2,Lanaudiere,Quebec,7,2414
+2021-07-29,2,Laurentides,Quebec,6,2415
+2021-07-29,2,Monteregie,Quebec,14,2416
 2021-07-29,2,Nunavik,Quebec,0,2417
 2021-07-29,2,Terres-Cries-de-la-Baie-James,Quebec,0,2418
+2021-07-30,2,Bas-Saint-Laurent,Quebec,0,2401
+2021-07-30,2,Saguenay-Lac-Saint-Jean,Quebec,0,2402
+2021-07-30,2,Capitale-Nationale,Quebec,1,2403
+2021-07-30,2,Mauricie et du Centre-du-Quebec,Quebec,28,2404
+2021-07-30,2,Estrie,Quebec,8,2405
+2021-07-30,2,Montreal,Quebec,106,2406
+2021-07-30,2,Outaouais,Quebec,4,2407
+2021-07-30,2,Abitibi-Temiscamingue,Quebec,0,2408
+2021-07-30,2,Cote-Nord,Quebec,0,2409
+2021-07-30,2,Nord-du-Quebec,Quebec,0,2410
+2021-07-30,2,Gaspesie-Iles-de-la-Madeleine,Quebec,0,2411
+2021-07-30,2,Chaudiere-Appalaches,Quebec,0,2412
+2021-07-30,2,Laval,Quebec,14,2413
+2021-07-30,2,Lanaudiere,Quebec,9,2414
+2021-07-30,2,Laurentides,Quebec,21,2415
+2021-07-30,2,Monteregie,Quebec,30,2416
+2021-07-30,2,Nunavik,Quebec,0,2417
+2021-07-30,2,Terres-Cries-de-la-Baie-James,Quebec,0,2418
+2021-07-31,2,Bas-Saint-Laurent,Quebec,0,2401
+2021-07-31,2,Saguenay-Lac-Saint-Jean,Quebec,2,2402
+2021-07-31,2,Capitale-Nationale,Quebec,3,2403
+2021-07-31,2,Mauricie et du Centre-du-Quebec,Quebec,21,2404
+2021-07-31,2,Estrie,Quebec,9,2405
+2021-07-31,2,Montreal,Quebec,53,2406
+2021-07-31,2,Outaouais,Quebec,2,2407
+2021-07-31,2,Abitibi-Temiscamingue,Quebec,0,2408
+2021-07-31,2,Cote-Nord,Quebec,1,2409
+2021-07-31,2,Nord-du-Quebec,Quebec,0,2410
+2021-07-31,2,Gaspesie-Iles-de-la-Madeleine,Quebec,0,2411
+2021-07-31,2,Chaudiere-Appalaches,Quebec,1,2412
+2021-07-31,2,Laval,Quebec,28,2413
+2021-07-31,2,Lanaudiere,Quebec,6,2414
+2021-07-31,2,Laurentides,Quebec,9,2415
+2021-07-31,2,Monteregie,Quebec,13,2416
+2021-07-31,2,Nunavik,Quebec,0,2417
+2021-07-31,2,Terres-Cries-de-la-Baie-James,Quebec,0,2418
+2021-08-01,2,Bas-Saint-Laurent,Quebec,0,2401
+2021-08-01,2,Saguenay-Lac-Saint-Jean,Quebec,6,2402
+2021-08-01,2,Capitale-Nationale,Quebec,2,2403
+2021-08-01,2,Mauricie et du Centre-du-Quebec,Quebec,18,2404
+2021-08-01,2,Estrie,Quebec,2,2405
+2021-08-01,2,Montreal,Quebec,43,2406
+2021-08-01,2,Outaouais,Quebec,5,2407
+2021-08-01,2,Abitibi-Temiscamingue,Quebec,0,2408
+2021-08-01,2,Cote-Nord,Quebec,0,2409
+2021-08-01,2,Nord-du-Quebec,Quebec,0,2410
+2021-08-01,2,Gaspesie-Iles-de-la-Madeleine,Quebec,0,2411
+2021-08-01,2,Chaudiere-Appalaches,Quebec,3,2412
+2021-08-01,2,Laval,Quebec,18,2413
+2021-08-01,2,Lanaudiere,Quebec,5,2414
+2021-08-01,2,Laurentides,Quebec,10,2415
+2021-08-01,2,Monteregie,Quebec,21,2416
+2021-08-01,2,Nunavik,Quebec,0,2417
+2021-08-01,2,Terres-Cries-de-la-Baie-James,Quebec,0,2418
+2021-08-02,2,Bas-Saint-Laurent,Quebec,1,2401
+2021-08-02,2,Saguenay-Lac-Saint-Jean,Quebec,2,2402
+2021-08-02,2,Capitale-Nationale,Quebec,4,2403
+2021-08-02,2,Mauricie et du Centre-du-Quebec,Quebec,28,2404
+2021-08-02,2,Estrie,Quebec,4,2405
+2021-08-02,2,Montreal,Quebec,55,2406
+2021-08-02,2,Outaouais,Quebec,3,2407
+2021-08-02,2,Abitibi-Temiscamingue,Quebec,0,2408
+2021-08-02,2,Cote-Nord,Quebec,0,2409
+2021-08-02,2,Nord-du-Quebec,Quebec,0,2410
+2021-08-02,2,Gaspesie-Iles-de-la-Madeleine,Quebec,0,2411
+2021-08-02,2,Chaudiere-Appalaches,Quebec,7,2412
+2021-08-02,2,Laval,Quebec,20,2413
+2021-08-02,2,Lanaudiere,Quebec,16,2414
+2021-08-02,2,Laurentides,Quebec,15,2415
+2021-08-02,2,Monteregie,Quebec,34,2416
+2021-08-02,2,Nunavik,Quebec,0,2417
+2021-08-02,2,Terres-Cries-de-la-Baie-James,Quebec,0,2418
+2021-08-03,2,Bas-Saint-Laurent,Quebec,2,2401
+2021-08-03,2,Saguenay-Lac-Saint-Jean,Quebec,6,2402
+2021-08-03,2,Capitale-Nationale,Quebec,19,2403
+2021-08-03,2,Mauricie et du Centre-du-Quebec,Quebec,31,2404
+2021-08-03,2,Estrie,Quebec,4,2405
+2021-08-03,2,Montreal,Quebec,53,2406
+2021-08-03,2,Outaouais,Quebec,4,2407
+2021-08-03,2,Abitibi-Temiscamingue,Quebec,2,2408
+2021-08-03,2,Cote-Nord,Quebec,1,2409
+2021-08-03,2,Nord-du-Quebec,Quebec,0,2410
+2021-08-03,2,Gaspesie-Iles-de-la-Madeleine,Quebec,0,2411
+2021-08-03,2,Chaudiere-Appalaches,Quebec,8,2412
+2021-08-03,2,Laval,Quebec,15,2413
+2021-08-03,2,Lanaudiere,Quebec,13,2414
+2021-08-03,2,Laurentides,Quebec,13,2415
+2021-08-03,2,Monteregie,Quebec,21,2416
+2021-08-03,2,Nunavik,Quebec,0,2417
+2021-08-03,2,Terres-Cries-de-la-Baie-James,Quebec,0,2418
+2021-08-04,2,Bas-Saint-Laurent,Quebec,0,2401
+2021-08-04,2,Saguenay-Lac-Saint-Jean,Quebec,2,2402
+2021-08-04,2,Capitale-Nationale,Quebec,7,2403
+2021-08-04,2,Mauricie et du Centre-du-Quebec,Quebec,44,2404
+2021-08-04,2,Estrie,Quebec,3,2405
+2021-08-04,2,Montreal,Quebec,110,2406
+2021-08-04,2,Outaouais,Quebec,4,2407
+2021-08-04,2,Abitibi-Temiscamingue,Quebec,0,2408
+2021-08-04,2,Cote-Nord,Quebec,0,2409
+2021-08-04,2,Nord-du-Quebec,Quebec,0,2410
+2021-08-04,2,Gaspesie-Iles-de-la-Madeleine,Quebec,0,2411
+2021-08-04,2,Chaudiere-Appalaches,Quebec,0,2412
+2021-08-04,2,Laval,Quebec,23,2413
+2021-08-04,2,Lanaudiere,Quebec,15,2414
+2021-08-04,2,Laurentides,Quebec,12,2415
+2021-08-04,2,Monteregie,Quebec,11,2416
+2021-08-04,2,Nunavik,Quebec,0,2417
+2021-08-04,2,Terres-Cries-de-la-Baie-James,Quebec,0,2418
 2020-01-25,1,Interlake-Eastern,Manitoba,0,4603
 2020-01-26,1,Interlake-Eastern,Manitoba,0,4603
 2020-01-27,1,Interlake-Eastern,Manitoba,0,4603
@@ -19294,6 +19498,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Interlake-Eastern,Manitoba,8,4603
 2021-07-31,2,Interlake-Eastern,Manitoba,0,4603
 2021-08-01,2,Interlake-Eastern,Manitoba,0,4603
+2021-08-02,2,Interlake-Eastern,Manitoba,0,4603
+2021-08-03,2,Interlake-Eastern,Manitoba,24,4603
+2021-08-04,2,Interlake-Eastern,Manitoba,4,4603
+2021-08-05,2,Interlake-Eastern,Manitoba,17,4603
 2020-01-25,1,Northern,Manitoba,0,4604
 2020-01-26,1,Northern,Manitoba,0,4604
 2020-01-27,1,Northern,Manitoba,0,4604
@@ -19849,6 +20057,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Northern,Manitoba,16,4604
 2021-07-31,2,Northern,Manitoba,0,4604
 2021-08-01,2,Northern,Manitoba,0,4604
+2021-08-02,2,Northern,Manitoba,0,4604
+2021-08-03,2,Northern,Manitoba,8,4604
+2021-08-04,2,Northern,Manitoba,0,4604
+2021-08-05,2,Northern,Manitoba,-3,4604
 2020-01-25,1,Not Reported,Manitoba,0,
 2020-01-26,1,Not Reported,Manitoba,0,
 2020-01-27,1,Not Reported,Manitoba,0,
@@ -20404,6 +20616,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Not Reported,Manitoba,0,
 2021-07-31,2,Not Reported,Manitoba,0,
 2021-08-01,2,Not Reported,Manitoba,0,
+2021-08-02,2,Not Reported,Manitoba,0,
+2021-08-03,2,Not Reported,Manitoba,0,
+2021-08-04,2,Not Reported,Manitoba,0,
+2021-08-05,2,Not Reported,Manitoba,0,
 2020-01-25,1,Prairie Mountain,Manitoba,0,4602
 2020-01-26,1,Prairie Mountain,Manitoba,0,4602
 2020-01-27,1,Prairie Mountain,Manitoba,0,4602
@@ -20959,6 +21175,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Prairie Mountain,Manitoba,1,4602
 2021-07-31,2,Prairie Mountain,Manitoba,0,4602
 2021-08-01,2,Prairie Mountain,Manitoba,0,4602
+2021-08-02,2,Prairie Mountain,Manitoba,0,4602
+2021-08-03,2,Prairie Mountain,Manitoba,3,4602
+2021-08-04,2,Prairie Mountain,Manitoba,0,4602
+2021-08-05,2,Prairie Mountain,Manitoba,-1,4602
 2020-01-25,1,Southern Health,Manitoba,0,4605
 2020-01-26,1,Southern Health,Manitoba,0,4605
 2020-01-27,1,Southern Health,Manitoba,0,4605
@@ -21514,6 +21734,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Southern Health,Manitoba,4,4605
 2021-07-31,2,Southern Health,Manitoba,0,4605
 2021-08-01,2,Southern Health,Manitoba,0,4605
+2021-08-02,2,Southern Health,Manitoba,0,4605
+2021-08-03,2,Southern Health,Manitoba,18,4605
+2021-08-04,2,Southern Health,Manitoba,2,4605
+2021-08-05,2,Southern Health,Manitoba,5,4605
 2020-01-25,1,Winnipeg,Manitoba,0,4601
 2020-01-26,1,Winnipeg,Manitoba,0,4601
 2020-01-27,1,Winnipeg,Manitoba,0,4601
@@ -22069,6 +22293,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Winnipeg,Manitoba,16,4601
 2021-07-31,2,Winnipeg,Manitoba,0,4601
 2021-08-01,2,Winnipeg,Manitoba,0,4601
+2021-08-02,2,Winnipeg,Manitoba,0,4601
+2021-08-03,2,Winnipeg,Manitoba,45,4601
+2021-08-04,2,Winnipeg,Manitoba,9,4601
+2021-08-05,2,Winnipeg,Manitoba,15,4601
 2020-08-04,1,Far North West,Saskatchewan,0,3
 2020-08-04,1,Far North West,Saskatchewan,0,3
 2020-08-04,1,Far North Central,Saskatchewan,0,1
@@ -33685,6 +33913,134 @@ date,wave,HR,province,cases,HRUID2018
 2021-08-01,2,South East,Saskatchewan,4,12
 2021-08-01,2,South East,Saskatchewan,0,12
 2021-08-01,2,South East,Saskatchewan,1,12
+2021-08-02,2,Far North West,Saskatchewan,3,3
+2021-08-02,2,Far North West,Saskatchewan,0,3
+2021-08-02,2,Far North Central,Saskatchewan,3,1
+2021-08-02,2,Far North East,Saskatchewan,5,2
+2021-08-02,2,Far North East,Saskatchewan,5,2
+2021-08-02,2,North West,Saskatchewan,0,6
+2021-08-02,2,North West,Saskatchewan,0,6
+2021-08-02,2,North West,Saskatchewan,0,6
+2021-08-02,2,North West,Saskatchewan,0,6
+2021-08-02,2,North Central,Saskatchewan,1,4
+2021-08-02,2,North Central,Saskatchewan,2,4
+2021-08-02,2,North Central,Saskatchewan,0,4
+2021-08-02,2,North East,Saskatchewan,1,5
+2021-08-02,2,North East,Saskatchewan,0,5
+2021-08-02,2,North East,Saskatchewan,0,5
+2021-08-02,2,Saskatoon,Saskatchewan,2,9
+2021-08-02,2,Central West,Saskatchewan,0,8
+2021-08-02,2,Central West,Saskatchewan,0,8
+2021-08-02,2,Central East,Saskatchewan,0,7
+2021-08-02,2,Central East,Saskatchewan,0,7
+2021-08-02,2,Central East,Saskatchewan,0,7
+2021-08-02,2,Central East,Saskatchewan,0,7
+2021-08-02,2,Central East,Saskatchewan,0,7
+2021-08-02,2,Regina,Saskatchewan,1,10
+2021-08-02,2,South West,Saskatchewan,1,13
+2021-08-02,2,South West,Saskatchewan,2,13
+2021-08-02,2,South Central,Saskatchewan,0,11
+2021-08-02,2,South Central,Saskatchewan,0,11
+2021-08-02,2,South East,Saskatchewan,0,12
+2021-08-02,2,South East,Saskatchewan,1,12
+2021-08-02,2,South East,Saskatchewan,0,12
+2021-08-02,2,South East,Saskatchewan,0,12
+2021-08-03,2,Far North West,Saskatchewan,2,3
+2021-08-03,2,Far North West,Saskatchewan,0,3
+2021-08-03,2,Far North Central,Saskatchewan,0,1
+2021-08-03,2,Far North East,Saskatchewan,1,2
+2021-08-03,2,Far North East,Saskatchewan,3,2
+2021-08-03,2,North West,Saskatchewan,1,6
+2021-08-03,2,North West,Saskatchewan,0,6
+2021-08-03,2,North West,Saskatchewan,0,6
+2021-08-03,2,North West,Saskatchewan,0,6
+2021-08-03,2,North Central,Saskatchewan,0,4
+2021-08-03,2,North Central,Saskatchewan,7,4
+2021-08-03,2,North Central,Saskatchewan,0,4
+2021-08-03,2,North East,Saskatchewan,0,5
+2021-08-03,2,North East,Saskatchewan,0,5
+2021-08-03,2,North East,Saskatchewan,0,5
+2021-08-03,2,Saskatoon,Saskatchewan,4,9
+2021-08-03,2,Central West,Saskatchewan,0,8
+2021-08-03,2,Central West,Saskatchewan,0,8
+2021-08-03,2,Central East,Saskatchewan,0,7
+2021-08-03,2,Central East,Saskatchewan,0,7
+2021-08-03,2,Central East,Saskatchewan,0,7
+2021-08-03,2,Central East,Saskatchewan,0,7
+2021-08-03,2,Central East,Saskatchewan,0,7
+2021-08-03,2,Regina,Saskatchewan,0,10
+2021-08-03,2,South West,Saskatchewan,1,13
+2021-08-03,2,South West,Saskatchewan,2,13
+2021-08-03,2,South Central,Saskatchewan,0,11
+2021-08-03,2,South Central,Saskatchewan,0,11
+2021-08-03,2,South East,Saskatchewan,0,12
+2021-08-03,2,South East,Saskatchewan,2,12
+2021-08-03,2,South East,Saskatchewan,0,12
+2021-08-03,2,South East,Saskatchewan,0,12
+2021-08-04,2,Far North West,Saskatchewan,14,3
+2021-08-04,2,Far North West,Saskatchewan,0,3
+2021-08-04,2,Far North Central,Saskatchewan,2,1
+2021-08-04,2,Far North East,Saskatchewan,3,2
+2021-08-04,2,Far North East,Saskatchewan,3,2
+2021-08-04,2,North West,Saskatchewan,0,6
+2021-08-04,2,North West,Saskatchewan,1,6
+2021-08-04,2,North West,Saskatchewan,1,6
+2021-08-04,2,North West,Saskatchewan,0,6
+2021-08-04,2,North Central,Saskatchewan,1,4
+2021-08-04,2,North Central,Saskatchewan,4,4
+2021-08-04,2,North Central,Saskatchewan,0,4
+2021-08-04,2,North East,Saskatchewan,0,5
+2021-08-04,2,North East,Saskatchewan,0,5
+2021-08-04,2,North East,Saskatchewan,0,5
+2021-08-04,2,Saskatoon,Saskatchewan,13,9
+2021-08-04,2,Central West,Saskatchewan,1,8
+2021-08-04,2,Central West,Saskatchewan,0,8
+2021-08-04,2,Central East,Saskatchewan,3,7
+2021-08-04,2,Central East,Saskatchewan,0,7
+2021-08-04,2,Central East,Saskatchewan,0,7
+2021-08-04,2,Central East,Saskatchewan,0,7
+2021-08-04,2,Central East,Saskatchewan,0,7
+2021-08-04,2,Regina,Saskatchewan,1,10
+2021-08-04,2,South West,Saskatchewan,0,13
+2021-08-04,2,South West,Saskatchewan,3,13
+2021-08-04,2,South Central,Saskatchewan,0,11
+2021-08-04,2,South Central,Saskatchewan,0,11
+2021-08-04,2,South East,Saskatchewan,2,12
+2021-08-04,2,South East,Saskatchewan,3,12
+2021-08-04,2,South East,Saskatchewan,0,12
+2021-08-04,2,South East,Saskatchewan,1,12
+2021-08-05,2,Far North West,Saskatchewan,3,3
+2021-08-05,2,Far North West,Saskatchewan,2,3
+2021-08-05,2,Far North Central,Saskatchewan,2,1
+2021-08-05,2,Far North East,Saskatchewan,1,2
+2021-08-05,2,Far North East,Saskatchewan,1,2
+2021-08-05,2,North West,Saskatchewan,0,6
+2021-08-05,2,North West,Saskatchewan,1,6
+2021-08-05,2,North West,Saskatchewan,0,6
+2021-08-05,2,North West,Saskatchewan,0,6
+2021-08-05,2,North Central,Saskatchewan,0,4
+2021-08-05,2,North Central,Saskatchewan,2,4
+2021-08-05,2,North Central,Saskatchewan,0,4
+2021-08-05,2,North East,Saskatchewan,0,5
+2021-08-05,2,North East,Saskatchewan,0,5
+2021-08-05,2,North East,Saskatchewan,0,5
+2021-08-05,2,Saskatoon,Saskatchewan,17,9
+2021-08-05,2,Central West,Saskatchewan,1,8
+2021-08-05,2,Central West,Saskatchewan,0,8
+2021-08-05,2,Central East,Saskatchewan,0,7
+2021-08-05,2,Central East,Saskatchewan,0,7
+2021-08-05,2,Central East,Saskatchewan,0,7
+2021-08-05,2,Central East,Saskatchewan,0,7
+2021-08-05,2,Central East,Saskatchewan,0,7
+2021-08-05,2,Regina,Saskatchewan,4,10
+2021-08-05,2,South West,Saskatchewan,0,13
+2021-08-05,2,South West,Saskatchewan,2,13
+2021-08-05,2,South Central,Saskatchewan,1,11
+2021-08-05,2,South Central,Saskatchewan,1,11
+2021-08-05,2,South East,Saskatchewan,0,12
+2021-08-05,2,South East,Saskatchewan,2,12
+2021-08-05,2,South East,Saskatchewan,0,12
+2021-08-05,2,South East,Saskatchewan,13,12
 2020-01-25,1,Nunavut,Nunavut,0,6201
 2020-01-26,1,Nunavut,Nunavut,0,6201
 2020-01-27,1,Nunavut,Nunavut,0,6201
@@ -34240,6 +34596,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Nunavut,Nunavut,0,6201
 2021-07-31,2,Nunavut,Nunavut,0,6201
 2021-08-01,2,Nunavut,Nunavut,0,6201
+2021-08-02,2,Nunavut,Nunavut,0,6201
+2021-08-03,2,Nunavut,Nunavut,0,6201
+2021-08-04,2,Nunavut,Nunavut,0,6201
+2021-08-05,2,Nunavut,Nunavut,0,6201
 2020-01-25,1,Northwest Territories,Northwest Territories,0,6101
 2020-01-26,1,Northwest Territories,Northwest Territories,0,6101
 2020-01-27,1,Northwest Territories,Northwest Territories,0,6101
@@ -34795,6 +35155,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Northwest Territories,Northwest Territories,0,6101
 2021-07-31,2,Northwest Territories,Northwest Territories,0,6101
 2021-08-01,2,Northwest Territories,Northwest Territories,0,6101
+2021-08-02,2,Northwest Territories,Northwest Territories,0,6101
+2021-08-03,2,Northwest Territories,Northwest Territories,0,6101
+2021-08-04,2,Northwest Territories,Northwest Territories,1,6101
+2021-08-05,2,Northwest Territories,Northwest Territories,0,6101
 2020-01-25,1,Prince Edward Island,Prince Edward Island,0,1100
 2020-01-26,1,Prince Edward Island,Prince Edward Island,0,1100
 2020-01-27,1,Prince Edward Island,Prince Edward Island,0,1100
@@ -35350,6 +35714,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Prince Edward Island,Prince Edward Island,0,1100
 2021-07-31,2,Prince Edward Island,Prince Edward Island,0,1100
 2021-08-01,2,Prince Edward Island,Prince Edward Island,0,1100
+2021-08-02,2,Prince Edward Island,Prince Edward Island,0,1100
+2021-08-03,2,Prince Edward Island,Prince Edward Island,0,1100
+2021-08-04,2,Prince Edward Island,Prince Edward Island,0,1100
+2021-08-05,2,Prince Edward Island,Prince Edward Island,0,1100
 2020-01-25,1,Yukon,Yukon,0,6001
 2020-01-26,1,Yukon,Yukon,0,6001
 2020-01-27,1,Yukon,Yukon,0,6001
@@ -35905,6 +36273,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Yukon,Yukon,7,6001
 2021-07-31,2,Yukon,Yukon,0,6001
 2021-08-01,2,Yukon,Yukon,0,6001
+2021-08-02,2,Yukon,Yukon,7,6001
+2021-08-03,2,Yukon,Yukon,7,6001
+2021-08-04,2,Yukon,Yukon,6,6001
+2021-08-05,2,Yukon,Yukon,7,6001
 2020-03-24,1,Algoma,Ontario,,3526
 2020-03-25,1,Algoma,Ontario,0,3526
 2020-03-26,1,Algoma,Ontario,0,3526
@@ -36401,6 +36773,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Algoma,Ontario,0,3526
 2021-07-31,2,Algoma,Ontario,0,3526
 2021-08-01,2,Algoma,Ontario,0,3526
+2021-08-02,2,Algoma,Ontario,0,3526
+2021-08-03,2,Algoma,Ontario,1,3526
+2021-08-04,2,Algoma,Ontario,0,3526
+2021-08-05,2,Algoma,Ontario,0,3526
 2020-03-24,1,Brant,Ontario,,3527
 2020-03-25,1,Brant,Ontario,1,3527
 2020-03-26,1,Brant,Ontario,0,3527
@@ -36897,6 +37273,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Brant,Ontario,1,3527
 2021-07-31,2,Brant,Ontario,1,3527
 2021-08-01,2,Brant,Ontario,1,3527
+2021-08-02,2,Brant,Ontario,1,3527
+2021-08-03,2,Brant,Ontario,4,3527
+2021-08-04,2,Brant,Ontario,1,3527
+2021-08-05,2,Brant,Ontario,2,3527
 2020-03-24,1,Chatham-Kent,Ontario,,3540
 2020-03-25,1,Chatham-Kent,Ontario,0,3540
 2020-03-26,1,Chatham-Kent,Ontario,0,3540
@@ -37393,6 +37773,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Chatham-Kent,Ontario,1,3540
 2021-07-31,2,Chatham-Kent,Ontario,2,3540
 2021-08-01,2,Chatham-Kent,Ontario,1,3540
+2021-08-02,2,Chatham-Kent,Ontario,0,3540
+2021-08-03,2,Chatham-Kent,Ontario,1,3540
+2021-08-04,2,Chatham-Kent,Ontario,0,3540
+2021-08-05,2,Chatham-Kent,Ontario,0,3540
 2020-03-24,1,Durham,Ontario,,3530
 2020-03-25,1,Durham,Ontario,3,3530
 2020-03-26,1,Durham,Ontario,1,3530
@@ -37889,6 +38273,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Durham,Ontario,9,3530
 2021-07-31,2,Durham,Ontario,22,3530
 2021-08-01,2,Durham,Ontario,13,3530
+2021-08-02,2,Durham,Ontario,10,3530
+2021-08-03,2,Durham,Ontario,4,3530
+2021-08-04,2,Durham,Ontario,11,3530
+2021-08-05,2,Durham,Ontario,7,3530
 2020-03-24,1,Eastern,Ontario,,3558
 2020-03-25,1,Eastern,Ontario,0,3558
 2020-03-26,1,Eastern,Ontario,0,3558
@@ -38385,6 +38773,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Eastern,Ontario,1,3558
 2021-07-31,2,Eastern,Ontario,1,3558
 2021-08-01,2,Eastern,Ontario,1,3558
+2021-08-02,2,Eastern,Ontario,1,3558
+2021-08-03,2,Eastern,Ontario,0,3558
+2021-08-04,2,Eastern,Ontario,0,3558
+2021-08-05,2,Eastern,Ontario,0,3558
 2020-03-24,1,Grey Bruce,Ontario,,3533
 2020-03-25,1,Grey Bruce,Ontario,1,3533
 2020-03-26,1,Grey Bruce,Ontario,0,3533
@@ -38881,6 +39273,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Grey Bruce,Ontario,8,3533
 2021-07-31,2,Grey Bruce,Ontario,8,3533
 2021-08-01,2,Grey Bruce,Ontario,8,3533
+2021-08-02,2,Grey Bruce,Ontario,7,3533
+2021-08-03,2,Grey Bruce,Ontario,1,3533
+2021-08-04,2,Grey Bruce,Ontario,4,3533
+2021-08-05,2,Grey Bruce,Ontario,4,3533
 2020-03-24,1,Haldimand-Norfolk,Ontario,,3534
 2020-03-25,1,Haldimand-Norfolk,Ontario,0,3534
 2020-03-26,1,Haldimand-Norfolk,Ontario,0,3534
@@ -39377,6 +39773,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Haldimand-Norfolk,Ontario,3,3534
 2021-07-31,2,Haldimand-Norfolk,Ontario,1,3534
 2021-08-01,2,Haldimand-Norfolk,Ontario,0,3534
+2021-08-02,2,Haldimand-Norfolk,Ontario,4,3534
+2021-08-03,2,Haldimand-Norfolk,Ontario,5,3534
+2021-08-04,2,Haldimand-Norfolk,Ontario,0,3534
+2021-08-05,2,Haldimand-Norfolk,Ontario,2,3534
 2020-03-24,1,Haliburton Kawartha Pine Ridge,Ontario,,3535
 2020-03-25,1,Haliburton Kawartha Pine Ridge,Ontario,0,3535
 2020-03-26,1,Haliburton Kawartha Pine Ridge,Ontario,1,3535
@@ -39873,6 +40273,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Haliburton Kawartha Pine Ridge,Ontario,3,3535
 2021-07-31,2,Haliburton Kawartha Pine Ridge,Ontario,1,3535
 2021-08-01,2,Haliburton Kawartha Pine Ridge,Ontario,10,3535
+2021-08-02,2,Haliburton Kawartha Pine Ridge,Ontario,4,3535
+2021-08-03,2,Haliburton Kawartha Pine Ridge,Ontario,1,3535
+2021-08-04,2,Haliburton Kawartha Pine Ridge,Ontario,2,3535
+2021-08-05,2,Haliburton Kawartha Pine Ridge,Ontario,1,3535
 2020-03-24,1,Halton,Ontario,,3536
 2020-03-25,1,Halton,Ontario,1,3536
 2020-03-26,1,Halton,Ontario,4,3536
@@ -40369,6 +40773,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Halton,Ontario,13,3536
 2021-07-31,2,Halton,Ontario,12,3536
 2021-08-01,2,Halton,Ontario,5,3536
+2021-08-02,2,Halton,Ontario,12,3536
+2021-08-03,2,Halton,Ontario,6,3536
+2021-08-04,2,Halton,Ontario,0,3536
+2021-08-05,2,Halton,Ontario,11,3536
 2020-03-24,1,Hamilton,Ontario,,3537
 2020-03-25,1,Hamilton,Ontario,3,3537
 2020-03-26,1,Hamilton,Ontario,4,3537
@@ -40865,6 +41273,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Hamilton,Ontario,13,3537
 2021-07-31,2,Hamilton,Ontario,27,3537
 2021-08-01,2,Hamilton,Ontario,14,3537
+2021-08-02,2,Hamilton,Ontario,16,3537
+2021-08-03,2,Hamilton,Ontario,5,3537
+2021-08-04,2,Hamilton,Ontario,12,3537
+2021-08-05,2,Hamilton,Ontario,18,3537
 2020-03-24,1,Hastings Prince Edward,Ontario,,3538
 2020-03-25,1,Hastings Prince Edward,Ontario,0,3538
 2020-03-26,1,Hastings Prince Edward,Ontario,2,3538
@@ -41361,6 +41773,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Hastings Prince Edward,Ontario,1,3538
 2021-07-31,2,Hastings Prince Edward,Ontario,1,3538
 2021-08-01,2,Hastings Prince Edward,Ontario,5,3538
+2021-08-02,2,Hastings Prince Edward,Ontario,0,3538
+2021-08-03,2,Hastings Prince Edward,Ontario,2,3538
+2021-08-04,2,Hastings Prince Edward,Ontario,2,3538
+2021-08-05,2,Hastings Prince Edward,Ontario,4,3538
 2020-03-24,1,Huron Perth,Ontario,,3539
 2020-03-25,1,Huron Perth,Ontario,0,3539
 2020-03-26,1,Huron Perth,Ontario,0,3539
@@ -41857,6 +42273,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Huron Perth,Ontario,0,3539
 2021-07-31,2,Huron Perth,Ontario,2,3539
 2021-08-01,2,Huron Perth,Ontario,0,3539
+2021-08-02,2,Huron Perth,Ontario,1,3539
+2021-08-03,2,Huron Perth,Ontario,0,3539
+2021-08-04,2,Huron Perth,Ontario,4,3539
+2021-08-05,2,Huron Perth,Ontario,0,3539
 2020-03-24,1,Kingston Frontenac Lennox and Addington,Ontario,,3541
 2020-03-25,1,Kingston Frontenac Lennox and Addington,Ontario,3,3541
 2020-03-26,1,Kingston Frontenac Lennox and Addington,Ontario,5,3541
@@ -42353,6 +42773,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Kingston Frontenac Lennox and Addington,Ontario,0,3541
 2021-07-31,2,Kingston Frontenac Lennox and Addington,Ontario,1,3541
 2021-08-01,2,Kingston Frontenac Lennox and Addington,Ontario,2,3541
+2021-08-02,2,Kingston Frontenac Lennox and Addington,Ontario,1,3541
+2021-08-03,2,Kingston Frontenac Lennox and Addington,Ontario,0,3541
+2021-08-04,2,Kingston Frontenac Lennox and Addington,Ontario,0,3541
+2021-08-05,2,Kingston Frontenac Lennox and Addington,Ontario,0,3541
 2020-03-24,1,Lambton,Ontario,,3542
 2020-03-25,1,Lambton,Ontario,0,3542
 2020-03-26,1,Lambton,Ontario,0,3542
@@ -42849,6 +43273,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Lambton,Ontario,0,3542
 2021-07-31,2,Lambton,Ontario,0,3542
 2021-08-01,2,Lambton,Ontario,0,3542
+2021-08-02,2,Lambton,Ontario,1,3542
+2021-08-03,2,Lambton,Ontario,0,3542
+2021-08-04,2,Lambton,Ontario,-1,3542
+2021-08-05,2,Lambton,Ontario,1,3542
 2020-03-24,1,Leeds Grenville and Lanark,Ontario,,3543
 2020-03-25,1,Leeds Grenville and Lanark,Ontario,0,3543
 2020-03-26,1,Leeds Grenville and Lanark,Ontario,0,3543
@@ -43345,6 +43773,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Leeds Grenville and Lanark,Ontario,-1,3543
 2021-07-31,2,Leeds Grenville and Lanark,Ontario,0,3543
 2021-08-01,2,Leeds Grenville and Lanark,Ontario,1,3543
+2021-08-02,2,Leeds Grenville and Lanark,Ontario,0,3543
+2021-08-03,2,Leeds Grenville and Lanark,Ontario,1,3543
+2021-08-04,2,Leeds Grenville and Lanark,Ontario,0,3543
+2021-08-05,2,Leeds Grenville and Lanark,Ontario,0,3543
 2020-03-24,1,Middlesex-London,Ontario,,3544
 2020-03-25,1,Middlesex-London,Ontario,0,3544
 2020-03-26,1,Middlesex-London,Ontario,2,3544
@@ -43841,6 +44273,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Middlesex-London,Ontario,8,3544
 2021-07-31,2,Middlesex-London,Ontario,11,3544
 2021-08-01,2,Middlesex-London,Ontario,16,3544
+2021-08-02,2,Middlesex-London,Ontario,5,3544
+2021-08-03,2,Middlesex-London,Ontario,2,3544
+2021-08-04,2,Middlesex-London,Ontario,3,3544
+2021-08-05,2,Middlesex-London,Ontario,10,3544
 2020-03-24,1,Niagara,Ontario,,3546
 2020-03-25,1,Niagara,Ontario,1,3546
 2020-03-26,1,Niagara,Ontario,1,3546
@@ -44337,6 +44773,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Niagara,Ontario,2,3546
 2021-07-31,2,Niagara,Ontario,6,3546
 2021-08-01,2,Niagara,Ontario,4,3546
+2021-08-02,2,Niagara,Ontario,2,3546
+2021-08-03,2,Niagara,Ontario,2,3546
+2021-08-04,2,Niagara,Ontario,1,3546
+2021-08-05,2,Niagara,Ontario,-1,3546
 2020-03-24,1,North Bay Parry Sound,Ontario,,3547
 2020-03-25,1,North Bay Parry Sound,Ontario,0,3547
 2020-03-26,1,North Bay Parry Sound,Ontario,0,3547
@@ -44833,6 +45273,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,North Bay Parry Sound,Ontario,1,3547
 2021-07-31,2,North Bay Parry Sound,Ontario,1,3547
 2021-08-01,2,North Bay Parry Sound,Ontario,2,3547
+2021-08-02,2,North Bay Parry Sound,Ontario,-1,3547
+2021-08-03,2,North Bay Parry Sound,Ontario,0,3547
+2021-08-04,2,North Bay Parry Sound,Ontario,0,3547
+2021-08-05,2,North Bay Parry Sound,Ontario,0,3547
 2020-03-24,1,Northwestern,Ontario,,3549
 2020-03-25,1,Northwestern,Ontario,0,3549
 2020-03-26,1,Northwestern,Ontario,0,3549
@@ -45329,6 +45773,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Northwestern,Ontario,0,3549
 2021-07-31,2,Northwestern,Ontario,0,3549
 2021-08-01,2,Northwestern,Ontario,0,3549
+2021-08-02,2,Northwestern,Ontario,1,3549
+2021-08-03,2,Northwestern,Ontario,1,3549
+2021-08-04,2,Northwestern,Ontario,-1,3549
+2021-08-05,2,Northwestern,Ontario,1,3549
 2020-03-24,1,Ottawa,Ontario,,3551
 2020-03-25,1,Ottawa,Ontario,3,3551
 2020-03-26,1,Ottawa,Ontario,0,3551
@@ -45825,6 +46273,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Ottawa,Ontario,9,3551
 2021-07-31,2,Ottawa,Ontario,5,3551
 2021-08-01,2,Ottawa,Ontario,4,3551
+2021-08-02,2,Ottawa,Ontario,9,3551
+2021-08-03,2,Ottawa,Ontario,1,3551
+2021-08-04,2,Ottawa,Ontario,-1,3551
+2021-08-05,2,Ottawa,Ontario,10,3551
 2020-03-24,1,Peel,Ontario,,3553
 2020-03-25,1,Peel,Ontario,3,3553
 2020-03-26,1,Peel,Ontario,13,3553
@@ -46321,6 +46773,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Peel,Ontario,24,3553
 2021-07-31,2,Peel,Ontario,26,3553
 2021-08-01,2,Peel,Ontario,33,3553
+2021-08-02,2,Peel,Ontario,19,3553
+2021-08-03,2,Peel,Ontario,22,3553
+2021-08-04,2,Peel,Ontario,18,3553
+2021-08-05,2,Peel,Ontario,31,3553
 2020-03-24,1,Peterborough,Ontario,,3555
 2020-03-25,1,Peterborough,Ontario,0,3555
 2020-03-26,1,Peterborough,Ontario,2,3555
@@ -46817,6 +47273,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Peterborough,Ontario,4,3555
 2021-07-31,2,Peterborough,Ontario,3,3555
 2021-08-01,2,Peterborough,Ontario,2,3555
+2021-08-02,2,Peterborough,Ontario,0,3555
+2021-08-03,2,Peterborough,Ontario,0,3555
+2021-08-04,2,Peterborough,Ontario,0,3555
+2021-08-05,2,Peterborough,Ontario,0,3555
 2020-03-24,1,Porcupine,Ontario,,3556
 2020-03-25,1,Porcupine,Ontario,0,3556
 2020-03-26,1,Porcupine,Ontario,3,3556
@@ -47313,6 +47773,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Porcupine,Ontario,3,3556
 2021-07-31,2,Porcupine,Ontario,3,3556
 2021-08-01,2,Porcupine,Ontario,2,3556
+2021-08-02,2,Porcupine,Ontario,0,3556
+2021-08-03,2,Porcupine,Ontario,0,3556
+2021-08-04,2,Porcupine,Ontario,0,3556
+2021-08-05,2,Porcupine,Ontario,0,3556
 2020-03-24,1,Waterloo,Ontario,,3565
 2020-03-25,1,Waterloo,Ontario,2,3565
 2020-03-26,1,Waterloo,Ontario,0,3565
@@ -47809,6 +48273,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Waterloo,Ontario,35,3565
 2021-07-31,2,Waterloo,Ontario,28,3565
 2021-08-01,2,Waterloo,Ontario,12,3565
+2021-08-02,2,Waterloo,Ontario,5,3565
+2021-08-03,2,Waterloo,Ontario,14,3565
+2021-08-04,2,Waterloo,Ontario,19,3565
+2021-08-05,2,Waterloo,Ontario,14,3565
 2020-03-24,1,Renfrew,Ontario,,3557
 2020-03-25,1,Renfrew,Ontario,0,3557
 2020-03-26,1,Renfrew,Ontario,0,3557
@@ -48305,6 +48773,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Renfrew,Ontario,2,3557
 2021-07-31,2,Renfrew,Ontario,1,3557
 2021-08-01,2,Renfrew,Ontario,6,3557
+2021-08-02,2,Renfrew,Ontario,0,3557
+2021-08-03,2,Renfrew,Ontario,0,3557
+2021-08-04,2,Renfrew,Ontario,0,3557
+2021-08-05,2,Renfrew,Ontario,1,3557
 2020-03-24,1,Simcoe Muskoka,Ontario,,3560
 2020-03-25,1,Simcoe Muskoka,Ontario,0,3560
 2020-03-26,1,Simcoe Muskoka,Ontario,1,3560
@@ -48801,6 +49273,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Simcoe Muskoka,Ontario,1,3560
 2021-07-31,2,Simcoe Muskoka,Ontario,-4,3560
 2021-08-01,2,Simcoe Muskoka,Ontario,3,3560
+2021-08-02,2,Simcoe Muskoka,Ontario,2,3560
+2021-08-03,2,Simcoe Muskoka,Ontario,0,3560
+2021-08-04,2,Simcoe Muskoka,Ontario,3,3560
+2021-08-05,2,Simcoe Muskoka,Ontario,5,3560
 2020-03-24,1,Southwestern,Ontario,,3575
 2020-03-25,1,Southwestern,Ontario,0,3575
 2020-03-26,1,Southwestern,Ontario,0,3575
@@ -49297,6 +49773,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Southwestern,Ontario,4,3575
 2021-07-31,2,Southwestern,Ontario,4,3575
 2021-08-01,2,Southwestern,Ontario,3,3575
+2021-08-02,2,Southwestern,Ontario,3,3575
+2021-08-03,2,Southwestern,Ontario,3,3575
+2021-08-04,2,Southwestern,Ontario,9,3575
+2021-08-05,2,Southwestern,Ontario,3,3575
 2020-03-24,1,Sudbury,Ontario,,3561
 2020-03-25,1,Sudbury,Ontario,1,3561
 2020-03-26,1,Sudbury,Ontario,0,3561
@@ -49793,6 +50273,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Sudbury,Ontario,-1,3561
 2021-07-31,2,Sudbury,Ontario,0,3561
 2021-08-01,2,Sudbury,Ontario,0,3561
+2021-08-02,2,Sudbury,Ontario,0,3561
+2021-08-03,2,Sudbury,Ontario,1,3561
+2021-08-04,2,Sudbury,Ontario,0,3561
+2021-08-05,2,Sudbury,Ontario,4,3561
 2020-03-24,1,Thunder Bay,Ontario,,3562
 2020-03-25,1,Thunder Bay,Ontario,0,3562
 2020-03-26,1,Thunder Bay,Ontario,0,3562
@@ -50289,6 +50773,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Thunder Bay,Ontario,-1,3562
 2021-07-31,2,Thunder Bay,Ontario,0,3562
 2021-08-01,2,Thunder Bay,Ontario,2,3562
+2021-08-02,2,Thunder Bay,Ontario,0,3562
+2021-08-03,2,Thunder Bay,Ontario,1,3562
+2021-08-04,2,Thunder Bay,Ontario,0,3562
+2021-08-05,2,Thunder Bay,Ontario,0,3562
 2020-03-24,1,Timiskaming,Ontario,,3563
 2020-03-25,1,Timiskaming,Ontario,0,3563
 2020-03-26,1,Timiskaming,Ontario,1,3563
@@ -50785,6 +51273,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Timiskaming,Ontario,0,3563
 2021-07-31,2,Timiskaming,Ontario,0,3563
 2021-08-01,2,Timiskaming,Ontario,0,3563
+2021-08-02,2,Timiskaming,Ontario,0,3563
+2021-08-03,2,Timiskaming,Ontario,0,3563
+2021-08-04,2,Timiskaming,Ontario,0,3563
+2021-08-05,2,Timiskaming,Ontario,0,3563
 2020-03-24,1,Toronto,Ontario,,3595
 2020-03-25,1,Toronto,Ontario,17,3595
 2020-03-26,1,Toronto,Ontario,21,3595
@@ -51281,6 +51773,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Toronto,Ontario,62,3595
 2021-07-31,2,Toronto,Ontario,53,3595
 2021-08-01,2,Toronto,Ontario,40,3595
+2021-08-02,2,Toronto,Ontario,43,3595
+2021-08-03,2,Toronto,Ontario,45,3595
+2021-08-04,2,Toronto,Ontario,26,3595
+2021-08-05,2,Toronto,Ontario,44,3595
 2020-03-24,1,Wellington Dufferin Guelph,Ontario,,3566
 2020-03-25,1,Wellington Dufferin Guelph,Ontario,1,3566
 2020-03-26,1,Wellington Dufferin Guelph,Ontario,1,3566
@@ -51777,6 +52273,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Wellington Dufferin Guelph,Ontario,4,3566
 2021-07-31,2,Wellington Dufferin Guelph,Ontario,6,3566
 2021-08-01,2,Wellington Dufferin Guelph,Ontario,1,3566
+2021-08-02,2,Wellington Dufferin Guelph,Ontario,2,3566
+2021-08-03,2,Wellington Dufferin Guelph,Ontario,5,3566
+2021-08-04,2,Wellington Dufferin Guelph,Ontario,2,3566
+2021-08-05,2,Wellington Dufferin Guelph,Ontario,6,3566
 2020-03-24,1,Windsor-Essex,Ontario,,3568
 2020-03-25,1,Windsor-Essex,Ontario,1,3568
 2020-03-26,1,Windsor-Essex,Ontario,2,3568
@@ -52273,6 +52773,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Windsor-Essex,Ontario,4,3568
 2021-07-31,2,Windsor-Essex,Ontario,3,3568
 2021-08-01,2,Windsor-Essex,Ontario,4,3568
+2021-08-02,2,Windsor-Essex,Ontario,4,3568
+2021-08-03,2,Windsor-Essex,Ontario,13,3568
+2021-08-04,2,Windsor-Essex,Ontario,10,3568
+2021-08-05,2,Windsor-Essex,Ontario,17,3568
 2020-03-24,1,York,Ontario,,3570
 2020-03-25,1,York,Ontario,5,3570
 2020-03-26,1,York,Ontario,5,3570
@@ -52769,6 +53273,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,York,Ontario,13,3570
 2021-07-31,2,York,Ontario,33,3570
 2021-08-01,2,York,Ontario,23,3570
+2021-08-02,2,York,Ontario,16,3570
+2021-08-03,2,York,Ontario,23,3570
+2021-08-04,2,York,Ontario,15,3570
+2021-08-05,2,York,Ontario,18,3570
 2020-03-06,1,Calgary,Alberta,1,4832
 2020-03-09,1,Calgary,Alberta,3,4832
 2020-03-09,1,Edmonton,Alberta,3,4834
@@ -54035,7 +54543,7 @@ date,wave,HR,province,cases,HRUID2018
 2020-12-21,1,North,Alberta,118,4835
 2020-12-21,1,South,Alberta,21,4831
 2020-12-22,1,Calgary,Alberta,481,4832
-2020-12-22,1,Central,Alberta,98,4833
+2020-12-22,1,Central,Alberta,99,4833
 2020-12-22,1,Edmonton,Alberta,652,4834
 2020-12-22,1,North,Alberta,84,4835
 2020-12-22,1,South,Alberta,20,4831
@@ -54049,7 +54557,7 @@ date,wave,HR,province,cases,HRUID2018
 2020-12-24,1,Edmonton,Alberta,617,4834
 2020-12-24,1,North,Alberta,111,4835
 2020-12-24,1,South,Alberta,50,4831
-2020-12-25,1,Calgary,Alberta,294,4832
+2020-12-25,1,Calgary,Alberta,295,4832
 2020-12-25,1,Central,Alberta,136,4833
 2020-12-25,1,Edmonton,Alberta,370,4834
 2020-12-25,1,North,Alberta,86,4835
@@ -54065,7 +54573,7 @@ date,wave,HR,province,cases,HRUID2018
 2020-12-27,1,North,Alberta,59,4835
 2020-12-27,1,South,Alberta,10,4831
 2020-12-28,1,Calgary,Alberta,309,4832
-2020-12-28,1,Central,Alberta,123,4833
+2020-12-28,1,Central,Alberta,124,4833
 2020-12-28,1,Edmonton,Alberta,340,4834
 2020-12-28,1,North,Alberta,104,4835
 2020-12-28,1,South,Alberta,19,4831
@@ -54075,7 +54583,7 @@ date,wave,HR,province,cases,HRUID2018
 2020-12-29,1,North,Alberta,100,4835
 2020-12-29,1,South,Alberta,30,4831
 2020-12-30,1,Calgary,Alberta,432,4832
-2020-12-30,1,Central,Alberta,121,4833
+2020-12-30,1,Central,Alberta,122,4833
 2020-12-30,1,Edmonton,Alberta,530,4834
 2020-12-30,1,North,Alberta,174,4835
 2020-12-30,1,South,Alberta,5,4831
@@ -54145,8 +54653,8 @@ date,wave,HR,province,cases,HRUID2018
 2021-01-12,1,North,Alberta,111,4835
 2021-01-12,1,South,Alberta,50,4831
 2021-01-13,1,Calgary,Alberta,369,4832
-2021-01-13,1,Central,Alberta,81,4833
-2021-01-13,1,Edmonton,Alberta,304,4834
+2021-01-13,1,Central,Alberta,83,4833
+2021-01-13,1,Edmonton,Alberta,302,4834
 2021-01-13,1,North,Alberta,168,4835
 2021-01-13,1,South,Alberta,44,4831
 2021-01-14,1,Calgary,Alberta,249,4832
@@ -54190,7 +54698,7 @@ date,wave,HR,province,cases,HRUID2018
 2021-01-21,1,North,Alberta,98,4835
 2021-01-21,1,South,Alberta,40,4831
 2021-01-22,1,Calgary,Alberta,275,4832
-2021-01-22,1,Central,Alberta,38,4833
+2021-01-22,1,Central,Alberta,39,4833
 2021-01-22,1,Edmonton,Alberta,169,4834
 2021-01-22,1,North,Alberta,65,4835
 2021-01-22,1,South,Alberta,19,4831
@@ -54400,7 +54908,7 @@ date,wave,HR,province,cases,HRUID2018
 2021-03-04,2,North,Alberta,94,4835
 2021-03-04,2,South,Alberta,26,4831
 2021-03-05,2,Calgary,Alberta,121,4832
-2021-03-05,2,Central,Alberta,29,4833
+2021-03-05,2,Central,Alberta,30,4833
 2021-03-05,2,Edmonton,Alberta,97,4834
 2021-03-05,2,North,Alberta,53,4835
 2021-03-05,2,South,Alberta,36,4831
@@ -54544,11 +55052,11 @@ date,wave,HR,province,cases,HRUID2018
 2021-04-02,2,Edmonton,Alberta,238,4834
 2021-04-02,2,North,Alberta,164,4835
 2021-04-02,2,South,Alberta,65,4831
-2021-04-03,2,Calgary,Alberta,476,4832
+2021-04-03,2,Calgary,Alberta,477,4832
 2021-04-03,2,Central,Alberta,49,4833
 2021-04-03,2,Edmonton,Alberta,227,4834
 2021-04-03,2,North,Alberta,124,4835
-2021-04-03,2,South,Alberta,58,4831
+2021-04-03,2,South,Alberta,57,4831
 2021-04-04,2,Calgary,Alberta,425,4832
 2021-04-04,2,Central,Alberta,92,4833
 2021-04-04,2,Edmonton,Alberta,184,4834
@@ -54580,7 +55088,7 @@ date,wave,HR,province,cases,HRUID2018
 2021-04-09,2,North,Alberta,194,4835
 2021-04-09,2,South,Alberta,76,4831
 2021-04-10,2,Calgary,Alberta,521,4832
-2021-04-10,2,Central,Alberta,138,4833
+2021-04-10,2,Central,Alberta,137,4833
 2021-04-10,2,Edmonton,Alberta,323,4834
 2021-04-10,2,North,Alberta,140,4835
 2021-04-10,2,South,Alberta,49,4831
@@ -54664,7 +55172,7 @@ date,wave,HR,province,cases,HRUID2018
 2021-04-26,2,Edmonton,Alberta,246,4834
 2021-04-26,2,North,Alberta,306,4835
 2021-04-26,2,South,Alberta,81,4831
-2021-04-27,2,Calgary,Alberta,871,4832
+2021-04-27,2,Calgary,Alberta,870,4832
 2021-04-27,2,Central,Alberta,156,4833
 2021-04-27,2,Edmonton,Alberta,492,4834
 2021-04-27,2,North,Alberta,219,4835
@@ -54712,7 +55220,7 @@ date,wave,HR,province,cases,HRUID2018
 2021-05-06,2,Calgary,Alberta,840,4832
 2021-05-06,2,Central,Alberta,199,4833
 2021-05-06,2,Edmonton,Alberta,458,4834
-2021-05-06,2,North,Alberta,360,4835
+2021-05-06,2,North,Alberta,361,4835
 2021-05-06,2,South,Alberta,89,4831
 2021-05-07,2,Calgary,Alberta,956,4832
 2021-05-07,2,Central,Alberta,246,4833
@@ -54772,7 +55280,7 @@ date,wave,HR,province,cases,HRUID2018
 2021-05-18,2,Calgary,Alberta,361,4832
 2021-05-18,2,Central,Alberta,106,4833
 2021-05-18,2,Edmonton,Alberta,286,4834
-2021-05-18,2,North,Alberta,145,4835
+2021-05-18,2,North,Alberta,146,4835
 2021-05-18,2,South,Alberta,57,4831
 2021-05-19,2,Calgary,Alberta,355,4832
 2021-05-19,2,Central,Alberta,73,4833
@@ -54925,7 +55433,7 @@ date,wave,HR,province,cases,HRUID2018
 2021-06-17,2,North,Alberta,27,4835
 2021-06-17,2,South,Alberta,3,4831
 2021-06-18,2,Calgary,Alberta,67,4832
-2021-06-18,2,Central,Alberta,11,4833
+2021-06-18,2,Central,Alberta,10,4833
 2021-06-18,2,Edmonton,Alberta,16,4834
 2021-06-18,2,North,Alberta,24,4835
 2021-06-18,2,South,Alberta,1,4831
@@ -54973,11 +55481,11 @@ date,wave,HR,province,cases,HRUID2018
 2021-06-27,2,Edmonton,Alberta,6,4834
 2021-06-27,2,North,Alberta,2,4835
 2021-06-28,2,Calgary,Alberta,21,4832
-2021-06-28,2,Central,Alberta,13,4833
+2021-06-28,2,Central,Alberta,12,4833
 2021-06-28,2,Edmonton,Alberta,9,4834
 2021-06-28,2,North,Alberta,14,4835
 2021-06-28,2,South,Alberta,3,4831
-2021-06-29,2,Calgary,Alberta,40,4832
+2021-06-29,2,Calgary,Alberta,39,4832
 2021-06-29,2,Central,Alberta,11,4833
 2021-06-29,2,Edmonton,Alberta,15,4834
 2021-06-29,2,North,Alberta,10,4835
@@ -55067,7 +55575,7 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-17,2,Central,Alberta,3,4833
 2021-07-17,2,Edmonton,Alberta,11,4834
 2021-07-17,2,North,Alberta,1,4835
-2021-07-17,2,South,Alberta,3,4831
+2021-07-17,2,South,Alberta,2,4831
 2021-07-18,2,Calgary,Alberta,26,4832
 2021-07-18,2,Central,Alberta,2,4833
 2021-07-18,2,Edmonton,Alberta,8,4834
@@ -55106,20 +55614,20 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-25,2,Calgary,Alberta,50,4832
 2021-07-25,2,Central,Alberta,6,4833
 2021-07-25,2,Edmonton,Alberta,22,4834
-2021-07-25,2,North,Alberta,3,4835
+2021-07-25,2,North,Alberta,4,4835
 2021-07-25,2,South,Alberta,11,4831
-2021-07-26,2,Calgary,Alberta,92,4832
+2021-07-26,2,Calgary,Alberta,91,4832
 2021-07-26,2,Central,Alberta,12,4833
-2021-07-26,2,Edmonton,Alberta,17,4834
+2021-07-26,2,Edmonton,Alberta,16,4834
 2021-07-26,2,North,Alberta,7,4835
-2021-07-26,2,South,Alberta,12,4831
+2021-07-26,2,South,Alberta,11,4831
 2021-07-27,2,Calgary,Alberta,103,4832
 2021-07-27,2,Central,Alberta,14,4833
 2021-07-27,2,Edmonton,Alberta,48,4834
 2021-07-27,2,North,Alberta,11,4835
 2021-07-27,2,South,Alberta,32,4831
 2021-07-28,2,Calgary,Alberta,135,4832
-2021-07-28,2,Central,Alberta,10,4833
+2021-07-28,2,Central,Alberta,11,4833
 2021-07-28,2,Edmonton,Alberta,34,4834
 2021-07-28,2,North,Alberta,23,4835
 2021-07-28,2,South,Alberta,21,4831
@@ -55127,7 +55635,37 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-29,2,Central,Alberta,13,4833
 2021-07-29,2,Edmonton,Alberta,34,4834
 2021-07-29,2,North,Alberta,15,4835
-2021-07-29,2,South,Alberta,18,4831
+2021-07-29,2,South,Alberta,17,4831
+2021-07-30,2,Calgary,Alberta,118,4832
+2021-07-30,2,Central,Alberta,19,4833
+2021-07-30,2,Edmonton,Alberta,53,4834
+2021-07-30,2,North,Alberta,28,4835
+2021-07-30,2,South,Alberta,19,4831
+2021-07-31,2,Calgary,Alberta,102,4832
+2021-07-31,2,Central,Alberta,15,4833
+2021-07-31,2,Edmonton,Alberta,49,4834
+2021-07-31,2,North,Alberta,38,4835
+2021-07-31,2,South,Alberta,22,4831
+2021-08-01,2,Calgary,Alberta,79,4832
+2021-08-01,2,Central,Alberta,13,4833
+2021-08-01,2,Edmonton,Alberta,23,4834
+2021-08-01,2,North,Alberta,16,4835
+2021-08-01,2,South,Alberta,13,4831
+2021-08-02,2,Calgary,Alberta,76,4832
+2021-08-02,2,Central,Alberta,13,4833
+2021-08-02,2,Edmonton,Alberta,20,4834
+2021-08-02,2,North,Alberta,10,4835
+2021-08-02,2,South,Alberta,6,4831
+2021-08-03,2,Calgary,Alberta,118,4832
+2021-08-03,2,Central,Alberta,10,4833
+2021-08-03,2,Edmonton,Alberta,29,4834
+2021-08-03,2,North,Alberta,21,4835
+2021-08-03,2,South,Alberta,31,4831
+2021-08-04,2,Calgary,Alberta,150,4832
+2021-08-04,2,Central,Alberta,24,4833
+2021-08-04,2,Edmonton,Alberta,81,4834
+2021-08-04,2,North,Alberta,77,4835
+2021-08-04,2,South,Alberta,68,4831
 2020-01-25,1,Not Reported,New Brunswick,0,
 2020-01-26,1,Not Reported,New Brunswick,0,
 2020-01-27,1,Not Reported,New Brunswick,0,
@@ -55683,6 +56221,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Not Reported,New Brunswick,0,
 2021-07-31,2,Not Reported,New Brunswick,0,
 2021-08-01,2,Not Reported,New Brunswick,0,
+2021-08-02,2,Not Reported,New Brunswick,0,
+2021-08-03,2,Not Reported,New Brunswick,0,
+2021-08-04,2,Not Reported,New Brunswick,0,
+2021-08-05,2,Not Reported,New Brunswick,0,
 2020-01-25,1,Zone 1 (Moncton area),New Brunswick,0,1301
 2020-01-26,1,Zone 1 (Moncton area),New Brunswick,0,1301
 2020-01-27,1,Zone 1 (Moncton area),New Brunswick,0,1301
@@ -56238,6 +56780,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Zone 1 (Moncton area),New Brunswick,5,1301
 2021-07-31,2,Zone 1 (Moncton area),New Brunswick,0,1301
 2021-08-01,2,Zone 1 (Moncton area),New Brunswick,17,1301
+2021-08-02,2,Zone 1 (Moncton area),New Brunswick,0,1301
+2021-08-03,2,Zone 1 (Moncton area),New Brunswick,6,1301
+2021-08-04,2,Zone 1 (Moncton area),New Brunswick,2,1301
+2021-08-05,2,Zone 1 (Moncton area),New Brunswick,9,1301
 2020-01-25,1,Zone 2 (Saint John area),New Brunswick,0,1302
 2020-01-26,1,Zone 2 (Saint John area),New Brunswick,0,1302
 2020-01-27,1,Zone 2 (Saint John area),New Brunswick,0,1302
@@ -56793,6 +57339,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Zone 2 (Saint John area),New Brunswick,0,1302
 2021-07-31,2,Zone 2 (Saint John area),New Brunswick,0,1302
 2021-08-01,2,Zone 2 (Saint John area),New Brunswick,1,1302
+2021-08-02,2,Zone 2 (Saint John area),New Brunswick,0,1302
+2021-08-03,2,Zone 2 (Saint John area),New Brunswick,0,1302
+2021-08-04,2,Zone 2 (Saint John area),New Brunswick,0,1302
+2021-08-05,2,Zone 2 (Saint John area),New Brunswick,0,1302
 2020-01-25,1,Zone 3 (Fredericton area),New Brunswick,0,1303
 2020-01-26,1,Zone 3 (Fredericton area),New Brunswick,0,1303
 2020-01-27,1,Zone 3 (Fredericton area),New Brunswick,0,1303
@@ -57348,6 +57898,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Zone 3 (Fredericton area),New Brunswick,2,1303
 2021-07-31,2,Zone 3 (Fredericton area),New Brunswick,0,1303
 2021-08-01,2,Zone 3 (Fredericton area),New Brunswick,0,1303
+2021-08-02,2,Zone 3 (Fredericton area),New Brunswick,0,1303
+2021-08-03,2,Zone 3 (Fredericton area),New Brunswick,3,1303
+2021-08-04,2,Zone 3 (Fredericton area),New Brunswick,0,1303
+2021-08-05,2,Zone 3 (Fredericton area),New Brunswick,0,1303
 2020-01-25,1,Zone 4 (Edmundston area),New Brunswick,0,1304
 2020-01-26,1,Zone 4 (Edmundston area),New Brunswick,0,1304
 2020-01-27,1,Zone 4 (Edmundston area),New Brunswick,0,1304
@@ -57903,6 +58457,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Zone 4 (Edmundston area),New Brunswick,0,1304
 2021-07-31,2,Zone 4 (Edmundston area),New Brunswick,0,1304
 2021-08-01,2,Zone 4 (Edmundston area),New Brunswick,0,1304
+2021-08-02,2,Zone 4 (Edmundston area),New Brunswick,0,1304
+2021-08-03,2,Zone 4 (Edmundston area),New Brunswick,1,1304
+2021-08-04,2,Zone 4 (Edmundston area),New Brunswick,0,1304
+2021-08-05,2,Zone 4 (Edmundston area),New Brunswick,0,1304
 2020-01-25,1,Zone 5 (Campbellton area),New Brunswick,0,1305
 2020-01-26,1,Zone 5 (Campbellton area),New Brunswick,0,1305
 2020-01-27,1,Zone 5 (Campbellton area),New Brunswick,0,1305
@@ -58458,6 +59016,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Zone 5 (Campbellton area),New Brunswick,0,1305
 2021-07-31,2,Zone 5 (Campbellton area),New Brunswick,0,1305
 2021-08-01,2,Zone 5 (Campbellton area),New Brunswick,0,1305
+2021-08-02,2,Zone 5 (Campbellton area),New Brunswick,0,1305
+2021-08-03,2,Zone 5 (Campbellton area),New Brunswick,1,1305
+2021-08-04,2,Zone 5 (Campbellton area),New Brunswick,0,1305
+2021-08-05,2,Zone 5 (Campbellton area),New Brunswick,0,1305
 2020-01-25,1,Zone 6 (Bathurst area),New Brunswick,0,1306
 2020-01-26,1,Zone 6 (Bathurst area),New Brunswick,0,1306
 2020-01-27,1,Zone 6 (Bathurst area),New Brunswick,0,1306
@@ -59013,6 +59575,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Zone 6 (Bathurst area),New Brunswick,0,1306
 2021-07-31,2,Zone 6 (Bathurst area),New Brunswick,0,1306
 2021-08-01,2,Zone 6 (Bathurst area),New Brunswick,0,1306
+2021-08-02,2,Zone 6 (Bathurst area),New Brunswick,0,1306
+2021-08-03,2,Zone 6 (Bathurst area),New Brunswick,0,1306
+2021-08-04,2,Zone 6 (Bathurst area),New Brunswick,0,1306
+2021-08-05,2,Zone 6 (Bathurst area),New Brunswick,2,1306
 2020-01-25,1,Zone 7 (Miramichi area),New Brunswick,0,1307
 2020-01-26,1,Zone 7 (Miramichi area),New Brunswick,0,1307
 2020-01-27,1,Zone 7 (Miramichi area),New Brunswick,0,1307
@@ -59568,6 +60134,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Zone 7 (Miramichi area),New Brunswick,0,1307
 2021-07-31,2,Zone 7 (Miramichi area),New Brunswick,0,1307
 2021-08-01,2,Zone 7 (Miramichi area),New Brunswick,0,1307
+2021-08-02,2,Zone 7 (Miramichi area),New Brunswick,0,1307
+2021-08-03,2,Zone 7 (Miramichi area),New Brunswick,0,1307
+2021-08-04,2,Zone 7 (Miramichi area),New Brunswick,0,1307
+2021-08-05,2,Zone 7 (Miramichi area),New Brunswick,2,1307
 2020-01-25,1,Not Reported,Nova Scotia,0,
 2020-01-26,1,Not Reported,Nova Scotia,0,
 2020-01-27,1,Not Reported,Nova Scotia,0,
@@ -60123,6 +60693,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Not Reported,Nova Scotia,0,
 2021-07-31,2,Not Reported,Nova Scotia,0,
 2021-08-01,2,Not Reported,Nova Scotia,0,
+2021-08-02,2,Not Reported,Nova Scotia,0,
+2021-08-03,2,Not Reported,Nova Scotia,0,
+2021-08-04,2,Not Reported,Nova Scotia,0,
+2021-08-05,2,Not Reported,Nova Scotia,0,
 2020-01-25,1,Zone 1 - Western,Nova Scotia,0,1201
 2020-01-26,1,Zone 1 - Western,Nova Scotia,0,1201
 2020-01-27,1,Zone 1 - Western,Nova Scotia,0,1201
@@ -60678,6 +61252,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Zone 1 - Western,Nova Scotia,0,1201
 2021-07-31,2,Zone 1 - Western,Nova Scotia,0,1201
 2021-08-01,2,Zone 1 - Western,Nova Scotia,0,1201
+2021-08-02,2,Zone 1 - Western,Nova Scotia,0,1201
+2021-08-03,2,Zone 1 - Western,Nova Scotia,2,1201
+2021-08-04,2,Zone 1 - Western,Nova Scotia,0,1201
+2021-08-05,2,Zone 1 - Western,Nova Scotia,0,1201
 2020-01-25,1,Zone 2 - Northern,Nova Scotia,0,1202
 2020-01-26,1,Zone 2 - Northern,Nova Scotia,0,1202
 2020-01-27,1,Zone 2 - Northern,Nova Scotia,0,1202
@@ -61233,6 +61811,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Zone 2 - Northern,Nova Scotia,0,1202
 2021-07-31,2,Zone 2 - Northern,Nova Scotia,0,1202
 2021-08-01,2,Zone 2 - Northern,Nova Scotia,0,1202
+2021-08-02,2,Zone 2 - Northern,Nova Scotia,0,1202
+2021-08-03,2,Zone 2 - Northern,Nova Scotia,1,1202
+2021-08-04,2,Zone 2 - Northern,Nova Scotia,0,1202
+2021-08-05,2,Zone 2 - Northern,Nova Scotia,0,1202
 2020-01-25,1,Zone 3 - Eastern,Nova Scotia,0,1203
 2020-01-26,1,Zone 3 - Eastern,Nova Scotia,0,1203
 2020-01-27,1,Zone 3 - Eastern,Nova Scotia,0,1203
@@ -61788,6 +62370,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Zone 3 - Eastern,Nova Scotia,0,1203
 2021-07-31,2,Zone 3 - Eastern,Nova Scotia,0,1203
 2021-08-01,2,Zone 3 - Eastern,Nova Scotia,0,1203
+2021-08-02,2,Zone 3 - Eastern,Nova Scotia,0,1203
+2021-08-03,2,Zone 3 - Eastern,Nova Scotia,0,1203
+2021-08-04,2,Zone 3 - Eastern,Nova Scotia,0,1203
+2021-08-05,2,Zone 3 - Eastern,Nova Scotia,0,1203
 2020-01-25,1,Zone 4 - Central,Nova Scotia,0,1204
 2020-01-26,1,Zone 4 - Central,Nova Scotia,0,1204
 2020-01-27,1,Zone 4 - Central,Nova Scotia,0,1204
@@ -62343,6 +62929,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Zone 4 - Central,Nova Scotia,1,1204
 2021-07-31,2,Zone 4 - Central,Nova Scotia,0,1204
 2021-08-01,2,Zone 4 - Central,Nova Scotia,0,1204
+2021-08-02,2,Zone 4 - Central,Nova Scotia,0,1204
+2021-08-03,2,Zone 4 - Central,Nova Scotia,3,1204
+2021-08-04,2,Zone 4 - Central,Nova Scotia,2,1204
+2021-08-05,2,Zone 4 - Central,Nova Scotia,4,1204
 2020-01-25,1,Central,Newfoundland and Labrador,0,1012
 2020-01-26,1,Central,Newfoundland and Labrador,0,1012
 2020-01-27,1,Central,Newfoundland and Labrador,0,1012
@@ -62898,6 +63488,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Central,Newfoundland and Labrador,0,1012
 2021-07-31,2,Central,Newfoundland and Labrador,0,1012
 2021-08-01,2,Central,Newfoundland and Labrador,0,1012
+2021-08-02,2,Central,Newfoundland and Labrador,0,1012
+2021-08-03,2,Central,Newfoundland and Labrador,0,1012
+2021-08-04,2,Central,Newfoundland and Labrador,1,1012
+2021-08-05,2,Central,Newfoundland and Labrador,0,1012
 2020-01-25,1,Eastern,Newfoundland and Labrador,0,1011
 2020-01-26,1,Eastern,Newfoundland and Labrador,0,1011
 2020-01-27,1,Eastern,Newfoundland and Labrador,0,1011
@@ -63453,6 +64047,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Eastern,Newfoundland and Labrador,0,1011
 2021-07-31,2,Eastern,Newfoundland and Labrador,0,1011
 2021-08-01,2,Eastern,Newfoundland and Labrador,0,1011
+2021-08-02,2,Eastern,Newfoundland and Labrador,2,1011
+2021-08-03,2,Eastern,Newfoundland and Labrador,0,1011
+2021-08-04,2,Eastern,Newfoundland and Labrador,0,1011
+2021-08-05,2,Eastern,Newfoundland and Labrador,0,1011
 2020-01-25,1,Labrador-Grenfell,Newfoundland and Labrador,0,1014
 2020-01-26,1,Labrador-Grenfell,Newfoundland and Labrador,0,1014
 2020-01-27,1,Labrador-Grenfell,Newfoundland and Labrador,0,1014
@@ -64008,6 +64606,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Labrador-Grenfell,Newfoundland and Labrador,0,1014
 2021-07-31,2,Labrador-Grenfell,Newfoundland and Labrador,0,1014
 2021-08-01,2,Labrador-Grenfell,Newfoundland and Labrador,0,1014
+2021-08-02,2,Labrador-Grenfell,Newfoundland and Labrador,0,1014
+2021-08-03,2,Labrador-Grenfell,Newfoundland and Labrador,0,1014
+2021-08-04,2,Labrador-Grenfell,Newfoundland and Labrador,0,1014
+2021-08-05,2,Labrador-Grenfell,Newfoundland and Labrador,0,1014
 2020-01-25,1,Not Reported,Newfoundland and Labrador,0,
 2020-01-26,1,Not Reported,Newfoundland and Labrador,0,
 2020-01-27,1,Not Reported,Newfoundland and Labrador,0,
@@ -64563,6 +65165,10 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Not Reported,Newfoundland and Labrador,0,
 2021-07-31,2,Not Reported,Newfoundland and Labrador,0,
 2021-08-01,2,Not Reported,Newfoundland and Labrador,0,
+2021-08-02,2,Not Reported,Newfoundland and Labrador,0,
+2021-08-03,2,Not Reported,Newfoundland and Labrador,0,
+2021-08-04,2,Not Reported,Newfoundland and Labrador,0,
+2021-08-05,2,Not Reported,Newfoundland and Labrador,0,
 2020-01-25,1,Western,Newfoundland and Labrador,0,1013
 2020-01-26,1,Western,Newfoundland and Labrador,0,1013
 2020-01-27,1,Western,Newfoundland and Labrador,0,1013
@@ -65118,3 +65724,7 @@ date,wave,HR,province,cases,HRUID2018
 2021-07-30,2,Western,Newfoundland and Labrador,0,1013
 2021-07-31,2,Western,Newfoundland and Labrador,0,1013
 2021-08-01,2,Western,Newfoundland and Labrador,0,1013
+2021-08-02,2,Western,Newfoundland and Labrador,1,1013
+2021-08-03,2,Western,Newfoundland and Labrador,0,1013
+2021-08-04,2,Western,Newfoundland and Labrador,0,1013
+2021-08-05,2,Western,Newfoundland and Labrador,0,1013

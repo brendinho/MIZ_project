@@ -554,6 +554,10 @@ date,wave,province,HR,cases
 2021-07-30,2,Manitoba,Interlake-Eastern,8
 2021-07-31,2,Manitoba,Interlake-Eastern,0
 2021-08-01,2,Manitoba,Interlake-Eastern,0
+2021-08-02,2,Manitoba,Interlake-Eastern,0
+2021-08-03,2,Manitoba,Interlake-Eastern,24
+2021-08-04,2,Manitoba,Interlake-Eastern,4
+2021-08-05,2,Manitoba,Interlake-Eastern,17
 2020-01-25,1,Manitoba,Northern,0
 2020-01-26,1,Manitoba,Northern,0
 2020-01-27,1,Manitoba,Northern,0
@@ -1109,6 +1113,10 @@ date,wave,province,HR,cases
 2021-07-30,2,Manitoba,Northern,16
 2021-07-31,2,Manitoba,Northern,0
 2021-08-01,2,Manitoba,Northern,0
+2021-08-02,2,Manitoba,Northern,0
+2021-08-03,2,Manitoba,Northern,8
+2021-08-04,2,Manitoba,Northern,0
+2021-08-05,2,Manitoba,Northern,-3
 2020-01-25,1,Manitoba,Not Reported,0
 2020-01-26,1,Manitoba,Not Reported,0
 2020-01-27,1,Manitoba,Not Reported,0
@@ -1664,6 +1672,10 @@ date,wave,province,HR,cases
 2021-07-30,2,Manitoba,Not Reported,0
 2021-07-31,2,Manitoba,Not Reported,0
 2021-08-01,2,Manitoba,Not Reported,0
+2021-08-02,2,Manitoba,Not Reported,0
+2021-08-03,2,Manitoba,Not Reported,0
+2021-08-04,2,Manitoba,Not Reported,0
+2021-08-05,2,Manitoba,Not Reported,0
 2020-01-25,1,Manitoba,Prairie Mountain,0
 2020-01-26,1,Manitoba,Prairie Mountain,0
 2020-01-27,1,Manitoba,Prairie Mountain,0
@@ -2219,6 +2231,10 @@ date,wave,province,HR,cases
 2021-07-30,2,Manitoba,Prairie Mountain,1
 2021-07-31,2,Manitoba,Prairie Mountain,0
 2021-08-01,2,Manitoba,Prairie Mountain,0
+2021-08-02,2,Manitoba,Prairie Mountain,0
+2021-08-03,2,Manitoba,Prairie Mountain,3
+2021-08-04,2,Manitoba,Prairie Mountain,0
+2021-08-05,2,Manitoba,Prairie Mountain,-1
 2020-01-25,1,Manitoba,Southern Health,0
 2020-01-26,1,Manitoba,Southern Health,0
 2020-01-27,1,Manitoba,Southern Health,0
@@ -2774,6 +2790,10 @@ date,wave,province,HR,cases
 2021-07-30,2,Manitoba,Southern Health,4
 2021-07-31,2,Manitoba,Southern Health,0
 2021-08-01,2,Manitoba,Southern Health,0
+2021-08-02,2,Manitoba,Southern Health,0
+2021-08-03,2,Manitoba,Southern Health,18
+2021-08-04,2,Manitoba,Southern Health,2
+2021-08-05,2,Manitoba,Southern Health,5
 2020-01-25,1,Manitoba,Winnipeg,0
 2020-01-26,1,Manitoba,Winnipeg,0
 2020-01-27,1,Manitoba,Winnipeg,0
@@ -3329,3 +3349,7 @@ date,wave,province,HR,cases
 2021-07-30,2,Manitoba,Winnipeg,16
 2021-07-31,2,Manitoba,Winnipeg,0
 2021-08-01,2,Manitoba,Winnipeg,0
+2021-08-02,2,Manitoba,Winnipeg,0
+2021-08-03,2,Manitoba,Winnipeg,45
+2021-08-04,2,Manitoba,Winnipeg,9
+2021-08-05,2,Manitoba,Winnipeg,15

@@ -1,0 +1,111 @@
+province,HR,index_of_remoteness,aR_score,num_csds,first_wave_peak_date,second_wave_peak_date
+Alberta,Calgary,8.8458,65,46,2020-12-04,2021-05-04
+Alberta,Central,32.5606,221,138,2020-11-29,2021-04-30
+Alberta,Edmonton,6.48,37,35,2020-12-13,2021-04-28
+Alberta,North,60.0987,219,154,2021-01-07,2021-04-30
+Alberta,South,15.8417,92,53,2020-04-30,2021-04-30
+British Columbia,Central Vancouver Island,21.615,73,65,2021-01-20,2021-04-09
+British Columbia,East Kootenay,10.561,51,25,2021-01-23,2021-04-08
+British Columbia,Fraser East,11.0476,48,55,2020-12-12,2021-04-22
+British Columbia,Fraser North,1.4064,14,13,2020-11-14,2021-04-09
+British Columbia,Fraser South,1.5439,13,13,2020-11-14,2021-04-16
+British Columbia,Kootenay-Boundary,13.8052,76,34,2020-12-15,2021-07-29
+British Columbia,North Shore/Coast Garibaldi,18.4136,68,52,2021-01-23,2021-03-30
+British Columbia,North Vancouver Island,19.9266,51,42,2020-04-20,2021-02-22
+British Columbia,Northeast,12.0533,32,24,2021-01-01,2021-04-08
+British Columbia,Northern Interior,34.2605,72,67,2021-01-06,2021-02-17
+British Columbia,Northwest,31.0998,75,58,2021-01-09,2021-03-05
+British Columbia,Okanagan,14.7632,68,49,2020-12-10,2021-08-03
+British Columbia,Richmond,0.0981,1,1,2020-12-01,2021-04-07
+British Columbia,South Vancouver Island,5.7864,25,25,2020-12-28,2021-04-01
+British Columbia,Thompson Cariboo Shuswap,68.6975,130,160,2021-01-15,2021-02-05
+British Columbia,Vancouver,0.3706,3,3,2020-11-18,2021-04-07
+Manitoba,Interlake-Eastern,19.55,88,52,2020-12-27,2021-05-12
+Manitoba,Northern,26.2655,64,43,2021-01-14,2021-04-09
+Manitoba,Prairie Mountain,32.1793,164,81,2020-12-15,2021-05-28
+Manitoba,Southern Health,12.2629,83,48,2020-11-15,2021-05-20
+Manitoba,Winnipeg,1.4617,6,4,2020-11-23,2021-05-13
+New Brunswick,Zone 1 (Moncton area),14.5902,80,50,2020-10-07,2021-08-01
+New Brunswick,Zone 2 (Saint John area),17.1687,86,52,2021-01-06,2021-03-25
+New Brunswick,Zone 3 (Fredericton area),25.6272,146,75,2021-01-05,2021-05-24
+New Brunswick,Zone 4 (Edmundston area),12.8441,56,32,2021-01-17,2021-03-25
+New Brunswick,Zone 5 (Campbellton area),6.3397,25,16,2020-10-09,2021-05-03
+New Brunswick,Zone 6 (Bathurst area),11.818,57,29,2020-12-02,2021-04-23
+New Brunswick,Zone 7 (Miramichi area),7.4448,29,21,2020-04-02,2021-03-02
+Newfoundland and Labrador,Central,57.5121,136,108,2020-04-08,2021-05-23
+Newfoundland and Labrador,Eastern,58.3766,203,146,2020-03-25,2021-02-11
+Newfoundland and Labrador,Labrador-Grenfell,28.1584,54,41,2020-03-17,2021-05-01
+Newfoundland and Labrador,Western,35.3927,103,71,2020-10-10,2021-06-02
+Northwest Territories,Northwest Territories,25.8789,109,37,2020-12-10,2021-05-05
+Nova Scotia,Zone 1 - Western,13.1537,70,39,2020-04-01,2021-05-12
+Nova Scotia,Zone 2 - Northern,6.8324,41,25,2020-03-25,2021-05-08
+Nova Scotia,Zone 3 - Eastern,8.4735,51,22,2020-03-28,2021-05-23
+Nova Scotia,Zone 4 - Central,2.0072,11,8,2020-04-23,2021-05-07
+Nunavut,Nunavut,20.2447,78,26,2020-11-17,2021-05-11
+Ontario,Algoma,11.5965,48,29,2021-01-07,2021-04-11
+Ontario,Brant,0.3341,4,4,2021-01-10,2021-04-14
+Ontario,Chatham-Kent,0.3681,2,2,2021-01-05,2021-03-20
+Ontario,Durham,0.5939,10,9,2021-01-03,2021-04-11
+Ontario,Eastern,1.9834,25,16,2021-01-10,2021-04-15
+Ontario,Grey Bruce,4.3681,49,23,2020-11-20,2021-07-01
+Ontario,Haldimand-Norfolk,0.2002,3,2,2020-06-02,2021-04-16
+Ontario,Haliburton Kawartha Pine Ridge,1.8994,24,14,2021-01-21,2021-04-14
+Ontario,Halton,0.2632,5,5,2021-01-02,2021-04-14
+Ontario,Hamilton,0.0574,1,1,2021-01-08,2021-04-21
+Ontario,Hastings Prince Edward,3.5199,32,18,2020-12-12,2021-04-06
+Ontario,Huron Perth,1.93,31,15,2021-01-19,2021-04-15
+Ontario,Kingston Frontenac Lennox and Addington,1.884,14,9,2020-12-12,2021-05-05
+Ontario,Lambton,2.6086,21,14,2021-01-11,2021-03-18
+Ontario,Leeds Grenville and Lanark,3.8706,37,22,2020-04-08,2021-03-20
+Ontario,Middlesex-London,1.2582,13,10,2021-01-10,2021-04-15
+Ontario,Niagara,1.1072,13,12,2021-01-12,2021-04-28
+Ontario,North Bay Parry Sound,11.7011,70,41,2021-02-20,2021-06-23
+Ontario,Northwestern,38.4583,90,67,2021-02-14,2021-04-29
+Ontario,Ottawa,0.0963,1,1,2020-12-31,2021-04-11
+Ontario,Peel,0.1792,4,4,2021-01-02,2021-04-23
+Ontario,Peterborough,1.4141,16,12,2021-01-02,2021-04-16
+Ontario,Porcupine,14.5796,40,29,2021-01-24,2021-06-13
+Ontario,Renfrew,5.3183,35,21,2020-12-11,2021-05-10
+Ontario,Simcoe Muskoka,3.3815,47,29,2021-01-23,2021-04-12
+Ontario,Southwestern,1.5988,26,16,2021-01-11,2021-02-28
+Ontario,Sudbury,13.6975,53,32,2021-01-13,2021-03-14
+Ontario,Thunder Bay,21.788,36,39,2021-01-22,2021-03-08
+Ontario,Timiskaming,10.9752,40,28,2020-12-20,2021-04-21
+Ontario,Toronto,0,1,1,2021-01-08,2021-04-16
+Ontario,Waterloo,0.5141,8,7,2021-01-10,2021-04-13
+Ontario,Wellington Dufferin Guelph,1.5485,28,17,2021-01-24,2021-04-15
+Ontario,Windsor-Essex,2.0094,9,9,2021-01-09,2021-04-15
+Ontario,York,0.5187,10,10,2021-01-07,2021-04-19
+Prince Edward Island,Prince Edward Island,40.4955,187,112,2020-03-30,2021-05-19
+Quebec,Abitibi-Temiscamingue,32.7588,147,77,2021-01-08,2021-03-28
+Quebec,Bas-Saint-Laurent,43.339,203,120,2020-12-02,2021-05-06
+Quebec,Capitale-Nationale,12.8018,100,64,2020-12-04,2021-04-07
+Quebec,Chaudiere-Appalaches,28.8005,264,136,2021-01-07,2021-04-15
+Quebec,Cote-Nord,25.611,73,48,2020-12-19,2021-04-20
+Quebec,Estrie,20.0047,227,121,2021-01-06,2021-05-07
+Quebec,Gaspesie-Iles-de-la-Madeleine,23.0597,86,48,2020-10-08,2021-05-19
+Quebec,Lanaudiere,7.9462,105,62,2021-01-05,2021-04-24
+Quebec,Laurentides,11.6052,132,77,2020-12-30,2021-04-08
+Quebec,Laval,0.03,1,1,2021-01-05,2021-03-04
+Quebec,Mauricie et du Centre-du-Quebec,19.2957,226,127,2020-12-26,2021-05-05
+Quebec,Monteregie,15.1461,237,146,2020-12-29,2021-04-16
+Quebec,Montreal,0.9741,16,16,2021-01-07,2021-04-09
+Quebec,Nord-du-Quebec,2.6667,12,5,2020-11-18,2021-05-08
+Quebec,Nunavik,11.0967,15,14,2020-04-02,2021-02-27
+Quebec,Outaouais,13.8869,122,69,2020-12-25,2021-04-10
+Quebec,Saguenay-Lac-Saint-Jean,18.5163,89,54,2020-11-19,2021-03-19
+Quebec,Terres-Cries-de-la-Baie-James,5.9021,21,9,2021-01-07,2021-02-22
+Saskatchewan,Central East,66.7154,231,181,2021-01-25,2021-05-21
+Saskatchewan,Central West,30.4053,117,85,2020-11-24,2021-04-12
+Saskatchewan,Far North Central,2.7454,11,4,2020-11-20,2021-02-20
+Saskatchewan,Far North East,15.1352,41,26,2021-01-02,2021-07-08
+Saskatchewan,Far North West,21.1591,50,39,2021-01-15,2021-07-31
+Saskatchewan,North Central,22.1039,97,65,2020-12-27,2021-05-03
+Saskatchewan,North East,22.7138,72,53,2021-01-25,2021-03-27
+Saskatchewan,North West,33.6709,128,92,2020-11-21,2021-04-09
+Saskatchewan,Regina,9.6,45,35,2020-12-09,2021-03-28
+Saskatchewan,Saskatoon,10.037,50,38,2020-12-06,2021-05-07
+Saskatchewan,South Central,28.7735,121,77,2020-11-17,2021-04-02
+Saskatchewan,South East,54.4941,217,154,2020-11-15,2021-05-14
+Saskatchewan,South West,25.3294,64,56,2020-08-14,2021-04-24
+Yukon,Yukon,17.0546,79,31,2020-11-23,2021-06-27

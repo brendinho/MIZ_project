@@ -29,7 +29,9 @@ Total_Data <- fread("CaseDataTables/Total_Data.csv") |>
 
 print(summary(lm(
     formula = first_wave_proportion ~ families_with_no_children + families_with_children_of_size_2_or_smaller + families_with_children_of_size_3_or_larger +
-        total_commuters + aR_score,
+        total_commuters + 
+        aR_score,
+        # index_of_remoteness,
     data = Total_Data
 )))
 # for the second wave
@@ -74,7 +76,9 @@ PROVINCE <- "Ontario"
 # for the first wave of infection
 print(summary(lm(
     formula = first_wave_proportion ~ families_with_no_children + families_with_children_of_size_2_or_smaller + families_with_children_of_size_3_or_larger +
-        total_commuters + aR_score,
+        total_commuters + 
+        aR_score,
+    # index_of_remoteness,
     data = Total_Data[province == PROVINCE]
 )))
 # for the second wave
@@ -91,10 +95,11 @@ print(summary(lm(
 )))
 # creating a table with case numbers broken up by wave, so that I can include the wave number in the regression
 print(summary(lm(
-    # formula = proportion ~ families_with_no_children + families_with_children_of_size_2_or_smaller + families_with_children_of_size_3_or_larger +
-    # # total_commuters + 
-    #     aR_score + wave,
-    formula = proportion ~ families_with_no_children + families_with_children_of_size_3_or_smaller + families_with_children_of_size_4_or_larger +
+    formula = proportion ~ families_with_no_children + families_with_children_of_size_2_or_smaller + families_with_children_of_size_3_or_larger +
+    # formula = proportion ~ families_with_no_children + families_with_children_of_size_3_or_smaller + families_with_children_of_size_4_or_larger +
+        # total_commuters + 
+        aR_score + 
+        wave,
     aR_score + wave,
     data = rbind(
         Total_Data |>

@@ -230,6 +230,10 @@ avaccine,cumulative_avaccine,date_vaccine_administered,province
 16840,5294361,2021-07-30,Alberta
 0,5294361,2021-07-31,Alberta
 0,5294361,2021-08-01,Alberta
+0,5294361,2021-08-02,Alberta
+37462,5331823,2021-08-03,Alberta
+12962,5344785,2021-08-04,Alberta
+10469,5355254,2021-08-05,Alberta
 0,0,2020-12-14,BC
 409,409,2020-12-15,BC
 0,409,2020-12-16,BC
@@ -461,6 +465,10 @@ avaccine,cumulative_avaccine,date_vaccine_administered,province
 41948,6774257,2021-07-30,BC
 0,6774257,2021-07-31,BC
 0,6774257,2021-08-01,BC
+0,6774257,2021-08-02,BC
+128063,6902320,2021-08-03,BC
+29495,6931815,2021-08-04,BC
+33247,6965062,2021-08-05,BC
 0,0,2020-12-14,Manitoba
 0,0,2020-12-15,Manitoba
 302,302,2020-12-16,Manitoba
@@ -692,6 +700,10 @@ avaccine,cumulative_avaccine,date_vaccine_administered,province
 11745,1782514,2021-07-30,Manitoba
 0,1782514,2021-07-31,Manitoba
 0,1782514,2021-08-01,Manitoba
+0,1782514,2021-08-02,Manitoba
+31763,1814277,2021-08-03,Manitoba
+2381,1816658,2021-08-04,Manitoba
+5019,1821677,2021-08-05,Manitoba
 0,0,2020-12-14,New Brunswick
 0,0,2020-12-15,New Brunswick
 0,0,2020-12-16,New Brunswick
@@ -923,6 +935,10 @@ avaccine,cumulative_avaccine,date_vaccine_administered,province
 5592,1031439,2021-07-30,New Brunswick
 0,1031439,2021-07-31,New Brunswick
 9435,1040874,2021-08-01,New Brunswick
+0,1040874,2021-08-02,New Brunswick
+2020,1042894,2021-08-03,New Brunswick
+1258,1044152,2021-08-04,New Brunswick
+3715,1047867,2021-08-05,New Brunswick
 0,0,2020-12-14,NL
 0,0,2020-12-15,NL
 2,2,2020-12-16,NL
@@ -1154,6 +1170,10 @@ avaccine,cumulative_avaccine,date_vaccine_administered,province
 14523,662606,2021-07-30,NL
 0,662606,2021-07-31,NL
 0,662606,2021-08-01,NL
+10761,673367,2021-08-02,NL
+5482,678849,2021-08-03,NL
+0,678849,2021-08-04,NL
+12457,691306,2021-08-05,NL
 0,0,2020-12-14,Nova Scotia
 0,0,2020-12-15,Nova Scotia
 376,376,2020-12-16,Nova Scotia
@@ -1385,6 +1405,10 @@ avaccine,cumulative_avaccine,date_vaccine_administered,province
 12441,1345401,2021-07-30,Nova Scotia
 0,1345401,2021-07-31,Nova Scotia
 0,1345401,2021-08-01,Nova Scotia
+0,1345401,2021-08-02,Nova Scotia
+15259,1360660,2021-08-03,Nova Scotia
+10242,1370902,2021-08-04,Nova Scotia
+8762,1379664,2021-08-05,Nova Scotia
 0,0,2020-12-14,Nunavut
 0,0,2020-12-15,Nunavut
 0,0,2020-12-16,Nunavut
@@ -1616,6 +1640,10 @@ avaccine,cumulative_avaccine,date_vaccine_administered,province
 0,42032,2021-07-30,Nunavut
 0,42032,2021-07-31,Nunavut
 0,42032,2021-08-01,Nunavut
+0,42032,2021-08-02,Nunavut
+0,42032,2021-08-03,Nunavut
+683,42715,2021-08-04,Nunavut
+0,42715,2021-08-05,Nunavut
 0,0,2020-12-14,NWT
 0,0,2020-12-15,NWT
 0,0,2020-12-16,NWT
@@ -1847,6 +1875,10 @@ avaccine,cumulative_avaccine,date_vaccine_administered,province
 0,63564,2021-07-30,NWT
 0,63564,2021-07-31,NWT
 0,63564,2021-08-01,NWT
+0,63564,2021-08-02,NWT
+0,63564,2021-08-03,NWT
+732,64296,2021-08-04,NWT
+0,64296,2021-08-05,NWT
 5,5,2020-12-14,Ontario
 426,431,2020-12-15,Ontario
 544,975,2020-12-16,Ontario
@@ -2078,6 +2110,10 @@ avaccine,cumulative_avaccine,date_vaccine_administered,province
 83907,19377608,2021-07-30,Ontario
 81590,19459198,2021-07-31,Ontario
 60583,19519781,2021-08-01,Ontario
+0,19519781,2021-08-02,Ontario
+72136,19591917,2021-08-03,Ontario
+60094,19652011,2021-08-04,Ontario
+58213,19710224,2021-08-05,Ontario
 0,0,2020-12-14,PEI
 0,0,2020-12-15,PEI
 140,140,2020-12-16,PEI
@@ -2309,6 +2345,10 @@ avaccine,cumulative_avaccine,date_vaccine_administered,province
 0,199191,2021-07-30,PEI
 0,199191,2021-07-31,PEI
 0,199191,2021-08-01,PEI
+0,199191,2021-08-02,PEI
+5595,204786,2021-08-03,PEI
+0,204786,2021-08-04,PEI
+6160,210946,2021-08-05,PEI
 292,292,2020-12-14,Quebec
 0,292,2020-12-15,Quebec
 1156,1448,2020-12-16,Quebec
@@ -2540,6 +2580,10 @@ avaccine,cumulative_avaccine,date_vaccine_administered,province
 68123,10980147,2021-07-30,Quebec
 0,10980147,2021-07-31,Quebec
 0,10980147,2021-08-01,Quebec
+217725,11197872,2021-08-02,Quebec
+49283,11247155,2021-08-03,Quebec
+50140,11297295,2021-08-04,Quebec
+48292,11345587,2021-08-05,Quebec
 0,0,2020-12-14,Saskatchewan
 11,11,2020-12-15,Saskatchewan
 0,11,2020-12-16,Saskatchewan
@@ -2771,6 +2815,10 @@ avaccine,cumulative_avaccine,date_vaccine_administered,province
 5345,1406189,2021-07-30,Saskatchewan
 5308,1411497,2021-07-31,Saskatchewan
 4099,1415596,2021-08-01,Saskatchewan
+1531,1417127,2021-08-02,Saskatchewan
+775,1417902,2021-08-03,Saskatchewan
+1057,1418959,2021-08-04,Saskatchewan
+3861,1422820,2021-08-05,Saskatchewan
 0,0,2020-12-14,Yukon
 0,0,2020-12-15,Yukon
 0,0,2020-12-16,Yukon
@@ -3002,3 +3050,7 @@ avaccine,cumulative_avaccine,date_vaccine_administered,province
 0,63242,2021-07-30,Yukon
 0,63242,2021-07-31,Yukon
 0,63242,2021-08-01,Yukon
+321,63563,2021-08-02,Yukon
+0,63563,2021-08-03,Yukon
+0,63563,2021-08-04,Yukon
+261,63824,2021-08-05,Yukon

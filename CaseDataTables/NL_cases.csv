@@ -554,6 +554,10 @@ date,wave,province,HR,cases
 2021-07-30,2,Newfoundland and Labrador,Central,0
 2021-07-31,2,Newfoundland and Labrador,Central,0
 2021-08-01,2,Newfoundland and Labrador,Central,0
+2021-08-02,2,Newfoundland and Labrador,Central,0
+2021-08-03,2,Newfoundland and Labrador,Central,0
+2021-08-04,2,Newfoundland and Labrador,Central,1
+2021-08-05,2,Newfoundland and Labrador,Central,0
 2020-01-25,1,Newfoundland and Labrador,Eastern,0
 2020-01-26,1,Newfoundland and Labrador,Eastern,0
 2020-01-27,1,Newfoundland and Labrador,Eastern,0
@@ -1109,6 +1113,10 @@ date,wave,province,HR,cases
 2021-07-30,2,Newfoundland and Labrador,Eastern,0
 2021-07-31,2,Newfoundland and Labrador,Eastern,0
 2021-08-01,2,Newfoundland and Labrador,Eastern,0
+2021-08-02,2,Newfoundland and Labrador,Eastern,2
+2021-08-03,2,Newfoundland and Labrador,Eastern,0
+2021-08-04,2,Newfoundland and Labrador,Eastern,0
+2021-08-05,2,Newfoundland and Labrador,Eastern,0
 2020-01-25,1,Newfoundland and Labrador,Labrador-Grenfell,0
 2020-01-26,1,Newfoundland and Labrador,Labrador-Grenfell,0
 2020-01-27,1,Newfoundland and Labrador,Labrador-Grenfell,0
@@ -1664,6 +1672,10 @@ date,wave,province,HR,cases
 2021-07-30,2,Newfoundland and Labrador,Labrador-Grenfell,0
 2021-07-31,2,Newfoundland and Labrador,Labrador-Grenfell,0
 2021-08-01,2,Newfoundland and Labrador,Labrador-Grenfell,0
+2021-08-02,2,Newfoundland and Labrador,Labrador-Grenfell,0
+2021-08-03,2,Newfoundland and Labrador,Labrador-Grenfell,0
+2021-08-04,2,Newfoundland and Labrador,Labrador-Grenfell,0
+2021-08-05,2,Newfoundland and Labrador,Labrador-Grenfell,0
 2020-01-25,1,Newfoundland and Labrador,Not Reported,0
 2020-01-26,1,Newfoundland and Labrador,Not Reported,0
 2020-01-27,1,Newfoundland and Labrador,Not Reported,0
@@ -2219,6 +2231,10 @@ date,wave,province,HR,cases
 2021-07-30,2,Newfoundland and Labrador,Not Reported,0
 2021-07-31,2,Newfoundland and Labrador,Not Reported,0
 2021-08-01,2,Newfoundland and Labrador,Not Reported,0
+2021-08-02,2,Newfoundland and Labrador,Not Reported,0
+2021-08-03,2,Newfoundland and Labrador,Not Reported,0
+2021-08-04,2,Newfoundland and Labrador,Not Reported,0
+2021-08-05,2,Newfoundland and Labrador,Not Reported,0
 2020-01-25,1,Newfoundland and Labrador,Western,0
 2020-01-26,1,Newfoundland and Labrador,Western,0
 2020-01-27,1,Newfoundland and Labrador,Western,0
@@ -2774,3 +2790,7 @@ date,wave,province,HR,cases
 2021-07-30,2,Newfoundland and Labrador,Western,0
 2021-07-31,2,Newfoundland and Labrador,Western,0
 2021-08-01,2,Newfoundland and Labrador,Western,0
+2021-08-02,2,Newfoundland and Labrador,Western,1
+2021-08-03,2,Newfoundland and Labrador,Western,0
+2021-08-04,2,Newfoundland and Labrador,Western,0
+2021-08-05,2,Newfoundland and Labrador,Western,0

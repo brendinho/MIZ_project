@@ -554,6 +554,10 @@ date,wave,province,HR,cases
 2021-07-30,2,New Brunswick,Not Reported,0
 2021-07-31,2,New Brunswick,Not Reported,0
 2021-08-01,2,New Brunswick,Not Reported,0
+2021-08-02,2,New Brunswick,Not Reported,0
+2021-08-03,2,New Brunswick,Not Reported,0
+2021-08-04,2,New Brunswick,Not Reported,0
+2021-08-05,2,New Brunswick,Not Reported,0
 2020-01-25,1,New Brunswick,Zone 1 (Moncton area),0
 2020-01-26,1,New Brunswick,Zone 1 (Moncton area),0
 2020-01-27,1,New Brunswick,Zone 1 (Moncton area),0
@@ -1109,6 +1113,10 @@ date,wave,province,HR,cases
 2021-07-30,2,New Brunswick,Zone 1 (Moncton area),5
 2021-07-31,2,New Brunswick,Zone 1 (Moncton area),0
 2021-08-01,2,New Brunswick,Zone 1 (Moncton area),17
+2021-08-02,2,New Brunswick,Zone 1 (Moncton area),0
+2021-08-03,2,New Brunswick,Zone 1 (Moncton area),6
+2021-08-04,2,New Brunswick,Zone 1 (Moncton area),2
+2021-08-05,2,New Brunswick,Zone 1 (Moncton area),9
 2020-01-25,1,New Brunswick,Zone 2 (Saint John area),0
 2020-01-26,1,New Brunswick,Zone 2 (Saint John area),0
 2020-01-27,1,New Brunswick,Zone 2 (Saint John area),0
@@ -1664,6 +1672,10 @@ date,wave,province,HR,cases
 2021-07-30,2,New Brunswick,Zone 2 (Saint John area),0
 2021-07-31,2,New Brunswick,Zone 2 (Saint John area),0
 2021-08-01,2,New Brunswick,Zone 2 (Saint John area),1
+2021-08-02,2,New Brunswick,Zone 2 (Saint John area),0
+2021-08-03,2,New Brunswick,Zone 2 (Saint John area),0
+2021-08-04,2,New Brunswick,Zone 2 (Saint John area),0
+2021-08-05,2,New Brunswick,Zone 2 (Saint John area),0
 2020-01-25,1,New Brunswick,Zone 3 (Fredericton area),0
 2020-01-26,1,New Brunswick,Zone 3 (Fredericton area),0
 2020-01-27,1,New Brunswick,Zone 3 (Fredericton area),0
@@ -2219,6 +2231,10 @@ date,wave,province,HR,cases
 2021-07-30,2,New Brunswick,Zone 3 (Fredericton area),2
 2021-07-31,2,New Brunswick,Zone 3 (Fredericton area),0
 2021-08-01,2,New Brunswick,Zone 3 (Fredericton area),0
+2021-08-02,2,New Brunswick,Zone 3 (Fredericton area),0
+2021-08-03,2,New Brunswick,Zone 3 (Fredericton area),3
+2021-08-04,2,New Brunswick,Zone 3 (Fredericton area),0
+2021-08-05,2,New Brunswick,Zone 3 (Fredericton area),0
 2020-01-25,1,New Brunswick,Zone 4 (Edmundston area),0
 2020-01-26,1,New Brunswick,Zone 4 (Edmundston area),0
 2020-01-27,1,New Brunswick,Zone 4 (Edmundston area),0
@@ -2774,6 +2790,10 @@ date,wave,province,HR,cases
 2021-07-30,2,New Brunswick,Zone 4 (Edmundston area),0
 2021-07-31,2,New Brunswick,Zone 4 (Edmundston area),0
 2021-08-01,2,New Brunswick,Zone 4 (Edmundston area),0
+2021-08-02,2,New Brunswick,Zone 4 (Edmundston area),0
+2021-08-03,2,New Brunswick,Zone 4 (Edmundston area),1
+2021-08-04,2,New Brunswick,Zone 4 (Edmundston area),0
+2021-08-05,2,New Brunswick,Zone 4 (Edmundston area),0
 2020-01-25,1,New Brunswick,Zone 5 (Campbellton area),0
 2020-01-26,1,New Brunswick,Zone 5 (Campbellton area),0
 2020-01-27,1,New Brunswick,Zone 5 (Campbellton area),0
@@ -3329,6 +3349,10 @@ date,wave,province,HR,cases
 2021-07-30,2,New Brunswick,Zone 5 (Campbellton area),0
 2021-07-31,2,New Brunswick,Zone 5 (Campbellton area),0
 2021-08-01,2,New Brunswick,Zone 5 (Campbellton area),0
+2021-08-02,2,New Brunswick,Zone 5 (Campbellton area),0
+2021-08-03,2,New Brunswick,Zone 5 (Campbellton area),1
+2021-08-04,2,New Brunswick,Zone 5 (Campbellton area),0
+2021-08-05,2,New Brunswick,Zone 5 (Campbellton area),0
 2020-01-25,1,New Brunswick,Zone 6 (Bathurst area),0
 2020-01-26,1,New Brunswick,Zone 6 (Bathurst area),0
 2020-01-27,1,New Brunswick,Zone 6 (Bathurst area),0
@@ -3884,6 +3908,10 @@ date,wave,province,HR,cases
 2021-07-30,2,New Brunswick,Zone 6 (Bathurst area),0
 2021-07-31,2,New Brunswick,Zone 6 (Bathurst area),0
 2021-08-01,2,New Brunswick,Zone 6 (Bathurst area),0
+2021-08-02,2,New Brunswick,Zone 6 (Bathurst area),0
+2021-08-03,2,New Brunswick,Zone 6 (Bathurst area),0
+2021-08-04,2,New Brunswick,Zone 6 (Bathurst area),0
+2021-08-05,2,New Brunswick,Zone 6 (Bathurst area),2
 2020-01-25,1,New Brunswick,Zone 7 (Miramichi area),0
 2020-01-26,1,New Brunswick,Zone 7 (Miramichi area),0
 2020-01-27,1,New Brunswick,Zone 7 (Miramichi area),0
@@ -4439,3 +4467,7 @@ date,wave,province,HR,cases
 2021-07-30,2,New Brunswick,Zone 7 (Miramichi area),0
 2021-07-31,2,New Brunswick,Zone 7 (Miramichi area),0
 2021-08-01,2,New Brunswick,Zone 7 (Miramichi area),0
+2021-08-02,2,New Brunswick,Zone 7 (Miramichi area),0
+2021-08-03,2,New Brunswick,Zone 7 (Miramichi area),0
+2021-08-04,2,New Brunswick,Zone 7 (Miramichi area),0
+2021-08-05,2,New Brunswick,Zone 7 (Miramichi area),2

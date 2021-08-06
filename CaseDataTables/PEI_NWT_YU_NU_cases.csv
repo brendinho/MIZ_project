@@ -554,6 +554,10 @@ date,wave,province,HR,cases
 2021-07-30,2,Nunavut,Nunavut,0
 2021-07-31,2,Nunavut,Nunavut,0
 2021-08-01,2,Nunavut,Nunavut,0
+2021-08-02,2,Nunavut,Nunavut,0
+2021-08-03,2,Nunavut,Nunavut,0
+2021-08-04,2,Nunavut,Nunavut,0
+2021-08-05,2,Nunavut,Nunavut,0
 2020-01-25,1,Northwest Territories,Northwest Territories,0
 2020-01-26,1,Northwest Territories,Northwest Territories,0
 2020-01-27,1,Northwest Territories,Northwest Territories,0
@@ -1109,6 +1113,10 @@ date,wave,province,HR,cases
 2021-07-30,2,Northwest Territories,Northwest Territories,0
 2021-07-31,2,Northwest Territories,Northwest Territories,0
 2021-08-01,2,Northwest Territories,Northwest Territories,0
+2021-08-02,2,Northwest Territories,Northwest Territories,0
+2021-08-03,2,Northwest Territories,Northwest Territories,0
+2021-08-04,2,Northwest Territories,Northwest Territories,1
+2021-08-05,2,Northwest Territories,Northwest Territories,0
 2020-01-25,1,Prince Edward Island,Prince Edward Island,0
 2020-01-26,1,Prince Edward Island,Prince Edward Island,0
 2020-01-27,1,Prince Edward Island,Prince Edward Island,0
@@ -1664,6 +1672,10 @@ date,wave,province,HR,cases
 2021-07-30,2,Prince Edward Island,Prince Edward Island,0
 2021-07-31,2,Prince Edward Island,Prince Edward Island,0
 2021-08-01,2,Prince Edward Island,Prince Edward Island,0
+2021-08-02,2,Prince Edward Island,Prince Edward Island,0
+2021-08-03,2,Prince Edward Island,Prince Edward Island,0
+2021-08-04,2,Prince Edward Island,Prince Edward Island,0
+2021-08-05,2,Prince Edward Island,Prince Edward Island,0
 2020-01-25,1,Yukon,Yukon,0
 2020-01-26,1,Yukon,Yukon,0
 2020-01-27,1,Yukon,Yukon,0
@@ -2219,3 +2231,7 @@ date,wave,province,HR,cases
 2021-07-30,2,Yukon,Yukon,7
 2021-07-31,2,Yukon,Yukon,0
 2021-08-01,2,Yukon,Yukon,0
+2021-08-02,2,Yukon,Yukon,7
+2021-08-03,2,Yukon,Yukon,7
+2021-08-04,2,Yukon,Yukon,6
+2021-08-05,2,Yukon,Yukon,7

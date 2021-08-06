@@ -7,12 +7,15 @@ library(cancensus)
 library(CanCovidData)
 library(stringr)
 library(XLConnect)
+# library(forcats)
 
 setwd('/home/bren/Documents/GitHub/MIZ_project/')
 dir.create(file.path(".", "CaseDataFiles"), showWarnings=FALSE)
 dir.create(file.path(".", "Graphs"), showWarnings=FALSE)
 
 source("function_header.R")
+
+start_time <- Sys.time()
 
 ############################################ RETRIEVE ALL SAC INFO - geography files may be cached
 
@@ -35,7 +38,8 @@ for(csd_number in list_of_levels |> filter(level=="CSD") |> pull(region))
             level = "CSD",
             geo_format = 'sf',
             labels = 'short',
-            # use_cache = FALSE
+            use_cache = FALSE,
+            quiet = TRUE
         ),
         fill = TRUE
     )
@@ -166,9 +170,9 @@ Index_of_Remoteness <- fread("Classifications/Index_of_remoteness.csv") |>
 
 writeLines("\nassembling Total Geography Table")
 Total_Data_Geo <- data.table(Reduce(
-    function(x, y, ...) merge(x, y, by=c("GeoUID"), all = TRUE, ...),
-    list(CSD_info, Influence_info, Remoteness)
-)) |>
+        function(x, y, ...) merge(x, y, by=c("GeoUID"), all = TRUE, ...),
+        list(CSD_info, Influence_info, Index_of_Remoteness)
+    )) |>
     dplyr::rename(CSDUID2016 = GeoUID) |>
     dplyr::mutate(
         region = coalesce(region.y, region.x),
@@ -347,9 +351,10 @@ Regions <- readRDS("Classifications/Total_CSD_Info.rda") |>
         num_csds = 1,
         province = factor(province), 
         region = factor(region),
-        class = fct_relevel(class, "CMA", "CA", "Strong", "Moderate", "Weak", "None", "NA"),
+        # class = fct_relevel(class, "CMA", "CA", "Strong", "Moderate", "Weak", "None", "NA"),
         csduid2016 = factor(csduid2016),
         aR_score = as.integer(unlist(lapply(class, CSD_score_class))),
+        mR_score = as.integer(unlist(lapply(class, CSD_score_normal))),
     )
     saveRDS(Regions, "CaseDataTables/Regions.rda")
 
@@ -412,4 +417,4 @@ Total_Data <- Reduce(
     fwrite(Total_Data, "CaseDataTables/Total_Data.csv")
 
     
-    
+print(Sys.time() - start_time)    
