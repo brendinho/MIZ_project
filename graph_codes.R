@@ -1,22 +1,3 @@
-scaling_factor <- Regions[, .(num_HR=factor(length(unique(HR))), num_csd=sum(num_csds), population=sum(population)), by=.(province)][, max(num_csd)/max(population)]
-SAC_distribution <- ggplot(
-        Regions[, .(num_HR=factor(length(unique(HR))), num_csd=sum(num_csds), population=sum(population)), by=.(province)],
-        aes(x=reorder(str_wrap(province, width=15), -population), group=province)
-    ) +
-    geom_bar(aes(y=num_csd, fill=num_HR), position="dodge", stat="identity") +
-    geom_line(aes(y=population*scaling_factor), size=1, group=1) +
-    labs(x="Province", y="Number of census subdivisions (CSDs)") +
-    scale_y_continuous(sec.axis = sec_axis(~./scaling_factor, name="Provincial population")) +
-    theme_bw() +
-    theme(
-        axis.text.x = element_text(angle = 45, vjust = 0.5, size=12),
-        legend.position = "top",
-        legend.direction="horizontal"
-    ) +
-    scale_color_viridis()+
-    scale_fill_viridis_d() +
-    guides(fill=guide_legend(title="Health Region count:", nrow=1))
-ggsave(SAC_distribution, file="Graphs/SAC_dist.png", width=10, height=7)
 
 total_SAC_distribution_agg <- ggplot(Regions %>% group_by(miz_score_agg) %>% tally() |> dplyr::mutate(n=factor(n))) +
     geom_bar(aes(y=n, x=str_wrap(miz_score_agg, width=15)), fill="blue", position="dodge", stat="identity") +
@@ -115,7 +96,7 @@ all_province_cases <- ggplot(Case_Data[cases>=0, sum(cases, na.rm=T), by=c("date
     )
 # ggsave(all_province_cases, file="Graphs/all_province_cases.jpg", width=10, height=4)
 # 
-ontario_cases <- ggplot(Case_Data[cases>=0 & province=="Ontario", sum(cases), by=c("date", "HR", "province")]) +
+ontario_cases <- ggplot(Total_Case_Data[cases>=0 & province=="Ontario", sum(cases), by=c("date", "HR", "province")]) +
     geom_line(aes(x=date, y=V1, colour=str_wrap(HR, 20))) +
     labs(x="Date", y="Cases Reported", legend="Health Region") +
     scale_x_date(expand = c(0, 0)) +
@@ -130,6 +111,55 @@ ontario_cases <- ggplot(Case_Data[cases>=0 & province=="Ontario", sum(cases), by
         )
     )
 # ggsave(ontario_cases, file="Graphs/ontario_cases.jpg", width=10, height=4)
+
+ON_all_cases <- ON_cases[, .(cases=sum(cases, na.rm=T)), by=.(date, wave)]
+start_of_wave_2 <- ON_all_cases[which(diff(wave) == 1), date]
+first_date <- min(ON_all_cases$date)
+last_date <- max(ON_all_cases$date)
+
+results_I <- ggplot(
+  ON_all_cases |> dplyr::mutate(wave=as.character(wave)), 
+    aes(x=date, y=cases)
+  ) +
+  geom_rect(
+    inherit.aes = FALSE,
+    data = data.frame(x = 0, y = 0),
+    aes(
+      xmin = first_date,
+      xmax = last_date,
+      ymin=-Inf, ymax=Inf
+    ),
+    fill="orange", alpha=0.1
+  ) +
+  geom_rect(
+    inherit.aes = FALSE,
+    data = data.frame(x = 0, y = 0),
+    aes(
+      xmin = as.Date(start_of_wave_2),
+      xmax = as.Date(last_date),
+      ymin=-Inf, ymax=Inf
+    ),
+    fill="red", alpha=0.1
+  ) +
+  geom_vline(xintercept=start_of_wave_2, linetype="dashed") +
+  # geom_text(aes(x=start_of_wave_2, label="the_date", y=3000), colour="blue", angle=90) +
+  geom_label(aes(x=start_of_wave_2, label=start_of_wave_2, y=3000), colour="blue") +
+  geom_label(aes(x=as.Date("2020-05-01"), label="first wave", y=4500), colour="blue") +
+  geom_label(aes(x=as.Date("2021-06-15"), label="second wave", y=4500), colour="blue") +
+  geom_line(size = 0.75, colour="blue") +
+  theme_bw() +
+  theme(
+    legend.position="right",
+    axis.title = element_text(size=12),
+    axis.text = element_text(size=12)
+  ) +
+  labs(
+    x="Date",
+    y="Case incidence" # ,
+  ) +
+  scale_x_date(date_breaks = "2 month", date_labels =  "%b %Y", limits=c(first_date, last_date))
+  ggsave(results_I, file=sprintf("Graphs/ON_I_plot_diff_waves.png"), height=3, width=10)
+
 
 print(ggplot(
         Total_Data |> dplyr::mutate(x=miz_score_agg, y=cases),
@@ -150,7 +180,15 @@ print(ggplot(
         )
     ))
 # ggsave(all_provinces_points, file="Graphs/all_provinces_points.jpg", width=10, height=4)
-# 
+
+Total_Case_Data <- fread( "CaseDataTables/Total_Case_Data.csv") Table <- data.table(province=as.character(), date=as.character())
+for(province in Total_Case_Data[, unique(province)])
+{
+  wave_date <- add_wave_numbers(Total_Case_Data[province==province, .(cases=sum(cases, na.rm=T)), by=.(date)])$date
+  Table <- rbind(Table, list(province, as.character(wave_date)))
+}
+print(xtable(Table, type="latex"), include.rownames=F)
+
 # for(prov in Total_Data |> filter(! province %in% c("Northwest Territories", "Yukon", "Prince Edward Island", "Nunatut")) |> pull(province) |> unique())
 # {
 #     ggplot(Total_Data[province==prov], aes(x=index_of_remoteness, y=cumul_cases, colour=province)) +

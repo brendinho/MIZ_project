@@ -558,6 +558,18 @@ cases,cumulative_cases,date_report,health_region,province
 379,96179,2021-08-03,Calgary,Alberta
 113,96292,2021-08-04,Calgary,Alberta
 150,96442,2021-08-05,Calgary,Alberta
+163,96605,2021-08-06,Calgary,Alberta
+0,96605,2021-08-07,Calgary,Alberta
+0,96605,2021-08-08,Calgary,Alberta
+397,97002,2021-08-09,Calgary,Alberta
+99,97101,2021-08-10,Calgary,Alberta
+178,97279,2021-08-11,Calgary,Alberta
+186,97465,2021-08-12,Calgary,Alberta
+199,97664,2021-08-13,Calgary,Alberta
+0,97664,2021-08-14,Calgary,Alberta
+0,97664,2021-08-15,Calgary,Alberta
+462,98126,2021-08-16,Calgary,Alberta
+115,98241,2021-08-17,Calgary,Alberta
 0,0,2020-01-25,Central,Alberta
 0,0,2020-01-26,Central,Alberta
 0,0,2020-01-27,Central,Alberta
@@ -1117,6 +1129,18 @@ cases,cumulative_cases,date_report,health_region,province
 62,21026,2021-08-03,Central,Alberta
 9,21035,2021-08-04,Central,Alberta
 28,21063,2021-08-05,Central,Alberta
+11,21074,2021-08-06,Central,Alberta
+0,21074,2021-08-07,Central,Alberta
+0,21074,2021-08-08,Central,Alberta
+71,21145,2021-08-09,Central,Alberta
+21,21166,2021-08-10,Central,Alberta
+39,21205,2021-08-11,Central,Alberta
+59,21264,2021-08-12,Central,Alberta
+44,21308,2021-08-13,Central,Alberta
+0,21308,2021-08-14,Central,Alberta
+0,21308,2021-08-15,Central,Alberta
+122,21430,2021-08-16,Central,Alberta
+261,21691,2021-08-17,Central,Alberta
 0,0,2020-01-25,Edmonton,Alberta
 0,0,2020-01-26,Edmonton,Alberta
 0,0,2020-01-27,Edmonton,Alberta
@@ -1676,6 +1700,18 @@ cases,cumulative_cases,date_report,health_region,province
 144,78270,2021-08-03,Edmonton,Alberta
 33,78303,2021-08-04,Edmonton,Alberta
 75,78378,2021-08-05,Edmonton,Alberta
+95,78473,2021-08-06,Edmonton,Alberta
+0,78473,2021-08-07,Edmonton,Alberta
+0,78473,2021-08-08,Edmonton,Alberta
+264,78737,2021-08-09,Edmonton,Alberta
+69,78806,2021-08-10,Edmonton,Alberta
+117,78923,2021-08-11,Edmonton,Alberta
+150,79073,2021-08-12,Edmonton,Alberta
+168,79241,2021-08-13,Edmonton,Alberta
+0,79241,2021-08-14,Edmonton,Alberta
+0,79241,2021-08-15,Edmonton,Alberta
+444,79685,2021-08-16,Edmonton,Alberta
+162,79847,2021-08-17,Edmonton,Alberta
 0,0,2020-01-25,North,Alberta
 0,0,2020-01-26,North,Alberta
 0,0,2020-01-27,North,Alberta
@@ -2235,6 +2271,18 @@ cases,cumulative_cases,date_report,health_region,province
 96,26798,2021-08-03,North,Alberta
 19,26817,2021-08-04,North,Alberta
 78,26895,2021-08-05,North,Alberta
+52,26947,2021-08-06,North,Alberta
+0,26947,2021-08-07,North,Alberta
+0,26947,2021-08-08,North,Alberta
+139,27086,2021-08-09,North,Alberta
+59,27145,2021-08-10,North,Alberta
+50,27195,2021-08-11,North,Alberta
+90,27285,2021-08-12,North,Alberta
+89,27374,2021-08-13,North,Alberta
+0,27374,2021-08-14,North,Alberta
+0,27374,2021-08-15,North,Alberta
+196,27570,2021-08-16,North,Alberta
+162,27732,2021-08-17,North,Alberta
 0,0,2020-01-25,Not Reported,Alberta
 0,0,2020-01-26,Not Reported,Alberta
 0,0,2020-01-27,Not Reported,Alberta
@@ -2794,6 +2842,18 @@ cases,cumulative_cases,date_report,health_region,province
 8,18,2021-08-03,Not Reported,Alberta
 -5,13,2021-08-04,Not Reported,Alberta
 2,15,2021-08-05,Not Reported,Alberta
+-1,14,2021-08-06,Not Reported,Alberta
+0,14,2021-08-07,Not Reported,Alberta
+0,14,2021-08-08,Not Reported,Alberta
+3,17,2021-08-09,Not Reported,Alberta
+-6,11,2021-08-10,Not Reported,Alberta
+5,16,2021-08-11,Not Reported,Alberta
+0,16,2021-08-12,Not Reported,Alberta
+2,18,2021-08-13,Not Reported,Alberta
+0,18,2021-08-14,Not Reported,Alberta
+0,18,2021-08-15,Not Reported,Alberta
+7,25,2021-08-16,Not Reported,Alberta
+371,396,2021-08-17,Not Reported,Alberta
 0,0,2020-01-25,South,Alberta
 0,0,2020-01-26,South,Alberta
 0,0,2020-01-27,South,Alberta
@@ -3353,6 +3413,18 @@ cases,cumulative_cases,date_report,health_region,province
 54,12747,2021-08-03,South,Alberta
 37,12784,2021-08-04,South,Alberta
 64,12848,2021-08-05,South,Alberta
+49,12897,2021-08-06,South,Alberta
+0,12897,2021-08-07,South,Alberta
+0,12897,2021-08-08,South,Alberta
+143,13040,2021-08-09,South,Alberta
+37,13077,2021-08-10,South,Alberta
+112,13189,2021-08-11,South,Alberta
+65,13254,2021-08-12,South,Alberta
+80,13334,2021-08-13,South,Alberta
+0,13334,2021-08-14,South,Alberta
+0,13334,2021-08-15,South,Alberta
+176,13510,2021-08-16,South,Alberta
+123,13633,2021-08-17,South,Alberta
 0,0,2020-01-25,Fraser,BC
 0,0,2020-01-26,Fraser,BC
 0,0,2020-01-27,Fraser,BC
@@ -3912,6 +3984,18 @@ cases,cumulative_cases,date_report,health_region,province
 165,86661,2021-08-03,Fraser,BC
 66,86727,2021-08-04,Fraser,BC
 82,86809,2021-08-05,Fraser,BC
+72,86881,2021-08-06,Fraser,BC
+0,86881,2021-08-07,Fraser,BC
+0,86881,2021-08-08,Fraser,BC
+258,87139,2021-08-09,Fraser,BC
+100,87239,2021-08-10,Fraser,BC
+135,87374,2021-08-11,Fraser,BC
+108,87482,2021-08-12,Fraser,BC
+140,87622,2021-08-13,Fraser,BC
+0,87622,2021-08-14,Fraser,BC
+0,87622,2021-08-15,Fraser,BC
+316,87938,2021-08-16,Fraser,BC
+139,88077,2021-08-17,Fraser,BC
 0,0,2020-01-25,Interior,BC
 0,0,2020-01-26,Interior,BC
 0,0,2020-01-27,Interior,BC
@@ -4471,6 +4555,18 @@ cases,cumulative_cases,date_report,health_region,province
 395,14617,2021-08-03,Interior,BC
 171,14788,2021-08-04,Interior,BC
 234,15022,2021-08-05,Interior,BC
+275,15297,2021-08-06,Interior,BC
+0,15297,2021-08-07,Interior,BC
+0,15297,2021-08-08,Interior,BC
+587,15884,2021-08-09,Interior,BC
+187,16071,2021-08-10,Interior,BC
+258,16329,2021-08-11,Interior,BC
+271,16600,2021-08-12,Interior,BC
+376,16976,2021-08-13,Interior,BC
+0,16976,2021-08-14,Interior,BC
+0,16976,2021-08-15,Interior,BC
+734,17710,2021-08-16,Interior,BC
+205,17915,2021-08-17,Interior,BC
 0,0,2020-01-25,Island,BC
 0,0,2020-01-26,Island,BC
 0,0,2020-01-27,Island,BC
@@ -5030,6 +5126,18 @@ cases,cumulative_cases,date_report,health_region,province
 42,5307,2021-08-03,Island,BC
 32,5339,2021-08-04,Island,BC
 25,5364,2021-08-05,Island,BC
+27,5391,2021-08-06,Island,BC
+0,5391,2021-08-07,Island,BC
+0,5391,2021-08-08,Island,BC
+62,5453,2021-08-09,Island,BC
+31,5484,2021-08-10,Island,BC
+26,5510,2021-08-11,Island,BC
+29,5539,2021-08-12,Island,BC
+40,5579,2021-08-13,Island,BC
+0,5579,2021-08-14,Island,BC
+0,5579,2021-08-15,Island,BC
+112,5691,2021-08-16,Island,BC
+28,5719,2021-08-17,Island,BC
 0,0,2020-01-25,Northern,BC
 0,0,2020-01-26,Northern,BC
 0,0,2020-01-27,Northern,BC
@@ -5589,6 +5697,18 @@ cases,cumulative_cases,date_report,health_region,province
 24,7862,2021-08-03,Northern,BC
 13,7875,2021-08-04,Northern,BC
 20,7895,2021-08-05,Northern,BC
+29,7924,2021-08-06,Northern,BC
+0,7924,2021-08-07,Northern,BC
+0,7924,2021-08-08,Northern,BC
+30,7954,2021-08-09,Northern,BC
+15,7969,2021-08-10,Northern,BC
+12,7981,2021-08-11,Northern,BC
+13,7994,2021-08-12,Northern,BC
+60,8054,2021-08-13,Northern,BC
+0,8054,2021-08-14,Northern,BC
+0,8054,2021-08-15,Northern,BC
+74,8128,2021-08-16,Northern,BC
+35,8163,2021-08-17,Northern,BC
 0,0,2020-01-25,Not Reported,BC
 0,0,2020-01-26,Not Reported,BC
 0,0,2020-01-27,Not Reported,BC
@@ -6148,6 +6268,18 @@ cases,cumulative_cases,date_report,health_region,province
 1,224,2021-08-03,Not Reported,BC
 3,227,2021-08-04,Not Reported,BC
 0,227,2021-08-05,Not Reported,BC
+1,228,2021-08-06,Not Reported,BC
+0,228,2021-08-07,Not Reported,BC
+0,228,2021-08-08,Not Reported,BC
+0,228,2021-08-09,Not Reported,BC
+1,229,2021-08-10,Not Reported,BC
+0,229,2021-08-11,Not Reported,BC
+0,229,2021-08-12,Not Reported,BC
+0,229,2021-08-13,Not Reported,BC
+0,229,2021-08-14,Not Reported,BC
+0,229,2021-08-15,Not Reported,BC
+0,229,2021-08-16,Not Reported,BC
+2,231,2021-08-17,Not Reported,BC
 0,0,2020-01-25,Vancouver Coastal,BC
 0,0,2020-01-26,Vancouver Coastal,BC
 0,0,2020-01-27,Vancouver Coastal,BC
@@ -6707,6 +6839,18 @@ cases,cumulative_cases,date_report,health_region,province
 115,35960,2021-08-03,Vancouver Coastal,BC
 57,36017,2021-08-04,Vancouver Coastal,BC
 41,36058,2021-08-05,Vancouver Coastal,BC
+60,36118,2021-08-06,Vancouver Coastal,BC
+0,36118,2021-08-07,Vancouver Coastal,BC
+0,36118,2021-08-08,Vancouver Coastal,BC
+142,36260,2021-08-09,Vancouver Coastal,BC
+61,36321,2021-08-10,Vancouver Coastal,BC
+105,36426,2021-08-11,Vancouver Coastal,BC
+92,36518,2021-08-12,Vancouver Coastal,BC
+101,36619,2021-08-13,Vancouver Coastal,BC
+0,36619,2021-08-14,Vancouver Coastal,BC
+0,36619,2021-08-15,Vancouver Coastal,BC
+198,36817,2021-08-16,Vancouver Coastal,BC
+92,36909,2021-08-17,Vancouver Coastal,BC
 0,0,2020-01-25,Interlake-Eastern,Manitoba
 0,0,2020-01-26,Interlake-Eastern,Manitoba
 0,0,2020-01-27,Interlake-Eastern,Manitoba
@@ -7266,6 +7410,18 @@ cases,cumulative_cases,date_report,health_region,province
 24,4168,2021-08-03,Interlake-Eastern,Manitoba
 4,4172,2021-08-04,Interlake-Eastern,Manitoba
 17,4189,2021-08-05,Interlake-Eastern,Manitoba
+19,4208,2021-08-06,Interlake-Eastern,Manitoba
+0,4208,2021-08-07,Interlake-Eastern,Manitoba
+0,4208,2021-08-08,Interlake-Eastern,Manitoba
+31,4239,2021-08-09,Interlake-Eastern,Manitoba
+6,4245,2021-08-10,Interlake-Eastern,Manitoba
+6,4251,2021-08-11,Interlake-Eastern,Manitoba
+6,4257,2021-08-12,Interlake-Eastern,Manitoba
+6,4263,2021-08-13,Interlake-Eastern,Manitoba
+0,4263,2021-08-14,Interlake-Eastern,Manitoba
+0,4263,2021-08-15,Interlake-Eastern,Manitoba
+10,4273,2021-08-16,Interlake-Eastern,Manitoba
+3,4276,2021-08-17,Interlake-Eastern,Manitoba
 0,0,2020-01-25,Northern,Manitoba
 0,0,2020-01-26,Northern,Manitoba
 0,0,2020-01-27,Northern,Manitoba
@@ -7825,6 +7981,18 @@ cases,cumulative_cases,date_report,health_region,province
 8,8004,2021-08-03,Northern,Manitoba
 0,8004,2021-08-04,Northern,Manitoba
 -3,8001,2021-08-05,Northern,Manitoba
+-4,7997,2021-08-06,Northern,Manitoba
+0,7997,2021-08-07,Northern,Manitoba
+0,7997,2021-08-08,Northern,Manitoba
+7,8004,2021-08-09,Northern,Manitoba
+4,8008,2021-08-10,Northern,Manitoba
+-1,8007,2021-08-11,Northern,Manitoba
+-1,8006,2021-08-12,Northern,Manitoba
+1,8007,2021-08-13,Northern,Manitoba
+0,8007,2021-08-14,Northern,Manitoba
+0,8007,2021-08-15,Northern,Manitoba
+8,8015,2021-08-16,Northern,Manitoba
+5,8020,2021-08-17,Northern,Manitoba
 0,0,2020-01-25,Not Reported,Manitoba
 0,0,2020-01-26,Not Reported,Manitoba
 0,0,2020-01-27,Not Reported,Manitoba
@@ -8384,6 +8552,18 @@ cases,cumulative_cases,date_report,health_region,province
 0,0,2021-08-03,Not Reported,Manitoba
 0,0,2021-08-04,Not Reported,Manitoba
 0,0,2021-08-05,Not Reported,Manitoba
+0,0,2021-08-06,Not Reported,Manitoba
+0,0,2021-08-07,Not Reported,Manitoba
+0,0,2021-08-08,Not Reported,Manitoba
+0,0,2021-08-09,Not Reported,Manitoba
+0,0,2021-08-10,Not Reported,Manitoba
+0,0,2021-08-11,Not Reported,Manitoba
+0,0,2021-08-12,Not Reported,Manitoba
+0,0,2021-08-13,Not Reported,Manitoba
+0,0,2021-08-14,Not Reported,Manitoba
+0,0,2021-08-15,Not Reported,Manitoba
+0,0,2021-08-16,Not Reported,Manitoba
+0,0,2021-08-17,Not Reported,Manitoba
 0,0,2020-01-25,Prairie Mountain,Manitoba
 0,0,2020-01-26,Prairie Mountain,Manitoba
 0,0,2020-01-27,Prairie Mountain,Manitoba
@@ -8943,6 +9123,18 @@ cases,cumulative_cases,date_report,health_region,province
 3,4015,2021-08-03,Prairie Mountain,Manitoba
 0,4015,2021-08-04,Prairie Mountain,Manitoba
 -1,4014,2021-08-05,Prairie Mountain,Manitoba
+1,4015,2021-08-06,Prairie Mountain,Manitoba
+0,4015,2021-08-07,Prairie Mountain,Manitoba
+0,4015,2021-08-08,Prairie Mountain,Manitoba
+1,4016,2021-08-09,Prairie Mountain,Manitoba
+1,4017,2021-08-10,Prairie Mountain,Manitoba
+0,4017,2021-08-11,Prairie Mountain,Manitoba
+3,4020,2021-08-12,Prairie Mountain,Manitoba
+2,4022,2021-08-13,Prairie Mountain,Manitoba
+0,4022,2021-08-14,Prairie Mountain,Manitoba
+0,4022,2021-08-15,Prairie Mountain,Manitoba
+4,4026,2021-08-16,Prairie Mountain,Manitoba
+1,4027,2021-08-17,Prairie Mountain,Manitoba
 0,0,2020-01-25,Southern Health,Manitoba
 0,0,2020-01-26,Southern Health,Manitoba
 0,0,2020-01-27,Southern Health,Manitoba
@@ -9502,6 +9694,18 @@ cases,cumulative_cases,date_report,health_region,province
 18,7654,2021-08-03,Southern Health,Manitoba
 2,7656,2021-08-04,Southern Health,Manitoba
 5,7661,2021-08-05,Southern Health,Manitoba
+2,7663,2021-08-06,Southern Health,Manitoba
+0,7663,2021-08-07,Southern Health,Manitoba
+0,7663,2021-08-08,Southern Health,Manitoba
+16,7679,2021-08-09,Southern Health,Manitoba
+5,7684,2021-08-10,Southern Health,Manitoba
+13,7697,2021-08-11,Southern Health,Manitoba
+6,7703,2021-08-12,Southern Health,Manitoba
+1,7704,2021-08-13,Southern Health,Manitoba
+0,7704,2021-08-14,Southern Health,Manitoba
+0,7704,2021-08-15,Southern Health,Manitoba
+14,7718,2021-08-16,Southern Health,Manitoba
+5,7723,2021-08-17,Southern Health,Manitoba
 0,0,2020-01-25,Winnipeg,Manitoba
 0,0,2020-01-26,Winnipeg,Manitoba
 0,0,2020-01-27,Winnipeg,Manitoba
@@ -10061,6 +10265,18 @@ cases,cumulative_cases,date_report,health_region,province
 45,33850,2021-08-03,Winnipeg,Manitoba
 9,33859,2021-08-04,Winnipeg,Manitoba
 15,33874,2021-08-05,Winnipeg,Manitoba
+7,33881,2021-08-06,Winnipeg,Manitoba
+0,33881,2021-08-07,Winnipeg,Manitoba
+0,33881,2021-08-08,Winnipeg,Manitoba
+41,33922,2021-08-09,Winnipeg,Manitoba
+15,33937,2021-08-10,Winnipeg,Manitoba
+14,33951,2021-08-11,Winnipeg,Manitoba
+14,33965,2021-08-12,Winnipeg,Manitoba
+11,33976,2021-08-13,Winnipeg,Manitoba
+0,33976,2021-08-14,Winnipeg,Manitoba
+0,33976,2021-08-15,Winnipeg,Manitoba
+41,34017,2021-08-16,Winnipeg,Manitoba
+8,34025,2021-08-17,Winnipeg,Manitoba
 0,0,2020-01-25,Not Reported,New Brunswick
 0,0,2020-01-26,Not Reported,New Brunswick
 0,0,2020-01-27,Not Reported,New Brunswick
@@ -10620,6 +10836,18 @@ cases,cumulative_cases,date_report,health_region,province
 0,0,2021-08-03,Not Reported,New Brunswick
 0,0,2021-08-04,Not Reported,New Brunswick
 0,0,2021-08-05,Not Reported,New Brunswick
+0,0,2021-08-06,Not Reported,New Brunswick
+0,0,2021-08-07,Not Reported,New Brunswick
+0,0,2021-08-08,Not Reported,New Brunswick
+0,0,2021-08-09,Not Reported,New Brunswick
+0,0,2021-08-10,Not Reported,New Brunswick
+0,0,2021-08-11,Not Reported,New Brunswick
+0,0,2021-08-12,Not Reported,New Brunswick
+0,0,2021-08-13,Not Reported,New Brunswick
+0,0,2021-08-14,Not Reported,New Brunswick
+0,0,2021-08-15,Not Reported,New Brunswick
+0,0,2021-08-16,Not Reported,New Brunswick
+0,0,2021-08-17,Not Reported,New Brunswick
 0,0,2020-01-25,Zone 1 (Moncton area),New Brunswick
 0,0,2020-01-26,Zone 1 (Moncton area),New Brunswick
 0,0,2020-01-27,Zone 1 (Moncton area),New Brunswick
@@ -11179,6 +11407,18 @@ cases,cumulative_cases,date_report,health_region,province
 6,520,2021-08-03,Zone 1 (Moncton area),New Brunswick
 2,522,2021-08-04,Zone 1 (Moncton area),New Brunswick
 9,531,2021-08-05,Zone 1 (Moncton area),New Brunswick
+5,536,2021-08-06,Zone 1 (Moncton area),New Brunswick
+0,536,2021-08-07,Zone 1 (Moncton area),New Brunswick
+16,552,2021-08-08,Zone 1 (Moncton area),New Brunswick
+2,554,2021-08-09,Zone 1 (Moncton area),New Brunswick
+8,562,2021-08-10,Zone 1 (Moncton area),New Brunswick
+11,573,2021-08-11,Zone 1 (Moncton area),New Brunswick
+9,582,2021-08-12,Zone 1 (Moncton area),New Brunswick
+10,592,2021-08-13,Zone 1 (Moncton area),New Brunswick
+0,592,2021-08-14,Zone 1 (Moncton area),New Brunswick
+0,592,2021-08-15,Zone 1 (Moncton area),New Brunswick
+32,624,2021-08-16,Zone 1 (Moncton area),New Brunswick
+12,636,2021-08-17,Zone 1 (Moncton area),New Brunswick
 0,0,2020-01-25,Zone 2 (Saint John area),New Brunswick
 0,0,2020-01-26,Zone 2 (Saint John area),New Brunswick
 0,0,2020-01-27,Zone 2 (Saint John area),New Brunswick
@@ -11738,6 +11978,18 @@ cases,cumulative_cases,date_report,health_region,province
 0,303,2021-08-03,Zone 2 (Saint John area),New Brunswick
 0,303,2021-08-04,Zone 2 (Saint John area),New Brunswick
 0,303,2021-08-05,Zone 2 (Saint John area),New Brunswick
+0,303,2021-08-06,Zone 2 (Saint John area),New Brunswick
+0,303,2021-08-07,Zone 2 (Saint John area),New Brunswick
+0,303,2021-08-08,Zone 2 (Saint John area),New Brunswick
+2,305,2021-08-09,Zone 2 (Saint John area),New Brunswick
+0,305,2021-08-10,Zone 2 (Saint John area),New Brunswick
+2,307,2021-08-11,Zone 2 (Saint John area),New Brunswick
+2,309,2021-08-12,Zone 2 (Saint John area),New Brunswick
+3,312,2021-08-13,Zone 2 (Saint John area),New Brunswick
+0,312,2021-08-14,Zone 2 (Saint John area),New Brunswick
+0,312,2021-08-15,Zone 2 (Saint John area),New Brunswick
+0,312,2021-08-16,Zone 2 (Saint John area),New Brunswick
+0,312,2021-08-17,Zone 2 (Saint John area),New Brunswick
 0,0,2020-01-25,Zone 3 (Fredericton area),New Brunswick
 0,0,2020-01-26,Zone 3 (Fredericton area),New Brunswick
 0,0,2020-01-27,Zone 3 (Fredericton area),New Brunswick
@@ -12297,6 +12549,18 @@ cases,cumulative_cases,date_report,health_region,province
 3,455,2021-08-03,Zone 3 (Fredericton area),New Brunswick
 0,455,2021-08-04,Zone 3 (Fredericton area),New Brunswick
 0,455,2021-08-05,Zone 3 (Fredericton area),New Brunswick
+0,455,2021-08-06,Zone 3 (Fredericton area),New Brunswick
+0,455,2021-08-07,Zone 3 (Fredericton area),New Brunswick
+0,455,2021-08-08,Zone 3 (Fredericton area),New Brunswick
+0,455,2021-08-09,Zone 3 (Fredericton area),New Brunswick
+0,455,2021-08-10,Zone 3 (Fredericton area),New Brunswick
+0,455,2021-08-11,Zone 3 (Fredericton area),New Brunswick
+0,455,2021-08-12,Zone 3 (Fredericton area),New Brunswick
+2,457,2021-08-13,Zone 3 (Fredericton area),New Brunswick
+0,457,2021-08-14,Zone 3 (Fredericton area),New Brunswick
+0,457,2021-08-15,Zone 3 (Fredericton area),New Brunswick
+5,462,2021-08-16,Zone 3 (Fredericton area),New Brunswick
+0,462,2021-08-17,Zone 3 (Fredericton area),New Brunswick
 0,0,2020-01-25,Zone 4 (Edmundston area),New Brunswick
 0,0,2020-01-26,Zone 4 (Edmundston area),New Brunswick
 0,0,2020-01-27,Zone 4 (Edmundston area),New Brunswick
@@ -12856,6 +13120,18 @@ cases,cumulative_cases,date_report,health_region,province
 1,755,2021-08-03,Zone 4 (Edmundston area),New Brunswick
 0,755,2021-08-04,Zone 4 (Edmundston area),New Brunswick
 0,755,2021-08-05,Zone 4 (Edmundston area),New Brunswick
+0,755,2021-08-06,Zone 4 (Edmundston area),New Brunswick
+0,755,2021-08-07,Zone 4 (Edmundston area),New Brunswick
+0,755,2021-08-08,Zone 4 (Edmundston area),New Brunswick
+0,755,2021-08-09,Zone 4 (Edmundston area),New Brunswick
+0,755,2021-08-10,Zone 4 (Edmundston area),New Brunswick
+0,755,2021-08-11,Zone 4 (Edmundston area),New Brunswick
+0,755,2021-08-12,Zone 4 (Edmundston area),New Brunswick
+0,755,2021-08-13,Zone 4 (Edmundston area),New Brunswick
+0,755,2021-08-14,Zone 4 (Edmundston area),New Brunswick
+0,755,2021-08-15,Zone 4 (Edmundston area),New Brunswick
+0,755,2021-08-16,Zone 4 (Edmundston area),New Brunswick
+0,755,2021-08-17,Zone 4 (Edmundston area),New Brunswick
 0,0,2020-01-25,Zone 5 (Campbellton area),New Brunswick
 0,0,2020-01-26,Zone 5 (Campbellton area),New Brunswick
 0,0,2020-01-27,Zone 5 (Campbellton area),New Brunswick
@@ -13415,6 +13691,18 @@ cases,cumulative_cases,date_report,health_region,province
 1,186,2021-08-03,Zone 5 (Campbellton area),New Brunswick
 0,186,2021-08-04,Zone 5 (Campbellton area),New Brunswick
 0,186,2021-08-05,Zone 5 (Campbellton area),New Brunswick
+0,186,2021-08-06,Zone 5 (Campbellton area),New Brunswick
+0,186,2021-08-07,Zone 5 (Campbellton area),New Brunswick
+0,186,2021-08-08,Zone 5 (Campbellton area),New Brunswick
+0,186,2021-08-09,Zone 5 (Campbellton area),New Brunswick
+0,186,2021-08-10,Zone 5 (Campbellton area),New Brunswick
+0,186,2021-08-11,Zone 5 (Campbellton area),New Brunswick
+0,186,2021-08-12,Zone 5 (Campbellton area),New Brunswick
+2,188,2021-08-13,Zone 5 (Campbellton area),New Brunswick
+0,188,2021-08-14,Zone 5 (Campbellton area),New Brunswick
+0,188,2021-08-15,Zone 5 (Campbellton area),New Brunswick
+0,188,2021-08-16,Zone 5 (Campbellton area),New Brunswick
+0,188,2021-08-17,Zone 5 (Campbellton area),New Brunswick
 0,0,2020-01-25,Zone 6 (Bathurst area),New Brunswick
 0,0,2020-01-26,Zone 6 (Bathurst area),New Brunswick
 0,0,2020-01-27,Zone 6 (Bathurst area),New Brunswick
@@ -13974,6 +14262,18 @@ cases,cumulative_cases,date_report,health_region,province
 0,136,2021-08-03,Zone 6 (Bathurst area),New Brunswick
 0,136,2021-08-04,Zone 6 (Bathurst area),New Brunswick
 2,138,2021-08-05,Zone 6 (Bathurst area),New Brunswick
+0,138,2021-08-06,Zone 6 (Bathurst area),New Brunswick
+0,138,2021-08-07,Zone 6 (Bathurst area),New Brunswick
+2,140,2021-08-08,Zone 6 (Bathurst area),New Brunswick
+0,140,2021-08-09,Zone 6 (Bathurst area),New Brunswick
+0,140,2021-08-10,Zone 6 (Bathurst area),New Brunswick
+0,140,2021-08-11,Zone 6 (Bathurst area),New Brunswick
+0,140,2021-08-12,Zone 6 (Bathurst area),New Brunswick
+2,142,2021-08-13,Zone 6 (Bathurst area),New Brunswick
+0,142,2021-08-14,Zone 6 (Bathurst area),New Brunswick
+0,142,2021-08-15,Zone 6 (Bathurst area),New Brunswick
+0,142,2021-08-16,Zone 6 (Bathurst area),New Brunswick
+1,143,2021-08-17,Zone 6 (Bathurst area),New Brunswick
 0,0,2020-01-25,Zone 7 (Miramichi area),New Brunswick
 0,0,2020-01-26,Zone 7 (Miramichi area),New Brunswick
 0,0,2020-01-27,Zone 7 (Miramichi area),New Brunswick
@@ -14533,6 +14833,18 @@ cases,cumulative_cases,date_report,health_region,province
 0,39,2021-08-03,Zone 7 (Miramichi area),New Brunswick
 0,39,2021-08-04,Zone 7 (Miramichi area),New Brunswick
 2,41,2021-08-05,Zone 7 (Miramichi area),New Brunswick
+0,41,2021-08-06,Zone 7 (Miramichi area),New Brunswick
+0,41,2021-08-07,Zone 7 (Miramichi area),New Brunswick
+2,43,2021-08-08,Zone 7 (Miramichi area),New Brunswick
+1,44,2021-08-09,Zone 7 (Miramichi area),New Brunswick
+0,44,2021-08-10,Zone 7 (Miramichi area),New Brunswick
+0,44,2021-08-11,Zone 7 (Miramichi area),New Brunswick
+0,44,2021-08-12,Zone 7 (Miramichi area),New Brunswick
+0,44,2021-08-13,Zone 7 (Miramichi area),New Brunswick
+0,44,2021-08-14,Zone 7 (Miramichi area),New Brunswick
+0,44,2021-08-15,Zone 7 (Miramichi area),New Brunswick
+3,47,2021-08-16,Zone 7 (Miramichi area),New Brunswick
+0,47,2021-08-17,Zone 7 (Miramichi area),New Brunswick
 0,0,2020-01-25,Central,NL
 0,0,2020-01-26,Central,NL
 0,0,2020-01-27,Central,NL
@@ -15092,6 +15404,18 @@ cases,cumulative_cases,date_report,health_region,province
 0,162,2021-08-03,Central,NL
 1,163,2021-08-04,Central,NL
 0,163,2021-08-05,Central,NL
+0,163,2021-08-06,Central,NL
+0,163,2021-08-07,Central,NL
+0,163,2021-08-08,Central,NL
+0,163,2021-08-09,Central,NL
+0,163,2021-08-10,Central,NL
+0,163,2021-08-11,Central,NL
+0,163,2021-08-12,Central,NL
+0,163,2021-08-13,Central,NL
+0,163,2021-08-14,Central,NL
+0,163,2021-08-15,Central,NL
+0,163,2021-08-16,Central,NL
+0,163,2021-08-17,Central,NL
 0,0,2020-01-25,Eastern,NL
 0,0,2020-01-26,Eastern,NL
 0,0,2020-01-27,Eastern,NL
@@ -15651,6 +15975,18 @@ cases,cumulative_cases,date_report,health_region,province
 0,1100,2021-08-03,Eastern,NL
 0,1100,2021-08-04,Eastern,NL
 0,1100,2021-08-05,Eastern,NL
+2,1102,2021-08-06,Eastern,NL
+0,1102,2021-08-07,Eastern,NL
+0,1102,2021-08-08,Eastern,NL
+0,1102,2021-08-09,Eastern,NL
+0,1102,2021-08-10,Eastern,NL
+0,1102,2021-08-11,Eastern,NL
+0,1102,2021-08-12,Eastern,NL
+3,1105,2021-08-13,Eastern,NL
+0,1105,2021-08-14,Eastern,NL
+0,1105,2021-08-15,Eastern,NL
+3,1108,2021-08-16,Eastern,NL
+0,1108,2021-08-17,Eastern,NL
 0,0,2020-01-25,Labrador-Grenfell,NL
 0,0,2020-01-26,Labrador-Grenfell,NL
 0,0,2020-01-27,Labrador-Grenfell,NL
@@ -16210,6 +16546,18 @@ cases,cumulative_cases,date_report,health_region,province
 0,14,2021-08-03,Labrador-Grenfell,NL
 0,14,2021-08-04,Labrador-Grenfell,NL
 0,14,2021-08-05,Labrador-Grenfell,NL
+0,14,2021-08-06,Labrador-Grenfell,NL
+0,14,2021-08-07,Labrador-Grenfell,NL
+0,14,2021-08-08,Labrador-Grenfell,NL
+0,14,2021-08-09,Labrador-Grenfell,NL
+0,14,2021-08-10,Labrador-Grenfell,NL
+0,14,2021-08-11,Labrador-Grenfell,NL
+0,14,2021-08-12,Labrador-Grenfell,NL
+1,15,2021-08-13,Labrador-Grenfell,NL
+0,15,2021-08-14,Labrador-Grenfell,NL
+0,15,2021-08-15,Labrador-Grenfell,NL
+0,15,2021-08-16,Labrador-Grenfell,NL
+0,15,2021-08-17,Labrador-Grenfell,NL
 0,0,2020-01-25,Not Reported,NL
 0,0,2020-01-26,Not Reported,NL
 0,0,2020-01-27,Not Reported,NL
@@ -16769,6 +17117,18 @@ cases,cumulative_cases,date_report,health_region,province
 0,0,2021-08-03,Not Reported,NL
 0,0,2021-08-04,Not Reported,NL
 0,0,2021-08-05,Not Reported,NL
+0,0,2021-08-06,Not Reported,NL
+0,0,2021-08-07,Not Reported,NL
+0,0,2021-08-08,Not Reported,NL
+0,0,2021-08-09,Not Reported,NL
+0,0,2021-08-10,Not Reported,NL
+0,0,2021-08-11,Not Reported,NL
+0,0,2021-08-12,Not Reported,NL
+0,0,2021-08-13,Not Reported,NL
+0,0,2021-08-14,Not Reported,NL
+0,0,2021-08-15,Not Reported,NL
+0,0,2021-08-16,Not Reported,NL
+0,0,2021-08-17,Not Reported,NL
 0,0,2020-01-25,Western,NL
 0,0,2020-01-26,Western,NL
 0,0,2020-01-27,Western,NL
@@ -17328,6 +17688,18 @@ cases,cumulative_cases,date_report,health_region,province
 0,164,2021-08-03,Western,NL
 0,164,2021-08-04,Western,NL
 0,164,2021-08-05,Western,NL
+0,164,2021-08-06,Western,NL
+0,164,2021-08-07,Western,NL
+0,164,2021-08-08,Western,NL
+0,164,2021-08-09,Western,NL
+0,164,2021-08-10,Western,NL
+0,164,2021-08-11,Western,NL
+0,164,2021-08-12,Western,NL
+0,164,2021-08-13,Western,NL
+0,164,2021-08-14,Western,NL
+0,164,2021-08-15,Western,NL
+0,164,2021-08-16,Western,NL
+0,164,2021-08-17,Western,NL
 0,0,2020-01-25,Not Reported,Nova Scotia
 0,0,2020-01-26,Not Reported,Nova Scotia
 0,0,2020-01-27,Not Reported,Nova Scotia
@@ -17887,6 +18259,18 @@ cases,cumulative_cases,date_report,health_region,province
 0,0,2021-08-03,Not Reported,Nova Scotia
 0,0,2021-08-04,Not Reported,Nova Scotia
 0,0,2021-08-05,Not Reported,Nova Scotia
+0,0,2021-08-06,Not Reported,Nova Scotia
+0,0,2021-08-07,Not Reported,Nova Scotia
+0,0,2021-08-08,Not Reported,Nova Scotia
+0,0,2021-08-09,Not Reported,Nova Scotia
+0,0,2021-08-10,Not Reported,Nova Scotia
+0,0,2021-08-11,Not Reported,Nova Scotia
+0,0,2021-08-12,Not Reported,Nova Scotia
+0,0,2021-08-13,Not Reported,Nova Scotia
+0,0,2021-08-14,Not Reported,Nova Scotia
+0,0,2021-08-15,Not Reported,Nova Scotia
+0,0,2021-08-16,Not Reported,Nova Scotia
+0,0,2021-08-17,Not Reported,Nova Scotia
 0,0,2020-01-25,Zone 1 - Western,Nova Scotia
 0,0,2020-01-26,Zone 1 - Western,Nova Scotia
 0,0,2020-01-27,Zone 1 - Western,Nova Scotia
@@ -18446,6 +18830,18 @@ cases,cumulative_cases,date_report,health_region,province
 2,295,2021-08-03,Zone 1 - Western,Nova Scotia
 0,295,2021-08-04,Zone 1 - Western,Nova Scotia
 0,295,2021-08-05,Zone 1 - Western,Nova Scotia
+0,295,2021-08-06,Zone 1 - Western,Nova Scotia
+0,295,2021-08-07,Zone 1 - Western,Nova Scotia
+0,295,2021-08-08,Zone 1 - Western,Nova Scotia
+2,297,2021-08-09,Zone 1 - Western,Nova Scotia
+0,297,2021-08-10,Zone 1 - Western,Nova Scotia
+0,297,2021-08-11,Zone 1 - Western,Nova Scotia
+1,298,2021-08-12,Zone 1 - Western,Nova Scotia
+0,298,2021-08-13,Zone 1 - Western,Nova Scotia
+0,298,2021-08-14,Zone 1 - Western,Nova Scotia
+0,298,2021-08-15,Zone 1 - Western,Nova Scotia
+0,298,2021-08-16,Zone 1 - Western,Nova Scotia
+0,298,2021-08-17,Zone 1 - Western,Nova Scotia
 0,0,2020-01-25,Zone 2 - Northern,Nova Scotia
 0,0,2020-01-26,Zone 2 - Northern,Nova Scotia
 0,0,2020-01-27,Zone 2 - Northern,Nova Scotia
@@ -19005,6 +19401,18 @@ cases,cumulative_cases,date_report,health_region,province
 1,302,2021-08-03,Zone 2 - Northern,Nova Scotia
 0,302,2021-08-04,Zone 2 - Northern,Nova Scotia
 0,302,2021-08-05,Zone 2 - Northern,Nova Scotia
+0,302,2021-08-06,Zone 2 - Northern,Nova Scotia
+0,302,2021-08-07,Zone 2 - Northern,Nova Scotia
+0,302,2021-08-08,Zone 2 - Northern,Nova Scotia
+1,303,2021-08-09,Zone 2 - Northern,Nova Scotia
+0,303,2021-08-10,Zone 2 - Northern,Nova Scotia
+0,303,2021-08-11,Zone 2 - Northern,Nova Scotia
+0,303,2021-08-12,Zone 2 - Northern,Nova Scotia
+1,304,2021-08-13,Zone 2 - Northern,Nova Scotia
+0,304,2021-08-14,Zone 2 - Northern,Nova Scotia
+0,304,2021-08-15,Zone 2 - Northern,Nova Scotia
+2,306,2021-08-16,Zone 2 - Northern,Nova Scotia
+0,306,2021-08-17,Zone 2 - Northern,Nova Scotia
 0,0,2020-01-25,Zone 3 - Eastern,Nova Scotia
 0,0,2020-01-26,Zone 3 - Eastern,Nova Scotia
 0,0,2020-01-27,Zone 3 - Eastern,Nova Scotia
@@ -19564,6 +19972,18 @@ cases,cumulative_cases,date_report,health_region,province
 0,624,2021-08-03,Zone 3 - Eastern,Nova Scotia
 0,624,2021-08-04,Zone 3 - Eastern,Nova Scotia
 0,624,2021-08-05,Zone 3 - Eastern,Nova Scotia
+0,624,2021-08-06,Zone 3 - Eastern,Nova Scotia
+0,624,2021-08-07,Zone 3 - Eastern,Nova Scotia
+0,624,2021-08-08,Zone 3 - Eastern,Nova Scotia
+0,624,2021-08-09,Zone 3 - Eastern,Nova Scotia
+0,624,2021-08-10,Zone 3 - Eastern,Nova Scotia
+1,625,2021-08-11,Zone 3 - Eastern,Nova Scotia
+1,626,2021-08-12,Zone 3 - Eastern,Nova Scotia
+1,627,2021-08-13,Zone 3 - Eastern,Nova Scotia
+0,627,2021-08-14,Zone 3 - Eastern,Nova Scotia
+0,627,2021-08-15,Zone 3 - Eastern,Nova Scotia
+2,629,2021-08-16,Zone 3 - Eastern,Nova Scotia
+0,629,2021-08-17,Zone 3 - Eastern,Nova Scotia
 0,0,2020-01-25,Zone 4 - Central,Nova Scotia
 0,0,2020-01-26,Zone 4 - Central,Nova Scotia
 0,0,2020-01-27,Zone 4 - Central,Nova Scotia
@@ -20123,6 +20543,18 @@ cases,cumulative_cases,date_report,health_region,province
 3,4672,2021-08-03,Zone 4 - Central,Nova Scotia
 2,4674,2021-08-04,Zone 4 - Central,Nova Scotia
 4,4678,2021-08-05,Zone 4 - Central,Nova Scotia
+1,4679,2021-08-06,Zone 4 - Central,Nova Scotia
+0,4679,2021-08-07,Zone 4 - Central,Nova Scotia
+0,4679,2021-08-08,Zone 4 - Central,Nova Scotia
+4,4683,2021-08-09,Zone 4 - Central,Nova Scotia
+1,4684,2021-08-10,Zone 4 - Central,Nova Scotia
+2,4686,2021-08-11,Zone 4 - Central,Nova Scotia
+5,4691,2021-08-12,Zone 4 - Central,Nova Scotia
+0,4691,2021-08-13,Zone 4 - Central,Nova Scotia
+0,4691,2021-08-14,Zone 4 - Central,Nova Scotia
+0,4691,2021-08-15,Zone 4 - Central,Nova Scotia
+4,4695,2021-08-16,Zone 4 - Central,Nova Scotia
+1,4696,2021-08-17,Zone 4 - Central,Nova Scotia
 0,0,2020-01-25,Nunavut,Nunavut
 0,0,2020-01-26,Nunavut,Nunavut
 0,0,2020-01-27,Nunavut,Nunavut
@@ -20682,6 +21114,18 @@ cases,cumulative_cases,date_report,health_region,province
 0,657,2021-08-03,Nunavut,Nunavut
 0,657,2021-08-04,Nunavut,Nunavut
 0,657,2021-08-05,Nunavut,Nunavut
+0,657,2021-08-06,Nunavut,Nunavut
+0,657,2021-08-07,Nunavut,Nunavut
+0,657,2021-08-08,Nunavut,Nunavut
+0,657,2021-08-09,Nunavut,Nunavut
+0,657,2021-08-10,Nunavut,Nunavut
+0,657,2021-08-11,Nunavut,Nunavut
+0,657,2021-08-12,Nunavut,Nunavut
+0,657,2021-08-13,Nunavut,Nunavut
+0,657,2021-08-14,Nunavut,Nunavut
+0,657,2021-08-15,Nunavut,Nunavut
+0,657,2021-08-16,Nunavut,Nunavut
+0,657,2021-08-17,Nunavut,Nunavut
 0,0,2020-01-25,NWT,NWT
 0,0,2020-01-26,NWT,NWT
 0,0,2020-01-27,NWT,NWT
@@ -21241,6 +21685,18 @@ cases,cumulative_cases,date_report,health_region,province
 0,128,2021-08-03,NWT,NWT
 1,129,2021-08-04,NWT,NWT
 0,129,2021-08-05,NWT,NWT
+1,130,2021-08-06,NWT,NWT
+0,130,2021-08-07,NWT,NWT
+0,130,2021-08-08,NWT,NWT
+0,130,2021-08-09,NWT,NWT
+0,130,2021-08-10,NWT,NWT
+1,131,2021-08-11,NWT,NWT
+0,131,2021-08-12,NWT,NWT
+0,131,2021-08-13,NWT,NWT
+0,131,2021-08-14,NWT,NWT
+0,131,2021-08-15,NWT,NWT
+0,131,2021-08-16,NWT,NWT
+71,202,2021-08-17,NWT,NWT
 0,0,2020-01-25,Algoma,Ontario
 0,0,2020-01-26,Algoma,Ontario
 0,0,2020-01-27,Algoma,Ontario
@@ -21800,6 +22256,18 @@ cases,cumulative_cases,date_report,health_region,province
 1,406,2021-08-03,Algoma,Ontario
 0,406,2021-08-04,Algoma,Ontario
 0,406,2021-08-05,Algoma,Ontario
+1,407,2021-08-06,Algoma,Ontario
+0,407,2021-08-07,Algoma,Ontario
+0,407,2021-08-08,Algoma,Ontario
+1,408,2021-08-09,Algoma,Ontario
+0,408,2021-08-10,Algoma,Ontario
+0,408,2021-08-11,Algoma,Ontario
+0,408,2021-08-12,Algoma,Ontario
+2,410,2021-08-13,Algoma,Ontario
+0,410,2021-08-14,Algoma,Ontario
+0,410,2021-08-15,Algoma,Ontario
+0,410,2021-08-16,Algoma,Ontario
+0,410,2021-08-17,Algoma,Ontario
 0,0,2020-01-25,Brant,Ontario
 0,0,2020-01-26,Brant,Ontario
 0,0,2020-01-27,Brant,Ontario
@@ -22359,6 +22827,18 @@ cases,cumulative_cases,date_report,health_region,province
 8,3447,2021-08-03,Brant,Ontario
 -1,3446,2021-08-04,Brant,Ontario
 2,3448,2021-08-05,Brant,Ontario
+5,3453,2021-08-06,Brant,Ontario
+0,3453,2021-08-07,Brant,Ontario
+0,3453,2021-08-08,Brant,Ontario
+9,3462,2021-08-09,Brant,Ontario
+3,3465,2021-08-10,Brant,Ontario
+2,3467,2021-08-11,Brant,Ontario
+5,3472,2021-08-12,Brant,Ontario
+13,3485,2021-08-13,Brant,Ontario
+0,3485,2021-08-14,Brant,Ontario
+0,3485,2021-08-15,Brant,Ontario
+19,3504,2021-08-16,Brant,Ontario
+6,3510,2021-08-17,Brant,Ontario
 0,0,2020-01-25,Chatham-Kent,Ontario
 0,0,2020-01-26,Chatham-Kent,Ontario
 0,0,2020-01-27,Chatham-Kent,Ontario
@@ -22918,6 +23398,18 @@ cases,cumulative_cases,date_report,health_region,province
 1,1920,2021-08-03,Chatham-Kent,Ontario
 0,1920,2021-08-04,Chatham-Kent,Ontario
 1,1921,2021-08-05,Chatham-Kent,Ontario
+2,1923,2021-08-06,Chatham-Kent,Ontario
+0,1923,2021-08-07,Chatham-Kent,Ontario
+0,1923,2021-08-08,Chatham-Kent,Ontario
+0,1923,2021-08-09,Chatham-Kent,Ontario
+5,1928,2021-08-10,Chatham-Kent,Ontario
+3,1931,2021-08-11,Chatham-Kent,Ontario
+2,1933,2021-08-12,Chatham-Kent,Ontario
+8,1941,2021-08-13,Chatham-Kent,Ontario
+0,1941,2021-08-14,Chatham-Kent,Ontario
+0,1941,2021-08-15,Chatham-Kent,Ontario
+14,1955,2021-08-16,Chatham-Kent,Ontario
+2,1957,2021-08-17,Chatham-Kent,Ontario
 0,0,2020-01-25,Durham,Ontario
 0,0,2020-01-26,Durham,Ontario
 0,0,2020-01-27,Durham,Ontario
@@ -23477,6 +23969,18 @@ cases,cumulative_cases,date_report,health_region,province
 24,25460,2021-08-03,Durham,Ontario
 8,25468,2021-08-04,Durham,Ontario
 10,25478,2021-08-05,Durham,Ontario
+17,25495,2021-08-06,Durham,Ontario
+0,25495,2021-08-07,Durham,Ontario
+0,25495,2021-08-08,Durham,Ontario
+49,25544,2021-08-09,Durham,Ontario
+9,25553,2021-08-10,Durham,Ontario
+29,25582,2021-08-11,Durham,Ontario
+33,25615,2021-08-12,Durham,Ontario
+13,25628,2021-08-13,Durham,Ontario
+0,25628,2021-08-14,Durham,Ontario
+0,25628,2021-08-15,Durham,Ontario
+56,25684,2021-08-16,Durham,Ontario
+18,25702,2021-08-17,Durham,Ontario
 0,0,2020-01-25,Eastern,Ontario
 0,0,2020-01-26,Eastern,Ontario
 0,0,2020-01-27,Eastern,Ontario
@@ -24036,6 +24540,18 @@ cases,cumulative_cases,date_report,health_region,province
 2,4749,2021-08-03,Eastern,Ontario
 0,4749,2021-08-04,Eastern,Ontario
 1,4750,2021-08-05,Eastern,Ontario
+4,4754,2021-08-06,Eastern,Ontario
+0,4754,2021-08-07,Eastern,Ontario
+0,4754,2021-08-08,Eastern,Ontario
+12,4766,2021-08-09,Eastern,Ontario
+4,4770,2021-08-10,Eastern,Ontario
+6,4776,2021-08-11,Eastern,Ontario
+3,4779,2021-08-12,Eastern,Ontario
+1,4780,2021-08-13,Eastern,Ontario
+0,4780,2021-08-14,Eastern,Ontario
+0,4780,2021-08-15,Eastern,Ontario
+2,4782,2021-08-16,Eastern,Ontario
+1,4783,2021-08-17,Eastern,Ontario
 0,0,2020-01-25,Grey Bruce,Ontario
 0,0,2020-01-26,Grey Bruce,Ontario
 0,0,2020-01-27,Grey Bruce,Ontario
@@ -24595,6 +25111,18 @@ cases,cumulative_cases,date_report,health_region,province
 3,2136,2021-08-03,Grey Bruce,Ontario
 4,2140,2021-08-04,Grey Bruce,Ontario
 3,2143,2021-08-05,Grey Bruce,Ontario
+13,2156,2021-08-06,Grey Bruce,Ontario
+3,2159,2021-08-07,Grey Bruce,Ontario
+4,2163,2021-08-08,Grey Bruce,Ontario
+17,2180,2021-08-09,Grey Bruce,Ontario
+3,2183,2021-08-10,Grey Bruce,Ontario
+7,2190,2021-08-11,Grey Bruce,Ontario
+3,2193,2021-08-12,Grey Bruce,Ontario
+5,2198,2021-08-13,Grey Bruce,Ontario
+1,2199,2021-08-14,Grey Bruce,Ontario
+2,2201,2021-08-15,Grey Bruce,Ontario
+2,2203,2021-08-16,Grey Bruce,Ontario
+6,2209,2021-08-17,Grey Bruce,Ontario
 0,0,2020-01-25,Haldimand-Norfolk,Ontario
 0,0,2020-01-26,Haldimand-Norfolk,Ontario
 0,0,2020-01-27,Haldimand-Norfolk,Ontario
@@ -25154,6 +25682,18 @@ cases,cumulative_cases,date_report,health_region,province
 10,2744,2021-08-03,Haldimand-Norfolk,Ontario
 2,2746,2021-08-04,Haldimand-Norfolk,Ontario
 0,2746,2021-08-05,Haldimand-Norfolk,Ontario
+2,2748,2021-08-06,Haldimand-Norfolk,Ontario
+0,2748,2021-08-07,Haldimand-Norfolk,Ontario
+0,2748,2021-08-08,Haldimand-Norfolk,Ontario
+5,2753,2021-08-09,Haldimand-Norfolk,Ontario
+0,2753,2021-08-10,Haldimand-Norfolk,Ontario
+2,2755,2021-08-11,Haldimand-Norfolk,Ontario
+3,2758,2021-08-12,Haldimand-Norfolk,Ontario
+2,2760,2021-08-13,Haldimand-Norfolk,Ontario
+0,2760,2021-08-14,Haldimand-Norfolk,Ontario
+0,2760,2021-08-15,Haldimand-Norfolk,Ontario
+4,2764,2021-08-16,Haldimand-Norfolk,Ontario
+3,2767,2021-08-17,Haldimand-Norfolk,Ontario
 0,0,2020-01-25,Haliburton Kawartha Pineridge,Ontario
 0,0,2020-01-26,Haliburton Kawartha Pineridge,Ontario
 0,0,2020-01-27,Haliburton Kawartha Pineridge,Ontario
@@ -25713,6 +26253,18 @@ cases,cumulative_cases,date_report,health_region,province
 15,2262,2021-08-03,Haliburton Kawartha Pineridge,Ontario
 3,2265,2021-08-04,Haliburton Kawartha Pineridge,Ontario
 0,2265,2021-08-05,Haliburton Kawartha Pineridge,Ontario
+8,2273,2021-08-06,Haliburton Kawartha Pineridge,Ontario
+0,2273,2021-08-07,Haliburton Kawartha Pineridge,Ontario
+0,2273,2021-08-08,Haliburton Kawartha Pineridge,Ontario
+4,2277,2021-08-09,Haliburton Kawartha Pineridge,Ontario
+0,2277,2021-08-10,Haliburton Kawartha Pineridge,Ontario
+3,2280,2021-08-11,Haliburton Kawartha Pineridge,Ontario
+0,2280,2021-08-12,Haliburton Kawartha Pineridge,Ontario
+7,2287,2021-08-13,Haliburton Kawartha Pineridge,Ontario
+0,2287,2021-08-14,Haliburton Kawartha Pineridge,Ontario
+0,2287,2021-08-15,Haliburton Kawartha Pineridge,Ontario
+7,2294,2021-08-16,Haliburton Kawartha Pineridge,Ontario
+0,2294,2021-08-17,Haliburton Kawartha Pineridge,Ontario
 0,0,2020-01-25,Halton,Ontario
 0,0,2020-01-26,Halton,Ontario
 0,0,2020-01-27,Halton,Ontario
@@ -26272,6 +26824,18 @@ cases,cumulative_cases,date_report,health_region,province
 31,17623,2021-08-03,Halton,Ontario
 6,17629,2021-08-04,Halton,Ontario
 10,17639,2021-08-05,Halton,Ontario
+6,17645,2021-08-06,Halton,Ontario
+0,17645,2021-08-07,Halton,Ontario
+0,17645,2021-08-08,Halton,Ontario
+40,17685,2021-08-09,Halton,Ontario
+17,17702,2021-08-10,Halton,Ontario
+16,17718,2021-08-11,Halton,Ontario
+25,17743,2021-08-12,Halton,Ontario
+22,17765,2021-08-13,Halton,Ontario
+0,17765,2021-08-14,Halton,Ontario
+0,17765,2021-08-15,Halton,Ontario
+57,17822,2021-08-16,Halton,Ontario
+22,17844,2021-08-17,Halton,Ontario
 0,0,2020-01-25,Hamilton,Ontario
 0,0,2020-01-26,Hamilton,Ontario
 0,0,2020-01-27,Hamilton,Ontario
@@ -26831,6 +27395,18 @@ cases,cumulative_cases,date_report,health_region,province
 64,21686,2021-08-03,Hamilton,Ontario
 11,21697,2021-08-04,Hamilton,Ontario
 19,21716,2021-08-05,Hamilton,Ontario
+16,21732,2021-08-06,Hamilton,Ontario
+0,21732,2021-08-07,Hamilton,Ontario
+0,21732,2021-08-08,Hamilton,Ontario
+108,21840,2021-08-09,Hamilton,Ontario
+26,21866,2021-08-10,Hamilton,Ontario
+38,21904,2021-08-11,Hamilton,Ontario
+35,21939,2021-08-12,Hamilton,Ontario
+46,21985,2021-08-13,Hamilton,Ontario
+0,21985,2021-08-14,Hamilton,Ontario
+0,21985,2021-08-15,Hamilton,Ontario
+162,22147,2021-08-16,Hamilton,Ontario
+32,22179,2021-08-17,Hamilton,Ontario
 0,0,2020-01-25,Hastings Prince Edward,Ontario
 0,0,2020-01-26,Hastings Prince Edward,Ontario
 0,0,2020-01-27,Hastings Prince Edward,Ontario
@@ -27390,6 +27966,18 @@ cases,cumulative_cases,date_report,health_region,province
 8,1158,2021-08-03,Hastings Prince Edward,Ontario
 3,1161,2021-08-04,Hastings Prince Edward,Ontario
 0,1161,2021-08-05,Hastings Prince Edward,Ontario
+13,1174,2021-08-06,Hastings Prince Edward,Ontario
+0,1174,2021-08-07,Hastings Prince Edward,Ontario
+0,1174,2021-08-08,Hastings Prince Edward,Ontario
+6,1180,2021-08-09,Hastings Prince Edward,Ontario
+0,1180,2021-08-10,Hastings Prince Edward,Ontario
+7,1187,2021-08-11,Hastings Prince Edward,Ontario
+0,1187,2021-08-12,Hastings Prince Edward,Ontario
+7,1194,2021-08-13,Hastings Prince Edward,Ontario
+0,1194,2021-08-14,Hastings Prince Edward,Ontario
+0,1194,2021-08-15,Hastings Prince Edward,Ontario
+11,1205,2021-08-16,Hastings Prince Edward,Ontario
+0,1205,2021-08-17,Hastings Prince Edward,Ontario
 0,0,2020-01-25,Huron Perth,Ontario
 0,0,2020-01-26,Huron Perth,Ontario
 0,0,2020-01-27,Huron Perth,Ontario
@@ -27949,6 +28537,18 @@ cases,cumulative_cases,date_report,health_region,province
 5,1944,2021-08-03,Huron Perth,Ontario
 1,1945,2021-08-04,Huron Perth,Ontario
 3,1948,2021-08-05,Huron Perth,Ontario
+1,1949,2021-08-06,Huron Perth,Ontario
+0,1949,2021-08-07,Huron Perth,Ontario
+0,1949,2021-08-08,Huron Perth,Ontario
+8,1957,2021-08-09,Huron Perth,Ontario
+2,1959,2021-08-10,Huron Perth,Ontario
+2,1961,2021-08-11,Huron Perth,Ontario
+2,1963,2021-08-12,Huron Perth,Ontario
+2,1965,2021-08-13,Huron Perth,Ontario
+0,1965,2021-08-14,Huron Perth,Ontario
+0,1965,2021-08-15,Huron Perth,Ontario
+13,1978,2021-08-16,Huron Perth,Ontario
+2,1980,2021-08-17,Huron Perth,Ontario
 0,0,2020-01-25,Kingston Frontenac Lennox & Addington,Ontario
 0,0,2020-01-26,Kingston Frontenac Lennox & Addington,Ontario
 0,0,2020-01-27,Kingston Frontenac Lennox & Addington,Ontario
@@ -28508,6 +29108,18 @@ cases,cumulative_cases,date_report,health_region,province
 4,1585,2021-08-03,Kingston Frontenac Lennox & Addington,Ontario
 1,1586,2021-08-04,Kingston Frontenac Lennox & Addington,Ontario
 1,1587,2021-08-05,Kingston Frontenac Lennox & Addington,Ontario
+3,1590,2021-08-06,Kingston Frontenac Lennox & Addington,Ontario
+0,1590,2021-08-07,Kingston Frontenac Lennox & Addington,Ontario
+0,1590,2021-08-08,Kingston Frontenac Lennox & Addington,Ontario
+5,1595,2021-08-09,Kingston Frontenac Lennox & Addington,Ontario
+1,1596,2021-08-10,Kingston Frontenac Lennox & Addington,Ontario
+-1,1595,2021-08-11,Kingston Frontenac Lennox & Addington,Ontario
+2,1597,2021-08-12,Kingston Frontenac Lennox & Addington,Ontario
+2,1599,2021-08-13,Kingston Frontenac Lennox & Addington,Ontario
+0,1599,2021-08-14,Kingston Frontenac Lennox & Addington,Ontario
+0,1599,2021-08-15,Kingston Frontenac Lennox & Addington,Ontario
+2,1601,2021-08-16,Kingston Frontenac Lennox & Addington,Ontario
+2,1603,2021-08-17,Kingston Frontenac Lennox & Addington,Ontario
 0,0,2020-01-25,Lambton,Ontario
 0,0,2020-01-26,Lambton,Ontario
 0,0,2020-01-27,Lambton,Ontario
@@ -29067,6 +29679,18 @@ cases,cumulative_cases,date_report,health_region,province
 1,3639,2021-08-03,Lambton,Ontario
 -1,3638,2021-08-04,Lambton,Ontario
 2,3640,2021-08-05,Lambton,Ontario
+1,3641,2021-08-06,Lambton,Ontario
+0,3641,2021-08-07,Lambton,Ontario
+0,3641,2021-08-08,Lambton,Ontario
+1,3642,2021-08-09,Lambton,Ontario
+1,3643,2021-08-10,Lambton,Ontario
+1,3644,2021-08-11,Lambton,Ontario
+0,3644,2021-08-12,Lambton,Ontario
+3,3647,2021-08-13,Lambton,Ontario
+3,3650,2021-08-14,Lambton,Ontario
+3,3653,2021-08-15,Lambton,Ontario
+3,3656,2021-08-16,Lambton,Ontario
+0,3656,2021-08-17,Lambton,Ontario
 0,0,2020-01-25,Leeds Grenville and Lanark,Ontario
 0,0,2020-01-26,Leeds Grenville and Lanark,Ontario
 0,0,2020-01-27,Leeds Grenville and Lanark,Ontario
@@ -29626,6 +30250,18 @@ cases,cumulative_cases,date_report,health_region,province
 1,1769,2021-08-03,Leeds Grenville and Lanark,Ontario
 0,1769,2021-08-04,Leeds Grenville and Lanark,Ontario
 0,1769,2021-08-05,Leeds Grenville and Lanark,Ontario
+2,1771,2021-08-06,Leeds Grenville and Lanark,Ontario
+0,1771,2021-08-07,Leeds Grenville and Lanark,Ontario
+0,1771,2021-08-08,Leeds Grenville and Lanark,Ontario
+1,1772,2021-08-09,Leeds Grenville and Lanark,Ontario
+1,1773,2021-08-10,Leeds Grenville and Lanark,Ontario
+2,1775,2021-08-11,Leeds Grenville and Lanark,Ontario
+1,1776,2021-08-12,Leeds Grenville and Lanark,Ontario
+3,1779,2021-08-13,Leeds Grenville and Lanark,Ontario
+0,1779,2021-08-14,Leeds Grenville and Lanark,Ontario
+0,1779,2021-08-15,Leeds Grenville and Lanark,Ontario
+10,1789,2021-08-16,Leeds Grenville and Lanark,Ontario
+3,1792,2021-08-17,Leeds Grenville and Lanark,Ontario
 0,0,2020-01-25,Middlesex-London,Ontario
 0,0,2020-01-26,Middlesex-London,Ontario
 0,0,2020-01-27,Middlesex-London,Ontario
@@ -30185,6 +30821,18 @@ cases,cumulative_cases,date_report,health_region,province
 30,12806,2021-08-03,Middlesex-London,Ontario
 7,12813,2021-08-04,Middlesex-London,Ontario
 8,12821,2021-08-05,Middlesex-London,Ontario
+16,12837,2021-08-06,Middlesex-London,Ontario
+0,12837,2021-08-07,Middlesex-London,Ontario
+0,12837,2021-08-08,Middlesex-London,Ontario
+25,12862,2021-08-09,Middlesex-London,Ontario
+16,12878,2021-08-10,Middlesex-London,Ontario
+6,12884,2021-08-11,Middlesex-London,Ontario
+15,12899,2021-08-12,Middlesex-London,Ontario
+17,12916,2021-08-13,Middlesex-London,Ontario
+0,12916,2021-08-14,Middlesex-London,Ontario
+0,12916,2021-08-15,Middlesex-London,Ontario
+58,12974,2021-08-16,Middlesex-London,Ontario
+14,12988,2021-08-17,Middlesex-London,Ontario
 0,0,2020-01-25,Niagara,Ontario
 0,0,2020-01-26,Niagara,Ontario
 0,0,2020-01-27,Niagara,Ontario
@@ -30744,6 +31392,18 @@ cases,cumulative_cases,date_report,health_region,province
 1,16353,2021-08-03,Niagara,Ontario
 1,16354,2021-08-04,Niagara,Ontario
 5,16359,2021-08-05,Niagara,Ontario
+9,16368,2021-08-06,Niagara,Ontario
+4,16372,2021-08-07,Niagara,Ontario
+3,16375,2021-08-08,Niagara,Ontario
+0,16375,2021-08-09,Niagara,Ontario
+8,16383,2021-08-10,Niagara,Ontario
+5,16388,2021-08-11,Niagara,Ontario
+13,16401,2021-08-12,Niagara,Ontario
+14,16415,2021-08-13,Niagara,Ontario
+27,16442,2021-08-14,Niagara,Ontario
+13,16455,2021-08-15,Niagara,Ontario
+18,16473,2021-08-16,Niagara,Ontario
+7,16480,2021-08-17,Niagara,Ontario
 0,0,2020-01-25,North Bay Parry Sound,Ontario
 0,0,2020-01-26,North Bay Parry Sound,Ontario
 0,0,2020-01-27,North Bay Parry Sound,Ontario
@@ -31303,6 +31963,18 @@ cases,cumulative_cases,date_report,health_region,province
 0,655,2021-08-03,North Bay Parry Sound,Ontario
 0,655,2021-08-04,North Bay Parry Sound,Ontario
 0,655,2021-08-05,North Bay Parry Sound,Ontario
+1,656,2021-08-06,North Bay Parry Sound,Ontario
+0,656,2021-08-07,North Bay Parry Sound,Ontario
+0,656,2021-08-08,North Bay Parry Sound,Ontario
+1,657,2021-08-09,North Bay Parry Sound,Ontario
+1,658,2021-08-10,North Bay Parry Sound,Ontario
+0,658,2021-08-11,North Bay Parry Sound,Ontario
+3,661,2021-08-12,North Bay Parry Sound,Ontario
+0,661,2021-08-13,North Bay Parry Sound,Ontario
+0,661,2021-08-14,North Bay Parry Sound,Ontario
+0,661,2021-08-15,North Bay Parry Sound,Ontario
+0,661,2021-08-16,North Bay Parry Sound,Ontario
+0,661,2021-08-17,North Bay Parry Sound,Ontario
 0,0,2020-01-25,Northwestern,Ontario
 0,0,2020-01-26,Northwestern,Ontario
 0,0,2020-01-27,Northwestern,Ontario
@@ -31862,6 +32534,18 @@ cases,cumulative_cases,date_report,health_region,province
 2,1100,2021-08-03,Northwestern,Ontario
 1,1101,2021-08-04,Northwestern,Ontario
 0,1101,2021-08-05,Northwestern,Ontario
+0,1101,2021-08-06,Northwestern,Ontario
+0,1101,2021-08-07,Northwestern,Ontario
+0,1101,2021-08-08,Northwestern,Ontario
+3,1104,2021-08-09,Northwestern,Ontario
+-1,1103,2021-08-10,Northwestern,Ontario
+0,1103,2021-08-11,Northwestern,Ontario
+3,1106,2021-08-12,Northwestern,Ontario
+0,1106,2021-08-13,Northwestern,Ontario
+0,1106,2021-08-14,Northwestern,Ontario
+0,1106,2021-08-15,Northwestern,Ontario
+1,1107,2021-08-16,Northwestern,Ontario
+4,1111,2021-08-17,Northwestern,Ontario
 0,0,2020-01-25,Not Reported,Ontario
 0,0,2020-01-26,Not Reported,Ontario
 0,0,2020-01-27,Not Reported,Ontario
@@ -32421,6 +33105,18 @@ cases,cumulative_cases,date_report,health_region,province
 0,0,2021-08-03,Not Reported,Ontario
 0,0,2021-08-04,Not Reported,Ontario
 0,0,2021-08-05,Not Reported,Ontario
+0,0,2021-08-06,Not Reported,Ontario
+0,0,2021-08-07,Not Reported,Ontario
+0,0,2021-08-08,Not Reported,Ontario
+0,0,2021-08-09,Not Reported,Ontario
+0,0,2021-08-10,Not Reported,Ontario
+0,0,2021-08-11,Not Reported,Ontario
+0,0,2021-08-12,Not Reported,Ontario
+0,0,2021-08-13,Not Reported,Ontario
+0,0,2021-08-14,Not Reported,Ontario
+0,0,2021-08-15,Not Reported,Ontario
+0,0,2021-08-16,Not Reported,Ontario
+0,0,2021-08-17,Not Reported,Ontario
 0,0,2020-01-25,Ottawa,Ontario
 0,0,2020-01-26,Ottawa,Ontario
 0,0,2020-01-27,Ottawa,Ontario
@@ -32980,6 +33676,18 @@ cases,cumulative_cases,date_report,health_region,province
 1,27828,2021-08-03,Ottawa,Ontario
 -7,27821,2021-08-04,Ottawa,Ontario
 11,27832,2021-08-05,Ottawa,Ontario
+18,27850,2021-08-06,Ottawa,Ontario
+12,27862,2021-08-07,Ottawa,Ontario
+16,27878,2021-08-08,Ottawa,Ontario
+5,27883,2021-08-09,Ottawa,Ontario
+10,27893,2021-08-10,Ottawa,Ontario
+10,27903,2021-08-11,Ottawa,Ontario
+21,27924,2021-08-12,Ottawa,Ontario
+21,27945,2021-08-13,Ottawa,Ontario
+19,27964,2021-08-14,Ottawa,Ontario
+13,27977,2021-08-15,Ottawa,Ontario
+20,27997,2021-08-16,Ottawa,Ontario
+14,28011,2021-08-17,Ottawa,Ontario
 0,0,2020-01-25,Peel,Ontario
 0,0,2020-01-26,Peel,Ontario
 0,0,2020-01-27,Peel,Ontario
@@ -33539,6 +34247,18 @@ cases,cumulative_cases,date_report,health_region,province
 19,111990,2021-08-03,Peel,Ontario
 29,112019,2021-08-04,Peel,Ontario
 39,112058,2021-08-05,Peel,Ontario
+36,112094,2021-08-06,Peel,Ontario
+54,112148,2021-08-07,Peel,Ontario
+52,112200,2021-08-08,Peel,Ontario
+27,112227,2021-08-09,Peel,Ontario
+38,112265,2021-08-10,Peel,Ontario
+60,112325,2021-08-11,Peel,Ontario
+78,112403,2021-08-12,Peel,Ontario
+58,112461,2021-08-13,Peel,Ontario
+77,112538,2021-08-14,Peel,Ontario
+74,112612,2021-08-15,Peel,Ontario
+54,112666,2021-08-16,Peel,Ontario
+59,112725,2021-08-17,Peel,Ontario
 0,0,2020-01-25,Peterborough,Ontario
 0,0,2020-01-26,Peterborough,Ontario
 0,0,2020-01-27,Peterborough,Ontario
@@ -34098,6 +34818,18 @@ cases,cumulative_cases,date_report,health_region,province
 2,1643,2021-08-03,Peterborough,Ontario
 0,1643,2021-08-04,Peterborough,Ontario
 1,1644,2021-08-05,Peterborough,Ontario
+0,1644,2021-08-06,Peterborough,Ontario
+0,1644,2021-08-07,Peterborough,Ontario
+0,1644,2021-08-08,Peterborough,Ontario
+1,1645,2021-08-09,Peterborough,Ontario
+1,1646,2021-08-10,Peterborough,Ontario
+0,1646,2021-08-11,Peterborough,Ontario
+0,1646,2021-08-12,Peterborough,Ontario
+3,1649,2021-08-13,Peterborough,Ontario
+0,1649,2021-08-14,Peterborough,Ontario
+0,1649,2021-08-15,Peterborough,Ontario
+1,1650,2021-08-16,Peterborough,Ontario
+0,1650,2021-08-17,Peterborough,Ontario
 0,0,2020-01-25,Porcupine,Ontario
 0,0,2020-01-26,Porcupine,Ontario
 0,0,2020-01-27,Porcupine,Ontario
@@ -34657,6 +35389,18 @@ cases,cumulative_cases,date_report,health_region,province
 2,2149,2021-08-03,Porcupine,Ontario
 0,2149,2021-08-04,Porcupine,Ontario
 1,2150,2021-08-05,Porcupine,Ontario
+2,2152,2021-08-06,Porcupine,Ontario
+0,2152,2021-08-07,Porcupine,Ontario
+0,2152,2021-08-08,Porcupine,Ontario
+1,2153,2021-08-09,Porcupine,Ontario
+0,2153,2021-08-10,Porcupine,Ontario
+0,2153,2021-08-11,Porcupine,Ontario
+0,2153,2021-08-12,Porcupine,Ontario
+0,2153,2021-08-13,Porcupine,Ontario
+0,2153,2021-08-14,Porcupine,Ontario
+0,2153,2021-08-15,Porcupine,Ontario
+1,2154,2021-08-16,Porcupine,Ontario
+1,2155,2021-08-17,Porcupine,Ontario
 0,0,2020-01-25,Renfrew,Ontario
 0,0,2020-01-26,Renfrew,Ontario
 0,0,2020-01-27,Renfrew,Ontario
@@ -35216,6 +35960,18 @@ cases,cumulative_cases,date_report,health_region,province
 6,765,2021-08-03,Renfrew,Ontario
 1,766,2021-08-04,Renfrew,Ontario
 0,766,2021-08-05,Renfrew,Ontario
+1,767,2021-08-06,Renfrew,Ontario
+0,767,2021-08-07,Renfrew,Ontario
+0,767,2021-08-08,Renfrew,Ontario
+0,767,2021-08-09,Renfrew,Ontario
+0,767,2021-08-10,Renfrew,Ontario
+0,767,2021-08-11,Renfrew,Ontario
+0,767,2021-08-12,Renfrew,Ontario
+0,767,2021-08-13,Renfrew,Ontario
+0,767,2021-08-14,Renfrew,Ontario
+0,767,2021-08-15,Renfrew,Ontario
+0,767,2021-08-16,Renfrew,Ontario
+0,767,2021-08-17,Renfrew,Ontario
 0,0,2020-01-25,Simcoe Muskoka,Ontario
 0,0,2020-01-26,Simcoe Muskoka,Ontario
 0,0,2020-01-27,Simcoe Muskoka,Ontario
@@ -35775,6 +36531,18 @@ cases,cumulative_cases,date_report,health_region,province
 2,12381,2021-08-03,Simcoe Muskoka,Ontario
 4,12385,2021-08-04,Simcoe Muskoka,Ontario
 10,12395,2021-08-05,Simcoe Muskoka,Ontario
+5,12400,2021-08-06,Simcoe Muskoka,Ontario
+0,12400,2021-08-07,Simcoe Muskoka,Ontario
+0,12400,2021-08-08,Simcoe Muskoka,Ontario
+28,12428,2021-08-09,Simcoe Muskoka,Ontario
+11,12439,2021-08-10,Simcoe Muskoka,Ontario
+14,12453,2021-08-11,Simcoe Muskoka,Ontario
+15,12468,2021-08-12,Simcoe Muskoka,Ontario
+19,12487,2021-08-13,Simcoe Muskoka,Ontario
+0,12487,2021-08-14,Simcoe Muskoka,Ontario
+0,12487,2021-08-15,Simcoe Muskoka,Ontario
+44,12531,2021-08-16,Simcoe Muskoka,Ontario
+10,12541,2021-08-17,Simcoe Muskoka,Ontario
 0,0,2020-01-25,Southwestern,Ontario
 0,0,2020-01-26,Southwestern,Ontario
 0,0,2020-01-27,Southwestern,Ontario
@@ -36334,6 +37102,18 @@ cases,cumulative_cases,date_report,health_region,province
 13,3963,2021-08-03,Southwestern,Ontario
 9,3972,2021-08-04,Southwestern,Ontario
 3,3975,2021-08-05,Southwestern,Ontario
+5,3980,2021-08-06,Southwestern,Ontario
+0,3980,2021-08-07,Southwestern,Ontario
+0,3980,2021-08-08,Southwestern,Ontario
+11,3991,2021-08-09,Southwestern,Ontario
+4,3995,2021-08-10,Southwestern,Ontario
+7,4002,2021-08-11,Southwestern,Ontario
+5,4007,2021-08-12,Southwestern,Ontario
+6,4013,2021-08-13,Southwestern,Ontario
+0,4013,2021-08-14,Southwestern,Ontario
+0,4013,2021-08-15,Southwestern,Ontario
+12,4025,2021-08-16,Southwestern,Ontario
+3,4028,2021-08-17,Southwestern,Ontario
 0,0,2020-01-25,Sudbury,Ontario
 0,0,2020-01-26,Sudbury,Ontario
 0,0,2020-01-27,Sudbury,Ontario
@@ -36893,6 +37673,18 @@ cases,cumulative_cases,date_report,health_region,province
 1,2184,2021-08-03,Sudbury,Ontario
 2,2186,2021-08-04,Sudbury,Ontario
 2,2188,2021-08-05,Sudbury,Ontario
+5,2193,2021-08-06,Sudbury,Ontario
+0,2193,2021-08-07,Sudbury,Ontario
+0,2193,2021-08-08,Sudbury,Ontario
+12,2205,2021-08-09,Sudbury,Ontario
+0,2205,2021-08-10,Sudbury,Ontario
+1,2206,2021-08-11,Sudbury,Ontario
+5,2211,2021-08-12,Sudbury,Ontario
+3,2214,2021-08-13,Sudbury,Ontario
+0,2214,2021-08-14,Sudbury,Ontario
+0,2214,2021-08-15,Sudbury,Ontario
+10,2224,2021-08-16,Sudbury,Ontario
+3,2227,2021-08-17,Sudbury,Ontario
 0,0,2020-01-25,Thunder Bay,Ontario
 0,0,2020-01-26,Thunder Bay,Ontario
 0,0,2020-01-27,Thunder Bay,Ontario
@@ -37452,6 +38244,18 @@ cases,cumulative_cases,date_report,health_region,province
 2,3345,2021-08-03,Thunder Bay,Ontario
 0,3345,2021-08-04,Thunder Bay,Ontario
 1,3346,2021-08-05,Thunder Bay,Ontario
+0,3346,2021-08-06,Thunder Bay,Ontario
+0,3346,2021-08-07,Thunder Bay,Ontario
+0,3346,2021-08-08,Thunder Bay,Ontario
+1,3347,2021-08-09,Thunder Bay,Ontario
+1,3348,2021-08-10,Thunder Bay,Ontario
+2,3350,2021-08-11,Thunder Bay,Ontario
+1,3351,2021-08-12,Thunder Bay,Ontario
+0,3351,2021-08-13,Thunder Bay,Ontario
+0,3351,2021-08-14,Thunder Bay,Ontario
+0,3351,2021-08-15,Thunder Bay,Ontario
+0,3351,2021-08-16,Thunder Bay,Ontario
+-1,3350,2021-08-17,Thunder Bay,Ontario
 0,0,2020-01-25,Timiskaming,Ontario
 0,0,2020-01-26,Timiskaming,Ontario
 0,0,2020-01-27,Timiskaming,Ontario
@@ -38011,6 +38815,18 @@ cases,cumulative_cases,date_report,health_region,province
 0,208,2021-08-03,Timiskaming,Ontario
 0,208,2021-08-04,Timiskaming,Ontario
 0,208,2021-08-05,Timiskaming,Ontario
+1,209,2021-08-06,Timiskaming,Ontario
+0,209,2021-08-07,Timiskaming,Ontario
+0,209,2021-08-08,Timiskaming,Ontario
+0,209,2021-08-09,Timiskaming,Ontario
+0,209,2021-08-10,Timiskaming,Ontario
+0,209,2021-08-11,Timiskaming,Ontario
+0,209,2021-08-12,Timiskaming,Ontario
+0,209,2021-08-13,Timiskaming,Ontario
+0,209,2021-08-14,Timiskaming,Ontario
+0,209,2021-08-15,Timiskaming,Ontario
+0,209,2021-08-16,Timiskaming,Ontario
+0,209,2021-08-17,Timiskaming,Ontario
 1,1,2020-01-25,Toronto,Ontario
 0,1,2020-01-26,Toronto,Ontario
 1,2,2020-01-27,Toronto,Ontario
@@ -38570,6 +39386,18 @@ cases,cumulative_cases,date_report,health_region,province
 158,170928,2021-08-03,Toronto,Ontario
 36,170964,2021-08-04,Toronto,Ontario
 77,171041,2021-08-05,Toronto,Ontario
+92,171133,2021-08-06,Toronto,Ontario
+94,171227,2021-08-07,Toronto,Ontario
+109,171336,2021-08-08,Toronto,Ontario
+90,171426,2021-08-09,Toronto,Ontario
+92,171518,2021-08-10,Toronto,Ontario
+95,171613,2021-08-11,Toronto,Ontario
+138,171751,2021-08-12,Toronto,Ontario
+143,171894,2021-08-13,Toronto,Ontario
+153,172047,2021-08-14,Toronto,Ontario
+116,172163,2021-08-15,Toronto,Ontario
+80,172243,2021-08-16,Toronto,Ontario
+110,172353,2021-08-17,Toronto,Ontario
 0,0,2020-01-25,Waterloo,Ontario
 0,0,2020-01-26,Waterloo,Ontario
 0,0,2020-01-27,Waterloo,Ontario
@@ -39129,6 +39957,18 @@ cases,cumulative_cases,date_report,health_region,province
 26,18427,2021-08-03,Waterloo,Ontario
 19,18446,2021-08-04,Waterloo,Ontario
 15,18461,2021-08-05,Waterloo,Ontario
+26,18487,2021-08-06,Waterloo,Ontario
+14,18501,2021-08-07,Waterloo,Ontario
+24,18525,2021-08-08,Waterloo,Ontario
+20,18545,2021-08-09,Waterloo,Ontario
+20,18565,2021-08-10,Waterloo,Ontario
+12,18577,2021-08-11,Waterloo,Ontario
+17,18594,2021-08-12,Waterloo,Ontario
+26,18620,2021-08-13,Waterloo,Ontario
+17,18637,2021-08-14,Waterloo,Ontario
+21,18658,2021-08-15,Waterloo,Ontario
+18,18676,2021-08-16,Waterloo,Ontario
+10,18686,2021-08-17,Waterloo,Ontario
 0,0,2020-01-25,Wellington Dufferin Guelph,Ontario
 0,0,2020-01-26,Wellington Dufferin Guelph,Ontario
 0,0,2020-01-27,Wellington Dufferin Guelph,Ontario
@@ -39688,6 +40528,18 @@ cases,cumulative_cases,date_report,health_region,province
 13,8314,2021-08-03,Wellington Dufferin Guelph,Ontario
 2,8316,2021-08-04,Wellington Dufferin Guelph,Ontario
 5,8321,2021-08-05,Wellington Dufferin Guelph,Ontario
+7,8328,2021-08-06,Wellington Dufferin Guelph,Ontario
+0,8328,2021-08-07,Wellington Dufferin Guelph,Ontario
+0,8328,2021-08-08,Wellington Dufferin Guelph,Ontario
+23,8351,2021-08-09,Wellington Dufferin Guelph,Ontario
+-2,8349,2021-08-10,Wellington Dufferin Guelph,Ontario
+7,8356,2021-08-11,Wellington Dufferin Guelph,Ontario
+11,8367,2021-08-12,Wellington Dufferin Guelph,Ontario
+7,8374,2021-08-13,Wellington Dufferin Guelph,Ontario
+0,8374,2021-08-14,Wellington Dufferin Guelph,Ontario
+0,8374,2021-08-15,Wellington Dufferin Guelph,Ontario
+13,8387,2021-08-16,Wellington Dufferin Guelph,Ontario
+3,8390,2021-08-17,Wellington Dufferin Guelph,Ontario
 0,0,2020-01-25,Windsor-Essex,Ontario
 0,0,2020-01-26,Windsor-Essex,Ontario
 0,0,2020-01-27,Windsor-Essex,Ontario
@@ -40247,6 +41099,18 @@ cases,cumulative_cases,date_report,health_region,province
 24,16907,2021-08-03,Windsor-Essex,Ontario
 11,16918,2021-08-04,Windsor-Essex,Ontario
 20,16938,2021-08-05,Windsor-Essex,Ontario
+20,16958,2021-08-06,Windsor-Essex,Ontario
+0,16958,2021-08-07,Windsor-Essex,Ontario
+0,16958,2021-08-08,Windsor-Essex,Ontario
+77,17035,2021-08-09,Windsor-Essex,Ontario
+21,17056,2021-08-10,Windsor-Essex,Ontario
+21,17077,2021-08-11,Windsor-Essex,Ontario
+29,17106,2021-08-12,Windsor-Essex,Ontario
+45,17151,2021-08-13,Windsor-Essex,Ontario
+0,17151,2021-08-14,Windsor-Essex,Ontario
+0,17151,2021-08-15,Windsor-Essex,Ontario
+129,17280,2021-08-16,Windsor-Essex,Ontario
+44,17324,2021-08-17,Windsor-Essex,Ontario
 0,0,2020-01-25,York,Ontario
 0,0,2020-01-26,York,Ontario
 0,0,2020-01-27,York,Ontario
@@ -40806,6 +41670,18 @@ cases,cumulative_cases,date_report,health_region,province
 80,52953,2021-08-03,York,Ontario
 13,52966,2021-08-04,York,Ontario
 51,53017,2021-08-05,York,Ontario
+59,53076,2021-08-06,York,Ontario
+0,53076,2021-08-07,York,Ontario
+0,53076,2021-08-08,York,Ontario
+116,53192,2021-08-09,York,Ontario
+28,53220,2021-08-10,York,Ontario
+69,53289,2021-08-11,York,Ontario
+32,53321,2021-08-12,York,Ontario
+71,53392,2021-08-13,York,Ontario
+0,53392,2021-08-14,York,Ontario
+0,53392,2021-08-15,York,Ontario
+154,53546,2021-08-16,York,Ontario
+32,53578,2021-08-17,York,Ontario
 0,0,2020-01-25,Prince Edward Island,PEI
 0,0,2020-01-26,Prince Edward Island,PEI
 0,0,2020-01-27,Prince Edward Island,PEI
@@ -41365,6 +42241,18 @@ cases,cumulative_cases,date_report,health_region,province
 0,208,2021-08-03,Prince Edward Island,PEI
 0,208,2021-08-04,Prince Edward Island,PEI
 0,208,2021-08-05,Prince Edward Island,PEI
+4,212,2021-08-06,Prince Edward Island,PEI
+0,212,2021-08-07,Prince Edward Island,PEI
+0,212,2021-08-08,Prince Edward Island,PEI
+0,212,2021-08-09,Prince Edward Island,PEI
+2,214,2021-08-10,Prince Edward Island,PEI
+0,214,2021-08-11,Prince Edward Island,PEI
+0,214,2021-08-12,Prince Edward Island,PEI
+0,214,2021-08-13,Prince Edward Island,PEI
+0,214,2021-08-14,Prince Edward Island,PEI
+0,214,2021-08-15,Prince Edward Island,PEI
+0,214,2021-08-16,Prince Edward Island,PEI
+6,220,2021-08-17,Prince Edward Island,PEI
 0,0,2020-01-25,Abitibi-Témiscamingue,Quebec
 0,0,2020-01-26,Abitibi-Témiscamingue,Quebec
 0,0,2020-01-27,Abitibi-Témiscamingue,Quebec
@@ -41924,6 +42812,18 @@ cases,cumulative_cases,date_report,health_region,province
 -1,1151,2021-08-03,Abitibi-Témiscamingue,Quebec
 0,1151,2021-08-04,Abitibi-Témiscamingue,Quebec
 2,1153,2021-08-05,Abitibi-Témiscamingue,Quebec
+2,1155,2021-08-06,Abitibi-Témiscamingue,Quebec
+3,1158,2021-08-07,Abitibi-Témiscamingue,Quebec
+2,1160,2021-08-08,Abitibi-Témiscamingue,Quebec
+3,1163,2021-08-09,Abitibi-Témiscamingue,Quebec
+3,1166,2021-08-10,Abitibi-Témiscamingue,Quebec
+7,1173,2021-08-11,Abitibi-Témiscamingue,Quebec
+12,1185,2021-08-12,Abitibi-Témiscamingue,Quebec
+4,1189,2021-08-13,Abitibi-Témiscamingue,Quebec
+2,1191,2021-08-14,Abitibi-Témiscamingue,Quebec
+-1,1190,2021-08-15,Abitibi-Témiscamingue,Quebec
+-2,1188,2021-08-16,Abitibi-Témiscamingue,Quebec
+1,1189,2021-08-17,Abitibi-Témiscamingue,Quebec
 0,0,2020-01-25,Bas-Saint-Laurent,Quebec
 0,0,2020-01-26,Bas-Saint-Laurent,Quebec
 0,0,2020-01-27,Bas-Saint-Laurent,Quebec
@@ -42483,6 +43383,18 @@ cases,cumulative_cases,date_report,health_region,province
 0,3976,2021-08-03,Bas-Saint-Laurent,Quebec
 1,3977,2021-08-04,Bas-Saint-Laurent,Quebec
 2,3979,2021-08-05,Bas-Saint-Laurent,Quebec
+1,3980,2021-08-06,Bas-Saint-Laurent,Quebec
+2,3982,2021-08-07,Bas-Saint-Laurent,Quebec
+1,3983,2021-08-08,Bas-Saint-Laurent,Quebec
+-1,3982,2021-08-09,Bas-Saint-Laurent,Quebec
+4,3986,2021-08-10,Bas-Saint-Laurent,Quebec
+0,3986,2021-08-11,Bas-Saint-Laurent,Quebec
+2,3988,2021-08-12,Bas-Saint-Laurent,Quebec
+1,3989,2021-08-13,Bas-Saint-Laurent,Quebec
+0,3989,2021-08-14,Bas-Saint-Laurent,Quebec
+0,3989,2021-08-15,Bas-Saint-Laurent,Quebec
+0,3989,2021-08-16,Bas-Saint-Laurent,Quebec
+0,3989,2021-08-17,Bas-Saint-Laurent,Quebec
 0,0,2020-01-25,Capitale-Nationale,Quebec
 0,0,2020-01-26,Capitale-Nationale,Quebec
 0,0,2020-01-27,Capitale-Nationale,Quebec
@@ -43042,6 +43954,18 @@ cases,cumulative_cases,date_report,health_region,province
 7,32907,2021-08-03,Capitale-Nationale,Quebec
 22,32929,2021-08-04,Capitale-Nationale,Quebec
 6,32935,2021-08-05,Capitale-Nationale,Quebec
+12,32947,2021-08-06,Capitale-Nationale,Quebec
+14,32961,2021-08-07,Capitale-Nationale,Quebec
+16,32977,2021-08-08,Capitale-Nationale,Quebec
+18,32995,2021-08-09,Capitale-Nationale,Quebec
+19,33014,2021-08-10,Capitale-Nationale,Quebec
+11,33025,2021-08-11,Capitale-Nationale,Quebec
+18,33043,2021-08-12,Capitale-Nationale,Quebec
+22,33065,2021-08-13,Capitale-Nationale,Quebec
+7,33072,2021-08-14,Capitale-Nationale,Quebec
+9,33081,2021-08-15,Capitale-Nationale,Quebec
+18,33099,2021-08-16,Capitale-Nationale,Quebec
+16,33115,2021-08-17,Capitale-Nationale,Quebec
 0,0,2020-01-25,Chaudière-Appalaches,Quebec
 0,0,2020-01-26,Chaudière-Appalaches,Quebec
 0,0,2020-01-27,Chaudière-Appalaches,Quebec
@@ -43601,6 +44525,18 @@ cases,cumulative_cases,date_report,health_region,province
 2,19305,2021-08-03,Chaudière-Appalaches,Quebec
 9,19314,2021-08-04,Chaudière-Appalaches,Quebec
 5,19319,2021-08-05,Chaudière-Appalaches,Quebec
+2,19321,2021-08-06,Chaudière-Appalaches,Quebec
+4,19325,2021-08-07,Chaudière-Appalaches,Quebec
+3,19328,2021-08-08,Chaudière-Appalaches,Quebec
+5,19333,2021-08-09,Chaudière-Appalaches,Quebec
+5,19338,2021-08-10,Chaudière-Appalaches,Quebec
+6,19344,2021-08-11,Chaudière-Appalaches,Quebec
+4,19348,2021-08-12,Chaudière-Appalaches,Quebec
+5,19353,2021-08-13,Chaudière-Appalaches,Quebec
+4,19357,2021-08-14,Chaudière-Appalaches,Quebec
+5,19362,2021-08-15,Chaudière-Appalaches,Quebec
+5,19367,2021-08-16,Chaudière-Appalaches,Quebec
+4,19371,2021-08-17,Chaudière-Appalaches,Quebec
 0,0,2020-01-25,Côte-Nord,Quebec
 0,0,2020-01-26,Côte-Nord,Quebec
 0,0,2020-01-27,Côte-Nord,Quebec
@@ -44160,6 +45096,18 @@ cases,cumulative_cases,date_report,health_region,province
 0,581,2021-08-03,Côte-Nord,Quebec
 1,582,2021-08-04,Côte-Nord,Quebec
 0,582,2021-08-05,Côte-Nord,Quebec
+0,582,2021-08-06,Côte-Nord,Quebec
+0,582,2021-08-07,Côte-Nord,Quebec
+1,583,2021-08-08,Côte-Nord,Quebec
+0,583,2021-08-09,Côte-Nord,Quebec
+2,585,2021-08-10,Côte-Nord,Quebec
+0,585,2021-08-11,Côte-Nord,Quebec
+3,588,2021-08-12,Côte-Nord,Quebec
+1,589,2021-08-13,Côte-Nord,Quebec
+0,589,2021-08-14,Côte-Nord,Quebec
+0,589,2021-08-15,Côte-Nord,Quebec
+0,589,2021-08-16,Côte-Nord,Quebec
+1,590,2021-08-17,Côte-Nord,Quebec
 0,0,2020-01-25,Estrie,Quebec
 0,0,2020-01-26,Estrie,Quebec
 0,0,2020-01-27,Estrie,Quebec
@@ -44719,6 +45667,18 @@ cases,cumulative_cases,date_report,health_region,province
 5,14962,2021-08-03,Estrie,Quebec
 2,14964,2021-08-04,Estrie,Quebec
 4,14968,2021-08-05,Estrie,Quebec
+4,14972,2021-08-06,Estrie,Quebec
+5,14977,2021-08-07,Estrie,Quebec
+9,14986,2021-08-08,Estrie,Quebec
+12,14998,2021-08-09,Estrie,Quebec
+19,15017,2021-08-10,Estrie,Quebec
+21,15038,2021-08-11,Estrie,Quebec
+22,15060,2021-08-12,Estrie,Quebec
+32,15092,2021-08-13,Estrie,Quebec
+28,15120,2021-08-14,Estrie,Quebec
+15,15135,2021-08-15,Estrie,Quebec
+15,15150,2021-08-16,Estrie,Quebec
+21,15171,2021-08-17,Estrie,Quebec
 0,0,2020-01-25,Gaspésie-Îles-de-la-Madeleine,Quebec
 0,0,2020-01-26,Gaspésie-Îles-de-la-Madeleine,Quebec
 0,0,2020-01-27,Gaspésie-Îles-de-la-Madeleine,Quebec
@@ -45278,6 +46238,18 @@ cases,cumulative_cases,date_report,health_region,province
 0,2072,2021-08-03,Gaspésie-Îles-de-la-Madeleine,Quebec
 0,2072,2021-08-04,Gaspésie-Îles-de-la-Madeleine,Quebec
 0,2072,2021-08-05,Gaspésie-Îles-de-la-Madeleine,Quebec
+0,2072,2021-08-06,Gaspésie-Îles-de-la-Madeleine,Quebec
+0,2072,2021-08-07,Gaspésie-Îles-de-la-Madeleine,Quebec
+2,2074,2021-08-08,Gaspésie-Îles-de-la-Madeleine,Quebec
+2,2076,2021-08-09,Gaspésie-Îles-de-la-Madeleine,Quebec
+0,2076,2021-08-10,Gaspésie-Îles-de-la-Madeleine,Quebec
+1,2077,2021-08-11,Gaspésie-Îles-de-la-Madeleine,Quebec
+1,2078,2021-08-12,Gaspésie-Îles-de-la-Madeleine,Quebec
+0,2078,2021-08-13,Gaspésie-Îles-de-la-Madeleine,Quebec
+1,2079,2021-08-14,Gaspésie-Îles-de-la-Madeleine,Quebec
+0,2079,2021-08-15,Gaspésie-Îles-de-la-Madeleine,Quebec
+1,2080,2021-08-16,Gaspésie-Îles-de-la-Madeleine,Quebec
+1,2081,2021-08-17,Gaspésie-Îles-de-la-Madeleine,Quebec
 0,0,2020-01-25,Lanaudière,Quebec
 0,0,2020-01-26,Lanaudière,Quebec
 0,0,2020-01-27,Lanaudière,Quebec
@@ -45837,6 +46809,18 @@ cases,cumulative_cases,date_report,health_region,province
 9,24202,2021-08-03,Lanaudière,Quebec
 18,24220,2021-08-04,Lanaudière,Quebec
 19,24239,2021-08-05,Lanaudière,Quebec
+21,24260,2021-08-06,Lanaudière,Quebec
+12,24272,2021-08-07,Lanaudière,Quebec
+15,24287,2021-08-08,Lanaudière,Quebec
+14,24301,2021-08-09,Lanaudière,Quebec
+9,24310,2021-08-10,Lanaudière,Quebec
+30,24340,2021-08-11,Lanaudière,Quebec
+28,24368,2021-08-12,Lanaudière,Quebec
+32,24400,2021-08-13,Lanaudière,Quebec
+24,24424,2021-08-14,Lanaudière,Quebec
+26,24450,2021-08-15,Lanaudière,Quebec
+28,24478,2021-08-16,Lanaudière,Quebec
+26,24504,2021-08-17,Lanaudière,Quebec
 0,0,2020-01-25,Laurentides,Quebec
 0,0,2020-01-26,Laurentides,Quebec
 0,0,2020-01-27,Laurentides,Quebec
@@ -46396,6 +47380,18 @@ cases,cumulative_cases,date_report,health_region,province
 13,21175,2021-08-03,Laurentides,Quebec
 10,21185,2021-08-04,Laurentides,Quebec
 19,21204,2021-08-05,Laurentides,Quebec
+13,21217,2021-08-06,Laurentides,Quebec
+20,21237,2021-08-07,Laurentides,Quebec
+14,21251,2021-08-08,Laurentides,Quebec
+20,21271,2021-08-09,Laurentides,Quebec
+19,21290,2021-08-10,Laurentides,Quebec
+24,21314,2021-08-11,Laurentides,Quebec
+20,21334,2021-08-12,Laurentides,Quebec
+23,21357,2021-08-13,Laurentides,Quebec
+34,21391,2021-08-14,Laurentides,Quebec
+14,21405,2021-08-15,Laurentides,Quebec
+16,21421,2021-08-16,Laurentides,Quebec
+27,21448,2021-08-17,Laurentides,Quebec
 0,0,2020-01-25,Laval,Quebec
 0,0,2020-01-26,Laval,Quebec
 0,0,2020-01-27,Laval,Quebec
@@ -46955,6 +47951,18 @@ cases,cumulative_cases,date_report,health_region,province
 26,32133,2021-08-03,Laval,Quebec
 12,32145,2021-08-04,Laval,Quebec
 29,32174,2021-08-05,Laval,Quebec
+27,32201,2021-08-06,Laval,Quebec
+37,32238,2021-08-07,Laval,Quebec
+31,32269,2021-08-08,Laval,Quebec
+25,32294,2021-08-09,Laval,Quebec
+51,32345,2021-08-10,Laval,Quebec
+50,32395,2021-08-11,Laval,Quebec
+56,32451,2021-08-12,Laval,Quebec
+65,32516,2021-08-13,Laval,Quebec
+84,32600,2021-08-14,Laval,Quebec
+20,32620,2021-08-15,Laval,Quebec
+81,32701,2021-08-16,Laval,Quebec
+43,32744,2021-08-17,Laval,Quebec
 0,0,2020-01-25,Mauricie,Quebec
 0,0,2020-01-26,Mauricie,Quebec
 0,0,2020-01-27,Mauricie,Quebec
@@ -47514,6 +48522,18 @@ cases,cumulative_cases,date_report,health_region,province
 29,15403,2021-08-03,Mauricie,Quebec
 31,15434,2021-08-04,Mauricie,Quebec
 43,15477,2021-08-05,Mauricie,Quebec
+40,15517,2021-08-06,Mauricie,Quebec
+35,15552,2021-08-07,Mauricie,Quebec
+24,15576,2021-08-08,Mauricie,Quebec
+17,15593,2021-08-09,Mauricie,Quebec
+15,15608,2021-08-10,Mauricie,Quebec
+14,15622,2021-08-11,Mauricie,Quebec
+19,15641,2021-08-12,Mauricie,Quebec
+17,15658,2021-08-13,Mauricie,Quebec
+15,15673,2021-08-14,Mauricie,Quebec
+13,15686,2021-08-15,Mauricie,Quebec
+23,15709,2021-08-16,Mauricie,Quebec
+18,15727,2021-08-17,Mauricie,Quebec
 0,0,2020-01-25,Montérégie,Quebec
 0,0,2020-01-26,Montérégie,Quebec
 0,0,2020-01-27,Montérégie,Quebec
@@ -48073,6 +49093,18 @@ cases,cumulative_cases,date_report,health_region,province
 21,51782,2021-08-03,Montérégie,Quebec
 30,51812,2021-08-04,Montérégie,Quebec
 23,51835,2021-08-05,Montérégie,Quebec
+33,51868,2021-08-06,Montérégie,Quebec
+18,51886,2021-08-07,Montérégie,Quebec
+41,51927,2021-08-08,Montérégie,Quebec
+46,51973,2021-08-09,Montérégie,Quebec
+23,51996,2021-08-10,Montérégie,Quebec
+57,52053,2021-08-11,Montérégie,Quebec
+61,52114,2021-08-12,Montérégie,Quebec
+54,52168,2021-08-13,Montérégie,Quebec
+56,52224,2021-08-14,Montérégie,Quebec
+49,52273,2021-08-15,Montérégie,Quebec
+60,52333,2021-08-16,Montérégie,Quebec
+36,52369,2021-08-17,Montérégie,Quebec
 0,0,2020-01-25,Montréal,Quebec
 0,0,2020-01-26,Montréal,Quebec
 0,0,2020-01-27,Montréal,Quebec
@@ -48632,6 +49664,18 @@ cases,cumulative_cases,date_report,health_region,province
 49,133862,2021-08-03,Montréal,Quebec
 39,133901,2021-08-04,Montréal,Quebec
 142,134043,2021-08-05,Montréal,Quebec
+50,134093,2021-08-06,Montréal,Quebec
+75,134168,2021-08-07,Montréal,Quebec
+98,134266,2021-08-08,Montréal,Quebec
+78,134344,2021-08-09,Montréal,Quebec
+58,134402,2021-08-10,Montréal,Quebec
+138,134540,2021-08-11,Montréal,Quebec
+109,134649,2021-08-12,Montréal,Quebec
+153,134802,2021-08-13,Montréal,Quebec
+154,134956,2021-08-14,Montréal,Quebec
+153,135109,2021-08-15,Montréal,Quebec
+140,135249,2021-08-16,Montréal,Quebec
+125,135374,2021-08-17,Montréal,Quebec
 0,0,2020-01-25,Nord-du-Québec,Quebec
 0,0,2020-01-26,Nord-du-Québec,Quebec
 0,0,2020-01-27,Nord-du-Québec,Quebec
@@ -49191,6 +50235,18 @@ cases,cumulative_cases,date_report,health_region,province
 0,110,2021-08-03,Nord-du-Québec,Quebec
 0,110,2021-08-04,Nord-du-Québec,Quebec
 0,110,2021-08-05,Nord-du-Québec,Quebec
+0,110,2021-08-06,Nord-du-Québec,Quebec
+0,110,2021-08-07,Nord-du-Québec,Quebec
+1,111,2021-08-08,Nord-du-Québec,Quebec
+-1,110,2021-08-09,Nord-du-Québec,Quebec
+0,110,2021-08-10,Nord-du-Québec,Quebec
+0,110,2021-08-11,Nord-du-Québec,Quebec
+0,110,2021-08-12,Nord-du-Québec,Quebec
+2,112,2021-08-13,Nord-du-Québec,Quebec
+1,113,2021-08-14,Nord-du-Québec,Quebec
+0,113,2021-08-15,Nord-du-Québec,Quebec
+0,113,2021-08-16,Nord-du-Québec,Quebec
+0,113,2021-08-17,Nord-du-Québec,Quebec
 0,0,2020-01-25,Not Reported,Quebec
 0,0,2020-01-26,Not Reported,Quebec
 0,0,2020-01-27,Not Reported,Quebec
@@ -49750,6 +50806,18 @@ cases,cumulative_cases,date_report,health_region,province
 3,535,2021-08-03,Not Reported,Quebec
 3,538,2021-08-04,Not Reported,Quebec
 1,539,2021-08-05,Not Reported,Quebec
+4,543,2021-08-06,Not Reported,Quebec
+8,551,2021-08-07,Not Reported,Quebec
+7,558,2021-08-08,Not Reported,Quebec
+4,562,2021-08-09,Not Reported,Quebec
+4,566,2021-08-10,Not Reported,Quebec
+2,568,2021-08-11,Not Reported,Quebec
+5,573,2021-08-12,Not Reported,Quebec
+4,577,2021-08-13,Not Reported,Quebec
+7,584,2021-08-14,Not Reported,Quebec
+9,593,2021-08-15,Not Reported,Quebec
+2,595,2021-08-16,Not Reported,Quebec
+-1,594,2021-08-17,Not Reported,Quebec
 0,0,2020-01-25,Nunavik,Quebec
 0,0,2020-01-26,Nunavik,Quebec
 0,0,2020-01-27,Nunavik,Quebec
@@ -50309,6 +51377,18 @@ cases,cumulative_cases,date_report,health_region,province
 0,47,2021-08-03,Nunavik,Quebec
 0,47,2021-08-04,Nunavik,Quebec
 0,47,2021-08-05,Nunavik,Quebec
+0,47,2021-08-06,Nunavik,Quebec
+0,47,2021-08-07,Nunavik,Quebec
+2,49,2021-08-08,Nunavik,Quebec
+0,49,2021-08-09,Nunavik,Quebec
+1,50,2021-08-10,Nunavik,Quebec
+-1,49,2021-08-11,Nunavik,Quebec
+0,49,2021-08-12,Nunavik,Quebec
+0,49,2021-08-13,Nunavik,Quebec
+0,49,2021-08-14,Nunavik,Quebec
+0,49,2021-08-15,Nunavik,Quebec
+0,49,2021-08-16,Nunavik,Quebec
+0,49,2021-08-17,Nunavik,Quebec
 0,0,2020-01-25,Outaouais,Quebec
 0,0,2020-01-26,Outaouais,Quebec
 0,0,2020-01-27,Outaouais,Quebec
@@ -50868,6 +51948,18 @@ cases,cumulative_cases,date_report,health_region,province
 8,12611,2021-08-03,Outaouais,Quebec
 4,12615,2021-08-04,Outaouais,Quebec
 4,12619,2021-08-05,Outaouais,Quebec
+3,12622,2021-08-06,Outaouais,Quebec
+0,12622,2021-08-07,Outaouais,Quebec
+5,12627,2021-08-08,Outaouais,Quebec
+8,12635,2021-08-09,Outaouais,Quebec
+0,12635,2021-08-10,Outaouais,Quebec
+5,12640,2021-08-11,Outaouais,Quebec
+8,12648,2021-08-12,Outaouais,Quebec
+10,12658,2021-08-13,Outaouais,Quebec
+14,12672,2021-08-14,Outaouais,Quebec
+9,12681,2021-08-15,Outaouais,Quebec
+11,12692,2021-08-16,Outaouais,Quebec
+7,12699,2021-08-17,Outaouais,Quebec
 0,0,2020-01-25,Saguenay,Quebec
 0,0,2020-01-26,Saguenay,Quebec
 0,0,2020-01-27,Saguenay,Quebec
@@ -51427,6 +52519,18 @@ cases,cumulative_cases,date_report,health_region,province
 4,11040,2021-08-03,Saguenay,Quebec
 2,11042,2021-08-04,Saguenay,Quebec
 6,11048,2021-08-05,Saguenay,Quebec
+6,11054,2021-08-06,Saguenay,Quebec
+2,11056,2021-08-07,Saguenay,Quebec
+2,11058,2021-08-08,Saguenay,Quebec
+0,11058,2021-08-09,Saguenay,Quebec
+2,11060,2021-08-10,Saguenay,Quebec
+0,11060,2021-08-11,Saguenay,Quebec
+1,11061,2021-08-12,Saguenay,Quebec
+1,11062,2021-08-13,Saguenay,Quebec
+2,11064,2021-08-14,Saguenay,Quebec
+0,11064,2021-08-15,Saguenay,Quebec
+11,11075,2021-08-16,Saguenay,Quebec
+-2,11073,2021-08-17,Saguenay,Quebec
 0,0,2020-01-25,Terres-Cries-de-la-Baie-James,Quebec
 0,0,2020-01-26,Terres-Cries-de-la-Baie-James,Quebec
 0,0,2020-01-27,Terres-Cries-de-la-Baie-James,Quebec
@@ -51986,6 +53090,18 @@ cases,cumulative_cases,date_report,health_region,province
 0,119,2021-08-03,Terres-Cries-de-la-Baie-James,Quebec
 0,119,2021-08-04,Terres-Cries-de-la-Baie-James,Quebec
 0,119,2021-08-05,Terres-Cries-de-la-Baie-James,Quebec
+0,119,2021-08-06,Terres-Cries-de-la-Baie-James,Quebec
+0,119,2021-08-07,Terres-Cries-de-la-Baie-James,Quebec
+0,119,2021-08-08,Terres-Cries-de-la-Baie-James,Quebec
+0,119,2021-08-09,Terres-Cries-de-la-Baie-James,Quebec
+0,119,2021-08-10,Terres-Cries-de-la-Baie-James,Quebec
+0,119,2021-08-11,Terres-Cries-de-la-Baie-James,Quebec
+0,119,2021-08-12,Terres-Cries-de-la-Baie-James,Quebec
+0,119,2021-08-13,Terres-Cries-de-la-Baie-James,Quebec
+0,119,2021-08-14,Terres-Cries-de-la-Baie-James,Quebec
+0,119,2021-08-15,Terres-Cries-de-la-Baie-James,Quebec
+0,119,2021-08-16,Terres-Cries-de-la-Baie-James,Quebec
+0,119,2021-08-17,Terres-Cries-de-la-Baie-James,Quebec
 0,0,2020-01-25,Not Reported,Repatriated
 0,0,2020-01-26,Not Reported,Repatriated
 0,0,2020-01-27,Not Reported,Repatriated
@@ -52545,6 +53661,18 @@ cases,cumulative_cases,date_report,health_region,province
 0,13,2021-08-03,Not Reported,Repatriated
 0,13,2021-08-04,Not Reported,Repatriated
 0,13,2021-08-05,Not Reported,Repatriated
+0,13,2021-08-06,Not Reported,Repatriated
+0,13,2021-08-07,Not Reported,Repatriated
+0,13,2021-08-08,Not Reported,Repatriated
+0,13,2021-08-09,Not Reported,Repatriated
+0,13,2021-08-10,Not Reported,Repatriated
+0,13,2021-08-11,Not Reported,Repatriated
+0,13,2021-08-12,Not Reported,Repatriated
+0,13,2021-08-13,Not Reported,Repatriated
+0,13,2021-08-14,Not Reported,Repatriated
+0,13,2021-08-15,Not Reported,Repatriated
+0,13,2021-08-16,Not Reported,Repatriated
+0,13,2021-08-17,Not Reported,Repatriated
 0,0,2020-01-25,Central,Saskatchewan
 0,0,2020-01-26,Central,Saskatchewan
 0,0,2020-01-27,Central,Saskatchewan
@@ -53104,6 +54232,18 @@ cases,cumulative_cases,date_report,health_region,province
 0,3251,2021-08-03,Central,Saskatchewan
 4,3255,2021-08-04,Central,Saskatchewan
 3,3258,2021-08-05,Central,Saskatchewan
+7,3265,2021-08-06,Central,Saskatchewan
+9,3274,2021-08-07,Central,Saskatchewan
+4,3278,2021-08-08,Central,Saskatchewan
+5,3283,2021-08-09,Central,Saskatchewan
+2,3285,2021-08-10,Central,Saskatchewan
+6,3291,2021-08-11,Central,Saskatchewan
+8,3299,2021-08-12,Central,Saskatchewan
+5,3304,2021-08-13,Central,Saskatchewan
+4,3308,2021-08-14,Central,Saskatchewan
+8,3316,2021-08-15,Central,Saskatchewan
+9,3325,2021-08-16,Central,Saskatchewan
+10,3335,2021-08-17,Central,Saskatchewan
 0,0,2020-01-25,Far North,Saskatchewan
 0,0,2020-01-26,Far North,Saskatchewan
 0,0,2020-01-27,Far North,Saskatchewan
@@ -53663,6 +54803,18 @@ cases,cumulative_cases,date_report,health_region,province
 9,5681,2021-08-03,Far North,Saskatchewan
 22,5703,2021-08-04,Far North,Saskatchewan
 10,5713,2021-08-05,Far North,Saskatchewan
+12,5725,2021-08-06,Far North,Saskatchewan
+32,5757,2021-08-07,Far North,Saskatchewan
+17,5774,2021-08-08,Far North,Saskatchewan
+7,5781,2021-08-09,Far North,Saskatchewan
+28,5809,2021-08-10,Far North,Saskatchewan
+28,5837,2021-08-11,Far North,Saskatchewan
+50,5887,2021-08-12,Far North,Saskatchewan
+29,5916,2021-08-13,Far North,Saskatchewan
+28,5944,2021-08-14,Far North,Saskatchewan
+11,5955,2021-08-15,Far North,Saskatchewan
+15,5970,2021-08-16,Far North,Saskatchewan
+20,5990,2021-08-17,Far North,Saskatchewan
 0,0,2020-01-25,North,Saskatchewan
 0,0,2020-01-26,North,Saskatchewan
 0,0,2020-01-27,North,Saskatchewan
@@ -54222,6 +55374,18 @@ cases,cumulative_cases,date_report,health_region,province
 8,10796,2021-08-03,North,Saskatchewan
 7,10803,2021-08-04,North,Saskatchewan
 10,10813,2021-08-05,North,Saskatchewan
+18,10831,2021-08-06,North,Saskatchewan
+24,10855,2021-08-07,North,Saskatchewan
+10,10865,2021-08-08,North,Saskatchewan
+17,10882,2021-08-09,North,Saskatchewan
+8,10890,2021-08-10,North,Saskatchewan
+21,10911,2021-08-11,North,Saskatchewan
+23,10934,2021-08-12,North,Saskatchewan
+30,10964,2021-08-13,North,Saskatchewan
+33,10997,2021-08-14,North,Saskatchewan
+38,11035,2021-08-15,North,Saskatchewan
+27,11062,2021-08-16,North,Saskatchewan
+36,11098,2021-08-17,North,Saskatchewan
 0,0,2020-01-25,Not Reported,Saskatchewan
 0,0,2020-01-26,Not Reported,Saskatchewan
 0,0,2020-01-27,Not Reported,Saskatchewan
@@ -54781,6 +55945,18 @@ cases,cumulative_cases,date_report,health_region,province
 -2,511,2021-08-03,Not Reported,Saskatchewan
 4,515,2021-08-04,Not Reported,Saskatchewan
 1,516,2021-08-05,Not Reported,Saskatchewan
+-1,515,2021-08-06,Not Reported,Saskatchewan
+3,518,2021-08-07,Not Reported,Saskatchewan
+3,521,2021-08-08,Not Reported,Saskatchewan
+0,521,2021-08-09,Not Reported,Saskatchewan
+-3,518,2021-08-10,Not Reported,Saskatchewan
+-2,516,2021-08-11,Not Reported,Saskatchewan
+1,517,2021-08-12,Not Reported,Saskatchewan
+1,518,2021-08-13,Not Reported,Saskatchewan
+1,519,2021-08-14,Not Reported,Saskatchewan
+16,535,2021-08-15,Not Reported,Saskatchewan
+-3,532,2021-08-16,Not Reported,Saskatchewan
+4,536,2021-08-17,Not Reported,Saskatchewan
 0,0,2020-01-25,Regina,Saskatchewan
 0,0,2020-01-26,Regina,Saskatchewan
 0,0,2020-01-27,Regina,Saskatchewan
@@ -55340,6 +56516,18 @@ cases,cumulative_cases,date_report,health_region,province
 0,12190,2021-08-03,Regina,Saskatchewan
 1,12191,2021-08-04,Regina,Saskatchewan
 5,12196,2021-08-05,Regina,Saskatchewan
+2,12198,2021-08-06,Regina,Saskatchewan
+11,12209,2021-08-07,Regina,Saskatchewan
+5,12214,2021-08-08,Regina,Saskatchewan
+5,12219,2021-08-09,Regina,Saskatchewan
+6,12225,2021-08-10,Regina,Saskatchewan
+5,12230,2021-08-11,Regina,Saskatchewan
+2,12232,2021-08-12,Regina,Saskatchewan
+7,12239,2021-08-13,Regina,Saskatchewan
+3,12242,2021-08-14,Regina,Saskatchewan
+7,12249,2021-08-15,Regina,Saskatchewan
+3,12252,2021-08-16,Regina,Saskatchewan
+6,12258,2021-08-17,Regina,Saskatchewan
 0,0,2020-01-25,Saskatoon,Saskatchewan
 0,0,2020-01-26,Saskatoon,Saskatchewan
 0,0,2020-01-27,Saskatoon,Saskatchewan
@@ -55899,6 +57087,18 @@ cases,cumulative_cases,date_report,health_region,province
 4,11811,2021-08-03,Saskatoon,Saskatchewan
 13,11824,2021-08-04,Saskatoon,Saskatchewan
 21,11845,2021-08-05,Saskatoon,Saskatchewan
+20,11865,2021-08-06,Saskatoon,Saskatchewan
+41,11906,2021-08-07,Saskatoon,Saskatchewan
+24,11930,2021-08-08,Saskatoon,Saskatchewan
+12,11942,2021-08-09,Saskatoon,Saskatchewan
+18,11960,2021-08-10,Saskatoon,Saskatchewan
+23,11983,2021-08-11,Saskatoon,Saskatchewan
+18,12001,2021-08-12,Saskatoon,Saskatchewan
+18,12019,2021-08-13,Saskatoon,Saskatchewan
+39,12058,2021-08-14,Saskatoon,Saskatchewan
+37,12095,2021-08-15,Saskatoon,Saskatchewan
+22,12117,2021-08-16,Saskatoon,Saskatchewan
+27,12144,2021-08-17,Saskatoon,Saskatchewan
 0,0,2020-01-25,South,Saskatchewan
 0,0,2020-01-26,South,Saskatchewan
 0,0,2020-01-27,South,Saskatchewan
@@ -56458,6 +57658,18 @@ cases,cumulative_cases,date_report,health_region,province
 5,5880,2021-08-03,South,Saskatchewan
 10,5890,2021-08-04,South,Saskatchewan
 20,5910,2021-08-05,South,Saskatchewan
+29,5939,2021-08-06,South,Saskatchewan
+19,5958,2021-08-07,South,Saskatchewan
+18,5976,2021-08-08,South,Saskatchewan
+10,5986,2021-08-09,South,Saskatchewan
+6,5992,2021-08-10,South,Saskatchewan
+11,6003,2021-08-11,South,Saskatchewan
+39,6042,2021-08-12,South,Saskatchewan
+32,6074,2021-08-13,South,Saskatchewan
+20,6094,2021-08-14,South,Saskatchewan
+26,6120,2021-08-15,South,Saskatchewan
+12,6132,2021-08-16,South,Saskatchewan
+6,6138,2021-08-17,South,Saskatchewan
 0,0,2020-01-25,Yukon,Yukon
 0,0,2020-01-26,Yukon,Yukon
 0,0,2020-01-27,Yukon,Yukon
@@ -57017,3 +58229,15 @@ cases,cumulative_cases,date_report,health_region,province
 7,610,2021-08-03,Yukon,Yukon
 6,616,2021-08-04,Yukon,Yukon
 7,623,2021-08-05,Yukon,Yukon
+1,624,2021-08-06,Yukon,Yukon
+0,624,2021-08-07,Yukon,Yukon
+0,624,2021-08-08,Yukon,Yukon
+9,633,2021-08-09,Yukon,Yukon
+3,636,2021-08-10,Yukon,Yukon
+2,638,2021-08-11,Yukon,Yukon
+7,645,2021-08-12,Yukon,Yukon
+2,647,2021-08-13,Yukon,Yukon
+0,647,2021-08-14,Yukon,Yukon
+0,647,2021-08-15,Yukon,Yukon
+0,647,2021-08-16,Yukon,Yukon
+13,660,2021-08-17,Yukon,Yukon

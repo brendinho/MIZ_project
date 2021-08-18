@@ -128,7 +128,7 @@ lookup_HR_mine <- function(x)
     if(x %in% unique(HR_info_mine$CSDUID2016))
     {
         temp <- HR_info_mine |> dplyr::filter(CSDUID2016 == x) |> dplyr::select(HR, HRUID2018) |> as.list()
-        if(length(temp) > 1) "duplicate" else temp
+        if(length(temp$`HR`) > 1) "duplicate" else temp
     } else { "missing" }
 }
 
@@ -137,8 +137,8 @@ HR_info_StatCan_lookup <- HR_info_StatCan |> dplyr::select(-CSDUID2016) |> uniqu
 lookup_HR_StatCan <- function(x)
 {
     if(x %in% unique(HR_info_StatCan$CSDUID2016)) {
-        temp <- HR_info_StatCan |> dplyr::filter(CSDUID2016 == 1001101) |> dplyr::select(HR, HRUID2018) |> as.list()
-        if(length(temp) > 1) "duplicate" else temp
+        temp <- HR_info_StatCan |> dplyr::filter(CSDUID2016 == x) |> dplyr::select(HR, HRUID2018) |> as.list()
+        if(length(temp$`HR`) > 1) "duplicate" else temp
     } else { "missing" }
 }
 
@@ -229,6 +229,7 @@ add_wave_numbers <- function(input_table, case_col="cases", date_col="date", day
         seg.Z = ~ index,
         npsi=1
     )
+    
     # positively identify this valley at the start of the second wave
     start_of_second_wave <- tab_here[index == floor(data.table(seg_reg$psi)$Initial)]$date
     # add a column to the table with the number of the wave

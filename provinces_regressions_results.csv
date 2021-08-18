@@ -1,0 +1,30 @@
+Province,Parameters,first_wave_value,first_wave_p,second_wave_value,second_wave_p,total_value,total_p
+Province,Parameters,$\beta_i$,$p$-value,$\beta_i$,$p$-value,$\beta_i$,$p$-value
+Ontario,Intercept,0.0127,0,0.0106,0,0.0131,0
+Ontario,$\aR$,-1e-04,0.007,-1e-04,0.108,-1e-04,0.002
+Ontario,$F^c_{\le2}$,0,0.059,0,0.003,0,0.001
+Ontario,$F^c_{\ge3}$,0,0.497,0,0.058,0,0.094
+Ontario,$F_0$,0,0.064,0,0.001,0,0.001
+Ontario,$L$,0,0.344,0,0.03,0,0.039
+Ontario,$x$,,,,,-0.001,0.376
+British Columbia,Intercept,0.007,0.144,0.014,0.048,0.0034,0.476
+British Columbia,$\aR$,0,0.898,0,0.951,0,0.978
+British Columbia,$F^c_{\le2}$,0,0.15,0,0.24,0,0.042
+British Columbia,$F^c_{\ge3}$,0,0.212,0,0.411,0,0.113
+British Columbia,$F_0$,0,0.819,0,0.965,0,0.848
+British Columbia,$L$,0,0.735,0,0.665,0,0.535
+British Columbia,$x$,,,,,0.0047,0.034
+Quebec,Intercept,0.0154,0.008,0.0051,0.101,0.0319,0
+Quebec,$\aR$,-1e-04,0.047,0,0.842,0,0.125
+Quebec,$F^c_{\le2}$,0,0.025,0,0.94,0,0.058
+Quebec,$F^c_{\ge3}$,0,0.022,0,0.889,0,0.063
+Quebec,$F_0$,0,0.038,0,0.905,0,0.098
+Quebec,$L$,0,0.045,0,0.765,0,0.13
+Quebec,$x$,,,,,-0.0144,0
+Saskatchewan,Intercept,0.0492,0.004,0.0225,0.002,0.0502,0
+Saskatchewan,$\aR$,-1e-04,0.458,1e-04,0.266,0,0.782
+Saskatchewan,$F^c_{\le2}$,0,0.823,0,0.337,0,0.578
+Saskatchewan,$F^c_{\ge3}$,0,0.36,0,0.7,0,0.323
+Saskatchewan,$F_0$,0,0.526,0,0.075,0,0.202
+Saskatchewan,$L$,0,0.795,0,0.191,0,0.795
+Saskatchewan,$x$,,,,,-0.0096,0.097

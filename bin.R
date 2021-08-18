@@ -770,3 +770,107 @@
 #     fread("all_possible_linear_models_Quebec.csv"),
 #     fread("all_possible_linear_models_New_Brunswick.csv")
 # )
+
+###########################3 TORONTO BRUTE FORCE FOR MODELS
+
+# measures_of_testing_vaccination <- c("testing_sites", "vaccination_sites")
+# measures_of_people <- c("population_2016")
+# measures_of_age <- c("children_(0_14_years)", "youth_(15_24_years)", "working_age_(25_54_years)", "pre_retirement_(55_64_years)", "seniors_(65+_years)", "older_seniors_(85+_years)")
+# measures_of_household_composition <- c("private_households_by_household_size_1_person", "private_households_by_household_size_2_persons", "private_households_by_household_size_3_persons", "private_households_by_household_size_4_persons", "private_households_by_household_size_5_or_more_persons")
+#
+# measures_of_race <- c("total_visible_minority_population")
+#
+# measures_of_education <- c(
+#     # "apprenticeship_or_trades_certificate_or_diploma", "trades_certificate_or_diploma_other_than_certificate_of_apprenticeship_or_certificate_of_qualification", "certificate_of_apprenticeship_or_certificate_of_qualification", "university_certificate_or_diploma_below_bachelor_level",
+#
+#                            "bachelor's_degree", "university_certificate_or_diploma_above_bachelor_level", "earned_doctorate", "master's_degree")
+#
+# measures_of_commuters <- c("total_commuters")
+#
+# probabilitiies <- c("p_ever_hospitalised", "p_ever_in_icu", "p_ever_intubated")
+#
+#
+# regress_combinations2 <- list()
+#
+#
+# for(test_vacc in powerset(measures_of_testing_vaccination)){
+# for(pop in powerset(measures_of_people)){
+# for(ages in powerset(measures_of_age)){
+# for(household_dist in powerset(measures_of_household_composition)){
+# for(race in powerset(measures_of_race)){
+#     if(length(race) > 1) race <- race[which(race != "total_visible_minority_population")]
+# for(edu in powerset(measures_of_education)){
+# for(commuters in powerset(measures_of_commuters))
+# {
+#     regress_combinations2 <- append(regress_combinations2, list(c(test_vacc, pop, commuters)))
+#     # regress_combinations <- regress_combinations + 1
+#
+# }}}}}}}
+# regress_combinations2 <- unique(regress_combinations2)
+#
+# results2 <- data.table(command=as.character(), num_signif=as.integer(), names_signif=as.character(), remoteness_signif=logical())
+#
+# for(combo in regress_combinations){
+# for(remote in measures_of_remoteness)
+# {
+#     string <- sprintf("second_wave_proportion ~ %s", paste(c(combo, remote), collapse=" + "))
+#     regress2 <- lm(formula = as.formula(string), data = Total_Data)
+#
+#     lm(second_wave_proportion ~ couples_with_0_children + couples_with_1_child + couples_with_2_children + sgls_w_ch + people_commuting_within_province + people_commuting_within_CSD + people_commuting_within_CD_but_not_CSD + people_commuting_within_province_but_not_CD + people_commuting_outside_province + aR_score, data=Total_Data)
+#
+#     p_vals <- summary(regress)$coefficients[, 4]
+#
+#     results2 <- rbind(results2, list(
+#         command = string,
+#         num_signif = length(which(p_vals <= 0.05)),
+#         remoteness_signif = remote %in% names(which(p_vals <= 0.05)),
+#         names_signif = paste0(names(which(p_vals <= 0.05)), collapse=",")
+#     ))
+# }}
+
+
+###########################################################################################
+
+# Canada_Line_List <- fread("canada_complete_COVID19_line_list.csv") |>
+#     dplyr::filter(record_type=="Infection") |>
+#     dplyr::mutate(date_report=as.Date(date_report, format="%d-%m-%Y")) |>
+#     dplyr::group_by(sex, health_region, province, date_report) |>
+#     dplyr::tally() |>
+#     dplyr::rename(num_cases=n)
+
+
+##################################################################################################
+
+# # KULLBACK-LEIBLER DIVERGENCES
+# male_delays <- raw_toronto_fsa_data[client_gender=="MALE", reporting_delay]
+# female_delays <- raw_toronto_fsa_data[client_gender=="FEMALE", reporting_delay]
+# sex_female_male_JSD <- JSD(rbind( sample(male_delays, 1000000, replace=T), sample(male_delays, 1000000, replace=T) ))
+#
+# male_delays_wave_1 <- raw_toronto_fsa_data[client_gender=="MALE" & wave==1, reporting_delay]
+# female_delays_wave_1 <- raw_toronto_fsa_data[client_gender=="FEMALE" & wave==1, reporting_delay]
+# MAT_wave_1 <- rbind(tabulate(male_delays_wave_1), tabulate(female_delays_wave_1))
+# sex_chi_wave_1 <- chisq.test(MAT_wave_1)
+# sex_JSD_wave_1 <- JSD(MAT_wave_1)
+#
+# male_delays_wave_2 <- raw_toronto_fsa_data[client_gender=="MALE" & wave==2, reporting_delay]
+# female_delays_wave_2 <- raw_toronto_fsa_data[client_gender=="FEMALE" & wave==2, reporting_delay]
+# MAT_wave_2 <- rbind(tabulate(male_delays_wave_2), tabulate(female_delays_wave_2))
+# sex_chi_wave_2 <- chisq.test(MAT_wave_2[, colSums(MAT_wave_2 != 0) > 1])
+# sex_JSD_wave_2 <- JSD(MAT_wave_2)
+
+
+# sex_female_male_wave_1_JSD <- JSD(rbind( sample(male_delays_wave_1, 1000000, replace=T), sample(female_delays_wave_1, 1000000, replace=T) ))
+#
+# sex_female_male_wave_1_kld <- KLD(sample(male_delays_wave_1, 100000, replace=T), sample(female_delays_wave_1, 100000, replace=T))
+#
+# male_delays_wave_2 <- raw_toronto_fsa_data[client_gender=="MALE" & wave==2, reporting_delay]
+# female_delays_wave_2 <- raw_toronto_fsa_data[client_gender=="FEMALE" & wave==2, reporting_delay]
+# sex_female_male_wave_2_kld <- KLD(sample(male_delays, 1000000, replace=T), sample(male_delays, 1000000, replace=T))
+#
+# child_delays <-  raw_toronto_fsa_data[age_group=="19 and younger", reporting_delay]
+# adult_delays <-  raw_toronto_fsa_data[age_group!="19 and younger", reporting_delay]
+# age_child_adult_kld <- KLD(sample(child_delays, 1000000, replace=T), sample(adult_delays, 1000000, replace=T))
+
+
+
+
