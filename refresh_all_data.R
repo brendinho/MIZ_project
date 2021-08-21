@@ -398,7 +398,7 @@ Regions <- merge(
         aR_score = as.integer(unlist(lapply(class, CSD_score_class))),
         mR_score = as.integer(unlist(lapply(class, CSD_score_normal))),
         class = factor(class)
-    ) 
+    )
     saveRDS(Regions, sprintf("%s/CaseDataTables/Regions.rda", PROJECT_FOLDER))
     
 writeLines("\nCumulative cases")
@@ -441,10 +441,25 @@ Remoteness <- data.table(Regions)[,
 
 writeLines("\nTotal Data - adding HRs and saving")
 Total_Data <- Reduce(
-        function(...) merge(..., all = TRUE, by = c("HR", "HRUID2018", "province")),
-        list(Remoteness, Time_to_Peak, Cumul_Cases)
+        function(...) merge(..., all = TRUE, by = c("HR", "province")),
+        list(
+            Remoteness, 
+            Time_to_Peak,
+            Cumul_Cases,
+            data.table(Regions)[
+                , 
+                .(
+                    aR_weighted_by_pop = sum(aR_score*population, na.rm=TRUE)/sum(population, na.rm=TRUE),
+                    mR_weighted_by_pop = sum(mR_score*population, na.rm=TRUE)/sum(population, na.rm=TRUE),
+                    mean_mR = sum(mR_score, na.rm=T)/sum(num_csds),
+                    mean_aR = sum(aR_score, na.rm=T)/sum(num_csds)
+                ), 
+                by=.(province, HR)
+            ]
+        )
     ) %>%
     dplyr::mutate(
+        HRUID = factor(HRUID2018.x),
         first_wave_proportion = first_wave_cases/population,
         second_wave_proportion = second_wave_cases/population,
         total_proportion = first_wave_proportion + second_wave_proportion,
@@ -455,8 +470,8 @@ Total_Data <- Reduce(
         people_commuting_within_province = people_commuting_within_csd + people_commuting_within_cd_but_not_csd +
             people_commuting_within_province_but_not_cd,
         HR = factor(HR),
-        HRUID2018 = factor(HRUID2018),
-    )
+    ) %>%
+    dplyr::select(-HRUID2018.x, -HRUID2018.y)
     fwrite(Total_Data, sprintf("%s/CaseDataTables/Total_Data.csv", PROJECT_FOLDER))
 
 

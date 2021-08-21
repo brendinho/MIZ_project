@@ -1,9 +1,9 @@
 vars,first_wave_value,first_wave_p,second_wave_value,second_wave_p,total_value,total_p
-(Intercept),0.0118,0,0.0097,0,0.0157,0
-aR_score,0,0.43,0,0.77,0,0.41
-families_with_children_of_size_2_or_smaller,0,0.34,0,0.13,0,0.11
-families_with_children_of_size_3_or_larger,0,0.51,0,0.08,0,0.72
-families_with_no_children,0,0.27,0,0.6,0,0.5
-population_density,0,0.03,0,0.23,0,0.01
-total_commuters,0,0.13,0,0.49,0,0.35
-wave,,,,,-0.0033,0.04
+(Intercept),-5812.755,0.0019,-2047.879,0.132,-959.808,0.5931
+families_with_children_of_size_3_or_smaller,-0.536,1e-04,0.11,0.2603,-0.213,0.0444
+families_with_children_of_size_4_or_larger,0.734,0,0.69,0,0.712,0
+families_with_no_children,0.14,3e-04,0.1,5e-04,0.12,1e-04
+mean_aR,1770.401,0.1234,-43.481,0.9589,863.46,0.3469
+population_density,9.323,0,0.891,0.3721,5.107,0
+total_commuters,-0.056,0.275,-0.174,0,-0.115,0.0054
+wave,,,,,-1980.339,0.0045
