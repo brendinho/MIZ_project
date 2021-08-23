@@ -7,6 +7,7 @@ library(cancensus)
 library(CanCovidData)
 library(stringr)
 library(XLConnect)
+\library(sf)
 
 PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
 
@@ -213,7 +214,7 @@ BC_cases <- fread("http://www.bccdc.ca/Health-Info-Site/Documents/BCCDC_COVID19_
     dplyr::filter(! HSDA %in% c("All", "Unknown", "Out of Canada")) %>%
     dplyr::rename(date=Date, HR=HSDA, cases=Cases_Reported) %>%
     dplyr::mutate(date=as.Date(date), province="British Columbia") %>%
-    add_wave_numbers() %>% .[['cases']] %>%
+    # add_wave_numbers() %>% .[['cases']] %>%
     data.table()
     fwrite(BC_cases, sprintf("%s/CaseDataTables/BC_cases.csv", PROJECT_FOLDER))
 
@@ -226,7 +227,7 @@ QC_cases <- fread("https://www.inspq.qc.ca/sites/default/files/covid/donnees/cov
     dplyr::mutate(Nom = Nom %>% replace_accents() %>% trim_numbers()) %>%
     dplyr::rename(date=Date, HR=Nom, cases=cas_quo_tot_n) %>%
     dplyr::mutate(date=as.Date(date), province="Quebec", cases = as.numeric(cases)) %>%
-    add_wave_numbers() %>% .[['cases']] %>%
+    # add_wave_numbers() %>% .[['cases']] %>%
     data.table()
     fwrite(QC_cases, sprintf("%s/CaseDataTables/QC_cases.csv", PROJECT_FOLDER))
 
@@ -238,7 +239,7 @@ MB_cases <- UofT_api_case_data %>%
     dplyr::select(province, date_report, health_region, cases) %>%
     dplyr::rename(date=date_report, HR=health_region) %>%
     dplyr::mutate(date=as.Date(date), province="Manitoba") %>%
-    add_wave_numbers() %>% .[['cases']] %>%
+    # add_wave_numbers() %>% .[['cases']] %>%
     data.table()
     fwrite(MB_cases, sprintf("%s/CaseDataTables/MB_cases.csv", PROJECT_FOLDER))
 
@@ -249,7 +250,7 @@ SK_cases <- get_saskatchewan_case_data() %>%
     dplyr::select("Date", "Region", "New Cases") %>%
     dplyr::rename(date=Date, HR=Region, cases="New Cases") %>%
     dplyr::mutate(date=as.Date(date), province="Saskatchewan") %>%
-    add_wave_numbers() %>% .[['cases']] %>%
+    # add_wave_numbers() %>% .[['cases']] %>%
     data.table()
     fwrite(SK_cases, sprintf("%s/CaseDataTables/SK_cases.csv", PROJECT_FOLDER))
 
@@ -262,7 +263,7 @@ PE_cases <- UofT_api_case_data %>%
     dplyr::select(province, date_report, health_region, cases) %>%
     dplyr::rename(date=date_report, HR=health_region) %>%
     dplyr::mutate(date=as.Date(date), province="Prince Edward Island") %>%
-    add_wave_numbers() %>% .[['cases']] %>%
+    # add_wave_numbers() %>% .[['cases']] %>%
     data.table()
     fwrite(PE_cases, sprintf("%s/CaseDataTables/PE_cases.csv", PROJECT_FOLDER))
     
@@ -271,7 +272,7 @@ NT_cases <- UofT_api_case_data %>%
     dplyr::select(province, date_report, health_region, cases) %>%
     dplyr::rename(date=date_report, HR=health_region) %>%
     dplyr::mutate(date=as.Date(date), province="Northwest Territories") %>%
-    add_wave_numbers() %>% .[['cases']] %>%
+    # add_wave_numbers() %>% .[['cases']] %>%
     data.table()
     fwrite(NT_cases, sprintf("%s/CaseDataTables/NT_cases.csv", PROJECT_FOLDER))
     
@@ -280,7 +281,7 @@ YT_cases <- UofT_api_case_data %>%
     dplyr::select(province, date_report, health_region, cases) %>%
     dplyr::rename(date=date_report, HR=health_region) %>%
     dplyr::mutate(date=as.Date(date), province="Yukon") %>%
-    add_wave_numbers() %>% .[['cases']] %>%
+    # add_wave_numbers() %>% .[['cases']] %>%
     data.table()
     fwrite(YT_cases, sprintf("%s/CaseDataTables/YT_cases.csv", PROJECT_FOLDER))
     
@@ -289,7 +290,7 @@ NU_cases <- UofT_api_case_data %>%
     dplyr::select(province, date_report, health_region, cases) %>%
     dplyr::rename(date=date_report, HR=health_region) %>%
     dplyr::mutate(date=as.Date(date), province="Nunavut") %>%
-    add_wave_numbers() %>% .[['cases']] %>%
+    # add_wave_numbers() %>% .[['cases']] %>%
     data.table()
     fwrite(NU_cases, sprintf("%s/CaseDataTables/NU_cases.csv", PROJECT_FOLDER))
 
@@ -304,7 +305,7 @@ ON_cases <- fread("https://data.ontario.ca/dataset/f4f86e54-872d-43f8-8a86-3892f
     dplyr::rename(date=Date, HR=variable, cases=value) %>%
     # dplyr::mutate(HR = standard_HR_names(HR)) %>%
     dplyr::mutate(province = "Ontario", date=as.Date(date)) %>%
-    add_wave_numbers() %>% .[['cases']] %>%
+    # add_wave_numbers() %>% .[['cases']] %>%
     data.table()
     fwrite(ON_cases, sprintf("%s/CaseDataTables/ON_cases.csv", PROJECT_FOLDER))
 
@@ -332,7 +333,7 @@ AB_cases <- fread("https://www.alberta.ca/data/stats/covid-19-alberta-statistics
     dplyr::tally() %>%
     dplyr::rename(cases=n) %>%
     dplyr::mutate(province="Alberta") %>%
-    add_wave_numbers() %>% .[['cases']] %>%
+    # add_wave_numbers() %>% .[['cases']] %>%
     data.table()
     fwrite(AB_cases, sprintf("%s/CaseDataTables/AB_cases.csv", PROJECT_FOLDER))
 
@@ -344,7 +345,7 @@ NB_cases <- UofT_api_case_data %>%
     dplyr::select(province, date_report, health_region, cases) %>%
     dplyr::rename(date=date_report, HR=health_region) %>%
     dplyr::mutate(date=as.Date(date)) %>%
-    add_wave_numbers() %>% .[['cases']] %>%
+    # add_wave_numbers() %>% .[['cases']] %>%
     data.table()
     fwrite(NB_cases, sprintf("%s/CaseDataTables/NB_cases.csv", PROJECT_FOLDER))
 
@@ -356,7 +357,7 @@ NS_cases <- UofT_api_case_data %>%
     dplyr::select(province, date_report, health_region, cases) %>%
     dplyr::rename(date=date_report, HR=health_region) %>%
     dplyr::mutate(date=as.Date(date)) %>%
-    add_wave_numbers() %>% .[['cases']] %>%
+    # add_wave_numbers() %>% .[['cases']] %>%
     data.table()
     fwrite(NS_cases, sprintf("%s/CaseDataTables/NS_cases.csv", PROJECT_FOLDER))
 
@@ -368,7 +369,7 @@ NL_cases <- UofT_api_case_data %>%
     dplyr::select(province, date_report, health_region, cases) %>%
     dplyr::rename(date=date_report, HR=health_region) %>%
     dplyr::mutate(date=as.Date(date), province="Newfoundland and Labrador") %>%
-    add_wave_numbers() %>% .[['cases']] %>%
+    # add_wave_numbers() %>% .[['cases']] %>%
     data.table()
     fwrite(NL_cases, sprintf("%s/CaseDataTables/NL_cases.csv", PROJECT_FOLDER))
 
@@ -446,16 +447,7 @@ Total_Data <- Reduce(
             Remoteness, 
             Time_to_Peak,
             Cumul_Cases,
-            data.table(Regions)[
-                , 
-                .(
-                    aR_weighted_by_pop = sum(aR_score*population, na.rm=TRUE)/sum(population, na.rm=TRUE),
-                    mR_weighted_by_pop = sum(mR_score*population, na.rm=TRUE)/sum(population, na.rm=TRUE),
-                    mean_mR = sum(mR_score, na.rm=T)/sum(num_csds),
-                    mean_aR = sum(aR_score, na.rm=T)/sum(num_csds)
-                ), 
-                by=.(province, HR)
-            ]
+            data.table(Regions)[, .(mR_weighted_by_pop = sum(mR_score*population, na.rm=TRUE)/sum(population, na.rm=TRUE)), by=.(province, HR)]
         )
     ) %>%
     dplyr::mutate(

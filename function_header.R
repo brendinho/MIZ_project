@@ -1,6 +1,6 @@
 library(dplyr)
 library(data.table)
-library(segmented)
+# library(segmented)
 
 PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
 
@@ -200,72 +200,103 @@ add_HRUIDs <- function(table, HR_column="HR", province_column="province")
     return(here)
 }
 
-add_wave_numbers <- function(input_table, case_col="cases", date_col="date", days_apart=50)
-{ 
-    # this function assumes that 1) there are only two waves, 2) exponential growth and decline of case numbers during each phase
-    # perhaps this could be better handled with simple breakpoint analysis and the `npsi` argument to segmented (also allowing the 
-    #    user to speciufy the number of waves they're looking for), but that's a problem for future me
-    
-    # get rid of all the extraneous information
-    tab_here <- input_table %>%        
-        dplyr::rename(cases=case_col, date=date_col) %>%
-        dplyr::filter( !is.na(cases) & cases>0) %>%
-        dplyr::mutate(
-            cases = as.numeric(cases), 
-            date = as.Date(date)
-        ) %>%
-        dplyr::group_by(date) %>% 
-        dplyr::tally(cases) %>% 
-        dplyr::rename(cases=n) %>% 
-        dplyr::mutate(index=as.numeric(date), date=as.Date(date)) %>%
-        data.table()
-    
-    # at least one of the peaks will be an absolute maximum - choose the first one with the max number of cases
-    first_peak <- tab_here[cases==max(cases)][1]
-    # find the second peak as the absolute maximum on either `days_apart` side of the first peak identified
-    second_peak <- tab_here[abs(date-first_peak$date)>days_apart][cases==max(cases)]
-
-    # get the dates of the two peaks
-    first_peak_date <- min(first_peak$date, second_peak$date)
-    second_peak_date <- max(first_peak$date, second_peak$date)
-    
-    # do a breakpoint analysis to get the valley between the two peaks
-    seg_reg <- segmented(
-        lm(log(cases) ~ index, data=tab_here[date>=first_peak_date & date<=second_peak_date]),
-        seg.Z = ~ index,
-        npsi=1
-    )
-    
-    # prepare the table that will ultimately be returned
-    output_table <- input_table %>%
-        dplyr::rename(cases = case_col) %>%
-        dplyr::relocate(cases, .after=last_col())
-
-    
-    if(!length(seg_reg$psi)){
-        # if no break-point was found, return the table with wave number 1
-        return(list(
-            "date" = as.Date(NA),
-            "cases" = output_table %>% dplyr::mutate(wave = 1)
-        ))
-    } else {
-        # positively identify this valley at the start of the second wave
-        start_of_second_wave <- tab_here[index == floor(data.table(seg_reg$psi)$Initial)]$date
-        # if no break date was found, return the table with wave number 1
-        if(!length(start_of_second_wave)){
-            return(list(
-                "date" = as.Date(NA),
-                "cases" = output_table %>% dplyr::mutate(wave = 1)
-            ))
-        } else {
-            # return both the date of the second wave and the case table with the information added
-            return(list(
-                "date" = start_of_second_wave,
-                "cases" = output_table %>% dplyr::mutate(wave = if_else(date>start_of_second_wave, 2, 1))
-            ))
-        }
-    }
-}
+# add_wave_numbers <- function(input_table, case_col="cases", date_col="date", num_waves=3, days_apart=60)
+# { 
+#     weekly_moving_average <- function(x) stats::filter(x, rep(1,7), sides = 1)/7
+# 
+#     # get rid of all the extraneous information
+#     tab_here <- input_table %>%
+#         dplyr::rename(cases=case_col, date=date_col) %>%
+#         dplyr::filter( !is.na(cases) & cases>0) %>%
+#         dplyr::mutate(
+#             cases = as.numeric(cases),
+#             date = as.Date(date)
+#         ) %>%
+#         dplyr::group_by(date) %>%
+#         dplyr::tally(cases) %>%
+#         dplyr::rename(cases=n) %>%
+#         dplyr::mutate(
+#             index = as.numeric(date), 
+#             date=as.Date(date),
+#             avg = weekly_moving_average(cases)
+#         ) %>%
+#         # we search for the date with the minimum if cases, so we don't want to trivially get a breakpoint within the first few days
+#         dplyr::filter(date >= min(date) + 45) %>%
+#         data.table()
+#     
+#     # # do a breakpoint analysis to get the valley between the two peaks
+#     # seg_reg <- segmented(
+#     #     lm(log(cases) ~ index, data=tab_here),
+#     #     seg.Z = ~ index,
+#     #     npsi = num_waves-1
+#     # )
+#     
+#     return(tab_here)
+#     
+#     # segmented
+#     # 
+#     # minima <- data.table()
+#     # 
+#     # for(break_point in 1:(num_waves-1))
+#     # {
+#     #     temp_break <- tab_here[cases == min(cases, na.rm=T)][1]
+#     #     
+#     #     tab_here <- tab_here[(abs(index-temp_break$index) > days_apart) & (cases>temp_break$cases)]
+#     #     
+#     #     print(nrow(tab_here))
+#     #     
+#     #     minima <- rbind(minima, temp_break)
+#     # }
+#     # 
+#     # # return(tab_here)
+#     # return(list(minima, data.table(tab_here)))
+# 
+#     # # at least one of the peaks will be an absolute maximum - choose the first one with the max number of cases
+#     # first_peak <- tab_here[cases==max(cases)][1]
+#     # # find the second peak as the absolute maximum on either `days_apart` side of the first peak identified
+#     # second_peak <- tab_here[abs(date-first_peak$date)>days_apart][cases==max(cases)]
+#     # 
+#     # # get the dates of the two peaks
+#     # first_peak_date <- min(first_peak$date, second_peak$date)
+#     # second_peak_date <- max(first_peak$date, second_peak$date)
+#     # 
+#     # # do a breakpoint analysis to get the valley between the two peaks
+#     # seg_reg <- segmented(
+#     #     lm(log(cases) ~ index, data=tab_here[date>=first_peak_date & date<=second_peak_date]),
+#     #     seg.Z = ~ index,
+#     #     npsi=1
+#     # )
+#     # 
+#     # # prepare the table that will ultimately be returned
+#     # output_table <- input_table %>%
+#     #     dplyr::rename(cases = case_col) %>%
+#     #     dplyr::relocate(cases, .after=last_col())
+#     # 
+#     # 
+#     # if(!length(seg_reg$psi)){
+#     #     # if no break-point was found, return the table with wave number 1
+#     #     return(list(
+#     #         "date" = as.Date(NA),
+#     #         "cases" = output_table %>% dplyr::mutate(wave = 1)
+#     #     ))
+#     # } else {
+#     #     # positively identify this valley at the start of the second wave
+#     #     start_of_second_wave <- tab_here[index == floor(data.table(seg_reg$psi)$Initial)]$date
+#     #     # if no break date was found, return the table with wave number 1
+#     #     if(!length(start_of_second_wave)){
+#     #         return(list(
+#     #             "date" = as.Date(NA),
+#     #             "cases" = output_table %>% dplyr::mutate(wave = 1)
+#     #         ))
+#     #     } else {
+#     #         # return both the date of the second wave and the case table with the information added
+#     #         return(list(
+#     #             "date" = start_of_second_wave,
+#     #             "cases" = output_table %>% dplyr::mutate(wave = if_else(date>start_of_second_wave, 2, 1))
+#     #         ))
+#     #     }
+#     # }
+# }
 
 CSD_score_class <- function(x)
 {
