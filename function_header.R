@@ -1,6 +1,6 @@
 library(dplyr)
 library(data.table)
-# library(segmented)
+library(segmented)
 
 PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
 
@@ -200,10 +200,10 @@ add_HRUIDs <- function(table, HR_column="HR", province_column="province")
     return(here)
 }
 
-# add_wave_numbers <- function(input_table, case_col="cases", date_col="date", num_waves=3, days_apart=60)
-# { 
+# add_wave_numbers <- function(input_table, case_col="cases", date_col="date", num_waves=4, days_apart=45) # make it a variadic function for extimated breakpoints 
+# {
 #     weekly_moving_average <- function(x) stats::filter(x, rep(1,7), sides = 1)/7
-# 
+#     
 #     # get rid of all the extraneous information
 #     tab_here <- input_table %>%
 #         dplyr::rename(cases=case_col, date=date_col) %>%
@@ -216,7 +216,7 @@ add_HRUIDs <- function(table, HR_column="HR", province_column="province")
 #         dplyr::tally(cases) %>%
 #         dplyr::rename(cases=n) %>%
 #         dplyr::mutate(
-#             index = as.numeric(date), 
+#             index = as.numeric(date),
 #             date=as.Date(date),
 #             avg = weekly_moving_average(cases)
 #         ) %>%
@@ -224,33 +224,42 @@ add_HRUIDs <- function(table, HR_column="HR", province_column="province")
 #         dplyr::filter(date >= min(date) + 45) %>%
 #         data.table()
 #     
-#     # # do a breakpoint analysis to get the valley between the two peaks
-#     # seg_reg <- segmented(
-#     #     lm(log(cases) ~ index, data=tab_here),
-#     #     seg.Z = ~ index,
-#     #     npsi = num_waves-1
-#     # )
-#     
-#     return(tab_here)
-#     
-#     # segmented
-#     # 
-#     # minima <- data.table()
-#     # 
-#     # for(break_point in 1:(num_waves-1))
-#     # {
-#     #     temp_break <- tab_here[cases == min(cases, na.rm=T)][1]
-#     #     
-#     #     tab_here <- tab_here[(abs(index-temp_break$index) > days_apart) & (cases>temp_break$cases)]
-#     #     
-#     #     print(nrow(tab_here))
-#     #     
-#     #     minima <- rbind(minima, temp_break)
-#     # }
-#     # 
-#     # # return(tab_here)
-#     # return(list(minima, data.table(tab_here)))
+#     print(tab_here[date %in% as.Date(c("2020-05-01", "2020-07-01", "2021-01-01", "2021-02-22", "2021-04-15", "2021-06-30"))])
 # 
+#     # do a breakpoint analysis to get the valley between the two peaks
+#     seg_reg <- segmented(
+#         lm(log(avg) ~ index, data=tab_here),
+#         seg.Z = ~ index,
+#         # npsi = num_waves-1
+#         psi = tab_here[date %in% as.Date(c("2020-05-01", "2020-07-01", "2021-01-01", "2021-02-22", "2021-04-15", "2021-06-30")), index]
+#     )
+#     
+#     break_dates <- tab_here[index %in% ceiling(data.frame(seg_reg$psi)$`Est.`), date]
+# 
+#     return(break_dates)
+# }
+# 
+# Total_Data <- jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=cases&loc=canada") %>%
+#     .$cases %>%
+#     dplyr::mutate(
+#         date = as.Date(date_report, format="%d-%m-%Y"),
+#         avg = weekly_moving_average(cases)
+#     ) %>%
+#     data.table()
+# 
+# haha <- add_wave_numbers(Total_Data)
+# 
+# library(ggplot2)
+# 
+# ggplot(Total_Data, aes(date, cases)) +
+#     geom_line() +
+#     scale_x_date(date_breaks = "months" , date_labels = "%b-%y") +
+#     geom_vline(xintercept=as.Date("2021-07-15"), linetype="dashed", color = "red", size=0.5) +
+#     geom_vline(xintercept=as.Date("2021-02-15"), linetype="dashed", color = "red", size=0.5) +
+#     geom_vline(xintercept=as.Date("2020-07-15"), linetype="dashed", color = "red", size=0.5)
+
+
+
 #     # # at least one of the peaks will be an absolute maximum - choose the first one with the max number of cases
 #     # first_peak <- tab_here[cases==max(cases)][1]
 #     # # find the second peak as the absolute maximum on either `days_apart` side of the first peak identified
