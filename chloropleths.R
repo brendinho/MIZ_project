@@ -6,14 +6,14 @@ library(viridis)
 library(stringr)
 library(sf)
 library(forcats)
-
-source("function_header.R")
+library(ggpubr)
 
 PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
 setwd(PROJECT_FOLDER)
 
-setwd('/home/bren/Documents/GitHub/MIZ_project/')
-dir.create(file.path(".", "CaseDataFiles"), showWarnings=FALSE)
+source("function_header.R")
+
+dir.create(file.path(".", "Graphs"), showWarnings=FALSE)
 
 Regions <- data.table(readRDS("CaseDataTables/Regions.rda"))
 Total_Data <- fread("CaseDataTables/Total_Data.csv")
@@ -37,16 +37,17 @@ province_metrics <- Regions[, .(
 scaling_factor <- province_metrics[, max(num_csd)/max(population_density)]
 SAC_distribution <- ggplot(province_metrics, aes(x=reorder(str_wrap(province, width=15), num_csd), group=province)) +
     geom_bar(aes(y=num_csd, fill=num_HR), position="dodge", stat="identity") +
-    geom_line(aes(y=population_density*scaling_factor), size=2, group=1, colour="blue") +
+    geom_line(aes(y=population_density*scaling_factor), size=2, group=1, colour="blue") + 
+    geom_hline(aes(yintercept = 1.1*max(province_metrics$num_csd))) +
     labs(x="Province", y="Census Subdivisions (CSDs)") +
     scale_y_continuous(sec.axis = sec_axis(~./scaling_factor, name="Population Density [km^2]"), expand=c(0,0)) +
     theme_bw() +
     theme(
-        axis.text.y = element_text(size=10),
-        axis.title = element_text(size=14),
-        legend.title = element_text(size=14),
-        legend.text = element_text(size=14),
-        axis.text.x = element_text(angle = 45, vjust = 0.5, size=10),
+        axis.text.y = element_text(size=16),
+        axis.title = element_text(size=16),
+        legend.title = element_text(size=16),
+        legend.text = element_text(size=16),
+        axis.text.x = element_text(angle=45, vjust=0.5, size=16),
         legend.position = "top",
         legend.direction="horizontal",
         axis.line.y.right = element_line(color = "blue"),
@@ -54,28 +55,73 @@ SAC_distribution <- ggplot(province_metrics, aes(x=reorder(str_wrap(province, wi
         axis.title.y.right = element_text(color = "blue"),
         axis.text.y.right = element_text(color = "blue"),
     ) +
-    # scale_fill_brewer(type="div", name="RdYlBu") +
-    scale_fill_brewer(type="div", name="BrBG") +
+    scale_fill_brewer(type="div", palette="BrBG") +
     guides(fill=guide_legend(title="Reporting Region count:", nrow=1))
+    ggsave(SAC_distribution, file=sprintf("%s/Graphs/SAC_distribution.png", PROJECT_FOLDER), width=15, height=6)
+    system(sprintf("convert %s/Graphs/SAC_distribution.png -trim %s/Graphs/SAC_distribution.png", PROJECT_FOLDER, PROJECT_FOLDER))
 
 SAC_map_with_census_info <- ggplot(st_sf(Regions) %>% dplyr::mutate(class = fct_relevel(class, "CMA", "CA", "Strong", "Moderate", "Weak", "None", "Not given"))) +
     geom_sf(data=All_Canada, fill="white") +
     geom_sf(aes(fill = class), lwd = 0) +
-    scale_fill_brewer(type="div", name="RdYlBu") +
+    scale_fill_brewer(type="div", palette="RdYlBu", name="Statistical\nArea\nClassification") +
     # scale_fill_brewer(type="div", name="BrBG") +
     theme_minimal() +
     theme(
         panel.grid = element_blank(),
         axis.text = element_blank(),
         axis.ticks = element_blank(),
-        legend.text = element_text(size=15),
-        legend.title = element_text(size=15),
-        legend.key.height= unit(1.5, 'cm')
+        legend.text = element_text(size=13),
+        legend.title = element_text(size=13),
+        legend.key.height = unit(1.5, 'cm'),
+        plot.background = element_rect(fill="white")
     ) +
-    coord_sf(datum=NA)
-    # ggsave(SAC_map, file="Graphs/SAC_map.png", height=10, width=10)
-    # system(sprintf("convert %s -trim %s", "Graphs/SAC_map.png", "Graphs/SAC_map.png"))
+    coord_sf(datum=NA) +
+    guides(colour = guide_legend(legend.title.align=0.5))
+    ggsave(SAC_map_with_census_info, file=sprintf("%s/Graphs/SAC_choropleth.png", PROJECT_FOLDER))
+    system(sprintf("convert %s/Graphs/SAC_choropleth.png -trim %s/Graphs/SAC_choropleth.png", PROJECT_FOLDER, PROJECT_FOLDER))
+
+Figure_1 <- ggarrange(SAC_distribution, SAC_map_with_census_info, labels=c("A","B"), ncol=1, nrow=2, heights=c(4,7), widths=c(1,1.5))
+ggsave(Figure_1, file=sprintf("%s/Graphs/SAC_distribution_plots.jpg", PROJECT_FOLDER))
+# system(sprintf("convert %s/Graphs/SAC_distribution_plots.jpg -trim %s/Graphs/SAC_distribution_plots.jpg", PROJECT_FOLDER, PROJECT_FOLDER))
+# ggsave(SAC_map_with_census_info, file=sprintf("%s/Graphs/SAC_distribution_plots.jpg", PROJECT_FOLDER))
+
+##############################################
+
+weekly_moving_average <- function(x) stats::filter(x, rep(1,7), sides = 1)/7
+
+canada_temp <- jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=cases&loc=canada") %>%
+    .$cases %>%
+    dplyr::mutate(
+        date = as.Date(date_report, format="%d-%m-%Y"),
+        avg = weekly_moving_average(cases)
+    ) %>%
+    data.table()
+
+break_points <- sort(as.Date(c("2021-07-15", "2021-02-15", "2020-07-15")))
+
+Canada_waves <- ggplot(
+        canada_temp, #  %>% dplyr::filter(!is.na(avg))
+        aes(date, cases)
+    ) +
+    geom_bar(stat="identity", fill="grey30") +
+    geom_line(aes(y=avg), colour="blue", size=1) +
+    theme_bw() +
+    theme(
+        axis.text = element_text(size=13),
+        axis.text.x = element_text(angle=45, vjust=0.5)
+    ) +
+    labs(x="Date", y="Cases") +
+    scale_x_date(date_breaks = "1 month" , date_labels = "%b-%Y", expand=c(0,0)) + # limits=c(min(canada_temp$date), max(canada_temp$date))
+    annotate(geom = "rect", xmin=min(canada_temp$date), xmax=break_points[1], ymin=-Inf, ymax=Inf, fill="red", alpha=0.04) +
+    annotate(geom = "rect", xmin=break_points[1], xmax=break_points[2], ymin=-Inf, ymax=Inf, fill="green", alpha=0.04) +
+    annotate(geom = "rect", xmin=break_points[2], xmax=break_points[3], ymin=-Inf, ymax=Inf, fill="blue", alpha=0.04) +
+    geom_vline(xintercept=break_points[1], linetype="dashed", color = "red", size=0.5) +
+    geom_vline(xintercept=break_points[2], linetype="dashed", color = "red", size=0.5) +
+    geom_vline(xintercept=break_points[3], linetype="dashed", color = "red", size=0.5)
+    ggsave(Canada_waves, file=sprintf("%s/Graphs/canada_waves.png", PROJECT_FOLDER), height=4, width=10)
     
+
+
 # full_csds <- merge(
 #         st_read("Canada_CSD_shapefiles/lcsd000b16a_e.shp") %>% dplyr::select(CSDUID, geometry, CSDNAME, PRUID, PRNAME),
 #         Regions %>% dplyr::select(-geometry),
@@ -168,51 +214,51 @@ SAC_map_with_census_info <- ggplot(st_sf(Regions) %>% dplyr::mutate(class = fct_
 #     # scale_colour_viridis("aMIZ") +
 #     coord_sf(datum=NA) #+
 #     # ggsave(class_map, "Graphs/class_map_c2.png", device='png', dpi=600)
-# 
-# # a map of the health regions of each province colour coded and aR score given
-# province_map <- function(prov_names, legend_position="none")
-# {
-#     if(! legend_position %in% c("top", "bottom", "left", "right"))
-#     {
-#         legend_position = "none"
-#     }
-# 
-#     prov_HR_map <- ggplot()
-# 
-#     for(prov in prov_names)
-#     {
-#         if(! prov %in% unique(Regions$province))
-#         {
-#             print(sprintf("the province %s was not found in the Regions table", prov))
-#         }
-# 
-#         for(hr_code in Regions[province==prov, unique(HRUID2018)])
-#         {
-#             prov_HR_map <- prov_HR_map +
-#                 geom_sf(
-#                     data = st_union(Regions[HRUID2018 == hr_code, geometry]),
-#                     mapping = aes_(fill = Total_Data[
-#                         HRUID2018==hr_code,
-#                         sprintf("%s - %s - %s", pr_uid, HR, aR_score)
-#                     ])
-#                 )
-#         }
-#     }
-# 
-#     prov_HR_map <- prov_HR_map +
-#         theme_minimal() +
-#         labs(fill=paste(prov_names, collapse=", ")) +
-#         theme(
-#             panel.grid = element_blank(),
-#             axis.text = element_blank(),
-#             axis.ticks = element_blank(),
-#             legend.position = legend_position
-#         ) +
-#         coord_sf(datum=NA)
-# 
-#     return(prov_HR_map)
-# }
-# 
+
+# a map of the health regions of each province colour coded and aR score given
+province_map <- function(prov_names, legend_position="none")
+{
+    if(! legend_position %in% c("top", "bottom", "left", "right"))
+    {
+        legend_position = "none"
+    }
+
+    prov_HR_map <- ggplot()
+
+    for(prov in prov_names)
+    {
+        if(! prov %in% unique(Regions$province))
+        {
+            print(sprintf("the province %s was not found in the Regions table", prov))
+        }
+
+        for(hr_code in Regions[province==prov, unique(HRUID2018)])
+        {
+            prov_HR_map <- prov_HR_map +
+                geom_sf(
+                    data = st_union(Regions[HRUID2018 == hr_code, geometry]),
+                    mapping = aes_(fill = Total_Data[
+                        HRUID==hr_code,
+                        sprintf("%s - %s - %s", pr_uid, HR, aR_score)
+                    ])
+                )
+        }
+    }
+
+    prov_HR_map <- prov_HR_map +
+        theme_minimal() +
+        labs(fill=paste(prov_names, collapse=", ")) +
+        theme(
+            panel.grid = element_blank(),
+            axis.text = element_blank(),
+            axis.ticks = element_blank(),
+            legend.position = legend_position
+        ) +
+        coord_sf(datum=NA)
+
+    return(prov_HR_map)
+}
+
 # ################ toronto chloropleths
 # 
 # toronto_nbds_cases <- ggplot(st_sf(Total_Toronto_Data)) +

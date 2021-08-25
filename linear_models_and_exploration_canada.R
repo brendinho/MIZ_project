@@ -19,23 +19,23 @@ source(sprintf("%s/function_header.R", PROJECT_FOLDER))
 
 ##########################################################################################
 
-weekly_moving_average <- function(x) stats::filter(x, rep(1,7), sides = 1)/7
-
-canada_temp <- jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=cases&loc=canada") %>%
-    .$cases %>%
-    dplyr::mutate(
-        date = as.Date(date_report, format="%d-%m-%Y"),
-        avg = weekly_moving_average(cases)
-    ) %>%
-    data.table()
-
-ggplot(canada_temp, aes(date, cases)) +
-    geom_line() +
-    geom_line(aes(y=avg)) +
-    scale_x_date(date_breaks = "months" , date_labels = "%b-%y") +
-    geom_vline(xintercept=as.Date("2021-07-15"), linetype="dashed", color = "red", size=0.5) +
-    geom_vline(xintercept=as.Date("2021-02-15"), linetype="dashed", color = "red", size=0.5) +
-    geom_vline(xintercept=as.Date("2020-07-15"), linetype="dashed", color = "red", size=0.5)
+# weekly_moving_average <- function(x) stats::filter(x, rep(1,7), sides = 1)/7
+# 
+# canada_temp <- jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=cases&loc=canada") %>%
+#     .$cases %>%
+#     dplyr::mutate(
+#         date = as.Date(date_report, format="%d-%m-%Y"),
+#         avg = weekly_moving_average(cases)
+#     ) %>%
+#     data.table()
+# 
+# ggplot(canada_temp, aes(date, cases)) +
+#     geom_line() +
+#     geom_line(aes(y=avg)) +
+#     scale_x_date(date_breaks = "months" , date_labels = "%b-%y") +
+#     geom_vline(xintercept=as.Date("2021-07-15"), linetype="dashed", color = "red", size=0.5) +
+#     geom_vline(xintercept=as.Date("2021-02-15"), linetype="dashed", color = "red", size=0.5) +
+#     geom_vline(xintercept=as.Date("2020-07-15"), linetype="dashed", color = "red", size=0.5)
 
 ##########################################################################################
 
@@ -103,10 +103,6 @@ Total_Data <- Reduce(
         
         log_pop = log(population),
         
-        # wave_1_proportion = wave_1_cumulative/population,
-        # wave_2_proportion = wave_2_cumulative/population,
-        # wave_3_proportion = wave_3_cumulative/population
-        
         F0 = couples_with_0_children + people_not_in_census_families,
         F3 = singles_with_1_child + singles_with_2_children + couples_with_1_child,
         F4 = couples_with_2_children + couples_with_3_or_more_children + singles_with_3_or_more_children,
@@ -115,9 +111,13 @@ Total_Data <- Reduce(
   dplyr::mutate(
         log_pop_density = log(population_density),
         log_F0 = log(F0), log_F3 = log(F3), log_F4 = log(F4),
-  #       # F0_proportion = F0/(F0+F3+F4),
-  #       # F3_proportion = F3/(F0+F3+F4),
-  #       # F4_proportion = F4/(F0+F3+F4)
+        
+        F0_normalised = (F0 - mean(F0, na.rm=TRUE)) / sd(F0, na.rm=TRUE),
+        F3_normalised = (F3 - mean(F3, na.rm=TRUE)) / sd(F3, na.rm=TRUE),
+        F4_normalised = (F4 - mean(F4, na.rm=TRUE)) / sd(F4, na.rm=TRUE),
+        
+        mR_normalised = (mR_weighted_by_pop - mean(mR_weighted_by_pop, na.rm=TRUE)) / sd(mR_weighted_by_pop, na.rm=TRUE),
+        pop_density_normalised = (population_density - mean(population_density, na.rm=TRUE)) / sd(population_density, na.rm=TRUE)
   ) %>%
  #  dplyr::filter(
  #    !is.na(population) & log_pop_density>=1 & !is.na(wave_1_cumulative)
@@ -129,45 +129,113 @@ Total_Data <- Reduce(
     
     PROVINCE <- "Alberta"
 
-canada_first_wave <- summary(lm(
-    formula = wave_1_cumulative ~ mR_weighted_by_pop +
-      F0 + F3 +F4 +
-      population_density,
-    # log_pop,
-    data = Total_Data
-))
-
-canada_second_wave <- summary(lm(
-  formula = wave_2_cumulative ~ mR_weighted_by_pop +
-    F0 + F3 +F4 +
-    population_density,
-    # log_pop,
-  data = Total_Data
-))
-
-# canada_third_wave <- summary(lm(
-#     formula = wave_3_cumulative ~ mR_weighted_by_pop +
-#       F0 + F3 + F4 +
+# canada_first_wave <- summary(lm(
+#     formula = wave_1_cumulative ~ mR_weighted_by_pop +
+#       F0 + F3 +F4 +
 #       population_density,
-#       # log_pop,
+#     # log_pop,
 #     data = Total_Data
 # ))
 
-canada_third_wave <- summary(lmer(
-  formula = wave_3_cumulative ~ mR_weighted_by_pop +
-    F0 + F3 + F4 + (1|student)
-    population_density,
-  # log_pop,
-  data = Total_Data
-))
+# canada_second_wave <- summary(lm(
+#   formula = wave_2_cumulative ~ mR_weighted_by_pop +
+#     F0 + F3 +F4 +
+#     population_density,
+#     # log_pop,
+#   data = Total_Data
+# ))
+# 
+# canada_third_wave <- summary(lm(
+#   formula = wave_3_cumulative ~ mR_weighted_by_pop +
+#     F0 + F3 + F4 +
+#     population_density,
+#   data = Total_Data
+# ))
+# 
+# canada_total <- summary(lm(
+#     formula = cases ~ mR_weighted_by_pop +
+#       F0 + F3 + F4 +
+#       population_density +
+#       wave,
+#     data = rbind(
+#         Total_Data %>%
+#             dplyr::select(-wave_2_cumulative, -wave_3_cumulative, -total_cumulative) %>%
+#             dplyr::rename(cases = wave_1_cumulative) %>%
+#             dplyr::mutate(wave=1),
+#         Total_Data %>%
+#             dplyr::select(-wave_1_cumulative, -wave_3_cumulative, -total_cumulative) %>%
+#             dplyr::rename(cases = wave_2_cumulative) %>%
+#             dplyr::mutate(wave=2),
+#         Total_Data %>%
+#             dplyr::select(-wave_1_cumulative, -wave_2_cumulative, -total_cumulative) %>%
+#             dplyr::rename(cases = wave_3_cumulative) %>%
+#             dplyr::mutate(wave=3)
+#     ) 
+# ))
+
+# canada_first_wave_z_transformed <- lm(
+#     formula = wave_1_cumulative ~ mR_normalised +
+#       F0_normalised + F3_normalised +F4_normalised +
+#       pop_density_normalised,
+#     data = Total_Data %>% dplyr::filter(province == "Ontario")
+# )
+# 
+# canada_second_wave_z_transformed <- summary(lm(
+#   formula = wave_2_cumulative ~ mR_normalised +
+#     F0_normalised + F3_normalised + F4_normalised +
+#     pop_density_normalised,
+#   data = Total_Data
+# ))
+# 
+# canada_third_wave_z_transformed <- summary(lm(
+#   formula = wave_3_cumulative ~ mR_normalised +
+#     F0_normalised + F3_normalised + F4_normalised +
+#     pop_density_normalised,
+#   data = Total_Data
+# ))
+# 
+# canada_total_z_transformed <- summary(lm(
+#     formula = cases ~ mR_normalised +
+#       F0_normalised + F3_normalised + F4_normalised +
+#       pop_density_normalised +
+#       wave,
+#     data = rbind(
+#         Total_Data %>%
+#             dplyr::select(-wave_2_cumulative, -wave_3_cumulative, -total_cumulative) %>%
+#             dplyr::rename(cases = wave_1_cumulative) %>%
+#             dplyr::mutate(wave=1),
+#         Total_Data %>%
+#             dplyr::select(-wave_1_cumulative, -wave_3_cumulative, -total_cumulative) %>%
+#             dplyr::rename(cases = wave_2_cumulative) %>%
+#             dplyr::mutate(wave=2),
+#         Total_Data %>%
+#             dplyr::select(-wave_1_cumulative, -wave_2_cumulative, -total_cumulative) %>%
+#             dplyr::rename(cases = wave_3_cumulative) %>%
+#             dplyr::mutate(wave=3)
+#     )
+# ))
+
+pretty_print_coeff_CI <- function(form, data_table)
+{
+  regress <- lm(
+    formula = parse(text=form),
+    data = data.table
+  )
+  
+  return(regress)
+  
+  
+  
+  # data.table(vars=names(canada_first_wave_z_transformed$coefficients), canada_first_wave_z_transformed$coefficients, confint(canada_first_wave_z_transformed)) %>% dplyr::rename(coeff=V2, CI25=`2.5 %`, CI975=`97.5 %`)
+}
 
 
-canada_total <- summary(lm(
+canada_total_mixed <- summary(lmer(
     formula = cases ~ mR_weighted_by_pop +
       F0 + F3 + F4 +
-      population_density,
-      # log_pop,
-    wave,
+      population_density +
+      wave +
+      (1|province),
     data = rbind(
         Total_Data %>%
             dplyr::select(-wave_2_cumulative, -wave_3_cumulative, -total_cumulative) %>%
@@ -377,7 +445,7 @@ print(canada_regress_results %>%
 #     print(sprintf("%s, %f", prov, Total_Data[tolower(province)==prov, sum(population)]))
 # }
 # 
-# Regions <- readRDS(sprintf("%s/CaseDataTables/Regions.rda", PROJECT_FOLDER)) |> data.table()
+# Regions <- readRDS(sprintf("%s/CaseDataTables/Regions.rda", PROJECT_FOLDER)) %>% data.table()
 # for(prov in c("british columbia", "ontario", "saskatchewan", "quebec"))
 # {
 #     print(sprintf("%s, %i", prov, Regions[tolower(province)==prov, sum(num_csds)]))
