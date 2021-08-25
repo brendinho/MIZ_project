@@ -1,0 +1,84 @@
+Meeting with Seyed for the regression projeect
+
+stick to mR
+
+
+calculate the start of the first and second waves for all of canada (instead of by-province)
+
+
+calculate the start of the first wave in the middle of the straight line of the semilog plot - could be the start of July
+
+first wave - until 31 Jul 2020
+second wave - 1 Aug 2020 - 22 Feb 2021
+third wave - 23 Feb 2021 - end of Jun 2021
+
+fourth wave (don't include the fourth wave, since this is ongoing)
+
+timelines of intervention to justify the breakpoints, though Seyed doesn't think they're hard to justify in the draft of the paper
+
+justify by lowest 7-day moving average within a window of 100 days
+
+let's not dso the provinces yet
+
+conclusion: overall the parameters were significant, but in different waves they varied in significance (and relative importance)
+
+connect them to interventions used during different waves
+
+F0 - significant proportion of the population, many working, therefore commute, many also retired that were warned about the disease
+
+we need to link to risk factors and implemented interventions (qualitativelyhave a discussion on that)
+
+would it be better to break it by number of whether it's couple or single:
+    F0 - household without children
+    Fs - any single parent household
+    Fc - households with couples
+    
+    reorganise by lumping health region based on their score instead of all Canada, rather than provinces
+    
+    
+    
+############################################################################
+    
+    scale parameters so that they're all the same order of magnitude
+    
+    try these for Ontario and Canada (should still be okay for canada)
+    
+    F0/(F0+F3+F4)
+    
+    F3/(F0+F3+F4) - percentage of household
+    
+    F4/(F0+F3+F4)
+    
+    scale D to everything, log(D) try that instead (usually people put log(population size))
+    
+    jack up the mR by some number \
+    
+#############################################################################
+    
+    mixed_effects model ???
+    
+    focus on canada for how
+    
+    wrap the paper for CMAJ open - look at the entire canada
+    \ dumpo the tables into appendix
+    
+    Table 1 in appendix
+    
+    colorBRewer - something that 
+    
+    Figure 1(a) - extend the y-axis to see where the bar ends, second axis for population density of emtire provine/territory
+    Figure 1(b) - colorBrewer, diverging, 7 classes, colorblindsafe, either the first or the last pallette for the choropleth
+    	Not given, None, Weak, Moderate, strong, etc
+    	
+    Figure 2 - off completely - we're not talking about Ontario etc
+    Figure 3: actual Canada data as a grey bar chart, and superimpose 7-day moving average (like New York Times), shade each wave wih different colours, x ticks on a 45 angle, and display every month, don't show the dividng dates between the waves
+    
+    Table 2: gone
+    
+    insert the table with the regression variables 
+    
+    chill on the Toronto stuff - we'll get back to that later
+    
+    	** DO NOT USE THE SAME COLORU SCHEME FOR THE TWO SUBFIGURES - IT'S MISLEADING
+    
+    

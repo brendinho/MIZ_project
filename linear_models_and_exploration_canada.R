@@ -8,6 +8,7 @@ library(stringr)
 library(forcats)
 library(sf)
 library(xtable)
+library(lme4)
 
 PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
 
@@ -100,49 +101,73 @@ Total_Data <- Reduce(
         
         population_density = population/area_sq_km,
         
-        wave_1_proportion = wave_1_cumulative/population,
-        wave_1_proportion = wave_2_cumulative/population,
-        wave_3_proportion = wave_3_cumulative/population
+        log_pop = log(population),
+        
+        # wave_1_proportion = wave_1_cumulative/population,
+        # wave_2_proportion = wave_2_cumulative/population,
+        # wave_3_proportion = wave_3_cumulative/population
+        
+        F0 = couples_with_0_children + people_not_in_census_families,
+        F3 = singles_with_1_child + singles_with_2_children + couples_with_1_child,
+        F4 = couples_with_2_children + couples_with_3_or_more_children + singles_with_3_or_more_children,
+        
     ) %>%
+  dplyr::mutate(
+        log_pop_density = log(population_density),
+        log_F0 = log(F0), log_F3 = log(F3), log_F4 = log(F4),
+  #       # F0_proportion = F0/(F0+F3+F4),
+  #       # F3_proportion = F3/(F0+F3+F4),
+  #       # F4_proportion = F4/(F0+F3+F4)
+  ) %>%
+ #  dplyr::filter(
+ #    !is.na(population) & log_pop_density>=1 & !is.na(wave_1_cumulative)
+ # & !is.na(wave_2_cumulative) & !is.na(wave_3_cumulative)    ) %>%
     dplyr::select(-HRUID2018.x, -HRUID2018.y)
     fwrite(Total_Data, sprintf("%s/CaseDataTables/Total_Data.csv", PROJECT_FOLDER))
 
-######################################3 CANADA-WIDE REGRESSIONS
+###################################### CANADA-WIDE REGRESSIONS
+    
+    PROVINCE <- "Alberta"
 
 canada_first_wave <- summary(lm(
     formula = wave_1_cumulative ~ mR_weighted_by_pop +
-        # F0 + Fs + Fc +
-        # F0 + F_with_C +
-        families_with_no_children + families_with_children_of_size_3_or_smaller + families_with_children_of_size_4_or_larger +
-        total_commuters + population_density,
+      F0 + F3 +F4 +
+      population_density,
+    # log_pop,
     data = Total_Data
 ))
 
 canada_second_wave <- summary(lm(
-    formula = wave_2_cumulative ~ mR_weighted_by_pop +
-        # F0 + Fs + Fc +
-        # F0 + F_with_C +
-        families_with_no_children + families_with_children_of_size_3_or_smaller + families_with_children_of_size_4_or_larger +
-        total_commuters + population_density,    
-    data = Total_Data
+  formula = wave_2_cumulative ~ mR_weighted_by_pop +
+    F0 + F3 +F4 +
+    population_density,
+    # log_pop,
+  data = Total_Data
 ))
 
-canada_third_wave <- summary(lm(
-    formula = wave_3_cumulative ~ mR_weighted_by_pop +
-        # F0 + Fs + Fc +
-        # F0 + F_with_C +
-        families_with_no_children + families_with_children_of_size_3_or_smaller + families_with_children_of_size_4_or_larger +
-        total_commuters + population_density,    
-    data = Total_Data
+# canada_third_wave <- summary(lm(
+#     formula = wave_3_cumulative ~ mR_weighted_by_pop +
+#       F0 + F3 + F4 +
+#       population_density,
+#       # log_pop,
+#     data = Total_Data
+# ))
+
+canada_third_wave <- summary(lmer(
+  formula = wave_3_cumulative ~ mR_weighted_by_pop +
+    F0 + F3 + F4 + (1|student)
+    population_density,
+  # log_pop,
+  data = Total_Data
 ))
+
 
 canada_total <- summary(lm(
-    formula = cases ~ mR_weighted_by_pop + 
-        # F0 + Fs + Fc +
-        # F0 + F_with_C +
-        families_with_no_children + families_with_children_of_size_3_or_smaller + families_with_children_of_size_4_or_larger +
-        # total_commuters + 
-        population_density + wave,
+    formula = cases ~ mR_weighted_by_pop +
+      F0 + F3 + F4 +
+      population_density,
+      # log_pop,
+    wave,
     data = rbind(
         Total_Data %>%
             dplyr::select(-wave_2_cumulative, -wave_3_cumulative, -total_cumulative) %>%
@@ -156,7 +181,8 @@ canada_total <- summary(lm(
             dplyr::select(-wave_1_cumulative, -wave_2_cumulative, -total_cumulative) %>%
             dplyr::rename(cases = wave_3_cumulative) %>%
             dplyr::mutate(wave=3)
-    )
+    ) 
+    #%>% dplyr::filter(province == PROVINCE)
 ))
 
 canada_regress_results <- Reduce(
