@@ -401,6 +401,14 @@ Regions <- merge(
         class = factor(class)
     )
     saveRDS(Regions, sprintf("%s/CaseDataTables/Regions.rda", PROJECT_FOLDER))
+
+writeLines("\nSaving geometry shape file for the provinces and territories")
+saveRDS(
+    Regions %>%
+        .[, .(geometry=st_union(geometry) %>% st_cast("MULTIPOLYGON")), by=.(province)] %>%
+        dplyr::mutate(area_sq_km = as.numeric(st_area(geometry))/1000**2),
+    sprintf("%s/Classifications/All_Province_Shapes.rds", PROJECT_FOLDER)
+)
     
 writeLines("\nCumulative cases")
 Cumul_Cases <- Total_Case_Data[

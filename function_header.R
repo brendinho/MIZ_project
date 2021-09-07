@@ -4,6 +4,19 @@ library(segmented)
 
 PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
 
+meann <- function(...) mean(..., na.rm=TRUE)
+summ  <- function(...) sum(...,  na.rm=TRUE)
+sdd   <- function(...) sd(..., na.rm=TRUE)
+
+z_transform <- function(x) (x-meann(x))/sdd(x)
+
+calculate_r_squared <- function(actual, predicted)
+{
+    rss <- summ((predicted - actual)**2)
+    tss <- summ((actual - mean(actual))**2)
+    return(1 - rss/tss)
+}
+
 age_range <- function(string)
 {
     if(is.na(string) || string=="" )
