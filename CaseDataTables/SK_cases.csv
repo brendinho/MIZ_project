@@ -12169,21 +12169,21 @@ date,HR,cases,province
 2021-08-19,North West,3,Saskatchewan
 2021-08-19,North West,1,Saskatchewan
 2021-08-19,North Central,4,Saskatchewan
-2021-08-19,North Central,9,Saskatchewan
+2021-08-19,North Central,8,Saskatchewan
 2021-08-19,North Central,1,Saskatchewan
 2021-08-19,North East,30,Saskatchewan
 2021-08-19,North East,3,Saskatchewan
 2021-08-19,North East,1,Saskatchewan
 2021-08-19,Saskatoon,40,Saskatchewan
-2021-08-19,Central West,4,Saskatchewan
+2021-08-19,Central West,3,Saskatchewan
 2021-08-19,Central West,0,Saskatchewan
-2021-08-19,Central East,3,Saskatchewan
+2021-08-19,Central East,1,Saskatchewan
 2021-08-19,Central East,5,Saskatchewan
 2021-08-19,Central East,9,Saskatchewan
 2021-08-19,Central East,1,Saskatchewan
 2021-08-19,Central East,2,Saskatchewan
 2021-08-19,Regina,14,Saskatchewan
-2021-08-19,South West,3,Saskatchewan
+2021-08-19,South West,0,Saskatchewan
 2021-08-19,South West,3,Saskatchewan
 2021-08-19,South Central,1,Saskatchewan
 2021-08-19,South Central,0,Saskatchewan
@@ -12203,67 +12203,67 @@ date,HR,cases,province
 2021-08-20,North Central,14,Saskatchewan
 2021-08-20,North Central,9,Saskatchewan
 2021-08-20,North Central,1,Saskatchewan
-2021-08-20,North East,16,Saskatchewan
-2021-08-20,North East,6,Saskatchewan
-2021-08-20,North East,12,Saskatchewan
+2021-08-20,North East,8,Saskatchewan
+2021-08-20,North East,3,Saskatchewan
+2021-08-20,North East,9,Saskatchewan
 2021-08-20,Saskatoon,52,Saskatchewan
 2021-08-20,Central West,6,Saskatchewan
 2021-08-20,Central West,0,Saskatchewan
 2021-08-20,Central East,0,Saskatchewan
-2021-08-20,Central East,2,Saskatchewan
+2021-08-20,Central East,1,Saskatchewan
 2021-08-20,Central East,0,Saskatchewan
 2021-08-20,Central East,3,Saskatchewan
 2021-08-20,Central East,4,Saskatchewan
-2021-08-20,Regina,35,Saskatchewan
+2021-08-20,Regina,19,Saskatchewan
 2021-08-20,South West,0,Saskatchewan
 2021-08-20,South West,3,Saskatchewan
 2021-08-20,South Central,5,Saskatchewan
-2021-08-20,South Central,11,Saskatchewan
-2021-08-20,South East,7,Saskatchewan
-2021-08-20,South East,5,Saskatchewan
+2021-08-20,South Central,6,Saskatchewan
+2021-08-20,South East,2,Saskatchewan
+2021-08-20,South East,1,Saskatchewan
 2021-08-20,South East,1,Saskatchewan
 2021-08-20,South East,0,Saskatchewan
 2021-08-21,Far North West,4,Saskatchewan
-2021-08-21,Far North West,2,Saskatchewan
+2021-08-21,Far North West,1,Saskatchewan
 2021-08-21,Far North Central,2,Saskatchewan
 2021-08-21,Far North East,6,Saskatchewan
 2021-08-21,Far North East,8,Saskatchewan
 2021-08-21,North West,1,Saskatchewan
 2021-08-21,North West,10,Saskatchewan
 2021-08-21,North West,0,Saskatchewan
-2021-08-21,North West,1,Saskatchewan
+2021-08-21,North West,0,Saskatchewan
 2021-08-21,North Central,7,Saskatchewan
 2021-08-21,North Central,9,Saskatchewan
 2021-08-21,North Central,0,Saskatchewan
 2021-08-21,North East,13,Saskatchewan
+2021-08-21,North East,0,Saskatchewan
 2021-08-21,North East,2,Saskatchewan
-2021-08-21,North East,7,Saskatchewan
-2021-08-21,Saskatoon,37,Saskatchewan
+2021-08-21,Saskatoon,36,Saskatchewan
 2021-08-21,Central West,0,Saskatchewan
-2021-08-21,Central West,1,Saskatchewan
-2021-08-21,Central East,2,Saskatchewan
-2021-08-21,Central East,0,Saskatchewan
-2021-08-21,Central East,4,Saskatchewan
+2021-08-21,Central West,0,Saskatchewan
 2021-08-21,Central East,1,Saskatchewan
-2021-08-21,Central East,4,Saskatchewan
-2021-08-21,Regina,22,Saskatchewan
-2021-08-21,South West,5,Saskatchewan
-2021-08-21,South West,4,Saskatchewan
+2021-08-21,Central East,0,Saskatchewan
+2021-08-21,Central East,0,Saskatchewan
+2021-08-21,Central East,0,Saskatchewan
+2021-08-21,Central East,3,Saskatchewan
+2021-08-21,Regina,2,Saskatchewan
+2021-08-21,South West,3,Saskatchewan
+2021-08-21,South West,2,Saskatchewan
 2021-08-21,South Central,2,Saskatchewan
 2021-08-21,South Central,1,Saskatchewan
-2021-08-21,South East,1,Saskatchewan
-2021-08-21,South East,3,Saskatchewan
-2021-08-21,South East,1,Saskatchewan
+2021-08-21,South East,0,Saskatchewan
+2021-08-21,South East,2,Saskatchewan
+2021-08-21,South East,0,Saskatchewan
 2021-08-21,South East,1,Saskatchewan
 2021-08-22,Far North West,2,Saskatchewan
 2021-08-22,Far North West,2,Saskatchewan
 2021-08-22,Far North Central,2,Saskatchewan
 2021-08-22,Far North East,1,Saskatchewan
 2021-08-22,Far North East,2,Saskatchewan
-2021-08-22,North West,3,Saskatchewan
-2021-08-22,North West,7,Saskatchewan
 2021-08-22,North West,2,Saskatchewan
-2021-08-22,North West,3,Saskatchewan
+2021-08-22,North West,6,Saskatchewan
+2021-08-22,North West,1,Saskatchewan
+2021-08-22,North West,2,Saskatchewan
 2021-08-22,North Central,5,Saskatchewan
 2021-08-22,North Central,15,Saskatchewan
 2021-08-22,North Central,1,Saskatchewan
@@ -12276,14 +12276,526 @@ date,HR,cases,province
 2021-08-22,Central East,2,Saskatchewan
 2021-08-22,Central East,1,Saskatchewan
 2021-08-22,Central East,2,Saskatchewan
-2021-08-22,Central East,3,Saskatchewan
+2021-08-22,Central East,1,Saskatchewan
 2021-08-22,Central East,2,Saskatchewan
-2021-08-22,Regina,47,Saskatchewan
-2021-08-22,South West,5,Saskatchewan
-2021-08-22,South West,5,Saskatchewan
-2021-08-22,South Central,5,Saskatchewan
-2021-08-22,South Central,18,Saskatchewan
+2021-08-22,Regina,10,Saskatchewan
+2021-08-22,South West,2,Saskatchewan
+2021-08-22,South West,2,Saskatchewan
+2021-08-22,South Central,2,Saskatchewan
+2021-08-22,South Central,2,Saskatchewan
 2021-08-22,South East,2,Saskatchewan
 2021-08-22,South East,1,Saskatchewan
 2021-08-22,South East,1,Saskatchewan
 2021-08-22,South East,0,Saskatchewan
+2021-08-23,Far North West,7,Saskatchewan
+2021-08-23,Far North West,2,Saskatchewan
+2021-08-23,Far North Central,1,Saskatchewan
+2021-08-23,Far North East,1,Saskatchewan
+2021-08-23,Far North East,4,Saskatchewan
+2021-08-23,North West,0,Saskatchewan
+2021-08-23,North West,7,Saskatchewan
+2021-08-23,North West,2,Saskatchewan
+2021-08-23,North West,2,Saskatchewan
+2021-08-23,North Central,5,Saskatchewan
+2021-08-23,North Central,10,Saskatchewan
+2021-08-23,North Central,1,Saskatchewan
+2021-08-23,North East,9,Saskatchewan
+2021-08-23,North East,5,Saskatchewan
+2021-08-23,North East,3,Saskatchewan
+2021-08-23,Saskatoon,70,Saskatchewan
+2021-08-23,Central West,3,Saskatchewan
+2021-08-23,Central West,4,Saskatchewan
+2021-08-23,Central East,2,Saskatchewan
+2021-08-23,Central East,4,Saskatchewan
+2021-08-23,Central East,1,Saskatchewan
+2021-08-23,Central East,2,Saskatchewan
+2021-08-23,Central East,1,Saskatchewan
+2021-08-23,Regina,6,Saskatchewan
+2021-08-23,South West,2,Saskatchewan
+2021-08-23,South West,2,Saskatchewan
+2021-08-23,South Central,1,Saskatchewan
+2021-08-23,South Central,0,Saskatchewan
+2021-08-23,South East,1,Saskatchewan
+2021-08-23,South East,1,Saskatchewan
+2021-08-23,South East,2,Saskatchewan
+2021-08-23,South East,1,Saskatchewan
+2021-08-24,Far North West,17,Saskatchewan
+2021-08-24,Far North West,1,Saskatchewan
+2021-08-24,Far North Central,2,Saskatchewan
+2021-08-24,Far North East,5,Saskatchewan
+2021-08-24,Far North East,3,Saskatchewan
+2021-08-24,North West,0,Saskatchewan
+2021-08-24,North West,12,Saskatchewan
+2021-08-24,North West,1,Saskatchewan
+2021-08-24,North West,0,Saskatchewan
+2021-08-24,North Central,3,Saskatchewan
+2021-08-24,North Central,13,Saskatchewan
+2021-08-24,North Central,0,Saskatchewan
+2021-08-24,North East,0,Saskatchewan
+2021-08-24,North East,1,Saskatchewan
+2021-08-24,North East,1,Saskatchewan
+2021-08-24,Saskatoon,46,Saskatchewan
+2021-08-24,Central West,5,Saskatchewan
+2021-08-24,Central West,0,Saskatchewan
+2021-08-24,Central East,0,Saskatchewan
+2021-08-24,Central East,0,Saskatchewan
+2021-08-24,Central East,1,Saskatchewan
+2021-08-24,Central East,0,Saskatchewan
+2021-08-24,Central East,1,Saskatchewan
+2021-08-24,Regina,4,Saskatchewan
+2021-08-24,South West,0,Saskatchewan
+2021-08-24,South West,0,Saskatchewan
+2021-08-24,South Central,0,Saskatchewan
+2021-08-24,South Central,1,Saskatchewan
+2021-08-24,South East,1,Saskatchewan
+2021-08-24,South East,0,Saskatchewan
+2021-08-24,South East,0,Saskatchewan
+2021-08-24,South East,5,Saskatchewan
+2021-08-25,Far North West,4,Saskatchewan
+2021-08-25,Far North West,1,Saskatchewan
+2021-08-25,Far North Central,1,Saskatchewan
+2021-08-25,Far North East,12,Saskatchewan
+2021-08-25,Far North East,17,Saskatchewan
+2021-08-25,North West,1,Saskatchewan
+2021-08-25,North West,10,Saskatchewan
+2021-08-25,North West,2,Saskatchewan
+2021-08-25,North West,6,Saskatchewan
+2021-08-25,North Central,5,Saskatchewan
+2021-08-25,North Central,15,Saskatchewan
+2021-08-25,North Central,1,Saskatchewan
+2021-08-25,North East,11,Saskatchewan
+2021-08-25,North East,1,Saskatchewan
+2021-08-25,North East,1,Saskatchewan
+2021-08-25,Saskatoon,80,Saskatchewan
+2021-08-25,Central West,6,Saskatchewan
+2021-08-25,Central West,0,Saskatchewan
+2021-08-25,Central East,4,Saskatchewan
+2021-08-25,Central East,0,Saskatchewan
+2021-08-25,Central East,0,Saskatchewan
+2021-08-25,Central East,0,Saskatchewan
+2021-08-25,Central East,1,Saskatchewan
+2021-08-25,Regina,8,Saskatchewan
+2021-08-25,South West,5,Saskatchewan
+2021-08-25,South West,0,Saskatchewan
+2021-08-25,South Central,0,Saskatchewan
+2021-08-25,South Central,2,Saskatchewan
+2021-08-25,South East,2,Saskatchewan
+2021-08-25,South East,3,Saskatchewan
+2021-08-25,South East,0,Saskatchewan
+2021-08-25,South East,0,Saskatchewan
+2021-08-26,Far North West,3,Saskatchewan
+2021-08-26,Far North West,3,Saskatchewan
+2021-08-26,Far North Central,1,Saskatchewan
+2021-08-26,Far North East,8,Saskatchewan
+2021-08-26,Far North East,6,Saskatchewan
+2021-08-26,North West,0,Saskatchewan
+2021-08-26,North West,15,Saskatchewan
+2021-08-26,North West,0,Saskatchewan
+2021-08-26,North West,2,Saskatchewan
+2021-08-26,North Central,11,Saskatchewan
+2021-08-26,North Central,18,Saskatchewan
+2021-08-26,North Central,2,Saskatchewan
+2021-08-26,North East,6,Saskatchewan
+2021-08-26,North East,7,Saskatchewan
+2021-08-26,North East,2,Saskatchewan
+2021-08-26,Saskatoon,27,Saskatchewan
+2021-08-26,Central West,8,Saskatchewan
+2021-08-26,Central West,0,Saskatchewan
+2021-08-26,Central East,2,Saskatchewan
+2021-08-26,Central East,0,Saskatchewan
+2021-08-26,Central East,2,Saskatchewan
+2021-08-26,Central East,0,Saskatchewan
+2021-08-26,Central East,1,Saskatchewan
+2021-08-26,Regina,11,Saskatchewan
+2021-08-26,South West,4,Saskatchewan
+2021-08-26,South West,2,Saskatchewan
+2021-08-26,South Central,0,Saskatchewan
+2021-08-26,South Central,0,Saskatchewan
+2021-08-26,South East,2,Saskatchewan
+2021-08-26,South East,0,Saskatchewan
+2021-08-26,South East,2,Saskatchewan
+2021-08-26,South East,4,Saskatchewan
+2021-08-27,Far North West,4,Saskatchewan
+2021-08-27,Far North West,5,Saskatchewan
+2021-08-27,Far North Central,7,Saskatchewan
+2021-08-27,Far North East,17,Saskatchewan
+2021-08-27,Far North East,12,Saskatchewan
+2021-08-27,North West,0,Saskatchewan
+2021-08-27,North West,21,Saskatchewan
+2021-08-27,North West,0,Saskatchewan
+2021-08-27,North West,2,Saskatchewan
+2021-08-27,North Central,16,Saskatchewan
+2021-08-27,North Central,17,Saskatchewan
+2021-08-27,North Central,3,Saskatchewan
+2021-08-27,North East,9,Saskatchewan
+2021-08-27,North East,5,Saskatchewan
+2021-08-27,North East,4,Saskatchewan
+2021-08-27,Saskatoon,61,Saskatchewan
+2021-08-27,Central West,8,Saskatchewan
+2021-08-27,Central West,2,Saskatchewan
+2021-08-27,Central East,1,Saskatchewan
+2021-08-27,Central East,0,Saskatchewan
+2021-08-27,Central East,1,Saskatchewan
+2021-08-27,Central East,2,Saskatchewan
+2021-08-27,Central East,5,Saskatchewan
+2021-08-27,Regina,13,Saskatchewan
+2021-08-27,South West,3,Saskatchewan
+2021-08-27,South West,2,Saskatchewan
+2021-08-27,South Central,1,Saskatchewan
+2021-08-27,South Central,4,Saskatchewan
+2021-08-27,South East,1,Saskatchewan
+2021-08-27,South East,2,Saskatchewan
+2021-08-27,South East,3,Saskatchewan
+2021-08-27,South East,6,Saskatchewan
+2021-08-28,Far North West,4,Saskatchewan
+2021-08-28,Far North West,5,Saskatchewan
+2021-08-28,Far North Central,2,Saskatchewan
+2021-08-28,Far North East,28,Saskatchewan
+2021-08-28,Far North East,13,Saskatchewan
+2021-08-28,North West,0,Saskatchewan
+2021-08-28,North West,15,Saskatchewan
+2021-08-28,North West,11,Saskatchewan
+2021-08-28,North West,9,Saskatchewan
+2021-08-28,North Central,26,Saskatchewan
+2021-08-28,North Central,36,Saskatchewan
+2021-08-28,North Central,3,Saskatchewan
+2021-08-28,North East,10,Saskatchewan
+2021-08-28,North East,3,Saskatchewan
+2021-08-28,North East,11,Saskatchewan
+2021-08-28,Saskatoon,112,Saskatchewan
+2021-08-28,Central West,6,Saskatchewan
+2021-08-28,Central West,0,Saskatchewan
+2021-08-28,Central East,1,Saskatchewan
+2021-08-28,Central East,0,Saskatchewan
+2021-08-28,Central East,0,Saskatchewan
+2021-08-28,Central East,1,Saskatchewan
+2021-08-28,Central East,4,Saskatchewan
+2021-08-28,Regina,22,Saskatchewan
+2021-08-28,South West,3,Saskatchewan
+2021-08-28,South West,0,Saskatchewan
+2021-08-28,South Central,1,Saskatchewan
+2021-08-28,South Central,7,Saskatchewan
+2021-08-28,South East,1,Saskatchewan
+2021-08-28,South East,1,Saskatchewan
+2021-08-28,South East,4,Saskatchewan
+2021-08-28,South East,3,Saskatchewan
+2021-08-29,Far North West,1,Saskatchewan
+2021-08-29,Far North West,5,Saskatchewan
+2021-08-29,Far North Central,2,Saskatchewan
+2021-08-29,Far North East,5,Saskatchewan
+2021-08-29,Far North East,0,Saskatchewan
+2021-08-29,North West,4,Saskatchewan
+2021-08-29,North West,26,Saskatchewan
+2021-08-29,North West,3,Saskatchewan
+2021-08-29,North West,5,Saskatchewan
+2021-08-29,North Central,11,Saskatchewan
+2021-08-29,North Central,7,Saskatchewan
+2021-08-29,North Central,5,Saskatchewan
+2021-08-29,North East,6,Saskatchewan
+2021-08-29,North East,3,Saskatchewan
+2021-08-29,North East,1,Saskatchewan
+2021-08-29,Saskatoon,97,Saskatchewan
+2021-08-29,Central West,5,Saskatchewan
+2021-08-29,Central West,3,Saskatchewan
+2021-08-29,Central East,3,Saskatchewan
+2021-08-29,Central East,0,Saskatchewan
+2021-08-29,Central East,1,Saskatchewan
+2021-08-29,Central East,4,Saskatchewan
+2021-08-29,Central East,1,Saskatchewan
+2021-08-29,Regina,17,Saskatchewan
+2021-08-29,South West,2,Saskatchewan
+2021-08-29,South West,3,Saskatchewan
+2021-08-29,South Central,3,Saskatchewan
+2021-08-29,South Central,3,Saskatchewan
+2021-08-29,South East,0,Saskatchewan
+2021-08-29,South East,1,Saskatchewan
+2021-08-29,South East,2,Saskatchewan
+2021-08-29,South East,0,Saskatchewan
+2021-08-30,Far North West,2,Saskatchewan
+2021-08-30,Far North West,6,Saskatchewan
+2021-08-30,Far North Central,3,Saskatchewan
+2021-08-30,Far North East,10,Saskatchewan
+2021-08-30,Far North East,4,Saskatchewan
+2021-08-30,North West,0,Saskatchewan
+2021-08-30,North West,21,Saskatchewan
+2021-08-30,North West,3,Saskatchewan
+2021-08-30,North West,8,Saskatchewan
+2021-08-30,North Central,11,Saskatchewan
+2021-08-30,North Central,9,Saskatchewan
+2021-08-30,North Central,2,Saskatchewan
+2021-08-30,North East,10,Saskatchewan
+2021-08-30,North East,3,Saskatchewan
+2021-08-30,North East,1,Saskatchewan
+2021-08-30,Saskatoon,62,Saskatchewan
+2021-08-30,Central West,4,Saskatchewan
+2021-08-30,Central West,0,Saskatchewan
+2021-08-30,Central East,1,Saskatchewan
+2021-08-30,Central East,1,Saskatchewan
+2021-08-30,Central East,1,Saskatchewan
+2021-08-30,Central East,0,Saskatchewan
+2021-08-30,Central East,0,Saskatchewan
+2021-08-30,Regina,8,Saskatchewan
+2021-08-30,South West,0,Saskatchewan
+2021-08-30,South West,2,Saskatchewan
+2021-08-30,South Central,1,Saskatchewan
+2021-08-30,South Central,1,Saskatchewan
+2021-08-30,South East,0,Saskatchewan
+2021-08-30,South East,2,Saskatchewan
+2021-08-30,South East,4,Saskatchewan
+2021-08-30,South East,2,Saskatchewan
+2021-08-31,Far North West,5,Saskatchewan
+2021-08-31,Far North West,3,Saskatchewan
+2021-08-31,Far North Central,0,Saskatchewan
+2021-08-31,Far North East,30,Saskatchewan
+2021-08-31,Far North East,15,Saskatchewan
+2021-08-31,North West,1,Saskatchewan
+2021-08-31,North West,24,Saskatchewan
+2021-08-31,North West,7,Saskatchewan
+2021-08-31,North West,4,Saskatchewan
+2021-08-31,North Central,15,Saskatchewan
+2021-08-31,North Central,22,Saskatchewan
+2021-08-31,North Central,3,Saskatchewan
+2021-08-31,North East,4,Saskatchewan
+2021-08-31,North East,2,Saskatchewan
+2021-08-31,North East,6,Saskatchewan
+2021-08-31,Saskatoon,72,Saskatchewan
+2021-08-31,Central West,5,Saskatchewan
+2021-08-31,Central West,2,Saskatchewan
+2021-08-31,Central East,5,Saskatchewan
+2021-08-31,Central East,0,Saskatchewan
+2021-08-31,Central East,2,Saskatchewan
+2021-08-31,Central East,5,Saskatchewan
+2021-08-31,Central East,0,Saskatchewan
+2021-08-31,Regina,10,Saskatchewan
+2021-08-31,South West,1,Saskatchewan
+2021-08-31,South West,6,Saskatchewan
+2021-08-31,South Central,1,Saskatchewan
+2021-08-31,South Central,1,Saskatchewan
+2021-08-31,South East,2,Saskatchewan
+2021-08-31,South East,0,Saskatchewan
+2021-08-31,South East,0,Saskatchewan
+2021-08-31,South East,1,Saskatchewan
+2021-09-01,Far North West,8,Saskatchewan
+2021-09-01,Far North West,5,Saskatchewan
+2021-09-01,Far North Central,4,Saskatchewan
+2021-09-01,Far North East,8,Saskatchewan
+2021-09-01,Far North East,61,Saskatchewan
+2021-09-01,North West,0,Saskatchewan
+2021-09-01,North West,5,Saskatchewan
+2021-09-01,North West,2,Saskatchewan
+2021-09-01,North West,2,Saskatchewan
+2021-09-01,North Central,16,Saskatchewan
+2021-09-01,North Central,19,Saskatchewan
+2021-09-01,North Central,3,Saskatchewan
+2021-09-01,North East,6,Saskatchewan
+2021-09-01,North East,0,Saskatchewan
+2021-09-01,North East,1,Saskatchewan
+2021-09-01,Saskatoon,95,Saskatchewan
+2021-09-01,Central West,5,Saskatchewan
+2021-09-01,Central West,0,Saskatchewan
+2021-09-01,Central East,0,Saskatchewan
+2021-09-01,Central East,4,Saskatchewan
+2021-09-01,Central East,0,Saskatchewan
+2021-09-01,Central East,2,Saskatchewan
+2021-09-01,Central East,0,Saskatchewan
+2021-09-01,Regina,19,Saskatchewan
+2021-09-01,South West,2,Saskatchewan
+2021-09-01,South West,1,Saskatchewan
+2021-09-01,South Central,0,Saskatchewan
+2021-09-01,South Central,2,Saskatchewan
+2021-09-01,South East,0,Saskatchewan
+2021-09-01,South East,3,Saskatchewan
+2021-09-01,South East,6,Saskatchewan
+2021-09-01,South East,2,Saskatchewan
+2021-09-02,Far North West,4,Saskatchewan
+2021-09-02,Far North West,11,Saskatchewan
+2021-09-02,Far North Central,2,Saskatchewan
+2021-09-02,Far North East,16,Saskatchewan
+2021-09-02,Far North East,15,Saskatchewan
+2021-09-02,North West,2,Saskatchewan
+2021-09-02,North West,37,Saskatchewan
+2021-09-02,North West,10,Saskatchewan
+2021-09-02,North West,1,Saskatchewan
+2021-09-02,North Central,16,Saskatchewan
+2021-09-02,North Central,15,Saskatchewan
+2021-09-02,North Central,9,Saskatchewan
+2021-09-02,North East,2,Saskatchewan
+2021-09-02,North East,3,Saskatchewan
+2021-09-02,North East,2,Saskatchewan
+2021-09-02,Saskatoon,59,Saskatchewan
+2021-09-02,Central West,3,Saskatchewan
+2021-09-02,Central West,0,Saskatchewan
+2021-09-02,Central East,2,Saskatchewan
+2021-09-02,Central East,2,Saskatchewan
+2021-09-02,Central East,1,Saskatchewan
+2021-09-02,Central East,0,Saskatchewan
+2021-09-02,Central East,0,Saskatchewan
+2021-09-02,Regina,14,Saskatchewan
+2021-09-02,South West,0,Saskatchewan
+2021-09-02,South West,0,Saskatchewan
+2021-09-02,South Central,1,Saskatchewan
+2021-09-02,South Central,1,Saskatchewan
+2021-09-02,South East,2,Saskatchewan
+2021-09-02,South East,2,Saskatchewan
+2021-09-02,South East,11,Saskatchewan
+2021-09-02,South East,3,Saskatchewan
+2021-09-03,Far North West,10,Saskatchewan
+2021-09-03,Far North West,10,Saskatchewan
+2021-09-03,Far North Central,0,Saskatchewan
+2021-09-03,Far North East,8,Saskatchewan
+2021-09-03,Far North East,7,Saskatchewan
+2021-09-03,North West,3,Saskatchewan
+2021-09-03,North West,31,Saskatchewan
+2021-09-03,North West,9,Saskatchewan
+2021-09-03,North West,7,Saskatchewan
+2021-09-03,North Central,16,Saskatchewan
+2021-09-03,North Central,20,Saskatchewan
+2021-09-03,North Central,11,Saskatchewan
+2021-09-03,North East,8,Saskatchewan
+2021-09-03,North East,8,Saskatchewan
+2021-09-03,North East,5,Saskatchewan
+2021-09-03,Saskatoon,131,Saskatchewan
+2021-09-03,Central West,20,Saskatchewan
+2021-09-03,Central West,3,Saskatchewan
+2021-09-03,Central East,3,Saskatchewan
+2021-09-03,Central East,1,Saskatchewan
+2021-09-03,Central East,2,Saskatchewan
+2021-09-03,Central East,1,Saskatchewan
+2021-09-03,Central East,4,Saskatchewan
+2021-09-03,Regina,23,Saskatchewan
+2021-09-03,South West,8,Saskatchewan
+2021-09-03,South West,2,Saskatchewan
+2021-09-03,South Central,0,Saskatchewan
+2021-09-03,South Central,9,Saskatchewan
+2021-09-03,South East,3,Saskatchewan
+2021-09-03,South East,5,Saskatchewan
+2021-09-03,South East,5,Saskatchewan
+2021-09-03,South East,0,Saskatchewan
+2021-09-04,Far North West,8,Saskatchewan
+2021-09-04,Far North West,15,Saskatchewan
+2021-09-04,Far North Central,1,Saskatchewan
+2021-09-04,Far North East,15,Saskatchewan
+2021-09-04,Far North East,15,Saskatchewan
+2021-09-04,North West,4,Saskatchewan
+2021-09-04,North West,17,Saskatchewan
+2021-09-04,North West,4,Saskatchewan
+2021-09-04,North West,1,Saskatchewan
+2021-09-04,North Central,47,Saskatchewan
+2021-09-04,North Central,17,Saskatchewan
+2021-09-04,North Central,9,Saskatchewan
+2021-09-04,North East,5,Saskatchewan
+2021-09-04,North East,9,Saskatchewan
+2021-09-04,North East,3,Saskatchewan
+2021-09-04,Saskatoon,110,Saskatchewan
+2021-09-04,Central West,1,Saskatchewan
+2021-09-04,Central West,1,Saskatchewan
+2021-09-04,Central East,8,Saskatchewan
+2021-09-04,Central East,0,Saskatchewan
+2021-09-04,Central East,1,Saskatchewan
+2021-09-04,Central East,3,Saskatchewan
+2021-09-04,Central East,0,Saskatchewan
+2021-09-04,Regina,21,Saskatchewan
+2021-09-04,South West,5,Saskatchewan
+2021-09-04,South West,0,Saskatchewan
+2021-09-04,South Central,1,Saskatchewan
+2021-09-04,South Central,2,Saskatchewan
+2021-09-04,South East,5,Saskatchewan
+2021-09-04,South East,3,Saskatchewan
+2021-09-04,South East,5,Saskatchewan
+2021-09-04,South East,1,Saskatchewan
+2021-09-05,Far North West,8,Saskatchewan
+2021-09-05,Far North West,12,Saskatchewan
+2021-09-05,Far North Central,0,Saskatchewan
+2021-09-05,Far North East,3,Saskatchewan
+2021-09-05,Far North East,8,Saskatchewan
+2021-09-05,North West,1,Saskatchewan
+2021-09-05,North West,41,Saskatchewan
+2021-09-05,North West,5,Saskatchewan
+2021-09-05,North West,6,Saskatchewan
+2021-09-05,North Central,21,Saskatchewan
+2021-09-05,North Central,31,Saskatchewan
+2021-09-05,North Central,6,Saskatchewan
+2021-09-05,North East,5,Saskatchewan
+2021-09-05,North East,1,Saskatchewan
+2021-09-05,North East,3,Saskatchewan
+2021-09-05,Saskatoon,153,Saskatchewan
+2021-09-05,Central West,13,Saskatchewan
+2021-09-05,Central West,1,Saskatchewan
+2021-09-05,Central East,3,Saskatchewan
+2021-09-05,Central East,2,Saskatchewan
+2021-09-05,Central East,2,Saskatchewan
+2021-09-05,Central East,3,Saskatchewan
+2021-09-05,Central East,0,Saskatchewan
+2021-09-05,Regina,20,Saskatchewan
+2021-09-05,South West,1,Saskatchewan
+2021-09-05,South West,1,Saskatchewan
+2021-09-05,South Central,2,Saskatchewan
+2021-09-05,South Central,2,Saskatchewan
+2021-09-05,South East,2,Saskatchewan
+2021-09-05,South East,0,Saskatchewan
+2021-09-05,South East,4,Saskatchewan
+2021-09-05,South East,3,Saskatchewan
+2021-09-06,Far North West,9,Saskatchewan
+2021-09-06,Far North West,16,Saskatchewan
+2021-09-06,Far North Central,0,Saskatchewan
+2021-09-06,Far North East,10,Saskatchewan
+2021-09-06,Far North East,13,Saskatchewan
+2021-09-06,North West,13,Saskatchewan
+2021-09-06,North West,25,Saskatchewan
+2021-09-06,North West,12,Saskatchewan
+2021-09-06,North West,15,Saskatchewan
+2021-09-06,North Central,22,Saskatchewan
+2021-09-06,North Central,37,Saskatchewan
+2021-09-06,North Central,5,Saskatchewan
+2021-09-06,North East,17,Saskatchewan
+2021-09-06,North East,10,Saskatchewan
+2021-09-06,North East,4,Saskatchewan
+2021-09-06,Saskatoon,97,Saskatchewan
+2021-09-06,Central West,2,Saskatchewan
+2021-09-06,Central West,2,Saskatchewan
+2021-09-06,Central East,5,Saskatchewan
+2021-09-06,Central East,0,Saskatchewan
+2021-09-06,Central East,1,Saskatchewan
+2021-09-06,Central East,4,Saskatchewan
+2021-09-06,Central East,0,Saskatchewan
+2021-09-06,Regina,11,Saskatchewan
+2021-09-06,South West,8,Saskatchewan
+2021-09-06,South West,7,Saskatchewan
+2021-09-06,South Central,5,Saskatchewan
+2021-09-06,South Central,8,Saskatchewan
+2021-09-06,South East,4,Saskatchewan
+2021-09-06,South East,0,Saskatchewan
+2021-09-06,South East,4,Saskatchewan
+2021-09-06,South East,2,Saskatchewan
+2021-09-07,Far North West,4,Saskatchewan
+2021-09-07,Far North West,5,Saskatchewan
+2021-09-07,Far North Central,2,Saskatchewan
+2021-09-07,Far North East,30,Saskatchewan
+2021-09-07,Far North East,7,Saskatchewan
+2021-09-07,North West,3,Saskatchewan
+2021-09-07,North West,20,Saskatchewan
+2021-09-07,North West,9,Saskatchewan
+2021-09-07,North West,3,Saskatchewan
+2021-09-07,North Central,16,Saskatchewan
+2021-09-07,North Central,17,Saskatchewan
+2021-09-07,North Central,6,Saskatchewan
+2021-09-07,North East,3,Saskatchewan
+2021-09-07,North East,13,Saskatchewan
+2021-09-07,North East,2,Saskatchewan
+2021-09-07,Saskatoon,84,Saskatchewan
+2021-09-07,Central West,4,Saskatchewan
+2021-09-07,Central West,1,Saskatchewan
+2021-09-07,Central East,5,Saskatchewan
+2021-09-07,Central East,2,Saskatchewan
+2021-09-07,Central East,0,Saskatchewan
+2021-09-07,Central East,1,Saskatchewan
+2021-09-07,Central East,2,Saskatchewan
+2021-09-07,Regina,16,Saskatchewan
+2021-09-07,South West,4,Saskatchewan
+2021-09-07,South West,1,Saskatchewan
+2021-09-07,South Central,0,Saskatchewan
+2021-09-07,South Central,3,Saskatchewan
+2021-09-07,South East,6,Saskatchewan
+2021-09-07,South East,2,Saskatchewan
+2021-09-07,South East,0,Saskatchewan
+2021-09-07,South East,1,Saskatchewan

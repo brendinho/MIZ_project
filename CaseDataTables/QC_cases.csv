@@ -921,7 +921,7 @@ date,HR,cases,province
 2020-03-14,Saguenay-Lac-Saint-Jean,0,Quebec
 2020-03-14,Capitale-Nationale,2,Quebec
 2020-03-14,Mauricie et Centre-du-Quebec,3,Quebec
-2020-03-14,Estrie,0,Quebec
+2020-03-14,Estrie,1,Quebec
 2020-03-14,Montreal,5,Quebec
 2020-03-14,Outaouais,0,Quebec
 2020-03-14,Abitibi-Temiscamingue,0,Quebec
@@ -1245,7 +1245,7 @@ date,HR,cases,province
 2020-04-01,Saguenay-Lac-Saint-Jean,5,Quebec
 2020-04-01,Capitale-Nationale,39,Quebec
 2020-04-01,Mauricie et Centre-du-Quebec,74,Quebec
-2020-04-01,Estrie,40,Quebec
+2020-04-01,Estrie,41,Quebec
 2020-04-01,Montreal,303,Quebec
 2020-04-01,Outaouais,9,Quebec
 2020-04-01,Abitibi-Temiscamingue,7,Quebec
@@ -1281,7 +1281,7 @@ date,HR,cases,province
 2020-04-03,Saguenay-Lac-Saint-Jean,8,Quebec
 2020-04-03,Capitale-Nationale,25,Quebec
 2020-04-03,Mauricie et Centre-du-Quebec,58,Quebec
-2020-04-03,Estrie,34,Quebec
+2020-04-03,Estrie,37,Quebec
 2020-04-03,Montreal,346,Quebec
 2020-04-03,Outaouais,6,Quebec
 2020-04-03,Abitibi-Temiscamingue,18,Quebec
@@ -1507,7 +1507,7 @@ date,HR,cases,province
 2020-04-15,Chaudiere-Appalaches,2,Quebec
 2020-04-15,Laval,149,Quebec
 2020-04-15,Lanaudiere,79,Quebec
-2020-04-15,Laurentides,40,Quebec
+2020-04-15,Laurentides,39,Quebec
 2020-04-15,Monteregie,130,Quebec
 2020-04-15,Nunavik,1,Quebec
 2020-04-15,Terres-Cries-de-la-Baie-James,0,Quebec
@@ -1596,8 +1596,8 @@ date,HR,cases,province
 2020-04-20,Gaspesie-Iles-de-la-Madeleine,1,Quebec
 2020-04-20,Chaudiere-Appalaches,8,Quebec
 2020-04-20,Laval,109,Quebec
-2020-04-20,Lanaudiere,76,Quebec
-2020-04-20,Laurentides,38,Quebec
+2020-04-20,Lanaudiere,75,Quebec
+2020-04-20,Laurentides,39,Quebec
 2020-04-20,Monteregie,127,Quebec
 2020-04-20,Nunavik,0,Quebec
 2020-04-20,Terres-Cries-de-la-Baie-James,0,Quebec
@@ -1610,12 +1610,12 @@ date,HR,cases,province
 2020-04-21,Outaouais,6,Quebec
 2020-04-21,Abitibi-Temiscamingue,0,Quebec
 2020-04-21,Cote-Nord,1,Quebec
-2020-04-21,Nord-du-Quebec,0,Quebec
+2020-04-21,Nord-du-Quebec,1,Quebec
 2020-04-21,Gaspesie-Iles-de-la-Madeleine,8,Quebec
 2020-04-21,Chaudiere-Appalaches,5,Quebec
 2020-04-21,Laval,89,Quebec
 2020-04-21,Lanaudiere,71,Quebec
-2020-04-21,Laurentides,43,Quebec
+2020-04-21,Laurentides,42,Quebec
 2020-04-21,Monteregie,86,Quebec
 2020-04-21,Nunavik,0,Quebec
 2020-04-21,Terres-Cries-de-la-Baie-James,0,Quebec
@@ -1703,8 +1703,8 @@ date,HR,cases,province
 2020-04-26,Nord-du-Quebec,0,Quebec
 2020-04-26,Gaspesie-Iles-de-la-Madeleine,2,Quebec
 2020-04-26,Chaudiere-Appalaches,2,Quebec
-2020-04-26,Laval,81,Quebec
-2020-04-26,Lanaudiere,52,Quebec
+2020-04-26,Laval,82,Quebec
+2020-04-26,Lanaudiere,53,Quebec
 2020-04-26,Laurentides,34,Quebec
 2020-04-26,Monteregie,96,Quebec
 2020-04-26,Nunavik,0,Quebec
@@ -1794,8 +1794,8 @@ date,HR,cases,province
 2020-05-01,Gaspesie-Iles-de-la-Madeleine,0,Quebec
 2020-05-01,Chaudiere-Appalaches,2,Quebec
 2020-05-01,Laval,88,Quebec
-2020-05-01,Lanaudiere,96,Quebec
-2020-05-01,Laurentides,56,Quebec
+2020-05-01,Lanaudiere,95,Quebec
+2020-05-01,Laurentides,57,Quebec
 2020-05-01,Monteregie,132,Quebec
 2020-05-01,Nunavik,0,Quebec
 2020-05-01,Terres-Cries-de-la-Baie-James,0,Quebec
@@ -1812,7 +1812,7 @@ date,HR,cases,province
 2020-05-02,Gaspesie-Iles-de-la-Madeleine,0,Quebec
 2020-05-02,Chaudiere-Appalaches,3,Quebec
 2020-05-02,Laval,54,Quebec
-2020-05-02,Lanaudiere,57,Quebec
+2020-05-02,Lanaudiere,58,Quebec
 2020-05-02,Laurentides,45,Quebec
 2020-05-02,Monteregie,148,Quebec
 2020-05-02,Nunavik,0,Quebec
@@ -1912,7 +1912,7 @@ date,HR,cases,province
 2020-05-08,Capitale-Nationale,35,Quebec
 2020-05-08,Mauricie et Centre-du-Quebec,25,Quebec
 2020-05-08,Estrie,3,Quebec
-2020-05-08,Montreal,427,Quebec
+2020-05-08,Montreal,426,Quebec
 2020-05-08,Outaouais,7,Quebec
 2020-05-08,Abitibi-Temiscamingue,2,Quebec
 2020-05-08,Cote-Nord,0,Quebec
@@ -1979,7 +1979,7 @@ date,HR,cases,province
 2020-05-11,Monteregie,100,Quebec
 2020-05-11,Nunavik,0,Quebec
 2020-05-11,Terres-Cries-de-la-Baie-James,0,Quebec
-2020-05-12,Bas-Saint-Laurent,1,Quebec
+2020-05-12,Bas-Saint-Laurent,2,Quebec
 2020-05-12,Saguenay-Lac-Saint-Jean,1,Quebec
 2020-05-12,Capitale-Nationale,18,Quebec
 2020-05-12,Mauricie et Centre-du-Quebec,19,Quebec
@@ -2208,7 +2208,7 @@ date,HR,cases,province
 2020-05-24,Gaspesie-Iles-de-la-Madeleine,1,Quebec
 2020-05-24,Chaudiere-Appalaches,1,Quebec
 2020-05-24,Laval,60,Quebec
-2020-05-24,Lanaudiere,44,Quebec
+2020-05-24,Lanaudiere,45,Quebec
 2020-05-24,Laurentides,44,Quebec
 2020-05-24,Monteregie,118,Quebec
 2020-05-24,Nunavik,0,Quebec
@@ -3258,7 +3258,7 @@ date,HR,cases,province
 2020-07-21,Nunavik,0,Quebec
 2020-07-21,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-07-22,Bas-Saint-Laurent,0,Quebec
-2020-07-22,Saguenay-Lac-Saint-Jean,2,Quebec
+2020-07-22,Saguenay-Lac-Saint-Jean,1,Quebec
 2020-07-22,Capitale-Nationale,8,Quebec
 2020-07-22,Mauricie et Centre-du-Quebec,1,Quebec
 2020-07-22,Estrie,2,Quebec
@@ -3298,7 +3298,7 @@ date,HR,cases,province
 2020-07-24,Capitale-Nationale,2,Quebec
 2020-07-24,Mauricie et Centre-du-Quebec,3,Quebec
 2020-07-24,Estrie,7,Quebec
-2020-07-24,Montreal,69,Quebec
+2020-07-24,Montreal,70,Quebec
 2020-07-24,Outaouais,2,Quebec
 2020-07-24,Abitibi-Temiscamingue,0,Quebec
 2020-07-24,Cote-Nord,0,Quebec
@@ -3496,7 +3496,7 @@ date,HR,cases,province
 2020-08-04,Capitale-Nationale,0,Quebec
 2020-08-04,Mauricie et Centre-du-Quebec,3,Quebec
 2020-08-04,Estrie,7,Quebec
-2020-08-04,Montreal,65,Quebec
+2020-08-04,Montreal,64,Quebec
 2020-08-04,Outaouais,3,Quebec
 2020-08-04,Abitibi-Temiscamingue,0,Quebec
 2020-08-04,Cote-Nord,0,Quebec
@@ -4015,7 +4015,7 @@ date,HR,cases,province
 2020-09-01,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-09-02,Bas-Saint-Laurent,1,Quebec
 2020-09-02,Saguenay-Lac-Saint-Jean,1,Quebec
-2020-09-02,Capitale-Nationale,35,Quebec
+2020-09-02,Capitale-Nationale,36,Quebec
 2020-09-02,Mauricie et Centre-du-Quebec,1,Quebec
 2020-09-02,Estrie,22,Quebec
 2020-09-02,Montreal,35,Quebec
@@ -4132,7 +4132,7 @@ date,HR,cases,province
 2020-09-08,Cote-Nord,2,Quebec
 2020-09-08,Nord-du-Quebec,0,Quebec
 2020-09-08,Gaspesie-Iles-de-la-Madeleine,0,Quebec
-2020-09-08,Chaudiere-Appalaches,7,Quebec
+2020-09-08,Chaudiere-Appalaches,6,Quebec
 2020-09-08,Laval,11,Quebec
 2020-09-08,Lanaudiere,9,Quebec
 2020-09-08,Laurentides,6,Quebec
@@ -4150,21 +4150,21 @@ date,HR,cases,province
 2020-09-09,Cote-Nord,3,Quebec
 2020-09-09,Nord-du-Quebec,0,Quebec
 2020-09-09,Gaspesie-Iles-de-la-Madeleine,3,Quebec
-2020-09-09,Chaudiere-Appalaches,18,Quebec
+2020-09-09,Chaudiere-Appalaches,19,Quebec
 2020-09-09,Laval,15,Quebec
 2020-09-09,Lanaudiere,13,Quebec
 2020-09-09,Laurentides,8,Quebec
 2020-09-09,Monteregie,34,Quebec
 2020-09-09,Nunavik,0,Quebec
 2020-09-09,Terres-Cries-de-la-Baie-James,0,Quebec
-2020-09-10,Bas-Saint-Laurent,16,Quebec
+2020-09-10,Bas-Saint-Laurent,17,Quebec
 2020-09-10,Saguenay-Lac-Saint-Jean,1,Quebec
 2020-09-10,Capitale-Nationale,39,Quebec
 2020-09-10,Mauricie et Centre-du-Quebec,4,Quebec
 2020-09-10,Estrie,16,Quebec
 2020-09-10,Montreal,90,Quebec
 2020-09-10,Outaouais,15,Quebec
-2020-09-10,Abitibi-Temiscamingue,1,Quebec
+2020-09-10,Abitibi-Temiscamingue,0,Quebec
 2020-09-10,Cote-Nord,1,Quebec
 2020-09-10,Nord-du-Quebec,0,Quebec
 2020-09-10,Gaspesie-Iles-de-la-Madeleine,2,Quebec
@@ -4195,7 +4195,7 @@ date,HR,cases,province
 2020-09-11,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-09-12,Bas-Saint-Laurent,28,Quebec
 2020-09-12,Saguenay-Lac-Saint-Jean,0,Quebec
-2020-09-12,Capitale-Nationale,48,Quebec
+2020-09-12,Capitale-Nationale,47,Quebec
 2020-09-12,Mauricie et Centre-du-Quebec,8,Quebec
 2020-09-12,Estrie,15,Quebec
 2020-09-12,Montreal,71,Quebec
@@ -4207,7 +4207,7 @@ date,HR,cases,province
 2020-09-12,Chaudiere-Appalaches,17,Quebec
 2020-09-12,Laval,22,Quebec
 2020-09-12,Lanaudiere,12,Quebec
-2020-09-12,Laurentides,24,Quebec
+2020-09-12,Laurentides,23,Quebec
 2020-09-12,Monteregie,31,Quebec
 2020-09-12,Nunavik,0,Quebec
 2020-09-12,Terres-Cries-de-la-Baie-James,0,Quebec
@@ -4319,7 +4319,7 @@ date,HR,cases,province
 2020-09-18,Monteregie,57,Quebec
 2020-09-18,Nunavik,0,Quebec
 2020-09-18,Terres-Cries-de-la-Baie-James,0,Quebec
-2020-09-19,Bas-Saint-Laurent,8,Quebec
+2020-09-19,Bas-Saint-Laurent,10,Quebec
 2020-09-19,Saguenay-Lac-Saint-Jean,2,Quebec
 2020-09-19,Capitale-Nationale,112,Quebec
 2020-09-19,Mauricie et Centre-du-Quebec,14,Quebec
@@ -4413,7 +4413,7 @@ date,HR,cases,province
 2020-09-24,Saguenay-Lac-Saint-Jean,2,Quebec
 2020-09-24,Capitale-Nationale,144,Quebec
 2020-09-24,Mauricie et Centre-du-Quebec,16,Quebec
-2020-09-24,Estrie,19,Quebec
+2020-09-24,Estrie,20,Quebec
 2020-09-24,Montreal,231,Quebec
 2020-09-24,Outaouais,18,Quebec
 2020-09-24,Abitibi-Temiscamingue,0,Quebec
@@ -4440,7 +4440,7 @@ date,HR,cases,province
 2020-09-25,Gaspesie-Iles-de-la-Madeleine,21,Quebec
 2020-09-25,Chaudiere-Appalaches,42,Quebec
 2020-09-25,Laval,59,Quebec
-2020-09-25,Lanaudiere,34,Quebec
+2020-09-25,Lanaudiere,35,Quebec
 2020-09-25,Laurentides,31,Quebec
 2020-09-25,Monteregie,104,Quebec
 2020-09-25,Nunavik,0,Quebec
@@ -4513,7 +4513,7 @@ date,HR,cases,province
 2020-09-29,Chaudiere-Appalaches,47,Quebec
 2020-09-29,Laval,79,Quebec
 2020-09-29,Lanaudiere,45,Quebec
-2020-09-29,Laurentides,48,Quebec
+2020-09-29,Laurentides,49,Quebec
 2020-09-29,Monteregie,106,Quebec
 2020-09-29,Nunavik,0,Quebec
 2020-09-29,Terres-Cries-de-la-Baie-James,0,Quebec
@@ -4536,11 +4536,11 @@ date,HR,cases,province
 2020-09-30,Nunavik,0,Quebec
 2020-09-30,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-10-01,Bas-Saint-Laurent,10,Quebec
-2020-10-01,Saguenay-Lac-Saint-Jean,7,Quebec
+2020-10-01,Saguenay-Lac-Saint-Jean,6,Quebec
 2020-10-01,Capitale-Nationale,160,Quebec
 2020-10-01,Mauricie et Centre-du-Quebec,33,Quebec
 2020-10-01,Estrie,29,Quebec
-2020-10-01,Montreal,311,Quebec
+2020-10-01,Montreal,310,Quebec
 2020-10-01,Outaouais,30,Quebec
 2020-10-01,Abitibi-Temiscamingue,2,Quebec
 2020-10-01,Cote-Nord,0,Quebec
@@ -4568,7 +4568,7 @@ date,HR,cases,province
 2020-10-02,Laval,107,Quebec
 2020-10-02,Lanaudiere,49,Quebec
 2020-10-02,Laurentides,77,Quebec
-2020-10-02,Monteregie,187,Quebec
+2020-10-02,Monteregie,188,Quebec
 2020-10-02,Nunavik,0,Quebec
 2020-10-02,Terres-Cries-de-la-Baie-James,1,Quebec
 2020-10-03,Bas-Saint-Laurent,12,Quebec
@@ -4591,7 +4591,7 @@ date,HR,cases,province
 2020-10-03,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-10-04,Bas-Saint-Laurent,7,Quebec
 2020-10-04,Saguenay-Lac-Saint-Jean,9,Quebec
-2020-10-04,Capitale-Nationale,275,Quebec
+2020-10-04,Capitale-Nationale,276,Quebec
 2020-10-04,Mauricie et Centre-du-Quebec,44,Quebec
 2020-10-04,Estrie,5,Quebec
 2020-10-04,Montreal,298,Quebec
@@ -4609,7 +4609,7 @@ date,HR,cases,province
 2020-10-04,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-10-05,Bas-Saint-Laurent,4,Quebec
 2020-10-05,Saguenay-Lac-Saint-Jean,8,Quebec
-2020-10-05,Capitale-Nationale,104,Quebec
+2020-10-05,Capitale-Nationale,103,Quebec
 2020-10-05,Mauricie et Centre-du-Quebec,11,Quebec
 2020-10-05,Estrie,11,Quebec
 2020-10-05,Montreal,278,Quebec
@@ -4618,7 +4618,7 @@ date,HR,cases,province
 2020-10-05,Cote-Nord,0,Quebec
 2020-10-05,Nord-du-Quebec,0,Quebec
 2020-10-05,Gaspesie-Iles-de-la-Madeleine,26,Quebec
-2020-10-05,Chaudiere-Appalaches,59,Quebec
+2020-10-05,Chaudiere-Appalaches,60,Quebec
 2020-10-05,Laval,78,Quebec
 2020-10-05,Lanaudiere,47,Quebec
 2020-10-05,Laurentides,72,Quebec
@@ -4626,8 +4626,8 @@ date,HR,cases,province
 2020-10-05,Nunavik,0,Quebec
 2020-10-05,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-10-06,Bas-Saint-Laurent,9,Quebec
-2020-10-06,Saguenay-Lac-Saint-Jean,25,Quebec
-2020-10-06,Capitale-Nationale,161,Quebec
+2020-10-06,Saguenay-Lac-Saint-Jean,24,Quebec
+2020-10-06,Capitale-Nationale,162,Quebec
 2020-10-06,Mauricie et Centre-du-Quebec,67,Quebec
 2020-10-06,Estrie,22,Quebec
 2020-10-06,Montreal,255,Quebec
@@ -4663,7 +4663,7 @@ date,HR,cases,province
 2020-10-07,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-10-08,Bas-Saint-Laurent,2,Quebec
 2020-10-08,Saguenay-Lac-Saint-Jean,13,Quebec
-2020-10-08,Capitale-Nationale,140,Quebec
+2020-10-08,Capitale-Nationale,142,Quebec
 2020-10-08,Mauricie et Centre-du-Quebec,67,Quebec
 2020-10-08,Estrie,26,Quebec
 2020-10-08,Montreal,345,Quebec
@@ -4702,7 +4702,7 @@ date,HR,cases,province
 2020-10-10,Capitale-Nationale,167,Quebec
 2020-10-10,Mauricie et Centre-du-Quebec,44,Quebec
 2020-10-10,Estrie,24,Quebec
-2020-10-10,Montreal,192,Quebec
+2020-10-10,Montreal,191,Quebec
 2020-10-10,Outaouais,32,Quebec
 2020-10-10,Abitibi-Temiscamingue,1,Quebec
 2020-10-10,Cote-Nord,1,Quebec
@@ -4717,7 +4717,7 @@ date,HR,cases,province
 2020-10-10,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-10-11,Bas-Saint-Laurent,2,Quebec
 2020-10-11,Saguenay-Lac-Saint-Jean,25,Quebec
-2020-10-11,Capitale-Nationale,119,Quebec
+2020-10-11,Capitale-Nationale,118,Quebec
 2020-10-11,Mauricie et Centre-du-Quebec,98,Quebec
 2020-10-11,Estrie,23,Quebec
 2020-10-11,Montreal,322,Quebec
@@ -4784,7 +4784,7 @@ date,HR,cases,province
 2020-10-14,Laval,55,Quebec
 2020-10-14,Lanaudiere,79,Quebec
 2020-10-14,Laurentides,54,Quebec
-2020-10-14,Monteregie,230,Quebec
+2020-10-14,Monteregie,231,Quebec
 2020-10-14,Nunavik,0,Quebec
 2020-10-14,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-10-15,Bas-Saint-Laurent,0,Quebec
@@ -4807,7 +4807,7 @@ date,HR,cases,province
 2020-10-15,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-10-16,Bas-Saint-Laurent,3,Quebec
 2020-10-16,Saguenay-Lac-Saint-Jean,31,Quebec
-2020-10-16,Capitale-Nationale,178,Quebec
+2020-10-16,Capitale-Nationale,180,Quebec
 2020-10-16,Mauricie et Centre-du-Quebec,85,Quebec
 2020-10-16,Estrie,52,Quebec
 2020-10-16,Montreal,259,Quebec
@@ -4823,9 +4823,9 @@ date,HR,cases,province
 2020-10-16,Monteregie,193,Quebec
 2020-10-16,Nunavik,0,Quebec
 2020-10-16,Terres-Cries-de-la-Baie-James,0,Quebec
-2020-10-17,Bas-Saint-Laurent,3,Quebec
+2020-10-17,Bas-Saint-Laurent,4,Quebec
 2020-10-17,Saguenay-Lac-Saint-Jean,38,Quebec
-2020-10-17,Capitale-Nationale,242,Quebec
+2020-10-17,Capitale-Nationale,243,Quebec
 2020-10-17,Mauricie et Centre-du-Quebec,91,Quebec
 2020-10-17,Estrie,27,Quebec
 2020-10-17,Montreal,268,Quebec
@@ -4883,7 +4883,7 @@ date,HR,cases,province
 2020-10-20,Mauricie et Centre-du-Quebec,72,Quebec
 2020-10-20,Estrie,37,Quebec
 2020-10-20,Montreal,254,Quebec
-2020-10-20,Outaouais,25,Quebec
+2020-10-20,Outaouais,24,Quebec
 2020-10-20,Abitibi-Temiscamingue,2,Quebec
 2020-10-20,Cote-Nord,0,Quebec
 2020-10-20,Nord-du-Quebec,0,Quebec
@@ -4936,7 +4936,7 @@ date,HR,cases,province
 2020-10-23,Capitale-Nationale,131,Quebec
 2020-10-23,Mauricie et Centre-du-Quebec,83,Quebec
 2020-10-23,Estrie,34,Quebec
-2020-10-23,Montreal,239,Quebec
+2020-10-23,Montreal,240,Quebec
 2020-10-23,Outaouais,28,Quebec
 2020-10-23,Abitibi-Temiscamingue,1,Quebec
 2020-10-23,Cote-Nord,3,Quebec
@@ -4944,7 +4944,7 @@ date,HR,cases,province
 2020-10-23,Gaspesie-Iles-de-la-Madeleine,17,Quebec
 2020-10-23,Chaudiere-Appalaches,79,Quebec
 2020-10-23,Laval,48,Quebec
-2020-10-23,Lanaudiere,93,Quebec
+2020-10-23,Lanaudiere,94,Quebec
 2020-10-23,Laurentides,44,Quebec
 2020-10-23,Monteregie,204,Quebec
 2020-10-23,Nunavik,0,Quebec
@@ -5040,10 +5040,10 @@ date,HR,cases,province
 2020-10-28,Nunavik,0,Quebec
 2020-10-28,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-10-29,Bas-Saint-Laurent,2,Quebec
-2020-10-29,Saguenay-Lac-Saint-Jean,83,Quebec
+2020-10-29,Saguenay-Lac-Saint-Jean,82,Quebec
 2020-10-29,Capitale-Nationale,75,Quebec
 2020-10-29,Mauricie et Centre-du-Quebec,83,Quebec
-2020-10-29,Estrie,45,Quebec
+2020-10-29,Estrie,46,Quebec
 2020-10-29,Montreal,217,Quebec
 2020-10-29,Outaouais,26,Quebec
 2020-10-29,Abitibi-Temiscamingue,0,Quebec
@@ -5184,7 +5184,7 @@ date,HR,cases,province
 2020-11-05,Nunavik,0,Quebec
 2020-11-05,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-11-06,Bas-Saint-Laurent,8,Quebec
-2020-11-06,Saguenay-Lac-Saint-Jean,142,Quebec
+2020-11-06,Saguenay-Lac-Saint-Jean,143,Quebec
 2020-11-06,Capitale-Nationale,67,Quebec
 2020-11-06,Mauricie et Centre-du-Quebec,59,Quebec
 2020-11-06,Estrie,66,Quebec
@@ -5198,7 +5198,7 @@ date,HR,cases,province
 2020-11-06,Laval,57,Quebec
 2020-11-06,Lanaudiere,166,Quebec
 2020-11-06,Laurentides,72,Quebec
-2020-11-06,Monteregie,180,Quebec
+2020-11-06,Monteregie,181,Quebec
 2020-11-06,Nunavik,0,Quebec
 2020-11-06,Terres-Cries-de-la-Baie-James,1,Quebec
 2020-11-07,Bas-Saint-Laurent,4,Quebec
@@ -5220,7 +5220,7 @@ date,HR,cases,province
 2020-11-07,Nunavik,0,Quebec
 2020-11-07,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-11-08,Bas-Saint-Laurent,3,Quebec
-2020-11-08,Saguenay-Lac-Saint-Jean,146,Quebec
+2020-11-08,Saguenay-Lac-Saint-Jean,147,Quebec
 2020-11-08,Capitale-Nationale,79,Quebec
 2020-11-08,Mauricie et Centre-du-Quebec,81,Quebec
 2020-11-08,Estrie,90,Quebec
@@ -5238,8 +5238,8 @@ date,HR,cases,province
 2020-11-08,Nunavik,0,Quebec
 2020-11-08,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-11-09,Bas-Saint-Laurent,11,Quebec
-2020-11-09,Saguenay-Lac-Saint-Jean,105,Quebec
-2020-11-09,Capitale-Nationale,82,Quebec
+2020-11-09,Saguenay-Lac-Saint-Jean,104,Quebec
+2020-11-09,Capitale-Nationale,81,Quebec
 2020-11-09,Mauricie et Centre-du-Quebec,149,Quebec
 2020-11-09,Estrie,67,Quebec
 2020-11-09,Montreal,266,Quebec
@@ -5256,7 +5256,7 @@ date,HR,cases,province
 2020-11-09,Nunavik,0,Quebec
 2020-11-09,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-11-10,Bas-Saint-Laurent,6,Quebec
-2020-11-10,Saguenay-Lac-Saint-Jean,188,Quebec
+2020-11-10,Saguenay-Lac-Saint-Jean,189,Quebec
 2020-11-10,Capitale-Nationale,96,Quebec
 2020-11-10,Mauricie et Centre-du-Quebec,69,Quebec
 2020-11-10,Estrie,36,Quebec
@@ -5293,7 +5293,7 @@ date,HR,cases,province
 2020-11-11,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-11-12,Bas-Saint-Laurent,11,Quebec
 2020-11-12,Saguenay-Lac-Saint-Jean,120,Quebec
-2020-11-12,Capitale-Nationale,124,Quebec
+2020-11-12,Capitale-Nationale,125,Quebec
 2020-11-12,Mauricie et Centre-du-Quebec,92,Quebec
 2020-11-12,Estrie,59,Quebec
 2020-11-12,Montreal,281,Quebec
@@ -5310,7 +5310,7 @@ date,HR,cases,province
 2020-11-12,Nunavik,0,Quebec
 2020-11-12,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-11-13,Bas-Saint-Laurent,4,Quebec
-2020-11-13,Saguenay-Lac-Saint-Jean,88,Quebec
+2020-11-13,Saguenay-Lac-Saint-Jean,89,Quebec
 2020-11-13,Capitale-Nationale,119,Quebec
 2020-11-13,Mauricie et Centre-du-Quebec,47,Quebec
 2020-11-13,Estrie,113,Quebec
@@ -5340,14 +5340,14 @@ date,HR,cases,province
 2020-11-14,Gaspesie-Iles-de-la-Madeleine,15,Quebec
 2020-11-14,Chaudiere-Appalaches,37,Quebec
 2020-11-14,Laval,72,Quebec
-2020-11-14,Lanaudiere,154,Quebec
+2020-11-14,Lanaudiere,155,Quebec
 2020-11-14,Laurentides,58,Quebec
 2020-11-14,Monteregie,148,Quebec
 2020-11-14,Nunavik,0,Quebec
 2020-11-14,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-11-15,Bas-Saint-Laurent,5,Quebec
 2020-11-15,Saguenay-Lac-Saint-Jean,134,Quebec
-2020-11-15,Capitale-Nationale,72,Quebec
+2020-11-15,Capitale-Nationale,73,Quebec
 2020-11-15,Mauricie et Centre-du-Quebec,31,Quebec
 2020-11-15,Estrie,90,Quebec
 2020-11-15,Montreal,274,Quebec
@@ -5364,7 +5364,7 @@ date,HR,cases,province
 2020-11-15,Nunavik,0,Quebec
 2020-11-15,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-11-16,Bas-Saint-Laurent,4,Quebec
-2020-11-16,Saguenay-Lac-Saint-Jean,118,Quebec
+2020-11-16,Saguenay-Lac-Saint-Jean,117,Quebec
 2020-11-16,Capitale-Nationale,51,Quebec
 2020-11-16,Mauricie et Centre-du-Quebec,85,Quebec
 2020-11-16,Estrie,54,Quebec
@@ -5382,7 +5382,7 @@ date,HR,cases,province
 2020-11-16,Nunavik,0,Quebec
 2020-11-16,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-11-17,Bas-Saint-Laurent,12,Quebec
-2020-11-17,Saguenay-Lac-Saint-Jean,163,Quebec
+2020-11-17,Saguenay-Lac-Saint-Jean,164,Quebec
 2020-11-17,Capitale-Nationale,85,Quebec
 2020-11-17,Mauricie et Centre-du-Quebec,41,Quebec
 2020-11-17,Estrie,51,Quebec
@@ -5400,8 +5400,8 @@ date,HR,cases,province
 2020-11-17,Nunavik,0,Quebec
 2020-11-17,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-11-18,Bas-Saint-Laurent,12,Quebec
-2020-11-18,Saguenay-Lac-Saint-Jean,192,Quebec
-2020-11-18,Capitale-Nationale,121,Quebec
+2020-11-18,Saguenay-Lac-Saint-Jean,193,Quebec
+2020-11-18,Capitale-Nationale,122,Quebec
 2020-11-18,Mauricie et Centre-du-Quebec,80,Quebec
 2020-11-18,Estrie,52,Quebec
 2020-11-18,Montreal,230,Quebec
@@ -5426,7 +5426,7 @@ date,HR,cases,province
 2020-11-19,Outaouais,32,Quebec
 2020-11-19,Abitibi-Temiscamingue,0,Quebec
 2020-11-19,Cote-Nord,9,Quebec
-2020-11-19,Nord-du-Quebec,0,Quebec
+2020-11-19,Nord-du-Quebec,1,Quebec
 2020-11-19,Gaspesie-Iles-de-la-Madeleine,17,Quebec
 2020-11-19,Chaudiere-Appalaches,53,Quebec
 2020-11-19,Laval,61,Quebec
@@ -5454,7 +5454,7 @@ date,HR,cases,province
 2020-11-20,Nunavik,0,Quebec
 2020-11-20,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-11-21,Bas-Saint-Laurent,15,Quebec
-2020-11-21,Saguenay-Lac-Saint-Jean,84,Quebec
+2020-11-21,Saguenay-Lac-Saint-Jean,85,Quebec
 2020-11-21,Capitale-Nationale,65,Quebec
 2020-11-21,Mauricie et Centre-du-Quebec,76,Quebec
 2020-11-21,Estrie,116,Quebec
@@ -5490,7 +5490,7 @@ date,HR,cases,province
 2020-11-22,Nunavik,0,Quebec
 2020-11-22,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-11-23,Bas-Saint-Laurent,8,Quebec
-2020-11-23,Saguenay-Lac-Saint-Jean,96,Quebec
+2020-11-23,Saguenay-Lac-Saint-Jean,95,Quebec
 2020-11-23,Capitale-Nationale,151,Quebec
 2020-11-23,Mauricie et Centre-du-Quebec,83,Quebec
 2020-11-23,Estrie,41,Quebec
@@ -5518,7 +5518,7 @@ date,HR,cases,province
 2020-11-24,Cote-Nord,1,Quebec
 2020-11-24,Nord-du-Quebec,0,Quebec
 2020-11-24,Gaspesie-Iles-de-la-Madeleine,15,Quebec
-2020-11-24,Chaudiere-Appalaches,65,Quebec
+2020-11-24,Chaudiere-Appalaches,64,Quebec
 2020-11-24,Laval,86,Quebec
 2020-11-24,Lanaudiere,115,Quebec
 2020-11-24,Laurentides,46,Quebec
@@ -5553,7 +5553,7 @@ date,HR,cases,province
 2020-11-26,Abitibi-Temiscamingue,2,Quebec
 2020-11-26,Cote-Nord,3,Quebec
 2020-11-26,Nord-du-Quebec,0,Quebec
-2020-11-26,Gaspesie-Iles-de-la-Madeleine,7,Quebec
+2020-11-26,Gaspesie-Iles-de-la-Madeleine,6,Quebec
 2020-11-26,Chaudiere-Appalaches,73,Quebec
 2020-11-26,Laval,97,Quebec
 2020-11-26,Lanaudiere,113,Quebec
@@ -5562,7 +5562,7 @@ date,HR,cases,province
 2020-11-26,Nunavik,0,Quebec
 2020-11-26,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-11-27,Bas-Saint-Laurent,16,Quebec
-2020-11-27,Saguenay-Lac-Saint-Jean,76,Quebec
+2020-11-27,Saguenay-Lac-Saint-Jean,78,Quebec
 2020-11-27,Capitale-Nationale,131,Quebec
 2020-11-27,Mauricie et Centre-du-Quebec,55,Quebec
 2020-11-27,Estrie,77,Quebec
@@ -5610,7 +5610,7 @@ date,HR,cases,province
 2020-11-29,Gaspesie-Iles-de-la-Madeleine,3,Quebec
 2020-11-29,Chaudiere-Appalaches,27,Quebec
 2020-11-29,Laval,112,Quebec
-2020-11-29,Lanaudiere,121,Quebec
+2020-11-29,Lanaudiere,122,Quebec
 2020-11-29,Laurentides,45,Quebec
 2020-11-29,Monteregie,185,Quebec
 2020-11-29,Nunavik,0,Quebec
@@ -5619,7 +5619,7 @@ date,HR,cases,province
 2020-11-30,Saguenay-Lac-Saint-Jean,87,Quebec
 2020-11-30,Capitale-Nationale,121,Quebec
 2020-11-30,Mauricie et Centre-du-Quebec,99,Quebec
-2020-11-30,Estrie,88,Quebec
+2020-11-30,Estrie,89,Quebec
 2020-11-30,Montreal,335,Quebec
 2020-11-30,Outaouais,24,Quebec
 2020-11-30,Abitibi-Temiscamingue,2,Quebec
@@ -5637,14 +5637,14 @@ date,HR,cases,province
 2020-12-01,Saguenay-Lac-Saint-Jean,107,Quebec
 2020-12-01,Capitale-Nationale,192,Quebec
 2020-12-01,Mauricie et Centre-du-Quebec,71,Quebec
-2020-12-01,Estrie,78,Quebec
+2020-12-01,Estrie,77,Quebec
 2020-12-01,Montreal,413,Quebec
 2020-12-01,Outaouais,17,Quebec
 2020-12-01,Abitibi-Temiscamingue,4,Quebec
 2020-12-01,Cote-Nord,1,Quebec
 2020-12-01,Nord-du-Quebec,1,Quebec
 2020-12-01,Gaspesie-Iles-de-la-Madeleine,7,Quebec
-2020-12-01,Chaudiere-Appalaches,91,Quebec
+2020-12-01,Chaudiere-Appalaches,90,Quebec
 2020-12-01,Laval,117,Quebec
 2020-12-01,Lanaudiere,122,Quebec
 2020-12-01,Laurentides,42,Quebec
@@ -5652,7 +5652,7 @@ date,HR,cases,province
 2020-12-01,Nunavik,0,Quebec
 2020-12-01,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-12-02,Bas-Saint-Laurent,43,Quebec
-2020-12-02,Saguenay-Lac-Saint-Jean,66,Quebec
+2020-12-02,Saguenay-Lac-Saint-Jean,68,Quebec
 2020-12-02,Capitale-Nationale,163,Quebec
 2020-12-02,Mauricie et Centre-du-Quebec,69,Quebec
 2020-12-02,Estrie,111,Quebec
@@ -5687,7 +5687,7 @@ date,HR,cases,province
 2020-12-03,Monteregie,222,Quebec
 2020-12-03,Nunavik,0,Quebec
 2020-12-03,Terres-Cries-de-la-Baie-James,0,Quebec
-2020-12-04,Bas-Saint-Laurent,25,Quebec
+2020-12-04,Bas-Saint-Laurent,26,Quebec
 2020-12-04,Saguenay-Lac-Saint-Jean,107,Quebec
 2020-12-04,Capitale-Nationale,310,Quebec
 2020-12-04,Mauricie et Centre-du-Quebec,40,Quebec
@@ -5698,18 +5698,18 @@ date,HR,cases,province
 2020-12-04,Cote-Nord,0,Quebec
 2020-12-04,Nord-du-Quebec,0,Quebec
 2020-12-04,Gaspesie-Iles-de-la-Madeleine,5,Quebec
-2020-12-04,Chaudiere-Appalaches,113,Quebec
+2020-12-04,Chaudiere-Appalaches,114,Quebec
 2020-12-04,Laval,120,Quebec
 2020-12-04,Lanaudiere,93,Quebec
 2020-12-04,Laurentides,67,Quebec
 2020-12-04,Monteregie,214,Quebec
 2020-12-04,Nunavik,0,Quebec
 2020-12-04,Terres-Cries-de-la-Baie-James,0,Quebec
-2020-12-05,Bas-Saint-Laurent,18,Quebec
+2020-12-05,Bas-Saint-Laurent,17,Quebec
 2020-12-05,Saguenay-Lac-Saint-Jean,81,Quebec
 2020-12-05,Capitale-Nationale,139,Quebec
 2020-12-05,Mauricie et Centre-du-Quebec,93,Quebec
-2020-12-05,Estrie,118,Quebec
+2020-12-05,Estrie,117,Quebec
 2020-12-05,Montreal,513,Quebec
 2020-12-05,Outaouais,31,Quebec
 2020-12-05,Abitibi-Temiscamingue,5,Quebec
@@ -5814,7 +5814,7 @@ date,HR,cases,province
 2020-12-10,Nunavik,0,Quebec
 2020-12-10,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-12-11,Bas-Saint-Laurent,26,Quebec
-2020-12-11,Saguenay-Lac-Saint-Jean,65,Quebec
+2020-12-11,Saguenay-Lac-Saint-Jean,66,Quebec
 2020-12-11,Capitale-Nationale,210,Quebec
 2020-12-11,Mauricie et Centre-du-Quebec,71,Quebec
 2020-12-11,Estrie,113,Quebec
@@ -5833,7 +5833,7 @@ date,HR,cases,province
 2020-12-11,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-12-12,Bas-Saint-Laurent,12,Quebec
 2020-12-12,Saguenay-Lac-Saint-Jean,55,Quebec
-2020-12-12,Capitale-Nationale,229,Quebec
+2020-12-12,Capitale-Nationale,230,Quebec
 2020-12-12,Mauricie et Centre-du-Quebec,119,Quebec
 2020-12-12,Estrie,115,Quebec
 2020-12-12,Montreal,720,Quebec
@@ -5867,13 +5867,13 @@ date,HR,cases,province
 2020-12-13,Monteregie,225,Quebec
 2020-12-13,Nunavik,0,Quebec
 2020-12-13,Terres-Cries-de-la-Baie-James,0,Quebec
-2020-12-14,Bas-Saint-Laurent,11,Quebec
+2020-12-14,Bas-Saint-Laurent,12,Quebec
 2020-12-14,Saguenay-Lac-Saint-Jean,71,Quebec
 2020-12-14,Capitale-Nationale,169,Quebec
 2020-12-14,Mauricie et Centre-du-Quebec,101,Quebec
 2020-12-14,Estrie,85,Quebec
 2020-12-14,Montreal,668,Quebec
-2020-12-14,Outaouais,76,Quebec
+2020-12-14,Outaouais,75,Quebec
 2020-12-14,Abitibi-Temiscamingue,0,Quebec
 2020-12-14,Cote-Nord,5,Quebec
 2020-12-14,Nord-du-Quebec,2,Quebec
@@ -5886,7 +5886,7 @@ date,HR,cases,province
 2020-12-14,Nunavik,0,Quebec
 2020-12-14,Terres-Cries-de-la-Baie-James,1,Quebec
 2020-12-15,Bas-Saint-Laurent,9,Quebec
-2020-12-15,Saguenay-Lac-Saint-Jean,73,Quebec
+2020-12-15,Saguenay-Lac-Saint-Jean,74,Quebec
 2020-12-15,Capitale-Nationale,205,Quebec
 2020-12-15,Mauricie et Centre-du-Quebec,36,Quebec
 2020-12-15,Estrie,111,Quebec
@@ -5908,7 +5908,7 @@ date,HR,cases,province
 2020-12-16,Capitale-Nationale,208,Quebec
 2020-12-16,Mauricie et Centre-du-Quebec,120,Quebec
 2020-12-16,Estrie,109,Quebec
-2020-12-16,Montreal,694,Quebec
+2020-12-16,Montreal,692,Quebec
 2020-12-16,Outaouais,54,Quebec
 2020-12-16,Abitibi-Temiscamingue,0,Quebec
 2020-12-16,Cote-Nord,3,Quebec
@@ -5923,9 +5923,9 @@ date,HR,cases,province
 2020-12-16,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-12-17,Bas-Saint-Laurent,7,Quebec
 2020-12-17,Saguenay-Lac-Saint-Jean,102,Quebec
-2020-12-17,Capitale-Nationale,225,Quebec
+2020-12-17,Capitale-Nationale,226,Quebec
 2020-12-17,Mauricie et Centre-du-Quebec,120,Quebec
-2020-12-17,Estrie,111,Quebec
+2020-12-17,Estrie,110,Quebec
 2020-12-17,Montreal,925,Quebec
 2020-12-17,Outaouais,35,Quebec
 2020-12-17,Abitibi-Temiscamingue,6,Quebec
@@ -5995,7 +5995,7 @@ date,HR,cases,province
 2020-12-20,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-12-21,Bas-Saint-Laurent,8,Quebec
 2020-12-21,Saguenay-Lac-Saint-Jean,68,Quebec
-2020-12-21,Capitale-Nationale,218,Quebec
+2020-12-21,Capitale-Nationale,219,Quebec
 2020-12-21,Mauricie et Centre-du-Quebec,130,Quebec
 2020-12-21,Estrie,90,Quebec
 2020-12-21,Montreal,747,Quebec
@@ -6025,13 +6025,13 @@ date,HR,cases,province
 2020-12-22,Chaudiere-Appalaches,109,Quebec
 2020-12-22,Laval,135,Quebec
 2020-12-22,Lanaudiere,130,Quebec
-2020-12-22,Laurentides,115,Quebec
+2020-12-22,Laurentides,114,Quebec
 2020-12-22,Monteregie,369,Quebec
 2020-12-22,Nunavik,0,Quebec
 2020-12-22,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-12-23,Bas-Saint-Laurent,8,Quebec
 2020-12-23,Saguenay-Lac-Saint-Jean,65,Quebec
-2020-12-23,Capitale-Nationale,233,Quebec
+2020-12-23,Capitale-Nationale,232,Quebec
 2020-12-23,Mauricie et Centre-du-Quebec,72,Quebec
 2020-12-23,Estrie,111,Quebec
 2020-12-23,Montreal,694,Quebec
@@ -6049,7 +6049,7 @@ date,HR,cases,province
 2020-12-23,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-12-24,Bas-Saint-Laurent,3,Quebec
 2020-12-24,Saguenay-Lac-Saint-Jean,71,Quebec
-2020-12-24,Capitale-Nationale,273,Quebec
+2020-12-24,Capitale-Nationale,272,Quebec
 2020-12-24,Mauricie et Centre-du-Quebec,70,Quebec
 2020-12-24,Estrie,109,Quebec
 2020-12-24,Montreal,869,Quebec
@@ -6066,7 +6066,7 @@ date,HR,cases,province
 2020-12-24,Nunavik,0,Quebec
 2020-12-24,Terres-Cries-de-la-Baie-James,0,Quebec
 2020-12-25,Bas-Saint-Laurent,7,Quebec
-2020-12-25,Saguenay-Lac-Saint-Jean,68,Quebec
+2020-12-25,Saguenay-Lac-Saint-Jean,69,Quebec
 2020-12-25,Capitale-Nationale,157,Quebec
 2020-12-25,Mauricie et Centre-du-Quebec,8,Quebec
 2020-12-25,Estrie,118,Quebec
@@ -6104,7 +6104,7 @@ date,HR,cases,province
 2020-12-27,Bas-Saint-Laurent,19,Quebec
 2020-12-27,Saguenay-Lac-Saint-Jean,46,Quebec
 2020-12-27,Capitale-Nationale,175,Quebec
-2020-12-27,Mauricie et Centre-du-Quebec,113,Quebec
+2020-12-27,Mauricie et Centre-du-Quebec,114,Quebec
 2020-12-27,Estrie,68,Quebec
 2020-12-27,Montreal,797,Quebec
 2020-12-27,Outaouais,49,Quebec
@@ -6112,7 +6112,7 @@ date,HR,cases,province
 2020-12-27,Cote-Nord,2,Quebec
 2020-12-27,Nord-du-Quebec,1,Quebec
 2020-12-27,Gaspesie-Iles-de-la-Madeleine,2,Quebec
-2020-12-27,Chaudiere-Appalaches,74,Quebec
+2020-12-27,Chaudiere-Appalaches,73,Quebec
 2020-12-27,Laval,207,Quebec
 2020-12-27,Lanaudiere,133,Quebec
 2020-12-27,Laurentides,144,Quebec
@@ -6160,7 +6160,7 @@ date,HR,cases,province
 2020-12-30,Capitale-Nationale,254,Quebec
 2020-12-30,Mauricie et Centre-du-Quebec,122,Quebec
 2020-12-30,Estrie,176,Quebec
-2020-12-30,Montreal,921,Quebec
+2020-12-30,Montreal,920,Quebec
 2020-12-30,Outaouais,42,Quebec
 2020-12-30,Abitibi-Temiscamingue,12,Quebec
 2020-12-30,Cote-Nord,5,Quebec
@@ -6215,16 +6215,16 @@ date,HR,cases,province
 2021-01-02,Mauricie et Centre-du-Quebec,111,Quebec
 2021-01-02,Estrie,129,Quebec
 2021-01-02,Montreal,924,Quebec
-2021-01-02,Outaouais,41,Quebec
+2021-01-02,Outaouais,40,Quebec
 2021-01-02,Abitibi-Temiscamingue,8,Quebec
 2021-01-02,Cote-Nord,0,Quebec
 2021-01-02,Nord-du-Quebec,1,Quebec
 2021-01-02,Gaspesie-Iles-de-la-Madeleine,9,Quebec
 2021-01-02,Chaudiere-Appalaches,79,Quebec
 2021-01-02,Laval,227,Quebec
-2021-01-02,Lanaudiere,173,Quebec
+2021-01-02,Lanaudiere,172,Quebec
 2021-01-02,Laurentides,142,Quebec
-2021-01-02,Monteregie,297,Quebec
+2021-01-02,Monteregie,296,Quebec
 2021-01-02,Nunavik,0,Quebec
 2021-01-02,Terres-Cries-de-la-Baie-James,0,Quebec
 2021-01-03,Bas-Saint-Laurent,6,Quebec
@@ -6251,7 +6251,7 @@ date,HR,cases,province
 2021-01-04,Mauricie et Centre-du-Quebec,144,Quebec
 2021-01-04,Estrie,124,Quebec
 2021-01-04,Montreal,763,Quebec
-2021-01-04,Outaouais,42,Quebec
+2021-01-04,Outaouais,41,Quebec
 2021-01-04,Abitibi-Temiscamingue,16,Quebec
 2021-01-04,Cote-Nord,1,Quebec
 2021-01-04,Nord-du-Quebec,0,Quebec
@@ -6301,7 +6301,7 @@ date,HR,cases,province
 2021-01-06,Terres-Cries-de-la-Baie-James,1,Quebec
 2021-01-07,Bas-Saint-Laurent,10,Quebec
 2021-01-07,Saguenay-Lac-Saint-Jean,56,Quebec
-2021-01-07,Capitale-Nationale,136,Quebec
+2021-01-07,Capitale-Nationale,135,Quebec
 2021-01-07,Mauricie et Centre-du-Quebec,46,Quebec
 2021-01-07,Estrie,108,Quebec
 2021-01-07,Montreal,1271,Quebec
@@ -6310,7 +6310,7 @@ date,HR,cases,province
 2021-01-07,Cote-Nord,2,Quebec
 2021-01-07,Nord-du-Quebec,0,Quebec
 2021-01-07,Gaspesie-Iles-de-la-Madeleine,4,Quebec
-2021-01-07,Chaudiere-Appalaches,190,Quebec
+2021-01-07,Chaudiere-Appalaches,191,Quebec
 2021-01-07,Laval,214,Quebec
 2021-01-07,Lanaudiere,144,Quebec
 2021-01-07,Laurentides,114,Quebec
@@ -6339,7 +6339,7 @@ date,HR,cases,province
 2021-01-09,Saguenay-Lac-Saint-Jean,33,Quebec
 2021-01-09,Capitale-Nationale,110,Quebec
 2021-01-09,Mauricie et Centre-du-Quebec,58,Quebec
-2021-01-09,Estrie,111,Quebec
+2021-01-09,Estrie,112,Quebec
 2021-01-09,Montreal,815,Quebec
 2021-01-09,Outaouais,46,Quebec
 2021-01-09,Abitibi-Temiscamingue,22,Quebec
@@ -6446,7 +6446,7 @@ date,HR,cases,province
 2021-01-15,Bas-Saint-Laurent,5,Quebec
 2021-01-15,Saguenay-Lac-Saint-Jean,41,Quebec
 2021-01-15,Capitale-Nationale,96,Quebec
-2021-01-15,Mauricie et Centre-du-Quebec,107,Quebec
+2021-01-15,Mauricie et Centre-du-Quebec,106,Quebec
 2021-01-15,Estrie,98,Quebec
 2021-01-15,Montreal,711,Quebec
 2021-01-15,Outaouais,29,Quebec
@@ -6629,7 +6629,7 @@ date,HR,cases,province
 2021-01-25,Mauricie et Centre-du-Quebec,66,Quebec
 2021-01-25,Estrie,54,Quebec
 2021-01-25,Montreal,497,Quebec
-2021-01-25,Outaouais,14,Quebec
+2021-01-25,Outaouais,13,Quebec
 2021-01-25,Abitibi-Temiscamingue,7,Quebec
 2021-01-25,Cote-Nord,0,Quebec
 2021-01-25,Nord-du-Quebec,0,Quebec
@@ -6826,7 +6826,7 @@ date,HR,cases,province
 2021-02-05,Capitale-Nationale,47,Quebec
 2021-02-05,Mauricie et Centre-du-Quebec,43,Quebec
 2021-02-05,Estrie,56,Quebec
-2021-02-05,Montreal,544,Quebec
+2021-02-05,Montreal,545,Quebec
 2021-02-05,Outaouais,18,Quebec
 2021-02-05,Abitibi-Temiscamingue,6,Quebec
 2021-02-05,Cote-Nord,1,Quebec
@@ -6859,7 +6859,7 @@ date,HR,cases,province
 2021-02-06,Terres-Cries-de-la-Baie-James,0,Quebec
 2021-02-07,Bas-Saint-Laurent,1,Quebec
 2021-02-07,Saguenay-Lac-Saint-Jean,0,Quebec
-2021-02-07,Capitale-Nationale,39,Quebec
+2021-02-07,Capitale-Nationale,38,Quebec
 2021-02-07,Mauricie et Centre-du-Quebec,0,Quebec
 2021-02-07,Estrie,32,Quebec
 2021-02-07,Montreal,404,Quebec
@@ -7060,7 +7060,7 @@ date,HR,cases,province
 2021-02-18,Capitale-Nationale,33,Quebec
 2021-02-18,Mauricie et Centre-du-Quebec,19,Quebec
 2021-02-18,Estrie,33,Quebec
-2021-02-18,Montreal,371,Quebec
+2021-02-18,Montreal,372,Quebec
 2021-02-18,Outaouais,23,Quebec
 2021-02-18,Abitibi-Temiscamingue,2,Quebec
 2021-02-18,Cote-Nord,0,Quebec
@@ -7132,7 +7132,7 @@ date,HR,cases,province
 2021-02-22,Capitale-Nationale,24,Quebec
 2021-02-22,Mauricie et Centre-du-Quebec,18,Quebec
 2021-02-22,Estrie,24,Quebec
-2021-02-22,Montreal,256,Quebec
+2021-02-22,Montreal,257,Quebec
 2021-02-22,Outaouais,27,Quebec
 2021-02-22,Abitibi-Temiscamingue,7,Quebec
 2021-02-22,Cote-Nord,0,Quebec
@@ -7726,7 +7726,7 @@ date,HR,cases,province
 2021-03-27,Capitale-Nationale,115,Quebec
 2021-03-27,Mauricie et Centre-du-Quebec,15,Quebec
 2021-03-27,Estrie,13,Quebec
-2021-03-27,Montreal,308,Quebec
+2021-03-27,Montreal,307,Quebec
 2021-03-27,Outaouais,62,Quebec
 2021-03-27,Abitibi-Temiscamingue,10,Quebec
 2021-03-27,Cote-Nord,0,Quebec
@@ -7753,7 +7753,7 @@ date,HR,cases,province
 2021-03-28,Chaudiere-Appalaches,39,Quebec
 2021-03-28,Laval,71,Quebec
 2021-03-28,Lanaudiere,44,Quebec
-2021-03-28,Laurentides,53,Quebec
+2021-03-28,Laurentides,54,Quebec
 2021-03-28,Monteregie,69,Quebec
 2021-03-28,Nunavik,0,Quebec
 2021-03-28,Terres-Cries-de-la-Baie-James,0,Quebec
@@ -7780,7 +7780,7 @@ date,HR,cases,province
 2021-03-30,Capitale-Nationale,196,Quebec
 2021-03-30,Mauricie et Centre-du-Quebec,1,Quebec
 2021-03-30,Estrie,23,Quebec
-2021-03-30,Montreal,374,Quebec
+2021-03-30,Montreal,375,Quebec
 2021-03-30,Outaouais,67,Quebec
 2021-03-30,Abitibi-Temiscamingue,3,Quebec
 2021-03-30,Cote-Nord,0,Quebec
@@ -7957,7 +7957,7 @@ date,HR,cases,province
 2021-04-08,Terres-Cries-de-la-Baie-James,0,Quebec
 2021-04-09,Bas-Saint-Laurent,28,Quebec
 2021-04-09,Saguenay-Lac-Saint-Jean,30,Quebec
-2021-04-09,Capitale-Nationale,408,Quebec
+2021-04-09,Capitale-Nationale,407,Quebec
 2021-04-09,Mauricie et Centre-du-Quebec,33,Quebec
 2021-04-09,Estrie,45,Quebec
 2021-04-09,Montreal,514,Quebec
@@ -7966,7 +7966,7 @@ date,HR,cases,province
 2021-04-09,Cote-Nord,13,Quebec
 2021-04-09,Nord-du-Quebec,0,Quebec
 2021-04-09,Gaspesie-Iles-de-la-Madeleine,6,Quebec
-2021-04-09,Chaudiere-Appalaches,219,Quebec
+2021-04-09,Chaudiere-Appalaches,220,Quebec
 2021-04-09,Laval,100,Quebec
 2021-04-09,Lanaudiere,63,Quebec
 2021-04-09,Laurentides,95,Quebec
@@ -8003,7 +8003,7 @@ date,HR,cases,province
 2021-04-11,Nord-du-Quebec,0,Quebec
 2021-04-11,Gaspesie-Iles-de-la-Madeleine,5,Quebec
 2021-04-11,Chaudiere-Appalaches,174,Quebec
-2021-04-11,Laval,117,Quebec
+2021-04-11,Laval,116,Quebec
 2021-04-11,Lanaudiere,69,Quebec
 2021-04-11,Laurentides,51,Quebec
 2021-04-11,Monteregie,116,Quebec
@@ -8068,8 +8068,8 @@ date,HR,cases,province
 2021-04-15,Capitale-Nationale,303,Quebec
 2021-04-15,Mauricie et Centre-du-Quebec,33,Quebec
 2021-04-15,Estrie,38,Quebec
-2021-04-15,Montreal,430,Quebec
-2021-04-15,Outaouais,194,Quebec
+2021-04-15,Montreal,431,Quebec
+2021-04-15,Outaouais,193,Quebec
 2021-04-15,Abitibi-Temiscamingue,4,Quebec
 2021-04-15,Cote-Nord,3,Quebec
 2021-04-15,Nord-du-Quebec,0,Quebec
@@ -8113,7 +8113,7 @@ date,HR,cases,province
 2021-04-17,Chaudiere-Appalaches,121,Quebec
 2021-04-17,Laval,97,Quebec
 2021-04-17,Lanaudiere,53,Quebec
-2021-04-17,Laurentides,81,Quebec
+2021-04-17,Laurentides,82,Quebec
 2021-04-17,Monteregie,134,Quebec
 2021-04-17,Nunavik,0,Quebec
 2021-04-17,Terres-Cries-de-la-Baie-James,0,Quebec
@@ -8155,7 +8155,7 @@ date,HR,cases,province
 2021-04-19,Terres-Cries-de-la-Baie-James,0,Quebec
 2021-04-20,Bas-Saint-Laurent,29,Quebec
 2021-04-20,Saguenay-Lac-Saint-Jean,32,Quebec
-2021-04-20,Capitale-Nationale,191,Quebec
+2021-04-20,Capitale-Nationale,190,Quebec
 2021-04-20,Mauricie et Centre-du-Quebec,3,Quebec
 2021-04-20,Estrie,46,Quebec
 2021-04-20,Montreal,274,Quebec
@@ -8164,7 +8164,7 @@ date,HR,cases,province
 2021-04-20,Cote-Nord,17,Quebec
 2021-04-20,Nord-du-Quebec,0,Quebec
 2021-04-20,Gaspesie-Iles-de-la-Madeleine,2,Quebec
-2021-04-20,Chaudiere-Appalaches,177,Quebec
+2021-04-20,Chaudiere-Appalaches,178,Quebec
 2021-04-20,Laval,80,Quebec
 2021-04-20,Lanaudiere,33,Quebec
 2021-04-20,Laurentides,52,Quebec
@@ -8227,10 +8227,10 @@ date,HR,cases,province
 2021-04-23,Terres-Cries-de-la-Baie-James,0,Quebec
 2021-04-24,Bas-Saint-Laurent,48,Quebec
 2021-04-24,Saguenay-Lac-Saint-Jean,34,Quebec
-2021-04-24,Capitale-Nationale,92,Quebec
+2021-04-24,Capitale-Nationale,93,Quebec
 2021-04-24,Mauricie et Centre-du-Quebec,43,Quebec
 2021-04-24,Estrie,50,Quebec
-2021-04-24,Montreal,341,Quebec
+2021-04-24,Montreal,340,Quebec
 2021-04-24,Outaouais,75,Quebec
 2021-04-24,Abitibi-Temiscamingue,3,Quebec
 2021-04-24,Cote-Nord,8,Quebec
@@ -8279,7 +8279,7 @@ date,HR,cases,province
 2021-04-26,Monteregie,107,Quebec
 2021-04-26,Nunavik,0,Quebec
 2021-04-26,Terres-Cries-de-la-Baie-James,0,Quebec
-2021-04-27,Bas-Saint-Laurent,45,Quebec
+2021-04-27,Bas-Saint-Laurent,44,Quebec
 2021-04-27,Saguenay-Lac-Saint-Jean,28,Quebec
 2021-04-27,Capitale-Nationale,119,Quebec
 2021-04-27,Mauricie et Centre-du-Quebec,47,Quebec
@@ -8365,7 +8365,7 @@ date,HR,cases,province
 2021-05-01,Chaudiere-Appalaches,105,Quebec
 2021-05-01,Laval,87,Quebec
 2021-05-01,Lanaudiere,37,Quebec
-2021-05-01,Laurentides,41,Quebec
+2021-05-01,Laurentides,40,Quebec
 2021-05-01,Monteregie,136,Quebec
 2021-05-01,Nunavik,0,Quebec
 2021-05-01,Terres-Cries-de-la-Baie-James,0,Quebec
@@ -8445,7 +8445,7 @@ date,HR,cases,province
 2021-05-06,Saguenay-Lac-Saint-Jean,25,Quebec
 2021-05-06,Capitale-Nationale,58,Quebec
 2021-05-06,Mauricie et Centre-du-Quebec,20,Quebec
-2021-05-06,Estrie,65,Quebec
+2021-05-06,Estrie,64,Quebec
 2021-05-06,Montreal,260,Quebec
 2021-05-06,Outaouais,44,Quebec
 2021-05-06,Abitibi-Temiscamingue,1,Quebec
@@ -8455,7 +8455,7 @@ date,HR,cases,province
 2021-05-06,Chaudiere-Appalaches,144,Quebec
 2021-05-06,Laval,73,Quebec
 2021-05-06,Lanaudiere,39,Quebec
-2021-05-06,Laurentides,43,Quebec
+2021-05-06,Laurentides,44,Quebec
 2021-05-06,Monteregie,170,Quebec
 2021-05-06,Nunavik,0,Quebec
 2021-05-06,Terres-Cries-de-la-Baie-James,0,Quebec
@@ -8482,7 +8482,7 @@ date,HR,cases,province
 2021-05-08,Capitale-Nationale,59,Quebec
 2021-05-08,Mauricie et Centre-du-Quebec,44,Quebec
 2021-05-08,Estrie,71,Quebec
-2021-05-08,Montreal,213,Quebec
+2021-05-08,Montreal,211,Quebec
 2021-05-08,Outaouais,32,Quebec
 2021-05-08,Abitibi-Temiscamingue,2,Quebec
 2021-05-08,Cote-Nord,1,Quebec
@@ -8549,7 +8549,7 @@ date,HR,cases,province
 2021-05-11,Monteregie,85,Quebec
 2021-05-11,Nunavik,0,Quebec
 2021-05-11,Terres-Cries-de-la-Baie-James,0,Quebec
-2021-05-12,Bas-Saint-Laurent,44,Quebec
+2021-05-12,Bas-Saint-Laurent,43,Quebec
 2021-05-12,Saguenay-Lac-Saint-Jean,25,Quebec
 2021-05-12,Capitale-Nationale,72,Quebec
 2021-05-12,Mauricie et Centre-du-Quebec,45,Quebec
@@ -8607,7 +8607,7 @@ date,HR,cases,province
 2021-05-15,Saguenay-Lac-Saint-Jean,30,Quebec
 2021-05-15,Capitale-Nationale,44,Quebec
 2021-05-15,Mauricie et Centre-du-Quebec,27,Quebec
-2021-05-15,Estrie,47,Quebec
+2021-05-15,Estrie,46,Quebec
 2021-05-15,Montreal,207,Quebec
 2021-05-15,Outaouais,25,Quebec
 2021-05-15,Abitibi-Temiscamingue,0,Quebec
@@ -8802,11 +8802,11 @@ date,HR,cases,province
 2021-05-25,Nunavik,0,Quebec
 2021-05-25,Terres-Cries-de-la-Baie-James,0,Quebec
 2021-05-26,Bas-Saint-Laurent,6,Quebec
-2021-05-26,Saguenay-Lac-Saint-Jean,8,Quebec
+2021-05-26,Saguenay-Lac-Saint-Jean,7,Quebec
 2021-05-26,Capitale-Nationale,31,Quebec
 2021-05-26,Mauricie et Centre-du-Quebec,35,Quebec
 2021-05-26,Estrie,32,Quebec
-2021-05-26,Montreal,156,Quebec
+2021-05-26,Montreal,155,Quebec
 2021-05-26,Outaouais,23,Quebec
 2021-05-26,Abitibi-Temiscamingue,1,Quebec
 2021-05-26,Cote-Nord,0,Quebec
@@ -9428,7 +9428,7 @@ date,HR,cases,province
 2021-06-29,Laval,13,Quebec
 2021-06-29,Lanaudiere,7,Quebec
 2021-06-29,Laurentides,4,Quebec
-2021-06-29,Monteregie,14,Quebec
+2021-06-29,Monteregie,13,Quebec
 2021-06-29,Nunavik,0,Quebec
 2021-06-29,Terres-Cries-de-la-Baie-James,0,Quebec
 2021-06-30,Bas-Saint-Laurent,0,Quebec
@@ -9455,7 +9455,7 @@ date,HR,cases,province
 2021-07-01,Mauricie et Centre-du-Quebec,3,Quebec
 2021-07-01,Estrie,1,Quebec
 2021-07-01,Montreal,25,Quebec
-2021-07-01,Outaouais,10,Quebec
+2021-07-01,Outaouais,9,Quebec
 2021-07-01,Abitibi-Temiscamingue,0,Quebec
 2021-07-01,Cote-Nord,0,Quebec
 2021-07-01,Nord-du-Quebec,0,Quebec
@@ -9580,8 +9580,8 @@ date,HR,cases,province
 2021-07-08,Capitale-Nationale,7,Quebec
 2021-07-08,Mauricie et Centre-du-Quebec,0,Quebec
 2021-07-08,Estrie,1,Quebec
-2021-07-08,Montreal,32,Quebec
-2021-07-08,Outaouais,3,Quebec
+2021-07-08,Montreal,33,Quebec
+2021-07-08,Outaouais,2,Quebec
 2021-07-08,Abitibi-Temiscamingue,0,Quebec
 2021-07-08,Cote-Nord,0,Quebec
 2021-07-08,Nord-du-Quebec,0,Quebec
@@ -10074,7 +10074,7 @@ date,HR,cases,province
 2021-08-04,Gaspesie-Iles-de-la-Madeleine,0,Quebec
 2021-08-04,Chaudiere-Appalaches,1,Quebec
 2021-08-04,Laval,31,Quebec
-2021-08-04,Lanaudiere,25,Quebec
+2021-08-04,Lanaudiere,24,Quebec
 2021-08-04,Laurentides,14,Quebec
 2021-08-04,Monteregie,24,Quebec
 2021-08-04,Nunavik,0,Quebec
@@ -10094,7 +10094,7 @@ date,HR,cases,province
 2021-08-05,Laval,43,Quebec
 2021-08-05,Lanaudiere,17,Quebec
 2021-08-05,Laurentides,22,Quebec
-2021-08-05,Monteregie,32,Quebec
+2021-08-05,Monteregie,36,Quebec
 2021-08-05,Nunavik,1,Quebec
 2021-08-05,Terres-Cries-de-la-Baie-James,0,Quebec
 2021-08-06,Bas-Saint-Laurent,1,Quebec
@@ -10156,7 +10156,7 @@ date,HR,cases,province
 2021-08-09,Capitale-Nationale,20,Quebec
 2021-08-09,Mauricie et Centre-du-Quebec,15,Quebec
 2021-08-09,Estrie,22,Quebec
-2021-08-09,Montreal,86,Quebec
+2021-08-09,Montreal,87,Quebec
 2021-08-09,Outaouais,2,Quebec
 2021-08-09,Abitibi-Temiscamingue,4,Quebec
 2021-08-09,Cote-Nord,1,Quebec
@@ -10166,7 +10166,7 @@ date,HR,cases,province
 2021-08-09,Laval,44,Quebec
 2021-08-09,Lanaudiere,17,Quebec
 2021-08-09,Laurentides,18,Quebec
-2021-08-09,Monteregie,48,Quebec
+2021-08-09,Monteregie,49,Quebec
 2021-08-09,Nunavik,0,Quebec
 2021-08-09,Terres-Cries-de-la-Baie-James,0,Quebec
 2021-08-10,Bas-Saint-Laurent,1,Quebec
@@ -10174,7 +10174,7 @@ date,HR,cases,province
 2021-08-10,Capitale-Nationale,13,Quebec
 2021-08-10,Mauricie et Centre-du-Quebec,13,Quebec
 2021-08-10,Estrie,17,Quebec
-2021-08-10,Montreal,102,Quebec
+2021-08-10,Montreal,103,Quebec
 2021-08-10,Outaouais,11,Quebec
 2021-08-10,Abitibi-Temiscamingue,9,Quebec
 2021-08-10,Cote-Nord,3,Quebec
@@ -10192,17 +10192,17 @@ date,HR,cases,province
 2021-08-11,Capitale-Nationale,18,Quebec
 2021-08-11,Mauricie et Centre-du-Quebec,23,Quebec
 2021-08-11,Estrie,22,Quebec
-2021-08-11,Montreal,154,Quebec
+2021-08-11,Montreal,152,Quebec
 2021-08-11,Outaouais,9,Quebec
 2021-08-11,Abitibi-Temiscamingue,6,Quebec
 2021-08-11,Cote-Nord,1,Quebec
 2021-08-11,Nord-du-Quebec,3,Quebec
 2021-08-11,Gaspesie-Iles-de-la-Madeleine,0,Quebec
 2021-08-11,Chaudiere-Appalaches,7,Quebec
-2021-08-11,Laval,66,Quebec
+2021-08-11,Laval,67,Quebec
 2021-08-11,Lanaudiere,37,Quebec
 2021-08-11,Laurentides,18,Quebec
-2021-08-11,Monteregie,55,Quebec
+2021-08-11,Monteregie,53,Quebec
 2021-08-11,Nunavik,0,Quebec
 2021-08-11,Terres-Cries-de-la-Baie-James,0,Quebec
 2021-08-12,Bas-Saint-Laurent,1,Quebec
@@ -10210,7 +10210,7 @@ date,HR,cases,province
 2021-08-12,Capitale-Nationale,24,Quebec
 2021-08-12,Mauricie et Centre-du-Quebec,18,Quebec
 2021-08-12,Estrie,33,Quebec
-2021-08-12,Montreal,144,Quebec
+2021-08-12,Montreal,143,Quebec
 2021-08-12,Outaouais,8,Quebec
 2021-08-12,Abitibi-Temiscamingue,3,Quebec
 2021-08-12,Cote-Nord,0,Quebec
@@ -10220,7 +10220,7 @@ date,HR,cases,province
 2021-08-12,Laval,69,Quebec
 2021-08-12,Lanaudiere,26,Quebec
 2021-08-12,Laurentides,30,Quebec
-2021-08-12,Monteregie,64,Quebec
+2021-08-12,Monteregie,61,Quebec
 2021-08-12,Nunavik,0,Quebec
 2021-08-12,Terres-Cries-de-la-Baie-James,0,Quebec
 2021-08-13,Bas-Saint-Laurent,0,Quebec
@@ -10228,7 +10228,7 @@ date,HR,cases,province
 2021-08-13,Capitale-Nationale,6,Quebec
 2021-08-13,Mauricie et Centre-du-Quebec,16,Quebec
 2021-08-13,Estrie,31,Quebec
-2021-08-13,Montreal,162,Quebec
+2021-08-13,Montreal,159,Quebec
 2021-08-13,Outaouais,13,Quebec
 2021-08-13,Abitibi-Temiscamingue,2,Quebec
 2021-08-13,Cote-Nord,0,Quebec
@@ -10255,8 +10255,8 @@ date,HR,cases,province
 2021-08-14,Chaudiere-Appalaches,4,Quebec
 2021-08-14,Laval,68,Quebec
 2021-08-14,Lanaudiere,26,Quebec
-2021-08-14,Laurentides,16,Quebec
-2021-08-14,Monteregie,56,Quebec
+2021-08-14,Laurentides,15,Quebec
+2021-08-14,Monteregie,57,Quebec
 2021-08-14,Nunavik,0,Quebec
 2021-08-14,Terres-Cries-de-la-Baie-James,0,Quebec
 2021-08-15,Bas-Saint-Laurent,0,Quebec
@@ -10264,7 +10264,7 @@ date,HR,cases,province
 2021-08-15,Capitale-Nationale,26,Quebec
 2021-08-15,Mauricie et Centre-du-Quebec,23,Quebec
 2021-08-15,Estrie,16,Quebec
-2021-08-15,Montreal,136,Quebec
+2021-08-15,Montreal,135,Quebec
 2021-08-15,Outaouais,11,Quebec
 2021-08-15,Abitibi-Temiscamingue,0,Quebec
 2021-08-15,Cote-Nord,1,Quebec
@@ -10282,17 +10282,17 @@ date,HR,cases,province
 2021-08-16,Capitale-Nationale,7,Quebec
 2021-08-16,Mauricie et Centre-du-Quebec,16,Quebec
 2021-08-16,Estrie,20,Quebec
-2021-08-16,Montreal,137,Quebec
+2021-08-16,Montreal,138,Quebec
 2021-08-16,Outaouais,4,Quebec
 2021-08-16,Abitibi-Temiscamingue,0,Quebec
 2021-08-16,Cote-Nord,0,Quebec
 2021-08-16,Nord-du-Quebec,0,Quebec
 2021-08-16,Gaspesie-Iles-de-la-Madeleine,0,Quebec
 2021-08-16,Chaudiere-Appalaches,2,Quebec
-2021-08-16,Laval,55,Quebec
+2021-08-16,Laval,57,Quebec
 2021-08-16,Lanaudiere,35,Quebec
 2021-08-16,Laurentides,28,Quebec
-2021-08-16,Monteregie,62,Quebec
+2021-08-16,Monteregie,61,Quebec
 2021-08-16,Nunavik,0,Quebec
 2021-08-16,Terres-Cries-de-la-Baie-James,2,Quebec
 2021-08-17,Bas-Saint-Laurent,4,Quebec
@@ -10300,13 +10300,13 @@ date,HR,cases,province
 2021-08-17,Capitale-Nationale,17,Quebec
 2021-08-17,Mauricie et Centre-du-Quebec,17,Quebec
 2021-08-17,Estrie,28,Quebec
-2021-08-17,Montreal,150,Quebec
+2021-08-17,Montreal,149,Quebec
 2021-08-17,Outaouais,9,Quebec
 2021-08-17,Abitibi-Temiscamingue,0,Quebec
 2021-08-17,Cote-Nord,0,Quebec
 2021-08-17,Nord-du-Quebec,0,Quebec
 2021-08-17,Gaspesie-Iles-de-la-Madeleine,1,Quebec
-2021-08-17,Chaudiere-Appalaches,5,Quebec
+2021-08-17,Chaudiere-Appalaches,6,Quebec
 2021-08-17,Laval,46,Quebec
 2021-08-17,Lanaudiere,27,Quebec
 2021-08-17,Laurentides,23,Quebec
@@ -10315,17 +10315,17 @@ date,HR,cases,province
 2021-08-17,Terres-Cries-de-la-Baie-James,0,Quebec
 2021-08-18,Bas-Saint-Laurent,3,Quebec
 2021-08-18,Saguenay-Lac-Saint-Jean,7,Quebec
-2021-08-18,Capitale-Nationale,24,Quebec
-2021-08-18,Mauricie et Centre-du-Quebec,26,Quebec
+2021-08-18,Capitale-Nationale,23,Quebec
+2021-08-18,Mauricie et Centre-du-Quebec,24,Quebec
 2021-08-18,Estrie,21,Quebec
-2021-08-18,Montreal,200,Quebec
+2021-08-18,Montreal,201,Quebec
 2021-08-18,Outaouais,5,Quebec
 2021-08-18,Abitibi-Temiscamingue,1,Quebec
 2021-08-18,Cote-Nord,0,Quebec
 2021-08-18,Nord-du-Quebec,0,Quebec
 2021-08-18,Gaspesie-Iles-de-la-Madeleine,0,Quebec
 2021-08-18,Chaudiere-Appalaches,5,Quebec
-2021-08-18,Laval,45,Quebec
+2021-08-18,Laval,44,Quebec
 2021-08-18,Lanaudiere,34,Quebec
 2021-08-18,Laurentides,46,Quebec
 2021-08-18,Monteregie,76,Quebec
@@ -10334,72 +10334,342 @@ date,HR,cases,province
 2021-08-19,Bas-Saint-Laurent,1,Quebec
 2021-08-19,Saguenay-Lac-Saint-Jean,2,Quebec
 2021-08-19,Capitale-Nationale,15,Quebec
-2021-08-19,Mauricie et Centre-du-Quebec,29,Quebec
+2021-08-19,Mauricie et Centre-du-Quebec,30,Quebec
 2021-08-19,Estrie,34,Quebec
-2021-08-19,Montreal,179,Quebec
+2021-08-19,Montreal,178,Quebec
 2021-08-19,Outaouais,8,Quebec
 2021-08-19,Abitibi-Temiscamingue,1,Quebec
 2021-08-19,Cote-Nord,1,Quebec
 2021-08-19,Nord-du-Quebec,1,Quebec
 2021-08-19,Gaspesie-Iles-de-la-Madeleine,0,Quebec
 2021-08-19,Chaudiere-Appalaches,3,Quebec
-2021-08-19,Laval,75,Quebec
+2021-08-19,Laval,76,Quebec
 2021-08-19,Lanaudiere,45,Quebec
 2021-08-19,Laurentides,41,Quebec
-2021-08-19,Monteregie,99,Quebec
+2021-08-19,Monteregie,100,Quebec
 2021-08-19,Nunavik,0,Quebec
 2021-08-19,Terres-Cries-de-la-Baie-James,1,Quebec
 2021-08-20,Bas-Saint-Laurent,1,Quebec
 2021-08-20,Saguenay-Lac-Saint-Jean,2,Quebec
-2021-08-20,Capitale-Nationale,15,Quebec
+2021-08-20,Capitale-Nationale,14,Quebec
 2021-08-20,Mauricie et Centre-du-Quebec,28,Quebec
-2021-08-20,Estrie,30,Quebec
+2021-08-20,Estrie,28,Quebec
 2021-08-20,Montreal,208,Quebec
 2021-08-20,Outaouais,18,Quebec
 2021-08-20,Abitibi-Temiscamingue,4,Quebec
 2021-08-20,Cote-Nord,0,Quebec
-2021-08-20,Nord-du-Quebec,1,Quebec
+2021-08-20,Nord-du-Quebec,0,Quebec
 2021-08-20,Gaspesie-Iles-de-la-Madeleine,1,Quebec
-2021-08-20,Chaudiere-Appalaches,6,Quebec
-2021-08-20,Laval,63,Quebec
+2021-08-20,Chaudiere-Appalaches,7,Quebec
+2021-08-20,Laval,59,Quebec
 2021-08-20,Lanaudiere,29,Quebec
 2021-08-20,Laurentides,48,Quebec
-2021-08-20,Monteregie,69,Quebec
+2021-08-20,Monteregie,70,Quebec
 2021-08-20,Nunavik,1,Quebec
-2021-08-20,Terres-Cries-de-la-Baie-James,0,Quebec
+2021-08-20,Terres-Cries-de-la-Baie-James,1,Quebec
 2021-08-21,Bas-Saint-Laurent,0,Quebec
 2021-08-21,Saguenay-Lac-Saint-Jean,2,Quebec
-2021-08-21,Capitale-Nationale,14,Quebec
-2021-08-21,Mauricie et Centre-du-Quebec,25,Quebec
+2021-08-21,Capitale-Nationale,15,Quebec
+2021-08-21,Mauricie et Centre-du-Quebec,23,Quebec
 2021-08-21,Estrie,22,Quebec
-2021-08-21,Montreal,166,Quebec
-2021-08-21,Outaouais,17,Quebec
+2021-08-21,Montreal,159,Quebec
+2021-08-21,Outaouais,19,Quebec
 2021-08-21,Abitibi-Temiscamingue,1,Quebec
 2021-08-21,Cote-Nord,0,Quebec
 2021-08-21,Nord-du-Quebec,0,Quebec
 2021-08-21,Gaspesie-Iles-de-la-Madeleine,1,Quebec
 2021-08-21,Chaudiere-Appalaches,7,Quebec
-2021-08-21,Laval,42,Quebec
-2021-08-21,Lanaudiere,22,Quebec
-2021-08-21,Laurentides,23,Quebec
-2021-08-21,Monteregie,51,Quebec
+2021-08-21,Laval,43,Quebec
+2021-08-21,Lanaudiere,21,Quebec
+2021-08-21,Laurentides,22,Quebec
+2021-08-21,Monteregie,53,Quebec
 2021-08-21,Nunavik,0,Quebec
-2021-08-21,Terres-Cries-de-la-Baie-James,1,Quebec
+2021-08-21,Terres-Cries-de-la-Baie-James,0,Quebec
 2021-08-22,Bas-Saint-Laurent,0,Quebec
 2021-08-22,Saguenay-Lac-Saint-Jean,0,Quebec
-2021-08-22,Capitale-Nationale,17,Quebec
-2021-08-22,Mauricie et Centre-du-Quebec,19,Quebec
-2021-08-22,Estrie,9,Quebec
-2021-08-22,Montreal,66,Quebec
-2021-08-22,Outaouais,6,Quebec
-2021-08-22,Abitibi-Temiscamingue,0,Quebec
+2021-08-22,Capitale-Nationale,18,Quebec
+2021-08-22,Mauricie et Centre-du-Quebec,18,Quebec
+2021-08-22,Estrie,11,Quebec
+2021-08-22,Montreal,129,Quebec
+2021-08-22,Outaouais,12,Quebec
+2021-08-22,Abitibi-Temiscamingue,1,Quebec
 2021-08-22,Cote-Nord,0,Quebec
 2021-08-22,Nord-du-Quebec,0,Quebec
 2021-08-22,Gaspesie-Iles-de-la-Madeleine,0,Quebec
-2021-08-22,Chaudiere-Appalaches,7,Quebec
-2021-08-22,Laval,14,Quebec
-2021-08-22,Lanaudiere,11,Quebec
-2021-08-22,Laurentides,21,Quebec
-2021-08-22,Monteregie,32,Quebec
+2021-08-22,Chaudiere-Appalaches,9,Quebec
+2021-08-22,Laval,35,Quebec
+2021-08-22,Lanaudiere,22,Quebec
+2021-08-22,Laurentides,23,Quebec
+2021-08-22,Monteregie,70,Quebec
 2021-08-22,Nunavik,0,Quebec
-2021-08-22,Terres-Cries-de-la-Baie-James,0,Quebec
+2021-08-22,Terres-Cries-de-la-Baie-James,2,Quebec
+2021-08-23,Bas-Saint-Laurent,1,Quebec
+2021-08-23,Saguenay-Lac-Saint-Jean,2,Quebec
+2021-08-23,Capitale-Nationale,24,Quebec
+2021-08-23,Mauricie et Centre-du-Quebec,16,Quebec
+2021-08-23,Estrie,14,Quebec
+2021-08-23,Montreal,159,Quebec
+2021-08-23,Outaouais,14,Quebec
+2021-08-23,Abitibi-Temiscamingue,0,Quebec
+2021-08-23,Cote-Nord,0,Quebec
+2021-08-23,Nord-du-Quebec,3,Quebec
+2021-08-23,Gaspesie-Iles-de-la-Madeleine,0,Quebec
+2021-08-23,Chaudiere-Appalaches,4,Quebec
+2021-08-23,Laval,66,Quebec
+2021-08-23,Lanaudiere,35,Quebec
+2021-08-23,Laurentides,35,Quebec
+2021-08-23,Monteregie,55,Quebec
+2021-08-23,Nunavik,0,Quebec
+2021-08-23,Terres-Cries-de-la-Baie-James,0,Quebec
+2021-08-24,Bas-Saint-Laurent,1,Quebec
+2021-08-24,Saguenay-Lac-Saint-Jean,1,Quebec
+2021-08-24,Capitale-Nationale,22,Quebec
+2021-08-24,Mauricie et Centre-du-Quebec,36,Quebec
+2021-08-24,Estrie,18,Quebec
+2021-08-24,Montreal,220,Quebec
+2021-08-24,Outaouais,30,Quebec
+2021-08-24,Abitibi-Temiscamingue,1,Quebec
+2021-08-24,Cote-Nord,2,Quebec
+2021-08-24,Nord-du-Quebec,3,Quebec
+2021-08-24,Gaspesie-Iles-de-la-Madeleine,0,Quebec
+2021-08-24,Chaudiere-Appalaches,5,Quebec
+2021-08-24,Laval,62,Quebec
+2021-08-24,Lanaudiere,30,Quebec
+2021-08-24,Laurentides,36,Quebec
+2021-08-24,Monteregie,104,Quebec
+2021-08-24,Nunavik,0,Quebec
+2021-08-24,Terres-Cries-de-la-Baie-James,1,Quebec
+2021-08-25,Bas-Saint-Laurent,1,Quebec
+2021-08-25,Saguenay-Lac-Saint-Jean,2,Quebec
+2021-08-25,Capitale-Nationale,24,Quebec
+2021-08-25,Mauricie et Centre-du-Quebec,39,Quebec
+2021-08-25,Estrie,27,Quebec
+2021-08-25,Montreal,226,Quebec
+2021-08-25,Outaouais,33,Quebec
+2021-08-25,Abitibi-Temiscamingue,0,Quebec
+2021-08-25,Cote-Nord,1,Quebec
+2021-08-25,Nord-du-Quebec,2,Quebec
+2021-08-25,Gaspesie-Iles-de-la-Madeleine,0,Quebec
+2021-08-25,Chaudiere-Appalaches,11,Quebec
+2021-08-25,Laval,66,Quebec
+2021-08-25,Lanaudiere,61,Quebec
+2021-08-25,Laurentides,53,Quebec
+2021-08-25,Monteregie,78,Quebec
+2021-08-25,Nunavik,0,Quebec
+2021-08-25,Terres-Cries-de-la-Baie-James,0,Quebec
+2021-08-26,Bas-Saint-Laurent,0,Quebec
+2021-08-26,Saguenay-Lac-Saint-Jean,7,Quebec
+2021-08-26,Capitale-Nationale,12,Quebec
+2021-08-26,Mauricie et Centre-du-Quebec,37,Quebec
+2021-08-26,Estrie,23,Quebec
+2021-08-26,Montreal,246,Quebec
+2021-08-26,Outaouais,26,Quebec
+2021-08-26,Abitibi-Temiscamingue,0,Quebec
+2021-08-26,Cote-Nord,0,Quebec
+2021-08-26,Nord-du-Quebec,2,Quebec
+2021-08-26,Gaspesie-Iles-de-la-Madeleine,1,Quebec
+2021-08-26,Chaudiere-Appalaches,15,Quebec
+2021-08-26,Laval,60,Quebec
+2021-08-26,Lanaudiere,43,Quebec
+2021-08-26,Laurentides,38,Quebec
+2021-08-26,Monteregie,116,Quebec
+2021-08-26,Nunavik,0,Quebec
+2021-08-26,Terres-Cries-de-la-Baie-James,5,Quebec
+2021-08-27,Bas-Saint-Laurent,0,Quebec
+2021-08-27,Saguenay-Lac-Saint-Jean,5,Quebec
+2021-08-27,Capitale-Nationale,12,Quebec
+2021-08-27,Mauricie et Centre-du-Quebec,29,Quebec
+2021-08-27,Estrie,31,Quebec
+2021-08-27,Montreal,203,Quebec
+2021-08-27,Outaouais,21,Quebec
+2021-08-27,Abitibi-Temiscamingue,0,Quebec
+2021-08-27,Cote-Nord,0,Quebec
+2021-08-27,Nord-du-Quebec,1,Quebec
+2021-08-27,Gaspesie-Iles-de-la-Madeleine,2,Quebec
+2021-08-27,Chaudiere-Appalaches,4,Quebec
+2021-08-27,Laval,46,Quebec
+2021-08-27,Lanaudiere,32,Quebec
+2021-08-27,Laurentides,47,Quebec
+2021-08-27,Monteregie,87,Quebec
+2021-08-27,Nunavik,0,Quebec
+2021-08-27,Terres-Cries-de-la-Baie-James,0,Quebec
+2021-08-28,Bas-Saint-Laurent,2,Quebec
+2021-08-28,Saguenay-Lac-Saint-Jean,0,Quebec
+2021-08-28,Capitale-Nationale,18,Quebec
+2021-08-28,Mauricie et Centre-du-Quebec,47,Quebec
+2021-08-28,Estrie,12,Quebec
+2021-08-28,Montreal,155,Quebec
+2021-08-28,Outaouais,19,Quebec
+2021-08-28,Abitibi-Temiscamingue,1,Quebec
+2021-08-28,Cote-Nord,0,Quebec
+2021-08-28,Nord-du-Quebec,2,Quebec
+2021-08-28,Gaspesie-Iles-de-la-Madeleine,1,Quebec
+2021-08-28,Chaudiere-Appalaches,8,Quebec
+2021-08-28,Laval,69,Quebec
+2021-08-28,Lanaudiere,64,Quebec
+2021-08-28,Laurentides,49,Quebec
+2021-08-28,Monteregie,69,Quebec
+2021-08-28,Nunavik,0,Quebec
+2021-08-28,Terres-Cries-de-la-Baie-James,0,Quebec
+2021-08-29,Bas-Saint-Laurent,0,Quebec
+2021-08-29,Saguenay-Lac-Saint-Jean,2,Quebec
+2021-08-29,Capitale-Nationale,12,Quebec
+2021-08-29,Mauricie et Centre-du-Quebec,8,Quebec
+2021-08-29,Estrie,9,Quebec
+2021-08-29,Montreal,135,Quebec
+2021-08-29,Outaouais,18,Quebec
+2021-08-29,Abitibi-Temiscamingue,1,Quebec
+2021-08-29,Cote-Nord,0,Quebec
+2021-08-29,Nord-du-Quebec,0,Quebec
+2021-08-29,Gaspesie-Iles-de-la-Madeleine,0,Quebec
+2021-08-29,Chaudiere-Appalaches,7,Quebec
+2021-08-29,Laval,68,Quebec
+2021-08-29,Lanaudiere,40,Quebec
+2021-08-29,Laurentides,30,Quebec
+2021-08-29,Monteregie,72,Quebec
+2021-08-29,Nunavik,0,Quebec
+2021-08-29,Terres-Cries-de-la-Baie-James,0,Quebec
+2021-08-30,Bas-Saint-Laurent,1,Quebec
+2021-08-30,Saguenay-Lac-Saint-Jean,3,Quebec
+2021-08-30,Capitale-Nationale,11,Quebec
+2021-08-30,Mauricie et Centre-du-Quebec,19,Quebec
+2021-08-30,Estrie,11,Quebec
+2021-08-30,Montreal,183,Quebec
+2021-08-30,Outaouais,17,Quebec
+2021-08-30,Abitibi-Temiscamingue,0,Quebec
+2021-08-30,Cote-Nord,0,Quebec
+2021-08-30,Nord-du-Quebec,1,Quebec
+2021-08-30,Gaspesie-Iles-de-la-Madeleine,0,Quebec
+2021-08-30,Chaudiere-Appalaches,22,Quebec
+2021-08-30,Laval,95,Quebec
+2021-08-30,Lanaudiere,48,Quebec
+2021-08-30,Laurentides,62,Quebec
+2021-08-30,Monteregie,80,Quebec
+2021-08-30,Nunavik,0,Quebec
+2021-08-30,Terres-Cries-de-la-Baie-James,3,Quebec
+2021-08-31,Bas-Saint-Laurent,2,Quebec
+2021-08-31,Saguenay-Lac-Saint-Jean,3,Quebec
+2021-08-31,Capitale-Nationale,14,Quebec
+2021-08-31,Mauricie et Centre-du-Quebec,33,Quebec
+2021-08-31,Estrie,36,Quebec
+2021-08-31,Montreal,247,Quebec
+2021-08-31,Outaouais,23,Quebec
+2021-08-31,Abitibi-Temiscamingue,1,Quebec
+2021-08-31,Cote-Nord,0,Quebec
+2021-08-31,Nord-du-Quebec,1,Quebec
+2021-08-31,Gaspesie-Iles-de-la-Madeleine,0,Quebec
+2021-08-31,Chaudiere-Appalaches,14,Quebec
+2021-08-31,Laval,78,Quebec
+2021-08-31,Lanaudiere,44,Quebec
+2021-08-31,Laurentides,64,Quebec
+2021-08-31,Monteregie,112,Quebec
+2021-08-31,Nunavik,0,Quebec
+2021-08-31,Terres-Cries-de-la-Baie-James,1,Quebec
+2021-09-01,Bas-Saint-Laurent,0,Quebec
+2021-09-01,Saguenay-Lac-Saint-Jean,1,Quebec
+2021-09-01,Capitale-Nationale,22,Quebec
+2021-09-01,Mauricie et Centre-du-Quebec,20,Quebec
+2021-09-01,Estrie,25,Quebec
+2021-09-01,Montreal,275,Quebec
+2021-09-01,Outaouais,28,Quebec
+2021-09-01,Abitibi-Temiscamingue,4,Quebec
+2021-09-01,Cote-Nord,0,Quebec
+2021-09-01,Nord-du-Quebec,0,Quebec
+2021-09-01,Gaspesie-Iles-de-la-Madeleine,1,Quebec
+2021-09-01,Chaudiere-Appalaches,25,Quebec
+2021-09-01,Laval,80,Quebec
+2021-09-01,Lanaudiere,64,Quebec
+2021-09-01,Laurentides,59,Quebec
+2021-09-01,Monteregie,125,Quebec
+2021-09-01,Nunavik,0,Quebec
+2021-09-01,Terres-Cries-de-la-Baie-James,0,Quebec
+2021-09-02,Bas-Saint-Laurent,1,Quebec
+2021-09-02,Saguenay-Lac-Saint-Jean,1,Quebec
+2021-09-02,Capitale-Nationale,11,Quebec
+2021-09-02,Mauricie et Centre-du-Quebec,36,Quebec
+2021-09-02,Estrie,40,Quebec
+2021-09-02,Montreal,244,Quebec
+2021-09-02,Outaouais,38,Quebec
+2021-09-02,Abitibi-Temiscamingue,3,Quebec
+2021-09-02,Cote-Nord,2,Quebec
+2021-09-02,Nord-du-Quebec,0,Quebec
+2021-09-02,Gaspesie-Iles-de-la-Madeleine,0,Quebec
+2021-09-02,Chaudiere-Appalaches,27,Quebec
+2021-09-02,Laval,111,Quebec
+2021-09-02,Lanaudiere,57,Quebec
+2021-09-02,Laurentides,70,Quebec
+2021-09-02,Monteregie,102,Quebec
+2021-09-02,Nunavik,0,Quebec
+2021-09-02,Terres-Cries-de-la-Baie-James,1,Quebec
+2021-09-03,Bas-Saint-Laurent,0,Quebec
+2021-09-03,Saguenay-Lac-Saint-Jean,1,Quebec
+2021-09-03,Capitale-Nationale,12,Quebec
+2021-09-03,Mauricie et Centre-du-Quebec,28,Quebec
+2021-09-03,Estrie,34,Quebec
+2021-09-03,Montreal,250,Quebec
+2021-09-03,Outaouais,37,Quebec
+2021-09-03,Abitibi-Temiscamingue,0,Quebec
+2021-09-03,Cote-Nord,0,Quebec
+2021-09-03,Nord-du-Quebec,1,Quebec
+2021-09-03,Gaspesie-Iles-de-la-Madeleine,0,Quebec
+2021-09-03,Chaudiere-Appalaches,33,Quebec
+2021-09-03,Laval,74,Quebec
+2021-09-03,Lanaudiere,46,Quebec
+2021-09-03,Laurentides,55,Quebec
+2021-09-03,Monteregie,92,Quebec
+2021-09-03,Nunavik,0,Quebec
+2021-09-03,Terres-Cries-de-la-Baie-James,0,Quebec
+2021-09-04,Bas-Saint-Laurent,0,Quebec
+2021-09-04,Saguenay-Lac-Saint-Jean,0,Quebec
+2021-09-04,Capitale-Nationale,20,Quebec
+2021-09-04,Mauricie et Centre-du-Quebec,20,Quebec
+2021-09-04,Estrie,25,Quebec
+2021-09-04,Montreal,208,Quebec
+2021-09-04,Outaouais,27,Quebec
+2021-09-04,Abitibi-Temiscamingue,3,Quebec
+2021-09-04,Cote-Nord,0,Quebec
+2021-09-04,Nord-du-Quebec,1,Quebec
+2021-09-04,Gaspesie-Iles-de-la-Madeleine,0,Quebec
+2021-09-04,Chaudiere-Appalaches,22,Quebec
+2021-09-04,Laval,89,Quebec
+2021-09-04,Lanaudiere,48,Quebec
+2021-09-04,Laurentides,86,Quebec
+2021-09-04,Monteregie,91,Quebec
+2021-09-04,Nunavik,0,Quebec
+2021-09-04,Terres-Cries-de-la-Baie-James,5,Quebec
+2021-09-05,Bas-Saint-Laurent,0,Quebec
+2021-09-05,Saguenay-Lac-Saint-Jean,1,Quebec
+2021-09-05,Capitale-Nationale,8,Quebec
+2021-09-05,Mauricie et Centre-du-Quebec,18,Quebec
+2021-09-05,Estrie,11,Quebec
+2021-09-05,Montreal,194,Quebec
+2021-09-05,Outaouais,29,Quebec
+2021-09-05,Abitibi-Temiscamingue,0,Quebec
+2021-09-05,Cote-Nord,0,Quebec
+2021-09-05,Nord-du-Quebec,0,Quebec
+2021-09-05,Gaspesie-Iles-de-la-Madeleine,0,Quebec
+2021-09-05,Chaudiere-Appalaches,21,Quebec
+2021-09-05,Laval,71,Quebec
+2021-09-05,Lanaudiere,31,Quebec
+2021-09-05,Laurentides,35,Quebec
+2021-09-05,Monteregie,80,Quebec
+2021-09-05,Nunavik,0,Quebec
+2021-09-05,Terres-Cries-de-la-Baie-James,0,Quebec
+2021-09-06,Bas-Saint-Laurent,0,Quebec
+2021-09-06,Saguenay-Lac-Saint-Jean,0,Quebec
+2021-09-06,Capitale-Nationale,3,Quebec
+2021-09-06,Mauricie et Centre-du-Quebec,12,Quebec
+2021-09-06,Estrie,12,Quebec
+2021-09-06,Montreal,86,Quebec
+2021-09-06,Outaouais,14,Quebec
+2021-09-06,Abitibi-Temiscamingue,2,Quebec
+2021-09-06,Cote-Nord,1,Quebec
+2021-09-06,Nord-du-Quebec,0,Quebec
+2021-09-06,Gaspesie-Iles-de-la-Madeleine,3,Quebec
+2021-09-06,Chaudiere-Appalaches,17,Quebec
+2021-09-06,Laval,50,Quebec
+2021-09-06,Lanaudiere,28,Quebec
+2021-09-06,Laurentides,41,Quebec
+2021-09-06,Monteregie,37,Quebec
+2021-09-06,Nunavik,0,Quebec
+2021-09-06,Terres-Cries-de-la-Baie-James,0,Quebec

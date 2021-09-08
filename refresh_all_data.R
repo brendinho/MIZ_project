@@ -7,7 +7,7 @@ library(cancensus)
 library(CanCovidData)
 library(stringr)
 library(XLConnect)
-\library(sf)
+library(sf)
 
 PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
 
@@ -271,7 +271,7 @@ NT_cases <- UofT_api_case_data %>%
     dplyr::filter(province == "NWT") %>%
     dplyr::select(province, date_report, health_region, cases) %>%
     dplyr::rename(date=date_report, HR=health_region) %>%
-    dplyr::mutate(date=as.Date(date), province="Northwest Territories") %>%
+    dplyr::mutate(date=as.Date(date), province="Northwest Territories", HR="Northwest Territories") %>%
     # add_wave_numbers() %>% .[['cases']] %>%
     data.table()
     fwrite(NT_cases, sprintf("%s/CaseDataTables/NT_cases.csv", PROJECT_FOLDER))
@@ -405,74 +405,10 @@ Regions <- merge(
 writeLines("\nSaving geometry shape file for the provinces and territories")
 saveRDS(
     Regions %>%
+        data.table %>%
         .[, .(geometry=st_union(geometry) %>% st_cast("MULTIPOLYGON")), by=.(province)] %>%
         dplyr::mutate(area_sq_km = as.numeric(st_area(geometry))/1000**2),
     sprintf("%s/Classifications/All_Province_Shapes.rds", PROJECT_FOLDER)
 )
-    
-writeLines("\nCumulative cases")
-Cumul_Cases <- Total_Case_Data[
-        HR!="Not Reported",
-        .(
-            first_wave_cases=sum(.SD[wave==1]$cases, na.rm=T),
-            second_wave_cases=sum(.SD[wave==2]$cases, na.rm=T),
-            total_cases=sum(cases, na.rm=T)
-        ),
-        by=.(HR, province, HRUID2018)
-    ]
-
-writeLines("\nTimes to peak")
-Time_to_Peak <- merge(
-        Total_Case_Data[HR!="Not Reported", .SD[wave==1][which.max(cases)], by=.(HRUID2018)] %>%
-            dplyr::mutate(first_wave_days_since=date-as.Date('2020-01-23')) %>%
-            dplyr::rename(first_wave_peak_date=date, first_wave_peak_cases=cases) %>%
-            dplyr::select(-wave),
-        Total_Case_Data[HR!="Not Reported", .SD[wave==2][which.max(cases)], by=.(HRUID2018)] %>%
-            dplyr::mutate(second_wave_days_since=date-as.Date('2020-01-23'))%>%
-            dplyr::rename(second_wave_peak_date=date, second_wave_peak_cases=cases) %>%
-            dplyr::select(-wave),
-        by=c("HRUID2018", "HR", "province")
-    ) %>%
-    dplyr::mutate(interpeak_distance=as.numeric(second_wave_days_since-first_wave_days_since))
-
-writeLines("\nRemoteness")
-Remoteness <- data.table(Regions)[,
-        lapply(.SD, sum, na.rm=TRUE),
-        .SDcols = setdiff(
-            names(Regions),
-            c(
-                "CSDUID", "CSDNAME", "PRUID", "province", "HR", "class", "population_density",
-                "HRUID2018", "csd_type", "pr_uid", "cd_uid", "geometry", "region"
-            )
-        ),
-        by=.(HR, HRUID2018, province, pr_uid)
-    ]
-
-writeLines("\nTotal Data - adding HRs and saving")
-Total_Data <- Reduce(
-        function(...) merge(..., all = TRUE, by = c("HR", "province")),
-        list(
-            Remoteness, 
-            Time_to_Peak,
-            Cumul_Cases,
-            data.table(Regions)[, .(mR_weighted_by_pop = sum(mR_score*population, na.rm=TRUE)/sum(population, na.rm=TRUE)), by=.(province, HR)]
-        )
-    ) %>%
-    dplyr::mutate(
-        HRUID = factor(HRUID2018.x),
-        first_wave_proportion = first_wave_cases/population,
-        second_wave_proportion = second_wave_cases/population,
-        total_proportion = first_wave_proportion + second_wave_proportion,
-        total_commuters = people_commuting_within_csd + people_commuting_within_cd_but_not_csd + people_commuting_within_province_but_not_cd +
-            people_commuting_outside_province,
-        people_commuting_outside_their_csd = people_commuting_within_cd_but_not_csd + people_commuting_within_province_but_not_cd +
-            people_commuting_outside_province,
-        people_commuting_within_province = people_commuting_within_csd + people_commuting_within_cd_but_not_csd +
-            people_commuting_within_province_but_not_cd,
-        HR = factor(HR),
-    ) %>%
-    dplyr::select(-HRUID2018.x, -HRUID2018.y)
-    fwrite(Total_Data, sprintf("%s/CaseDataTables/Total_Data.csv", PROJECT_FOLDER))
-
 
 print(Sys.time() - start_time)

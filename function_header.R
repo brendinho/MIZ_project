@@ -1,14 +1,27 @@
+##################################################
+## Project: COVID-19 regression 
+## Script purpose: header file for functions
+## Date written: 2021-09-08
+## Last edited: 2021-09-08
+## Script author: Brendon Phillips 
+## Institution: York University 
+## Lab: ABM_Lab
+## Principal Investigator: Seyed M. Moghadas
+##################################################
+
 library(dplyr)
 library(data.table)
 library(segmented)
 
-PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
+# PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path
+PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project/"
 
 meann <- function(...) mean(..., na.rm=TRUE)
 summ  <- function(...) sum(...,  na.rm=TRUE)
 sdd   <- function(...) sd(..., na.rm=TRUE)
 
 z_transform <- function(x) (x-meann(x))/sdd(x)
+# z_transform <- function(x) (x-meann(x))
 
 calculate_r_squared <- function(actual, predicted)
 {
@@ -213,6 +226,7 @@ add_HRUIDs <- function(table, HR_column="HR", province_column="province")
     return(here)
 }
 
+# we've decided to add the breaks manually
 # add_wave_numbers <- function(input_table, case_col="cases", date_col="date", num_waves=4, days_apart=45) # make it a variadic function for extimated breakpoints 
 # {
 #     weekly_moving_average <- function(x) stats::filter(x, rep(1,7), sides = 1)/7
@@ -250,74 +264,6 @@ add_HRUIDs <- function(table, HR_column="HR", province_column="province")
 #     break_dates <- tab_here[index %in% ceiling(data.frame(seg_reg$psi)$`Est.`), date]
 # 
 #     return(break_dates)
-# }
-# 
-# Total_Data <- jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=cases&loc=canada") %>%
-#     .$cases %>%
-#     dplyr::mutate(
-#         date = as.Date(date_report, format="%d-%m-%Y"),
-#         avg = weekly_moving_average(cases)
-#     ) %>%
-#     data.table()
-# 
-# haha <- add_wave_numbers(Total_Data)
-# 
-# library(ggplot2)
-# 
-# ggplot(Total_Data, aes(date, cases)) +
-#     geom_line() +
-#     scale_x_date(date_breaks = "months" , date_labels = "%b-%y") +
-#     geom_vline(xintercept=as.Date("2021-07-15"), linetype="dashed", color = "red", size=0.5) +
-#     geom_vline(xintercept=as.Date("2021-02-15"), linetype="dashed", color = "red", size=0.5) +
-#     geom_vline(xintercept=as.Date("2020-07-15"), linetype="dashed", color = "red", size=0.5)
-
-
-
-#     # # at least one of the peaks will be an absolute maximum - choose the first one with the max number of cases
-#     # first_peak <- tab_here[cases==max(cases)][1]
-#     # # find the second peak as the absolute maximum on either `days_apart` side of the first peak identified
-#     # second_peak <- tab_here[abs(date-first_peak$date)>days_apart][cases==max(cases)]
-#     # 
-#     # # get the dates of the two peaks
-#     # first_peak_date <- min(first_peak$date, second_peak$date)
-#     # second_peak_date <- max(first_peak$date, second_peak$date)
-#     # 
-#     # # do a breakpoint analysis to get the valley between the two peaks
-#     # seg_reg <- segmented(
-#     #     lm(log(cases) ~ index, data=tab_here[date>=first_peak_date & date<=second_peak_date]),
-#     #     seg.Z = ~ index,
-#     #     npsi=1
-#     # )
-#     # 
-#     # # prepare the table that will ultimately be returned
-#     # output_table <- input_table %>%
-#     #     dplyr::rename(cases = case_col) %>%
-#     #     dplyr::relocate(cases, .after=last_col())
-#     # 
-#     # 
-#     # if(!length(seg_reg$psi)){
-#     #     # if no break-point was found, return the table with wave number 1
-#     #     return(list(
-#     #         "date" = as.Date(NA),
-#     #         "cases" = output_table %>% dplyr::mutate(wave = 1)
-#     #     ))
-#     # } else {
-#     #     # positively identify this valley at the start of the second wave
-#     #     start_of_second_wave <- tab_here[index == floor(data.table(seg_reg$psi)$Initial)]$date
-#     #     # if no break date was found, return the table with wave number 1
-#     #     if(!length(start_of_second_wave)){
-#     #         return(list(
-#     #             "date" = as.Date(NA),
-#     #             "cases" = output_table %>% dplyr::mutate(wave = 1)
-#     #         ))
-#     #     } else {
-#     #         # return both the date of the second wave and the case table with the information added
-#     #         return(list(
-#     #             "date" = start_of_second_wave,
-#     #             "cases" = output_table %>% dplyr::mutate(wave = if_else(date>start_of_second_wave, 2, 1))
-#     #         ))
-#     #     }
-#     # }
 # }
 
 CSD_score_class <- function(x)
