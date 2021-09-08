@@ -13,22 +13,25 @@ library(dplyr)
 library(data.table)
 library(segmented)
 
-# PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path
-PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project/"
+PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
 
+# shorthand
 meann <- function(...) mean(..., na.rm=TRUE)
 summ  <- function(...) sum(...,  na.rm=TRUE)
 sdd   <- function(...) sd(..., na.rm=TRUE)
 
+# used for standardising the regression variables
 z_transform <- function(x) (x-meann(x))/sdd(x)
-# z_transform <- function(x) (x-meann(x))
 
+# calculating teh r^2 of the LASSO regression 
 calculate_r_squared <- function(actual, predicted)
 {
     rss <- summ((predicted - actual)**2)
     tss <- summ((actual - mean(actual))**2)
     return(1 - rss/tss)
 }
+
+### SCRUBBING AND PARSING THE VARIOUS DATA FILES
 
 age_range <- function(string)
 {
@@ -66,7 +69,6 @@ age_range_min <- function(x) age_range(x)$lower
 age_range_max <- function(x) age_range(x)$upper
 
 select_year <- function(name, year) if(!grepl("20", name)) name else if(grepl(year, name)) name
-
 
 replaceAccents <- function(string)
 {

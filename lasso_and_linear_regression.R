@@ -18,23 +18,28 @@ source(sprintf("%s/regression_prelims.R", PROJECT_FOLDER))
 
 ########################## REGRESSION FUNCTIONS
 
+# function to carry through the linear regressions
 do_linear_regression <- function(data_table, response_var, ...)
 {
     variables <- unlist(list(...))
     
+    # regression
     linear.regress <- lm(
         formula = sprintf("%s~%s", response_var, paste(variables, collapse="+")),
         data = data_table
     )    
     
+    # calculate VIFs with the car library
     linear.vif_table <- car::vif(linear.regress) %>% 
         data.frame() %>% 
         data.table(covariate=rownames(.)) %>% 
         dplyr::rename(vif=".") %>% 
         dplyr::relocate(covariate)
     
+    # f statistics of each regression
     linear.fstatistics <- summary(linear.regress)$fstatistic
     
+    # table with all information: coefficients, p-values, F-statistic, confidence interval, VIF
     linear.table_with_CI <- data.table(
             covariate=names(linear.regress$coefficients),
             linear.regress$coefficients,
@@ -57,6 +62,7 @@ do_linear_regression <- function(data_table, response_var, ...)
         ) %>%
         merge(linear.vif_table, by="covariate", all=TRUE)
     
+    # points for added variable plots
     linear.points <- avPlots(linear.regress)
     linear.all_points <- data.table()
     
@@ -73,6 +79,7 @@ do_linear_regression <- function(data_table, response_var, ...)
     
     linear.y_var <- names(linear.all_points) %>% .[which(! . %in% c("value", "variable"))]
     
+    # graph of added variables
     linear.the_graph <- ggplot(linear.all_points, aes_string(x="value", y=linear.y_var, group="variable")) +
         geom_point(size=2) +
         geom_smooth(method='lm', formula=y~x) +
@@ -84,25 +91,31 @@ do_linear_regression <- function(data_table, response_var, ...)
         "av_table" = linear.all_points, "av_graph" = linear.the_graph))
 }
 
+# carry thrugh the LASSO regression
 do_lasso_regression <- function(data_table, response_var, ...)
 {
     variables <- unlist(list(...))
     
+    # get table with only the necessary information
     lasso.prelim <- data_table %>% dplyr::select(all_of(c(response_var, variables)))
     
+    # model.matrix object out of the covariate data
     lasso.covariates <- model.matrix(
         eval(parse(text=paste0(response_var, "~."))),
         lasso.prelim
     )[,-1]
     
+    # values of the specified response variable
     lasso.response <- data_table[[response_var]]
     
     # set.seed(as.numeric(Sys.time()))
     set.seed(digest2int("Brendon Phillips"))
     
+    # we'll train on 60% iof the data
     lasso.training_rows = sample(1:nrow(lasso.covariates), 0.6*nrow(lasso.covariates))
     lasso.testing_rows = (-lasso.training_rows)
     
+    # getting the best lambda to use with the model
     lasso.cv_output <- cv.glmnet(
         x = lasso.covariates[lasso.training_rows,],
         y = lasso.response[lasso.training_rows],
@@ -114,6 +127,7 @@ do_lasso_regression <- function(data_table, response_var, ...)
         nfolds = 10
     )
     
+    # the best value
     lasso.lambda_best <- lasso.cv_output$lambda.min
     
     # second pass with the best lambda
@@ -123,15 +137,19 @@ do_lasso_regression <- function(data_table, response_var, ...)
         lambda = lasso.lambda_best
     )
     
+    # rpedictions of the response variable given the fit model
     lasso.predictions <- predict(
         object = lasso.best_model,
         s = lasso.lambda_best,
         newx = lasso.covariates[lasso.testing_rows,]
     )
     
+    # putting the predictions and the actual response variable values side-by-side in a table
     lasso.final <- data.table(actual=lasso.response[lasso.testing_rows], prediction=as.numeric(lasso.predictions))
+    # calculating the R^2 value given the actuall and predicted reponses
     lasso.r_sq <- calculate_r_squared(actual=lasso.final$actual, predicted=lasso.final$prediction)
     
+    # generate a named table of the coefficients
     lasso.coefficients <- coef(lasso.best_model) %>% 
         as.matrix %>% data.table(covariate=rownames(.)) %>% 
         dplyr::rename(lasso_coefficient=s0)
@@ -141,8 +159,11 @@ do_lasso_regression <- function(data_table, response_var, ...)
 
 ################### EXPLORING THE WAVES
 
+# table to aggregate the coefficients in all the regressions to draw a diagram showing the performance of remoteness measures in all regressions
 all_the_tables_with_CI <- data.table()
 
+# pretty names for the graphs - variables will appear in the x-axis in the same order they do here
+# all covariates must be given here, otherwise their labels will be NA
 display_names = c(
     "(Intercept)" = "Intercept",
     
@@ -168,20 +189,24 @@ display_names = c(
     "wave" = "u"
 )
 
+# testing six different conceptions of a remoteness measure
 for(remoteness_covariate in c("mean_mr_standardised", "sum_mr_standardised", "weighted_mr_standardised", 
                               "mean_index_standardised", "sum_index_standardised", "weighted_index_standardised")) 
 {
+    # linear regression for the first wave
     first_wave_info_linear <- do_linear_regression(
         Total_Data,
         "wave_1_attack_rate",
         remoteness_covariate, "F0_prop_standardised", "F3_prop_standardised", "F4_prop_standardised", "population_density_standardised"#, "total_commuters_standardised"
         
     )
+    # LASSO regression for the first wave
     first_wave_info_lasso <- do_lasso_regression(
         Total_Data,
         "wave_1_attack_rate",
         remoteness_covariate, "F0_prop_standardised", "F3_prop_standardised", "F4_prop_standardised", "population_density_standardised"#, "total_commuters_standardised"
     )
+    # merge the two coefficient data.tables to plot them on the same graph for comparison (pattern, not value)
     first_wave_coefficients <- merge(first_wave_info_linear$coefficients, first_wave_info_lasso$coefficients, by="covariate", all=TRUE)
     
     #####
@@ -214,6 +239,7 @@ for(remoteness_covariate in c("mean_mr_standardised", "sum_mr_standardised", "we
 
     #####
 
+    # data table getting the attack rates over each of the three waves
     All_Waves_Data <- rbind(
             Total_Data %>% dplyr::mutate(standardised_attack_rate = wave_1_standardised, wave=1),
             Total_Data %>% dplyr::mutate(standardised_attack_rate = wave_2_standardised, wave=2),
@@ -222,6 +248,7 @@ for(remoteness_covariate in c("mean_mr_standardised", "sum_mr_standardised", "we
         dplyr::mutate(wave_standardised = z_transform(wave)) %>%
         dplyr::select(-wave_1_attack_rate, -wave_2_attack_rate, -wave_3_attack_rate, -wave_1_standardised, -wave_2_standardised, -wave_3_standardised)
 
+        # regressions including the wave this time
     total_info_linear <- do_linear_regression(
         All_Waves_Data,
         "standardised_attack_rate",
@@ -234,6 +261,7 @@ for(remoteness_covariate in c("mean_mr_standardised", "sum_mr_standardised", "we
     )
     all_waves_coefficients <- merge(total_info_linear$coefficients, total_info_lasso$coefficients, by="covariate", all=TRUE)
 
+    # big table with all the coefficients and prettified names
     table_with_CI <- rbind(
             first_wave_coefficients,
             second_wave_coefficients,
@@ -256,6 +284,7 @@ for(remoteness_covariate in c("mean_mr_standardised", "sum_mr_standardised", "we
             response_var = remoteness_covariate
         )
 
+    # labels for each subplot showing what the F and p values were for that test
     fstat_labels <- table_with_CI[,
         .(lab = sprintf(
             "F: %.2f\np: %s",
@@ -265,6 +294,7 @@ for(remoteness_covariate in c("mean_mr_standardised", "sum_mr_standardised", "we
         by=.(response, response.fancy)
     ]
 
+    # left and right axes, so scaling factor to make sure both patterns can be seen
     lasso_scaling_factor <- max(table_with_CI[, max(abs(CI25))/max(abs(lasso_coefficient))], table_with_CI[, max(abs(CI975))/max(abs(lasso_coefficient))])
     Significance_diagram <- ggplot(
             table_with_CI %>%
@@ -272,12 +302,16 @@ for(remoteness_covariate in c("mean_mr_standardised", "sum_mr_standardised", "we
                 dplyr::mutate(covariate = factor(covariate, levels=names(display_names))),
             aes(x=covariate, y=beta, group=response, colour=signif)
         ) +
+        # zero line
         geom_hline(aes(yintercept=0), linetype="dashed", size=1, colour="grey") +
+        # visualizing the LASSO regression coefficients
         geom_line(aes(x=covariate, y=lasso_coefficient*lasso_scaling_factor, group=1), inherit.aes=FALSE, size=1, colour="black") +
         geom_point(aes(x=covariate, y=lasso_coefficient*lasso_scaling_factor, group=1), inherit.aes=FALSE, size=3, colour="black") +
         scale_y_continuous("Standardised Regression Coefficient", sec.axis = sec_axis(~.*lasso_scaling_factor, name="Lasso Coefficient")) +
+        # 95% confidence interval
         geom_errorbar(aes(ymin=CI25, ymax=CI975), size=1, width=0.5) +
         geom_point(size=4) +
+        # F and p information for the test
         geom_label(
             data=fstat_labels %>%
                 dplyr::mutate(response.fancy = factor(response.fancy, levels=c("First Wave", "Second Wave", "Third Wave", "First Three Waves"))),
@@ -285,6 +319,7 @@ for(remoteness_covariate in c("mean_mr_standardised", "sum_mr_standardised", "we
             x=0.7, y=09*max(table_with_CI$CI975),
             inherit.aes=FALSE, size=3.5, fill="grey90"
         ) +
+        # VIF for each covariate in a box at the bottom
         geom_label(aes(label=sprintf("%.2f", vif)), y=min(table_with_CI$CI25), size=2.5, fill="grey90") +
         theme_bw() +
         theme(
@@ -304,10 +339,12 @@ for(remoteness_covariate in c("mean_mr_standardised", "sum_mr_standardised", "we
     all_the_tables_with_CI <- rbind(all_the_tables_with_CI, table_with_CI)
 }
 
+# gather the performance (linear and LASSO regression coefficients, VIFs, CIs, et) to plot them all on a single graph for comparison
 remoteness_covariates_performance <- all_the_tables_with_CI %>%
     dplyr::mutate(response.fancy = factor(response.fancy, levels=c("First Wave", "Second Wave", "Third Wave", "First Three Waves"))) %>%
     dplyr::filter(!grepl("f|population|commuters|intercept|wave", tolower(covariate)))
 
+# graph with all the possible remoteness measures on the same graph
 All_Remoteness_Variables_Performance <- ggplot(remoteness_covariates_performance, aes(x=covariate, y=beta, group=response, colour=signif)) +
     facet_grid(response.fancy~.,) +
     geom_hline(aes(yintercept=0), linetype="dashed", size=1, colour="grey") +
@@ -330,7 +367,3 @@ All_Remoteness_Variables_Performance <- ggplot(remoteness_covariates_performance
     facet_grid(response.fancy~.,) +
     scale_x_discrete(labels = display_names)
     ggsave(All_Remoteness_Variables_Performance, file=sprintf("%s/Graphs/remoteness_coefficients.png", PROJECT_FOLDER), width=10, height=8)
-
-
-
-
