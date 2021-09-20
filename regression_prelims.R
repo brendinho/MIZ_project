@@ -12,19 +12,15 @@
 rm(list=ls())
 
 library(data.table)
-library(ggplot2)
-library(viridis)
-library(CanCovidData)
 library(stringr)
 library(forcats)
-library(sf)
-library(xtable)
 library(lme4)
 library(car)
 library(digest)
 library(rstudioapi)
 
-PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
+# PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
+PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project"
 
 setwd(PROJECT_FOLDER)
 dir.create(file.path(".", "Graphs"), showWarnings=FALSE)
@@ -54,8 +50,8 @@ Regions <- readRDS(sprintf("%s/CaseDataTables/Regions.rda", PROJECT_FOLDER)) %>%
 All_Provinces_Shapes <- readRDS(sprintf("%s/Classifications/All_Province_Shapes.rds", PROJECT_FOLDER)) %>% st_sf()
 
 Demographic_Data <- Regions %>%
-    mutate(csdname = coalesce(region, csdname)) %>%
-    select(-population_density, -geometry, -num_csds, -ar_score, -mr_score, -class, -index_of_remoteness, -region, -pr_uid) %>%
+    dplyr::mutate(csdname = coalesce(region, csdname)) %>%
+    dplyr::select(-population_density, -geometry, -num_csds, -mr_score, -class, -index_of_remoteness, -region, -pr_uid, -title) %>%
     dplyr::mutate(
         total_commuters = people_commuting_within_csd + people_commuting_within_cd_but_not_csd + 
         people_commuting_within_province_but_not_cd + people_commuting_outside_province,
@@ -80,12 +76,13 @@ Demographic_Data <- Regions %>%
     dplyr::mutate(population_density = population/area_sq_km)
 
 Remoteness <- Regions[, .(
-        mean_index = meann(index_of_remoteness),
-        sum_index = summ(index_of_remoteness),
+        # mean_index = meann(index_of_remoteness),
+        # sum_index = summ(index_of_remoteness),
         weighted_index = summ(index_of_remoteness*population)/summ(population),
-        mean_mr = meann(mr_score),
-        sum_mr = summ(mr_score),
-        weighted_mr = summ(mr_score*population)/summ(population)
+        # mean_mr = meann(mr_score),
+        # sum_mr = summ(mr_score),
+        weighted_mr = summ(mr_score*population)/summ(population),
+        num_csds = summ(num_csds)
     ), by=.(province, pruid, hr, hruid)]
 
 Cumulative_Cases <- Total_Case_Data[hr != "Not Reported", .(
@@ -123,12 +120,12 @@ Total_Data <- Reduce(
         F3_prop_standardised = z_transform(F3_prop),
         F4_prop_standardised = z_transform(F4_prop),
 
-        mean_index_standardised = z_transform(mean_index),
-        sum_index_standardised = z_transform(sum_index),
+        # mean_index_standardised = z_transform(mean_index),
+        # sum_index_standardised = z_transform(sum_index),
         weighted_index_standardised = z_transform(weighted_index),
 
-        mean_mr_standardised = z_transform(mean_mr),
-        sum_mr_standardised = z_transform(sum_mr),
+        # mean_mr_standardised = z_transform(mean_mr),
+        # sum_mr_standardised = z_transform(sum_mr),
         weighted_mr_standardised = z_transform(weighted_mr),
 
         population_density_standardised = z_transform(population_density),

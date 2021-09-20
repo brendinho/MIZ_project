@@ -13,7 +13,8 @@ library(dplyr)
 library(data.table)
 library(segmented)
 
-PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
+# PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
+PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project/"
 
 # shorthand
 meann <- function(...) mean(..., na.rm=TRUE)
@@ -268,16 +269,6 @@ add_HRUIDs <- function(table, HR_column="HR", province_column="province")
 #     return(break_dates)
 # }
 
-CSD_score_class <- function(x)
-{
-    if(grepl("cma", tolower(x))) return(1)
-    if(grepl("ca", tolower(x))) return(1)
-    if(grepl("strong", tolower(x))) return(2)
-    if(grepl("moderate", tolower(x))) return(2)
-    if(grepl("weak", tolower(x))) return(3)
-    if(grepl("none", tolower(x))) return(3)
-    return(NA)
-}
 
 CSD_score_normal <- function(x)
 {
