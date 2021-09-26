@@ -18,6 +18,7 @@ library(lme4)
 library(car)
 library(digest)
 library(rstudioapi)
+library(sf)
 
 # PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
 PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project"
@@ -76,11 +77,11 @@ Demographic_Data <- Regions %>%
     dplyr::mutate(population_density = population/area_sq_km)
 
 Remoteness <- Regions[, .(
-        # mean_index = meann(index_of_remoteness),
-        # sum_index = summ(index_of_remoteness),
+        mean_index = meann(index_of_remoteness),
+        sum_index = summ(index_of_remoteness),
         weighted_index = summ(index_of_remoteness*population)/summ(population),
-        # mean_mr = meann(mr_score),
-        # sum_mr = summ(mr_score),
+        mean_mr = meann(mr_score),
+        sum_mr = summ(mr_score),
         weighted_mr = summ(mr_score*population)/summ(population),
         num_csds = summ(num_csds)
     ), by=.(province, pruid, hr, hruid)]
@@ -89,7 +90,6 @@ Cumulative_Cases <- Total_Case_Data[hr != "Not Reported", .(
         wave_1_cumulative = summ(.SD[wave==1]$cases),
         wave_2_cumulative = summ(.SD[wave==2]$cases),
         wave_3_cumulative = summ(.SD[wave==3]$cases),
-        wave_4_cumulative = summ(.SD[wave==4]$cases),
         total_cumulative = summ(cases)
     ), by=.(hr, province, hruid)] %>%
     dplyr::filter(
@@ -111,6 +111,7 @@ Total_Data <- Reduce(
         wave_1_attack_rate = wave_1_cumulative/population,
         wave_2_attack_rate = wave_2_cumulative/population,
         wave_3_attack_rate = wave_3_cumulative/population,
+        all_waves_attack_rate = total_cumulative/population,
 
         F0_standardised = z_transform(F0),
         F3_standardised = z_transform(F3),
@@ -120,20 +121,20 @@ Total_Data <- Reduce(
         F3_prop_standardised = z_transform(F3_prop),
         F4_prop_standardised = z_transform(F4_prop),
 
-        # mean_index_standardised = z_transform(mean_index),
-        # sum_index_standardised = z_transform(sum_index),
+        mean_index_standardised = z_transform(mean_index),
+        sum_index_standardised = z_transform(sum_index),
         weighted_index_standardised = z_transform(weighted_index),
 
-        # mean_mr_standardised = z_transform(mean_mr),
-        # sum_mr_standardised = z_transform(sum_mr),
+        mean_mr_standardised = z_transform(mean_mr),
+        sum_mr_standardised = z_transform(sum_mr),
         weighted_mr_standardised = z_transform(weighted_mr),
 
         population_density_standardised = z_transform(population_density),
         total_commuters_standardised = z_transform(total_commuters),
 
-        wave_1_standardised = z_transform(wave_1_attack_rate),
-        wave_2_standardised = z_transform(wave_2_attack_rate),
-        wave_3_standardised = z_transform(wave_3_attack_rate)
+        # wave_1_standardised = z_transform(wave_1_attack_rate),
+        # wave_2_standardised = z_transform(wave_2_attack_rate),
+        # wave_3_standardised = z_transform(wave_3_attack_rate)
     ) %>%
-    dplyr::select(-pruid.x, -pruid.y, -wave_1_cumulative, -wave_2_cumulative, -wave_3_cumulative, -total_cumulative, -wave_4_cumulative) %>%
+    dplyr::select(-pruid.x, -pruid.y, -wave_1_cumulative, -wave_2_cumulative, -wave_3_cumulative, -total_cumulative) %>%
     dplyr::relocate(province, pruid, hr, hruid)

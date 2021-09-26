@@ -16,7 +16,7 @@ library(viridis)
 library(ungeviz)
 
 # PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
-PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project/"
+PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project"
 
 source(sprintf("%s/regression_prelims.R", PROJECT_FOLDER))
 
@@ -163,13 +163,10 @@ do_lasso_regression <- function(data_table, response_var, ...)
 
 ################### EXPLORING THE WAVES
 
-# table to aggregate the coefficients in all the regressions to draw a diagram showing the performance of remoteness measures in all regressions
-all_the_tables_with_CI <- data.table()
-
 # pretty names for the graphs - variables will appear in the x-axis in the same order they do here
 # all covariates must be given here, otherwise their labels will be NA
 display_names = c(
-    "fstat" = "F statistic",
+    "fstat" = "",
     
     "(Intercept)" = "Intercept",
     
@@ -195,9 +192,16 @@ display_names = c(
     "wave" = "u"
 )
 
+# table to aggregate the coefficients in all the regressions to draw a diagram showing the performance of remoteness measures in all regressions
+tables_with_CI <- data.table()
+
+fstatistics <- data.table()
+
+all_waves_av_table <- data.table()
+
 PROVINCE <- "Ontario"
 
-for(remoteness_covariate in c("weighted_mr_standardised", "weighted_index_standardised")) 
+for(remoteness_covariate in c("weighted_mr_standardised", "mean_index_standardised")) 
 # "sum_mr_standardised", "mean_mr_standardised", "mean_index_standardised", "sum_index_standardised")) # ,  
 {
     # linear regression for the first wave
@@ -221,35 +225,50 @@ for(remoteness_covariate in c("weighted_mr_standardised", "weighted_index_standa
         remoteness_covariate, "F0_prop_standardised", "F3_prop_standardised", "F4_prop_standardised", "population_density_standardised"
         #, "total_commuters_standardised"
     )
-
-    # data table getting the attack rates over each of the three waves
-    All_Waves_Data <- rbind(
-            Total_Data %>% dplyr::mutate(standardised_attack_rate = wave_1_standardised, wave=1),
-            Total_Data %>% dplyr::mutate(standardised_attack_rate = wave_2_standardised, wave=2),
-            Total_Data %>% dplyr::mutate(standardised_attack_rate = wave_3_standardised, wave=3)
-        ) %>%
-        dplyr::mutate(wave_standardised = z_transform(wave)) %>%
-        dplyr::select(-wave_1_attack_rate, -wave_2_attack_rate, -wave_3_attack_rate, -wave_1_standardised, -wave_2_standardised, -wave_3_standardised)
-
-    # regressions including the wave this time
-    total_info_linear <- do_linear_regression(
-        All_Waves_Data %>% filter(province == PROVINCE),
-        "standardised_attack_rate",
-        remoteness_covariate, "F0_prop_standardised", "F3_prop_standardised", "F4_prop_standardised", "population_density_standardised", "wave_standardised"
-        #, "total_commuters_standardised"
+    
+    all_three_waves_info_linear <- do_linear_regression(
+        Total_Data,
+        "all_waves_attack_rate",
+        remoteness_covariate, "F0_prop_standardised", "F3_prop_standardised", "F4_prop_standardised", "population_density_standardised"
+        
     )
+
+    # # data table getting the attack rates over each of the three waves
+    # All_Waves_Data <- rbind(
+    #         Total_Data %>% dplyr::mutate(standardised_attack_rate = wave_1_standardised, wave=1),
+    #         Total_Data %>% dplyr::mutate(standardised_attack_rate = wave_2_standardised, wave=2),
+    #         Total_Data %>% dplyr::mutate(standardised_attack_rate = wave_3_standardised, wave=3)
+    #     ) %>%
+    #     dplyr::mutate(wave_standardised = z_transform(wave)) %>%
+    #     dplyr::select(-wave_1_attack_rate, -wave_2_attack_rate, -wave_3_attack_rate, -wave_1_standardised, -wave_2_standardised, -wave_3_standardised)
+    # 
+    # # regressions including the wave this time
+    # total_info_linear <- do_linear_regression(
+    #     All_Waves_Data %>% filter(province == PROVINCE),
+    #     "standardised_attack_rate",
+    #     remoteness_covariate, "F0_prop_standardised", "F3_prop_standardised", "F4_prop_standardised", "population_density_standardised", "wave_standardised"
+    #     #, "total_commuters_standardised"
+    # )
     
     first_wave_coefficients <- first_wave_info_linear$coefficients
     second_wave_coefficients <- second_wave_info_linear$coefficients
     third_wave_coefficients <- third_wave_info_linear$coefficients
-    all_waves_coefficients <- total_info_linear$coefficients
+    all_waves_coefficients <- all_three_waves_info_linear$coefficients
+    
+    all_waves_av_table <- rbind(
+        all_waves_av_table,
+        first_wave_info_linear$av_table %>% dplyr::mutate(wave="First Wave", remoteness_var=remoteness_covariate) %>% dplyr::rename(attack_rate=wave_1_attack_rate),
+        second_wave_info_linear$av_table %>% dplyr::mutate(wave="Second Wave", remoteness_var=remoteness_covariate) %>% dplyr::rename(attack_rate=wave_2_attack_rate),
+        third_wave_info_linear$av_table %>% dplyr::mutate(wave="Third Wave", remoteness_var=remoteness_covariate) %>% dplyr::rename(attack_rate=wave_3_attack_rate),
+        all_three_waves_info_linear$av_table %>% dplyr::mutate(wave="Waves Combined", remoteness_var=remoteness_covariate) %>% dplyr::rename(attack_rate=all_waves_attack_rate)
+    )
 
     # big table with all the coefficients and prettified names
-    table_with_CI <- rbind(
+    Regression_Here <- rbind(
             first_wave_coefficients,
             second_wave_coefficients,
-            third_wave_coefficients # ,
-            # all_waves_coefficients
+            third_wave_coefficients,
+            all_waves_coefficients
         ) %>%
         dplyr::mutate(
             response.fancy = unlist(lapply(response, function(x){
@@ -257,79 +276,227 @@ for(remoteness_covariate in c("weighted_mr_standardised", "weighted_index_standa
                 if(x == "wave_1_attack_rate") return("First Wave")
                 if(x == "wave_2_attack_rate") return("Second Wave")
                 if(x == "wave_3_attack_rate") return("Third Wave")
-                if(x == "attack_rate") return("First Three Waves")
+                if(x == "all_waves_attack_rate") return("First Three Waves")
                 if(x == "wave_1_standardised") return("First Wave")
                 if(x == "wave_2_standardised") return("Second Wave")
                 if(x == "wave_3_standardised") return("Third Wave")
                 if(x == "standardised_attack_rate") return("First Three Waves")
                 return(x)
             })),
-            response_var = remoteness_covariate,
+            remoteness_var = remoteness_covariate,
             wave_number = unlist(lapply(response, function(x){
                 if(grepl(1, x)) return(1)
                 if(grepl(2, x)) return(2)
                 if(grepl(3, x)) return(3)
-                if(grepl("stand", x)) return("all")
+                if(grepl("all", x)) return("all")
+                retrun(x)
             }))
         ) %>% 
-        add_row(covariate="fstat", response.fancy="First Wave") %>% 
-        add_row(covariate="fstat", response.fancy="Second Wave") %>% 
-        add_row(covariate="fstat", response.fancy="Third Wave") # %>% 
-        # add_row(covariate="fstat", response.fancy="First Three Waves")
+        add_row(covariate="fstat", response.fancy="First Wave", remoteness_var = remoteness_covariate) %>% 
+        add_row(covariate="fstat", response.fancy="Second Wave", remoteness_var = remoteness_covariate) %>% 
+        add_row(covariate="fstat", response.fancy="Third Wave", remoteness_var = remoteness_covariate) %>% 
+        add_row(covariate="fstat", response.fancy="First Three Waves", remoteness_var = remoteness_covariate)
 
     # labels for each subplot showing what the F and p values were for that test
-    fstat_labels <- table_with_CI[!grepl("fstat", tolower(covariate)),
+    fstat_labels <- Regression_Here[!grepl("fstat", tolower(covariate)),
         .(lab = sprintf(
-            "atop('F'[%s]: %.2f, p%s)", # 
-            wave_number,
-            na.omit(fstat_value),
-            if(na.omit(fstat_p) > 0.01) round(na.omit(fstat_p), 2) else expression("\u003c0.01")
-        ) ),
+                "atop('F'[%s]: %.2f, p%s)", # 
+                wave_number,
+                na.omit(fstat_value),
+                if(na.omit(fstat_p) > 0.01) round(na.omit(fstat_p), 2) else expression("\u003c0.01")
+            ),
+          remoteness_var = remoteness_covariate
+          ),
         by=.(response, response.fancy)
     ]
 
-    Significance_diagram <- ggplot(
-            table_with_CI %>%
-                dplyr::mutate(response.fancy = factor(response.fancy, levels=c("First Wave", "Second Wave", "Third Wave", "First Three Waves"))) %>%
-                dplyr::mutate(covariate = factor(covariate, levels=names(display_names))),
-            aes(x=covariate, y=beta, group=response, colour=signif)
-        ) +
-        # zero line
-        geom_hline(aes(yintercept=0), linetype="dashed", size=1, colour="grey") +
-        # visualizing the LASSO regression coefficients
-        # geom_line(aes(x=covariate, y=lasso_coefficient*lasso_scaling_factor, group=1), inherit.aes=FALSE, size=1, colour="black", linetype="dashed") +
-        # geom_point(aes(x=covariate, y=lasso_coefficient*lasso_scaling_factor, group=1), inherit.aes=FALSE, size=3, colour="black") +
-        # scale_y_continuous("Standardised Regression Coefficient", sec.axis = sec_axis(~.*lasso_scaling_factor, name="Lasso Coefficient")) +
-        # 95% confidence interval
-        geom_errorbar(aes(ymin=CI25, ymax=CI975), size=1, width=0.5) +
-        geom_point(size=4) +
-        # F and p information for the test
-        geom_label(
-            data=fstat_labels %>%
-                dplyr::mutate(response.fancy = factor(response.fancy, levels=c("First Wave", "Second Wave", "Third Wave", "First Three Waves"))),
-            aes(label=lab),
-            x=1, y=00, # 9*max(table_with_CI$CI975),
-            inherit.aes=FALSE, size=4, fill="grey90", parse=TRUE
-        ) +
-        # VIF for each covariate in a box at the bottom
-        # geom_label(aes(label=sprintf("%.2f", vif)), y=min(table_with_CI$CI25), size=2.5, fill="grey90") +
-        theme_bw() +
-        theme(
-            legend.position = "none",
-            axis.text = element_text(size=14),
-            axis.title = element_text(size=14),
-            strip.text = element_text(size=14),
-            axis.text.y.right = element_text(colour = "black")
-        ) +
-        labs(x="Covariates", y="Standardised Regression Coefficient") +
-        scale_colour_manual(name="signif", values=c(`TRUE`="blue", `FALSE`="red")) +
-        facet_grid(response.fancy~. , scale="free_y") +
-        scale_x_discrete(labels = display_names)
+    # Regression_Plot <- ggplot(
+    #         Regression_Here %>%
+    #             dplyr::mutate(response.fancy = factor(response.fancy, levels=c("First Wave", "Second Wave", "Third Wave", "First Three Waves"))) %>%
+    #             dplyr::mutate(covariate = factor(covariate, levels=names(display_names))),
+    #         aes(x=covariate, y=beta, group=response, colour=signif)
+    #     ) +
+    #     # zero line
+    #     geom_hline(aes(yintercept=0), linetype="dashed", size=1, colour="grey") +
+    #     # visualizing the LASSO regression coefficients
+    #     # geom_line(aes(x=covariate, y=lasso_coefficient*lasso_scaling_factor, group=1), inherit.aes=FALSE, size=1, colour="black", linetype="dashed") +
+    #     # geom_point(aes(x=covariate, y=lasso_coefficient*lasso_scaling_factor, group=1), inherit.aes=FALSE, size=3, colour="black") +
+    #     # scale_y_continuous("Standardised Regression Coefficient", sec.axis = sec_axis(~.*lasso_scaling_factor, name="Lasso Coefficient")) +
+    #     # 95% confidence interval
+    #     geom_errorbar(aes(ymin=CI25, ymax=CI975), size=1, width=0.5) +
+    #     geom_point(size=4) +
+    #     # F and p information for the test
+    #     geom_label(
+    #         data=fstat_labels %>%
+    #             dplyr::mutate(response.fancy = factor(response.fancy, levels=c("First Wave", "Second Wave", "Third Wave", "First Three Waves"))),
+    #         aes(label=lab),
+    #         x=1, y=00, # 9*max(table_with_CI$CI975),
+    #         inherit.aes=FALSE, size=4, fill="grey90", parse=TRUE
+    #     ) +
+    #     # VIF for each covariate in a box at the bottom
+    #     # geom_label(aes(label=sprintf("%.2f", vif)), y=min(table_with_CI$CI25), size=2.5, fill="grey90") +
+    #     theme_bw() +
+    #     theme(
+    #         legend.position = "none",
+    #         axis.text = element_text(size=14),
+    #         axis.title = element_text(size=14),
+    #         strip.text = element_text(size=14),
+    #         axis.text.y.right = element_text(colour = "black")
+    #     ) +
+    #     labs(x="Covariates", y="Standardised Regression Coefficient") +
+    #     scale_colour_manual(name="signif", values=c(`TRUE`="blue", `FALSE`="red")) +
+    #     facet_grid(response.fancy~. , scale="free_y") +
+    #     scale_x_discrete(labels = display_names)
+    # 
+    #     ggsave(Regression_Plot, file=sprintf("%s/Graphs/new_coefficients_%s.png", PROJECT_FOLDER, remoteness_covariate), width=10, height=8)
 
-        ggsave(Significance_diagram, file=sprintf("%s/Graphs/new_coefficients_%s.png", PROJECT_FOLDER, remoteness_covariate), width=10, height=6)
-
-    all_the_tables_with_CI <- rbind(all_the_tables_with_CI, table_with_CI)
+    tables_with_CI  <- rbind(tables_with_CI, Regression_Here)
+    fstatistics <- rbind(fstatistics, fstat_labels)
 }
+
+Altogether_Plot <- ggplot(
+        tables_with_CI %>%
+            dplyr::mutate(
+                response.fancy = dplyr::recode(response.fancy,
+                    "First Wave"="'First Wave'", "Second Wave"="'Second Wave'", "Third Wave"="'Third Wave'", "First Three Waves"="'First Three Waves'"),
+                covariate = factor(covariate, levels=names(display_names)),
+                remoteness_var = dplyr::recode(remoteness_var,
+                    "weighted_index_standardised"="'(A) I'[w]",
+                    "weighted_mr_standardised"="'(A) R'[w]",
+                    "sum_index_standardised"="'(A) I'[s]",
+                    "mean_index_standardised"="'(B) I'[m]"
+                )
+            ),
+        aes(x=covariate, y=beta, group=response, colour=signif)
+    ) +
+    # zero line
+    geom_hline(aes(yintercept=0), linetype="dashed", size=1, colour="grey") +
+    # visualizing the LASSO regression coefficients
+    # geom_line(aes(x=covariate, y=lasso_coefficient*lasso_scaling_factor, group=1), inherit.aes=FALSE, size=1, colour="black", linetype="dashed") +
+    # geom_point(aes(x=covariate, y=lasso_coefficient*lasso_scaling_factor, group=1), inherit.aes=FALSE, size=3, colour="black") +
+    # scale_y_continuous("Standardised Regression Coefficient", sec.axis = sec_axis(~.*lasso_scaling_factor, name="Lasso Coefficient")) +
+    # 95% confidence interval
+    geom_errorbar(aes(ymin=CI25, ymax=CI975), size=1, width=0.25) +
+    geom_point(size=4) +
+    # F and p information for the test
+    geom_label(
+        data=fstatistics %>%
+            dplyr::mutate(
+                response.fancy = dplyr::recode(response.fancy, 
+                                        "First Wave"="'First Wave'", "Second Wave"="'Second Wave'", "Third Wave"="'Third Wave'", "First Three Waves"="'First Three Waves'"),
+                remoteness_var = dplyr::recode(remoteness_var,
+                    "sum_index_standardised"="'(A) I'[s]",
+                    "weighted_mr_standardised"="'(A) R'[w]",
+                    "weighted_index_standardised"="'(A) I'[w]",
+                    "mean_index_standardised"="'(B) I'[m]"
+                )
+            ),
+        aes(label=lab),
+        x=1, y=00, # 9*max(table_with_CI$CI975),
+        inherit.aes=FALSE, size=5, fill="grey90", parse=TRUE
+    ) +
+    # VIF for each covariate in a box at the bottom
+    # geom_label(aes(label=sprintf("%.2f", vif)), y=min(table_with_CI$CI25), size=2.5, fill="grey90") +
+    theme_bw() +
+    theme(
+        legend.position = "none",
+        axis.text = element_text(size=18),
+        axis.text.x = element_text(size=22),
+        axis.title = element_text(size=18),
+        strip.text = element_text(size=18),
+        axis.text.y.right = element_text(colour = "black")
+    ) +
+    labs(x="Covariates", y="Standardised Regression Coefficient") +
+    scale_colour_manual(name="signif", values=c(`TRUE`="blue", `FALSE`="red")) +
+    facet_grid(
+        factor(response.fancy, levels=c("'First Wave'", "'Second Wave'", "'Third Wave'", "'First Three Waves'")) ~ remoteness_var, 
+        scale="free", labeller=label_parsed
+    ) +
+    scale_x_discrete(labels = display_names)
+
+ggsave(Altogether_Plot, file=sprintf("%s/Graphs/all_remoteness_together.png", PROJECT_FOLDER), width=13, height=11)
+
+all_waves_av_table2 <- all_waves_av_table %>% 
+    arrange(variable, wave) %>%
+    filter(remoteness_var ==  "weighted_mr_standardised") %>%
+    mutate(
+        variable = dplyr::recode(variable,
+            "weighted_index_standardised" = "I'[w]",
+            "weighted_mr_standardised" = "R'[w]",
+            "population_density_standardised" = "D'",
+            "total_commuters_standard" = "L'",
+            "F0_prop_standardised" = "f'[0]",
+            "F3_prop_standardised" = "f'[{'\u2264 3'}]",
+            "F4_prop_standardised" = "f'[{'\u2265 4'}]"
+        ),
+        variable = factor(variable, levels=c("f'[0]", "f'[{'≤ 3'}]", "f'[{'≥ 4'}]", "R'[w]", "D'")),
+        whole_name = paste0(wave, " - ", variable)
+    )
+
+all_waves_av_table3 <- merge(
+        all_waves_av_table2,
+        all_waves_av_table2 %>% 
+            select(wave, variable, whole_name) %>% 
+            unique() %>%
+            mutate(
+                fancy_name = paste0("'", letters[1:nrow(.)], ") ", whole_name)
+            ),
+        by=c("wave", "variable"),
+    )
+
+large_partial_regression_plots <- ggplot(
+        all_waves_av_table3 %>% filter(remoteness_var ==  "weighted_mr_standardised"),
+        aes(x=value, y=attack_rate)
+    ) +
+    geom_point(size=0.5) +
+    geom_smooth(method="lm", formula=y~x) +
+    # facet_wrap(wave~variable,scales="free", labeller = label_parsed)
+    facet_wrap(fancy_name~., scales="free", labeller = label_parsed, ncol=4) +
+    labs(x="(Value | Others)", y="Attack Rate") +
+    theme_bw() +
+    theme(
+        plot.background = element_rect(fill = "azure2", colour = NA),
+        panel.spacing = unit(2, "lines"),
+        strip.text = element_text(size=16),
+        axis.title = element_text(size=25),
+        axis.text = element_text(size=17)
+    )
+    ggsave(large_partial_regression_plots, file=file.path(PROJECT_FOLDER, "Graphs/remoteness_av_plot.png"), width=15, height=19)
+
+# HRs_with_CMAs_pop_in_CMAs <- Regions[class=="CMA", .(count=.N, pop_in_CMAs=summ(population)), by=.(province, hr)]
+# HRs_with_CMAs_total_populations <- Regions[, .(total_pop=summ(population)), by=.(hr, province)]
+# 
+# cases_CMAs_responsible_for <- Reduce(
+#         function(x, y) merge(x, y, by=c("province", "hr")),
+#         list(
+#             HRs_with_CMAs_pop_in_CMAs,
+#             HRs_with_CMAs_total_populations,
+#             Cumulative_Cases
+#         ) 
+#     ) %>%
+#     dplyr::mutate(pop_proportion =  round(pop_in_CMAs/total_pop, 2))
+# 
+# proportion_cases_hrs_with_cmas_responsible_for <- sum(cases_CMAs_responsible_for$total_cumulative)/sum(Cumulative_Cases$total_cumulative)
+# 
+# 
+# proportion_cases_hrs_with_cmas_responsible_for_BC_QC_ON <- 
+#     cases_CMAs_responsible_for[province %in% c("Ontario", "British Columbia", "Quebec"), sum(total_cumulative)] /
+#     sum(Cumulative_Cases$total_cumulative)
+# 
+# proportion_population_living_in_CMAs <- 
+#     cases_CMAs_responsible_for[, summ(pop_in_CMAs)] / Regions[, summ(population)]
+# 
+# proportion_population_living_in_CMAs_BC_QC_ON <- 
+#     cases_CMAs_responsible_for[province %in% c("Ontario", "British Columbia", "Quebec"), summ(pop_in_CMAs)] / Regions[, summ(population)]
+
+
+
+
+
+
+
+
+
 
 # # gather the performance (linear and LASSO regression coefficients, VIFs, CIs, et) to plot them all on a single graph for comparison
 # remoteness_covariates_performance <- all_the_tables_with_CI %>%

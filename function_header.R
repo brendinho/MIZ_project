@@ -257,12 +257,12 @@ add_HRUIDs <- function(table, HR_column="HR", province_column="province")
 #     print(tab_here[date %in% as.Date(c("2020-05-01", "2020-07-01", "2021-01-01", "2021-02-22", "2021-04-15", "2021-06-30"))])
 # 
 #     # do a breakpoint analysis to get the valley between the two peaks
-#     seg_reg <- segmented(
-#         lm(log(avg) ~ index, data=tab_here),
-#         seg.Z = ~ index,
-#         # npsi = num_waves-1
-#         psi = tab_here[date %in% as.Date(c("2020-05-01", "2020-07-01", "2021-01-01", "2021-02-22", "2021-04-15", "2021-06-30")), index]
-#     )
+    # seg_reg <- segmented(
+    #     lm(log(avg) ~ index, data=tab_here),
+    #     seg.Z = ~ index,
+    #     # npsi = num_waves-1
+    #     psi = tab_here[date %in% as.Date(c("2020-05-01", "2020-07-01", "2021-01-01", "2021-02-22", "2021-04-15", "2021-06-30")), index]
+    # )
 #     
 #     break_dates <- tab_here[index %in% ceiling(data.frame(seg_reg$psi)$`Est.`), date]
 # 

@@ -9,7 +9,8 @@ library(stringr)
 library(XLConnect)
 library(sf)
 
-PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
+# PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
+PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project"
 
 setwd(PROJECT_FOLDER)
 
@@ -190,191 +191,191 @@ Total_Data_Geo <- data.table(Reduce(
     dplyr::relocate("csduid2016", "region", "province", "HR", "class", "index_of_remoteness", "population_density")
     saveRDS(Total_Data_Geo, sprintf("%s/Classifications/Total_CSD_Info.rda", PROJECT_FOLDER))
 
-# ################################## COVID DATA
-# 
-# writeLines("\nAPI data - cases")
-# UofT_api_case_data <- jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=cases&loc=hr")$cases %>%
-#     dplyr::mutate(date_report=as.Date(date_report, format="%d-%m-%Y"))
-#     fwrite(UofT_api_case_data, sprintf("%s/CaseDataTables/UofT_cases.csv", PROJECT_FOLDER))
-# 
-# writeLines("\nAPI data - vaccines")
-# jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=avaccine&loc=prov")$avaccine %>%
-#     dplyr::mutate(date_vaccine_administered=as.Date(date_vaccine_administered, format="%d-%m-%Y")) %>%
-#     fwrite(sprintf("%s/CaseDataTables/UofT_vaccines.csv", PROJECT_FOLDER))
-# 
-# writeLines("\nCanada-wide vaccine coverage - stratified0")
-# # only give the weekend date for the administration of the vaccine, not the actual date
-# fread("https://health-infobase.canada.ca/src/data/covidLive/vaccination-coverage-byAgeAndSex.csv") %>%
-#     fwrite(sprintf("%s/CaseDataTables/canada_wide_vacc_data_official.csv", PROJECT_FOLDER))
-# fread("https://health-infobase.canada.ca/src/data/covidLive/vaccination-coverage-byVaccineType.csv") %>%
-#     fwrite(sprintf("%s/CaseDataTables/canada_vacc_coverage_by_vaccine.csv", PROJECT_FOLDER))
-# 
-# ################################## BRITISH COLUMBIA
-# 
-# writeLines("\nBritish Columbia")
-# BC_cases <- fread("http://www.bccdc.ca/Health-Info-Site/Documents/BCCDC_COVID19_Regional_Summary_Data.csv") %>%
-#     dplyr::select(-c(Province, HA, Cases_Reported_Smoothed)) %>%
-#     dplyr::filter(! HSDA %in% c("All", "Unknown", "Out of Canada")) %>%
-#     dplyr::rename(date=Date, HR=HSDA, cases=Cases_Reported) %>%
-#     dplyr::mutate(date=as.Date(date), province="British Columbia") %>%
-#     # add_wave_numbers() %>% .[['cases']] %>%
-#     data.table()
-#     fwrite(BC_cases, sprintf("%s/CaseDataTables/BC_cases.csv", PROJECT_FOLDER))
-# 
-# ################################## QUEBEC
-# 
-# writeLines("\nQuebec")
-# QC_cases <- fread("https://www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv") %>%
-#     dplyr::select(Date, Nom, cas_quo_tot_n) %>%
-#     dplyr::filter(grepl("\\d", Date) & grepl("\\d - [a-zA-Z]", Nom)) %>%
-#     dplyr::mutate(Nom = Nom %>% replace_accents() %>% trim_numbers()) %>%
-#     dplyr::rename(date=Date, HR=Nom, cases=cas_quo_tot_n) %>%
-#     dplyr::mutate(date=as.Date(date), province="Quebec", cases = as.numeric(cases)) %>%
-#     # add_wave_numbers() %>% .[['cases']] %>%
-#     data.table()
-#     fwrite(QC_cases, sprintf("%s/CaseDataTables/QC_cases.csv", PROJECT_FOLDER))
-# 
-# ##################################  MANITOBA
-# 
-# writeLines("\nManitoba")
-# MB_cases <- UofT_api_case_data %>%
-#     dplyr::filter(province == "Manitoba") %>%
-#     dplyr::select(province, date_report, health_region, cases) %>%
-#     dplyr::rename(date=date_report, HR=health_region) %>%
-#     dplyr::mutate(date=as.Date(date), province="Manitoba") %>%
-#     # add_wave_numbers() %>% .[['cases']] %>%
-#     data.table()
-#     fwrite(MB_cases, sprintf("%s/CaseDataTables/MB_cases.csv", PROJECT_FOLDER))
-# 
-# ################################## SASKATCHEWAN
-# 
-# writeLines("\nSaskatchewan")
-# SK_cases <- get_saskatchewan_case_data() %>%
-#     dplyr::select("Date", "Region", "New Cases") %>%
-#     dplyr::rename(date=Date, HR=Region, cases="New Cases") %>%
-#     dplyr::mutate(date=as.Date(date), province="Saskatchewan") %>%
-#     # add_wave_numbers() %>% .[['cases']] %>%
-#     data.table()
-#     fwrite(SK_cases, sprintf("%s/CaseDataTables/SK_cases.csv", PROJECT_FOLDER))
-# 
-# ################################## PRINCE EDWARD ISLAND, NORTHWEST TERRITORIES, YUKON, NUNAVUT
-# 
-# writeLines("\nPEI, NWT, Yukon, Nunavut")
-# 
-# PE_cases <- UofT_api_case_data %>%
-#     dplyr::filter(province == "PEI") %>%
-#     dplyr::select(province, date_report, health_region, cases) %>%
-#     dplyr::rename(date=date_report, HR=health_region) %>%
-#     dplyr::mutate(date=as.Date(date), province="Prince Edward Island") %>%
-#     # add_wave_numbers() %>% .[['cases']] %>%
-#     data.table()
-#     fwrite(PE_cases, sprintf("%s/CaseDataTables/PE_cases.csv", PROJECT_FOLDER))
-#     
-# NT_cases <- UofT_api_case_data %>%
-#     dplyr::filter(province == "NWT") %>%
-#     dplyr::select(province, date_report, health_region, cases) %>%
-#     dplyr::rename(date=date_report, HR=health_region) %>%
-#     dplyr::mutate(date=as.Date(date), province="Northwest Territories", HR="Northwest Territories") %>%
-#     # add_wave_numbers() %>% .[['cases']] %>%
-#     data.table()
-#     fwrite(NT_cases, sprintf("%s/CaseDataTables/NT_cases.csv", PROJECT_FOLDER))
-#     
-# YT_cases <- UofT_api_case_data %>%
-#     dplyr::filter(province == "Yukon") %>%
-#     dplyr::select(province, date_report, health_region, cases) %>%
-#     dplyr::rename(date=date_report, HR=health_region) %>%
-#     dplyr::mutate(date=as.Date(date), province="Yukon") %>%
-#     # add_wave_numbers() %>% .[['cases']] %>%
-#     data.table()
-#     fwrite(YT_cases, sprintf("%s/CaseDataTables/YT_cases.csv", PROJECT_FOLDER))
-#     
-# NU_cases <- UofT_api_case_data %>%
-#     dplyr::filter(province == "Nunavut") %>%
-#     dplyr::select(province, date_report, health_region, cases) %>%
-#     dplyr::rename(date=date_report, HR=health_region) %>%
-#     dplyr::mutate(date=as.Date(date), province="Nunavut") %>%
-#     # add_wave_numbers() %>% .[['cases']] %>%
-#     data.table()
-#     fwrite(NU_cases, sprintf("%s/CaseDataTables/NU_cases.csv", PROJECT_FOLDER))
-# 
-# ################################## ONTARIO
-# 
-# writeLines("\nOntario - cases")
-# # Ontario data for confirmed cases - useful for delay distribution, etc
-# # https://data.ontario.ca/dataset/status-of-covid-19-cases-in-ontario/resource/8a88fe6d-d8fb-41a3-9d04-f0550a44999f
-# ON_cases <- fread("https://data.ontario.ca/dataset/f4f86e54-872d-43f8-8a86-3892fd3cb5e6/resource/8a88fe6d-d8fb-41a3-9d04-f0550a44999f/download/daily_change_in_cases_by_phu.csv") %>%
-#     dplyr::select(-Total) %>%
-#     melt(id.vars="Date") %>%
-#     dplyr::rename(date=Date, HR=variable, cases=value) %>%
-#     # dplyr::mutate(HR = standard_HR_names(HR)) %>%
-#     dplyr::mutate(province = "Ontario", date=as.Date(date)) %>%
-#     # add_wave_numbers() %>% .[['cases']] %>%
-#     data.table()
-#     fwrite(ON_cases, sprintf("%s/CaseDataTables/ON_cases.csv", PROJECT_FOLDER))
-# 
-# writeLines("\nOntario - vaccination")
-# fread("https://data.ontario.ca/dataset/752ce2b7-c15a-4965-a3dc-397bf405e7cc/resource/8a89caa9-511c-4568-af89-7f2174b4378c/download/vaccine_doses.csv") %>%
-#     fwrite(sprintf("%s/CaseDataTables/ON_vaxes.csv", PROJECT_FOLDER))
-# 
-# writeLines("\nOntario - vaccination by age")
-# fread("https://data.ontario.ca/dataset/752ce2b7-c15a-4965-a3dc-397bf405e7cc/resource/775ca815-5028-4e9b-9dd4-6975ff1be021/download/vaccines_by_age.csv") %>%
-#     dplyr::filter(! Agegroup %in% c("Adults_18plus", "Undisclosed_or_missing")) %>% 
-#     dplyr::rename_with( function(x) gsub(" ", "_", x)) %>%
-#     dplyr::select(Date, Agegroup, Percent_at_least_one_dose) %>%
-#     fwrite(sprintf("%s/CaseDataTables/ON_vaxes_by_age.csv", PROJECT_FOLDER))
-# 
-# ################################## ALBERTA
-# 
-# writeLines("\nAlberta")
-# # Alberta data from https://www.alberta.ca/stats/covid-19-alberta-statistics.htm#data-export
-# AB_cases <- fread("https://www.alberta.ca/data/stats/covid-19-alberta-statistics-data.csv") %>%
-#     dplyr::select(-V1) %>%
-#     dplyr::rename(date="Date reported", HR="Alberta Health Services Zone", type="Case type", age="Age group", status="Case status") %>%
-#     dplyr::mutate(date=as.Date(date)) %>%
-#     dplyr::filter(HR!="Unknown") %>%
-#     dplyr::group_by(date, HR) %>%
-#     dplyr::tally() %>%
-#     dplyr::rename(cases=n) %>%
-#     dplyr::mutate(province="Alberta") %>%
-#     # add_wave_numbers() %>% .[['cases']] %>%
-#     data.table()
-#     fwrite(AB_cases, sprintf("%s/CaseDataTables/AB_cases.csv", PROJECT_FOLDER))
-# 
-# ################################## NEW BRUNSWICK
-# 
-# writeLines("\nNew Brunswick")
-# NB_cases <- UofT_api_case_data %>%
-#     dplyr::filter(province=="New Brunswick") %>%
-#     dplyr::select(province, date_report, health_region, cases) %>%
-#     dplyr::rename(date=date_report, HR=health_region) %>%
-#     dplyr::mutate(date=as.Date(date)) %>%
-#     # add_wave_numbers() %>% .[['cases']] %>%
-#     data.table()
-#     fwrite(NB_cases, sprintf("%s/CaseDataTables/NB_cases.csv", PROJECT_FOLDER))
-# 
-# ################################## NOVA SCOTIA
-# 
-# writeLines("\nNova Scotia")
-# NS_cases <- UofT_api_case_data %>%
-#     dplyr::filter(province=="Nova Scotia") %>%
-#     dplyr::select(province, date_report, health_region, cases) %>%
-#     dplyr::rename(date=date_report, HR=health_region) %>%
-#     dplyr::mutate(date=as.Date(date)) %>%
-#     # add_wave_numbers() %>% .[['cases']] %>%
-#     data.table()
-#     fwrite(NS_cases, sprintf("%s/CaseDataTables/NS_cases.csv", PROJECT_FOLDER))
-# 
-# ################################## NEWFOUNDLAND LABRADOR
-# 
-# writeLines("\nNewfoundland and Labrador")
-# NL_cases <- UofT_api_case_data %>%
-#     dplyr::filter(province=="NL") %>%
-#     dplyr::select(province, date_report, health_region, cases) %>%
-#     dplyr::rename(date=date_report, HR=health_region) %>%
-#     dplyr::mutate(date=as.Date(date), province="Newfoundland and Labrador") %>%
-#     # add_wave_numbers() %>% .[['cases']] %>%
-#     data.table()
-#     fwrite(NL_cases, sprintf("%s/CaseDataTables/NL_cases.csv", PROJECT_FOLDER))
+################################## COVID DATA
+
+writeLines("\nAPI data - cases")
+UofT_api_case_data <- jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=cases&loc=hr")$cases %>%
+    dplyr::mutate(date_report=as.Date(date_report, format="%d-%m-%Y"))
+    fwrite(UofT_api_case_data, sprintf("%s/CaseDataTables/UofT_cases.csv", PROJECT_FOLDER))
+
+writeLines("\nAPI data - vaccines")
+jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=avaccine&loc=prov")$avaccine %>%
+    dplyr::mutate(date_vaccine_administered=as.Date(date_vaccine_administered, format="%d-%m-%Y")) %>%
+    fwrite(sprintf("%s/CaseDataTables/UofT_vaccines.csv", PROJECT_FOLDER))
+
+writeLines("\nCanada-wide vaccine coverage - stratified0")
+# only give the weekend date for the administration of the vaccine, not the actual date
+fread("https://health-infobase.canada.ca/src/data/covidLive/vaccination-coverage-byAgeAndSex.csv") %>%
+    fwrite(sprintf("%s/CaseDataTables/canada_wide_vacc_data_official.csv", PROJECT_FOLDER))
+fread("https://health-infobase.canada.ca/src/data/covidLive/vaccination-coverage-byVaccineType.csv") %>%
+    fwrite(sprintf("%s/CaseDataTables/canada_vacc_coverage_by_vaccine.csv", PROJECT_FOLDER))
+
+################################## BRITISH COLUMBIA
+
+writeLines("\nBritish Columbia")
+BC_cases <- fread("http://www.bccdc.ca/Health-Info-Site/Documents/BCCDC_COVID19_Regional_Summary_Data.csv") %>%
+    dplyr::select(-c(Province, HA, Cases_Reported_Smoothed)) %>%
+    dplyr::filter(! HSDA %in% c("All", "Unknown", "Out of Canada")) %>%
+    dplyr::rename(date=Date, HR=HSDA, cases=Cases_Reported) %>%
+    dplyr::mutate(date=as.Date(date), province="British Columbia") %>%
+    # add_wave_numbers() %>% .[['cases']] %>%
+    data.table()
+    fwrite(BC_cases, sprintf("%s/CaseDataTables/BC_cases.csv", PROJECT_FOLDER))
+
+################################## QUEBEC
+
+writeLines("\nQuebec")
+QC_cases <- fread("https://www.inspq.qc.ca/sites/default/files/covid/donnees/covid19-hist.csv") %>%
+    dplyr::select(Date, Nom, cas_quo_tot_n) %>%
+    dplyr::filter(grepl("\\d", Date) & grepl("\\d - [a-zA-Z]", Nom)) %>%
+    dplyr::mutate(Nom = Nom %>% replace_accents() %>% trim_numbers()) %>%
+    dplyr::rename(date=Date, HR=Nom, cases=cas_quo_tot_n) %>%
+    dplyr::mutate(date=as.Date(date), province="Quebec", cases = as.numeric(cases)) %>%
+    # add_wave_numbers() %>% .[['cases']] %>%
+    data.table()
+    fwrite(QC_cases, sprintf("%s/CaseDataTables/QC_cases.csv", PROJECT_FOLDER))
+
+##################################  MANITOBA
+
+writeLines("\nManitoba")
+MB_cases <- UofT_api_case_data %>%
+    dplyr::filter(province == "Manitoba") %>%
+    dplyr::select(province, date_report, health_region, cases) %>%
+    dplyr::rename(date=date_report, HR=health_region) %>%
+    dplyr::mutate(date=as.Date(date), province="Manitoba") %>%
+    # add_wave_numbers() %>% .[['cases']] %>%
+    data.table()
+    fwrite(MB_cases, sprintf("%s/CaseDataTables/MB_cases.csv", PROJECT_FOLDER))
+
+################################## SASKATCHEWAN
+
+writeLines("\nSaskatchewan")
+SK_cases <- get_saskatchewan_case_data() %>%
+    dplyr::select("Date", "Region", "New Cases") %>%
+    dplyr::rename(date=Date, HR=Region, cases="New Cases") %>%
+    dplyr::mutate(date=as.Date(date), province="Saskatchewan") %>%
+    # add_wave_numbers() %>% .[['cases']] %>%
+    data.table()
+    fwrite(SK_cases, sprintf("%s/CaseDataTables/SK_cases.csv", PROJECT_FOLDER))
+
+################################## PRINCE EDWARD ISLAND, NORTHWEST TERRITORIES, YUKON, NUNAVUT
+
+writeLines("\nPEI, NWT, Yukon, Nunavut")
+
+PE_cases <- UofT_api_case_data %>%
+    dplyr::filter(province == "PEI") %>%
+    dplyr::select(province, date_report, health_region, cases) %>%
+    dplyr::rename(date=date_report, HR=health_region) %>%
+    dplyr::mutate(date=as.Date(date), province="Prince Edward Island") %>%
+    # add_wave_numbers() %>% .[['cases']] %>%
+    data.table()
+    fwrite(PE_cases, sprintf("%s/CaseDataTables/PE_cases.csv", PROJECT_FOLDER))
+
+NT_cases <- UofT_api_case_data %>%
+    dplyr::filter(province == "NWT") %>%
+    dplyr::select(province, date_report, health_region, cases) %>%
+    dplyr::rename(date=date_report, HR=health_region) %>%
+    dplyr::mutate(date=as.Date(date), province="Northwest Territories", HR="Northwest Territories") %>%
+    # add_wave_numbers() %>% .[['cases']] %>%
+    data.table()
+    fwrite(NT_cases, sprintf("%s/CaseDataTables/NT_cases.csv", PROJECT_FOLDER))
+
+YT_cases <- UofT_api_case_data %>%
+    dplyr::filter(province == "Yukon") %>%
+    dplyr::select(province, date_report, health_region, cases) %>%
+    dplyr::rename(date=date_report, HR=health_region) %>%
+    dplyr::mutate(date=as.Date(date), province="Yukon") %>%
+    # add_wave_numbers() %>% .[['cases']] %>%
+    data.table()
+    fwrite(YT_cases, sprintf("%s/CaseDataTables/YT_cases.csv", PROJECT_FOLDER))
+
+NU_cases <- UofT_api_case_data %>%
+    dplyr::filter(province == "Nunavut") %>%
+    dplyr::select(province, date_report, health_region, cases) %>%
+    dplyr::rename(date=date_report, HR=health_region) %>%
+    dplyr::mutate(date=as.Date(date), province="Nunavut") %>%
+    # add_wave_numbers() %>% .[['cases']] %>%
+    data.table()
+    fwrite(NU_cases, sprintf("%s/CaseDataTables/NU_cases.csv", PROJECT_FOLDER))
+
+################################## ONTARIO
+
+writeLines("\nOntario - cases")
+# Ontario data for confirmed cases - useful for delay distribution, etc
+# https://data.ontario.ca/dataset/status-of-covid-19-cases-in-ontario/resource/8a88fe6d-d8fb-41a3-9d04-f0550a44999f
+ON_cases <- fread("https://data.ontario.ca/dataset/f4f86e54-872d-43f8-8a86-3892fd3cb5e6/resource/8a88fe6d-d8fb-41a3-9d04-f0550a44999f/download/daily_change_in_cases_by_phu.csv") %>%
+    dplyr::select(-Total) %>%
+    melt(id.vars="Date") %>%
+    dplyr::rename(date=Date, HR=variable, cases=value) %>%
+    # dplyr::mutate(HR = standard_HR_names(HR)) %>%
+    dplyr::mutate(province = "Ontario", date=as.Date(date)) %>%
+    # add_wave_numbers() %>% .[['cases']] %>%
+    data.table()
+    fwrite(ON_cases, sprintf("%s/CaseDataTables/ON_cases.csv", PROJECT_FOLDER))
+
+writeLines("\nOntario - vaccination")
+fread("https://data.ontario.ca/dataset/752ce2b7-c15a-4965-a3dc-397bf405e7cc/resource/8a89caa9-511c-4568-af89-7f2174b4378c/download/vaccine_doses.csv") %>%
+    fwrite(sprintf("%s/CaseDataTables/ON_vaxes.csv", PROJECT_FOLDER))
+
+writeLines("\nOntario - vaccination by age")
+fread("https://data.ontario.ca/dataset/752ce2b7-c15a-4965-a3dc-397bf405e7cc/resource/775ca815-5028-4e9b-9dd4-6975ff1be021/download/vaccines_by_age.csv") %>%
+    dplyr::filter(! Agegroup %in% c("Adults_18plus", "Undisclosed_or_missing")) %>%
+    dplyr::rename_with( function(x) gsub(" ", "_", x)) %>%
+    dplyr::select(Date, Agegroup, Percent_at_least_one_dose) %>%
+    fwrite(sprintf("%s/CaseDataTables/ON_vaxes_by_age.csv", PROJECT_FOLDER))
+
+################################## ALBERTA
+
+writeLines("\nAlberta")
+# Alberta data from https://www.alberta.ca/stats/covid-19-alberta-statistics.htm#data-export
+AB_cases <- fread("https://www.alberta.ca/data/stats/covid-19-alberta-statistics-data.csv") %>%
+    dplyr::select(-V1) %>%
+    dplyr::rename(date="Date reported", HR="Alberta Health Services Zone", type="Case type", age="Age group", status="Case status") %>%
+    dplyr::mutate(date=as.Date(date)) %>%
+    dplyr::filter(HR!="Unknown") %>%
+    dplyr::group_by(date, HR) %>%
+    dplyr::tally() %>%
+    dplyr::rename(cases=n) %>%
+    dplyr::mutate(province="Alberta") %>%
+    # add_wave_numbers() %>% .[['cases']] %>%
+    data.table()
+    fwrite(AB_cases, sprintf("%s/CaseDataTables/AB_cases.csv", PROJECT_FOLDER))
+
+################################## NEW BRUNSWICK
+
+writeLines("\nNew Brunswick")
+NB_cases <- UofT_api_case_data %>%
+    dplyr::filter(province=="New Brunswick") %>%
+    dplyr::select(province, date_report, health_region, cases) %>%
+    dplyr::rename(date=date_report, HR=health_region) %>%
+    dplyr::mutate(date=as.Date(date)) %>%
+    # add_wave_numbers() %>% .[['cases']] %>%
+    data.table()
+    fwrite(NB_cases, sprintf("%s/CaseDataTables/NB_cases.csv", PROJECT_FOLDER))
+
+################################## NOVA SCOTIA
+
+writeLines("\nNova Scotia")
+NS_cases <- UofT_api_case_data %>%
+    dplyr::filter(province=="Nova Scotia") %>%
+    dplyr::select(province, date_report, health_region, cases) %>%
+    dplyr::rename(date=date_report, HR=health_region) %>%
+    dplyr::mutate(date=as.Date(date)) %>%
+    # add_wave_numbers() %>% .[['cases']] %>%
+    data.table()
+    fwrite(NS_cases, sprintf("%s/CaseDataTables/NS_cases.csv", PROJECT_FOLDER))
+
+################################## NEWFOUNDLAND LABRADOR
+
+writeLines("\nNewfoundland and Labrador")
+NL_cases <- UofT_api_case_data %>%
+    dplyr::filter(province=="NL") %>%
+    dplyr::select(province, date_report, health_region, cases) %>%
+    dplyr::rename(date=date_report, HR=health_region) %>%
+    dplyr::mutate(date=as.Date(date), province="Newfoundland and Labrador") %>%
+    # add_wave_numbers() %>% .[['cases']] %>%
+    data.table()
+    fwrite(NL_cases, sprintf("%s/CaseDataTables/NL_cases.csv", PROJECT_FOLDER))
 
 ################################## TOTAL DATA
 
