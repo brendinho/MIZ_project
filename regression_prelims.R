@@ -130,11 +130,8 @@ Total_Data <- Reduce(
         weighted_mr_standardised = z_transform(weighted_mr),
 
         population_density_standardised = z_transform(population_density),
-        total_commuters_standardised = z_transform(total_commuters),
-
-        # wave_1_standardised = z_transform(wave_1_attack_rate),
-        # wave_2_standardised = z_transform(wave_2_attack_rate),
-        # wave_3_standardised = z_transform(wave_3_attack_rate)
+        total_commuters_standardised = z_transform(total_commuters)
+        
     ) %>%
     dplyr::select(-pruid.x, -pruid.y, -wave_1_cumulative, -wave_2_cumulative, -wave_3_cumulative, -total_cumulative) %>%
     dplyr::relocate(province, pruid, hr, hruid)

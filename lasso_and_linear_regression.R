@@ -1,6 +1,6 @@
 ##################################################
 ## Project: COVID-19 regression
-## Script purpose: do linear and lasso regressions, return the coefficients of the standardised covariates, print graphs of the results
+## Script purpose: do linear regressions, return the coefficients of the standardised covariates, print graphs of the results
 ## Date written: 2021-09-08
 ## Last edited: 2021-09-08 
 ## Script author: Brendon Phillips  
@@ -170,9 +170,9 @@ display_names = c(
     
     "(Intercept)" = "Intercept",
     
-    "F0_standardised" = expression("f"[0]),
-    "F3_standardised" = expression("f"[{"\u2264 3"}]),
-    "F4_standardised" = expression("f"[{"\u2265 4"}]),
+    "F0_standardised" = expression("F"[0]),
+    "F3_standardised" = expression("F"[{"\u2264 3"}]),
+    "F4_standardised" = expression("F"[{"\u2265 4"}]),
     
     "F0_prop_standardised" = expression("f"[0]),
     "F3_prop_standardised" = expression("f"[{"\u2264 3"}]),
@@ -201,54 +201,38 @@ all_waves_av_table <- data.table()
 
 PROVINCE <- "Ontario"
 
-for(remoteness_covariate in c("weighted_mr_standardised", "mean_index_standardised")) 
-# "sum_mr_standardised", "mean_mr_standardised", "mean_index_standardised", "sum_index_standardised")) # ,  
+remoteness_metrics_tested <- c("weighted_mr_standardised", "mean_index_standardised")
+
+for(remoteness_covariate in remoteness_metrics_tested) 
 {
     # linear regression for the first wave
     first_wave_info_linear <- do_linear_regression(
-        Total_Data, # %>% filter(province == PROVINCE),
+        Total_Data,
         "wave_1_attack_rate",
         remoteness_covariate, "F0_prop_standardised", "F3_prop_standardised", "F4_prop_standardised", "population_density_standardised"
-        #, "total_commuters_standardised"
+        # remoteness_covariate, "F0_standardised", "F3_standardised", "F4_standardised", "population_density_standardised"
     )
     
     second_wave_info_linear <- do_linear_regression(
-        Total_Data, # %>% filter(province == PROVINCE),
+        Total_Data,
         "wave_2_attack_rate",
         remoteness_covariate, "F0_prop_standardised", "F3_prop_standardised", "F4_prop_standardised", "population_density_standardised"
-        #, "total_commuters_standardised"
+        # remoteness_covariate, "F0_standardised", "F3_standardised", "F4_standardised", "population_density_standardised"
     )
 
     third_wave_info_linear <- do_linear_regression(
-        Total_Data, # %>% filter(province == PROVINCE),
+        Total_Data,
         "wave_3_attack_rate",
         remoteness_covariate, "F0_prop_standardised", "F3_prop_standardised", "F4_prop_standardised", "population_density_standardised"
-        #, "total_commuters_standardised"
+        # remoteness_covariate, "F0_standardised", "F3_standardised", "F4_standardised", "population_density_standardised"
     )
     
     all_three_waves_info_linear <- do_linear_regression(
         Total_Data,
         "all_waves_attack_rate",
         remoteness_covariate, "F0_prop_standardised", "F3_prop_standardised", "F4_prop_standardised", "population_density_standardised"
-        
+        # remoteness_covariate, "F0_standardised", "F3_standardised", "F4_standardised", "population_density_standardised"
     )
-
-    # # data table getting the attack rates over each of the three waves
-    # All_Waves_Data <- rbind(
-    #         Total_Data %>% dplyr::mutate(standardised_attack_rate = wave_1_standardised, wave=1),
-    #         Total_Data %>% dplyr::mutate(standardised_attack_rate = wave_2_standardised, wave=2),
-    #         Total_Data %>% dplyr::mutate(standardised_attack_rate = wave_3_standardised, wave=3)
-    #     ) %>%
-    #     dplyr::mutate(wave_standardised = z_transform(wave)) %>%
-    #     dplyr::select(-wave_1_attack_rate, -wave_2_attack_rate, -wave_3_attack_rate, -wave_1_standardised, -wave_2_standardised, -wave_3_standardised)
-    # 
-    # # regressions including the wave this time
-    # total_info_linear <- do_linear_regression(
-    #     All_Waves_Data %>% filter(province == PROVINCE),
-    #     "standardised_attack_rate",
-    #     remoteness_covariate, "F0_prop_standardised", "F3_prop_standardised", "F4_prop_standardised", "population_density_standardised", "wave_standardised"
-    #     #, "total_commuters_standardised"
-    # )
     
     first_wave_coefficients <- first_wave_info_linear$coefficients
     second_wave_coefficients <- second_wave_info_linear$coefficients
@@ -291,16 +275,16 @@ for(remoteness_covariate in c("weighted_mr_standardised", "mean_index_standardis
                 if(grepl("all", x)) return("all")
                 retrun(x)
             }))
-        ) %>% 
-        add_row(covariate="fstat", response.fancy="First Wave", remoteness_var = remoteness_covariate) %>% 
-        add_row(covariate="fstat", response.fancy="Second Wave", remoteness_var = remoteness_covariate) %>% 
-        add_row(covariate="fstat", response.fancy="Third Wave", remoteness_var = remoteness_covariate) %>% 
+        ) %>%
+        add_row(covariate="fstat", response.fancy="First Wave", remoteness_var = remoteness_covariate) %>%
+        add_row(covariate="fstat", response.fancy="Second Wave", remoteness_var = remoteness_covariate) %>%
+        add_row(covariate="fstat", response.fancy="Third Wave", remoteness_var = remoteness_covariate) %>%
         add_row(covariate="fstat", response.fancy="First Three Waves", remoteness_var = remoteness_covariate)
 
     # labels for each subplot showing what the F and p values were for that test
     fstat_labels <- Regression_Here[!grepl("fstat", tolower(covariate)),
         .(lab = sprintf(
-                "atop('F'[%s]: %.2f, p%s)", # 
+                "atop('F'[%s]: %.2f, p%s)", #
                 wave_number,
                 na.omit(fstat_value),
                 if(na.omit(fstat_p) > 0.01) round(na.omit(fstat_p), 2) else expression("\u003c0.01")
@@ -318,10 +302,6 @@ for(remoteness_covariate in c("weighted_mr_standardised", "mean_index_standardis
     #     ) +
     #     # zero line
     #     geom_hline(aes(yintercept=0), linetype="dashed", size=1, colour="grey") +
-    #     # visualizing the LASSO regression coefficients
-    #     # geom_line(aes(x=covariate, y=lasso_coefficient*lasso_scaling_factor, group=1), inherit.aes=FALSE, size=1, colour="black", linetype="dashed") +
-    #     # geom_point(aes(x=covariate, y=lasso_coefficient*lasso_scaling_factor, group=1), inherit.aes=FALSE, size=3, colour="black") +
-    #     # scale_y_continuous("Standardised Regression Coefficient", sec.axis = sec_axis(~.*lasso_scaling_factor, name="Lasso Coefficient")) +
     #     # 95% confidence interval
     #     geom_errorbar(aes(ymin=CI25, ymax=CI975), size=1, width=0.5) +
     #     geom_point(size=4) +
@@ -334,7 +314,7 @@ for(remoteness_covariate in c("weighted_mr_standardised", "mean_index_standardis
     #         inherit.aes=FALSE, size=4, fill="grey90", parse=TRUE
     #     ) +
     #     # VIF for each covariate in a box at the bottom
-    #     # geom_label(aes(label=sprintf("%.2f", vif)), y=min(table_with_CI$CI25), size=2.5, fill="grey90") +
+    #     # geom_label(aes(label=sprintf("%.2f", vif)), y=min(Regression_Here$CI25), size=2.5, fill="grey90") +
     #     theme_bw() +
     #     theme(
     #         legend.position = "none",
@@ -361,20 +341,16 @@ Altogether_Plot <- ggplot(
                     "First Wave"="'First Wave'", "Second Wave"="'Second Wave'", "Third Wave"="'Third Wave'", "First Three Waves"="'First Three Waves'"),
                 covariate = factor(covariate, levels=names(display_names)),
                 remoteness_var = dplyr::recode(remoteness_var,
-                    "weighted_index_standardised"="'(A) I'[w]",
-                    "weighted_mr_standardised"="'(A) R'[w]",
-                    "sum_index_standardised"="'(A) I'[s]",
-                    "mean_index_standardised"="'(B) I'[m]"
+                    "weighted_index_standardised"="'(A) the model using I'[w]",
+                    "weighted_mr_standardised"="'(A) the model using R'[w]",
+                    "sum_index_standardised"="'(A) the model using I'[s]",
+                    "mean_index_standardised"="'(B) the model using I'[m]"
                 )
             ),
         aes(x=covariate, y=beta, group=response, colour=signif)
     ) +
     # zero line
     geom_hline(aes(yintercept=0), linetype="dashed", size=1, colour="grey") +
-    # visualizing the LASSO regression coefficients
-    # geom_line(aes(x=covariate, y=lasso_coefficient*lasso_scaling_factor, group=1), inherit.aes=FALSE, size=1, colour="black", linetype="dashed") +
-    # geom_point(aes(x=covariate, y=lasso_coefficient*lasso_scaling_factor, group=1), inherit.aes=FALSE, size=3, colour="black") +
-    # scale_y_continuous("Standardised Regression Coefficient", sec.axis = sec_axis(~.*lasso_scaling_factor, name="Lasso Coefficient")) +
     # 95% confidence interval
     geom_errorbar(aes(ymin=CI25, ymax=CI975), size=1, width=0.25) +
     geom_point(size=4) +
@@ -382,13 +358,13 @@ Altogether_Plot <- ggplot(
     geom_label(
         data=fstatistics %>%
             dplyr::mutate(
-                response.fancy = dplyr::recode(response.fancy, 
+                response.fancy = dplyr::recode(response.fancy,
                                         "First Wave"="'First Wave'", "Second Wave"="'Second Wave'", "Third Wave"="'Third Wave'", "First Three Waves"="'First Three Waves'"),
                 remoteness_var = dplyr::recode(remoteness_var,
-                    "sum_index_standardised"="'(A) I'[s]",
-                    "weighted_mr_standardised"="'(A) R'[w]",
-                    "weighted_index_standardised"="'(A) I'[w]",
-                    "mean_index_standardised"="'(B) I'[m]"
+                    "sum_index_standardised"="'(A) the model using I'[s]",
+                    "weighted_mr_standardised"="'(A) the model using R'[w]",
+                    "weighted_index_standardised"="'(A) the model using I'[w]",
+                    "mean_index_standardised"="'(B) the model using I'[m]"
                 )
             ),
         aes(label=lab),
@@ -409,19 +385,20 @@ Altogether_Plot <- ggplot(
     labs(x="Covariates", y="Standardised Regression Coefficient") +
     scale_colour_manual(name="signif", values=c(`TRUE`="blue", `FALSE`="red")) +
     facet_grid(
-        factor(response.fancy, levels=c("'First Wave'", "'Second Wave'", "'Third Wave'", "'First Three Waves'")) ~ remoteness_var, 
+        factor(response.fancy, levels=c("'First Wave'", "'Second Wave'", "'Third Wave'", "'First Three Waves'")) ~ remoteness_var,
         scale="free", labeller=label_parsed
     ) +
     scale_x_discrete(labels = display_names)
 
 ggsave(Altogether_Plot, file=sprintf("%s/Graphs/all_remoteness_together.png", PROJECT_FOLDER), width=13, height=11)
 
-all_waves_av_table2 <- all_waves_av_table %>% 
-    arrange(variable, wave) %>%
-    filter(remoteness_var ==  "weighted_mr_standardised") %>%
-    mutate(
+stop()
+
+all_waves_av_table2 <- all_waves_av_table %>%
+    dplyr::arrange(variable, wave) %>%
+    dplyr::mutate(
         variable = dplyr::recode(variable,
-            "weighted_index_standardised" = "I'[w]",
+            "mean_index_standardised" = "I'[m]",
             "weighted_mr_standardised" = "R'[w]",
             "population_density_standardised" = "D'",
             "total_commuters_standard" = "L'",
@@ -429,68 +406,67 @@ all_waves_av_table2 <- all_waves_av_table %>%
             "F3_prop_standardised" = "f'[{'\u2264 3'}]",
             "F4_prop_standardised" = "f'[{'\u2265 4'}]"
         ),
-        variable = factor(variable, levels=c("f'[0]", "f'[{'≤ 3'}]", "f'[{'≥ 4'}]", "R'[w]", "D'")),
+        variable = factor(variable, levels=c("f'[0]", "f'[{'≤ 3'}]", "f'[{'≥ 4'}]", "R'[m]", "I'[m]", "I'[w]", "I'[s]", "R'[w]", "R'[s]", "D'")),
         whole_name = paste0(wave, " - ", variable)
     )
 
 all_waves_av_table3 <- merge(
         all_waves_av_table2,
-        all_waves_av_table2 %>% 
-            select(wave, variable, whole_name) %>% 
+        all_waves_av_table2 %>%
+            # dplyr::filter(!is.na(variable)) %>%
+            dplyr::select(wave, variable, whole_name) %>%
             unique() %>%
-            mutate(
+            dplyr::mutate(
                 fancy_name = paste0("'", letters[1:nrow(.)], ") ", whole_name)
             ),
         by=c("wave", "variable"),
     )
 
-large_partial_regression_plots <- ggplot(
-        all_waves_av_table3 %>% filter(remoteness_var ==  "weighted_mr_standardised"),
-        aes(x=value, y=attack_rate)
-    ) +
-    geom_point(size=0.5) +
-    geom_smooth(method="lm", formula=y~x) +
-    # facet_wrap(wave~variable,scales="free", labeller = label_parsed)
-    facet_wrap(fancy_name~., scales="free", labeller = label_parsed, ncol=4) +
-    labs(x="(Value | Others)", y="Attack Rate") +
-    theme_bw() +
-    theme(
-        plot.background = element_rect(fill = "azure2", colour = NA),
-        panel.spacing = unit(2, "lines"),
-        strip.text = element_text(size=16),
-        axis.title = element_text(size=25),
-        axis.text = element_text(size=17)
-    )
-    ggsave(large_partial_regression_plots, file=file.path(PROJECT_FOLDER, "Graphs/remoteness_av_plot.png"), width=15, height=19)
+for(remoteness_covariate in remoteness_metrics_tested)
+{
+    large_partial_regression_plots <- ggplot(
+            all_waves_av_table3 %>% dplyr::filter(remoteness_var ==  remoteness_covariate ),
+            aes(x=value, y=attack_rate)
+        ) +
+        geom_point(size=0.5) +
+        geom_smooth(method="lm", formula=y~x) +
+        # facet_wrap(wave~variable,scales="free", labeller = label_parsed)
+        facet_wrap(fancy_name~., scales="free", labeller = label_parsed, ncol=4) +
+        labs(x="Value", y="Attack Rate") +
+        theme_bw() +
+        theme(
+            plot.background = element_rect(fill = "azure2", colour = NA),
+            panel.spacing = unit(2, "lines"),
+            strip.text = element_text(size=16),
+            axis.title = element_text(size=25),
+            axis.text = element_text(size=17)
+        )
+    ggsave(large_partial_regression_plots, file=file.path(PROJECT_FOLDER, sprintf("Graphs/remoteness_av_plot_%s.png", remoteness_covariate)), width=15, height=19)
+}
 
-# HRs_with_CMAs_pop_in_CMAs <- Regions[class=="CMA", .(count=.N, pop_in_CMAs=summ(population)), by=.(province, hr)]
-# HRs_with_CMAs_total_populations <- Regions[, .(total_pop=summ(population)), by=.(hr, province)]
-# 
-# cases_CMAs_responsible_for <- Reduce(
-#         function(x, y) merge(x, y, by=c("province", "hr")),
-#         list(
-#             HRs_with_CMAs_pop_in_CMAs,
-#             HRs_with_CMAs_total_populations,
-#             Cumulative_Cases
-#         ) 
-#     ) %>%
-#     dplyr::mutate(pop_proportion =  round(pop_in_CMAs/total_pop, 2))
-# 
-# proportion_cases_hrs_with_cmas_responsible_for <- sum(cases_CMAs_responsible_for$total_cumulative)/sum(Cumulative_Cases$total_cumulative)
-# 
-# 
-# proportion_cases_hrs_with_cmas_responsible_for_BC_QC_ON <- 
-#     cases_CMAs_responsible_for[province %in% c("Ontario", "British Columbia", "Quebec"), sum(total_cumulative)] /
-#     sum(Cumulative_Cases$total_cumulative)
-# 
-# proportion_population_living_in_CMAs <- 
-#     cases_CMAs_responsible_for[, summ(pop_in_CMAs)] / Regions[, summ(population)]
-# 
-# proportion_population_living_in_CMAs_BC_QC_ON <- 
-#     cases_CMAs_responsible_for[province %in% c("Ontario", "British Columbia", "Quebec"), summ(pop_in_CMAs)] / Regions[, summ(population)]
-
-
-
+################ PRINT RESULTS TABLE FOR THE APPENDIX
+tables_with_CI %>%
+    filter(covariate != "fstat") %>% 
+    mutate(CI = paste0("(", round(CI25,3), ",", round(CI975,3), ")")) %>% 
+    select(remoteness_var, wave_number, covariate, beta, CI, p.value, fstat_value, fstat_p) %>%
+    dplyr::mutate(
+        p.value = unlist(lapply( p.value, \(x) if(x<0.01) "l0.01" else round(x, 2) )),
+        fstat_p = unlist(lapply( fstat_p, \(x) if(is.na(x)) NA else if(x<0.01) "l0.01" else round(x, 2) )),
+        beta = round(beta, 4),
+        fstat_value = round(fstat_value, 4),
+        covariate = dplyr::recode(covariate, 
+            "(Intercept)"="intercept", 
+            "F0_prop_standardised"="f0", 
+            "F3_prop_standardised"="fle3", 
+            "F4_prop_standardised"="fge4",
+            "population_density_standardised"="D",
+            "weighted_mr_standardised"="Rw",
+            "mean_index_standardised"="Im"
+        ),
+        remoteness_var = dplyr::recode(remoteness_var, "weighted_mr_standardised"="Rw", "mean_index_standardised"="Im")
+    ) %>%
+    xtable %>%
+    print(include.rownames=F)
 
 
 
@@ -498,71 +474,45 @@ large_partial_regression_plots <- ggplot(
 
 
 
-# # gather the performance (linear and LASSO regression coefficients, VIFs, CIs, et) to plot them all on a single graph for comparison
-# remoteness_covariates_performance <- all_the_tables_with_CI %>%
-#     dplyr::mutate(response.fancy = factor(response.fancy, levels=c("First Wave", "Second Wave", "Third Wave", "First Three Waves"))) %>%
-#     dplyr::filter(!grepl("f|population|commuters|intercept|wave", tolower(covariate)))
-# 
-# # graph with all the possible remoteness measures on the same graph
-# All_Remoteness_Variables_Performance <- ggplot(remoteness_covariates_performance, aes(x=covariate, y=beta, group=response, colour=signif)) +
-#     facet_grid(response.fancy~.,) +
-#     geom_hline(aes(yintercept=0), linetype="dashed", size=1, colour="grey") +
-#     geom_hpline(aes(x=covariate, y=lasso_coefficient*lasso_scaling_factor, group=1), inherit.aes=FALSE, size=1, colour="black", linetype="dashed") +
-#     geom_point(aes(x=covariate, y=lasso_coefficient*lasso_scaling_factor, group=1), inherit.aes=FALSE, size=3, colour="black") +
-#     scale_y_continuous("Standardised Regression Coefficient", sec.axis = sec_axis(~.*lasso_scaling_factor, name="Lasso Coefficient")) +
-#     geom_errorbar(aes(ymin=CI25, ymax=CI975), size=1, width=0.5) +
-#     geom_point(size=4) +
-#     geom_label(aes(label=sprintf("%.2f", vif)), y=min(remoteness_covariates_performance$CI25), size=4, fill="grey90") +
-#     theme_bw() +
-#     theme(
-#         legend.position = "none",
-#         axis.text = element_text(size=13),
-#         axis.title = element_text(size=13),
-#         strip.text = element_text(size=13),
-#         panel.spacing = unit(1, "lines")
-#     ) +
-#     labs(y="Standardised Regression Coefficient", x="Measures of Remoteness") +
-#     scale_colour_manual(name="signif", values=c(`TRUE`="blue", `FALSE`="red")) +
-#     facet_grid(response.fancy~.,scale="free_y") +
-#     scale_x_discrete(labels = display_names)
-#     ggsave(All_Remoteness_Variables_Performance, file=sprintf("%s/Graphs/remoteness_coefficients.png", PROJECT_FOLDER), width=10, height=8)
 
-########### CODE FOR THE LASSO REGRESSIONS
 
-# # LASSO regression for the first wave
-# first_wave_info_lasso <- do_lasso_regression(
-#     Total_Data %>% filter(province == PROVINCE),
-#     "wave_1_attack_rate",
-#     remoteness_covariate, "F0_prop_standardised", "F3_prop_standardised", "F4_prop_standardised", "population_density_standardised"#, "total_commuters_standardised"
-# )
-# # merge the two coefficient data.tables to plot them on the same graph for comparison (pattern, not value)
-# first_wave_coefficients <- merge(first_wave_info_linear$coefficients, first_wave_info_lasso$coefficients, by="covariate", all=TRUE)
-# 
-# second_wave_info_lasso <- do_lasso_regression(
-#     Total_Data %>% filter(province == PROVINCE),
-#     "wave_2_attack_rate",
-#     remoteness_covariate, "F0_prop_standardised", "F3_prop_standardised", "F4_prop_standardised", "population_density_standardised"#, "total_commuters_standardised"
-# )
-# second_wave_coefficients <- merge(second_wave_info_linear$coefficients, second_wave_info_lasso$coefficients, by="covariate", all=TRUE)
-# 
-# 
-# third_wave_info_lasso <- do_lasso_regression(
-#     Total_Data %>% filter(province == PROVINCE),
-#     "wave_3_attack_rate",
-#     remoteness_covariate, "F0_prop_standardised", "F3_prop_standardised", "F4_prop_standardised", "population_density_standardised"#, "total_commuters_standardised"
-# )
-# third_wave_coefficients <- merge(third_wave_info_linear$coefficients, third_wave_info_lasso$coefficients, by="covariate", all=TRUE)
-# 
-# total_info_lasso <- do_lasso_regression(
-#     All_Waves_Data %>% filter(province == PROVINCE),
-#     "standardised_attack_rate",
-#     remoteness_covariate, "F0_prop_standardised", "F3_prop_standardised", "F4_prop_standardised", "population_density_standardised", "wave_standardised"#, "total_commuters_standardised"
-# )
-# all_waves_coefficients <- merge(total_info_linear$coefficients, total_info_lasso$coefficients, by="covariate", all=TRUE)
-# 
-# # left and right axes, so scaling factor to make sure both patterns can be seen
-# lasso_scaling_factor <- max(
-#     table_with_CI[, max(abs(CI25))/max(abs(lasso_coefficient))], 
-#     table_with_CI[, max(abs(CI975))/max(abs(lasso_coefficient))]
-# )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
