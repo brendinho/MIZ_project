@@ -2,19 +2,19 @@
 
 library(data.table)
 library(ggplot2)
-library(viridis)
-library(stringr)
-library(sf)
-library(forcats)
-library(ggpubr)
-library(gganimate)
-library(tidyr)
-library(future)
-library(gapminder)
-library(av)
-library(transformr)
-library(foreach)
-library(doParallel)
+# library(viridis)
+# library(stringr)
+# library(sf)
+# library(forcats)
+# library(ggpubr)
+# library(gganimate)
+# library(tidyr)
+# library(future)
+# library(gapminder)
+# library(av)
+# library(transformr)
+# library(foreach)
+# library(doParallel)
 
 # PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
 PROJECT_FOLDER <- '/home/bren/Documents/GitHub/MIZ_project'
@@ -25,6 +25,26 @@ setwd(PROJECT_FOLDER)
 dir.create(file.path(PROJECT_FOLDER, "Graphs"), showWarnings=FALSE)
 
 Regions <- data.table(readRDS("CaseDataTables/Regions.rda"))
+
+figure_2_num_csds_per_hr <- ggplot(
+        Regions[, .(N=.N), by=.(province, HR, HRUID2018)],
+        aes(x=factor(HR), y=N, fill=province, group=province)
+    ) +
+    geom_bar(stat="identity", position="dodge") +# 
+    theme_bw() +
+    theme(
+        axis.text.x = element_text(angle=90, hjust=1)
+    )
+
+figure_2_pop_per_hr <- ggplot(
+        Regions[, sum(population), by=.(province, HR)],
+        aes(x=factor(HR), y=V1, fill=province, group=province)
+    ) +
+    geom_bar(stat="identity", position="dodge") +
+    theme_bw() +
+    theme(
+        axis.text.x = element_text(angle=90, hjust=1)
+    )
 
 # densities <- data.table(
 #     province = c(
@@ -140,26 +160,25 @@ Regions <- data.table(readRDS("CaseDataTables/Regions.rda"))
 #     )
 # system(sprintf("convert %s/Graphs/SAC_distribution_plots.jpg -trim %s/Graphs/SAC_distribution_plots.jpg", PROJECT_FOLDER, PROJECT_FOLDER))
 
-HRs_remoteness_metrics <- Regions[, .(
-        mean_index = meann(index_of_remoteness),
-        weighted_remoteness = summ(mR_score*population)/summ(population),
-        geometry = st_union(geometry)
-    ), by=.(HRUID2018)]
-#     saveRDS(HRs_remoteness_metrics, file=sprintf("%s/Classifications/HRs_remoteness_metrics.rda", PROJECT_FOLDER))
-
-HRs_remoteness_metrics <- readRDS(sprintf("%s/Classifications/HRs_remoteness_metrics.rda", PROJECT_FOLDER)) %>%
-    melt(measure.vars=c("mean_index", "weighted_remoteness"), id.vars=c("HRUID2018", "geometry")) %>%
-    st_sf()
-
-st_crs(HRs_remoteness_metrics) = 4326
-
-st_sf(HRs_remoteness_metrics %>% filter(variable == "mean_index")) -> haha
-
-ggplot(HRs_remoteness_metrics) +
-    geom_sf(aes(fill = value), lwd=0) #+
-    # facet_grid(variable~.)
+# HRs_remoteness_metrics <- Regions[, .(
+#         mean_index = meann(index_of_remoteness),
+#         weighted_remoteness = summ(mR_score*population)/summ(population),
+#         geometry = st_union(geometry)
+#     ), by=.(HRUID2018)]
+# #     saveRDS(HRs_remoteness_metrics, file=sprintf("%s/Classifications/HRs_remoteness_metrics.rda", PROJECT_FOLDER))
+# 
+# HRs_remoteness_metrics <- readRDS(sprintf("%s/Classifications/HRs_remoteness_metrics.rda", PROJECT_FOLDER)) %>%
+#     melt(measure.vars=c("mean_index", "weighted_remoteness"), id.vars=c("HRUID2018", "geometry")) %>%
+#     st_sf()
+# 
+# st_crs(HRs_remoteness_metrics) = 4326
+# 
+# st_sf(HRs_remoteness_metrics %>% filter(variable == "mean_index")) -> haha
+# 
+# ggplot(HRs_remoteness_metrics) +
+#     geom_sf(aes(fill = value), lwd=0) #+
+#     # facet_grid(variable~.)
     
-
 #### Health Region Cumulative Case animation
 
 # HR_shapes <- Regions %>%
