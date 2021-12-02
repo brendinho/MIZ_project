@@ -2,7 +2,7 @@
 
 library(data.table)
 library(ggplot2)
-# library(viridis)
+library(viridis)
 # library(stringr)
 # library(sf)
 # library(forcats)
@@ -26,41 +26,88 @@ dir.create(file.path(PROJECT_FOLDER, "Graphs"), showWarnings=FALSE)
 
 Regions <- data.table(readRDS("CaseDataTables/Regions.rda"))
 
-figure_2_num_csds_per_hr <- ggplot(
-        Regions[, .(N=.N), by=.(province, HR, HRUID2018)],
-        aes(x=factor(HR), y=N, fill=province, group=province)
-    ) +
-    geom_bar(stat="identity", position="dodge") +# 
-    theme_bw() +
-    theme(
-        axis.text.x = element_text(angle=90, hjust=1)
-    )
+Total_Case_Data <- fread(sprintf("%s/CaseDataTables/Total_Case_Data.csv", PROJECT_FOLDER))
 
-figure_2_pop_per_hr <- ggplot(
-        Regions[, sum(population), by=.(province, HR)],
-        aes(x=factor(HR), y=V1, fill=province, group=province)
-    ) +
-    geom_bar(stat="identity", position="dodge") +
-    theme_bw() +
-    theme(
-        axis.text.x = element_text(angle=90, hjust=1)
-    )
+### CHOROPLETHS
 
-# densities <- data.table(
-#     province = c(
-#         "Newfoundland and Labrador", "Prince Edward Island", "Nova Scotia", "New Brunswick", "Quebec", "Ontario",
-#         "Manitoba", "Saskatchewan", "Alberta", "British Columbia", "Yukon", "Northwest Territories", "Nunavut"
-#     ),
-#     population_density = c(1.4, 24.7, 17.4, 10.5, 5.8, 14.1, 2.2, 1.8, 5.7, 4.8, 0.1, 0.032, 0.017)
-# )
-#
-# # saveRDS(st_union(Regions$geometry), sprintf("%s/All_Canada.rds", PROJECT_FOLDER))
-# # saveRDS(Regions[, .(geometry=st_union(geometry)%>% st_cast("MULTIPOLYGON")), by=.(province)], sprintf("%s/All_Provinces.rds", PROJECT_FOLDER))
-#
-# All_Canada <- st_sf(readRDS(file.path(PROJECT_FOLDER, "All_Canada.rds")))
-# All_Provinces <- st_sf(readRDS(file.path(PROJECT_FOLDER, "All_Provinces.rds"))) %>%
-#     merge(., province_LUT %>% dplyr::select(province, abbreviations, alpha), all=TRUE, by="province")
-#
+# saveRDS(st_union(Regions$geometry), sprintf("%s/All_Canada.rds", PROJECT_FOLDER))
+# saveRDS(Regions[, .(geometry=st_union(geometry)%>% st_cast("MULTIPOLYGON")), by=.(province)], sprintf("%s/All_Provinces.rds", PROJECT_FOLDER))
+
+All_Canada <- st_sf(readRDS(file.path(PROJECT_FOLDER, "All_Canada.rds")))
+All_Provinces <- st_sf(readRDS(file.path(PROJECT_FOLDER, "All_Provinces.rds"))) %>%
+    merge(., province_LUT %>% dplyr::select(province, abbreviations, alpha), all=TRUE, by="province")
+
+HR_shapes <- Regions %>%
+    data.table %>%
+    .[, .(geometry=st_union(geometry) %>% st_cast("MULTIPOLYGON")), by=.(HRUID2018)]
+    # .[, .(geometry=st_union(geometry) %>% st_cast("POLYGON")), by=.(HRUID2018)]
+    # .[, .(geometry=st_combine(geometry) %>% st_cast("MULTIPOLYGON")), by=.(HRUID2018)]
+    # .[, .(geometry=st_boundary(geometry) %>% st_cast("MULTIPOLYGON")), by=.(HRUID2018)]
+    saveRDS(HR_shapes, file=file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda"))
+
+HR_shapes <- readRDS(file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda"))
+
+transitory <- Regions %>%
+    dplyr::select(HRUID2018, HR, province) %>%
+    unique() %>%
+    merge(province_LUT) %>%
+    dplyr::select(province, HRUID2018, HR, alpha) %>%
+    dplyr::mutate(HR = sprintf("(%s) %s", .$alpha, HR)) %>%
+    dplyr::arrange(HRUID2018)
+
+HF_shapes <- HR_shapes %>% 
+    # dplyr::mutate(geometry = st_boundary(geometry)) %>%
+    dplyr::arrange(HRUID2018) %>%
+    dplyr::mutate(HR = factor(transitory$HR)) %>%
+    st_sf()
+
+Airport_Locations <- st_read(file.path(PROJECT_FOLDER, "Airports_Aeroports_en_shape/Airports_Aeroports_en_shape.shp"))
+
+Canada_map_with_HRs_and_airports <- ggplot() +
+    geom_sf(data=All_Canada, fill="lightblue", colour="black", inherit.aes=FALSE, size=0.5) +
+    # geom_sf(data = HF_shapes, aes(fill=HR), colour="black", inherit.aes=FALSE, size=0.5) +
+    geom_sf(data = Airport_Locations, inherit.aes=FALSE, size=4, pch = 13, colour = 'red') +
+    # geom_sf(data=All_Provinces, fill=NA, inherit.aes=FALSE) +
+    theme_minimal() +
+    theme(
+        panel.grid = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        legend.text = element_text(size=13),
+        legend.title = element_text(size=13),
+        legend.key.height = unit(1, 'cm'),
+        plot.background = element_rect(fill="white", colour="white"),
+        legend.position="none"
+    ) +
+    coord_sf(datum=NA) +
+    labs(x="", y="") # +
+    # guides(colour = guide_legend(legend.title.align=0.5))
+    # ggsave(SAC_map_with_census_info_SAC, file=sprintf("%s/Graphs/SAC_choropleth.png", PROJECT_FOLDER))
+    # system(sprintf("convert %s/Graphs/SAC_choropleth.png -trim %s/Graphs/SAC_choropleth.png", PROJECT_FOLDER, PROJECT_FOLDER))
+    ggsave(Canada_map_with_HRs_and_airports, file=sprintf("%s/Graphs/Canada_airports.png", PROJECT_FOLDER), width=15, height=6)
+    system(sprintf("convert %s/Graphs/Canada_airports.png -trim %s/Graphs/Canada_airports.png", PROJECT_FOLDER, PROJECT_FOLDER))
+
+# figure_2_num_csds_per_hr <- ggplot(
+#         Regions[, .(N=.N), by=.(province, HR, HRUID2018)],
+#         aes(x=factor(HR), y=N, fill=province, group=province)
+#     ) +
+#     geom_bar(stat="identity", position="dodge") +# 
+#     theme_bw() +
+#     theme(
+#         axis.text.x = element_text(angle=90, hjust=1)
+#     )
+# 
+# figure_2_pop_per_hr <- ggplot(
+#         Regions[, sum(population), by=.(province, HR)],
+#         aes(x=factor(HR), y=V1, fill=province, group=province)
+#     ) +
+#     geom_bar(stat="identity", position="dodge") +
+#     theme_bw() +
+#     theme(
+#         axis.text.x = element_text(angle=90, hjust=1)
+#     )
+
+
 # province_metrics <- Regions[, .(
 #         num_HR = length(unique(HR)),
 #         num_csd = sum(num_csds, na.rm=TRUE),
@@ -97,12 +144,14 @@ figure_2_pop_per_hr <- ggplot(
 #     scale_fill_brewer(type="div", palette="BrBG") +
 #     guides(fill=guide_legend(title="Number of health regions", nrow=1))
 #     # ggsave(SAC_distribution, file=sprintf("%s/Graphs/SAC_distribution.png", PROJECT_FOLDER), width=15, height=6)
-#
+
 # SAC_map_with_census_info_SAC <- ggplot(st_sf(
 #         Regions %>%
 #             dplyr::mutate(
 #                 class = fct_relevel(class, "CMA", "CA", "Strong", "Moderate", "Weak", "None", "Not given"),
-#                 class = dplyr::recode(class, "Strong"="strong MIZ", "Moderate"="moderate MIZ", "Weak"="weak MIZ", "None"="none MIZ", "None"="no MIZ")
+#                 class = dplyr::recode(
+#                     class,
+#                     "Strong"="strong MIZ", "Moderate"="moderate MIZ", "Weak"="weak MIZ", "None"="none MIZ", "None"="no MIZ")
 #             )
 #     )) +
 #     geom_sf(aes(fill = class), lwd = 0) +
@@ -124,7 +173,7 @@ figure_2_pop_per_hr <- ggplot(
 #     guides(colour = guide_legend(legend.title.align=0.5))
 #     ggsave(SAC_map_with_census_info_SAC, file=sprintf("%s/Graphs/SAC_choropleth.png", PROJECT_FOLDER))
 #     system(sprintf("convert %s/Graphs/SAC_choropleth.png -trim %s/Graphs/SAC_choropleth.png", PROJECT_FOLDER, PROJECT_FOLDER))
-#
+
 # SAC_map_with_census_info_Index <- ggplot(st_sf(
 #             Regions %>% dplyr::mutate(binned = cut_number(index_of_remoteness, n = 7))
 #         )) +
@@ -181,15 +230,6 @@ figure_2_pop_per_hr <- ggplot(
     
 #### Health Region Cumulative Case animation
 
-# HR_shapes <- Regions %>%
-#     data.table %>%
-#     .[, .(geometry=st_union(geometry) %>% st_cast("MULTIPOLYGON")), by=.(HRUID2018)]
-#     saveRDS(HR_shapes, file=file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda"))
-
-# HR_shapes <- readRDS(file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda"))
-# 
-# Total_Case_Data <- fread(sprintf("%s/CaseDataTables/Total_Case_Data.csv", PROJECT_FOLDER))
-# 
 # p_table <- Total_Case_Data %>%
 #     dplyr::filter(province == "Alberta") %>%
 #     merge(Total_Case_Data %>% expand(HRUID2018, date), by=c("HRUID2018", "date"), all=TRUE) %>%

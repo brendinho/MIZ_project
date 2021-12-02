@@ -59,26 +59,32 @@ interventions <- read.xlsx(
         jurisdiction = left_join(., LUT, by=c("jurisdiction" = "abbreviations"))$province,
         type = unlist(lapply(type, \(x) str_split(x, '—')[[1]][2] %>% trimws)),
         indigenous.population.group = dplyr::recode(indigenous.population.group, "No"=FALSE, "Yes"=TRUE, .default=NA),
-        who = unlist(lapply(summary, \(x) x %>% str_split(., ":") %>% .[[1]] %>% .[2] %>% gsub("\r|\n|What|Effective until", '', .) %>% trimws)),
-        what = unlist(lapply(summary, \(x) x %>% str_split(., ":") %>% .[[1]] %>% .[3] %>% gsub("\r|\n|What|Effective until", '', .) %>% trimws)),
-        effective.until = unlist(lapply(summary, \(x) x %>% str_split(., ":") %>% .[[1]] %>% .[4] %>% gsub("\r|\n|Who|What|Effective until", '', .) %>% trimws))
+        who = unlist(lapply(
+            summary, 
+            \(x)x %>% str_split(., ":") %>% .[[1]] %>% .[2] %>% gsub("\r|\n|What|Effective until", '', .) %>% trimws
+        )),
+        what = unlist(lapply(
+            summary, 
+            \(x) x %>% str_split(., ":") %>% .[[1]] %>% .[3] %>% gsub("\r|\n|What|Effective until", '', .) %>% trimws
+        )),
+        effective.until = unlist(lapply(
+            summary, 
+            \(x) x %>% str_split(., ":") %>% .[[1]] %>% .[4] %>% gsub("\r|\n|Who|What|Effective until", '', .) %>% trimws
+        )),
+        category = category %>% tolower %>% trimws,
     ) %>%
     dplyr::select(-summary) %>%
     data.table
 
+Air_Traffic <- fread(file.path(PROJECT_FOLDER, "Domestic_and_International_itinerant_movements/23100008.csv")) %>%
+    dplyr::mutate(
+        year = str_split(REF_DATE, "-")[[1]][1],
+        month = str_split(REF_DATE, "-")[[1]][2]) %>%
+    dplyr::rename_with(\(x) x %>% tolower() %>% gsub(' ', '_', .)) %>%
+    dplyr::select(year, month, airports, domestic_and_international_itinerant_movements, type_of_operation, uom, value)
 
+Airport_Locations <- st_read(file.path(PROJECT_FOLDER, "Airports_Aeroports_en_shape/Airports_Aeroports_en_shape.shp"))
 
-
-
-# Air_Traffic <- fread(file.path(PROJECT_FOLDER, "Domestic_and_Internationaal_itinerant_movements/23100008.csv")) %>%
-#     dplyr::mutate(
-#         year = str_split(REF_DATE, "-")[[1]][1], 
-#         month = str_split(REF_DATE, "-")[[1]][2]) %>% 
-#     dplyr::rename_with(\(x) x %>% tolower() %>% gsub(' ', '_', .)) %>% 
-#     dplyr::select(year, month, airports, domestic_and_international_itinerant_movements, type_of_operation, uom, value)
-# 
-# Airport_Locatons <- st_read(file.path(PROJECT_FOLDER, "Airports_Aeroports_en_shape/Airports_Aeroports_en_shape.shp"))
-# 
 # ############################################ RETRIEVE ALL SAC INFO - geography files may be cached
 # 
 # writeLines("\nCSD census information and geographies")
@@ -249,19 +255,19 @@ interventions <- read.xlsx(
 #     add_HRs("csduid2016", "province") %>%
 #     dplyr::relocate("csduid2016", "region", "province", "HR", "class", "index_of_remoteness", "population_density")
 #     saveRDS(Total_Data_Geo, sprintf("%s/Classifications/Total_CSD_Info.rda", PROJECT_FOLDER))
-# 
+
 # ################################## COVID DATA
 # 
 # writeLines("\nAPI data - cases")
 # UofT_api_case_data <- jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=cases&loc=hr")$cases %>%
 #     dplyr::mutate(date_report=as.Date(date_report, format="%d-%m-%Y"))
-#     fwrite(UofT_api_case_data, sprintf("%s/CaseDataTables/UofT_cases.csv", PROJECT_FOLDER))
+#     fwrite(UofT_api_case_data, file=sprintf("%s/CaseDataTables/UofT_cases.csv", PROJECT_FOLDER))
 # 
 # writeLines("\nAPI data - vaccines")
-# jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=avaccine&loc=prov")$avaccine %>%
-#     dplyr::mutate(date_vaccine_administered=as.Date(date_vaccine_administered, format="%d-%m-%Y")) %>%
-#     fwrite(sprintf("%s/CaseDataTables/UofT_vaccines.csv", PROJECT_FOLDER))
-# 
+# UofT_api_vaccine_data <- jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=avaccine&loc=hr")$avaccine %>%
+#     dplyr::mutate(date_vaccine_administered=as.Date(date_vaccine_administered, format="%d-%m-%Y"))
+#     fwrite(sUofT_api_vaccine_data, file=printf("%s/CaseDataTables/UofT_vaccines.csv", PROJECT_FOLDER))
+#     
 # writeLines("\nCanada-wide vaccine coverage - stratified")
 # # only give the weekend date for the administration of the vaccine, not the actual date
 # fread("https://health-infobase.canada.ca/src/data/covidLive/vaccination-coverage-byAgeAndSex.csv") %>%
@@ -317,6 +323,10 @@ interventions <- read.xlsx(
 #     data.table()
 #     fwrite(SK_cases, sprintf("%s/CaseDataTables/SK_cases.csv", PROJECT_FOLDER))
 # 
+# SK_vacc <- fread("https://dashboard.saskatchewan.ca/export/vaccines/4159.csv") %>%
+    # dplyr::mutate(Date = as.Date(Date, format="%Y/%m/%d"))
+#     fwrite(SK_vacc, sprintf("%s/CaseDataTables/SK_vacc.csv", PROJECT_FOLDER))
+# 
 # ################################## PRINCE EDWARD ISLAND, NORTHWEST TERRITORIES, YUKON, NUNAVUT
 # 
 # writeLines("\nPEI, NWT, Yukon, Nunavut")
@@ -330,6 +340,9 @@ interventions <- read.xlsx(
 #     data.table()
 #     fwrite(PE_cases, sprintf("%s/CaseDataTables/PE_cases.csv", PROJECT_FOLDER))
 # 
+# PE_vacc <- data.table(UofT_api_vaccine_data)[grepl("pei", tolower(province))]
+#     fwrite(PE_vacc, sprintf("%s/CaseDataTables/PE_vacc.csv", PROJECT_FOLDER))
+# 
 # NT_cases <- UofT_api_case_data %>%
 #     dplyr::filter(province == "NWT") %>%
 #     dplyr::select(province, date_report, health_region, cases) %>%
@@ -338,6 +351,9 @@ interventions <- read.xlsx(
 #     # add_wave_numbers() %>% .[['cases']] %>%
 #     data.table()
 #     fwrite(NT_cases, sprintf("%s/CaseDataTables/NT_cases.csv", PROJECT_FOLDER))
+# 
+# NT_vacc <- data.table(UofT_api_vaccine_data)[grepl("northwest", tolower(province))]
+#     fwrite(NT_vacc, sprintf("%s/CaseDataTables/NT_vacc.csv", PROJECT_FOLDER))
 # 
 # YT_cases <- UofT_api_case_data %>%
 #     dplyr::filter(province == "Yukon") %>%
@@ -348,6 +364,9 @@ interventions <- read.xlsx(
 #     data.table()
 #     fwrite(YT_cases, sprintf("%s/CaseDataTables/YT_cases.csv", PROJECT_FOLDER))
 # 
+# YT_vacc <- data.table(UofT_api_vaccine_data)[grepl("yukon", tolower(province))]
+#     fwrite(YT_vacc, sprintf("%s/CaseDataTables/YT_vacc.csv", PROJECT_FOLDER))
+# 
 # NU_cases <- UofT_api_case_data %>%
 #     dplyr::filter(province == "Nunavut") %>%
 #     dplyr::select(province, date_report, health_region, cases) %>%
@@ -356,6 +375,9 @@ interventions <- read.xlsx(
 #     # add_wave_numbers() %>% .[['cases']] %>%
 #     data.table()
 #     fwrite(NU_cases, sprintf("%s/CaseDataTables/NU_cases.csv", PROJECT_FOLDER))
+# 
+# NU_vacc <- data.table(UofT_api_vaccine_data)[grepl("nuna", tolower(province))]
+#     fwrite(NU_vacc, sprintf("%s/CaseDataTables/NU_vacc.csv", PROJECT_FOLDER))
 # 
 # ################################## ONTARIO
 # 
@@ -372,16 +394,8 @@ interventions <- read.xlsx(
 #     data.table()
 #     fwrite(ON_cases, sprintf("%s/CaseDataTables/ON_cases.csv", PROJECT_FOLDER))
 # 
-# writeLines("\nOntario - vaccination")
-# fread("https://data.ontario.ca/dataset/752ce2b7-c15a-4965-a3dc-397bf405e7cc/resource/8a89caa9-511c-4568-af89-7f2174b4378c/download/vaccine_doses.csv") %>%
-#     fwrite(sprintf("%s/CaseDataTables/ON_vaxes.csv", PROJECT_FOLDER))
-# 
-# writeLines("\nOntario - vaccination by age")
-# fread("https://data.ontario.ca/dataset/752ce2b7-c15a-4965-a3dc-397bf405e7cc/resource/775ca815-5028-4e9b-9dd4-6975ff1be021/download/vaccines_by_age.csv") %>%
-#     dplyr::filter(! Agegroup %in% c("Adults_18plus", "Undisclosed_or_missing")) %>%
-#     dplyr::rename_with( function(x) gsub(" ", "_", x)) %>%
-#     dplyr::select(Date, Agegroup, Percent_at_least_one_dose) %>%
-#     fwrite(sprintf("%s/CaseDataTables/ON_vaxes_by_age.csv", PROJECT_FOLDER))
+# ON_vacc <- fread("https://data.ontario.ca/dataset/752ce2b7-c15a-4965-a3dc-397bf405e7cc/resource/2a362139-b782-43b1-b3cb-078a2ef19524/download/vaccines_by_age_phu.csv")
+#     fwrite(ON_vacc, sprintf("%s/CaseDataTables/ON_vacc.csv", PROJECT_FOLDER))
 # 
 # ################################## ALBERTA
 # 
@@ -438,46 +452,46 @@ interventions <- read.xlsx(
 # 
 # ################################## TOTAL DATA
 # 
-# writeLines("\nTotal Case Data")
-# Total_Case_Data <- rbind(
-#         fread(sprintf("%s/CaseDataTables/BC_cases.csv", PROJECT_FOLDER)),
-#         fread(sprintf("%s/CaseDataTables/QC_cases.csv", PROJECT_FOLDER)), 
-#         fread(sprintf("%s/CaseDataTables/MB_cases.csv", PROJECT_FOLDER)), 
-#         fread(sprintf("%s/CaseDataTables/SK_cases.csv", PROJECT_FOLDER)), 
-#         fread(sprintf("%s/CaseDataTables/ON_cases.csv", PROJECT_FOLDER)), 
-#         fread(sprintf("%s/CaseDataTables/AB_cases.csv", PROJECT_FOLDER)), 
-#         fread(sprintf("%s/CaseDataTables/NB_cases.csv", PROJECT_FOLDER)), 
-#         fread(sprintf("%s/CaseDataTables/NS_cases.csv", PROJECT_FOLDER)), 
-#         fread(sprintf("%s/CaseDataTables/NL_cases.csv", PROJECT_FOLDER)), 
-#         fread(sprintf("%s/CaseDataTables/PE_cases.csv", PROJECT_FOLDER)), 
-#         fread(sprintf("%s/CaseDataTables/NT_cases.csv", PROJECT_FOLDER)), 
-#         fread(sprintf("%s/CaseDataTables/YT_cases.csv", PROJECT_FOLDER)), 
-#         fread(sprintf("%s/CaseDataTables/NU_cases.csv", PROJECT_FOLDER))
-#     ) %>%
-#     dplyr::mutate(HR = standard_HR_names(HR)) %>%
-#     add_HRUIDs("HR", "province")
-#     fwrite(Total_Case_Data, sprintf("%s/CaseDataTables/Total_Case_Data.csv", PROJECT_FOLDER))
-# 
-# writeLines("\nMeasures of Remoteness")
-# Regions <- merge(
-#         st_read("Canada_CSD_shapefiles/lcsd000b16a_e.shp") %>% dplyr::select(CSDUID, geometry, CSDNAME, PRUID, PRNAME),
-#         readRDS("Classifications/Total_CSD_Info.rda"), # %>% dplyr::select(-geometry),
-#         by.x="CSDUID", by.y="csduid2016",
-#         all=TRUE
-#     )  %>%
-#     dplyr::select(-csd_type, -cd_uid, -PRNAME) %>%
-#     dplyr::mutate( class = unlist(lapply(class, function(x) if(is.na(x) || (x=="NA")) "Not given" else x )) ) %>%
-#     dplyr::mutate(
-#         # index_of_remoteness = unlist(lapply(index_of_remoteness, function(x) if(x==".") NA else as.numeric(x) )),
-#         num_csds = 1,
-#         province = factor(province),
-#         region = factor(region),
-#         CSDUID = factor(CSDUID),
-#         mR_score = as.integer(unlist(lapply(class, CSD_score_normal))),
-#         class = factor(class)
-#     )
-#     saveRDS(Regions, sprintf("%s/CaseDataTables/Regions.rda", PROJECT_FOLDER))
-#     
+writeLines("\nTotal Case Data")
+Total_Case_Data <- rbind(
+        fread(sprintf("%s/CaseDataTables/BC_cases.csv", PROJECT_FOLDER)),
+        fread(sprintf("%s/CaseDataTables/QC_cases.csv", PROJECT_FOLDER)),
+        fread(sprintf("%s/CaseDataTables/MB_cases.csv", PROJECT_FOLDER)),
+        fread(sprintf("%s/CaseDataTables/SK_cases.csv", PROJECT_FOLDER)),
+        fread(sprintf("%s/CaseDataTables/ON_cases.csv", PROJECT_FOLDER)),
+        fread(sprintf("%s/CaseDataTables/AB_cases.csv", PROJECT_FOLDER)),
+        fread(sprintf("%s/CaseDataTables/NB_cases.csv", PROJECT_FOLDER)),
+        fread(sprintf("%s/CaseDataTables/NS_cases.csv", PROJECT_FOLDER)),
+        fread(sprintf("%s/CaseDataTables/NL_cases.csv", PROJECT_FOLDER)),
+        fread(sprintf("%s/CaseDataTables/PE_cases.csv", PROJECT_FOLDER)),
+        fread(sprintf("%s/CaseDataTables/NT_cases.csv", PROJECT_FOLDER)),
+        fread(sprintf("%s/CaseDataTables/YT_cases.csv", PROJECT_FOLDER)),
+        fread(sprintf("%s/CaseDataTables/NU_cases.csv", PROJECT_FOLDER))
+    ) %>%
+    dplyr::mutate(HR = standard_HR_names(HR)) %>%
+    add_HRUIDs("HR", "province")
+    fwrite(Total_Case_Data, sprintf("%s/CaseDataTables/Total_Case_Data.csv", PROJECT_FOLDER))
+
+writeLines("\nMeasures of Remoteness")
+Regions <- merge(
+        st_read("Canada_CSD_shapefiles/lcsd000b16a_e.shp") %>% dplyr::select(CSDUID, geometry, CSDNAME, PRUID, PRNAME),
+        readRDS("Classifications/Total_CSD_Info.rda"), # %>% dplyr::select(-geometry),
+        by.x="CSDUID", by.y="csduid2016",
+        all=TRUE
+    )  %>%
+    dplyr::select(-csd_type, -cd_uid, -PRNAME) %>%
+    dplyr::mutate( class = unlist(lapply(class, function(x) if(is.na(x) || (x=="NA")) "Not given" else x )) ) %>%
+    dplyr::mutate(
+        # index_of_remoteness = unlist(lapply(index_of_remoteness, function(x) if(x==".") NA else as.numeric(x) )),
+        num_csds = 1,
+        province = factor(province),
+        region = factor(region),
+        CSDUID = factor(CSDUID),
+        mR_score = as.integer(unlist(lapply(class, CSD_score_normal))),
+        class = factor(class)
+    )
+    saveRDS(Regions, sprintf("%s/CaseDataTables/Regions.rda", PROJECT_FOLDER))
+
 # writeLines("\nSaving geometry shape file for the provinces and territories")
 # saveRDS(
 #     Regions %>%

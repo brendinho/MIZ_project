@@ -142,6 +142,14 @@ lookup_province <- function(x)
 }
 lookup_provinces <- function(theList) unlist(lapply(theList, lookup_province))
 
+lookup_alpha <- function(x)
+{
+    if(tolower(x) %in% tolower(province_LUT$province)) 
+        return(province_LUT %>% dplyr::mutate(province=tolower(province)) %>% dplyr::filter(province==tolower(x)) %>% dplyr::pull(alpha))
+    return("")
+}
+lookup_alphas <- function(theList) unlist(lapply(theList, lookup_alpha)) 
+
 HA_crosswalk <- fread(sprintf("%s/Classifications/health_region_crosswalk.csv", PROJECT_FOLDER)) %>%
     unique() %>%
     dplyr::mutate(
