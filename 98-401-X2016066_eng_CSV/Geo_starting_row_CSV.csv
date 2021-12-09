@@ -1,0 +1,576 @@
+﻿Geo Code,Geo Name,Line Number
+"3501005","South Glengarry",2
+"3501007","Akwesasne (Part) 59",2249
+"3501011","South Stormont",4496
+"3501012","Cornwall",6743
+"3501020","South Dundas",8990
+"3501030","North Dundas",11237
+"3501042","North Stormont",13484
+"3501050","North Glengarry",15731
+"3502001","East Hawkesbury",17978
+"3502008","Hawkesbury",20225
+"3502010","Champlain",22472
+"3502023","Alfred and Plantagenet",24719
+"3502025","The Nation / La Nation",26966
+"3502036","Clarence-Rockland",29213
+"3502044","Casselman",31460
+"3502048","Russell",33707
+"3506008","Ottawa",35954
+"3507004","Edwardsburgh/Cardinal",38201
+"3507006","Augusta",40448
+"3507008","Prescott",42695
+"3507014","Elizabethtown-Kitley",44942
+"3507015","Brockville",47189
+"3507017","Front of Yonge",49436
+"3507021","Leeds and the Thousand Islands",51683
+"3507024","Gananoque",53930
+"3507033","Westport",56177
+"3507040","Rideau Lakes",58424
+"3507042","Athens",60671
+"3507052","Merrickville-Wolford",62918
+"3507065","North Grenville",65165
+"3509001","Montague",67412
+"3509004","Smiths Falls",69659
+"3509010","Drummond/North Elmsley",71906
+"3509015","Tay Valley",74153
+"3509021","Perth",76400
+"3509024","Beckwith",78647
+"3509028","Carleton Place",80894
+"3509030","Mississippi Mills",83141
+"3509039","Lanark Highlands",85388
+"3510005","Frontenac Islands",87635
+"3510010","Kingston",89882
+"3510020","South Frontenac",92129
+"3510035","Central Frontenac",94376
+"3510045","North Frontenac",96623
+"3511005","Loyalist",98870
+"3511015","Greater Napanee",101117
+"3511030","Stone Mills",103364
+"3511035","Addington Highlands",105611
+"3512001","Tyendinaga",107858
+"3512002","Deseronto",110105
+"3512004","Tyendinaga Mohawk Territory",112352
+"3512005","Belleville",114599
+"3512015","Quinte West",116846
+"3512020","Stirling-Rawdon",119093
+"3512026","Centre Hastings",121340
+"3512030","Tweed",123587
+"3512036","Madoc",125834
+"3512046","Marmora and Lake",128081
+"3512048","Tudor and Cashel",130328
+"3512051","Limerick",132575
+"3512054","Wollaston",134822
+"3512058","Faraday",137069
+"3512061","Bancroft",139316
+"3512065","Carlow/Mayo",141563
+"3512076","Hastings Highlands",143810
+"3513020","Prince Edward County",146057
+"3514004","Brighton",148304
+"3514014","Cramahe",150551
+"3514019","Hamilton",152798
+"3514020","Port Hope",155045
+"3514021","Cobourg",157292
+"3514024","Alnwick/Haldimand",159539
+"3514027","Alderville First Nation",161786
+"3514045","Trent Hills",164033
+"3515003","Asphodel-Norwood",166280
+"3515005","Otonabee-South Monaghan",168527
+"3515008","Hiawatha First Nation",170774
+"3515013","Cavan Monaghan",173021
+"3515014","Peterborough",175268
+"3515015","Selwyn",177515
+"3515019","Curve Lake First Nation 35",179762
+"3515023","Douro-Dummer",182009
+"3515030","Havelock-Belmont-Methuen",184256
+"3515037","North Kawartha",186503
+"3515044","Trent Lakes",188750
+"3516010","Kawartha Lakes",190997
+"3518001","Pickering",193244
+"3518005","Ajax",195491
+"3518009","Whitby",197738
+"3518013","Oshawa",199985
+"3518017","Clarington",202232
+"3518020","Scugog",204479
+"3518022","Mississaugas of Scugog Island",206726
+"3518029","Uxbridge",208973
+"3518039","Brock",211220
+"3519028","Vaughan",213467
+"3519036","Markham",215714
+"3519038","Richmond Hill",217961
+"3519044","Whitchurch-Stouffville",220208
+"3519046","Aurora",222455
+"3519048","Newmarket",224702
+"3519049","King",226949
+"3519054","East Gwillimbury",229196
+"3519070","Georgina",231443
+"3519076","Chippewas of Georgina Island First Nation",233690
+"3520005","Toronto",235937
+"3521005","Mississauga",238184
+"3521010","Brampton",240431
+"3521024","Caledon",242678
+"3522001","East Garafraxa",244925
+"3522008","Amaranth",247172
+"3522010","Grand Valley",249419
+"3522012","Mono",251666
+"3522014","Orangeville",253913
+"3522016","Mulmur",256160
+"3522019","Melancthon",258407
+"3522021","Shelburne",260654
+"3523001","Puslinch",262901
+"3523008","Guelph",265148
+"3523009","Guelph/Eramosa",267395
+"3523017","Erin",269642
+"3523025","Centre Wellington",271889
+"3523033","Mapleton",274136
+"3523043","Minto",276383
+"3523050","Wellington North",278630
+"3524001","Oakville",280877
+"3524002","Burlington",283124
+"3524009","Milton",285371
+"3524015","Halton Hills",287618
+"3525005","Hamilton",289865
+"3526003","Fort Erie",292112
+"3526011","Port Colborne",294359
+"3526014","Wainfleet",296606
+"3526021","West Lincoln",298853
+"3526028","Pelham",301100
+"3526032","Welland",303347
+"3526037","Thorold",305594
+"3526043","Niagara Falls",307841
+"3526047","Niagara-on-the-Lake",310088
+"3526053","St. Catharines",312335
+"3526057","Lincoln",314582
+"3526065","Grimsby",316829
+"3528018","Haldimand County",319076
+"3528035","New Credit (Part) 40A",321323
+"3528037","Six Nations (Part) 40",323570
+"3528052","Norfolk County",325817
+"3529005","Brant",328064
+"3529006","Brantford",330311
+"3529020","Six Nations (Part) 40",332558
+"3529021","New Credit (Part) 40A",334805
+"3530004","North Dumfries",337052
+"3530010","Cambridge",339299
+"3530013","Kitchener",341546
+"3530016","Waterloo",343793
+"3530020","Wilmot",346040
+"3530027","Wellesley",348287
+"3530035","Woolwich",350534
+"3531011","Stratford",352781
+"3531013","Perth South",355028
+"3531016","St. Marys",357275
+"3531025","West Perth",359522
+"3531030","Perth East",361769
+"3531040","North Perth",364016
+"3532002","Norwich",366263
+"3532004","Tillsonburg",368510
+"3532012","South-West Oxford",370757
+"3532018","Ingersoll",373004
+"3532027","Zorra",375251
+"3532038","East Zorra-Tavistock",377498
+"3532042","Woodstock",379745
+"3532045","Blandford-Blenheim",381992
+"3534005","Bayham",384239
+"3534010","Malahide",386486
+"3534011","Aylmer",388733
+"3534020","Central Elgin",390980
+"3534021","St. Thomas",393227
+"3534024","Southwold",395474
+"3534030","Dutton/Dunwich",397721
+"3534042","West Elgin",399968
+"3536020","Chatham-Kent",402215
+"3536029","Moravian 47",404462
+"3537001","Pelee",406709
+"3537003","Leamington",408956
+"3537013","Kingsville",411203
+"3537016","Essex",413450
+"3537028","Amherstburg",415697
+"3537034","LaSalle",417944
+"3537039","Windsor",420191
+"3537048","Tecumseh",422438
+"3537064","Lakeshore",424685
+"3538003","St. Clair",426932
+"3538004","Walpole Island 46",429179
+"3538007","Dawn-Euphemia",431426
+"3538015","Brooke-Alvinston",433673
+"3538016","Enniskillen",435920
+"3538018","Oil Springs",438167
+"3538019","Petrolia",440414
+"3538025","Sarnia 45",442661
+"3538030","Sarnia",444908
+"3538031","Point Edward",447155
+"3538035","Plympton-Wyoming",449402
+"3538040","Lambton Shores",451649
+"3538043","Warwick",453896
+"3538056","Kettle Point 44",456143
+"3539002","Newbury",458390
+"3539005","Southwest Middlesex",460637
+"3539015","Strathroy-Caradoc",462884
+"3539017","Chippewas of the Thames First Nation 42",465131
+"3539018","Munsee-Delaware Nation 1",467378
+"3539021","Oneida 41",469625
+"3539027","Thames Centre",471872
+"3539033","Middlesex Centre",474119
+"3539036","London",476366
+"3539041","North Middlesex",478613
+"3539047","Adelaide-Metcalfe",480860
+"3539060","Lucan Biddulph",483107
+"3540005","South Huron",485354
+"3540010","Bluewater",487601
+"3540025","Central Huron",489848
+"3540028","Goderich",492095
+"3540040","Huron East",494342
+"3540046","Howick",496589
+"3540050","Morris-Turnberry",498836
+"3540055","North Huron",501083
+"3540063","Ashfield-Colborne-Wawanosh",503330
+"3541004","South Bruce",505577
+"3541015","Huron-Kinloss",507824
+"3541024","Kincardine",510071
+"3541032","Brockton",512318
+"3541043","Arran-Elderslie",514565
+"3541045","Saugeen Shores",516812
+"3541055","South Bruce Peninsula",519059
+"3541056","Chief's Point No. 28",521306
+"3541057","Saugeen 29",523553
+"3541060","Neyaashiinigmiing 27",525800
+"3541069","Northern Bruce Peninsula",528047
+"3542004","West Grey",530294
+"3542005","Southgate",532541
+"3542015","Grey Highlands",534788
+"3542029","Hanover",537035
+"3542037","Chatsworth",539282
+"3542045","The Blue Mountains",541529
+"3542047","Meaford",543776
+"3542053","Georgian Bluffs",546023
+"3542059","Owen Sound",548270
+"3543003","Adjala-Tosorontio",550517
+"3543005","Clearview",552764
+"3543007","New Tecumseth",555011
+"3543009","Springwater",557258
+"3543014","Bradford West Gwillimbury",559505
+"3543015","Severn",561752
+"3543017","Innisfil",563999
+"3543019","Ramara",566246
+"3543021","Essa",568493
+"3543023","Oro-Medonte",570740
+"3543031","Collingwood",572987
+"3543042","Barrie",575234
+"3543050","Mnjikaning First Nation 32",577481
+"3543052","Orillia",579728
+"3543064","Wasaga Beach",581975
+"3543068","Tiny",584222
+"3543069","Christian Island 30",586469
+"3543070","Christian Island 30A",588716
+"3543071","Tay",590963
+"3543072","Penetanguishene",593210
+"3543074","Midland",595457
+"3544002","Gravenhurst",597704
+"3544018","Bracebridge",599951
+"3544027","Lake of Bays",602198
+"3544042","Huntsville",604445
+"3544053","Muskoka Lakes",606692
+"3544065","Georgian Bay",608939
+"3544071","Wahta Mohawk Territory",611186
+"3544073","Moose Point 79",613433
+"3546005","Highlands East",615680
+"3546015","Minden Hills",617927
+"3546018","Algonquin Highlands",620174
+"3546024","Dysart et al",622421
+"3547002","Arnprior",624668
+"3547003","McNab/Braeside",626915
+"3547008","Greater Madawaska",629162
+"3547020","Brudenell, Lyndoch and Raglan",631409
+"3547030","Madawaska Valley",633656
+"3547033","Killaloe, Hagarty and Richards",635903
+"3547035","Bonnechere Valley",638150
+"3547037","Pikwakanagan (Golden Lake 39)",640397
+"3547043","Admaston/Bromley",642644
+"3547046","Horton",644891
+"3547048","Renfrew",647138
+"3547056","Whitewater Region",649385
+"3547064","Pembroke",651632
+"3547070","North Algona Wilberforce",653879
+"3547075","Laurentian Valley",656126
+"3547076","Petawawa",658373
+"3547090","Laurentian Hills",660620
+"3547096","Deep River",662867
+"3547098","Head, Clara and Maria",665114
+"3548001","South Algonquin",667361
+"3548013","Papineau-Cameron",669608
+"3548019","Mattawan",671855
+"3548021","Mattawa",674102
+"3548022","Calvin",676349
+"3548027","Bonfield",678596
+"3548031","Chisholm",680843
+"3548034","East Ferris",683090
+"3548044","North Bay",685337
+"3548055","West Nipissing / Nipissing Ouest",687584
+"3548069","Temagami",689831
+"3548072","Bear Island 1",692078
+"3548073","Nipissing 10",694325
+"3548091","Nipissing, Unorganized, South Part",696572
+"3548094","Nipissing, Unorganized, North Part",698819
+"3549003","Seguin",701066
+"3549005","The Archipelago",703313
+"3549012","McMurrich/Monteith",705560
+"3549014","Perry",707807
+"3549018","Kearney",710054
+"3549019","Armour",712301
+"3549022","Burk's Falls",714548
+"3549024","Ryerson",716795
+"3549028","McKellar",719042
+"3549031","McDougall",721289
+"3549032","Parry Sound",723536
+"3549036","Carling",725783
+"3549039","Whitestone",728030
+"3549043","Magnetawan",730277
+"3549046","Strong",732524
+"3549048","Sundridge",734771
+"3549051","Joly",737018
+"3549054","Machar",739265
+"3549056","South River",741512
+"3549060","Powassan",743759
+"3549066","Callander",746006
+"3549071","Nipissing",748253
+"3549072","Shawanaga 17",750500
+"3549073","Parry Island First Nation",752747
+"3549075","Henvey Inlet 2",754994
+"3549076","French River 13",757241
+"3549077","Dokis 9",759488
+"3549078","Magnetewan 1",761735
+"3549095","Parry Sound, Unorganized, North East Part",763982
+"3549096","Parry Sound, Unorganized, Centre Part",766229
+"3551001","Tehkummah",768476
+"3551006","Central Manitoulin",770723
+"3551011","Assiginack",772970
+"3551017","Northeastern Manitoulin and the Islands",775217
+"3551021","Billings",777464
+"3551026","Gore Bay",779711
+"3551027","Gordon/Barrie Island",781958
+"3551028","Burpee and Mills",784205
+"3551034","Cockburn Island",786452
+"3551040","Whitefish River (Part) 4",788699
+"3551041","Sucker Creek 23",790946
+"3551042","Sheguiandah 24",793193
+"3551043","Wikwemikong Unceded",795440
+"3551044","Sheshegwaning 20",797687
+"3551045","M'Chigeeng 22 (West Bay 22)",799934
+"3551094","Manitoulin, Unorganized, West Part",802181
+"3551100","Zhiibaahaasing 19A (Cockburn Island 19A)",804428
+"3552001","French River / Rivière des Français",806675
+"3552004","St.-Charles",808922
+"3552013","Markstay-Warren",811169
+"3552023","Sables-Spanish Rivers",813416
+"3552026","Espanola",815663
+"3552028","Baldwin",817910
+"3552031","Nairn and Hyman",820157
+"3552036","Killarney",822404
+"3552051","Whitefish Lake 6",824651
+"3552052","Mattagami 71",826898
+"3552053","Chapleau 74A",829145
+"3552054","Duck Lake 76B",831392
+"3552058","Chapleau 75",833639
+"3552092","Chapleau",835886
+"3552093","Sudbury, Unorganized, North Part",838133
+"3553005","Greater Sudbury / Grand Sudbury",840380
+"3553040","Wahnapitei 11",842627
+"3554001","Coleman",844874
+"3554006","Latchford",847121
+"3554008","Cobalt",849368
+"3554014","Harris",851615
+"3554020","Temiskaming Shores",853862
+"3554021","Hudson",856109
+"3554024","Kerns",858356
+"3554026","Harley",860603
+"3554029","Casey",862850
+"3554032","Brethour",865097
+"3554034","Hilliard",867344
+"3554036","Armstrong",869591
+"3554038","Thornloe",871838
+"3554042","James",874085
+"3554044","Charlton and Dack",876332
+"3554049","Evanturel",878579
+"3554052","Englehart",880826
+"3554054","Chamberlain",883073
+"3554056","Matachewan",885320
+"3554057","Matachewan 72",887567
+"3554058","McGarry",889814
+"3554062","Larder Lake",892061
+"3554066","Gauthier",894308
+"3554068","Kirkland Lake",896555
+"3554091","Timiskaming, Unorganized, East Part",898802
+"3554094","Timiskaming, Unorganized, West Part",901049
+"3556014","Black River-Matheson",903296
+"3556027","Timmins",905543
+"3556031","Iroquois Falls",907790
+"3556033","Abitibi 70",910037
+"3556042","Cochrane",912284
+"3556048","Smooth Rock Falls",914531
+"3556052","Fauquier-Strickland",916778
+"3556056","Moonbeam",919025
+"3556066","Kapuskasing",921272
+"3556070","Val Rita-Harty",923519
+"3556073","Opasatika",925766
+"3556076","Hearst",928013
+"3556077","Mattice-Val Côté",930260
+"3556091","Cochrane, Unorganized, South West Part",932507
+"3556092","Cochrane, Unorganized, North Part",934754
+"3556093","Fort Albany (Part) 67",937001
+"3556094","Factory Island 1",939248
+"3556095","Constance Lake 92",941495
+"3556096","Moose Factory 68",943742
+"3556098","Cochrane, Unorganized, South East Part",945989
+"3556100","Flying Post 73",948236
+"3556102","New Post 69A",950483
+"3556106","Moosonee",952730
+"3557001","Jocelyn",954977
+"3557004","Hilton",957224
+"3557006","Hilton Beach",959471
+"3557008","St. Joseph",961718
+"3557011","Laird",963965
+"3557014","Tarbutt and Tarbutt Additional",966212
+"3557016","Johnson",968459
+"3557019","Plummer Additional",970706
+"3557021","Bruce Mines",972953
+"3557026","Thessalon 12",975200
+"3557028","Thessalon",977447
+"3557035","Huron Shores",979694
+"3557038","Blind River",981941
+"3557039","Spanish",984188
+"3557040","The North Shore",986435
+"3557041","Elliot Lake",988682
+"3557051","Macdonald, Meredith and Aberdeen Additional",990929
+"3557061","Sault Ste. Marie",993176
+"3557066","Prince",995423
+"3557071","Sagamok",997670
+"3557072","Serpent River 7",999917
+"3557073","Mississagi River 8",1002164
+"3557074","Garden River 14",1004411
+"3557075","Rankin Location 15D",1006658
+"3557076","Wawa",1008905
+"3557077","Goulais Bay 15A",1011152
+"3557078","Gros Cap 49",1013399
+"3557079","Dubreuilville",1015646
+"3557091","White River",1017893
+"3557094","Algoma, Unorganized, South East Part",1020140
+"3557095","Algoma, Unorganized, North Part",1022387
+"3557096","Hornepayne",1024634
+"3558001","Neebing",1026881
+"3558003","Fort William 52",1029128
+"3558004","Thunder Bay",1031375
+"3558011","Oliver Paipoonge",1033622
+"3558012","Gillies",1035869
+"3558016","O'Connor",1038116
+"3558019","Conmee",1040363
+"3558028","Shuniah",1042610
+"3558034","Dorion",1044857
+"3558041","Red Rock",1047104
+"3558044","Nipigon",1049351
+"3558051","Schreiber",1051598
+"3558054","Terrace Bay",1053845
+"3558059","Marathon",1056092
+"3558060","Pic Mobert North",1058339
+"3558061","Pic Mobert South",1060586
+"3558062","Pic River 50",1062833
+"3558063","Pays Plat 51",1065080
+"3558064","Lake Helen 53A",1067327
+"3558065","Gull River 55",1069574
+"3558066","Manitouwadge",1071821
+"3558067","Ginoogaming First Nation",1074068
+"3558068","Long Lake 58",1076315
+"3558069","Rocky Bay 1",1078562
+"3558075","Greenstone",1080809
+"3558076","Aroland 83",1083056
+"3558077","Lake Nipigon",1085303
+"3558080","Ojibway Nation of Saugeen (Savant Lake)",1087550
+"3558085","Osnaburgh 63A",1089797
+"3558090","Thunder Bay, Unorganized",1092044
+"3558095","Seine River 22A2",1094291
+"3558097","Whitesand",1096538
+"3558100","Lac des Mille Lacs 22A1",1098785
+"3559001","Atikokan",1101032
+"3559011","Alberton",1103279
+"3559012","Fort Frances",1105526
+"3559016","La Vallee",1107773
+"3559019","Emo",1110020
+"3559024","Chapple",1112267
+"3559026","Manitou Rapids 11",1114514
+"3559030","Long Sault 12",1116761
+"3559031","Morley",1119008
+"3559040","Dawson",1121255
+"3559042","Rainy River",1123502
+"3559047","Lake of the Woods",1125749
+"3559048","Sabaskong Bay (Part) 35C",1127996
+"3559051","Big Grassy River 35G",1130243
+"3559052","Big Island Mainland 93",1132490
+"3559053","Saug-a-Gaw-Sing 1",1134737
+"3559060","Neguaguon Lake 25D",1136984
+"3559061","Rainy Lake 18C",1139231
+"3559062","Agency 1",1141478
+"3559063","Couchiching 16A",1143725
+"3559064","Rainy Lake 26A",1145972
+"3559065","Seine River 23B",1148219
+"3559066","Seine River 23A",1150466
+"3559068","Rainy Lake 17A",1152713
+"3559069","Rainy Lake 17B",1154960
+"3559090","Rainy River, Unorganized",1157207
+"3560001","Ignace",1159454
+"3560004","Whitefish Bay 32A",1161701
+"3560005","Whitefish Bay 33A",1163948
+"3560007","Sabaskong Bay (Part) 35C",1166195
+"3560008","Sioux Narrows-Nestor Falls",1168442
+"3560010","Kenora",1170689
+"3560021","Machin",1172936
+"3560024","Eagle Lake 27",1175183
+"3560027","Dryden",1177430
+"3560032","Ear Falls",1179677
+"3560034","Sioux Lookout",1181924
+"3560042","Red Lake",1184171
+"3560046","Slate Falls",1186418
+"3560049","Pickle Lake",1188665
+"3560050","Fort Albany (Part) 67",1190912
+"3560051","Attawapiskat 91A",1193159
+"3560052","Marten Falls 65",1195406
+"3560053","Fort Hope 64",1197653
+"3560054","Cat Lake 63C",1199900
+"3560055","Osnaburgh 63B",1202147
+"3560056","Lac Seul 28",1204394
+"3560057","Wabigoon Lake 27",1206641
+"3560058","English River 21",1208888
+"3560059","Weagamow Lake 87",1211135
+"3560060","Northwest Angle 33B",1213382
+"3560061","Wabaseemoong",1215629
+"3560063","Sabaskong Bay 35D",1217876
+"3560064","Shoal Lake 34B2",1220123
+"3560065","Lake Of The Woods 37",1222370
+"3560066","Kenora 38B",1224617
+"3560067","Poplar Hill",1226864
+"3560068","Shoal Lake (Part) 39A",1229111
+"3560069","Rat Portage 38A",1231358
+"3560070","Deer Lake",1233605
+"3560071","Sandy Lake 88",1235852
+"3560075","Kitchenuhmaykoosib Aaki 84 (Big Trout Lake)",1238099
+"3560076","Sachigo Lake 1",1240346
+"3560077","Pikangikum 14",1242593
+"3560078","Fort Severn 89",1244840
+"3560079","Webequie",1247087
+"3560080","North Spirit Lake",1249334
+"3560081","Lansdowne House",1251581
+"3560082","Shoal Lake (Part) 40",1253828
+"3560083","Whitefish Bay 34A",1256075
+"3560084","Wabauskang 21",1258322
+"3560085","Wunnumin 1",1260569
+"3560086","Summer Beaver",1262816
+"3560088","Wapekeka 2",1265063
+"3560089","The Dalles 38C",1267310
+"3560090","Kenora, Unorganized",1269557
+"3560091","Peawanuck",1271804
+"3560093","Neskantaga",1274051
+"3560095","Bearskin Lake",1276298
+"3560096","Kasabonika Lake",1278545
+"3560097","Muskrat Dam Lake",1280792
+"3560098","Kingfisher Lake 1",1283039
+"3560100","Wawakapewin (Long Dog Lake)",1285286
+"3560102","McDowell Lake",1287533
+"3560104","Kee-Way-Win",1289780

@@ -234,7 +234,18 @@ add_HRUIDs <- function(table, HR_column="HR", province_column="province")
         
         if(length(relevant) == 1){ here[row_index]$HRUID2018 <- relevant}
     }
+    
     return(here)
+}
+
+value_if_number_else_NA <- function(theList)
+{
+    return(
+        unlist(lapply(
+            theList, 
+            \(x) if(suppressWarnings(is.na(as.numeric(x)))) NaN else as.numeric(x)
+        ))
+    )
 }
 
 # we've decided to add the breaks manually

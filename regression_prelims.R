@@ -113,25 +113,7 @@ Total_Data <- Reduce(
         wave_3_attack_rate = wave_3_cumulative/population,
         all_waves_attack_rate = total_cumulative/population,
 
-        # F0_standardised = z_transform(F0),
-        # F3_standardised = z_transform(F3),
-        # F4_standardised = z_transform(F4),
-
-        # F0_prop_standardised = z_transform(F0_prop),
-        # F3_prop_standardised = z_transform(F3_prop),
-        # F4_prop_standardised = z_transform(F4_prop),
-
-        # mean_index_standardised = z_transform(mean_index),
-        # sum_index_standardised = z_transform(sum_index),
-        # weighted_index_standardised = z_transform(weighted_index),
-
-        # mean_mr_standardised = z_transform(mean_mr),
-        # sum_mr_standardised = z_transform(sum_mr),
-        # weighted_mr_standardised = z_transform(weighted_mr),
-
-        # population_density_standardised = z_transform(population_density),
-        # total_commuters_standardised = z_transform(total_commuters)
-        
+# 
     ) %>%
     dplyr::select(-pruid.x, -pruid.y, -wave_1_cumulative, -wave_2_cumulative, -wave_3_cumulative, -total_cumulative) %>%
     dplyr::relocate(province, pruid, hr, hruid)

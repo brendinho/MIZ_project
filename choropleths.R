@@ -63,10 +63,16 @@ HF_shapes <- HR_shapes %>%
 
 Airport_Locations <- st_read(file.path(PROJECT_FOLDER, "Airports_Aeroports_en_shape/Airports_Aeroports_en_shape.shp"))
 
+upper_Mannville_oil_gas_fields <- st_read(file.path(PROJECT_FOLDER, "upper_mannville_oil_and_gas_fields/fg1925_py_ll.shp"))
+lower_Mannville_oil_gas_fields <- st_read(file.path(PROJECT_FOLDER, "lower_mannville_oil_and_gas_fields/fg1923_py_ll.shp"))
+
 Canada_map_with_HRs_and_airports <- ggplot() +
-    geom_sf(data=All_Canada, fill="lightblue", colour="black", inherit.aes=FALSE, size=0.5) +
+    geom_sf(data = All_Canada, fill="lightblue", colour="black", inherit.aes=FALSE, size=0.5) +
+    geom_sf(data = All_Provinces, fill=NA, colour="black", inherit.aes=FALSE, size=0.5) +
     # geom_sf(data = HF_shapes, aes(fill=HR), colour="black", inherit.aes=FALSE, size=0.5) +
-    geom_sf(data = Airport_Locations, inherit.aes=FALSE, size=4, pch = 13, colour = 'red') +
+    geom_sf(data = upper_Mannville_oil_gas_fields, inherit.aes=FALSE, size=1, pch=3, colour="green") +
+    geom_sf(data = lower_Mannville_oil_gas_fields, inherit.aes=FALSE, size=1, pch=3, colour="green") +
+    geom_sf(data = Airport_Locations, inherit.aes=FALSE, size=4, pch=13, colour='red') +
     # geom_sf(data=All_Provinces, fill=NA, inherit.aes=FALSE) +
     theme_minimal() +
     theme(
