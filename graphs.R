@@ -16,220 +16,82 @@ library(viridis)
 # library(foreach)
 # library(doParallel)
 
-PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
-# PROJECT_FOLDER <- '/home/bren/Documents/GitHub/MIZ_project'
+# PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
+PROJECT_FOLDER <- '/home/bren/Documents/GitHub/MIZ_project'
 
 source(file.path(PROJECT_FOLDER, "function_header.R"))
 setwd(PROJECT_FOLDER)
 
-# dir.create(file.path(PROJECT_FOLDER, "Graphs"), showWarnings=FALSE)
+dir.create(file.path(PROJECT_FOLDER, "Graphs"), showWarnings=FALSE)
 
-# Regions <- data.table(readRDS("CaseDataTables/Regions.rda"))
+Regions <- data.table(readRDS("CaseDataTables/Regions.rda"))
 
 Total_Case_Data <- fread(sprintf("%s/CaseDataTables/Total_Case_Data.csv", PROJECT_FOLDER))
-
-################################# WAVE DATES FROM EVERY HR
-
-# for(PHU in unique(Total_Case_Data$HR))
-# {
-#     case_data <- Total_Case_Data[HR == PHU]
-# }
-
-add_wave_numbers <- function(input_table, case_col="cases", date_col="date", num_waves=4, days_apart=45) 
-{
-    weekly_moving_average <- function(x) stats::filter(x, rep(1,7), sides = 1)/7
-    
-    # get rid of all the extraneous information
-    tab_here <- input_table %>%
-        dplyr::rename(cases=case_col, date=date_col) %>%
-        dplyr::filter( !is.na(cases) & cases>0) %>%
-        dplyr::mutate(
-            cases = as.numeric(cases),
-            date = as.Date(date)
-        ) %>%
-        dplyr::group_by(date) %>%
-        dplyr::tally(cases) %>%
-        dplyr::rename(cases=n) %>%
-        dplyr::mutate(
-            index = as.numeric(date),
-            date = as.Date(date),
-            weekly_rolling_avg = weekly_moving_average(cases),
-            smooth_spline = predict(smooth.spline(index, cases, spar=0.6))$y
-        ) %>%
-        # we search for the date with the minimum if cases, so we don't want to trivially get a breakpoint within the first few days
-        dplyr::filter(date >= min(date) + 45) %>%
-        data.table()
-    
-    # discrete second derivative
-    num_maxima <- which(diff(sign(diff(case_data$smooth_spline)))==-2)+1
-    
-    number_of_waves <- min(num_waves, num_maxima-1)
-    
-    return(number_of_waves)
-    
-    # return(tab_here)
-    
-    # do a breakpoint analysis to get the valley between the two peaks
-    seg_reg <- segmented(
-        # lm(log(weekly_rolling_avg) ~ index, data=tab_here),
-        lm(log(smooth_spline) ~ index, data=tab_here),
-        seg.Z = ~ index,
-        npsi = 2*num_waves-1
-        # psi = tab_here[date %in% as.Date(c("2020-05-01", "2020-07-01", "2021-01-01", "2021-02-22", "2021-04-15", "2021-06-30")), index]
-    )
-    
-    return(seg_reg)
-    
-    break_dates <- tab_here[index %in% floor(data.frame(seg_reg$psi)$`Est.`), date]
-    wave_dates <- break_dates[ ! (1:length(break_dates) %% 2) ]
-
-    # remember to actually add the wave numbers
-
-    return(list(
-        dates.breaks = break_dates,
-        dates.waves = c(min(tab_here$date), break_dates[!(1:length(break_dates)%%2)]),
-        rgeression = seg_reg,
-        data = tab_here
-    ))
-}
-
-# print(add_wave_numbers(Total_Case_Data[grepl("porcupine", tolower(HR))], case_col="cases", date_col="date"))
-
-# ggplot(breaks$data, aes(date, weekly_rolling_avg)) +
-#     geom_line() +
-#     # geom_vline(xintercept = breaks$dates.breaks) +
-#     geom_vline(xintercept = breaks$dates.waves, colour="red")
-
-# ggplot(
-#     Total_Case_Data[grepl("porcupine", tolower(HR))],
-#     aes(date, cases)
-# ) +
-# geom_lie
-
-case_data <- Total_Case_Data %>%
-    dplyr::mutate(cases = ifelse(cases<0, NA, cases)) %>%
-    dplyr::filter(grepl("toronto", tolower(HR))) %>%
-    dplyr::mutate(
-        cases = ifelse(cases<0 | is.na(cases), 0, cases),
-        index = as.numeric(date),
-        loes = predict(loess(cases~index)),
-        smooth_spline = predict(smooth.spline(index, cases, spar=0.6))$y
-    )
-
-ThresholdingAlgo <- function(y,lag,threshold,influence) {
-    signals <- rep(0,length(y))
-    filteredY <- y[0:lag]
-    avgFilter <- NULL
-    stdFilter <- NULL
-    avgFilter[lag] <- mean(y[0:lag], na.rm=TRUE)
-    stdFilter[lag] <- sd(y[0:lag], na.rm=TRUE)
-    for (i in (lag+1):length(y)){
-        if (abs(y[i]-avgFilter[i-1]) > threshold*stdFilter[i-1]) {
-            if (y[i] > avgFilter[i-1]) {
-                signals[i] <- 1;
-            } else {
-                signals[i] <- -1;
-            }
-            filteredY[i] <- influence*y[i]+(1-influence)*filteredY[i-1]
-        } else {
-            signals[i] <- 0
-            filteredY[i] <- y[i]
-        }
-        avgFilter[i] <- mean(filteredY[(i-lag):i], na.rm=TRUE)
-        stdFilter[i] <- sd(filteredY[(i-lag):i], na.rm=TRUE)
-    }
-    return(list("signals"=signals,"avgFilter"=avgFilter,"stdFilter"=stdFilter))
-}
-
-y <- case_data$cases
-
-lag       <- 50
-threshold <- 4
-influence <- 0
-
-# Run algo with lag = 30, threshold = 5, influence = 0
-result <- ThresholdingAlgo(y,lag,threshold,influence)
-
-# Plot result
-par(mfrow = c(2,1),oma = c(2,2,0,0) + 0.1,mar = c(0,0,2,1) + 0.2)
-plot(1:length(y),y,type="l",ylab="",xlab="") 
-lines(1:length(y),result$avgFilter,type="l",col="cyan",lwd=2)
-lines(1:length(y),result$avgFilter+threshold*result$stdFilter,type="l",col="green",lwd=2)
-lines(1:length(y),result$avgFilter-threshold*result$stdFilter,type="l",col="green",lwd=2)
-plot(result$signals,type="S",col="red",ylab="",xlab="",ylim=c(-1.5,1.5),lwd=2)
-
-# ggplot(
-#         case_data,
-#         aes(date, cases)
-#     ) +
-#     geom_point() +
-#     geom_line(aes(y=smooth_spline))
-
 
 ### CHOROPLETHS
 
 # saveRDS(st_union(Regions$geometry), sprintf("%s/All_Canada.rds", PROJECT_FOLDER))
 # saveRDS(Regions[, .(geometry=st_union(geometry)%>% st_cast("MULTIPOLYGON")), by=.(province)], sprintf("%s/All_Provinces.rds", PROJECT_FOLDER))
 
-# All_Canada <- st_sf(readRDS(file.path(PROJECT_FOLDER, "All_Canada.rds")))
-# All_Provinces <- st_sf(readRDS(file.path(PROJECT_FOLDER, "All_Provinces.rds"))) %>%
-#     merge(., province_LUT %>% dplyr::select(province, abbreviations, alpha), all=TRUE, by="province")
-# 
-# HR_shapes <- Regions %>%
-#     data.table %>%
-#     .[, .(geometry=st_union(geometry) %>% st_cast("MULTIPOLYGON")), by=.(HRUID2018)]
-#     # .[, .(geometry=st_union(geometry) %>% st_cast("POLYGON")), by=.(HRUID2018)]
-#     # .[, .(geometry=st_combine(geometry) %>% st_cast("MULTIPOLYGON")), by=.(HRUID2018)]
-#     # .[, .(geometry=st_boundary(geometry) %>% st_cast("MULTIPOLYGON")), by=.(HRUID2018)]
-#     saveRDS(HR_shapes, file=file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda"))
-# 
-# HR_shapes <- readRDS(file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda"))
-# 
-# transitory <- Regions %>%
-#     dplyr::select(HRUID2018, HR, province) %>%
-#     unique() %>%
-#     merge(province_LUT) %>%
-#     dplyr::select(province, HRUID2018, HR, alpha) %>%
-#     dplyr::mutate(HR = sprintf("(%s) %s", .$alpha, HR)) %>%
-#     dplyr::arrange(HRUID2018)
-# 
-# HF_shapes <- HR_shapes %>% 
-#     # dplyr::mutate(geometry = st_boundary(geometry)) %>%
-#     dplyr::arrange(HRUID2018) %>%
-#     dplyr::mutate(HR = factor(transitory$HR)) %>%
-#     st_sf()
-# 
-# Airport_Locations <- st_read(file.path(PROJECT_FOLDER, "Airports_Aeroports_en_shape/Airports_Aeroports_en_shape.shp"))
-# 
-# upper_Mannville_oil_gas_fields <- st_read(file.path(PROJECT_FOLDER, "upper_mannville_oil_and_gas_fields/fg1925_py_ll.shp"))
-# lower_Mannville_oil_gas_fields <- st_read(file.path(PROJECT_FOLDER, "lower_mannville_oil_and_gas_fields/fg1923_py_ll.shp"))
-# 
-# Canada_map_with_HRs_and_airports <- ggplot() +
-#     geom_sf(data = All_Canada, fill="lightblue", colour="black", inherit.aes=FALSE, size=0.5) +
-#     geom_sf(data = All_Provinces, fill=NA, colour="black", inherit.aes=FALSE, size=0.5) +
-#     # geom_sf(data = HF_shapes, aes(fill=HR), colour="black", inherit.aes=FALSE, size=0.5) +
-#     geom_sf(data = upper_Mannville_oil_gas_fields, inherit.aes=FALSE, size=1, pch=3, colour="green") +
-#     geom_sf(data = lower_Mannville_oil_gas_fields, inherit.aes=FALSE, size=1, pch=3, colour="green") +
-#     geom_sf(data = Airport_Locations, inherit.aes=FALSE, size=4, pch=13, colour='red') +
-#     # geom_sf(data=All_Provinces, fill=NA, inherit.aes=FALSE) +
-#     theme_minimal() +
-#     theme(
-#         panel.grid = element_blank(),
-#         axis.text = element_blank(),
-#         axis.ticks = element_blank(),
-#         legend.text = element_text(size=13),
-#         legend.title = element_text(size=13),
-#         legend.key.height = unit(1, 'cm'),
-#         plot.background = element_rect(fill="white", colour="white"),
-#         legend.position="none"
-#     ) +
-#     coord_sf(datum=NA) +
-#     labs(x="", y="") # +
-#     # guides(colour = guide_legend(legend.title.align=0.5))
-#     # ggsave(SAC_map_with_census_info_SAC, file=sprintf("%s/Graphs/SAC_choropleth.png", PROJECT_FOLDER))
-#     # system(sprintf("convert %s/Graphs/SAC_choropleth.png -trim %s/Graphs/SAC_choropleth.png", PROJECT_FOLDER, PROJECT_FOLDER))
-#     ggsave(Canada_map_with_HRs_and_airports, file=sprintf("%s/Graphs/Canada_airports.png", PROJECT_FOLDER), width=15, height=6)
-#     system(sprintf("convert %s/Graphs/Canada_airports.png -trim %s/Graphs/Canada_airports.png", PROJECT_FOLDER, PROJECT_FOLDER))
+All_Canada <- st_sf(readRDS(file.path(PROJECT_FOLDER, "All_Canada.rds")))
+All_Provinces <- st_sf(readRDS(file.path(PROJECT_FOLDER, "All_Provinces.rds"))) %>%
+    merge(., province_LUT %>% dplyr::select(province, abbreviations, alpha), all=TRUE, by="province")
+
+HR_shapes <- Regions %>%
+    data.table %>%
+    .[, .(geometry=st_union(geometry) %>% st_cast("MULTIPOLYGON")), by=.(HRUID2018)]
+    # .[, .(geometry=st_union(geometry) %>% st_cast("POLYGON")), by=.(HRUID2018)]
+    # .[, .(geometry=st_combine(geometry) %>% st_cast("MULTIPOLYGON")), by=.(HRUID2018)]
+    # .[, .(geometry=st_boundary(geometry) %>% st_cast("MULTIPOLYGON")), by=.(HRUID2018)]
+    saveRDS(HR_shapes, file=file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda"))
+
+HR_shapes <- readRDS(file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda"))
+
+transitory <- Regions %>%
+    dplyr::select(HRUID2018, HR, province) %>%
+    unique() %>%
+    merge(province_LUT) %>%
+    dplyr::select(province, HRUID2018, HR, alpha) %>%
+    dplyr::mutate(HR = sprintf("(%s) %s", .$alpha, HR)) %>%
+    dplyr::arrange(HRUID2018)
+
+HF_shapes <- HR_shapes %>% 
+    # dplyr::mutate(geometry = st_boundary(geometry)) %>%
+    dplyr::arrange(HRUID2018) %>%
+    dplyr::mutate(HR = factor(transitory$HR)) %>%
+    st_sf()
+
+Airport_Locations <- st_read(file.path(PROJECT_FOLDER, "Airports_Aeroports_en_shape/Airports_Aeroports_en_shape.shp"))
+
+upper_Mannville_oil_gas_fields <- st_read(file.path(PROJECT_FOLDER, "upper_mannville_oil_and_gas_fields/fg1925_py_ll.shp"))
+lower_Mannville_oil_gas_fields <- st_read(file.path(PROJECT_FOLDER, "lower_mannville_oil_and_gas_fields/fg1923_py_ll.shp"))
+
+Canada_map_with_HRs_and_airports <- ggplot() +
+    geom_sf(data = All_Canada, fill="lightblue", colour="black", inherit.aes=FALSE, size=0.5) +
+    geom_sf(data = All_Provinces, fill=NA, colour="black", inherit.aes=FALSE, size=0.5) +
+    # geom_sf(data = HF_shapes, aes(fill=HR), colour="black", inherit.aes=FALSE, size=0.5) +
+    geom_sf(data = upper_Mannville_oil_gas_fields, inherit.aes=FALSE, size=1, pch=3, colour="green") +
+    geom_sf(data = lower_Mannville_oil_gas_fields, inherit.aes=FALSE, size=1, pch=3, colour="green") +
+    geom_sf(data = Airport_Locations, inherit.aes=FALSE, size=4, pch=13, colour='red') +
+    # geom_sf(data=All_Provinces, fill=NA, inherit.aes=FALSE) +
+    theme_minimal() +
+    theme(
+        panel.grid = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        legend.text = element_text(size=13),
+        legend.title = element_text(size=13),
+        legend.key.height = unit(1, 'cm'),
+        plot.background = element_rect(fill="white", colour="white"),
+        legend.position="none"
+    ) +
+    coord_sf(datum=NA) +
+    labs(x="", y="") # +
+    # guides(colour = guide_legend(legend.title.align=0.5))
+    # ggsave(SAC_map_with_census_info_SAC, file=sprintf("%s/Graphs/SAC_choropleth.png", PROJECT_FOLDER))
+    # system(sprintf("convert %s/Graphs/SAC_choropleth.png -trim %s/Graphs/SAC_choropleth.png", PROJECT_FOLDER, PROJECT_FOLDER))
+    ggsave(Canada_map_with_HRs_and_airports, file=sprintf("%s/Graphs/Canada_airports.png", PROJECT_FOLDER), width=15, height=6)
+    system(sprintf("convert %s/Graphs/Canada_airports.png -trim %s/Graphs/Canada_airports.png", PROJECT_FOLDER, PROJECT_FOLDER))
 
 # figure_2_num_csds_per_hr <- ggplot(
 #         Regions[, .(N=.N), by=.(province, HR, HRUID2018)],

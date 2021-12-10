@@ -13,13 +13,15 @@ library(dplyr)
 library(data.table)
 library(segmented)
 
-# PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
-PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project/"
+PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
+# PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project/"
 
 # shorthand
 meann <- function(...) mean(..., na.rm=TRUE)
 summ  <- function(...) sum(...,  na.rm=TRUE)
 sdd   <- function(...) sd(..., na.rm=TRUE)
+
+symmetric.difference <- function(a,b) setdiff(union(a,b), intersect(a,b))
 
 # used for standardising the regression variables
 z_transform <- function(x) (x-meann(x))/sdd(x)
@@ -248,46 +250,56 @@ value_if_number_else_NA <- function(theList)
     )
 }
 
-# we've decided to add the breaks manually
-# add_wave_numbers <- function(input_table, case_col="cases", date_col="date", num_waves=4, days_apart=45) # make it a variadic function for extimated breakpoints 
-# {
-#     weekly_moving_average <- function(x) stats::filter(x, rep(1,7), sides = 1)/7
-#     
-#     # get rid of all the extraneous information
-#     tab_here <- input_table %>%
-#         dplyr::rename(cases=case_col, date=date_col) %>%
-#         dplyr::filter( !is.na(cases) & cases>0) %>%
-#         dplyr::mutate(
-#             cases = as.numeric(cases),
-#             date = as.Date(date)
-#         ) %>%
-#         dplyr::group_by(date) %>%
-#         dplyr::tally(cases) %>%
-#         dplyr::rename(cases=n) %>%
-#         dplyr::mutate(
-#             index = as.numeric(date),
-#             date=as.Date(date),
-#             avg = weekly_moving_average(cases)
-#         ) %>%
-#         # we search for the date with the minimum if cases, so we don't want to trivially get a breakpoint within the first few days
-#         dplyr::filter(date >= min(date) + 45) %>%
-#         data.table()
-#     
-#     print(tab_here[date %in% as.Date(c("2020-05-01", "2020-07-01", "2021-01-01", "2021-02-22", "2021-04-15", "2021-06-30"))])
-# 
-#     # do a breakpoint analysis to get the valley between the two peaks
-    # seg_reg <- segmented(
-    #     lm(log(avg) ~ index, data=tab_here),
-    #     seg.Z = ~ index,
-    #     # npsi = num_waves-1
-    #     psi = tab_here[date %in% as.Date(c("2020-05-01", "2020-07-01", "2021-01-01", "2021-02-22", "2021-04-15", "2021-06-30")), index]
-    # )
-#     
-#     break_dates <- tab_here[index %in% ceiling(data.frame(seg_reg$psi)$`Est.`), date]
-# 
-#     return(break_dates)
-# }
+add_wave_numbers <- function(input_table, case_col="cases", date_col="date", num_waves=4, days_apart=45) 
+{
+    weekly_moving_average <- function(x) stats::filter(x, rep(1,7), sides = 1)/7
 
+    # get rid of all the extraneous information
+    tab_here <- input_table %>%
+        dplyr::rename(cases=case_col, date=date_col) %>%
+        dplyr::filter( !is.na(cases) & cases>0) %>%
+        dplyr::mutate(
+            cases = as.numeric(cases),
+            date = as.Date(date)
+        ) %>%
+        dplyr::group_by(date) %>%
+        dplyr::tally(cases) %>%
+        dplyr::rename(cases=n) %>%
+        dplyr::mutate(
+            index = as.numeric(date),
+            date = as.Date(date),
+            weekly_rolling_avg = weekly_moving_average(cases),
+            smooth_spline = predict(smooth.spline(index, cases, spar=0.35))$y
+        ) %>%
+        # we search for the date with the minimum if cases, so we don't want to trivially get a breakpoint within the first few days
+        dplyr::filter(date >= min(date) + 45) %>%
+        data.table()
+    
+    return(tab_here)
+
+    # print(tab_here[date %in% as.Date(c("2020-05-01", "2020-07-01", "2021-01-01", "2021-02-22", "2021-04-15", "2021-06-30"))])
+
+    # do a breakpoint analysis to get the valley between the two peaks
+    seg_reg <- segmented(
+        # lm(log(weekly_rolling_avg) ~ index, data=tab_here),
+        lm(log(smooth_spline) ~ index, data=tab_here),
+        seg.Z = ~ index,
+        npsi = 2*num_waves-1
+        # psi = tab_here[date %in% as.Date(c("2020-05-01", "2020-07-01", "2021-01-01", "2021-02-22", "2021-04-15", "2021-06-30")), index]
+    )
+
+    break_dates <- tab_here[index %in% floor(data.frame(seg_reg$psi)$`Est.`), date]
+    wave_dates <- break_dates[ ! (1:length(break_dates) %% 2) ]
+    
+    # remember to actually add the wave numbers
+    
+    return(list(
+        dates.breaks = break_dates,
+        dates.waves = c(min(tab_here$date), break_dates[!(1:length(break_dates)%%2)]),
+        rgeression = seg_reg,
+        data = tab_here
+    ))
+}
 
 CSD_score_normal <- function(x)
 {
@@ -299,5 +311,95 @@ CSD_score_normal <- function(x)
     if(grepl("none", tolower(x))) return(6)
     return(NA)
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
