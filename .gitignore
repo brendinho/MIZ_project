@@ -3,7 +3,7 @@
 .Rapp.history
 
 # Session Data files
-.RData
+.RDat*
 
 # User-specific files
 .Ruserdata
@@ -52,3 +52,6 @@ all*.csv
 
 # canada-wide line list
 canada_complete*.csv
+
+# not syncing the unzipped province csvs
+98-401-X2016*/*

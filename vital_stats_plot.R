@@ -41,7 +41,7 @@ AR_dist <-ggplot(
     
 # Pop_plot <- 
     
-    ggplot(
+    # ggplot(
         Total_Data %>% 
             dplyr::select(province, hr, hruid, population) %>% 
             unique() %>% 

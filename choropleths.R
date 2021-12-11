@@ -24,16 +24,9 @@ setwd(PROJECT_FOLDER)
 
 # dir.create(file.path(PROJECT_FOLDER, "Graphs"), showWarnings=FALSE)
 
-# Regions <- data.table(readRDS("CaseDataTables/Regions.rda"))
-
-Total_Case_Data <- fread(sprintf("%s/CaseDataTables/Total_Case_Data.csv", PROJECT_FOLDER))
-
 ################################# WAVE DATES FROM EVERY HR
 
-# for(PHU in unique(Total_Case_Data$HR))
-# {
-#     case_data <- Total_Case_Data[HR == PHU]
-# }
+Total_Case_Data <- fread(sprintf("%s/CaseDataTables/Total_Case_Data.csv", PROJECT_FOLDER))
 
 add_wave_numbers <- function(input_table, case_col="cases", date_col="date", num_waves=4, days_apart=45) 
 {
@@ -93,98 +86,117 @@ add_wave_numbers <- function(input_table, case_col="cases", date_col="date", num
     ))
 }
 
-# print(add_wave_numbers(Total_Case_Data[grepl("porcupine", tolower(HR))], case_col="cases", date_col="date"))
-
-# ggplot(breaks$data, aes(date, weekly_rolling_avg)) +
-#     geom_line() +
-#     # geom_vline(xintercept = breaks$dates.breaks) +
-#     geom_vline(xintercept = breaks$dates.waves, colour="red")
-
-# ggplot(
-#     Total_Case_Data[grepl("porcupine", tolower(HR))],
-#     aes(date, cases)
-# ) +
-# geom_lie
-
-case_data <- Total_Case_Data %>%
-    dplyr::mutate(cases = ifelse(cases<0, NA, cases)) %>%
-    dplyr::filter(grepl("toronto", tolower(HR))) %>%
-    dplyr::mutate(
-        cases = ifelse(cases<0 | is.na(cases), 0, cases),
-        index = as.numeric(date),
-        loes = predict(loess(cases~index)),
-        smooth_spline = predict(smooth.spline(index, cases, spar=0.6))$y
-    )
-
-ThresholdingAlgo <- function(y,lag,threshold,influence) {
-    signals <- rep(0,length(y))
-    filteredY <- y[0:lag]
-    avgFilter <- NULL
-    stdFilter <- NULL
-    avgFilter[lag] <- mean(y[0:lag], na.rm=TRUE)
-    stdFilter[lag] <- sd(y[0:lag], na.rm=TRUE)
-    for (i in (lag+1):length(y)){
-        if (abs(y[i]-avgFilter[i-1]) > threshold*stdFilter[i-1]) {
-            if (y[i] > avgFilter[i-1]) {
-                signals[i] <- 1;
-            } else {
-                signals[i] <- -1;
-            }
-            filteredY[i] <- influence*y[i]+(1-influence)*filteredY[i-1]
-        } else {
-            signals[i] <- 0
-            filteredY[i] <- y[i]
-        }
-        avgFilter[i] <- mean(filteredY[(i-lag):i], na.rm=TRUE)
-        stdFilter[i] <- sd(filteredY[(i-lag):i], na.rm=TRUE)
-    }
-    return(list("signals"=signals,"avgFilter"=avgFilter,"stdFilter"=stdFilter))
+# https://stackoverflow.com/questions/6836409/finding-local-maxima-and-minima
+# Tommy's answer to "Finding local maxima and minima "
+localMaxima <- function(x) 
+{
+    # Use -Inf instead if x is numeric (non-integer)
+    y <- diff(c(-.Machine$integer.max, x)) > 0L
+    # rle(y)$lengths
+    y <- cumsum(rle(y)$lengths)
+    y <- y[seq.int(1L, length(y), 2L)]
+    if (x[[1]] == x[[2]]) { y <- y[-1] }
+    return(y)
 }
 
-y <- case_data$cases
+find_wave_indices <- function(timeSeries)
+{
+    data_table <- data.table(cases = timeSeries) %>%
+        dplyr::mutate(
+            index = 1:nrow(.), 
+            spline = predict(smooth.spline(index, cases, spar=0.8))$y
+        )
+    
+    valley_indices <- localMaxima(-case_data$spline) %>% .[! . %in% c(1:50, (nrow(case_data)-15):nrow(case_data))]
+    
+    return(valley_indices)
+}
 
-lag       <- 50
-threshold <- 4
-influence <- 0
+wave_dates <- list()
+wave_plots <- list()
 
-# Run algo with lag = 30, threshold = 5, influence = 0
-result <- ThresholdingAlgo(y,lag,threshold,influence)
+for(prov in unique(Total_Case_Data$province) %>% .[!grepl("Alberta", .)])
+{
+    print(prov)
+    temp <- Total_Case_Data %>% dplyr::filter(province == prov)
+    for(PHU in unique(temp$HR) %>% .[!grepl("reported|total", tolower(.))])
+    {
+        writeLines(sprintf("\t%s", PHU))
+        case_data <- temp %>%
+            dplyr::filter(HR == PHU) %>%
+            dplyr::mutate(cases = ifelse(cases<0, NA, cases)) %>%
+            dplyr::mutate(
+                cases = ifelse(cases<0 | is.na(cases), 0, cases),
+                index = as.numeric(date),
+                loes = predict(loess(cases~index)),
+                spline = predict(smooth.spline(index, cases, spar=0.83))$y
+            ) %>%
+            dplyr::arrange(date)
+        
+        temp_waves <- case_data[find_wave_indices(case_data$spline)] %>% dplyr::mutate(wave=2:(nrow(.)+1))
+        
+        pl_waves <- ggplot(case_data, aes(x=date)) +
+            geom_line(aes(y=cases)) +
+            geom_point(aes(y=cases)) +
+            geom_line(aes(y=spline), colour="blue", size=2) +
+            geom_ribbon(aes(ymin=pmax(0, spline-sd(spline)), ymax=spline+sd(spline)), fill="blue", alpha=0.1) +
+            geom_vline(xintercept = temp_waves$date, colour = "darkgreen", size=1, linetype = "dashed") +
+            theme_bw() +
+            theme(
+                axis.text = element_text(size=15),
+                axis.title = element_text(size=15),
+                axis.text.x = element_text(angle=45, hjust=1)
+            ) +
+            labs(x="Date", y=sprintf("Incidence (%s, %s)", prov, PHU)) +
+            scale_x_date(breaks="1 month", date_labels="%b %Y", expand=c(0,0)) +
+            scale_y_continuous(expand = c(0, 0))
+        
+        wave_dates[[paste(prov, PHU, sep="_")]] <- temp_waves
+        wave_plots[[paste(prov, PHU, sep="_")]] <- pl_waves
+    }
+}
 
-# Plot result
-par(mfrow = c(2,1),oma = c(2,2,0,0) + 0.1,mar = c(0,0,2,1) + 0.2)
-plot(1:length(y),y,type="l",ylab="",xlab="") 
-lines(1:length(y),result$avgFilter,type="l",col="cyan",lwd=2)
-lines(1:length(y),result$avgFilter+threshold*result$stdFilter,type="l",col="green",lwd=2)
-lines(1:length(y),result$avgFilter-threshold*result$stdFilter,type="l",col="green",lwd=2)
-plot(result$signals,type="S",col="red",ylab="",xlab="",ylim=c(-1.5,1.5),lwd=2)
-
-# ggplot(
-#         case_data,
-#         aes(date, cases)
-#     ) +
-#     geom_point() +
-#     geom_line(aes(y=smooth_spline))
-
+All_Waves <- rbindlist(wave_dates)
 
 ### CHOROPLETHS
+
+Regions <- data.table(readRDS("CaseDataTables/Regions.rda"))
 
 # saveRDS(st_union(Regions$geometry), sprintf("%s/All_Canada.rds", PROJECT_FOLDER))
 # saveRDS(Regions[, .(geometry=st_union(geometry)%>% st_cast("MULTIPOLYGON")), by=.(province)], sprintf("%s/All_Provinces.rds", PROJECT_FOLDER))
 
-# All_Canada <- st_sf(readRDS(file.path(PROJECT_FOLDER, "All_Canada.rds")))
-# All_Provinces <- st_sf(readRDS(file.path(PROJECT_FOLDER, "All_Provinces.rds"))) %>%
-#     merge(., province_LUT %>% dplyr::select(province, abbreviations, alpha), all=TRUE, by="province")
-# 
-# HR_shapes <- Regions %>%
-#     data.table %>%
-#     .[, .(geometry=st_union(geometry) %>% st_cast("MULTIPOLYGON")), by=.(HRUID2018)]
-#     # .[, .(geometry=st_union(geometry) %>% st_cast("POLYGON")), by=.(HRUID2018)]
-#     # .[, .(geometry=st_combine(geometry) %>% st_cast("MULTIPOLYGON")), by=.(HRUID2018)]
-#     # .[, .(geometry=st_boundary(geometry) %>% st_cast("MULTIPOLYGON")), by=.(HRUID2018)]
-#     saveRDS(HR_shapes, file=file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda"))
-# 
-# HR_shapes <- readRDS(file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda"))
-# 
+All_Canada <- st_sf(readRDS(file.path(PROJECT_FOLDER, "All_Canada.rds")))
+All_Provinces <- st_sf(readRDS(file.path(PROJECT_FOLDER, "All_Provinces.rds"))) %>%
+    merge(., province_LUT %>% dplyr::select(province, abbreviations, alpha), all=TRUE, by="province")
+
+HR_shapes <- Regions %>%
+    data.table %>%
+    .[, .(geometry=st_union(geometry) %>% st_cast("MULTIPOLYGON")), by=.(HRUID2018)]
+    # .[, .(geometry=st_union(geometry) %>% st_cast("POLYGON")), by=.(HRUID2018)]
+    # .[, .(geometry=st_combine(geometry) %>% st_cast("MULTIPOLYGON")), by=.(HRUID2018)]
+    # .[, .(geometry=st_boundary(geometry) %>% st_cast("MULTIPOLYGON")), by=.(HRUID2018)]
+    saveRDS(HR_shapes, file=file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda"))
+
+HR_shapes <- readRDS(file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda"))
+
+### plot Wave Start Dates
+
+All_Waves <- merge(All_Waves, HR_shapes, by="HRUID2018")
+
+Wave_2_starts <- ggplot(st_sf(All_Waves[wave==2])) +
+    geom_sf(aes(fill = date), lwd = 0) +
+    scale_fill_viridis_c(option="E")
+
+Wave_3_starts <- ggplot(st_sf(All_Waves[wave==3])) +
+    geom_sf(aes(fill = date), lwd = 0) +
+    scale_fill_viridis_c(option="E")
+
+Wave_4_starts <- ggplot(st_sf(All_Waves[wave==4])) +
+    geom_sf(aes(fill = date), lwd = 0) +
+    scale_fill_viridis_c(option="E")
+
+
+
 # transitory <- Regions %>%
 #     dplyr::select(HRUID2018, HR, province) %>%
 #     unique() %>%
