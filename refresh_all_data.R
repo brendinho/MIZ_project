@@ -116,10 +116,6 @@ EEI <- fread(file.path(PROJECT_FOLDER, "Classifications/educational_intervention
         alpha = lookup_alphas(jurisdiction)
     )
 
-
-
-
-
 TEI_plot <- TEI %>% # rbind(TEI, EEI) %>%
     gg_vistime(col.event="what", col.group="alpha", col.start="date.implemented", col.end="effective.until", show_labels=FALSE) +
     scale_x_datetime(
@@ -136,31 +132,6 @@ TEI_plot <- TEI %>% # rbind(TEI, EEI) %>%
         axis.title = element_text(size = 15)
     ) +
     labs(x="Month", y="Province")
-
-
-
-
-
-
-
-
-weekly_moving_average <- function(x) stats::filter(x, rep(1,7), sides = 1)/7
-
-canada_temp <- jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=cases&loc=canada")$cases %>%
-    data.table() %>%
-    dplyr::mutate(
-        date = as.Date(date_report, format="%d-%m-%Y"),
-        moving_avg_seven_days = weekly_moving_average(cases),
-        index = as.numeric(date)
-    ) %>%
-    filter(cases != 0)
-
-seg_reg <- segmented(
-    lm(log(cases) ~ index, data=canada_temp),
-    seg.Z = ~ index,
-    npsi=7
-)
-
 
 fwrite(tightened_interventions, file="~/Desktop/eased.csv")
 

@@ -101,12 +101,28 @@ EEI <- fread(file.path(PROJECT_FOLDER, "Classifications/educational_intervention
         alpha = lookup_alphas(jurisdiction)
     )
 
+Canada_Data <- fread(file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv")) %>%
+    dplyr::select(-cumulative_cases) %>%
+    dplyr::mutate(
+        date = as.Date(date_report, format="%d-%m-%Y"),
+        moving_avg_seven_days = weekly_moving_average(cases),
+        moving_avg_seven_days = ifelse(is.na(moving_avg_seven_days), 0, moving_avg_seven_days),
+        index = as.numeric(date),
+        spline = predict(smooth.spline(index, moving_avg_seven_days, spar=0.7))$y
+    ) %>%
+    data.table
 
+Canada_Wave_Dates <- Canada_Data[find_wave_indices(Canada_Data$spline), date]
 
+ggplot(Canada_Data, aes(x=date)) +
+    geom_point(aes(y=cases)) +
+    geom_line(aes(y=spline)) +
+    geom_vline(xintercept = Canada_Wave_Dates)
 
 
 TEI_plot <- TEI %>% # rbind(TEI, EEI) %>%
     gg_vistime(col.event="what", col.group="alpha", col.start="date.implemented", col.end="effective.until", show_labels=FALSE) +
+    geom_line(data=Canada_Data, aes(x=date, y=cases)) +
     scale_x_datetime(
         breaks = seq(
             min(as.POSIXct(TEI$date.implemented)),
@@ -124,27 +140,6 @@ TEI_plot <- TEI %>% # rbind(TEI, EEI) %>%
 
 
 
-
-
-
-
-Canada_Data <- fread(file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv")) %>%
-    dplyr::select(-cumulative_cases) %>%
-    dplyr::mutate(
-        date = as.Date(date_report, format="%d-%m-%Y"),
-        moving_avg_seven_days = weekly_moving_average(cases),
-        moving_avg_seven_days = ifelse(is.na(moving_avg_seven_days), 0, moving_avg_seven_days),
-        index = as.numeric(date),
-        spline = predict(smooth.spline(index, moving_avg_seven_days, spar=0.7))$y
-    ) %>%
-    data.table
-
-Canada_Wave_Dates <- canada_temp[find_wave_indices(canada_temp$spline), date]
-
-ggplot(canada_temp, aes(x=date)) +
-    geom_point(aes(y=cases)) +
-    geom_line(aes(y=spline)) +
-    geom_vline(xintercept = Canada_Wave_Dates)
     
 
 
@@ -475,42 +470,42 @@ ggplot(canada_temp, aes(x=date)) +
 # this makes sure that the dates stay the same during repeated runs
 # seg_reg <- readRDS(file.path(PROJECT_FOLDER, "Classifications/all_breaks_waves.rda"))
 
-canada <- rbind(
-        canada_temp %>% dplyr::mutate(fit = fitted(seg_reg), cases=log(cases), type="log(Incidence)"),
-        canada_temp %>% dplyr::mutate(fit = exp(fitted(seg_reg)), type="Incidence")
-    )
-
-break_dates <- canada_temp[index %in% floor(data.frame(seg_reg$psi)$`Est.`)]
-breaks_waves <- break_dates$date[c(2, 5, 7)]
-
-all_breaks_waves <- rbind(
-        break_dates %>% dplyr::arrange(date) %>% dplyr::mutate(type="Incidence", label=1:nrow(.)),
-        break_dates %>% dplyr::arrange(date) %>% dplyr::mutate(type="log(Incidence)", cases=log(cases), label=1:nrow(.))
-    ) %>%
-    merge(canada %>%
-    select(date, fit, type), by=c("date", "type"))
-
-canada_wave_break_point_analysis <- ggplot(canada, aes(x=date)) +
-    geom_point(aes(y=cases), size=0.5) +
-    geom_line(aes(y=fit), size=0.75, colour="blue") +
-    geom_point(data=all_breaks_waves, aes(x=date, y=fit), pch=21, fill=NA, size=5, colour="red", stroke=1) +
-    geom_point(data=all_breaks_waves, aes(x=date, y=fit), pch=21, fill=NA, size=6, colour="red", stroke=1) +
-    labs(x="Date", y="Value") +
-    theme_bw() +
-    theme(
-        axis.text = element_text(size=12),
-        axis.title = element_text(size=17),
-        axis.text.x = element_text(angle=45, vjust=1, hjust=1),
-        strip.text = element_text(size=15)
-    ) +
-    scale_x_date(date_breaks = "1 month" , date_labels = "%b %Y", expand=c(0,0)) +
-    facet_wrap(~type, scale="free", ncol=2) +
-    geom_vline(xintercept=breaks_waves[1], linetype="dashed", color = "blue", size=0.5) +
-    geom_vline(xintercept=breaks_waves[2], linetype="dashed", color = "blue", size=0.5) +
-    geom_vline(xintercept=breaks_waves[3], linetype="dashed", color = "blue", size=0.5) +
-    geom_text(data=all_breaks_waves, aes(x=date, y=fit, label=label), size=7, colour="red", nudge_y=1.5)
-
-ggsave(canada_wave_break_point_analysis, file=file.path(PROJECT_FOLDER, "Graphs/canada_wave_break_points.png"), width=20, height=7)
+# canada <- rbind(
+#         canada_temp %>% dplyr::mutate(fit = fitted(seg_reg), cases=log(cases), type="log(Incidence)"),
+#         canada_temp %>% dplyr::mutate(fit = exp(fitted(seg_reg)), type="Incidence")
+#     )
+# 
+# break_dates <- canada_temp[index %in% floor(data.frame(seg_reg$psi)$`Est.`)]
+# breaks_waves <- break_dates$date[c(2, 5, 7)]
+# 
+# all_breaks_waves <- rbind(
+#         break_dates %>% dplyr::arrange(date) %>% dplyr::mutate(type="Incidence", label=1:nrow(.)),
+#         break_dates %>% dplyr::arrange(date) %>% dplyr::mutate(type="log(Incidence)", cases=log(cases), label=1:nrow(.))
+#     ) %>%
+#     merge(canada %>%
+#     select(date, fit, type), by=c("date", "type"))
+# 
+# canada_wave_break_point_analysis <- ggplot(canada, aes(x=date)) +
+#     geom_point(aes(y=cases), size=0.5) +
+#     geom_line(aes(y=fit), size=0.75, colour="blue") +
+#     geom_point(data=all_breaks_waves, aes(x=date, y=fit), pch=21, fill=NA, size=5, colour="red", stroke=1) +
+#     geom_point(data=all_breaks_waves, aes(x=date, y=fit), pch=21, fill=NA, size=6, colour="red", stroke=1) +
+#     labs(x="Date", y="Value") +
+#     theme_bw() +
+#     theme(
+#         axis.text = element_text(size=12),
+#         axis.title = element_text(size=17),
+#         axis.text.x = element_text(angle=45, vjust=1, hjust=1),
+#         strip.text = element_text(size=15)
+#     ) +
+#     scale_x_date(date_breaks = "1 month" , date_labels = "%b %Y", expand=c(0,0)) +
+#     facet_wrap(~type, scale="free", ncol=2) +
+#     geom_vline(xintercept=breaks_waves[1], linetype="dashed", color = "blue", size=0.5) +
+#     geom_vline(xintercept=breaks_waves[2], linetype="dashed", color = "blue", size=0.5) +
+#     geom_vline(xintercept=breaks_waves[3], linetype="dashed", color = "blue", size=0.5) +
+#     geom_text(data=all_breaks_waves, aes(x=date, y=fit, label=label), size=7, colour="red", nudge_y=1.5)
+# 
+# ggsave(canada_wave_break_point_analysis, file=file.path(PROJECT_FOLDER, "Graphs/canada_wave_break_points.png"), width=20, height=7)
 
 # Canada_waves <-  ggplot(canada, aes(date, cases)) +
 #     theme_bw() +
