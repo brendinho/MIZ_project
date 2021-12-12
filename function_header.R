@@ -26,6 +26,9 @@ symmetric.difference <- function(a,b) setdiff(union(a,b), intersect(a,b))
 # used for standardising the regression variables
 z_transform <- function(x) (x-meann(x))/sdd(x)
 
+# calculating the weekly moving average to smooth the case incidence data
+weekly_moving_average <- function(x) stats::filter(x, rep(1,7), sides = 1)/7
+
 # calculating teh r^2 of the LASSO regression 
 calculate_r_squared <- function(actual, predicted)
 {
@@ -148,6 +151,7 @@ lookup_alpha <- function(x)
 {
     if(tolower(x) %in% tolower(province_LUT$province)) 
         return(province_LUT %>% dplyr::mutate(province=tolower(province)) %>% dplyr::filter(province==tolower(x)) %>% dplyr::pull(alpha))
+    if(grepl("canada", tolower(x))) return("CAN")
     return("")
 }
 lookup_alphas <- function(theList) unlist(lapply(theList, lookup_alpha)) 
@@ -311,6 +315,90 @@ CSD_score_normal <- function(x)
     if(grepl("none", tolower(x))) return(6)
     return(NA)
 }
+
+# https://stackoverflow.com/questions/6836409/finding-local-maxima-and-minima
+# Tommy's answer to "Finding local maxima and minima "
+localMaxima <- function(x) 
+{
+    # Use -Inf instead if x is numeric (non-integer)
+    y <- diff(c(-.Machine$integer.max, x)) > 0L
+    # rle(y)$lengths
+    y <- cumsum(rle(y)$lengths)
+    y <- y[seq.int(1L, length(y), 2L)]
+    if (x[[1]] == x[[2]]) { y <- y[-1] }
+    return(y)
+}
+
+find_wave_indices <- function(timeSeries)
+{
+    data_table <- data.table(cases = timeSeries) %>%
+        dplyr::mutate(
+            index = 1:nrow(.), 
+            spline = predict(smooth.spline(index, cases, spar=0.8))$y
+        )
+    
+    valley_indices <- localMaxima(-data_table$spline) %>% .[! . %in% c(1:50, (nrow(data_table)-15):nrow(data_table))]
+    
+    return(valley_indices)
+}
+
+# add_wave_numbers <- function(input_table, case_col="cases", date_col="date", num_waves=4, days_apart=45) 
+# {
+#     weekly_moving_average <- function(x) stats::filter(x, rep(1,7), sides = 1)/7
+#     
+#     # get rid of all the extraneous information
+#     tab_here <- input_table %>%
+#         dplyr::rename(cases=case_col, date=date_col) %>%
+#         dplyr::filter( !is.na(cases) & cases>0) %>%
+#         dplyr::mutate(
+#             cases = as.numeric(cases),
+#             date = as.Date(date)
+#         ) %>%
+#         dplyr::group_by(date) %>%
+#         dplyr::tally(cases) %>%
+#         dplyr::rename(cases=n) %>%
+#         dplyr::mutate(
+#             index = as.numeric(date),
+#             date = as.Date(date),
+#             weekly_rolling_avg = weekly_moving_average(cases),
+#             smooth_spline = predict(smooth.spline(index, cases, spar=0.6))$y
+#         ) %>%
+#         # we search for the date with the minimum if cases, so we don't want to trivially get a breakpoint within the first few days
+#         dplyr::filter(date >= min(date) + 45) %>%
+#         data.table()
+#     
+#     # discrete second derivative
+#     num_maxima <- which(diff(sign(diff(case_data$smooth_spline)))==-2)+1
+#     
+#     number_of_waves <- min(num_waves, num_maxima-1)
+#     
+#     return(number_of_waves)
+#     
+#     # return(tab_here)
+#     
+#     # do a breakpoint analysis to get the valley between the two peaks
+#     seg_reg <- segmented(
+#         # lm(log(weekly_rolling_avg) ~ index, data=tab_here),
+#         lm(log(smooth_spline) ~ index, data=tab_here),
+#         seg.Z = ~ index,
+#         npsi = 2*num_waves-1
+#         # psi = tab_here[date %in% as.Date(c("2020-05-01", "2020-07-01", "2021-01-01", "2021-02-22", "2021-04-15", "2021-06-30")), index]
+#     )
+#     
+#     return(seg_reg)
+#     
+#     break_dates <- tab_here[index %in% floor(data.frame(seg_reg$psi)$`Est.`), date]
+#     wave_dates <- break_dates[ ! (1:length(break_dates) %% 2) ]
+#     
+#     # remember to actually add the wave numbers
+#     
+#     return(list(
+#         dates.breaks = break_dates,
+#         dates.waves = c(min(tab_here$date), break_dates[!(1:length(break_dates)%%2)]),
+#         rgeression = seg_reg,
+#         data = tab_here
+#     ))
+# }
 
 
 
