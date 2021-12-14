@@ -3,6 +3,8 @@
 library(data.table)
 library(ggplot2)
 library(viridis)
+ library(vistime)
+ library(plotly)
 # library(stringr)
 # library(sf)
 # library(forcats)
@@ -84,22 +86,20 @@ TEI <- fread(file.path(PROJECT_FOLDER, "Classifications/educational_intervention
         what = substr(what, start=1, stop=20),
         effective.until = ifelse(is.na(effective.until), Sys.Date(), effective.until) %>% as.Date(., origin="1970-01-01"),
         jurisdiction = ifelse(is.na(jurisdiction), "Canada", jurisdiction),
-        color = "red",
-        alpha = lookup_alphas(jurisdiction)
-    )
-
-# eased educational interventions
-EEI <- fread(file.path(PROJECT_FOLDER, "Classifications/educational_interventions")) %>% 
-    dplyr::filter(grepl("eas", tolower(action))) %>%
-    dplyr::filter(!grepl("tigh", tolower(action))) %>%
-    dplyr::filter(!grepl("guidance|strengthened|distributed|amended|working with|extended online teacher-led|implemented new measures|mask|release|update", tolower(what))) %>%
-    dplyr::mutate(
-        what = substr(what, start=1, stop=20),
-        effective.until = ifelse(is.na(effective.until), Sys.Date(), effective.until) %>% as.Date(., origin="1970-01-01"),
-        jurisdiction = ifelse(is.na(jurisdiction), "Canada", jurisdiction),
-        color = "green",
-        alpha = lookup_alphas(jurisdiction)
-    )
+        alpha = lookup_alphas(jurisdiction),
+        blank_colour = NA
+    ) %>%
+    merge(
+        cbind(
+            jurisdiction = unique(.$jurisdiction), 
+            colour = colorRampPalette(brewer.pal(
+                8,
+                "Dark2"
+            ))( length(unique(.$jurisdiction)) )
+        ), 
+        by="jurisdiction"
+    ) %>%
+    dplyr::select(-what, -who, -action, -`primary.source.(news.release.or.specific.resource)`,-secondary.source, -entry.id, -jurisdiction)
 
 Canada_Data <- fread(file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv")) %>%
     dplyr::select(-cumulative_cases) %>%
@@ -112,17 +112,21 @@ Canada_Data <- fread(file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv"))
     ) %>%
     data.table
 
-Canada_Wave_Dates <- Canada_Data[find_wave_indices(Canada_Data$spline), date]
+Canada_Wave_Dates <- Canada_Data[find_wave_indices(Canada_Data$spline), as.POSIXct(date)]
 
 ggplot(Canada_Data, aes(x=date)) +
     geom_point(aes(y=cases)) +
     geom_line(aes(y=spline)) +
     geom_vline(xintercept = Canada_Wave_Dates)
 
+y_min_max <- plotly_build(
+    TEI %>% 
+        gg_vistime(col.event="alpha", col.group="alpha", col.start="date.implemented", col.end="effective.until",col.color="colour", show_labels=FALSE)
+    )$x$layout$yaxis$range
 
-TEI_plot <- TEI %>% # rbind(TEI, EEI) %>%
-    gg_vistime(col.event="what", col.group="alpha", col.start="date.implemented", col.end="effective.until", show_labels=FALSE) +
-    geom_line(data=Canada_Data, aes(x=date, y=cases)) +
+TEI_plot <- TEI %>% dplyr::filter(!grepl("can", tolower(alpha))) %>%
+    gg_vistime(col.event="alpha", col.group="alpha", col.start="date.implemented", col.end="effective.until",col.color="colour", show_labels=FALSE) +
+    geom_vline(xintercept=Canada_Wave_Dates) +
     scale_x_datetime(
         breaks = seq(
             min(as.POSIXct(TEI$date.implemented)),
@@ -130,15 +134,28 @@ TEI_plot <- TEI %>% # rbind(TEI, EEI) %>%
             "months"),
         date_labels = "%b %Y",
         expand = c(0,0)
-    ) + 
+    ) +
     theme(
         axis.text.x = element_text(angle=45, hjust=1),
         axis.text = element_text(size = 13),
         axis.title = element_text(size = 15)
     ) +
     labs(x="Month", y="Province")
-
-
+    ggsave(TEI_plot, file = file.path(PROJECT_FOLDER, "Graphs/TEI_plot.png"), width=10, height=7)
+    
+# # eased educational interventions
+# EEI <- fread(file.path(PROJECT_FOLDER, "Classifications/educational_interventions")) %>% 
+#     dplyr::filter(grepl("eas", tolower(action))) %>%
+#     dplyr::filter(!grepl("tigh", tolower(action))) %>%
+#     dplyr::filter(!grepl("guidance|strengthened|distributed|amended|working with|extended online teacher-led|implemented new measures|mask|release|update", tolower(what))) %>%
+#     dplyr::mutate(
+#         what = substr(what, start=1, stop=20),
+#         effective.until = ifelse(is.na(effective.until), Sys.Date(), effective.until) %>% as.Date(., origin="1970-01-01"),
+#         jurisdiction = ifelse(is.na(jurisdiction), "Canada", jurisdiction),
+#         color = "green",
+#         alpha = lookup_alphas(jurisdiction)
+#     ) %>% 
+#     dplyr::select(-what, -who, -action, -color, -`primary.source.(news.release.or.specific.resource)`,-secondary.source, -entry.id, -jurisdiction)
 
     
 

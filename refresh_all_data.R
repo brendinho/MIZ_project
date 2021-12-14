@@ -116,27 +116,6 @@ EEI <- fread(file.path(PROJECT_FOLDER, "Classifications/educational_intervention
         alpha = lookup_alphas(jurisdiction)
     )
 
-TEI_plot <- TEI %>% # rbind(TEI, EEI) %>%
-    gg_vistime(col.event="what", col.group="alpha", col.start="date.implemented", col.end="effective.until", show_labels=FALSE) +
-    scale_x_datetime(
-        breaks = seq(
-            min(as.POSIXct(TEI$date.implemented)),
-                     as.POSIXct(Sys.Date()),
-                     "months"),
-        date_labels = "%b %Y",
-        expand = c(0,0)
-    ) + 
-    theme(
-        axis.text.x = element_text(angle=45, hjust=1),
-        axis.text = element_text(size = 13),
-        axis.title = element_text(size = 15)
-    ) +
-    labs(x="Month", y="Province")
-
-fwrite(tightened_interventions, file="~/Desktop/eased.csv")
-
-
-
 Air_Traffic <- fread(file.path(PROJECT_FOLDER, "Domestic_and_International_itinerant_movements/23100008.csv")) %>%
     dplyr::mutate(
         year = str_split(REF_DATE, "-")[[1]][1],
@@ -323,7 +302,6 @@ Index_of_Remoteness <- fread("Classifications/Index_of_remoteness.csv") %>%
     suppressWarnings() %>%
     dplyr::rename_with(tolower)
 
-
 # assemble the complete table we need for the correlation before
 
 writeLines("\nassembling Total Geography Table")
@@ -347,7 +325,18 @@ Total_Data_Geo <- data.table(Reduce(
     # dplyr::relocate("csduid2016", "region", "province", "HR", "class", "index_of_remoteness", "population_density")
     saveRDS(Total_Data_Geo, sprintf("%s/Classifications/Total_CSD_Info.rda", PROJECT_FOLDER))
     
-# Total_Data_Geo[, lapply(.SD, sum, na=TRUE), .SDcols=setdiff(names(Total_Data_Geo), c("geo_code", "geo_name", "class", "province", "HR", "HRUID2018")), by=.(HRUID2018, province, HR)]
+PHU_information <- Total_Data_Geo[, 
+        lapply(.SD, sum, na=TRUE), 
+        .SDcols = setdiff(
+            names(Total_Data_Geo), 
+            c("geo_code", "geo_name", "class", "province", "HR", "HRUID2018")
+        ), 
+        by=.(HRUID2018, province, HR)
+    ]
+
+
+All_Provinces <- st_sf(readRDS(file.path(PROJECT_FOLDER, "All_Provinces.rds"))) %>%
+    merge(., province_LUT %>% dplyr::select(province, abbreviations, alpha), all=TRUE, by="province")
 
 # ############################################# COVID DATA
 # 
