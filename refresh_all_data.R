@@ -27,101 +27,10 @@ source(sprintf("%s/function_header.R", PROJECT_FOLDER))
 
 start_time <- Sys.time()
 
-############################################ INTERVENTIONS
 
-LUT <- rbind(province_LUT, list("Canada", "Can.", "CN", -1, "Canada")) %>% dplyr::select(province, abbreviations)
+############# TIME-INVARIANT METRICS
 
-# retrieved 27 Nov 2021
-if(! file.exists(file.path(PROJECT_FOLDER, "covid-19-intervention-scan-data-tables-en.xlsx")) )
-{
-    download.file(
-        "https://www.cihi.ca/sites/default/files/document/covid-19-intervention-scan-data-tables-en.xlsx",
-        file.path(PROJECT_FOLDER, "covid-19-intervention-scan-data-tables-en.xlsx")
-    )
-}
-
-get.Date <- function(theList)
-{
-    unlist(lapply(
-        theList,
-        \(x) tryCatch(
-            { x %>% as.character() %>% substr(start = 1, stop = 10) },
-            error = function(e) as.Date(NA)
-        )
-    )) %>% as.Date(., origin="1970-01-01")
-    # re-casting because the list is always being cast to numeric and I don't know why
-}
-
-interventions <- read.xlsx(
-        sprintf("%s/%s", PROJECT_FOLDER, "covid-19-intervention-scan-data-tables-en.xlsx"),
-        sheet = "Intervention scan", 
-        startRow = 3
-    ) %>%
-    rename_with(\(x) x %>% tolower %>% gsub("intervention.", "", .))  %>%
-    filter(!grepl("end", tolower(entry.id))) %>%
-    mutate(
-        date.announced = convertToDate(as.integer(date.announced)),
-        date.implemented = convertToDate(as.integer(date.implemented)),
-        jurisdiction = left_join(., LUT, by=c("jurisdiction" = "abbreviations"))$province,
-        type = unlist(lapply(type, \(x) str_split(x, '—')[[1]][2] %>% trimws)),
-        indigenous.population.group = dplyr::recode(indigenous.population.group, "No"=FALSE, "Yes"=TRUE, .default=NA),
-        who = unlist(lapply(
-            summary, 
-            \(x)x %>% str_split(., ":") %>% .[[1]] %>% .[2] %>% gsub("\r|\n|What|Effective until", '', .) %>% trimws
-        )),
-        what = unlist(lapply(
-            summary, 
-            \(x) x %>% str_split(., ":") %>% .[[1]] %>% .[3] %>% gsub("\r|\n|What|Effective until", '', .) %>% trimws
-        )),
-        effective.until = unlist(lapply(
-            summary, 
-            \(x) x %>% str_split(., ":") %>% .[[1]] %>% .[4] %>% gsub("\r|\n|Who|What|Effective until", '', .) %>% trimws
-        )),
-        category = category %>% tolower %>% trimws,
-        effective.until = get.Date(effective.until),
-        jurisdiction = ifelse(is.na(jurisdiction), "all Canada", jurisdiction)
-    ) %>%
-    dplyr::select(-summary) %>%
-    dplyr::filter(!is.na(date.implemented)) %>%
-    data.table
-
-###### EDUCATION_INTERVENTIONS
-
-education_interventions <- interventions %>% filter(grepl("education", tolower(type)) & grepl("provincial", tolower(level)) & grepl("clos|open", tolower(category)))
-fwrite(education_interventions, file.path(PROJECT_FOLDER, "Classifications/educational_interventions"))
-
-# tightened education interventions
-TEI <- fread(file.path(PROJECT_FOLDER, "Classifications/educational_interventions")) %>% 
-    dplyr::filter(grepl("tigh", tolower(action))) %>%
-    dplyr::filter(!grepl("eas", tolower(action))) %>% # some of the restrictions are marked tightening/easing - those are easing
-    dplyr::filter(!grepl("guidance|strengthened|distributed|amended|working with|extended online teacher-led|implemented new measures|mask|release|update", tolower(what))) %>%
-    dplyr::mutate(
-        what = substr(what, start=1, stop=20),
-        effective.until = ifelse(is.na(effective.until), Sys.Date(), effective.until) %>% as.Date(., origin="1970-01-01"),
-        jurisdiction = ifelse(is.na(jurisdiction), "Canada", jurisdiction),
-        color = "red",
-        alpha = lookup_alphas(jurisdiction)
-    )
-
-# eased educational interventions
-EEI <- fread(file.path(PROJECT_FOLDER, "Classifications/educational_interventions")) %>% 
-    dplyr::filter(grepl("eas", tolower(action))) %>%
-    dplyr::filter(!grepl("tigh", tolower(action))) %>%
-    dplyr::filter(!grepl("guidance|strengthened|distributed|amended|working with|extended online teacher-led|implemented new measures|mask|release|update", tolower(what))) %>%
-    dplyr::mutate(
-        what = substr(what, start=1, stop=20),
-        effective.until = ifelse(is.na(effective.until), Sys.Date(), effective.until) %>% as.Date(., origin="1970-01-01"),
-        jurisdiction = ifelse(is.na(jurisdiction), "Canada", jurisdiction),
-        color = "green",
-        alpha = lookup_alphas(jurisdiction)
-    )
-
-# Air_Traffic <- fread(file.path(PROJECT_FOLDER, "Domestic_and_International_itinerant_movements/23100008.csv")) %>%
-#     dplyr::mutate(
-#         year = str_split(REF_DATE, "-")[[1]][1],
-#         month = str_split(REF_DATE, "-")[[1]][2]) %>%
-#     dplyr::rename_with(\(x) x %>% tolower() %>% gsub(' ', '_', .)) %>%
-#     dplyr::select(year, month, airports, domestic_and_international_itinerant_movements, type_of_operation, uom, value)
+"implementation plans and frameworks" 
 
 profiles <- list()
 
@@ -325,7 +234,7 @@ Total_Data_Geo <- data.table(Reduce(
     
 PHU_shapes <- readRDS(file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda"))
     
-if(!file.exists(file.path(PROJECT_FOLDER, "Classifications/PHUs_hosting_airports")))
+if(!file.exists(file.path(PROJECT_FOLDER, "Classifications/PHUs_hosting_airports.csv")))
 {
     Airport_Locations <- st_read(file.path(PROJECT_FOLDER, "Airports_Aeroports_en_shape/Airports_Aeroports_en_shape.shp"))
     
@@ -346,7 +255,7 @@ if(!file.exists(file.path(PROJECT_FOLDER, "Classifications/PHUs_hosting_airports
         data.table %>% 
         setNames(c("HRUID2018", "N")) %>% 
         dplyr::mutate(HRUID2018 = as.numeric(HRUID2018))
-    fwrite(PSUs_with_airports, file.path(PROJECT_FOLDER, "Classifications/PHUs_hosting_airports"))
+    fwrite(PSUs_with_airports, file.path(PROJECT_FOLDER, "Classifications/PHUs_hosting_airports.csv"))
     print(Sys.time() - start_time)
 }
 
@@ -359,8 +268,120 @@ PHU_information <- Total_Data_Geo[,
         by=.(HRUID2018, province, HR)
     ] %>%
     merge(readRDS(file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda")), by=c("HRUID2018")) %>%
-    merge(PSUs_with_airports, by=c("HRUID2018")) %>%
+    merge(fread(file.path(PROJECT_FOLDER, "Classifications/PHUs_hosting_airports.csv")), by=c("HRUID2018")) %>%
     st_sf()
+
+if(!file.exists(file.path(PROJECT_FOLDER, "/CaseDataTables/canada_wide_vacc_data_official.csv")))
+{
+    fread("https://health-infobase.canada.ca/src/data/covidLive/vaccination-coverage-byAgeAndSex.csv") %>%
+        fwrite(file.path(PROJECT_FOLDER, "/CaseDataTables/canada_wide_vacc_data_official.csv"))
+}
+
+############################################ TIME-DEPENDENT METRICS
+
+### WAVE DATES
+
+# doing the wave analysis for all of Canada
+
+Canada_Data <- fread(file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv")) %>%
+    dplyr::select(-cumulative_cases) %>%
+    dplyr::mutate(
+        date = as.Date(date_report, format="%d-%m-%Y"),
+        moving_avg_seven_days = weekly_moving_average(cases),
+        moving_avg_seven_days = ifelse(is.na(moving_avg_seven_days), 0, moving_avg_seven_days),
+        index = as.numeric(date),
+        spline = predict(smooth.spline(index, moving_avg_seven_days, spar=0.7))$y
+    ) %>%
+    data.table
+
+# getting the dates for the waves
+Canada_Wave_Dates <- Canada_Data[find_wave_indices(Canada_Data$spline), as.POSIXct(date)]
+
+
+# retrieved 27 Nov 2021
+if(! file.exists(file.path(PROJECT_FOLDER, "covid-19-intervention-scan-data-tables-en.xlsx")) )
+{
+    download.file(
+        "https://www.cihi.ca/sites/default/files/document/covid-19-intervention-scan-data-tables-en.xlsx",
+        file.path(PROJECT_FOLDER, "covid-19-intervention-scan-data-tables-en.xlsx")
+    )
+}
+
+LUT <- rbind(province_LUT, list("Canada", "Can.", "CN", -1, "Canada")) %>% dplyr::select(province, abbreviations)
+
+get.Date <- function(theList)
+{
+    unlist(lapply(
+        theList,
+        \(x) tryCatch(
+            { x %>% as.character() %>% substr(start = 1, stop = 10) },
+            error = function(e) as.Date(NA)
+        )
+    )) %>% as.Date(., origin="1970-01-01")
+    # re-casting because the list is always being cast to numeric and I don't know why
+}
+
+interventions <- read.xlsx(
+        sprintf("%s/%s", PROJECT_FOLDER, "covid-19-intervention-scan-data-tables-en.xlsx"),
+        sheet = "Intervention scan",
+        startRow = 3
+    ) %>%
+    rename_with(\(x) x %>% tolower %>% gsub("intervention.", "", .))  %>%
+    filter(!grepl("end", tolower(entry.id))) %>%
+    mutate(
+        date.announced = convertToDate(as.integer(date.announced)),
+        date.implemented = convertToDate(as.integer(date.implemented)),
+        jurisdiction = left_join(., LUT, by=c("jurisdiction" = "abbreviations"))$province,
+        type = unlist(lapply(type, \(x) str_split(x, '—')[[1]][2] %>% trimws)),
+        indigenous.population.group = dplyr::recode(indigenous.population.group, "No"=FALSE, "Yes"=TRUE, .default=NA),
+        who = unlist(lapply(
+            summary,
+            \(x)x %>% str_split(., ":") %>% .[[1]] %>% .[2] %>% gsub("\r|\n|What|Effective until", '', .) %>% trimws
+        )),
+        what = unlist(lapply(
+            summary,
+            \(x) x %>% str_split(., ":") %>% .[[1]] %>% .[3] %>% gsub("\r|\n|What|Effective until", '', .) %>% trimws
+        )),
+        effective.until = unlist(lapply(
+            summary,
+            \(x) x %>% str_split(., ":") %>% .[[1]] %>% .[4] %>% gsub("\r|\n|Who|What|Effective until", '', .) %>% trimws
+        )),
+        category = category %>% tolower %>% trimws,
+        effective.until =(effective.until),
+        jurisdiction = ifelse(is.na(jurisdiction), "all Canada", jurisdiction)
+    ) %>%
+    dplyr::select(-summary) %>%
+    dplyr::filter(!is.na(date.implemented)) %>%
+    data.table
+
+###### EDUCATION INTERVENTIONS
+
+# tightened education interventions
+TEI <- interventions %>% 
+    dplyr::filter(grepl("education", tolower(type)) & grepl("provincial", tolower(level)) & grepl("clos|open", tolower(category))) %>% 
+    dplyr::filter(grepl("tigh", tolower(action)) & !grepl("eas", tolower(action))) %>% # some of the restrictions are marked tightening/easing - those are easing
+    dplyr::filter(!grepl("guidance|strengthened|distributed|amended|working with|extended online teacher-led|implemented new measures|mask|release|update", tolower(what))) %>%
+    dplyr::mutate(
+        what = substr(what, start=1, stop=20),
+        effective.until = ifelse(is.na(effective.until), Sys.Date(), effective.until) %>% as.Date(., origin="1970-01-01"),
+        jurisdiction = ifelse(is.na(jurisdiction), "Canada", jurisdiction),
+        color = "red",
+        alpha = lookup_alphas(jurisdiction)
+    )
+
+###### LOCKDOWNS
+
+# lockdown measures
+LDM <- interventions %>% 
+    dplyr::filter(grepl("clos", tolower(category)) & grepl("essential|recrea", tolower(type)) & grepl("provincial", tolower(level))) %>%
+    dplyr::filter(grepl("tigh", tolower(action)) & !grepl("eas", tolower(action))) %>% # some of the restrictions are marked tightening/easing - those are easing
+    dplyr::filter(grepl("clos", tolower(what)))
+
+
+##### Dependent of the dates of the
+
+Vaxx_info <- fread(file.path(PROJECT_FOLDER, "/CaseDataTables/canada_wide_vacc_data_official.csv"))
+
 
 
 # ############################################# COVID DATA
@@ -624,9 +645,29 @@ PHU_information <- Total_Data_Geo[,
 # }    
     
     
-    
-    
-    
+ ########################################################################################################
+
+# # eased educational interventions
+# EEI <- fread(file.path(PROJECT_FOLDER, "Classifications/educational_interventions")) %>% 
+#     dplyr::filter(grepl("eas", tolower(action))) %>%
+#     dplyr::filter(!grepl("tigh", tolower(action))) %>%
+#     dplyr::filter(!grepl("guidance|strengthened|distributed|amended|working with|extended online teacher-led|implemented new measures|mask|release|update", tolower(what))) %>%
+#     dplyr::mutate(
+#         what = substr(what, start=1, stop=20),
+#         effective.until = ifelse(is.na(effective.until), Sys.Date(), effective.until) %>% as.Date(., origin="1970-01-01"),
+#         jurisdiction = ifelse(is.na(jurisdiction), "Canada", jurisdiction),
+#         color = "green",
+#         alpha = lookup_alphas(jurisdiction)
+#     )
+
+# Air_Traffic <- fread(file.path(PROJECT_FOLDER, "Domestic_and_International_itinerant_movements/23100008.csv")) %>%
+#     dplyr::mutate(
+#         year = str_split(REF_DATE, "-")[[1]][1],
+#         month = str_split(REF_DATE, "-")[[1]][2]) %>%
+#     dplyr::rename_with(\(x) x %>% tolower() %>% gsub(' ', '_', .)) %>%
+#     dplyr::select(year, month, airports, domestic_and_international_itinerant_movements, type_of_operation, uom, value)
+
+# the intervention data set is fucked up for vaccination, so we're just going with vaccinations
     
     
     

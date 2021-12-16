@@ -101,18 +101,7 @@ TEI <- fread(file.path(PROJECT_FOLDER, "Classifications/educational_intervention
     ) %>%
     dplyr::select(-what, -who, -action, -`primary.source.(news.release.or.specific.resource)`,-secondary.source, -entry.id, -jurisdiction)
 
-Canada_Data <- fread(file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv")) %>%
-    dplyr::select(-cumulative_cases) %>%
-    dplyr::mutate(
-        date = as.Date(date_report, format="%d-%m-%Y"),
-        moving_avg_seven_days = weekly_moving_average(cases),
-        moving_avg_seven_days = ifelse(is.na(moving_avg_seven_days), 0, moving_avg_seven_days),
-        index = as.numeric(date),
-        spline = predict(smooth.spline(index, moving_avg_seven_days, spar=0.7))$y
-    ) %>%
-    data.table
-
-Canada_Wave_Dates <- Canada_Data[find_wave_indices(Canada_Data$spline), as.POSIXct(date)]
+# get the wave dates from the "refresh_the_data.csv" file
 
 ggplot(Canada_Data, aes(x=date)) +
     geom_point(aes(y=cases)) +
