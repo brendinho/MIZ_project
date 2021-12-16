@@ -41,13 +41,13 @@ AR_dist <-ggplot(
     
 # Pop_plot <- 
     
-    # ggplot(
+    ggplot(
         Total_Data %>% 
             dplyr::select(province, hr, hruid, population) %>% 
             unique() %>% 
             dplyr::filter(!is.na(population)) %>%
             dplyr::select(population) %>% 
-            dplyr::mutate(lev=1), 
+            dplyr::mutate(lev=1),
         aes(y=population, x=lev)
     ) +
     geom_boxplot(fill="lightblue", outlier.colour="red", outlier.shape=16, outlier.size=3, notch=TRUE) +

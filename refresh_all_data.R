@@ -116,14 +116,12 @@ EEI <- fread(file.path(PROJECT_FOLDER, "Classifications/educational_intervention
         alpha = lookup_alphas(jurisdiction)
     )
 
-Air_Traffic <- fread(file.path(PROJECT_FOLDER, "Domestic_and_International_itinerant_movements/23100008.csv")) %>%
-    dplyr::mutate(
-        year = str_split(REF_DATE, "-")[[1]][1],
-        month = str_split(REF_DATE, "-")[[1]][2]) %>%
-    dplyr::rename_with(\(x) x %>% tolower() %>% gsub(' ', '_', .)) %>%
-    dplyr::select(year, month, airports, domestic_and_international_itinerant_movements, type_of_operation, uom, value)
-
-Airport_Locations <- st_read(file.path(PROJECT_FOLDER, "Airports_Aeroports_en_shape/Airports_Aeroports_en_shape.shp"))
+# Air_Traffic <- fread(file.path(PROJECT_FOLDER, "Domestic_and_International_itinerant_movements/23100008.csv")) %>%
+#     dplyr::mutate(
+#         year = str_split(REF_DATE, "-")[[1]][1],
+#         month = str_split(REF_DATE, "-")[[1]][2]) %>%
+#     dplyr::rename_with(\(x) x %>% tolower() %>% gsub(' ', '_', .)) %>%
+#     dplyr::select(year, month, airports, domestic_and_international_itinerant_movements, type_of_operation, uom, value)
 
 profiles <- list()
 
@@ -325,6 +323,8 @@ Total_Data_Geo <- data.table(Reduce(
     # dplyr::relocate("csduid2016", "region", "province", "HR", "class", "index_of_remoteness", "population_density")
     saveRDS(Total_Data_Geo, sprintf("%s/Classifications/Total_CSD_Info.rda", PROJECT_FOLDER))
     
+PHU_shapes <- readRDS(file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda"))
+    
 PHU_information <- Total_Data_Geo[, 
         lapply(.SD, sum, na=TRUE), 
         .SDcols = setdiff(
@@ -332,11 +332,22 @@ PHU_information <- Total_Data_Geo[,
             c("geo_code", "geo_name", "class", "province", "HR", "HRUID2018")
         ), 
         by=.(HRUID2018, province, HR)
-    ]
+    ] %>%
+    merge(readRDS(file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda")), by=c("HRUID2018"))
 
+Airport_Locations <- st_read(file.path(PROJECT_FOLDER, "Airports_Aeroports_en_shape/Airports_Aeroports_en_shape.shp"))
 
-All_Provinces <- st_sf(readRDS(file.path(PROJECT_FOLDER, "All_Provinces.rds"))) %>%
-    merge(., province_LUT %>% dplyr::select(province, abbreviations, alpha), all=TRUE, by="province")
+which_PHU5<- function(icao)
+{
+    return(
+        st_intersects(
+            data.table(Airport_Locations)[ICAO == icao, geometry] %>% st_sf() %>% st_transform(3857), 
+            PHU_information$geometry %>% st_sf() %>% st_transform(3857)
+        ) %>% .[1] %>% .[[1]] %>% PHU_information[., HRUID2018]
+    )
+}
+
+PHUs_with_airports <- unlist(lapply(Airport_Locations$ICAO, \(xx) which_PSUs(xx)))
 
 # ############################################# COVID DATA
 # 
