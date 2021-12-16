@@ -11,8 +11,8 @@ library(ggplot2)
 library(vistime)
 library(sf)
 
-# PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
-PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project"
+PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
+# PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project"
 
 # options(java.parameters = "-Xmx4g" )
 # library(XLConnect)
@@ -325,29 +325,43 @@ Total_Data_Geo <- data.table(Reduce(
     
 PHU_shapes <- readRDS(file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda"))
     
-PHU_information <- Total_Data_Geo[, 
-        lapply(.SD, sum, na=TRUE), 
-        .SDcols = setdiff(
-            names(Total_Data_Geo), 
-            c("geo_code", "geo_name", "class", "province", "HR", "HRUID2018")
-        ), 
-        by=.(HRUID2018, province, HR)
-    ] %>%
-    merge(readRDS(file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda")), by=c("HRUID2018"))
-
-Airport_Locations <- st_read(file.path(PROJECT_FOLDER, "Airports_Aeroports_en_shape/Airports_Aeroports_en_shape.shp"))
-
-which_PHU5<- function(icao)
+if(!file.exists(file.path(PROJECT_FOLDER, "Classifications/PHUs_hosting_airports")))
 {
-    return(
-        st_intersects(
-            data.table(Airport_Locations)[ICAO == icao, geometry] %>% st_sf() %>% st_transform(3857), 
-            PHU_information$geometry %>% st_sf() %>% st_transform(3857)
-        ) %>% .[1] %>% .[[1]] %>% PHU_information[., HRUID2018]
-    )
+    Airport_Locations <- st_read(file.path(PROJECT_FOLDER, "Airports_Aeroports_en_shape/Airports_Aeroports_en_shape.shp"))
+    
+    which_PHUs <- function(icaos)
+    {
+        return(unlist(lapply(
+            icaos,
+            \(xx) st_intersects(
+                data.table(Airport_Locations)[ICAO == xx, geometry] %>% st_sf() %>% st_transform(3857), 
+                PHU_shapes$geometry %>% st_sf() %>% st_transform(3857)
+            ) %>% .[1] %>% .[[1]] %>% PHU_shapes[., HRUID2018]
+        )))
+    }
+    
+    start_time <- Sys.time()
+    PSUs_with_airports <-  which_PHUs(unique(Airport_Locations$ICAO)) %>%
+        table %>% 
+        data.table %>% 
+        setNames(c("HRUID2018", "N")) %>% 
+        dplyr::mutate(HRUID2018 = as.numeric(HRUID2018))
+    fwrite(PSUs_with_airports, file.path(PROJECT_FOLDER, "Classifications/PHUs_hosting_airports"))
+    print(Sys.time() - start_time)
 }
 
-PHUs_with_airports <- unlist(lapply(Airport_Locations$ICAO, \(xx) which_PSUs(xx)))
+PHU_information <- Total_Data_Geo[,
+        lapply(.SD, sum, na=TRUE),
+        .SDcols = setdiff(
+            names(Total_Data_Geo),
+            c("geo_code", "geo_name", "class", "province", "HR", "HRUID2018")
+        ),
+        by=.(HRUID2018, province, HR)
+    ] %>%
+    merge(readRDS(file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda")), by=c("HRUID2018")) %>%
+    merge(PSUs_with_airports, by=c("HRUID2018")) %>%
+    st_sf()
+
 
 # ############################################# COVID DATA
 # 
