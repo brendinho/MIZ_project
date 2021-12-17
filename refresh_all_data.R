@@ -279,7 +279,13 @@ if(!file.exists(file.path(PROJECT_FOLDER, "/CaseDataTables/canada_wide_vacc_data
 
 ############################################ TIME-DEPENDENT METRICS
 
-### WAVE DATES
+# WAVE DATES
+
+if(!file.exists(file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv")))
+{
+    jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=cases&loc=canada")$cases %>%
+        fwrite(file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv"))
+}
 
 # doing the wave analysis for all of Canada
 
@@ -295,7 +301,21 @@ Canada_Data <- fread(file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv"))
     data.table
 
 # getting the dates for the waves
-Canada_Wave_Dates <- Canada_Data[find_wave_indices(Canada_Data$spline), as.POSIXct(date)]
+Canada_Wave_Dates <- Canada_Data[find_wave_indices(Canada_Data$spline)] %>% 
+    dplyr::pull(date) %>%
+    as.Date %>% 
+    c(min(Canada_Data$date), Sys.time()) %>% 
+    sort
+
+first_wave  <- Canada_Wave_Dates[1:2]
+second_wave <- Canada_Wave_Dates[2:3]
+third_wave  <- Canada_Wave_Dates[3:4]
+fourth_wave <- Canada_Wave_Dates[4:5]
+
+find_overlap <- function(theDateRange)
+{
+    
+}
 
 
 # retrieved 27 Nov 2021
@@ -332,7 +352,7 @@ interventions <- read.xlsx(
         date.announced = convertToDate(as.integer(date.announced)),
         date.implemented = convertToDate(as.integer(date.implemented)),
         jurisdiction = left_join(., LUT, by=c("jurisdiction" = "abbreviations"))$province,
-        type = unlist(lapply(type, \(x) str_split(x, '—')[[1]][2] %>% trimws)),
+        type = unlist(lapply(type, \(x) str_split(x, '-')[[1]][2] %>% trimws)),
         indigenous.population.group = dplyr::recode(indigenous.population.group, "No"=FALSE, "Yes"=TRUE, .default=NA),
         who = unlist(lapply(
             summary,
@@ -358,7 +378,9 @@ interventions <- read.xlsx(
 
 # tightened education interventions
 TEI <- interventions %>% 
-    dplyr::filter(grepl("education", tolower(type)) & grepl("provincial", tolower(level)) & grepl("clos|open", tolower(category))) %>% 
+    dplyr::filter(grepl("education", tolower(type))) %>%
+    dplyr::filter(grepl("provincial", tolower(level))) %>%
+    dplyr::filter(grepl("clos|open", tolower(category))) %>% 
     dplyr::filter(grepl("tigh", tolower(action)) & !grepl("eas", tolower(action))) %>% # some of the restrictions are marked tightening/easing - those are easing
     dplyr::filter(!grepl("guidance|strengthened|distributed|amended|working with|extended online teacher-led|implemented new measures|mask|release|update", tolower(what))) %>%
     dplyr::mutate(
@@ -368,6 +390,17 @@ TEI <- interventions %>%
         color = "red",
         alpha = lookup_alphas(jurisdiction)
     )
+
+TEI %>% 
+    dplyr::select(jurisdiction, date.implemented, effective.until) %>% 
+    dplyr::mutate(effective.until = pmin(effective.until, Sys.time(), na.rm=T)) %>% 
+    split(by="jurisdiction") %>% 
+    lapply(. %>% select(-jurisdiction))
+
+
+
+
+
 
 ###### LOCKDOWNS
 
