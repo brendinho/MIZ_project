@@ -187,20 +187,32 @@ lookup_HR_StatCan <- function(x)
     } else { "missing" }
 }
 
-add_HRs <-  function(table, uid_column, province_column)
+add_HRs <- function(table, uid_column, province_column, raw_numbers=FALSE)
 {
     here <- data.table(table)
     here[, c("HR", "HRUID2018"):=list("", -1)]
     
+    raw_HRUIDs <- c()
+    
     for(row_index in 1:nrow(here))
     {
+        # print(row_index)
+        
         UID <- here[row_index, get(uid_column)]
+        
+        if(! UID %in% unique(c(HR_info_mine$CSDUID2016, HR_info_StatCan$CSDUID2016))) next
 
         if(here[row_index, get(province_column)] %in% c("British Columbia", "BC"))
         {
             prospectives <- HR_info_mine[CSDUID2016 == UID, c("HR", "HRUID2018")]
         } else {
             prospectives <- HR_info_StatCan[CSDUID2016 == UID, c("HR", "HRUID2018")]
+        }
+        
+        if(raw_numbers)
+        {
+            raw_HRUIDs <- c(raw_HRUIDs, prospectives$HRUID2018)
+            next
         }
 
         hr_name <- standard_HR_name(prospectives[1]$HR)
@@ -216,6 +228,7 @@ add_HRs <-  function(table, uid_column, province_column)
             )
         }}
     }
+    if(raw_numbers) return(raw_HRUIDs)
     return(here)
 }
 
@@ -236,7 +249,7 @@ add_HRUIDs <- function(table, HR_column="HR", province_column="province")
             relevant <- 3539
         } else {
             relevant <- HR_info_StatCan_lookup[HR==region & Province==province, unique(HRUID2018)]
-        }
+        } 
         
         if(length(relevant) == 1){ here[row_index]$HRUID2018 <- relevant}
     }
@@ -254,56 +267,56 @@ value_if_number_else_NA <- function(theList)
     )
 }
 
-add_wave_numbers <- function(input_table, case_col="cases", date_col="date", num_waves=4, days_apart=45) 
-{
-    weekly_moving_average <- function(x) stats::filter(x, rep(1,7), sides = 1)/7
-
-    # get rid of all the extraneous information
-    tab_here <- input_table %>%
-        dplyr::rename(cases=case_col, date=date_col) %>%
-        dplyr::filter( !is.na(cases) & cases>0) %>%
-        dplyr::mutate(
-            cases = as.numeric(cases),
-            date = as.Date(date)
-        ) %>%
-        dplyr::group_by(date) %>%
-        dplyr::tally(cases) %>%
-        dplyr::rename(cases=n) %>%
-        dplyr::mutate(
-            index = as.numeric(date),
-            date = as.Date(date),
-            weekly_rolling_avg = weekly_moving_average(cases),
-            smooth_spline = predict(smooth.spline(index, cases, spar=0.35))$y
-        ) %>%
-        # we search for the date with the minimum if cases, so we don't want to trivially get a breakpoint within the first few days
-        dplyr::filter(date >= min(date) + 45) %>%
-        data.table()
-    
-    return(tab_here)
-
-    # print(tab_here[date %in% as.Date(c("2020-05-01", "2020-07-01", "2021-01-01", "2021-02-22", "2021-04-15", "2021-06-30"))])
-
-    # do a breakpoint analysis to get the valley between the two peaks
-    seg_reg <- segmented(
-        # lm(log(weekly_rolling_avg) ~ index, data=tab_here),
-        lm(log(smooth_spline) ~ index, data=tab_here),
-        seg.Z = ~ index,
-        npsi = 2*num_waves-1
-        # psi = tab_here[date %in% as.Date(c("2020-05-01", "2020-07-01", "2021-01-01", "2021-02-22", "2021-04-15", "2021-06-30")), index]
-    )
-
-    break_dates <- tab_here[index %in% floor(data.frame(seg_reg$psi)$`Est.`), date]
-    wave_dates <- break_dates[ ! (1:length(break_dates) %% 2) ]
-    
-    # remember to actually add the wave numbers
-    
-    return(list(
-        dates.breaks = break_dates,
-        dates.waves = c(min(tab_here$date), break_dates[!(1:length(break_dates)%%2)]),
-        rgeression = seg_reg,
-        data = tab_here
-    ))
-}
+# add_wave_numbers <- function(input_table, case_col="cases", date_col="date", num_waves=4, days_apart=45) 
+# {
+#     weekly_moving_average <- function(x) stats::filter(x, rep(1,7), sides = 1)/7
+# 
+#     # get rid of all the extraneous information
+#     tab_here <- input_table %>%
+#         dplyr::rename(cases=case_col, date=date_col) %>%
+#         dplyr::filter( !is.na(cases) & cases>0) %>%
+#         dplyr::mutate(
+#             cases = as.numeric(cases),
+#             date = as.Date(date)
+#         ) %>%
+#         dplyr::group_by(date) %>%
+#         dplyr::tally(cases) %>%
+#         dplyr::rename(cases=n) %>%
+#         dplyr::mutate(
+#             index = as.numeric(date),
+#             date = as.Date(date),
+#             weekly_rolling_avg = weekly_moving_average(cases),
+#             smooth_spline = predict(smooth.spline(index, cases, spar=0.35))$y
+#         ) %>%
+#         # we search for the date with the minimum if cases, so we don't want to trivially get a breakpoint within the first few days
+#         dplyr::filter(date >= min(date) + 45) %>%
+#         data.table()
+#     
+#     return(tab_here)
+# 
+#     # print(tab_here[date %in% as.Date(c("2020-05-01", "2020-07-01", "2021-01-01", "2021-02-22", "2021-04-15", "2021-06-30"))])
+# 
+#     # do a breakpoint analysis to get the valley between the two peaks
+#     seg_reg <- segmented(
+#         # lm(log(weekly_rolling_avg) ~ index, data=tab_here),
+#         lm(log(smooth_spline) ~ index, data=tab_here),
+#         seg.Z = ~ index,
+#         npsi = 2*num_waves-1
+#         # psi = tab_here[date %in% as.Date(c("2020-05-01", "2020-07-01", "2021-01-01", "2021-02-22", "2021-04-15", "2021-06-30")), index]
+#     )
+# 
+#     break_dates <- tab_here[index %in% floor(data.frame(seg_reg$psi)$`Est.`), date]
+#     wave_dates <- break_dates[ ! (1:length(break_dates) %% 2) ]
+#     
+#     # remember to actually add the wave numbers
+#     
+#     return(list(
+#         dates.breaks = break_dates,
+#         dates.waves = c(min(tab_here$date), break_dates[!(1:length(break_dates)%%2)]),
+#         rgeression = seg_reg,
+#         data = tab_here
+#     ))
+# }
 
 CSD_score_normal <- function(x)
 {
@@ -341,6 +354,107 @@ find_wave_indices <- function(timeSeries)
     
     return(valley_indices)
 }
+
+# doing the wave analysis for all of Canada
+
+Canada_Data <- fread(file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv")) %>%
+    dplyr::select(-cumulative_cases) %>%
+    dplyr::mutate(
+        date = as.Date(date_report, format="%d-%m-%Y"),
+        moving_avg_seven_days = weekly_moving_average(cases),
+        moving_avg_seven_days = ifelse(is.na(moving_avg_seven_days), 0, moving_avg_seven_days),
+        index = as.numeric(date),
+        spline = predict(smooth.spline(index, moving_avg_seven_days, spar=0.7))$y
+    ) %>%
+    data.table
+
+# getting the dates for the waves
+Canada_Wave_Dates <- Canada_Data[find_wave_indices(Canada_Data$spline)] %>% 
+    dplyr::pull(date) %>%
+    as.Date %>% 
+    c(min(Canada_Data$date), Sys.time()) %>% 
+    sort
+
+canada_waves <- list(
+    `1` = list(
+        dates = Canada_Wave_Dates[1:2],
+        integers = Canada_Wave_Dates[1]:Canada_Wave_Dates[2]
+    ),
+    `2` = list(
+        dates = Canada_Wave_Dates[2:3],
+        integers = Canada_Wave_Dates[2]:Canada_Wave_Dates[3]
+    ), 
+    `3` = list(
+        dates = Canada_Wave_Dates[3:4],
+        integers = Canada_Wave_Dates[3]:Canada_Wave_Dates[4]
+    ),
+    `4` = list(
+        dates = Canada_Wave_Dates[4:5],
+        integers = Canada_Wave_Dates[4]:Canada_Wave_Dates[5]
+    )
+    
+)
+
+how_much_of_the_wave <- function(the_dates, which_wave = 1)
+{
+    # if there are no dates, return 0
+    if(length(the_dates) == 0) return("None")
+    # sort the integer dates
+    theDates <- sort(unique(the_dates))
+    # select a valid wave
+    if(! which_wave %in% 1:4) return(NA)
+    #select the dates of the wave requested
+    theDates <- theDates %>% .[
+        . >= min(canada_waves[[which_wave]]$integers) & 
+        . < max(canada_waves[[which_wave]]$integers)
+    ]
+    # if there are no dates, return 0
+    if(length(theDates) == 0) return("None")
+    # print(theDates)
+    # if non-zero length, but the intervention dates don't span the entire period
+    if(abs(length(theDates) - length(canada_waves[[which_wave]]$integers))>=2) return("Partial")
+    return("Entire")
+}
+
+
+get.Date <- function(theList)
+{
+    unlist(lapply(
+        theList,
+        \(x) tryCatch(
+            { x %>% as.character() %>% substr(start = 1, stop = 10) },
+            error = function(e) as.Date(NA)
+        )
+    )) %>% as.Date(., origin="1970-01-01")
+    # re-casting because the list is always being cast to numeric and I don't know why
+}
+
+date_corrector <- function(theDateString)
+{
+    if(nchar(theDateString) == 0) return("")
+    if(is.na(str_extract(theDateString, "\\d"))) return("-1")
+    
+    the_split <- strsplit(theDateString, '-')[[1]]
+    len <- length(the_split);
+    
+    string <- theDateString
+    if(len == 2) 
+    {
+        string <- paste0(theDateString, "-01")
+    } else if(len == 1){
+        string <- paste0(theDateString, "-01-01")
+    }
+    
+    string <- string  %>% 
+        gsub("-+", "-", .) %>%
+        (\(x) if(nchar(the_split[1]) == 2) as.Date(x, format="%m-%d-%Y") else as.Date(x)) %>%
+        as.numeric %>% 
+        as.character
+    
+    return(string)
+}
+
+
 
 # add_wave_numbers <- function(input_table, case_col="cases", date_col="date", num_waves=4, days_apart=45) 
 # {

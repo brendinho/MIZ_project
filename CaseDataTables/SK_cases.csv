@@ -12,7 +12,6 @@ date,HR,cases,province
 2020-08-04,South West,1,Saskatchewan
 2020-08-04,South Central,0,Saskatchewan
 2020-08-04,South East,0,Saskatchewan
-2020-08-04,Total,9,Saskatchewan
 2020-08-05,Far North West,0,Saskatchewan
 2020-08-05,Far North Central,0,Saskatchewan
 2020-08-05,Far North East,0,Saskatchewan
@@ -26,7 +25,6 @@ date,HR,cases,province
 2020-08-05,South West,0,Saskatchewan
 2020-08-05,South Central,0,Saskatchewan
 2020-08-05,South East,0,Saskatchewan
-2020-08-05,Total,8,Saskatchewan
 2020-08-06,Far North West,0,Saskatchewan
 2020-08-06,Far North Central,0,Saskatchewan
 2020-08-06,Far North East,0,Saskatchewan
@@ -40,7 +38,6 @@ date,HR,cases,province
 2020-08-06,South West,1,Saskatchewan
 2020-08-06,South Central,9,Saskatchewan
 2020-08-06,South East,0,Saskatchewan
-2020-08-06,Total,11,Saskatchewan
 2020-08-07,Far North West,0,Saskatchewan
 2020-08-07,Far North Central,0,Saskatchewan
 2020-08-07,Far North East,0,Saskatchewan
@@ -54,7 +51,6 @@ date,HR,cases,province
 2020-08-07,South West,2,Saskatchewan
 2020-08-07,South Central,12,Saskatchewan
 2020-08-07,South East,0,Saskatchewan
-2020-08-07,Total,23,Saskatchewan
 2020-08-08,Far North West,0,Saskatchewan
 2020-08-08,Far North Central,0,Saskatchewan
 2020-08-08,Far North East,0,Saskatchewan
@@ -68,7 +64,6 @@ date,HR,cases,province
 2020-08-08,South West,1,Saskatchewan
 2020-08-08,South Central,4,Saskatchewan
 2020-08-08,South East,0,Saskatchewan
-2020-08-08,Total,22,Saskatchewan
 2020-08-09,Far North West,0,Saskatchewan
 2020-08-09,Far North Central,0,Saskatchewan
 2020-08-09,Far North East,0,Saskatchewan
@@ -82,7 +77,6 @@ date,HR,cases,province
 2020-08-09,South West,1,Saskatchewan
 2020-08-09,South Central,3,Saskatchewan
 2020-08-09,South East,0,Saskatchewan
-2020-08-09,Total,15,Saskatchewan
 2020-08-10,Far North West,0,Saskatchewan
 2020-08-10,Far North Central,0,Saskatchewan
 2020-08-10,Far North East,0,Saskatchewan
@@ -96,7 +90,6 @@ date,HR,cases,province
 2020-08-10,South West,0,Saskatchewan
 2020-08-10,South Central,1,Saskatchewan
 2020-08-10,South East,0,Saskatchewan
-2020-08-10,Total,5,Saskatchewan
 2020-08-11,Far North West,0,Saskatchewan
 2020-08-11,Far North Central,0,Saskatchewan
 2020-08-11,Far North East,0,Saskatchewan
@@ -110,7 +103,6 @@ date,HR,cases,province
 2020-08-11,South West,2,Saskatchewan
 2020-08-11,South Central,3,Saskatchewan
 2020-08-11,South East,0,Saskatchewan
-2020-08-11,Total,29,Saskatchewan
 2020-08-12,Far North West,0,Saskatchewan
 2020-08-12,Far North Central,0,Saskatchewan
 2020-08-12,Far North East,0,Saskatchewan
@@ -124,7 +116,6 @@ date,HR,cases,province
 2020-08-12,South West,0,Saskatchewan
 2020-08-12,South Central,0,Saskatchewan
 2020-08-12,South East,0,Saskatchewan
-2020-08-12,Total,5,Saskatchewan
 2020-08-13,Far North West,0,Saskatchewan
 2020-08-13,Far North Central,0,Saskatchewan
 2020-08-13,Far North East,0,Saskatchewan
@@ -138,7 +129,6 @@ date,HR,cases,province
 2020-08-13,South West,0,Saskatchewan
 2020-08-13,South Central,4,Saskatchewan
 2020-08-13,South East,0,Saskatchewan
-2020-08-13,Total,27,Saskatchewan
 2020-08-14,Far North West,0,Saskatchewan
 2020-08-14,Far North Central,0,Saskatchewan
 2020-08-14,Far North East,0,Saskatchewan
@@ -152,7 +142,6 @@ date,HR,cases,province
 2020-08-14,South West,1,Saskatchewan
 2020-08-14,South Central,6,Saskatchewan
 2020-08-14,South East,0,Saskatchewan
-2020-08-14,Total,30,Saskatchewan
 2020-08-15,Far North West,0,Saskatchewan
 2020-08-15,Far North Central,0,Saskatchewan
 2020-08-15,Far North East,0,Saskatchewan
@@ -166,7 +155,6 @@ date,HR,cases,province
 2020-08-15,South West,0,Saskatchewan
 2020-08-15,South Central,0,Saskatchewan
 2020-08-15,South East,0,Saskatchewan
-2020-08-15,Total,25,Saskatchewan
 2020-08-16,Far North West,0,Saskatchewan
 2020-08-16,Far North Central,0,Saskatchewan
 2020-08-16,Far North East,0,Saskatchewan
@@ -180,7 +168,6 @@ date,HR,cases,province
 2020-08-16,South West,4,Saskatchewan
 2020-08-16,South Central,2,Saskatchewan
 2020-08-16,South East,0,Saskatchewan
-2020-08-16,Total,15,Saskatchewan
 2020-08-17,Far North West,0,Saskatchewan
 2020-08-17,Far North Central,0,Saskatchewan
 2020-08-17,Far North East,0,Saskatchewan
@@ -194,7 +181,6 @@ date,HR,cases,province
 2020-08-17,South West,0,Saskatchewan
 2020-08-17,South Central,0,Saskatchewan
 2020-08-17,South East,0,Saskatchewan
-2020-08-17,Total,1,Saskatchewan
 2020-08-18,Far North West,0,Saskatchewan
 2020-08-18,Far North East,0,Saskatchewan
 2020-08-18,North West,0,Saskatchewan
@@ -207,7 +193,6 @@ date,HR,cases,province
 2020-08-18,South West,0,Saskatchewan
 2020-08-18,South Central,0,Saskatchewan
 2020-08-18,South East,0,Saskatchewan
-2020-08-18,Total,1,Saskatchewan
 2020-08-19,Far North West,0,Saskatchewan
 2020-08-19,Far North East,0,Saskatchewan
 2020-08-19,North West,1,Saskatchewan
@@ -220,7 +205,6 @@ date,HR,cases,province
 2020-08-19,South West,2,Saskatchewan
 2020-08-19,South Central,0,Saskatchewan
 2020-08-19,South East,0,Saskatchewan
-2020-08-19,Total,4,Saskatchewan
 2020-08-20,Far North West,0,Saskatchewan
 2020-08-20,Far North East,0,Saskatchewan
 2020-08-20,North West,1,Saskatchewan
@@ -233,7 +217,6 @@ date,HR,cases,province
 2020-08-20,South West,0,Saskatchewan
 2020-08-20,South Central,0,Saskatchewan
 2020-08-20,South East,0,Saskatchewan
-2020-08-20,Total,4,Saskatchewan
 2020-08-21,Far North West,0,Saskatchewan
 2020-08-21,Far North Central,0,Saskatchewan
 2020-08-21,Far North East,0,Saskatchewan
@@ -247,7 +230,6 @@ date,HR,cases,province
 2020-08-21,South West,1,Saskatchewan
 2020-08-21,South Central,0,Saskatchewan
 2020-08-21,South East,0,Saskatchewan
-2020-08-21,Total,6,Saskatchewan
 2020-08-22,Far North West,0,Saskatchewan
 2020-08-22,Far North Central,0,Saskatchewan
 2020-08-22,Far North East,0,Saskatchewan
@@ -261,7 +243,6 @@ date,HR,cases,province
 2020-08-22,South West,1,Saskatchewan
 2020-08-22,South Central,0,Saskatchewan
 2020-08-22,South East,0,Saskatchewan
-2020-08-22,Total,2,Saskatchewan
 2020-08-23,Far North West,0,Saskatchewan
 2020-08-23,Far North Central,0,Saskatchewan
 2020-08-23,Far North East,0,Saskatchewan
@@ -275,7 +256,6 @@ date,HR,cases,province
 2020-08-23,South West,0,Saskatchewan
 2020-08-23,South Central,0,Saskatchewan
 2020-08-23,South East,0,Saskatchewan
-2020-08-23,Total,3,Saskatchewan
 2020-08-24,Far North West,0,Saskatchewan
 2020-08-24,Far North Central,0,Saskatchewan
 2020-08-24,Far North East,0,Saskatchewan
@@ -289,7 +269,6 @@ date,HR,cases,province
 2020-08-24,South West,0,Saskatchewan
 2020-08-24,South Central,0,Saskatchewan
 2020-08-24,South East,0,Saskatchewan
-2020-08-24,Total,3,Saskatchewan
 2020-08-25,Far North West,0,Saskatchewan
 2020-08-25,Far North Central,0,Saskatchewan
 2020-08-25,Far North East,0,Saskatchewan
@@ -303,7 +282,6 @@ date,HR,cases,province
 2020-08-25,South West,0,Saskatchewan
 2020-08-25,South Central,0,Saskatchewan
 2020-08-25,South East,0,Saskatchewan
-2020-08-25,Total,0,Saskatchewan
 2020-08-26,Far North West,0,Saskatchewan
 2020-08-26,Far North Central,0,Saskatchewan
 2020-08-26,Far North East,0,Saskatchewan
@@ -317,7 +295,6 @@ date,HR,cases,province
 2020-08-26,South West,0,Saskatchewan
 2020-08-26,South Central,0,Saskatchewan
 2020-08-26,South East,0,Saskatchewan
-2020-08-26,Total,3,Saskatchewan
 2020-08-27,Far North West,0,Saskatchewan
 2020-08-27,Far North Central,0,Saskatchewan
 2020-08-27,Far North East,0,Saskatchewan
@@ -331,7 +308,6 @@ date,HR,cases,province
 2020-08-27,South West,0,Saskatchewan
 2020-08-27,South Central,0,Saskatchewan
 2020-08-27,South East,0,Saskatchewan
-2020-08-27,Total,5,Saskatchewan
 2020-08-28,Far North West,1,Saskatchewan
 2020-08-28,Far North Central,0,Saskatchewan
 2020-08-28,Far North East,0,Saskatchewan
@@ -345,7 +321,6 @@ date,HR,cases,province
 2020-08-28,South West,0,Saskatchewan
 2020-08-28,South Central,0,Saskatchewan
 2020-08-28,South East,0,Saskatchewan
-2020-08-28,Total,2,Saskatchewan
 2020-08-29,Far North West,0,Saskatchewan
 2020-08-29,Far North Central,0,Saskatchewan
 2020-08-29,Far North East,0,Saskatchewan
@@ -359,7 +334,6 @@ date,HR,cases,province
 2020-08-29,South West,0,Saskatchewan
 2020-08-29,South Central,0,Saskatchewan
 2020-08-29,South East,0,Saskatchewan
-2020-08-29,Total,4,Saskatchewan
 2020-08-30,Far North West,0,Saskatchewan
 2020-08-30,Far North Central,0,Saskatchewan
 2020-08-30,Far North East,0,Saskatchewan
@@ -373,7 +347,6 @@ date,HR,cases,province
 2020-08-30,South West,0,Saskatchewan
 2020-08-30,South Central,0,Saskatchewan
 2020-08-30,South East,0,Saskatchewan
-2020-08-30,Total,0,Saskatchewan
 2020-08-31,Far North West,0,Saskatchewan
 2020-08-31,Far North Central,0,Saskatchewan
 2020-08-31,Far North East,0,Saskatchewan
@@ -387,7 +360,6 @@ date,HR,cases,province
 2020-08-31,South West,1,Saskatchewan
 2020-08-31,South Central,0,Saskatchewan
 2020-08-31,South East,0,Saskatchewan
-2020-08-31,Total,4,Saskatchewan
 2020-09-01,Far North West,0,Saskatchewan
 2020-09-01,Far North Central,0,Saskatchewan
 2020-09-01,Far North East,0,Saskatchewan
@@ -401,7 +373,6 @@ date,HR,cases,province
 2020-09-01,South West,0,Saskatchewan
 2020-09-01,South Central,0,Saskatchewan
 2020-09-01,South East,0,Saskatchewan
-2020-09-01,Total,3,Saskatchewan
 2020-09-02,Far North West,0,Saskatchewan
 2020-09-02,Far North Central,0,Saskatchewan
 2020-09-02,Far North East,0,Saskatchewan
@@ -415,7 +386,6 @@ date,HR,cases,province
 2020-09-02,South West,0,Saskatchewan
 2020-09-02,South Central,1,Saskatchewan
 2020-09-02,South East,0,Saskatchewan
-2020-09-02,Total,2,Saskatchewan
 2020-09-03,Far North West,0,Saskatchewan
 2020-09-03,Far North Central,0,Saskatchewan
 2020-09-03,Far North East,0,Saskatchewan
@@ -429,7 +399,6 @@ date,HR,cases,province
 2020-09-03,South West,0,Saskatchewan
 2020-09-03,South Central,1,Saskatchewan
 2020-09-03,South East,0,Saskatchewan
-2020-09-03,Total,10,Saskatchewan
 2020-09-04,Far North West,0,Saskatchewan
 2020-09-04,Far North Central,0,Saskatchewan
 2020-09-04,Far North East,0,Saskatchewan
@@ -443,7 +412,6 @@ date,HR,cases,province
 2020-09-04,South West,0,Saskatchewan
 2020-09-04,South Central,1,Saskatchewan
 2020-09-04,South East,0,Saskatchewan
-2020-09-04,Total,4,Saskatchewan
 2020-09-05,Far North West,0,Saskatchewan
 2020-09-05,Far North Central,0,Saskatchewan
 2020-09-05,Far North East,0,Saskatchewan
@@ -457,7 +425,6 @@ date,HR,cases,province
 2020-09-05,South West,0,Saskatchewan
 2020-09-05,South Central,1,Saskatchewan
 2020-09-05,South East,0,Saskatchewan
-2020-09-05,Total,5,Saskatchewan
 2020-09-06,Far North West,0,Saskatchewan
 2020-09-06,Far North Central,0,Saskatchewan
 2020-09-06,Far North East,0,Saskatchewan
@@ -471,7 +438,6 @@ date,HR,cases,province
 2020-09-06,South West,0,Saskatchewan
 2020-09-06,South Central,0,Saskatchewan
 2020-09-06,South East,0,Saskatchewan
-2020-09-06,Total,8,Saskatchewan
 2020-09-07,Far North West,0,Saskatchewan
 2020-09-07,Far North Central,0,Saskatchewan
 2020-09-07,Far North East,0,Saskatchewan
@@ -485,7 +451,6 @@ date,HR,cases,province
 2020-09-07,South West,1,Saskatchewan
 2020-09-07,South Central,0,Saskatchewan
 2020-09-07,South East,0,Saskatchewan
-2020-09-07,Total,11,Saskatchewan
 2020-09-08,Far North West,0,Saskatchewan
 2020-09-08,Far North Central,0,Saskatchewan
 2020-09-08,Far North East,0,Saskatchewan
@@ -499,7 +464,6 @@ date,HR,cases,province
 2020-09-08,South West,0,Saskatchewan
 2020-09-08,South Central,0,Saskatchewan
 2020-09-08,South East,0,Saskatchewan
-2020-09-08,Total,7,Saskatchewan
 2020-09-09,Far North West,0,Saskatchewan
 2020-09-09,Far North Central,0,Saskatchewan
 2020-09-09,Far North East,0,Saskatchewan
@@ -513,7 +477,6 @@ date,HR,cases,province
 2020-09-09,South West,0,Saskatchewan
 2020-09-09,South Central,0,Saskatchewan
 2020-09-09,South East,0,Saskatchewan
-2020-09-09,Total,1,Saskatchewan
 2020-09-10,Far North West,0,Saskatchewan
 2020-09-10,Far North Central,0,Saskatchewan
 2020-09-10,Far North East,0,Saskatchewan
@@ -527,7 +490,6 @@ date,HR,cases,province
 2020-09-10,South West,0,Saskatchewan
 2020-09-10,South Central,0,Saskatchewan
 2020-09-10,South East,0,Saskatchewan
-2020-09-10,Total,6,Saskatchewan
 2020-09-11,Far North West,0,Saskatchewan
 2020-09-11,Far North Central,0,Saskatchewan
 2020-09-11,Far North East,0,Saskatchewan
@@ -541,7 +503,6 @@ date,HR,cases,province
 2020-09-11,South West,0,Saskatchewan
 2020-09-11,South Central,0,Saskatchewan
 2020-09-11,South East,0,Saskatchewan
-2020-09-11,Total,13,Saskatchewan
 2020-09-12,Far North West,0,Saskatchewan
 2020-09-12,Far North Central,0,Saskatchewan
 2020-09-12,Far North East,0,Saskatchewan
@@ -555,7 +516,6 @@ date,HR,cases,province
 2020-09-12,South West,2,Saskatchewan
 2020-09-12,South Central,0,Saskatchewan
 2020-09-12,South East,0,Saskatchewan
-2020-09-12,Total,21,Saskatchewan
 2020-09-13,Far North West,0,Saskatchewan
 2020-09-13,Far North Central,0,Saskatchewan
 2020-09-13,Far North East,0,Saskatchewan
@@ -569,7 +529,6 @@ date,HR,cases,province
 2020-09-13,South West,0,Saskatchewan
 2020-09-13,South Central,0,Saskatchewan
 2020-09-13,South East,0,Saskatchewan
-2020-09-13,Total,17,Saskatchewan
 2020-09-14,Far North West,0,Saskatchewan
 2020-09-14,Far North Central,0,Saskatchewan
 2020-09-14,Far North East,0,Saskatchewan
@@ -583,7 +542,6 @@ date,HR,cases,province
 2020-09-14,South West,0,Saskatchewan
 2020-09-14,South Central,0,Saskatchewan
 2020-09-14,South East,0,Saskatchewan
-2020-09-14,Total,8,Saskatchewan
 2020-09-15,Far North West,0,Saskatchewan
 2020-09-15,Far North Central,0,Saskatchewan
 2020-09-15,Far North East,0,Saskatchewan
@@ -597,7 +555,6 @@ date,HR,cases,province
 2020-09-15,South West,0,Saskatchewan
 2020-09-15,South Central,0,Saskatchewan
 2020-09-15,South East,0,Saskatchewan
-2020-09-15,Total,10,Saskatchewan
 2020-09-16,Far North West,0,Saskatchewan
 2020-09-16,Far North Central,0,Saskatchewan
 2020-09-16,Far North East,0,Saskatchewan
@@ -611,7 +568,6 @@ date,HR,cases,province
 2020-09-16,South West,0,Saskatchewan
 2020-09-16,South Central,0,Saskatchewan
 2020-09-16,South East,0,Saskatchewan
-2020-09-16,Total,10,Saskatchewan
 2020-09-17,Far North West,0,Saskatchewan
 2020-09-17,Far North Central,0,Saskatchewan
 2020-09-17,Far North East,0,Saskatchewan
@@ -625,7 +581,6 @@ date,HR,cases,province
 2020-09-17,South West,1,Saskatchewan
 2020-09-17,South Central,0,Saskatchewan
 2020-09-17,South East,1,Saskatchewan
-2020-09-17,Total,7,Saskatchewan
 2020-09-18,Far North West,0,Saskatchewan
 2020-09-18,Far North Central,0,Saskatchewan
 2020-09-18,Far North East,0,Saskatchewan
@@ -639,7 +594,6 @@ date,HR,cases,province
 2020-09-18,South West,0,Saskatchewan
 2020-09-18,South Central,0,Saskatchewan
 2020-09-18,South East,0,Saskatchewan
-2020-09-18,Total,19,Saskatchewan
 2020-09-19,Far North West,0,Saskatchewan
 2020-09-19,Far North Central,0,Saskatchewan
 2020-09-19,Far North East,0,Saskatchewan
@@ -653,7 +607,6 @@ date,HR,cases,province
 2020-09-19,South West,0,Saskatchewan
 2020-09-19,South Central,0,Saskatchewan
 2020-09-19,South East,0,Saskatchewan
-2020-09-19,Total,11,Saskatchewan
 2020-09-20,Far North West,0,Saskatchewan
 2020-09-20,Far North Central,0,Saskatchewan
 2020-09-20,Far North East,0,Saskatchewan
@@ -667,7 +620,6 @@ date,HR,cases,province
 2020-09-20,South West,0,Saskatchewan
 2020-09-20,South Central,0,Saskatchewan
 2020-09-20,South East,0,Saskatchewan
-2020-09-20,Total,20,Saskatchewan
 2020-09-21,Far North West,0,Saskatchewan
 2020-09-21,Far North Central,0,Saskatchewan
 2020-09-21,Far North East,0,Saskatchewan
@@ -681,7 +633,6 @@ date,HR,cases,province
 2020-09-21,South West,0,Saskatchewan
 2020-09-21,South Central,0,Saskatchewan
 2020-09-21,South East,0,Saskatchewan
-2020-09-21,Total,7,Saskatchewan
 2020-09-22,Far North West,0,Saskatchewan
 2020-09-22,Far North Central,0,Saskatchewan
 2020-09-22,Far North East,1,Saskatchewan
@@ -695,7 +646,6 @@ date,HR,cases,province
 2020-09-22,South West,0,Saskatchewan
 2020-09-22,South Central,0,Saskatchewan
 2020-09-22,South East,0,Saskatchewan
-2020-09-22,Total,10,Saskatchewan
 2020-09-23,Far North West,0,Saskatchewan
 2020-09-23,Far North Central,0,Saskatchewan
 2020-09-23,Far North East,0,Saskatchewan
@@ -709,7 +659,6 @@ date,HR,cases,province
 2020-09-23,South West,0,Saskatchewan
 2020-09-23,South Central,0,Saskatchewan
 2020-09-23,South East,0,Saskatchewan
-2020-09-23,Total,6,Saskatchewan
 2020-09-24,Far North West,0,Saskatchewan
 2020-09-24,Far North Central,0,Saskatchewan
 2020-09-24,Far North East,0,Saskatchewan
@@ -723,7 +672,6 @@ date,HR,cases,province
 2020-09-24,South West,0,Saskatchewan
 2020-09-24,South Central,0,Saskatchewan
 2020-09-24,South East,0,Saskatchewan
-2020-09-24,Total,5,Saskatchewan
 2020-09-25,Far North West,0,Saskatchewan
 2020-09-25,Far North Central,0,Saskatchewan
 2020-09-25,Far North East,0,Saskatchewan
@@ -737,7 +685,6 @@ date,HR,cases,province
 2020-09-25,South West,0,Saskatchewan
 2020-09-25,South Central,0,Saskatchewan
 2020-09-25,South East,0,Saskatchewan
-2020-09-25,Total,11,Saskatchewan
 2020-09-26,Far North West,0,Saskatchewan
 2020-09-26,Far North Central,0,Saskatchewan
 2020-09-26,Far North East,0,Saskatchewan
@@ -751,7 +698,6 @@ date,HR,cases,province
 2020-09-26,South West,0,Saskatchewan
 2020-09-26,South Central,0,Saskatchewan
 2020-09-26,South East,0,Saskatchewan
-2020-09-26,Total,19,Saskatchewan
 2020-09-27,Far North West,0,Saskatchewan
 2020-09-27,Far North Central,0,Saskatchewan
 2020-09-27,Far North East,0,Saskatchewan
@@ -765,7 +711,6 @@ date,HR,cases,province
 2020-09-27,South West,0,Saskatchewan
 2020-09-27,South Central,0,Saskatchewan
 2020-09-27,South East,0,Saskatchewan
-2020-09-27,Total,15,Saskatchewan
 2020-09-28,Far North West,1,Saskatchewan
 2020-09-28,Far North Central,0,Saskatchewan
 2020-09-28,Far North East,0,Saskatchewan
@@ -779,7 +724,6 @@ date,HR,cases,province
 2020-09-28,South West,0,Saskatchewan
 2020-09-28,South Central,0,Saskatchewan
 2020-09-28,South East,0,Saskatchewan
-2020-09-28,Total,14,Saskatchewan
 2020-09-29,Far North West,0,Saskatchewan
 2020-09-29,Far North Central,0,Saskatchewan
 2020-09-29,Far North East,0,Saskatchewan
@@ -793,7 +737,6 @@ date,HR,cases,province
 2020-09-29,South West,0,Saskatchewan
 2020-09-29,South Central,0,Saskatchewan
 2020-09-29,South East,0,Saskatchewan
-2020-09-29,Total,7,Saskatchewan
 2020-09-30,Far North West,0,Saskatchewan
 2020-09-30,Far North Central,0,Saskatchewan
 2020-09-30,Far North East,0,Saskatchewan
@@ -807,7 +750,6 @@ date,HR,cases,province
 2020-09-30,South West,0,Saskatchewan
 2020-09-30,South Central,0,Saskatchewan
 2020-09-30,South East,0,Saskatchewan
-2020-09-30,Total,14,Saskatchewan
 2020-10-01,Far North West,0,Saskatchewan
 2020-10-01,Far North Central,0,Saskatchewan
 2020-10-01,Far North East,0,Saskatchewan
@@ -821,7 +763,6 @@ date,HR,cases,province
 2020-10-01,South West,0,Saskatchewan
 2020-10-01,South Central,1,Saskatchewan
 2020-10-01,South East,0,Saskatchewan
-2020-10-01,Total,14,Saskatchewan
 2020-10-02,Far North West,0,Saskatchewan
 2020-10-02,Far North Central,0,Saskatchewan
 2020-10-02,Far North East,0,Saskatchewan
@@ -835,7 +776,6 @@ date,HR,cases,province
 2020-10-02,South West,0,Saskatchewan
 2020-10-02,South Central,0,Saskatchewan
 2020-10-02,South East,0,Saskatchewan
-2020-10-02,Total,13,Saskatchewan
 2020-10-03,Far North West,0,Saskatchewan
 2020-10-03,Far North Central,0,Saskatchewan
 2020-10-03,Far North East,0,Saskatchewan
@@ -849,7 +789,6 @@ date,HR,cases,province
 2020-10-03,South West,1,Saskatchewan
 2020-10-03,South Central,0,Saskatchewan
 2020-10-03,South East,0,Saskatchewan
-2020-10-03,Total,14,Saskatchewan
 2020-10-04,Far North West,0,Saskatchewan
 2020-10-04,Far North Central,0,Saskatchewan
 2020-10-04,Far North East,0,Saskatchewan
@@ -863,7 +802,6 @@ date,HR,cases,province
 2020-10-04,South West,0,Saskatchewan
 2020-10-04,South Central,0,Saskatchewan
 2020-10-04,South East,0,Saskatchewan
-2020-10-04,Total,5,Saskatchewan
 2020-10-05,Far North West,0,Saskatchewan
 2020-10-05,Far North Central,0,Saskatchewan
 2020-10-05,Far North East,0,Saskatchewan
@@ -877,7 +815,6 @@ date,HR,cases,province
 2020-10-05,South West,0,Saskatchewan
 2020-10-05,South Central,0,Saskatchewan
 2020-10-05,South East,0,Saskatchewan
-2020-10-05,Total,9,Saskatchewan
 2020-10-06,Far North West,0,Saskatchewan
 2020-10-06,Far North Central,0,Saskatchewan
 2020-10-06,Far North East,0,Saskatchewan
@@ -891,7 +828,6 @@ date,HR,cases,province
 2020-10-06,South West,0,Saskatchewan
 2020-10-06,South Central,0,Saskatchewan
 2020-10-06,South East,0,Saskatchewan
-2020-10-06,Total,16,Saskatchewan
 2020-10-07,Far North West,0,Saskatchewan
 2020-10-07,Far North Central,0,Saskatchewan
 2020-10-07,Far North East,0,Saskatchewan
@@ -905,7 +841,6 @@ date,HR,cases,province
 2020-10-07,South West,0,Saskatchewan
 2020-10-07,South Central,0,Saskatchewan
 2020-10-07,South East,0,Saskatchewan
-2020-10-07,Total,10,Saskatchewan
 2020-10-08,Far North West,3,Saskatchewan
 2020-10-08,Far North Central,0,Saskatchewan
 2020-10-08,Far North East,2,Saskatchewan
@@ -919,7 +854,6 @@ date,HR,cases,province
 2020-10-08,South West,0,Saskatchewan
 2020-10-08,South Central,0,Saskatchewan
 2020-10-08,South East,0,Saskatchewan
-2020-10-08,Total,18,Saskatchewan
 2020-10-09,Far North West,0,Saskatchewan
 2020-10-09,Far North Central,0,Saskatchewan
 2020-10-09,Far North East,2,Saskatchewan
@@ -933,7 +867,6 @@ date,HR,cases,province
 2020-10-09,South West,0,Saskatchewan
 2020-10-09,South Central,0,Saskatchewan
 2020-10-09,South East,0,Saskatchewan
-2020-10-09,Total,22,Saskatchewan
 2020-10-10,Far North West,0,Saskatchewan
 2020-10-10,Far North Central,0,Saskatchewan
 2020-10-10,Far North East,4,Saskatchewan
@@ -947,7 +880,6 @@ date,HR,cases,province
 2020-10-10,South West,0,Saskatchewan
 2020-10-10,South Central,0,Saskatchewan
 2020-10-10,South East,0,Saskatchewan
-2020-10-10,Total,34,Saskatchewan
 2020-10-11,Far North West,1,Saskatchewan
 2020-10-11,Far North Central,0,Saskatchewan
 2020-10-11,Far North East,2,Saskatchewan
@@ -961,7 +893,6 @@ date,HR,cases,province
 2020-10-11,South West,0,Saskatchewan
 2020-10-11,South Central,0,Saskatchewan
 2020-10-11,South East,0,Saskatchewan
-2020-10-11,Total,24,Saskatchewan
 2020-10-12,Far North West,0,Saskatchewan
 2020-10-12,Far North Central,0,Saskatchewan
 2020-10-12,Far North East,0,Saskatchewan
@@ -975,7 +906,6 @@ date,HR,cases,province
 2020-10-12,South West,1,Saskatchewan
 2020-10-12,South Central,0,Saskatchewan
 2020-10-12,South East,0,Saskatchewan
-2020-10-12,Total,48,Saskatchewan
 2020-10-13,Far North West,0,Saskatchewan
 2020-10-13,Far North Central,0,Saskatchewan
 2020-10-13,Far North East,0,Saskatchewan
@@ -989,7 +919,6 @@ date,HR,cases,province
 2020-10-13,South West,0,Saskatchewan
 2020-10-13,South Central,0,Saskatchewan
 2020-10-13,South East,0,Saskatchewan
-2020-10-13,Total,34,Saskatchewan
 2020-10-14,Far North West,0,Saskatchewan
 2020-10-14,Far North Central,0,Saskatchewan
 2020-10-14,Far North East,4,Saskatchewan
@@ -1003,7 +932,6 @@ date,HR,cases,province
 2020-10-14,South West,0,Saskatchewan
 2020-10-14,South Central,0,Saskatchewan
 2020-10-14,South East,1,Saskatchewan
-2020-10-14,Total,25,Saskatchewan
 2020-10-15,Far North West,3,Saskatchewan
 2020-10-15,Far North Central,0,Saskatchewan
 2020-10-15,Far North East,2,Saskatchewan
@@ -1017,7 +945,6 @@ date,HR,cases,province
 2020-10-15,South West,0,Saskatchewan
 2020-10-15,South Central,0,Saskatchewan
 2020-10-15,South East,0,Saskatchewan
-2020-10-15,Total,33,Saskatchewan
 2020-10-16,Far North West,5,Saskatchewan
 2020-10-16,Far North Central,0,Saskatchewan
 2020-10-16,Far North East,7,Saskatchewan
@@ -1031,7 +958,6 @@ date,HR,cases,province
 2020-10-16,South West,0,Saskatchewan
 2020-10-16,South Central,0,Saskatchewan
 2020-10-16,South East,0,Saskatchewan
-2020-10-16,Total,40,Saskatchewan
 2020-10-17,Far North West,0,Saskatchewan
 2020-10-17,Far North Central,0,Saskatchewan
 2020-10-17,Far North East,6,Saskatchewan
@@ -1045,7 +971,6 @@ date,HR,cases,province
 2020-10-17,South West,0,Saskatchewan
 2020-10-17,South Central,0,Saskatchewan
 2020-10-17,South East,0,Saskatchewan
-2020-10-17,Total,36,Saskatchewan
 2020-10-18,Far North West,1,Saskatchewan
 2020-10-18,Far North Central,0,Saskatchewan
 2020-10-18,Far North East,0,Saskatchewan
@@ -1059,7 +984,6 @@ date,HR,cases,province
 2020-10-18,South West,0,Saskatchewan
 2020-10-18,South Central,0,Saskatchewan
 2020-10-18,South East,0,Saskatchewan
-2020-10-18,Total,24,Saskatchewan
 2020-10-19,Far North West,1,Saskatchewan
 2020-10-19,Far North Central,0,Saskatchewan
 2020-10-19,Far North East,3,Saskatchewan
@@ -1073,7 +997,6 @@ date,HR,cases,province
 2020-10-19,South West,1,Saskatchewan
 2020-10-19,South Central,0,Saskatchewan
 2020-10-19,South East,0,Saskatchewan
-2020-10-19,Total,66,Saskatchewan
 2020-10-20,Far North West,2,Saskatchewan
 2020-10-20,Far North Central,0,Saskatchewan
 2020-10-20,Far North East,1,Saskatchewan
@@ -1087,7 +1010,6 @@ date,HR,cases,province
 2020-10-20,South West,0,Saskatchewan
 2020-10-20,South Central,0,Saskatchewan
 2020-10-20,South East,0,Saskatchewan
-2020-10-20,Total,44,Saskatchewan
 2020-10-21,Far North West,0,Saskatchewan
 2020-10-21,Far North Central,0,Saskatchewan
 2020-10-21,Far North East,1,Saskatchewan
@@ -1101,7 +1023,6 @@ date,HR,cases,province
 2020-10-21,South West,0,Saskatchewan
 2020-10-21,South Central,0,Saskatchewan
 2020-10-21,South East,0,Saskatchewan
-2020-10-21,Total,57,Saskatchewan
 2020-10-22,Far North West,1,Saskatchewan
 2020-10-22,Far North Central,0,Saskatchewan
 2020-10-22,Far North East,6,Saskatchewan
@@ -1115,7 +1036,6 @@ date,HR,cases,province
 2020-10-22,South West,1,Saskatchewan
 2020-10-22,South Central,0,Saskatchewan
 2020-10-22,South East,0,Saskatchewan
-2020-10-22,Total,60,Saskatchewan
 2020-10-23,Far North West,0,Saskatchewan
 2020-10-23,Far North Central,0,Saskatchewan
 2020-10-23,Far North East,0,Saskatchewan
@@ -1129,7 +1049,6 @@ date,HR,cases,province
 2020-10-23,South West,0,Saskatchewan
 2020-10-23,South Central,0,Saskatchewan
 2020-10-23,South East,0,Saskatchewan
-2020-10-23,Total,33,Saskatchewan
 2020-10-24,Far North West,1,Saskatchewan
 2020-10-24,Far North Central,0,Saskatchewan
 2020-10-24,Far North East,1,Saskatchewan
@@ -1143,7 +1062,6 @@ date,HR,cases,province
 2020-10-24,South West,0,Saskatchewan
 2020-10-24,South Central,0,Saskatchewan
 2020-10-24,South East,0,Saskatchewan
-2020-10-24,Total,78,Saskatchewan
 2020-10-25,Far North West,0,Saskatchewan
 2020-10-25,Far North Central,0,Saskatchewan
 2020-10-25,Far North East,0,Saskatchewan
@@ -1157,7 +1075,6 @@ date,HR,cases,province
 2020-10-25,South West,0,Saskatchewan
 2020-10-25,South Central,0,Saskatchewan
 2020-10-25,South East,0,Saskatchewan
-2020-10-25,Total,60,Saskatchewan
 2020-10-26,Far North West,0,Saskatchewan
 2020-10-26,Far North Central,0,Saskatchewan
 2020-10-26,Far North East,2,Saskatchewan
@@ -1171,7 +1088,6 @@ date,HR,cases,province
 2020-10-26,South West,0,Saskatchewan
 2020-10-26,South Central,0,Saskatchewan
 2020-10-26,South East,0,Saskatchewan
-2020-10-26,Total,54,Saskatchewan
 2020-10-27,Far North West,0,Saskatchewan
 2020-10-27,Far North Central,0,Saskatchewan
 2020-10-27,Far North East,0,Saskatchewan
@@ -1185,7 +1101,6 @@ date,HR,cases,province
 2020-10-27,South West,0,Saskatchewan
 2020-10-27,South Central,0,Saskatchewan
 2020-10-27,South East,0,Saskatchewan
-2020-10-27,Total,58,Saskatchewan
 2020-10-28,Far North West,0,Saskatchewan
 2020-10-28,Far North Central,0,Saskatchewan
 2020-10-28,Far North East,0,Saskatchewan
@@ -1199,7 +1114,6 @@ date,HR,cases,province
 2020-10-28,South West,0,Saskatchewan
 2020-10-28,South Central,0,Saskatchewan
 2020-10-28,South East,1,Saskatchewan
-2020-10-28,Total,67,Saskatchewan
 2020-10-29,Far North West,0,Saskatchewan
 2020-10-29,Far North Central,0,Saskatchewan
 2020-10-29,Far North East,0,Saskatchewan
@@ -1213,7 +1127,6 @@ date,HR,cases,province
 2020-10-29,South West,0,Saskatchewan
 2020-10-29,South Central,1,Saskatchewan
 2020-10-29,South East,0,Saskatchewan
-2020-10-29,Total,82,Saskatchewan
 2020-10-30,Far North West,0,Saskatchewan
 2020-10-30,Far North Central,0,Saskatchewan
 2020-10-30,Far North East,0,Saskatchewan
@@ -1227,7 +1140,6 @@ date,HR,cases,province
 2020-10-30,South West,0,Saskatchewan
 2020-10-30,South Central,1,Saskatchewan
 2020-10-30,South East,1,Saskatchewan
-2020-10-30,Total,76,Saskatchewan
 2020-10-31,Far North West,1,Saskatchewan
 2020-10-31,Far North Central,0,Saskatchewan
 2020-10-31,Far North East,0,Saskatchewan
@@ -1241,7 +1153,6 @@ date,HR,cases,province
 2020-10-31,South West,0,Saskatchewan
 2020-10-31,South Central,0,Saskatchewan
 2020-10-31,South East,0,Saskatchewan
-2020-10-31,Total,78,Saskatchewan
 2020-11-01,Far North West,2,Saskatchewan
 2020-11-01,Far North Central,0,Saskatchewan
 2020-11-01,Far North East,0,Saskatchewan
@@ -1255,7 +1166,6 @@ date,HR,cases,province
 2020-11-01,South West,0,Saskatchewan
 2020-11-01,South Central,0,Saskatchewan
 2020-11-01,South East,0,Saskatchewan
-2020-11-01,Total,74,Saskatchewan
 2020-11-02,Far North West,1,Saskatchewan
 2020-11-02,Far North Central,0,Saskatchewan
 2020-11-02,Far North East,0,Saskatchewan
@@ -1269,7 +1179,6 @@ date,HR,cases,province
 2020-11-02,South West,0,Saskatchewan
 2020-11-02,South Central,0,Saskatchewan
 2020-11-02,South East,0,Saskatchewan
-2020-11-02,Total,72,Saskatchewan
 2020-11-03,Far North West,1,Saskatchewan
 2020-11-03,Far North Central,0,Saskatchewan
 2020-11-03,Far North East,0,Saskatchewan
@@ -1283,7 +1192,6 @@ date,HR,cases,province
 2020-11-03,South West,0,Saskatchewan
 2020-11-03,South Central,0,Saskatchewan
 2020-11-03,South East,0,Saskatchewan
-2020-11-03,Total,81,Saskatchewan
 2020-11-04,Far North West,1,Saskatchewan
 2020-11-04,Far North Central,0,Saskatchewan
 2020-11-04,Far North East,0,Saskatchewan
@@ -1297,7 +1205,6 @@ date,HR,cases,province
 2020-11-04,South West,0,Saskatchewan
 2020-11-04,South Central,0,Saskatchewan
 2020-11-04,South East,0,Saskatchewan
-2020-11-04,Total,36,Saskatchewan
 2020-11-05,Far North West,2,Saskatchewan
 2020-11-05,Far North Central,0,Saskatchewan
 2020-11-05,Far North East,1,Saskatchewan
@@ -1311,7 +1218,6 @@ date,HR,cases,province
 2020-11-05,South West,1,Saskatchewan
 2020-11-05,South Central,1,Saskatchewan
 2020-11-05,South East,1,Saskatchewan
-2020-11-05,Total,129,Saskatchewan
 2020-11-06,Far North West,6,Saskatchewan
 2020-11-06,Far North Central,0,Saskatchewan
 2020-11-06,Far North East,0,Saskatchewan
@@ -1325,7 +1231,6 @@ date,HR,cases,province
 2020-11-06,South West,0,Saskatchewan
 2020-11-06,South Central,0,Saskatchewan
 2020-11-06,South East,4,Saskatchewan
-2020-11-06,Total,86,Saskatchewan
 2020-11-07,Far North West,3,Saskatchewan
 2020-11-07,Far North Central,1,Saskatchewan
 2020-11-07,Far North East,2,Saskatchewan
@@ -1339,7 +1244,6 @@ date,HR,cases,province
 2020-11-07,South West,0,Saskatchewan
 2020-11-07,South Central,0,Saskatchewan
 2020-11-07,South East,1,Saskatchewan
-2020-11-07,Total,116,Saskatchewan
 2020-11-08,Far North West,3,Saskatchewan
 2020-11-08,Far North Central,3,Saskatchewan
 2020-11-08,Far North East,2,Saskatchewan
@@ -1353,7 +1257,6 @@ date,HR,cases,province
 2020-11-08,South West,1,Saskatchewan
 2020-11-08,South Central,1,Saskatchewan
 2020-11-08,South East,4,Saskatchewan
-2020-11-08,Total,159,Saskatchewan
 2020-11-09,Far North West,12,Saskatchewan
 2020-11-09,Far North Central,1,Saskatchewan
 2020-11-09,Far North East,3,Saskatchewan
@@ -1367,7 +1270,6 @@ date,HR,cases,province
 2020-11-09,South West,0,Saskatchewan
 2020-11-09,South Central,0,Saskatchewan
 2020-11-09,South East,5,Saskatchewan
-2020-11-09,Total,188,Saskatchewan
 2020-11-10,Far North West,5,Saskatchewan
 2020-11-10,Far North Central,4,Saskatchewan
 2020-11-10,Far North East,5,Saskatchewan
@@ -1381,7 +1283,6 @@ date,HR,cases,province
 2020-11-10,South West,0,Saskatchewan
 2020-11-10,South Central,0,Saskatchewan
 2020-11-10,South East,0,Saskatchewan
-2020-11-10,Total,128,Saskatchewan
 2020-11-11,Far North West,6,Saskatchewan
 2020-11-11,Far North Central,0,Saskatchewan
 2020-11-11,Far North East,8,Saskatchewan
@@ -1395,7 +1296,6 @@ date,HR,cases,province
 2020-11-11,South West,0,Saskatchewan
 2020-11-11,South Central,0,Saskatchewan
 2020-11-11,South East,12,Saskatchewan
-2020-11-11,Total,113,Saskatchewan
 2020-11-12,Far North West,5,Saskatchewan
 2020-11-12,Far North Central,8,Saskatchewan
 2020-11-12,Far North East,5,Saskatchewan
@@ -1409,7 +1309,6 @@ date,HR,cases,province
 2020-11-12,South West,1,Saskatchewan
 2020-11-12,South Central,0,Saskatchewan
 2020-11-12,South East,4,Saskatchewan
-2020-11-12,Total,110,Saskatchewan
 2020-11-13,Far North West,1,Saskatchewan
 2020-11-13,Far North Central,6,Saskatchewan
 2020-11-13,Far North East,2,Saskatchewan
@@ -1423,7 +1322,6 @@ date,HR,cases,province
 2020-11-13,South West,2,Saskatchewan
 2020-11-13,South Central,2,Saskatchewan
 2020-11-13,South East,4,Saskatchewan
-2020-11-13,Total,83,Saskatchewan
 2020-11-14,Far North West,13,Saskatchewan
 2020-11-14,Far North Central,8,Saskatchewan
 2020-11-14,Far North East,16,Saskatchewan
@@ -1437,7 +1335,6 @@ date,HR,cases,province
 2020-11-14,South West,0,Saskatchewan
 2020-11-14,South Central,2,Saskatchewan
 2020-11-14,South East,3,Saskatchewan
-2020-11-14,Total,308,Saskatchewan
 2020-11-15,Far North West,5,Saskatchewan
 2020-11-15,Far North Central,0,Saskatchewan
 2020-11-15,Far North East,6,Saskatchewan
@@ -1451,7 +1348,6 @@ date,HR,cases,province
 2020-11-15,South West,0,Saskatchewan
 2020-11-15,South Central,2,Saskatchewan
 2020-11-15,South East,16,Saskatchewan
-2020-11-15,Total,182,Saskatchewan
 2020-11-16,Far North West,6,Saskatchewan
 2020-11-16,Far North Central,5,Saskatchewan
 2020-11-16,Far North East,15,Saskatchewan
@@ -1465,7 +1361,6 @@ date,HR,cases,province
 2020-11-16,South West,0,Saskatchewan
 2020-11-16,South Central,0,Saskatchewan
 2020-11-16,South East,5,Saskatchewan
-2020-11-16,Total,182,Saskatchewan
 2020-11-17,Far North West,1,Saskatchewan
 2020-11-17,Far North Central,5,Saskatchewan
 2020-11-17,Far North East,6,Saskatchewan
@@ -1479,7 +1374,6 @@ date,HR,cases,province
 2020-11-17,South West,2,Saskatchewan
 2020-11-17,South Central,4,Saskatchewan
 2020-11-17,South East,15,Saskatchewan
-2020-11-17,Total,242,Saskatchewan
 2020-11-18,Far North West,1,Saskatchewan
 2020-11-18,Far North Central,8,Saskatchewan
 2020-11-18,Far North East,6,Saskatchewan
@@ -1493,7 +1387,6 @@ date,HR,cases,province
 2020-11-18,South West,0,Saskatchewan
 2020-11-18,South Central,1,Saskatchewan
 2020-11-18,South East,8,Saskatchewan
-2020-11-18,Total,133,Saskatchewan
 2020-11-19,Far North West,2,Saskatchewan
 2020-11-19,Far North Central,0,Saskatchewan
 2020-11-19,Far North East,3,Saskatchewan
@@ -1507,7 +1400,6 @@ date,HR,cases,province
 2020-11-19,South West,0,Saskatchewan
 2020-11-19,South Central,0,Saskatchewan
 2020-11-19,South East,4,Saskatchewan
-2020-11-19,Total,97,Saskatchewan
 2020-11-20,Far North West,2,Saskatchewan
 2020-11-20,Far North Central,16,Saskatchewan
 2020-11-20,Far North East,4,Saskatchewan
@@ -1521,7 +1413,6 @@ date,HR,cases,province
 2020-11-20,South West,2,Saskatchewan
 2020-11-20,South Central,1,Saskatchewan
 2020-11-20,South East,11,Saskatchewan
-2020-11-20,Total,155,Saskatchewan
 2020-11-21,Far North West,4,Saskatchewan
 2020-11-21,Far North Central,0,Saskatchewan
 2020-11-21,Far North East,12,Saskatchewan
@@ -1535,7 +1426,6 @@ date,HR,cases,province
 2020-11-21,South West,0,Saskatchewan
 2020-11-21,South Central,4,Saskatchewan
 2020-11-21,South East,13,Saskatchewan
-2020-11-21,Total,441,Saskatchewan
 2020-11-22,Far North West,6,Saskatchewan
 2020-11-22,Far North Central,1,Saskatchewan
 2020-11-22,Far North East,0,Saskatchewan
@@ -1549,7 +1439,6 @@ date,HR,cases,province
 2020-11-22,South West,2,Saskatchewan
 2020-11-22,South Central,1,Saskatchewan
 2020-11-22,South East,5,Saskatchewan
-2020-11-22,Total,238,Saskatchewan
 2020-11-23,Far North West,6,Saskatchewan
 2020-11-23,Far North Central,0,Saskatchewan
 2020-11-23,Far North East,1,Saskatchewan
@@ -1563,7 +1452,6 @@ date,HR,cases,province
 2020-11-23,South West,0,Saskatchewan
 2020-11-23,South Central,2,Saskatchewan
 2020-11-23,South East,11,Saskatchewan
-2020-11-23,Total,237,Saskatchewan
 2020-11-24,Far North West,5,Saskatchewan
 2020-11-24,Far North Central,5,Saskatchewan
 2020-11-24,Far North East,2,Saskatchewan
@@ -1577,7 +1465,6 @@ date,HR,cases,province
 2020-11-24,South West,2,Saskatchewan
 2020-11-24,South Central,2,Saskatchewan
 2020-11-24,South East,4,Saskatchewan
-2020-11-24,Total,177,Saskatchewan
 2020-11-25,Far North West,7,Saskatchewan
 2020-11-25,Far North Central,3,Saskatchewan
 2020-11-25,Far North East,0,Saskatchewan
@@ -1591,7 +1478,6 @@ date,HR,cases,province
 2020-11-25,South West,0,Saskatchewan
 2020-11-25,South Central,1,Saskatchewan
 2020-11-25,South East,7,Saskatchewan
-2020-11-25,Total,168,Saskatchewan
 2020-11-26,Far North West,8,Saskatchewan
 2020-11-26,Far North Central,4,Saskatchewan
 2020-11-26,Far North East,1,Saskatchewan
@@ -1605,7 +1491,6 @@ date,HR,cases,province
 2020-11-26,South West,0,Saskatchewan
 2020-11-26,South Central,7,Saskatchewan
 2020-11-26,South East,7,Saskatchewan
-2020-11-26,Total,302,Saskatchewan
 2020-11-27,Far North West,8,Saskatchewan
 2020-11-27,Far North Central,0,Saskatchewan
 2020-11-27,Far North East,1,Saskatchewan
@@ -1619,7 +1504,6 @@ date,HR,cases,province
 2020-11-27,South West,0,Saskatchewan
 2020-11-27,South Central,0,Saskatchewan
 2020-11-27,South East,10,Saskatchewan
-2020-11-27,Total,331,Saskatchewan
 2020-11-28,Far North West,6,Saskatchewan
 2020-11-28,Far North Central,0,Saskatchewan
 2020-11-28,Far North East,1,Saskatchewan
@@ -1633,7 +1517,6 @@ date,HR,cases,province
 2020-11-28,South West,3,Saskatchewan
 2020-11-28,South Central,2,Saskatchewan
 2020-11-28,South East,1,Saskatchewan
-2020-11-28,Total,198,Saskatchewan
 2020-11-29,Far North West,6,Saskatchewan
 2020-11-29,Far North Central,1,Saskatchewan
 2020-11-29,Far North East,2,Saskatchewan
@@ -1647,7 +1530,6 @@ date,HR,cases,province
 2020-11-29,South West,4,Saskatchewan
 2020-11-29,South Central,3,Saskatchewan
 2020-11-29,South East,16,Saskatchewan
-2020-11-29,Total,352,Saskatchewan
 2020-11-30,Far North West,8,Saskatchewan
 2020-11-30,Far North Central,0,Saskatchewan
 2020-11-30,Far North East,6,Saskatchewan
@@ -1661,7 +1543,6 @@ date,HR,cases,province
 2020-11-30,South West,12,Saskatchewan
 2020-11-30,South Central,2,Saskatchewan
 2020-11-30,South East,10,Saskatchewan
-2020-11-30,Total,327,Saskatchewan
 2020-12-01,Far North West,10,Saskatchewan
 2020-12-01,Far North Central,0,Saskatchewan
 2020-12-01,Far North East,0,Saskatchewan
@@ -1675,7 +1556,6 @@ date,HR,cases,province
 2020-12-01,South West,1,Saskatchewan
 2020-12-01,South Central,0,Saskatchewan
 2020-12-01,South East,5,Saskatchewan
-2020-12-01,Total,184,Saskatchewan
 2020-12-02,Far North West,5,Saskatchewan
 2020-12-02,Far North Central,3,Saskatchewan
 2020-12-02,Far North East,2,Saskatchewan
@@ -1689,7 +1569,6 @@ date,HR,cases,province
 2020-12-02,South West,1,Saskatchewan
 2020-12-02,South Central,1,Saskatchewan
 2020-12-02,South East,1,Saskatchewan
-2020-12-02,Total,239,Saskatchewan
 2020-12-03,Far North West,3,Saskatchewan
 2020-12-03,Far North Central,0,Saskatchewan
 2020-12-03,Far North East,0,Saskatchewan
@@ -1703,7 +1582,6 @@ date,HR,cases,province
 2020-12-03,South West,2,Saskatchewan
 2020-12-03,South Central,1,Saskatchewan
 2020-12-03,South East,4,Saskatchewan
-2020-12-03,Total,261,Saskatchewan
 2020-12-04,Far North West,4,Saskatchewan
 2020-12-04,Far North Central,0,Saskatchewan
 2020-12-04,Far North East,3,Saskatchewan
@@ -1717,7 +1595,6 @@ date,HR,cases,province
 2020-12-04,South West,1,Saskatchewan
 2020-12-04,South Central,0,Saskatchewan
 2020-12-04,South East,9,Saskatchewan
-2020-12-04,Total,281,Saskatchewan
 2020-12-05,Far North West,5,Saskatchewan
 2020-12-05,Far North Central,0,Saskatchewan
 2020-12-05,Far North East,8,Saskatchewan
@@ -1731,7 +1608,6 @@ date,HR,cases,province
 2020-12-05,South West,5,Saskatchewan
 2020-12-05,South Central,3,Saskatchewan
 2020-12-05,South East,10,Saskatchewan
-2020-12-05,Total,206,Saskatchewan
 2020-12-06,Far North West,6,Saskatchewan
 2020-12-06,Far North Central,0,Saskatchewan
 2020-12-06,Far North East,2,Saskatchewan
@@ -1745,7 +1621,6 @@ date,HR,cases,province
 2020-12-06,South West,0,Saskatchewan
 2020-12-06,South Central,2,Saskatchewan
 2020-12-06,South East,4,Saskatchewan
-2020-12-06,Total,419,Saskatchewan
 2020-12-07,Far North West,10,Saskatchewan
 2020-12-07,Far North Central,1,Saskatchewan
 2020-12-07,Far North East,4,Saskatchewan
@@ -1759,7 +1634,6 @@ date,HR,cases,province
 2020-12-07,South West,1,Saskatchewan
 2020-12-07,South Central,0,Saskatchewan
 2020-12-07,South East,7,Saskatchewan
-2020-12-07,Total,277,Saskatchewan
 2020-12-08,Far North West,1,Saskatchewan
 2020-12-08,Far North Central,0,Saskatchewan
 2020-12-08,Far North East,4,Saskatchewan
@@ -1773,7 +1647,6 @@ date,HR,cases,province
 2020-12-08,South West,1,Saskatchewan
 2020-12-08,South Central,0,Saskatchewan
 2020-12-08,South East,1,Saskatchewan
-2020-12-08,Total,188,Saskatchewan
 2020-12-09,Far North West,4,Saskatchewan
 2020-12-09,Far North Central,1,Saskatchewan
 2020-12-09,Far North East,1,Saskatchewan
@@ -1787,7 +1660,6 @@ date,HR,cases,province
 2020-12-09,South West,0,Saskatchewan
 2020-12-09,South Central,0,Saskatchewan
 2020-12-09,South East,3,Saskatchewan
-2020-12-09,Total,308,Saskatchewan
 2020-12-10,Far North West,4,Saskatchewan
 2020-12-10,Far North Central,3,Saskatchewan
 2020-12-10,Far North East,11,Saskatchewan
@@ -1801,7 +1673,6 @@ date,HR,cases,province
 2020-12-10,South West,4,Saskatchewan
 2020-12-10,South Central,0,Saskatchewan
 2020-12-10,South East,7,Saskatchewan
-2020-12-10,Total,329,Saskatchewan
 2020-12-11,Far North West,2,Saskatchewan
 2020-12-11,Far North Central,1,Saskatchewan
 2020-12-11,Far North East,8,Saskatchewan
@@ -1815,7 +1686,6 @@ date,HR,cases,province
 2020-12-11,South West,1,Saskatchewan
 2020-12-11,South Central,2,Saskatchewan
 2020-12-11,South East,6,Saskatchewan
-2020-12-11,Total,248,Saskatchewan
 2020-12-12,Far North West,0,Saskatchewan
 2020-12-12,Far North Central,0,Saskatchewan
 2020-12-12,Far North East,8,Saskatchewan
@@ -1829,7 +1699,6 @@ date,HR,cases,province
 2020-12-12,South West,0,Saskatchewan
 2020-12-12,South Central,2,Saskatchewan
 2020-12-12,South East,3,Saskatchewan
-2020-12-12,Total,273,Saskatchewan
 2020-12-13,Far North West,2,Saskatchewan
 2020-12-13,Far North Central,0,Saskatchewan
 2020-12-13,Far North East,5,Saskatchewan
@@ -1843,7 +1712,6 @@ date,HR,cases,province
 2020-12-13,South West,1,Saskatchewan
 2020-12-13,South Central,1,Saskatchewan
 2020-12-13,South East,1,Saskatchewan
-2020-12-13,Total,219,Saskatchewan
 2020-12-14,Far North West,2,Saskatchewan
 2020-12-14,Far North Central,3,Saskatchewan
 2020-12-14,Far North East,10,Saskatchewan
@@ -1857,7 +1725,6 @@ date,HR,cases,province
 2020-12-14,South West,0,Saskatchewan
 2020-12-14,South Central,1,Saskatchewan
 2020-12-14,South East,3,Saskatchewan
-2020-12-14,Total,271,Saskatchewan
 2020-12-15,Far North West,3,Saskatchewan
 2020-12-15,Far North Central,1,Saskatchewan
 2020-12-15,Far North East,11,Saskatchewan
@@ -1871,7 +1738,6 @@ date,HR,cases,province
 2020-12-15,South West,0,Saskatchewan
 2020-12-15,South Central,0,Saskatchewan
 2020-12-15,South East,9,Saskatchewan
-2020-12-15,Total,195,Saskatchewan
 2020-12-16,Far North West,1,Saskatchewan
 2020-12-16,Far North Central,2,Saskatchewan
 2020-12-16,Far North East,9,Saskatchewan
@@ -1885,7 +1751,6 @@ date,HR,cases,province
 2020-12-16,South West,0,Saskatchewan
 2020-12-16,South Central,0,Saskatchewan
 2020-12-16,South East,0,Saskatchewan
-2020-12-16,Total,168,Saskatchewan
 2020-12-17,Far North West,3,Saskatchewan
 2020-12-17,Far North Central,1,Saskatchewan
 2020-12-17,Far North East,4,Saskatchewan
@@ -1899,7 +1764,6 @@ date,HR,cases,province
 2020-12-17,South West,1,Saskatchewan
 2020-12-17,South Central,2,Saskatchewan
 2020-12-17,South East,1,Saskatchewan
-2020-12-17,Total,239,Saskatchewan
 2020-12-18,Far North West,2,Saskatchewan
 2020-12-18,Far North Central,1,Saskatchewan
 2020-12-18,Far North East,24,Saskatchewan
@@ -1913,7 +1777,6 @@ date,HR,cases,province
 2020-12-18,South West,0,Saskatchewan
 2020-12-18,South Central,1,Saskatchewan
 2020-12-18,South East,1,Saskatchewan
-2020-12-18,Total,244,Saskatchewan
 2020-12-19,Far North West,2,Saskatchewan
 2020-12-19,Far North Central,3,Saskatchewan
 2020-12-19,Far North East,12,Saskatchewan
@@ -1927,7 +1790,6 @@ date,HR,cases,province
 2020-12-19,South West,1,Saskatchewan
 2020-12-19,South Central,3,Saskatchewan
 2020-12-19,South East,2,Saskatchewan
-2020-12-19,Total,252,Saskatchewan
 2020-12-20,Far North West,3,Saskatchewan
 2020-12-20,Far North Central,0,Saskatchewan
 2020-12-20,Far North East,10,Saskatchewan
@@ -1941,7 +1803,6 @@ date,HR,cases,province
 2020-12-20,South West,0,Saskatchewan
 2020-12-20,South Central,0,Saskatchewan
 2020-12-20,South East,6,Saskatchewan
-2020-12-20,Total,225,Saskatchewan
 2020-12-21,Far North West,1,Saskatchewan
 2020-12-21,Far North Central,0,Saskatchewan
 2020-12-21,Far North East,11,Saskatchewan
@@ -1955,7 +1816,6 @@ date,HR,cases,province
 2020-12-21,South West,1,Saskatchewan
 2020-12-21,South Central,3,Saskatchewan
 2020-12-21,South East,1,Saskatchewan
-2020-12-21,Total,206,Saskatchewan
 2020-12-22,Far North West,2,Saskatchewan
 2020-12-22,Far North Central,2,Saskatchewan
 2020-12-22,Far North East,8,Saskatchewan
@@ -1969,7 +1829,6 @@ date,HR,cases,province
 2020-12-22,South West,0,Saskatchewan
 2020-12-22,South Central,0,Saskatchewan
 2020-12-22,South East,0,Saskatchewan
-2020-12-22,Total,182,Saskatchewan
 2020-12-23,Far North West,12,Saskatchewan
 2020-12-23,Far North Central,0,Saskatchewan
 2020-12-23,Far North East,8,Saskatchewan
@@ -1983,7 +1842,6 @@ date,HR,cases,province
 2020-12-23,South West,0,Saskatchewan
 2020-12-23,South Central,0,Saskatchewan
 2020-12-23,South East,1,Saskatchewan
-2020-12-23,Total,158,Saskatchewan
 2020-12-24,Far North West,9,Saskatchewan
 2020-12-24,Far North Central,0,Saskatchewan
 2020-12-24,Far North East,14,Saskatchewan
@@ -1997,7 +1855,6 @@ date,HR,cases,province
 2020-12-24,South West,0,Saskatchewan
 2020-12-24,South Central,1,Saskatchewan
 2020-12-24,South East,2,Saskatchewan
-2020-12-24,Total,153,Saskatchewan
 2020-12-25,Far North West,0,Saskatchewan
 2020-12-25,Far North Central,0,Saskatchewan
 2020-12-25,Far North East,0,Saskatchewan
@@ -2011,7 +1868,6 @@ date,HR,cases,province
 2020-12-25,South West,0,Saskatchewan
 2020-12-25,South Central,0,Saskatchewan
 2020-12-25,South East,0,Saskatchewan
-2020-12-25,Total,228,Saskatchewan
 2020-12-26,Far North West,0,Saskatchewan
 2020-12-26,Far North Central,0,Saskatchewan
 2020-12-26,Far North East,0,Saskatchewan
@@ -2025,7 +1881,6 @@ date,HR,cases,province
 2020-12-26,South West,0,Saskatchewan
 2020-12-26,South Central,0,Saskatchewan
 2020-12-26,South East,0,Saskatchewan
-2020-12-26,Total,132,Saskatchewan
 2020-12-27,Far North West,6,Saskatchewan
 2020-12-27,Far North Central,0,Saskatchewan
 2020-12-27,Far North East,42,Saskatchewan
@@ -2039,7 +1894,6 @@ date,HR,cases,province
 2020-12-27,South West,1,Saskatchewan
 2020-12-27,South Central,1,Saskatchewan
 2020-12-27,South East,7,Saskatchewan
-2020-12-27,Total,197,Saskatchewan
 2020-12-28,Far North West,0,Saskatchewan
 2020-12-28,Far North Central,0,Saskatchewan
 2020-12-28,Far North East,0,Saskatchewan
@@ -2053,7 +1907,6 @@ date,HR,cases,province
 2020-12-28,South West,0,Saskatchewan
 2020-12-28,South Central,0,Saskatchewan
 2020-12-28,South East,0,Saskatchewan
-2020-12-28,Total,96,Saskatchewan
 2020-12-29,Far North West,3,Saskatchewan
 2020-12-29,Far North Central,0,Saskatchewan
 2020-12-29,Far North East,32,Saskatchewan
@@ -2067,7 +1920,6 @@ date,HR,cases,province
 2020-12-29,South West,1,Saskatchewan
 2020-12-29,South Central,0,Saskatchewan
 2020-12-29,South East,8,Saskatchewan
-2020-12-29,Total,115,Saskatchewan
 2020-12-30,Far North West,2,Saskatchewan
 2020-12-30,Far North Central,0,Saskatchewan
 2020-12-30,Far North East,25,Saskatchewan
@@ -2081,7 +1933,6 @@ date,HR,cases,province
 2020-12-30,South West,0,Saskatchewan
 2020-12-30,South Central,0,Saskatchewan
 2020-12-30,South East,10,Saskatchewan
-2020-12-30,Total,147,Saskatchewan
 2020-12-31,Far North West,4,Saskatchewan
 2020-12-31,Far North Central,0,Saskatchewan
 2020-12-31,Far North East,20,Saskatchewan
@@ -2095,7 +1946,6 @@ date,HR,cases,province
 2020-12-31,South West,3,Saskatchewan
 2020-12-31,South Central,2,Saskatchewan
 2020-12-31,South East,8,Saskatchewan
-2020-12-31,Total,190,Saskatchewan
 2021-01-01,Far North West,0,Saskatchewan
 2021-01-01,Far North Central,0,Saskatchewan
 2021-01-01,Far North East,0,Saskatchewan
@@ -2109,7 +1959,6 @@ date,HR,cases,province
 2021-01-01,South West,0,Saskatchewan
 2021-01-01,South Central,0,Saskatchewan
 2021-01-01,South East,0,Saskatchewan
-2021-01-01,Total,277,Saskatchewan
 2021-01-02,Far North West,8,Saskatchewan
 2021-01-02,Far North Central,1,Saskatchewan
 2021-01-02,Far North East,69,Saskatchewan
@@ -2123,7 +1972,6 @@ date,HR,cases,province
 2021-01-02,South West,0,Saskatchewan
 2021-01-02,South Central,5,Saskatchewan
 2021-01-02,South East,12,Saskatchewan
-2021-01-02,Total,211,Saskatchewan
 2021-01-03,Far North West,3,Saskatchewan
 2021-01-03,Far North Central,0,Saskatchewan
 2021-01-03,Far North East,35,Saskatchewan
@@ -2137,7 +1985,6 @@ date,HR,cases,province
 2021-01-03,South West,0,Saskatchewan
 2021-01-03,South Central,7,Saskatchewan
 2021-01-03,South East,2,Saskatchewan
-2021-01-03,Total,239,Saskatchewan
 2021-01-04,Far North West,4,Saskatchewan
 2021-01-04,Far North Central,1,Saskatchewan
 2021-01-04,Far North East,38,Saskatchewan
@@ -2151,7 +1998,6 @@ date,HR,cases,province
 2021-01-04,South West,0,Saskatchewan
 2021-01-04,South Central,4,Saskatchewan
 2021-01-04,South East,6,Saskatchewan
-2021-01-04,Total,286,Saskatchewan
 2021-01-05,Far North West,3,Saskatchewan
 2021-01-05,Far North Central,0,Saskatchewan
 2021-01-05,Far North East,6,Saskatchewan
@@ -2165,7 +2011,6 @@ date,HR,cases,province
 2021-01-05,South West,0,Saskatchewan
 2021-01-05,South Central,1,Saskatchewan
 2021-01-05,South East,2,Saskatchewan
-2021-01-05,Total,151,Saskatchewan
 2021-01-06,Far North West,1,Saskatchewan
 2021-01-06,Far North Central,1,Saskatchewan
 2021-01-06,Far North East,28,Saskatchewan
@@ -2179,7 +2024,6 @@ date,HR,cases,province
 2021-01-06,South West,0,Saskatchewan
 2021-01-06,South Central,0,Saskatchewan
 2021-01-06,South East,2,Saskatchewan
-2021-01-06,Total,278,Saskatchewan
 2021-01-07,Far North West,11,Saskatchewan
 2021-01-07,Far North Central,1,Saskatchewan
 2021-01-07,Far North East,16,Saskatchewan
@@ -2193,7 +2037,6 @@ date,HR,cases,province
 2021-01-07,South West,0,Saskatchewan
 2021-01-07,South Central,0,Saskatchewan
 2021-01-07,South East,15,Saskatchewan
-2021-01-07,Total,336,Saskatchewan
 2021-01-08,Far North West,10,Saskatchewan
 2021-01-08,Far North Central,4,Saskatchewan
 2021-01-08,Far North East,36,Saskatchewan
@@ -2207,7 +2050,6 @@ date,HR,cases,province
 2021-01-08,South West,2,Saskatchewan
 2021-01-08,South Central,4,Saskatchewan
 2021-01-08,South East,8,Saskatchewan
-2021-01-08,Total,334,Saskatchewan
 2021-01-09,Far North West,4,Saskatchewan
 2021-01-09,Far North Central,8,Saskatchewan
 2021-01-09,Far North East,17,Saskatchewan
@@ -2221,7 +2063,6 @@ date,HR,cases,province
 2021-01-09,South West,0,Saskatchewan
 2021-01-09,South Central,2,Saskatchewan
 2021-01-09,South East,16,Saskatchewan
-2021-01-09,Total,332,Saskatchewan
 2021-01-10,Far North West,6,Saskatchewan
 2021-01-10,Far North Central,4,Saskatchewan
 2021-01-10,Far North East,20,Saskatchewan
@@ -2235,7 +2076,6 @@ date,HR,cases,province
 2021-01-10,South West,0,Saskatchewan
 2021-01-10,South Central,0,Saskatchewan
 2021-01-10,South East,4,Saskatchewan
-2021-01-10,Total,307,Saskatchewan
 2021-01-11,Far North West,5,Saskatchewan
 2021-01-11,Far North Central,5,Saskatchewan
 2021-01-11,Far North East,30,Saskatchewan
@@ -2249,7 +2089,6 @@ date,HR,cases,province
 2021-01-11,South West,1,Saskatchewan
 2021-01-11,South Central,3,Saskatchewan
 2021-01-11,South East,7,Saskatchewan
-2021-01-11,Total,412,Saskatchewan
 2021-01-12,Far North West,5,Saskatchewan
 2021-01-12,Far North Central,2,Saskatchewan
 2021-01-12,Far North East,18,Saskatchewan
@@ -2263,7 +2102,6 @@ date,HR,cases,province
 2021-01-12,South West,2,Saskatchewan
 2021-01-12,South Central,1,Saskatchewan
 2021-01-12,South East,3,Saskatchewan
-2021-01-12,Total,249,Saskatchewan
 2021-01-13,Far North West,12,Saskatchewan
 2021-01-13,Far North Central,10,Saskatchewan
 2021-01-13,Far North East,8,Saskatchewan
@@ -2277,7 +2115,6 @@ date,HR,cases,province
 2021-01-13,South West,0,Saskatchewan
 2021-01-13,South Central,0,Saskatchewan
 2021-01-13,South East,7,Saskatchewan
-2021-01-13,Total,245,Saskatchewan
 2021-01-14,Far North West,10,Saskatchewan
 2021-01-14,Far North Central,8,Saskatchewan
 2021-01-14,Far North East,24,Saskatchewan
@@ -2291,7 +2128,6 @@ date,HR,cases,province
 2021-01-14,South West,0,Saskatchewan
 2021-01-14,South Central,2,Saskatchewan
 2021-01-14,South East,5,Saskatchewan
-2021-01-14,Total,312,Saskatchewan
 2021-01-15,Far North West,4,Saskatchewan
 2021-01-15,Far North Central,2,Saskatchewan
 2021-01-15,Far North East,20,Saskatchewan
@@ -2305,7 +2141,6 @@ date,HR,cases,province
 2021-01-15,South West,0,Saskatchewan
 2021-01-15,South Central,1,Saskatchewan
 2021-01-15,South East,16,Saskatchewan
-2021-01-15,Total,382,Saskatchewan
 2021-01-16,Far North West,4,Saskatchewan
 2021-01-16,Far North Central,1,Saskatchewan
 2021-01-16,Far North East,12,Saskatchewan
@@ -2319,7 +2154,6 @@ date,HR,cases,province
 2021-01-16,South West,0,Saskatchewan
 2021-01-16,South Central,2,Saskatchewan
 2021-01-16,South East,10,Saskatchewan
-2021-01-16,Total,269,Saskatchewan
 2021-01-17,Far North West,5,Saskatchewan
 2021-01-17,Far North Central,1,Saskatchewan
 2021-01-17,Far North East,10,Saskatchewan
@@ -2333,7 +2167,6 @@ date,HR,cases,province
 2021-01-17,South West,0,Saskatchewan
 2021-01-17,South Central,0,Saskatchewan
 2021-01-17,South East,6,Saskatchewan
-2021-01-17,Total,290,Saskatchewan
 2021-01-18,Far North West,13,Saskatchewan
 2021-01-18,Far North Central,12,Saskatchewan
 2021-01-18,Far North East,19,Saskatchewan
@@ -2347,7 +2180,6 @@ date,HR,cases,province
 2021-01-18,South West,0,Saskatchewan
 2021-01-18,South Central,1,Saskatchewan
 2021-01-18,South East,6,Saskatchewan
-2021-01-18,Total,291,Saskatchewan
 2021-01-19,Far North West,3,Saskatchewan
 2021-01-19,Far North Central,16,Saskatchewan
 2021-01-19,Far North East,6,Saskatchewan
@@ -2361,7 +2193,6 @@ date,HR,cases,province
 2021-01-19,South West,1,Saskatchewan
 2021-01-19,South Central,0,Saskatchewan
 2021-01-19,South East,6,Saskatchewan
-2021-01-19,Total,308,Saskatchewan
 2021-01-20,Far North West,7,Saskatchewan
 2021-01-20,Far North Central,1,Saskatchewan
 2021-01-20,Far North East,8,Saskatchewan
@@ -2375,7 +2206,6 @@ date,HR,cases,province
 2021-01-20,South West,0,Saskatchewan
 2021-01-20,South Central,0,Saskatchewan
 2021-01-20,South East,1,Saskatchewan
-2021-01-20,Total,236,Saskatchewan
 2021-01-21,Far North West,5,Saskatchewan
 2021-01-21,Far North Central,6,Saskatchewan
 2021-01-21,Far North East,7,Saskatchewan
@@ -2389,7 +2219,6 @@ date,HR,cases,province
 2021-01-21,South West,1,Saskatchewan
 2021-01-21,South Central,2,Saskatchewan
 2021-01-21,South East,6,Saskatchewan
-2021-01-21,Total,227,Saskatchewan
 2021-01-22,Far North West,7,Saskatchewan
 2021-01-22,Far North Central,1,Saskatchewan
 2021-01-22,Far North East,12,Saskatchewan
@@ -2403,7 +2232,6 @@ date,HR,cases,province
 2021-01-22,South West,0,Saskatchewan
 2021-01-22,South Central,0,Saskatchewan
 2021-01-22,South East,6,Saskatchewan
-2021-01-22,Total,312,Saskatchewan
 2021-01-23,Far North West,16,Saskatchewan
 2021-01-23,Far North Central,10,Saskatchewan
 2021-01-23,Far North East,14,Saskatchewan
@@ -2417,7 +2245,6 @@ date,HR,cases,province
 2021-01-23,South West,1,Saskatchewan
 2021-01-23,South Central,0,Saskatchewan
 2021-01-23,South East,6,Saskatchewan
-2021-01-23,Total,276,Saskatchewan
 2021-01-24,Far North West,1,Saskatchewan
 2021-01-24,Far North Central,1,Saskatchewan
 2021-01-24,Far North East,3,Saskatchewan
@@ -2431,7 +2258,6 @@ date,HR,cases,province
 2021-01-24,South West,1,Saskatchewan
 2021-01-24,South Central,2,Saskatchewan
 2021-01-24,South East,5,Saskatchewan
-2021-01-24,Total,259,Saskatchewan
 2021-01-25,Far North West,5,Saskatchewan
 2021-01-25,Far North Central,2,Saskatchewan
 2021-01-25,Far North East,2,Saskatchewan
@@ -2445,7 +2271,6 @@ date,HR,cases,province
 2021-01-25,South West,0,Saskatchewan
 2021-01-25,South Central,0,Saskatchewan
 2021-01-25,South East,4,Saskatchewan
-2021-01-25,Total,239,Saskatchewan
 2021-01-26,Far North West,7,Saskatchewan
 2021-01-26,Far North Central,3,Saskatchewan
 2021-01-26,Far North East,2,Saskatchewan
@@ -2459,7 +2284,6 @@ date,HR,cases,province
 2021-01-26,South West,0,Saskatchewan
 2021-01-26,South Central,0,Saskatchewan
 2021-01-26,South East,4,Saskatchewan
-2021-01-26,Total,232,Saskatchewan
 2021-01-27,Far North West,5,Saskatchewan
 2021-01-27,Far North Central,1,Saskatchewan
 2021-01-27,Far North East,2,Saskatchewan
@@ -2473,7 +2297,6 @@ date,HR,cases,province
 2021-01-27,South West,0,Saskatchewan
 2021-01-27,South Central,0,Saskatchewan
 2021-01-27,South East,6,Saskatchewan
-2021-01-27,Total,150,Saskatchewan
 2021-01-28,Far North West,19,Saskatchewan
 2021-01-28,Far North Central,7,Saskatchewan
 2021-01-28,Far North East,7,Saskatchewan
@@ -2487,7 +2310,6 @@ date,HR,cases,province
 2021-01-28,South West,0,Saskatchewan
 2021-01-28,South Central,2,Saskatchewan
 2021-01-28,South East,10,Saskatchewan
-2021-01-28,Total,245,Saskatchewan
 2021-01-29,Far North West,14,Saskatchewan
 2021-01-29,Far North Central,3,Saskatchewan
 2021-01-29,Far North East,6,Saskatchewan
@@ -2501,7 +2323,6 @@ date,HR,cases,province
 2021-01-29,South West,1,Saskatchewan
 2021-01-29,South Central,0,Saskatchewan
 2021-01-29,South East,4,Saskatchewan
-2021-01-29,Total,330,Saskatchewan
 2021-01-30,Far North West,5,Saskatchewan
 2021-01-30,Far North Central,6,Saskatchewan
 2021-01-30,Far North East,13,Saskatchewan
@@ -2515,7 +2336,6 @@ date,HR,cases,province
 2021-01-30,South West,5,Saskatchewan
 2021-01-30,South Central,0,Saskatchewan
 2021-01-30,South East,9,Saskatchewan
-2021-01-30,Total,260,Saskatchewan
 2021-01-31,Far North West,4,Saskatchewan
 2021-01-31,Far North Central,0,Saskatchewan
 2021-01-31,Far North East,8,Saskatchewan
@@ -2529,7 +2349,6 @@ date,HR,cases,province
 2021-01-31,South West,1,Saskatchewan
 2021-01-31,South Central,0,Saskatchewan
 2021-01-31,South East,3,Saskatchewan
-2021-01-31,Total,237,Saskatchewan
 2021-02-01,Far North West,7,Saskatchewan
 2021-02-01,Far North Central,0,Saskatchewan
 2021-02-01,Far North East,1,Saskatchewan
@@ -2543,7 +2362,6 @@ date,HR,cases,province
 2021-02-01,South West,1,Saskatchewan
 2021-02-01,South Central,7,Saskatchewan
 2021-02-01,South East,6,Saskatchewan
-2021-02-01,Total,147,Saskatchewan
 2021-02-02,Far North West,10,Saskatchewan
 2021-02-02,Far North Central,8,Saskatchewan
 2021-02-02,Far North East,8,Saskatchewan
@@ -2557,7 +2375,6 @@ date,HR,cases,province
 2021-02-02,South West,0,Saskatchewan
 2021-02-02,South Central,2,Saskatchewan
 2021-02-02,South East,5,Saskatchewan
-2021-02-02,Total,223,Saskatchewan
 2021-02-03,Far North West,5,Saskatchewan
 2021-02-03,Far North Central,2,Saskatchewan
 2021-02-03,Far North East,4,Saskatchewan
@@ -2571,7 +2388,6 @@ date,HR,cases,province
 2021-02-03,South West,0,Saskatchewan
 2021-02-03,South Central,0,Saskatchewan
 2021-02-03,South East,5,Saskatchewan
-2021-02-03,Total,194,Saskatchewan
 2021-02-04,Far North West,4,Saskatchewan
 2021-02-04,Far North Central,6,Saskatchewan
 2021-02-04,Far North East,35,Saskatchewan
@@ -2585,7 +2401,6 @@ date,HR,cases,province
 2021-02-04,South West,0,Saskatchewan
 2021-02-04,South Central,1,Saskatchewan
 2021-02-04,South East,3,Saskatchewan
-2021-02-04,Total,247,Saskatchewan
 2021-02-05,Far North West,8,Saskatchewan
 2021-02-05,Far North Central,5,Saskatchewan
 2021-02-05,Far North East,11,Saskatchewan
@@ -2599,7 +2414,6 @@ date,HR,cases,province
 2021-02-05,South West,1,Saskatchewan
 2021-02-05,South Central,2,Saskatchewan
 2021-02-05,South East,5,Saskatchewan
-2021-02-05,Total,268,Saskatchewan
 2021-02-06,Far North West,7,Saskatchewan
 2021-02-06,Far North Central,4,Saskatchewan
 2021-02-06,Far North East,6,Saskatchewan
@@ -2613,7 +2427,6 @@ date,HR,cases,province
 2021-02-06,South West,0,Saskatchewan
 2021-02-06,South Central,2,Saskatchewan
 2021-02-06,South East,0,Saskatchewan
-2021-02-06,Total,264,Saskatchewan
 2021-02-07,Far North West,6,Saskatchewan
 2021-02-07,Far North Central,0,Saskatchewan
 2021-02-07,Far North East,14,Saskatchewan
@@ -2627,7 +2440,6 @@ date,HR,cases,province
 2021-02-07,South West,0,Saskatchewan
 2021-02-07,South Central,0,Saskatchewan
 2021-02-07,South East,0,Saskatchewan
-2021-02-07,Total,193,Saskatchewan
 2021-02-08,Far North West,8,Saskatchewan
 2021-02-08,Far North Central,8,Saskatchewan
 2021-02-08,Far North East,9,Saskatchewan
@@ -2641,7 +2453,6 @@ date,HR,cases,province
 2021-02-08,South West,0,Saskatchewan
 2021-02-08,South Central,0,Saskatchewan
 2021-02-08,South East,6,Saskatchewan
-2021-02-08,Total,171,Saskatchewan
 2021-02-09,Far North West,3,Saskatchewan
 2021-02-09,Far North Central,0,Saskatchewan
 2021-02-09,Far North East,5,Saskatchewan
@@ -2655,7 +2466,6 @@ date,HR,cases,province
 2021-02-09,South West,0,Saskatchewan
 2021-02-09,South Central,0,Saskatchewan
 2021-02-09,South East,0,Saskatchewan
-2021-02-09,Total,81,Saskatchewan
 2021-02-10,Far North West,7,Saskatchewan
 2021-02-10,Far North Central,1,Saskatchewan
 2021-02-10,Far North East,2,Saskatchewan
@@ -2669,7 +2479,6 @@ date,HR,cases,province
 2021-02-10,South West,0,Saskatchewan
 2021-02-10,South Central,0,Saskatchewan
 2021-02-10,South East,1,Saskatchewan
-2021-02-10,Total,173,Saskatchewan
 2021-02-11,Far North West,5,Saskatchewan
 2021-02-11,Far North Central,4,Saskatchewan
 2021-02-11,Far North East,1,Saskatchewan
@@ -2683,7 +2492,6 @@ date,HR,cases,province
 2021-02-11,South West,0,Saskatchewan
 2021-02-11,South Central,0,Saskatchewan
 2021-02-11,South East,1,Saskatchewan
-2021-02-11,Total,114,Saskatchewan
 2021-02-12,Far North West,9,Saskatchewan
 2021-02-12,Far North Central,5,Saskatchewan
 2021-02-12,Far North East,7,Saskatchewan
@@ -2697,7 +2505,6 @@ date,HR,cases,province
 2021-02-12,South West,0,Saskatchewan
 2021-02-12,South Central,0,Saskatchewan
 2021-02-12,South East,4,Saskatchewan
-2021-02-12,Total,195,Saskatchewan
 2021-02-13,Far North West,19,Saskatchewan
 2021-02-13,Far North Central,9,Saskatchewan
 2021-02-13,Far North East,6,Saskatchewan
@@ -2711,7 +2518,6 @@ date,HR,cases,province
 2021-02-13,South West,1,Saskatchewan
 2021-02-13,South Central,0,Saskatchewan
 2021-02-13,South East,3,Saskatchewan
-2021-02-13,Total,245,Saskatchewan
 2021-02-14,Far North West,2,Saskatchewan
 2021-02-14,Far North Central,0,Saskatchewan
 2021-02-14,Far North East,5,Saskatchewan
@@ -2725,7 +2531,6 @@ date,HR,cases,province
 2021-02-14,South West,0,Saskatchewan
 2021-02-14,South Central,0,Saskatchewan
 2021-02-14,South East,5,Saskatchewan
-2021-02-14,Total,160,Saskatchewan
 2021-02-15,Far North West,7,Saskatchewan
 2021-02-15,Far North Central,4,Saskatchewan
 2021-02-15,Far North East,6,Saskatchewan
@@ -2739,7 +2544,6 @@ date,HR,cases,province
 2021-02-15,South West,0,Saskatchewan
 2021-02-15,South Central,0,Saskatchewan
 2021-02-15,South East,1,Saskatchewan
-2021-02-15,Total,143,Saskatchewan
 2021-02-16,Far North West,2,Saskatchewan
 2021-02-16,Far North Central,1,Saskatchewan
 2021-02-16,Far North East,2,Saskatchewan
@@ -2753,7 +2557,6 @@ date,HR,cases,province
 2021-02-16,South West,0,Saskatchewan
 2021-02-16,South Central,0,Saskatchewan
 2021-02-16,South East,1,Saskatchewan
-2021-02-16,Total,135,Saskatchewan
 2021-02-17,Far North West,11,Saskatchewan
 2021-02-17,Far North Central,4,Saskatchewan
 2021-02-17,Far North East,2,Saskatchewan
@@ -2767,7 +2570,6 @@ date,HR,cases,province
 2021-02-17,South West,0,Saskatchewan
 2021-02-17,South Central,0,Saskatchewan
 2021-02-17,South East,0,Saskatchewan
-2021-02-17,Total,124,Saskatchewan
 2021-02-18,Far North West,5,Saskatchewan
 2021-02-18,Far North Central,10,Saskatchewan
 2021-02-18,Far North East,4,Saskatchewan
@@ -2781,7 +2583,6 @@ date,HR,cases,province
 2021-02-18,South West,0,Saskatchewan
 2021-02-18,South Central,1,Saskatchewan
 2021-02-18,South East,0,Saskatchewan
-2021-02-18,Total,146,Saskatchewan
 2021-02-19,Far North West,2,Saskatchewan
 2021-02-19,Far North Central,1,Saskatchewan
 2021-02-19,Far North East,4,Saskatchewan
@@ -2795,7 +2596,6 @@ date,HR,cases,province
 2021-02-19,South West,1,Saskatchewan
 2021-02-19,South Central,0,Saskatchewan
 2021-02-19,South East,2,Saskatchewan
-2021-02-19,Total,146,Saskatchewan
 2021-02-20,Far North West,9,Saskatchewan
 2021-02-20,Far North Central,12,Saskatchewan
 2021-02-20,Far North East,1,Saskatchewan
@@ -2809,7 +2609,6 @@ date,HR,cases,province
 2021-02-20,South West,0,Saskatchewan
 2021-02-20,South Central,1,Saskatchewan
 2021-02-20,South East,8,Saskatchewan
-2021-02-20,Total,195,Saskatchewan
 2021-02-21,Far North West,6,Saskatchewan
 2021-02-21,Far North Central,2,Saskatchewan
 2021-02-21,Far North East,5,Saskatchewan
@@ -2823,7 +2622,6 @@ date,HR,cases,province
 2021-02-21,South West,1,Saskatchewan
 2021-02-21,South Central,0,Saskatchewan
 2021-02-21,South East,1,Saskatchewan
-2021-02-21,Total,182,Saskatchewan
 2021-02-22,Far North West,2,Saskatchewan
 2021-02-22,Far North Central,6,Saskatchewan
 2021-02-22,Far North East,2,Saskatchewan
@@ -2837,7 +2635,6 @@ date,HR,cases,province
 2021-02-22,South West,0,Saskatchewan
 2021-02-22,South Central,0,Saskatchewan
 2021-02-22,South East,2,Saskatchewan
-2021-02-22,Total,177,Saskatchewan
 2021-02-23,Far North West,2,Saskatchewan
 2021-02-23,Far North Central,5,Saskatchewan
 2021-02-23,Far North East,6,Saskatchewan
@@ -2851,7 +2648,6 @@ date,HR,cases,province
 2021-02-23,South West,0,Saskatchewan
 2021-02-23,South Central,0,Saskatchewan
 2021-02-23,South East,0,Saskatchewan
-2021-02-23,Total,122,Saskatchewan
 2021-02-24,Far North West,4,Saskatchewan
 2021-02-24,Far North Central,2,Saskatchewan
 2021-02-24,Far North East,6,Saskatchewan
@@ -2865,7 +2661,6 @@ date,HR,cases,province
 2021-02-24,South West,0,Saskatchewan
 2021-02-24,South Central,0,Saskatchewan
 2021-02-24,South East,0,Saskatchewan
-2021-02-24,Total,56,Saskatchewan
 2021-02-25,Far North West,4,Saskatchewan
 2021-02-25,Far North Central,6,Saskatchewan
 2021-02-25,Far North East,3,Saskatchewan
@@ -2879,7 +2674,6 @@ date,HR,cases,province
 2021-02-25,South West,1,Saskatchewan
 2021-02-25,South Central,0,Saskatchewan
 2021-02-25,South East,4,Saskatchewan
-2021-02-25,Total,211,Saskatchewan
 2021-02-26,Far North West,8,Saskatchewan
 2021-02-26,Far North Central,0,Saskatchewan
 2021-02-26,Far North East,3,Saskatchewan
@@ -2893,7 +2687,6 @@ date,HR,cases,province
 2021-02-26,South West,0,Saskatchewan
 2021-02-26,South Central,0,Saskatchewan
 2021-02-26,South East,0,Saskatchewan
-2021-02-26,Total,152,Saskatchewan
 2021-02-27,Far North West,15,Saskatchewan
 2021-02-27,Far North Central,0,Saskatchewan
 2021-02-27,Far North East,0,Saskatchewan
@@ -2907,7 +2700,6 @@ date,HR,cases,province
 2021-02-27,South West,0,Saskatchewan
 2021-02-27,South Central,0,Saskatchewan
 2021-02-27,South East,1,Saskatchewan
-2021-02-27,Total,162,Saskatchewan
 2021-02-28,Far North West,7,Saskatchewan
 2021-02-28,Far North Central,1,Saskatchewan
 2021-02-28,Far North East,1,Saskatchewan
@@ -2921,7 +2713,6 @@ date,HR,cases,province
 2021-02-28,South West,0,Saskatchewan
 2021-02-28,South Central,0,Saskatchewan
 2021-02-28,South East,1,Saskatchewan
-2021-02-28,Total,140,Saskatchewan
 2021-03-01,Far North West,2,Saskatchewan
 2021-03-01,Far North Central,3,Saskatchewan
 2021-03-01,Far North East,3,Saskatchewan
@@ -2935,7 +2726,6 @@ date,HR,cases,province
 2021-03-01,South West,0,Saskatchewan
 2021-03-01,South Central,0,Saskatchewan
 2021-03-01,South East,0,Saskatchewan
-2021-03-01,Total,154,Saskatchewan
 2021-03-02,Far North West,7,Saskatchewan
 2021-03-02,Far North Central,0,Saskatchewan
 2021-03-02,Far North East,1,Saskatchewan
@@ -2949,7 +2739,6 @@ date,HR,cases,province
 2021-03-02,South West,0,Saskatchewan
 2021-03-02,South Central,0,Saskatchewan
 2021-03-02,South East,2,Saskatchewan
-2021-03-02,Total,134,Saskatchewan
 2021-03-03,Far North West,2,Saskatchewan
 2021-03-03,Far North Central,0,Saskatchewan
 2021-03-03,Far North East,13,Saskatchewan
@@ -2963,7 +2752,6 @@ date,HR,cases,province
 2021-03-03,South West,1,Saskatchewan
 2021-03-03,South Central,0,Saskatchewan
 2021-03-03,South East,0,Saskatchewan
-2021-03-03,Total,121,Saskatchewan
 2021-03-04,Far North West,12,Saskatchewan
 2021-03-04,Far North Central,0,Saskatchewan
 2021-03-04,Far North East,0,Saskatchewan
@@ -2977,7 +2765,6 @@ date,HR,cases,province
 2021-03-04,South West,1,Saskatchewan
 2021-03-04,South Central,0,Saskatchewan
 2021-03-04,South East,2,Saskatchewan
-2021-03-04,Total,168,Saskatchewan
 2021-03-05,Far North West,4,Saskatchewan
 2021-03-05,Far North Central,2,Saskatchewan
 2021-03-05,Far North East,4,Saskatchewan
@@ -2991,7 +2778,6 @@ date,HR,cases,province
 2021-03-05,South West,2,Saskatchewan
 2021-03-05,South Central,0,Saskatchewan
 2021-03-05,South East,4,Saskatchewan
-2021-03-05,Total,207,Saskatchewan
 2021-03-06,Far North West,3,Saskatchewan
 2021-03-06,Far North Central,0,Saskatchewan
 2021-03-06,Far North East,5,Saskatchewan
@@ -3005,7 +2791,6 @@ date,HR,cases,province
 2021-03-06,South West,1,Saskatchewan
 2021-03-06,South Central,0,Saskatchewan
 2021-03-06,South East,1,Saskatchewan
-2021-03-06,Total,164,Saskatchewan
 2021-03-07,Far North West,3,Saskatchewan
 2021-03-07,Far North Central,1,Saskatchewan
 2021-03-07,Far North East,3,Saskatchewan
@@ -3019,7 +2804,6 @@ date,HR,cases,province
 2021-03-07,South West,2,Saskatchewan
 2021-03-07,South Central,0,Saskatchewan
 2021-03-07,South East,4,Saskatchewan
-2021-03-07,Total,115,Saskatchewan
 2021-03-08,Far North West,1,Saskatchewan
 2021-03-08,Far North Central,0,Saskatchewan
 2021-03-08,Far North East,1,Saskatchewan
@@ -3033,7 +2817,6 @@ date,HR,cases,province
 2021-03-08,South West,0,Saskatchewan
 2021-03-08,South Central,0,Saskatchewan
 2021-03-08,South East,2,Saskatchewan
-2021-03-08,Total,97,Saskatchewan
 2021-03-09,Far North West,2,Saskatchewan
 2021-03-09,Far North Central,0,Saskatchewan
 2021-03-09,Far North East,1,Saskatchewan
@@ -3047,7 +2830,6 @@ date,HR,cases,province
 2021-03-09,South West,3,Saskatchewan
 2021-03-09,South Central,0,Saskatchewan
 2021-03-09,South East,0,Saskatchewan
-2021-03-09,Total,111,Saskatchewan
 2021-03-10,Far North West,1,Saskatchewan
 2021-03-10,Far North Central,0,Saskatchewan
 2021-03-10,Far North East,0,Saskatchewan
@@ -3061,7 +2843,6 @@ date,HR,cases,province
 2021-03-10,South West,0,Saskatchewan
 2021-03-10,South Central,0,Saskatchewan
 2021-03-10,South East,0,Saskatchewan
-2021-03-10,Total,111,Saskatchewan
 2021-03-11,Far North West,2,Saskatchewan
 2021-03-11,Far North Central,1,Saskatchewan
 2021-03-11,Far North East,5,Saskatchewan
@@ -3075,7 +2856,6 @@ date,HR,cases,province
 2021-03-11,South West,4,Saskatchewan
 2021-03-11,South Central,0,Saskatchewan
 2021-03-11,South East,3,Saskatchewan
-2021-03-11,Total,168,Saskatchewan
 2021-03-12,Far North West,1,Saskatchewan
 2021-03-12,Far North Central,1,Saskatchewan
 2021-03-12,Far North East,5,Saskatchewan
@@ -3089,7 +2869,6 @@ date,HR,cases,province
 2021-03-12,South West,2,Saskatchewan
 2021-03-12,South Central,0,Saskatchewan
 2021-03-12,South East,1,Saskatchewan
-2021-03-12,Total,176,Saskatchewan
 2021-03-13,Far North West,0,Saskatchewan
 2021-03-13,Far North Central,5,Saskatchewan
 2021-03-13,Far North East,2,Saskatchewan
@@ -3103,7 +2882,6 @@ date,HR,cases,province
 2021-03-13,South West,1,Saskatchewan
 2021-03-13,South Central,0,Saskatchewan
 2021-03-13,South East,1,Saskatchewan
-2021-03-13,Total,154,Saskatchewan
 2021-03-14,Far North West,0,Saskatchewan
 2021-03-14,Far North Central,0,Saskatchewan
 2021-03-14,Far North East,0,Saskatchewan
@@ -3117,7 +2895,6 @@ date,HR,cases,province
 2021-03-14,South West,0,Saskatchewan
 2021-03-14,South Central,0,Saskatchewan
 2021-03-14,South East,5,Saskatchewan
-2021-03-14,Total,100,Saskatchewan
 2021-03-15,Far North West,0,Saskatchewan
 2021-03-15,Far North Central,0,Saskatchewan
 2021-03-15,Far North East,0,Saskatchewan
@@ -3131,7 +2908,6 @@ date,HR,cases,province
 2021-03-15,South West,1,Saskatchewan
 2021-03-15,South Central,0,Saskatchewan
 2021-03-15,South East,0,Saskatchewan
-2021-03-15,Total,111,Saskatchewan
 2021-03-16,Far North West,0,Saskatchewan
 2021-03-16,Far North Central,0,Saskatchewan
 2021-03-16,Far North East,3,Saskatchewan
@@ -3145,7 +2921,6 @@ date,HR,cases,province
 2021-03-16,South West,2,Saskatchewan
 2021-03-16,South Central,0,Saskatchewan
 2021-03-16,South East,5,Saskatchewan
-2021-03-16,Total,157,Saskatchewan
 2021-03-17,Far North West,1,Saskatchewan
 2021-03-17,Far North Central,0,Saskatchewan
 2021-03-17,Far North East,0,Saskatchewan
@@ -3159,7 +2934,6 @@ date,HR,cases,province
 2021-03-17,South West,0,Saskatchewan
 2021-03-17,South Central,0,Saskatchewan
 2021-03-17,South East,5,Saskatchewan
-2021-03-17,Total,88,Saskatchewan
 2021-03-18,Far North West,0,Saskatchewan
 2021-03-18,Far North Central,0,Saskatchewan
 2021-03-18,Far North East,1,Saskatchewan
@@ -3173,7 +2947,6 @@ date,HR,cases,province
 2021-03-18,South West,0,Saskatchewan
 2021-03-18,South Central,0,Saskatchewan
 2021-03-18,South East,2,Saskatchewan
-2021-03-18,Total,116,Saskatchewan
 2021-03-19,Far North West,0,Saskatchewan
 2021-03-19,Far North Central,0,Saskatchewan
 2021-03-19,Far North East,1,Saskatchewan
@@ -3187,7 +2960,6 @@ date,HR,cases,province
 2021-03-19,South West,0,Saskatchewan
 2021-03-19,South Central,0,Saskatchewan
 2021-03-19,South East,6,Saskatchewan
-2021-03-19,Total,175,Saskatchewan
 2021-03-20,Far North West,1,Saskatchewan
 2021-03-20,Far North Central,0,Saskatchewan
 2021-03-20,Far North East,0,Saskatchewan
@@ -3201,7 +2973,6 @@ date,HR,cases,province
 2021-03-20,South West,0,Saskatchewan
 2021-03-20,South Central,3,Saskatchewan
 2021-03-20,South East,12,Saskatchewan
-2021-03-20,Total,202,Saskatchewan
 2021-03-21,Far North West,1,Saskatchewan
 2021-03-21,Far North Central,0,Saskatchewan
 2021-03-21,Far North East,1,Saskatchewan
@@ -3215,7 +2986,6 @@ date,HR,cases,province
 2021-03-21,South West,0,Saskatchewan
 2021-03-21,South Central,0,Saskatchewan
 2021-03-21,South East,3,Saskatchewan
-2021-03-21,Total,178,Saskatchewan
 2021-03-22,Far North West,0,Saskatchewan
 2021-03-22,Far North Central,0,Saskatchewan
 2021-03-22,Far North East,2,Saskatchewan
@@ -3229,7 +2999,6 @@ date,HR,cases,province
 2021-03-22,South West,0,Saskatchewan
 2021-03-22,South Central,0,Saskatchewan
 2021-03-22,South East,3,Saskatchewan
-2021-03-22,Total,205,Saskatchewan
 2021-03-23,Far North West,0,Saskatchewan
 2021-03-23,Far North Central,1,Saskatchewan
 2021-03-23,Far North East,0,Saskatchewan
@@ -3243,7 +3012,6 @@ date,HR,cases,province
 2021-03-23,South West,0,Saskatchewan
 2021-03-23,South Central,1,Saskatchewan
 2021-03-23,South East,0,Saskatchewan
-2021-03-23,Total,150,Saskatchewan
 2021-03-24,Far North West,4,Saskatchewan
 2021-03-24,Far North Central,0,Saskatchewan
 2021-03-24,Far North East,0,Saskatchewan
@@ -3257,7 +3025,6 @@ date,HR,cases,province
 2021-03-24,South West,0,Saskatchewan
 2021-03-24,South Central,1,Saskatchewan
 2021-03-24,South East,1,Saskatchewan
-2021-03-24,Total,191,Saskatchewan
 2021-03-25,Far North West,0,Saskatchewan
 2021-03-25,Far North Central,0,Saskatchewan
 2021-03-25,Far North East,2,Saskatchewan
@@ -3271,7 +3038,6 @@ date,HR,cases,province
 2021-03-25,South West,0,Saskatchewan
 2021-03-25,South Central,0,Saskatchewan
 2021-03-25,South East,5,Saskatchewan
-2021-03-25,Total,170,Saskatchewan
 2021-03-26,Far North West,0,Saskatchewan
 2021-03-26,Far North Central,0,Saskatchewan
 2021-03-26,Far North East,4,Saskatchewan
@@ -3285,7 +3051,6 @@ date,HR,cases,province
 2021-03-26,South West,0,Saskatchewan
 2021-03-26,South Central,2,Saskatchewan
 2021-03-26,South East,6,Saskatchewan
-2021-03-26,Total,215,Saskatchewan
 2021-03-27,Far North West,1,Saskatchewan
 2021-03-27,Far North Central,0,Saskatchewan
 2021-03-27,Far North East,1,Saskatchewan
@@ -3299,7 +3064,6 @@ date,HR,cases,province
 2021-03-27,South West,0,Saskatchewan
 2021-03-27,South Central,0,Saskatchewan
 2021-03-27,South East,0,Saskatchewan
-2021-03-27,Total,226,Saskatchewan
 2021-03-28,Far North West,0,Saskatchewan
 2021-03-28,Far North Central,0,Saskatchewan
 2021-03-28,Far North East,3,Saskatchewan
@@ -3313,7 +3077,6 @@ date,HR,cases,province
 2021-03-28,South West,0,Saskatchewan
 2021-03-28,South Central,1,Saskatchewan
 2021-03-28,South East,7,Saskatchewan
-2021-03-28,Total,248,Saskatchewan
 2021-03-29,Far North West,0,Saskatchewan
 2021-03-29,Far North Central,0,Saskatchewan
 2021-03-29,Far North East,4,Saskatchewan
@@ -3327,7 +3090,6 @@ date,HR,cases,province
 2021-03-29,South West,0,Saskatchewan
 2021-03-29,South Central,0,Saskatchewan
 2021-03-29,South East,2,Saskatchewan
-2021-03-29,Total,204,Saskatchewan
 2021-03-30,Far North West,0,Saskatchewan
 2021-03-30,Far North Central,0,Saskatchewan
 2021-03-30,Far North East,0,Saskatchewan
@@ -3341,7 +3103,6 @@ date,HR,cases,province
 2021-03-30,South West,0,Saskatchewan
 2021-03-30,South Central,0,Saskatchewan
 2021-03-30,South East,0,Saskatchewan
-2021-03-30,Total,166,Saskatchewan
 2021-03-31,Far North West,0,Saskatchewan
 2021-03-31,Far North Central,0,Saskatchewan
 2021-03-31,Far North East,1,Saskatchewan
@@ -3355,7 +3116,6 @@ date,HR,cases,province
 2021-03-31,South West,0,Saskatchewan
 2021-03-31,South Central,2,Saskatchewan
 2021-03-31,South East,1,Saskatchewan
-2021-03-31,Total,191,Saskatchewan
 2021-04-01,Far North West,0,Saskatchewan
 2021-04-01,Far North Central,0,Saskatchewan
 2021-04-01,Far North East,3,Saskatchewan
@@ -3369,7 +3129,6 @@ date,HR,cases,province
 2021-04-01,South West,0,Saskatchewan
 2021-04-01,South Central,1,Saskatchewan
 2021-04-01,South East,2,Saskatchewan
-2021-04-01,Total,201,Saskatchewan
 2021-04-02,Far North West,0,Saskatchewan
 2021-04-02,Far North Central,0,Saskatchewan
 2021-04-02,Far North East,0,Saskatchewan
@@ -3383,7 +3142,6 @@ date,HR,cases,province
 2021-04-02,South West,0,Saskatchewan
 2021-04-02,South Central,0,Saskatchewan
 2021-04-02,South East,3,Saskatchewan
-2021-04-02,Total,260,Saskatchewan
 2021-04-03,Far North West,1,Saskatchewan
 2021-04-03,Far North Central,0,Saskatchewan
 2021-04-03,Far North East,1,Saskatchewan
@@ -3397,7 +3155,6 @@ date,HR,cases,province
 2021-04-03,South West,3,Saskatchewan
 2021-04-03,South Central,1,Saskatchewan
 2021-04-03,South East,9,Saskatchewan
-2021-04-03,Total,283,Saskatchewan
 2021-04-04,Far North West,0,Saskatchewan
 2021-04-04,Far North Central,0,Saskatchewan
 2021-04-04,Far North East,3,Saskatchewan
@@ -3411,7 +3168,6 @@ date,HR,cases,province
 2021-04-04,South West,2,Saskatchewan
 2021-04-04,South Central,0,Saskatchewan
 2021-04-04,South East,1,Saskatchewan
-2021-04-04,Total,222,Saskatchewan
 2021-04-05,Far North West,0,Saskatchewan
 2021-04-05,Far North Central,0,Saskatchewan
 2021-04-05,Far North East,0,Saskatchewan
@@ -3425,7 +3181,6 @@ date,HR,cases,province
 2021-04-05,South West,0,Saskatchewan
 2021-04-05,South Central,0,Saskatchewan
 2021-04-05,South East,1,Saskatchewan
-2021-04-05,Total,219,Saskatchewan
 2021-04-06,Far North West,1,Saskatchewan
 2021-04-06,Far North Central,0,Saskatchewan
 2021-04-06,Far North East,0,Saskatchewan
@@ -3439,7 +3194,6 @@ date,HR,cases,province
 2021-04-06,South West,1,Saskatchewan
 2021-04-06,South Central,0,Saskatchewan
 2021-04-06,South East,2,Saskatchewan
-2021-04-06,Total,221,Saskatchewan
 2021-04-07,Far North West,0,Saskatchewan
 2021-04-07,Far North Central,0,Saskatchewan
 2021-04-07,Far North East,0,Saskatchewan
@@ -3453,7 +3207,6 @@ date,HR,cases,province
 2021-04-07,South West,0,Saskatchewan
 2021-04-07,South Central,1,Saskatchewan
 2021-04-07,South East,4,Saskatchewan
-2021-04-07,Total,194,Saskatchewan
 2021-04-08,Far North West,1,Saskatchewan
 2021-04-08,Far North Central,1,Saskatchewan
 2021-04-08,Far North East,2,Saskatchewan
@@ -3467,7 +3220,6 @@ date,HR,cases,province
 2021-04-08,South West,2,Saskatchewan
 2021-04-08,South Central,0,Saskatchewan
 2021-04-08,South East,10,Saskatchewan
-2021-04-08,Total,206,Saskatchewan
 2021-04-09,Far North West,2,Saskatchewan
 2021-04-09,Far North Central,0,Saskatchewan
 2021-04-09,Far North East,0,Saskatchewan
@@ -3481,7 +3233,6 @@ date,HR,cases,province
 2021-04-09,South West,0,Saskatchewan
 2021-04-09,South Central,0,Saskatchewan
 2021-04-09,South East,13,Saskatchewan
-2021-04-09,Total,364,Saskatchewan
 2021-04-10,Far North West,3,Saskatchewan
 2021-04-10,Far North Central,0,Saskatchewan
 2021-04-10,Far North East,1,Saskatchewan
@@ -3495,7 +3246,6 @@ date,HR,cases,province
 2021-04-10,South West,6,Saskatchewan
 2021-04-10,South Central,1,Saskatchewan
 2021-04-10,South East,11,Saskatchewan
-2021-04-10,Total,239,Saskatchewan
 2021-04-11,Far North West,0,Saskatchewan
 2021-04-11,Far North Central,0,Saskatchewan
 2021-04-11,Far North East,2,Saskatchewan
@@ -3509,7 +3259,6 @@ date,HR,cases,province
 2021-04-11,South West,0,Saskatchewan
 2021-04-11,South Central,0,Saskatchewan
 2021-04-11,South East,16,Saskatchewan
-2021-04-11,Total,326,Saskatchewan
 2021-04-12,Far North West,1,Saskatchewan
 2021-04-12,Far North Central,0,Saskatchewan
 2021-04-12,Far North East,2,Saskatchewan
@@ -3523,7 +3272,6 @@ date,HR,cases,province
 2021-04-12,South West,7,Saskatchewan
 2021-04-12,South Central,3,Saskatchewan
 2021-04-12,South East,3,Saskatchewan
-2021-04-12,Total,304,Saskatchewan
 2021-04-13,Far North West,3,Saskatchewan
 2021-04-13,Far North Central,0,Saskatchewan
 2021-04-13,Far North East,0,Saskatchewan
@@ -3537,7 +3285,6 @@ date,HR,cases,province
 2021-04-13,South West,12,Saskatchewan
 2021-04-13,South Central,2,Saskatchewan
 2021-04-13,South East,5,Saskatchewan
-2021-04-13,Total,289,Saskatchewan
 2021-04-14,Far North West,0,Saskatchewan
 2021-04-14,Far North Central,0,Saskatchewan
 2021-04-14,Far North East,0,Saskatchewan
@@ -3551,7 +3298,6 @@ date,HR,cases,province
 2021-04-14,South West,3,Saskatchewan
 2021-04-14,South Central,1,Saskatchewan
 2021-04-14,South East,2,Saskatchewan
-2021-04-14,Total,194,Saskatchewan
 2021-04-15,Far North West,4,Saskatchewan
 2021-04-15,Far North Central,0,Saskatchewan
 2021-04-15,Far North East,0,Saskatchewan
@@ -3565,7 +3311,6 @@ date,HR,cases,province
 2021-04-15,South West,1,Saskatchewan
 2021-04-15,South Central,0,Saskatchewan
 2021-04-15,South East,3,Saskatchewan
-2021-04-15,Total,296,Saskatchewan
 2021-04-16,Far North West,2,Saskatchewan
 2021-04-16,Far North Central,0,Saskatchewan
 2021-04-16,Far North East,2,Saskatchewan
@@ -3579,7 +3324,6 @@ date,HR,cases,province
 2021-04-16,South West,12,Saskatchewan
 2021-04-16,South Central,4,Saskatchewan
 2021-04-16,South East,1,Saskatchewan
-2021-04-16,Total,223,Saskatchewan
 2021-04-17,Far North West,1,Saskatchewan
 2021-04-17,Far North Central,0,Saskatchewan
 2021-04-17,Far North East,2,Saskatchewan
@@ -3593,7 +3337,6 @@ date,HR,cases,province
 2021-04-17,South West,2,Saskatchewan
 2021-04-17,South Central,1,Saskatchewan
 2021-04-17,South East,2,Saskatchewan
-2021-04-17,Total,251,Saskatchewan
 2021-04-18,Far North West,6,Saskatchewan
 2021-04-18,Far North Central,0,Saskatchewan
 2021-04-18,Far North East,1,Saskatchewan
@@ -3607,7 +3350,6 @@ date,HR,cases,province
 2021-04-18,South West,5,Saskatchewan
 2021-04-18,South Central,0,Saskatchewan
 2021-04-18,South East,18,Saskatchewan
-2021-04-18,Total,294,Saskatchewan
 2021-04-19,Far North West,1,Saskatchewan
 2021-04-19,Far North Central,0,Saskatchewan
 2021-04-19,Far North East,0,Saskatchewan
@@ -3621,7 +3363,6 @@ date,HR,cases,province
 2021-04-19,South West,9,Saskatchewan
 2021-04-19,South Central,6,Saskatchewan
 2021-04-19,South East,3,Saskatchewan
-2021-04-19,Total,244,Saskatchewan
 2021-04-20,Far North West,0,Saskatchewan
 2021-04-20,Far North Central,0,Saskatchewan
 2021-04-20,Far North East,2,Saskatchewan
@@ -3635,7 +3376,6 @@ date,HR,cases,province
 2021-04-20,South West,4,Saskatchewan
 2021-04-20,South Central,1,Saskatchewan
 2021-04-20,South East,4,Saskatchewan
-2021-04-20,Total,255,Saskatchewan
 2021-04-21,Far North West,12,Saskatchewan
 2021-04-21,Far North Central,0,Saskatchewan
 2021-04-21,Far North East,0,Saskatchewan
@@ -3649,7 +3389,6 @@ date,HR,cases,province
 2021-04-21,South West,1,Saskatchewan
 2021-04-21,South Central,1,Saskatchewan
 2021-04-21,South East,14,Saskatchewan
-2021-04-21,Total,235,Saskatchewan
 2021-04-22,Far North West,14,Saskatchewan
 2021-04-22,Far North Central,0,Saskatchewan
 2021-04-22,Far North East,9,Saskatchewan
@@ -3663,7 +3402,6 @@ date,HR,cases,province
 2021-04-22,South West,8,Saskatchewan
 2021-04-22,South Central,3,Saskatchewan
 2021-04-22,South East,8,Saskatchewan
-2021-04-22,Total,261,Saskatchewan
 2021-04-23,Far North West,2,Saskatchewan
 2021-04-23,Far North Central,0,Saskatchewan
 2021-04-23,Far North East,6,Saskatchewan
@@ -3677,7 +3415,6 @@ date,HR,cases,province
 2021-04-23,South West,7,Saskatchewan
 2021-04-23,South Central,7,Saskatchewan
 2021-04-23,South East,6,Saskatchewan
-2021-04-23,Total,252,Saskatchewan
 2021-04-24,Far North West,13,Saskatchewan
 2021-04-24,Far North Central,0,Saskatchewan
 2021-04-24,Far North East,0,Saskatchewan
@@ -3691,7 +3428,6 @@ date,HR,cases,province
 2021-04-24,South West,14,Saskatchewan
 2021-04-24,South Central,1,Saskatchewan
 2021-04-24,South East,3,Saskatchewan
-2021-04-24,Total,288,Saskatchewan
 2021-04-25,Far North West,12,Saskatchewan
 2021-04-25,Far North Central,0,Saskatchewan
 2021-04-25,Far North East,0,Saskatchewan
@@ -3705,7 +3441,6 @@ date,HR,cases,province
 2021-04-25,South West,6,Saskatchewan
 2021-04-25,South Central,2,Saskatchewan
 2021-04-25,South East,7,Saskatchewan
-2021-04-25,Total,258,Saskatchewan
 2021-04-26,Far North West,8,Saskatchewan
 2021-04-26,Far North Central,0,Saskatchewan
 2021-04-26,Far North East,0,Saskatchewan
@@ -3719,7 +3454,6 @@ date,HR,cases,province
 2021-04-26,South West,4,Saskatchewan
 2021-04-26,South Central,15,Saskatchewan
 2021-04-26,South East,13,Saskatchewan
-2021-04-26,Total,252,Saskatchewan
 2021-04-27,Far North West,3,Saskatchewan
 2021-04-27,Far North Central,0,Saskatchewan
 2021-04-27,Far North East,0,Saskatchewan
@@ -3733,7 +3467,6 @@ date,HR,cases,province
 2021-04-27,South West,4,Saskatchewan
 2021-04-27,South Central,2,Saskatchewan
 2021-04-27,South East,1,Saskatchewan
-2021-04-27,Total,229,Saskatchewan
 2021-04-28,Far North West,9,Saskatchewan
 2021-04-28,Far North Central,0,Saskatchewan
 2021-04-28,Far North East,0,Saskatchewan
@@ -3747,7 +3480,6 @@ date,HR,cases,province
 2021-04-28,South West,1,Saskatchewan
 2021-04-28,South Central,8,Saskatchewan
 2021-04-28,South East,10,Saskatchewan
-2021-04-28,Total,215,Saskatchewan
 2021-04-29,Far North West,9,Saskatchewan
 2021-04-29,Far North Central,0,Saskatchewan
 2021-04-29,Far North East,0,Saskatchewan
@@ -3761,7 +3493,6 @@ date,HR,cases,province
 2021-04-29,South West,6,Saskatchewan
 2021-04-29,South Central,2,Saskatchewan
 2021-04-29,South East,1,Saskatchewan
-2021-04-29,Total,213,Saskatchewan
 2021-04-30,Far North West,8,Saskatchewan
 2021-04-30,Far North Central,0,Saskatchewan
 2021-04-30,Far North East,0,Saskatchewan
@@ -3775,7 +3506,6 @@ date,HR,cases,province
 2021-04-30,South West,7,Saskatchewan
 2021-04-30,South Central,5,Saskatchewan
 2021-04-30,South East,6,Saskatchewan
-2021-04-30,Total,267,Saskatchewan
 2021-05-01,Far North West,8,Saskatchewan
 2021-05-01,Far North Central,0,Saskatchewan
 2021-05-01,Far North East,0,Saskatchewan
@@ -3789,7 +3519,6 @@ date,HR,cases,province
 2021-05-01,South West,10,Saskatchewan
 2021-05-01,South Central,6,Saskatchewan
 2021-05-01,South East,12,Saskatchewan
-2021-05-01,Total,265,Saskatchewan
 2021-05-02,Far North West,19,Saskatchewan
 2021-05-02,Far North Central,0,Saskatchewan
 2021-05-02,Far North East,1,Saskatchewan
@@ -3803,7 +3532,6 @@ date,HR,cases,province
 2021-05-02,South West,5,Saskatchewan
 2021-05-02,South Central,8,Saskatchewan
 2021-05-02,South East,5,Saskatchewan
-2021-05-02,Total,244,Saskatchewan
 2021-05-03,Far North West,9,Saskatchewan
 2021-05-03,Far North Central,0,Saskatchewan
 2021-05-03,Far North East,0,Saskatchewan
@@ -3817,7 +3545,6 @@ date,HR,cases,province
 2021-05-03,South West,3,Saskatchewan
 2021-05-03,South Central,5,Saskatchewan
 2021-05-03,South East,1,Saskatchewan
-2021-05-03,Total,208,Saskatchewan
 2021-05-04,Far North West,1,Saskatchewan
 2021-05-04,Far North Central,0,Saskatchewan
 2021-05-04,Far North East,0,Saskatchewan
@@ -3831,7 +3558,6 @@ date,HR,cases,province
 2021-05-04,South West,6,Saskatchewan
 2021-05-04,South Central,5,Saskatchewan
 2021-05-04,South East,0,Saskatchewan
-2021-05-04,Total,195,Saskatchewan
 2021-05-05,Far North West,0,Saskatchewan
 2021-05-05,Far North Central,0,Saskatchewan
 2021-05-05,Far North East,0,Saskatchewan
@@ -3845,7 +3571,6 @@ date,HR,cases,province
 2021-05-05,South West,14,Saskatchewan
 2021-05-05,South Central,1,Saskatchewan
 2021-05-05,South East,3,Saskatchewan
-2021-05-05,Total,200,Saskatchewan
 2021-05-06,Far North West,1,Saskatchewan
 2021-05-06,Far North Central,0,Saskatchewan
 2021-05-06,Far North East,0,Saskatchewan
@@ -3859,7 +3584,6 @@ date,HR,cases,province
 2021-05-06,South West,4,Saskatchewan
 2021-05-06,South Central,3,Saskatchewan
 2021-05-06,South East,1,Saskatchewan
-2021-05-06,Total,162,Saskatchewan
 2021-05-07,Far North West,1,Saskatchewan
 2021-05-07,Far North Central,0,Saskatchewan
 2021-05-07,Far North East,5,Saskatchewan
@@ -3873,7 +3597,6 @@ date,HR,cases,province
 2021-05-07,South West,5,Saskatchewan
 2021-05-07,South Central,3,Saskatchewan
 2021-05-07,South East,4,Saskatchewan
-2021-05-07,Total,295,Saskatchewan
 2021-05-08,Far North West,10,Saskatchewan
 2021-05-08,Far North Central,0,Saskatchewan
 2021-05-08,Far North East,0,Saskatchewan
@@ -3887,7 +3610,6 @@ date,HR,cases,province
 2021-05-08,South West,8,Saskatchewan
 2021-05-08,South Central,7,Saskatchewan
 2021-05-08,South East,2,Saskatchewan
-2021-05-08,Total,271,Saskatchewan
 2021-05-09,Far North West,5,Saskatchewan
 2021-05-09,Far North Central,0,Saskatchewan
 2021-05-09,Far North East,0,Saskatchewan
@@ -3901,7 +3623,6 @@ date,HR,cases,province
 2021-05-09,South West,7,Saskatchewan
 2021-05-09,South Central,8,Saskatchewan
 2021-05-09,South East,1,Saskatchewan
-2021-05-09,Total,179,Saskatchewan
 2021-05-10,Far North West,0,Saskatchewan
 2021-05-10,Far North Central,0,Saskatchewan
 2021-05-10,Far North East,0,Saskatchewan
@@ -3915,7 +3636,6 @@ date,HR,cases,province
 2021-05-10,South West,8,Saskatchewan
 2021-05-10,South Central,1,Saskatchewan
 2021-05-10,South East,2,Saskatchewan
-2021-05-10,Total,150,Saskatchewan
 2021-05-11,Far North West,0,Saskatchewan
 2021-05-11,Far North Central,0,Saskatchewan
 2021-05-11,Far North East,4,Saskatchewan
@@ -3929,7 +3649,6 @@ date,HR,cases,province
 2021-05-11,South West,0,Saskatchewan
 2021-05-11,South Central,3,Saskatchewan
 2021-05-11,South East,3,Saskatchewan
-2021-05-11,Total,188,Saskatchewan
 2021-05-12,Far North West,4,Saskatchewan
 2021-05-12,Far North Central,0,Saskatchewan
 2021-05-12,Far North East,0,Saskatchewan
@@ -3943,7 +3662,6 @@ date,HR,cases,province
 2021-05-12,South West,0,Saskatchewan
 2021-05-12,South Central,0,Saskatchewan
 2021-05-12,South East,3,Saskatchewan
-2021-05-12,Total,183,Saskatchewan
 2021-05-13,Far North West,4,Saskatchewan
 2021-05-13,Far North Central,0,Saskatchewan
 2021-05-13,Far North East,0,Saskatchewan
@@ -3957,7 +3675,6 @@ date,HR,cases,province
 2021-05-13,South West,0,Saskatchewan
 2021-05-13,South Central,0,Saskatchewan
 2021-05-13,South East,3,Saskatchewan
-2021-05-13,Total,183,Saskatchewan
 2021-05-14,Far North West,2,Saskatchewan
 2021-05-14,Far North Central,1,Saskatchewan
 2021-05-14,Far North East,1,Saskatchewan
@@ -3971,7 +3688,6 @@ date,HR,cases,province
 2021-05-14,South West,11,Saskatchewan
 2021-05-14,South Central,9,Saskatchewan
 2021-05-14,South East,4,Saskatchewan
-2021-05-14,Total,229,Saskatchewan
 2021-05-15,Far North West,2,Saskatchewan
 2021-05-15,Far North Central,0,Saskatchewan
 2021-05-15,Far North East,4,Saskatchewan
@@ -3985,7 +3701,6 @@ date,HR,cases,province
 2021-05-15,South West,6,Saskatchewan
 2021-05-15,South Central,0,Saskatchewan
 2021-05-15,South East,0,Saskatchewan
-2021-05-15,Total,199,Saskatchewan
 2021-05-16,Far North West,4,Saskatchewan
 2021-05-16,Far North Central,0,Saskatchewan
 2021-05-16,Far North East,1,Saskatchewan
@@ -3999,7 +3714,6 @@ date,HR,cases,province
 2021-05-16,South West,3,Saskatchewan
 2021-05-16,South Central,1,Saskatchewan
 2021-05-16,South East,1,Saskatchewan
-2021-05-16,Total,171,Saskatchewan
 2021-05-17,Far North West,5,Saskatchewan
 2021-05-17,Far North Central,0,Saskatchewan
 2021-05-17,Far North East,0,Saskatchewan
@@ -4013,7 +3727,6 @@ date,HR,cases,province
 2021-05-17,South West,5,Saskatchewan
 2021-05-17,South Central,1,Saskatchewan
 2021-05-17,South East,2,Saskatchewan
-2021-05-17,Total,178,Saskatchewan
 2021-05-18,Far North West,0,Saskatchewan
 2021-05-18,Far North Central,0,Saskatchewan
 2021-05-18,Far North East,4,Saskatchewan
@@ -4027,7 +3740,6 @@ date,HR,cases,province
 2021-05-18,South West,1,Saskatchewan
 2021-05-18,South Central,2,Saskatchewan
 2021-05-18,South East,0,Saskatchewan
-2021-05-18,Total,133,Saskatchewan
 2021-05-19,Far North West,5,Saskatchewan
 2021-05-19,Far North Central,0,Saskatchewan
 2021-05-19,Far North East,1,Saskatchewan
@@ -4041,7 +3753,6 @@ date,HR,cases,province
 2021-05-19,South West,2,Saskatchewan
 2021-05-19,South Central,0,Saskatchewan
 2021-05-19,South East,0,Saskatchewan
-2021-05-19,Total,142,Saskatchewan
 2021-05-20,Far North West,0,Saskatchewan
 2021-05-20,Far North Central,0,Saskatchewan
 2021-05-20,Far North East,2,Saskatchewan
@@ -4055,7 +3766,6 @@ date,HR,cases,province
 2021-05-20,South West,1,Saskatchewan
 2021-05-20,South Central,0,Saskatchewan
 2021-05-20,South East,3,Saskatchewan
-2021-05-20,Total,149,Saskatchewan
 2021-05-21,Far North West,2,Saskatchewan
 2021-05-21,Far North Central,0,Saskatchewan
 2021-05-21,Far North East,2,Saskatchewan
@@ -4069,7 +3779,6 @@ date,HR,cases,province
 2021-05-21,South West,0,Saskatchewan
 2021-05-21,South Central,0,Saskatchewan
 2021-05-21,South East,2,Saskatchewan
-2021-05-21,Total,176,Saskatchewan
 2021-05-22,Far North West,2,Saskatchewan
 2021-05-22,Far North Central,0,Saskatchewan
 2021-05-22,Far North East,1,Saskatchewan
@@ -4083,7 +3792,6 @@ date,HR,cases,province
 2021-05-22,South West,8,Saskatchewan
 2021-05-22,South Central,0,Saskatchewan
 2021-05-22,South East,11,Saskatchewan
-2021-05-22,Total,182,Saskatchewan
 2021-05-23,Far North West,5,Saskatchewan
 2021-05-23,Far North Central,0,Saskatchewan
 2021-05-23,Far North East,0,Saskatchewan
@@ -4097,7 +3805,6 @@ date,HR,cases,province
 2021-05-23,South West,4,Saskatchewan
 2021-05-23,South Central,0,Saskatchewan
 2021-05-23,South East,1,Saskatchewan
-2021-05-23,Total,120,Saskatchewan
 2021-05-24,Far North West,0,Saskatchewan
 2021-05-24,Far North Central,0,Saskatchewan
 2021-05-24,Far North East,3,Saskatchewan
@@ -4111,7 +3818,6 @@ date,HR,cases,province
 2021-05-24,South West,1,Saskatchewan
 2021-05-24,South Central,0,Saskatchewan
 2021-05-24,South East,2,Saskatchewan
-2021-05-24,Total,106,Saskatchewan
 2021-05-25,Far North West,2,Saskatchewan
 2021-05-25,Far North Central,0,Saskatchewan
 2021-05-25,Far North East,0,Saskatchewan
@@ -4125,7 +3831,6 @@ date,HR,cases,province
 2021-05-25,South West,0,Saskatchewan
 2021-05-25,South Central,1,Saskatchewan
 2021-05-25,South East,1,Saskatchewan
-2021-05-25,Total,111,Saskatchewan
 2021-05-26,Far North West,1,Saskatchewan
 2021-05-26,Far North Central,2,Saskatchewan
 2021-05-26,Far North East,9,Saskatchewan
@@ -4139,7 +3844,6 @@ date,HR,cases,province
 2021-05-26,South West,0,Saskatchewan
 2021-05-26,South Central,0,Saskatchewan
 2021-05-26,South East,1,Saskatchewan
-2021-05-26,Total,153,Saskatchewan
 2021-05-27,Far North West,0,Saskatchewan
 2021-05-27,Far North Central,0,Saskatchewan
 2021-05-27,Far North East,3,Saskatchewan
@@ -4153,7 +3857,6 @@ date,HR,cases,province
 2021-05-27,South West,0,Saskatchewan
 2021-05-27,South Central,0,Saskatchewan
 2021-05-27,South East,1,Saskatchewan
-2021-05-27,Total,121,Saskatchewan
 2021-05-28,Far North West,2,Saskatchewan
 2021-05-28,Far North Central,1,Saskatchewan
 2021-05-28,Far North East,0,Saskatchewan
@@ -4167,7 +3870,6 @@ date,HR,cases,province
 2021-05-28,South West,0,Saskatchewan
 2021-05-28,South Central,0,Saskatchewan
 2021-05-28,South East,3,Saskatchewan
-2021-05-28,Total,123,Saskatchewan
 2021-05-29,Far North West,3,Saskatchewan
 2021-05-29,Far North Central,0,Saskatchewan
 2021-05-29,Far North East,5,Saskatchewan
@@ -4181,7 +3883,6 @@ date,HR,cases,province
 2021-05-29,South West,1,Saskatchewan
 2021-05-29,South Central,4,Saskatchewan
 2021-05-29,South East,13,Saskatchewan
-2021-05-29,Total,180,Saskatchewan
 2021-05-30,Far North West,5,Saskatchewan
 2021-05-30,Far North Central,0,Saskatchewan
 2021-05-30,Far North East,2,Saskatchewan
@@ -4195,7 +3896,6 @@ date,HR,cases,province
 2021-05-30,South West,0,Saskatchewan
 2021-05-30,South Central,4,Saskatchewan
 2021-05-30,South East,4,Saskatchewan
-2021-05-30,Total,172,Saskatchewan
 2021-05-31,Far North West,6,Saskatchewan
 2021-05-31,Far North Central,0,Saskatchewan
 2021-05-31,Far North East,0,Saskatchewan
@@ -4209,7 +3909,6 @@ date,HR,cases,province
 2021-05-31,South West,1,Saskatchewan
 2021-05-31,South Central,1,Saskatchewan
 2021-05-31,South East,4,Saskatchewan
-2021-05-31,Total,113,Saskatchewan
 2021-06-01,Far North West,1,Saskatchewan
 2021-06-01,Far North Central,0,Saskatchewan
 2021-06-01,Far North East,1,Saskatchewan
@@ -4223,7 +3922,6 @@ date,HR,cases,province
 2021-06-01,South West,2,Saskatchewan
 2021-06-01,South Central,4,Saskatchewan
 2021-06-01,South East,1,Saskatchewan
-2021-06-01,Total,89,Saskatchewan
 2021-06-02,Far North West,7,Saskatchewan
 2021-06-02,Far North Central,0,Saskatchewan
 2021-06-02,Far North East,0,Saskatchewan
@@ -4237,7 +3935,6 @@ date,HR,cases,province
 2021-06-02,South West,2,Saskatchewan
 2021-06-02,South Central,4,Saskatchewan
 2021-06-02,South East,2,Saskatchewan
-2021-06-02,Total,131,Saskatchewan
 2021-06-03,Far North West,5,Saskatchewan
 2021-06-03,Far North Central,0,Saskatchewan
 2021-06-03,Far North East,11,Saskatchewan
@@ -4251,7 +3948,6 @@ date,HR,cases,province
 2021-06-03,South West,0,Saskatchewan
 2021-06-03,South Central,2,Saskatchewan
 2021-06-03,South East,2,Saskatchewan
-2021-06-03,Total,130,Saskatchewan
 2021-06-04,Far North West,3,Saskatchewan
 2021-06-04,Far North Central,0,Saskatchewan
 2021-06-04,Far North East,13,Saskatchewan
@@ -4265,7 +3961,6 @@ date,HR,cases,province
 2021-06-04,South West,0,Saskatchewan
 2021-06-04,South Central,4,Saskatchewan
 2021-06-04,South East,0,Saskatchewan
-2021-06-04,Total,90,Saskatchewan
 2021-06-05,Far North West,5,Saskatchewan
 2021-06-05,Far North Central,0,Saskatchewan
 2021-06-05,Far North East,1,Saskatchewan
@@ -4279,7 +3974,6 @@ date,HR,cases,province
 2021-06-05,South West,2,Saskatchewan
 2021-06-05,South Central,9,Saskatchewan
 2021-06-05,South East,0,Saskatchewan
-2021-06-05,Total,99,Saskatchewan
 2021-06-06,Far North West,0,Saskatchewan
 2021-06-06,Far North Central,0,Saskatchewan
 2021-06-06,Far North East,1,Saskatchewan
@@ -4293,7 +3987,6 @@ date,HR,cases,province
 2021-06-06,South West,0,Saskatchewan
 2021-06-06,South Central,1,Saskatchewan
 2021-06-06,South East,0,Saskatchewan
-2021-06-06,Total,73,Saskatchewan
 2021-06-07,Far North West,0,Saskatchewan
 2021-06-07,Far North Central,0,Saskatchewan
 2021-06-07,Far North East,2,Saskatchewan
@@ -4307,7 +4000,6 @@ date,HR,cases,province
 2021-06-07,South West,0,Saskatchewan
 2021-06-07,South Central,1,Saskatchewan
 2021-06-07,South East,0,Saskatchewan
-2021-06-07,Total,69,Saskatchewan
 2021-06-08,Far North West,4,Saskatchewan
 2021-06-08,Far North Central,0,Saskatchewan
 2021-06-08,Far North East,3,Saskatchewan
@@ -4321,7 +4013,6 @@ date,HR,cases,province
 2021-06-08,South West,0,Saskatchewan
 2021-06-08,South Central,1,Saskatchewan
 2021-06-08,South East,0,Saskatchewan
-2021-06-08,Total,92,Saskatchewan
 2021-06-09,Far North West,0,Saskatchewan
 2021-06-09,Far North Central,0,Saskatchewan
 2021-06-09,Far North East,4,Saskatchewan
@@ -4335,7 +4026,6 @@ date,HR,cases,province
 2021-06-09,South West,0,Saskatchewan
 2021-06-09,South Central,0,Saskatchewan
 2021-06-09,South East,0,Saskatchewan
-2021-06-09,Total,58,Saskatchewan
 2021-06-10,Far North West,8,Saskatchewan
 2021-06-10,Far North Central,0,Saskatchewan
 2021-06-10,Far North East,1,Saskatchewan
@@ -4349,7 +4039,6 @@ date,HR,cases,province
 2021-06-10,South West,1,Saskatchewan
 2021-06-10,South Central,1,Saskatchewan
 2021-06-10,South East,0,Saskatchewan
-2021-06-10,Total,77,Saskatchewan
 2021-06-11,Far North West,2,Saskatchewan
 2021-06-11,Far North Central,0,Saskatchewan
 2021-06-11,Far North East,4,Saskatchewan
@@ -4363,7 +4052,6 @@ date,HR,cases,province
 2021-06-11,South West,1,Saskatchewan
 2021-06-11,South Central,2,Saskatchewan
 2021-06-11,South East,0,Saskatchewan
-2021-06-11,Total,81,Saskatchewan
 2021-06-12,Far North West,2,Saskatchewan
 2021-06-12,Far North Central,0,Saskatchewan
 2021-06-12,Far North East,1,Saskatchewan
@@ -4377,7 +4065,6 @@ date,HR,cases,province
 2021-06-12,South West,0,Saskatchewan
 2021-06-12,South Central,2,Saskatchewan
 2021-06-12,South East,1,Saskatchewan
-2021-06-12,Total,108,Saskatchewan
 2021-06-13,Far North West,4,Saskatchewan
 2021-06-13,Far North Central,0,Saskatchewan
 2021-06-13,Far North East,1,Saskatchewan
@@ -4391,7 +4078,6 @@ date,HR,cases,province
 2021-06-13,South West,0,Saskatchewan
 2021-06-13,South Central,4,Saskatchewan
 2021-06-13,South East,1,Saskatchewan
-2021-06-13,Total,65,Saskatchewan
 2021-06-14,Far North West,1,Saskatchewan
 2021-06-14,Far North Central,0,Saskatchewan
 2021-06-14,Far North East,1,Saskatchewan
@@ -4405,7 +4091,6 @@ date,HR,cases,province
 2021-06-14,South West,0,Saskatchewan
 2021-06-14,South Central,0,Saskatchewan
 2021-06-14,South East,1,Saskatchewan
-2021-06-14,Total,55,Saskatchewan
 2021-06-15,Far North West,1,Saskatchewan
 2021-06-15,Far North Central,0,Saskatchewan
 2021-06-15,Far North East,1,Saskatchewan
@@ -4419,7 +4104,6 @@ date,HR,cases,province
 2021-06-15,South West,0,Saskatchewan
 2021-06-15,South Central,0,Saskatchewan
 2021-06-15,South East,1,Saskatchewan
-2021-06-15,Total,52,Saskatchewan
 2021-06-16,Far North West,0,Saskatchewan
 2021-06-16,Far North Central,0,Saskatchewan
 2021-06-16,Far North East,0,Saskatchewan
@@ -4433,7 +4117,6 @@ date,HR,cases,province
 2021-06-16,South West,1,Saskatchewan
 2021-06-16,South Central,1,Saskatchewan
 2021-06-16,South East,0,Saskatchewan
-2021-06-16,Total,74,Saskatchewan
 2021-06-17,Far North West,3,Saskatchewan
 2021-06-17,Far North Central,0,Saskatchewan
 2021-06-17,Far North East,1,Saskatchewan
@@ -4447,7 +4130,6 @@ date,HR,cases,province
 2021-06-17,South West,0,Saskatchewan
 2021-06-17,South Central,3,Saskatchewan
 2021-06-17,South East,1,Saskatchewan
-2021-06-17,Total,96,Saskatchewan
 2021-06-18,Far North West,1,Saskatchewan
 2021-06-18,Far North Central,0,Saskatchewan
 2021-06-18,Far North East,0,Saskatchewan
@@ -4461,7 +4143,6 @@ date,HR,cases,province
 2021-06-18,South West,0,Saskatchewan
 2021-06-18,South Central,0,Saskatchewan
 2021-06-18,South East,1,Saskatchewan
-2021-06-18,Total,98,Saskatchewan
 2021-06-19,Far North West,1,Saskatchewan
 2021-06-19,Far North Central,0,Saskatchewan
 2021-06-19,Far North East,1,Saskatchewan
@@ -4475,7 +4156,6 @@ date,HR,cases,province
 2021-06-19,South West,0,Saskatchewan
 2021-06-19,South Central,0,Saskatchewan
 2021-06-19,South East,0,Saskatchewan
-2021-06-19,Total,55,Saskatchewan
 2021-06-20,Far North West,4,Saskatchewan
 2021-06-20,Far North Central,0,Saskatchewan
 2021-06-20,Far North East,1,Saskatchewan
@@ -4489,7 +4169,6 @@ date,HR,cases,province
 2021-06-20,South West,0,Saskatchewan
 2021-06-20,South Central,2,Saskatchewan
 2021-06-20,South East,2,Saskatchewan
-2021-06-20,Total,60,Saskatchewan
 2021-06-21,Far North West,5,Saskatchewan
 2021-06-21,Far North Central,0,Saskatchewan
 2021-06-21,Far North East,1,Saskatchewan
@@ -4503,7 +4182,6 @@ date,HR,cases,province
 2021-06-21,South West,0,Saskatchewan
 2021-06-21,South Central,0,Saskatchewan
 2021-06-21,South East,0,Saskatchewan
-2021-06-21,Total,49,Saskatchewan
 2021-06-22,Far North West,0,Saskatchewan
 2021-06-22,Far North Central,0,Saskatchewan
 2021-06-22,Far North East,3,Saskatchewan
@@ -4517,7 +4195,6 @@ date,HR,cases,province
 2021-06-22,South West,0,Saskatchewan
 2021-06-22,South Central,1,Saskatchewan
 2021-06-22,South East,2,Saskatchewan
-2021-06-22,Total,36,Saskatchewan
 2021-06-23,Far North West,2,Saskatchewan
 2021-06-23,Far North Central,0,Saskatchewan
 2021-06-23,Far North East,0,Saskatchewan
@@ -4531,7 +4208,6 @@ date,HR,cases,province
 2021-06-23,South West,0,Saskatchewan
 2021-06-23,South Central,0,Saskatchewan
 2021-06-23,South East,2,Saskatchewan
-2021-06-23,Total,33,Saskatchewan
 2021-06-24,Far North West,4,Saskatchewan
 2021-06-24,Far North Central,1,Saskatchewan
 2021-06-24,Far North East,1,Saskatchewan
@@ -4545,7 +4221,6 @@ date,HR,cases,province
 2021-06-24,South West,0,Saskatchewan
 2021-06-24,South Central,0,Saskatchewan
 2021-06-24,South East,2,Saskatchewan
-2021-06-24,Total,52,Saskatchewan
 2021-06-25,Far North West,6,Saskatchewan
 2021-06-25,Far North Central,2,Saskatchewan
 2021-06-25,Far North East,1,Saskatchewan
@@ -4559,7 +4234,6 @@ date,HR,cases,province
 2021-06-25,South West,0,Saskatchewan
 2021-06-25,South Central,0,Saskatchewan
 2021-06-25,South East,0,Saskatchewan
-2021-06-25,Total,56,Saskatchewan
 2021-06-26,Far North West,9,Saskatchewan
 2021-06-26,Far North Central,0,Saskatchewan
 2021-06-26,Far North East,1,Saskatchewan
@@ -4573,7 +4247,6 @@ date,HR,cases,province
 2021-06-26,South West,0,Saskatchewan
 2021-06-26,South Central,0,Saskatchewan
 2021-06-26,South East,5,Saskatchewan
-2021-06-26,Total,61,Saskatchewan
 2021-06-27,Far North West,6,Saskatchewan
 2021-06-27,Far North Central,1,Saskatchewan
 2021-06-27,Far North East,4,Saskatchewan
@@ -4587,7 +4260,6 @@ date,HR,cases,province
 2021-06-27,South West,0,Saskatchewan
 2021-06-27,South Central,0,Saskatchewan
 2021-06-27,South East,1,Saskatchewan
-2021-06-27,Total,48,Saskatchewan
 2021-06-28,Far North West,2,Saskatchewan
 2021-06-28,Far North Central,0,Saskatchewan
 2021-06-28,Far North East,1,Saskatchewan
@@ -4601,7 +4273,6 @@ date,HR,cases,province
 2021-06-28,South West,0,Saskatchewan
 2021-06-28,South Central,0,Saskatchewan
 2021-06-28,South East,3,Saskatchewan
-2021-06-28,Total,17,Saskatchewan
 2021-06-29,Far North West,7,Saskatchewan
 2021-06-29,Far North Central,0,Saskatchewan
 2021-06-29,Far North East,1,Saskatchewan
@@ -4615,7 +4286,6 @@ date,HR,cases,province
 2021-06-29,South West,0,Saskatchewan
 2021-06-29,South Central,0,Saskatchewan
 2021-06-29,South East,0,Saskatchewan
-2021-06-29,Total,52,Saskatchewan
 2021-06-30,Far North West,3,Saskatchewan
 2021-06-30,Far North Central,0,Saskatchewan
 2021-06-30,Far North East,1,Saskatchewan
@@ -4629,7 +4299,6 @@ date,HR,cases,province
 2021-06-30,South West,0,Saskatchewan
 2021-06-30,South Central,0,Saskatchewan
 2021-06-30,South East,0,Saskatchewan
-2021-06-30,Total,31,Saskatchewan
 2021-07-01,Far North West,3,Saskatchewan
 2021-07-01,Far North Central,1,Saskatchewan
 2021-07-01,Far North East,0,Saskatchewan
@@ -4643,7 +4312,6 @@ date,HR,cases,province
 2021-07-01,South West,0,Saskatchewan
 2021-07-01,South Central,0,Saskatchewan
 2021-07-01,South East,0,Saskatchewan
-2021-07-01,Total,35,Saskatchewan
 2021-07-02,Far North West,5,Saskatchewan
 2021-07-02,Far North Central,1,Saskatchewan
 2021-07-02,Far North East,0,Saskatchewan
@@ -4657,7 +4325,6 @@ date,HR,cases,province
 2021-07-02,South West,0,Saskatchewan
 2021-07-02,South Central,0,Saskatchewan
 2021-07-02,South East,0,Saskatchewan
-2021-07-02,Total,21,Saskatchewan
 2021-07-03,Far North West,2,Saskatchewan
 2021-07-03,Far North Central,0,Saskatchewan
 2021-07-03,Far North East,14,Saskatchewan
@@ -4671,7 +4338,6 @@ date,HR,cases,province
 2021-07-03,South West,0,Saskatchewan
 2021-07-03,South Central,0,Saskatchewan
 2021-07-03,South East,0,Saskatchewan
-2021-07-03,Total,49,Saskatchewan
 2021-07-04,Far North West,7,Saskatchewan
 2021-07-04,Far North Central,0,Saskatchewan
 2021-07-04,Far North East,0,Saskatchewan
@@ -4685,7 +4351,6 @@ date,HR,cases,province
 2021-07-04,South West,0,Saskatchewan
 2021-07-04,South Central,0,Saskatchewan
 2021-07-04,South East,0,Saskatchewan
-2021-07-04,Total,30,Saskatchewan
 2021-07-05,Far North West,1,Saskatchewan
 2021-07-05,Far North Central,0,Saskatchewan
 2021-07-05,Far North East,3,Saskatchewan
@@ -4699,7 +4364,6 @@ date,HR,cases,province
 2021-07-05,South West,0,Saskatchewan
 2021-07-05,South Central,0,Saskatchewan
 2021-07-05,South East,0,Saskatchewan
-2021-07-05,Total,20,Saskatchewan
 2021-07-06,Far North West,5,Saskatchewan
 2021-07-06,Far North Central,1,Saskatchewan
 2021-07-06,Far North East,0,Saskatchewan
@@ -4713,7 +4377,6 @@ date,HR,cases,province
 2021-07-06,South West,0,Saskatchewan
 2021-07-06,South Central,0,Saskatchewan
 2021-07-06,South East,0,Saskatchewan
-2021-07-06,Total,14,Saskatchewan
 2021-07-07,Far North West,5,Saskatchewan
 2021-07-07,Far North Central,0,Saskatchewan
 2021-07-07,Far North East,3,Saskatchewan
@@ -4727,7 +4390,6 @@ date,HR,cases,province
 2021-07-07,South West,0,Saskatchewan
 2021-07-07,South Central,0,Saskatchewan
 2021-07-07,South East,0,Saskatchewan
-2021-07-07,Total,53,Saskatchewan
 2021-07-08,Far North West,2,Saskatchewan
 2021-07-08,Far North Central,3,Saskatchewan
 2021-07-08,Far North East,58,Saskatchewan
@@ -4741,7 +4403,6 @@ date,HR,cases,province
 2021-07-08,South West,0,Saskatchewan
 2021-07-08,South Central,0,Saskatchewan
 2021-07-08,South East,0,Saskatchewan
-2021-07-08,Total,115,Saskatchewan
 2021-07-09,Far North West,4,Saskatchewan
 2021-07-09,Far North Central,0,Saskatchewan
 2021-07-09,Far North East,4,Saskatchewan
@@ -4755,7 +4416,6 @@ date,HR,cases,province
 2021-07-09,South West,0,Saskatchewan
 2021-07-09,South Central,0,Saskatchewan
 2021-07-09,South East,4,Saskatchewan
-2021-07-09,Total,37,Saskatchewan
 2021-07-10,Far North West,7,Saskatchewan
 2021-07-10,Far North Central,0,Saskatchewan
 2021-07-10,Far North East,9,Saskatchewan
@@ -4769,7 +4429,6 @@ date,HR,cases,province
 2021-07-10,South West,0,Saskatchewan
 2021-07-10,South Central,0,Saskatchewan
 2021-07-10,South East,2,Saskatchewan
-2021-07-10,Total,43,Saskatchewan
 2021-07-11,Far North West,2,Saskatchewan
 2021-07-11,Far North Central,1,Saskatchewan
 2021-07-11,Far North East,5,Saskatchewan
@@ -4783,7 +4442,6 @@ date,HR,cases,province
 2021-07-11,South West,0,Saskatchewan
 2021-07-11,South Central,0,Saskatchewan
 2021-07-11,South East,0,Saskatchewan
-2021-07-11,Total,20,Saskatchewan
 2021-07-12,Far North West,3,Saskatchewan
 2021-07-12,Far North Central,0,Saskatchewan
 2021-07-12,Far North East,2,Saskatchewan
@@ -4797,7 +4455,6 @@ date,HR,cases,province
 2021-07-12,South West,0,Saskatchewan
 2021-07-12,South Central,0,Saskatchewan
 2021-07-12,South East,0,Saskatchewan
-2021-07-12,Total,20,Saskatchewan
 2021-07-13,Far North West,5,Saskatchewan
 2021-07-13,Far North Central,0,Saskatchewan
 2021-07-13,Far North East,10,Saskatchewan
@@ -4811,7 +4468,6 @@ date,HR,cases,province
 2021-07-13,South West,0,Saskatchewan
 2021-07-13,South Central,0,Saskatchewan
 2021-07-13,South East,1,Saskatchewan
-2021-07-13,Total,28,Saskatchewan
 2021-07-14,Far North West,2,Saskatchewan
 2021-07-14,Far North Central,0,Saskatchewan
 2021-07-14,Far North East,2,Saskatchewan
@@ -4825,7 +4481,6 @@ date,HR,cases,province
 2021-07-14,South West,0,Saskatchewan
 2021-07-14,South Central,0,Saskatchewan
 2021-07-14,South East,1,Saskatchewan
-2021-07-14,Total,21,Saskatchewan
 2021-07-15,Far North West,3,Saskatchewan
 2021-07-15,Far North Central,1,Saskatchewan
 2021-07-15,Far North East,5,Saskatchewan
@@ -4839,7 +4494,6 @@ date,HR,cases,province
 2021-07-15,South West,0,Saskatchewan
 2021-07-15,South Central,0,Saskatchewan
 2021-07-15,South East,0,Saskatchewan
-2021-07-15,Total,33,Saskatchewan
 2021-07-16,Far North West,2,Saskatchewan
 2021-07-16,Far North Central,0,Saskatchewan
 2021-07-16,Far North East,1,Saskatchewan
@@ -4853,7 +4507,6 @@ date,HR,cases,province
 2021-07-16,South West,0,Saskatchewan
 2021-07-16,South Central,0,Saskatchewan
 2021-07-16,South East,0,Saskatchewan
-2021-07-16,Total,25,Saskatchewan
 2021-07-17,Far North West,1,Saskatchewan
 2021-07-17,Far North Central,0,Saskatchewan
 2021-07-17,Far North East,0,Saskatchewan
@@ -4867,7 +4520,6 @@ date,HR,cases,province
 2021-07-17,South West,0,Saskatchewan
 2021-07-17,South Central,0,Saskatchewan
 2021-07-17,South East,0,Saskatchewan
-2021-07-17,Total,34,Saskatchewan
 2021-07-18,Far North West,13,Saskatchewan
 2021-07-18,Far North Central,0,Saskatchewan
 2021-07-18,Far North East,2,Saskatchewan
@@ -4881,7 +4533,6 @@ date,HR,cases,province
 2021-07-18,South West,1,Saskatchewan
 2021-07-18,South Central,0,Saskatchewan
 2021-07-18,South East,0,Saskatchewan
-2021-07-18,Total,37,Saskatchewan
 2021-07-19,Far North West,4,Saskatchewan
 2021-07-19,Far North Central,0,Saskatchewan
 2021-07-19,Far North East,1,Saskatchewan
@@ -4895,7 +4546,6 @@ date,HR,cases,province
 2021-07-19,South West,0,Saskatchewan
 2021-07-19,South Central,0,Saskatchewan
 2021-07-19,South East,1,Saskatchewan
-2021-07-19,Total,16,Saskatchewan
 2021-07-20,Far North West,14,Saskatchewan
 2021-07-20,Far North Central,0,Saskatchewan
 2021-07-20,Far North East,3,Saskatchewan
@@ -4909,7 +4559,6 @@ date,HR,cases,province
 2021-07-20,South West,0,Saskatchewan
 2021-07-20,South Central,0,Saskatchewan
 2021-07-20,South East,0,Saskatchewan
-2021-07-20,Total,22,Saskatchewan
 2021-07-21,Far North West,21,Saskatchewan
 2021-07-21,Far North Central,2,Saskatchewan
 2021-07-21,Far North East,2,Saskatchewan
@@ -4923,7 +4572,6 @@ date,HR,cases,province
 2021-07-21,South West,1,Saskatchewan
 2021-07-21,South Central,0,Saskatchewan
 2021-07-21,South East,0,Saskatchewan
-2021-07-21,Total,53,Saskatchewan
 2021-07-22,Far North West,12,Saskatchewan
 2021-07-22,Far North Central,0,Saskatchewan
 2021-07-22,Far North East,0,Saskatchewan
@@ -4937,7 +4585,6 @@ date,HR,cases,province
 2021-07-22,South West,0,Saskatchewan
 2021-07-22,South Central,0,Saskatchewan
 2021-07-22,South East,0,Saskatchewan
-2021-07-22,Total,26,Saskatchewan
 2021-07-23,Far North West,10,Saskatchewan
 2021-07-23,Far North Central,8,Saskatchewan
 2021-07-23,Far North East,8,Saskatchewan
@@ -4951,7 +4598,6 @@ date,HR,cases,province
 2021-07-23,South West,0,Saskatchewan
 2021-07-23,South Central,0,Saskatchewan
 2021-07-23,South East,0,Saskatchewan
-2021-07-23,Total,51,Saskatchewan
 2021-07-24,Far North West,5,Saskatchewan
 2021-07-24,Far North Central,2,Saskatchewan
 2021-07-24,Far North East,6,Saskatchewan
@@ -4965,7 +4611,6 @@ date,HR,cases,province
 2021-07-24,South West,0,Saskatchewan
 2021-07-24,South Central,0,Saskatchewan
 2021-07-24,South East,0,Saskatchewan
-2021-07-24,Total,49,Saskatchewan
 2021-07-25,Far North West,5,Saskatchewan
 2021-07-25,Far North Central,0,Saskatchewan
 2021-07-25,Far North East,0,Saskatchewan
@@ -4979,7 +4624,6 @@ date,HR,cases,province
 2021-07-25,South West,0,Saskatchewan
 2021-07-25,South Central,1,Saskatchewan
 2021-07-25,South East,0,Saskatchewan
-2021-07-25,Total,27,Saskatchewan
 2021-07-26,Far North West,12,Saskatchewan
 2021-07-26,Far North Central,1,Saskatchewan
 2021-07-26,Far North East,20,Saskatchewan
@@ -4993,7 +4637,6 @@ date,HR,cases,province
 2021-07-26,South West,1,Saskatchewan
 2021-07-26,South Central,0,Saskatchewan
 2021-07-26,South East,0,Saskatchewan
-2021-07-26,Total,43,Saskatchewan
 2021-07-27,Far North West,16,Saskatchewan
 2021-07-27,Far North Central,1,Saskatchewan
 2021-07-27,Far North East,3,Saskatchewan
@@ -5007,7 +4650,6 @@ date,HR,cases,province
 2021-07-27,South West,0,Saskatchewan
 2021-07-27,South Central,0,Saskatchewan
 2021-07-27,South East,0,Saskatchewan
-2021-07-27,Total,40,Saskatchewan
 2021-07-28,Far North West,5,Saskatchewan
 2021-07-28,Far North Central,8,Saskatchewan
 2021-07-28,Far North East,0,Saskatchewan
@@ -5021,7 +4663,6 @@ date,HR,cases,province
 2021-07-28,South West,1,Saskatchewan
 2021-07-28,South Central,0,Saskatchewan
 2021-07-28,South East,0,Saskatchewan
-2021-07-28,Total,52,Saskatchewan
 2021-07-29,Far North West,9,Saskatchewan
 2021-07-29,Far North Central,2,Saskatchewan
 2021-07-29,Far North East,3,Saskatchewan
@@ -5035,7 +4676,6 @@ date,HR,cases,province
 2021-07-29,South West,0,Saskatchewan
 2021-07-29,South Central,0,Saskatchewan
 2021-07-29,South East,0,Saskatchewan
-2021-07-29,Total,52,Saskatchewan
 2021-07-30,Far North West,8,Saskatchewan
 2021-07-30,Far North Central,1,Saskatchewan
 2021-07-30,Far North East,11,Saskatchewan
@@ -5049,7 +4689,6 @@ date,HR,cases,province
 2021-07-30,South West,0,Saskatchewan
 2021-07-30,South Central,0,Saskatchewan
 2021-07-30,South East,2,Saskatchewan
-2021-07-30,Total,59,Saskatchewan
 2021-07-31,Far North West,28,Saskatchewan
 2021-07-31,Far North Central,6,Saskatchewan
 2021-07-31,Far North East,1,Saskatchewan
@@ -5063,7 +4702,6 @@ date,HR,cases,province
 2021-07-31,South West,0,Saskatchewan
 2021-07-31,South Central,0,Saskatchewan
 2021-07-31,South East,1,Saskatchewan
-2021-07-31,Total,80,Saskatchewan
 2021-08-01,Far North West,9,Saskatchewan
 2021-08-01,Far North Central,2,Saskatchewan
 2021-08-01,Far North East,0,Saskatchewan
@@ -5077,7 +4715,6 @@ date,HR,cases,province
 2021-08-01,South West,0,Saskatchewan
 2021-08-01,South Central,0,Saskatchewan
 2021-08-01,South East,0,Saskatchewan
-2021-08-01,Total,44,Saskatchewan
 2021-08-02,Far North West,3,Saskatchewan
 2021-08-02,Far North Central,3,Saskatchewan
 2021-08-02,Far North East,5,Saskatchewan
@@ -5091,7 +4728,6 @@ date,HR,cases,province
 2021-08-02,South West,1,Saskatchewan
 2021-08-02,South Central,0,Saskatchewan
 2021-08-02,South East,0,Saskatchewan
-2021-08-02,Total,30,Saskatchewan
 2021-08-03,Far North West,2,Saskatchewan
 2021-08-03,Far North Central,0,Saskatchewan
 2021-08-03,Far North East,1,Saskatchewan
@@ -5105,7 +4741,6 @@ date,HR,cases,province
 2021-08-03,South West,1,Saskatchewan
 2021-08-03,South Central,0,Saskatchewan
 2021-08-03,South East,0,Saskatchewan
-2021-08-03,Total,25,Saskatchewan
 2021-08-04,Far North West,14,Saskatchewan
 2021-08-04,Far North Central,2,Saskatchewan
 2021-08-04,Far North East,3,Saskatchewan
@@ -5119,7 +4754,6 @@ date,HR,cases,province
 2021-08-04,South West,0,Saskatchewan
 2021-08-04,South Central,0,Saskatchewan
 2021-08-04,South East,2,Saskatchewan
-2021-08-04,Total,61,Saskatchewan
 2021-08-05,Far North West,3,Saskatchewan
 2021-08-05,Far North Central,2,Saskatchewan
 2021-08-05,Far North East,1,Saskatchewan
@@ -5133,7 +4767,6 @@ date,HR,cases,province
 2021-08-05,South West,0,Saskatchewan
 2021-08-05,South Central,1,Saskatchewan
 2021-08-05,South East,0,Saskatchewan
-2021-08-05,Total,57,Saskatchewan
 2021-08-06,Far North West,6,Saskatchewan
 2021-08-06,Far North Central,2,Saskatchewan
 2021-08-06,Far North East,2,Saskatchewan
@@ -5147,7 +4780,6 @@ date,HR,cases,province
 2021-08-06,South West,2,Saskatchewan
 2021-08-06,South Central,3,Saskatchewan
 2021-08-06,South East,0,Saskatchewan
-2021-08-06,Total,91,Saskatchewan
 2021-08-07,Far North West,12,Saskatchewan
 2021-08-07,Far North Central,3,Saskatchewan
 2021-08-07,Far North East,5,Saskatchewan
@@ -5161,7 +4793,6 @@ date,HR,cases,province
 2021-08-07,South West,1,Saskatchewan
 2021-08-07,South Central,1,Saskatchewan
 2021-08-07,South East,0,Saskatchewan
-2021-08-07,Total,132,Saskatchewan
 2021-08-08,Far North West,3,Saskatchewan
 2021-08-08,Far North Central,6,Saskatchewan
 2021-08-08,Far North East,0,Saskatchewan
@@ -5175,7 +4806,6 @@ date,HR,cases,province
 2021-08-08,South West,2,Saskatchewan
 2021-08-08,South Central,0,Saskatchewan
 2021-08-08,South East,0,Saskatchewan
-2021-08-08,Total,83,Saskatchewan
 2021-08-09,Far North West,4,Saskatchewan
 2021-08-09,Far North Central,1,Saskatchewan
 2021-08-09,Far North East,1,Saskatchewan
@@ -5189,7 +4819,6 @@ date,HR,cases,province
 2021-08-09,South West,1,Saskatchewan
 2021-08-09,South Central,0,Saskatchewan
 2021-08-09,South East,0,Saskatchewan
-2021-08-09,Total,54,Saskatchewan
 2021-08-10,Far North West,10,Saskatchewan
 2021-08-10,Far North Central,4,Saskatchewan
 2021-08-10,Far North East,11,Saskatchewan
@@ -5203,7 +4832,6 @@ date,HR,cases,province
 2021-08-10,South West,0,Saskatchewan
 2021-08-10,South Central,0,Saskatchewan
 2021-08-10,South East,1,Saskatchewan
-2021-08-10,Total,69,Saskatchewan
 2021-08-11,Far North West,1,Saskatchewan
 2021-08-11,Far North Central,3,Saskatchewan
 2021-08-11,Far North East,16,Saskatchewan
@@ -5217,7 +4845,6 @@ date,HR,cases,province
 2021-08-11,South West,1,Saskatchewan
 2021-08-11,South Central,1,Saskatchewan
 2021-08-11,South East,0,Saskatchewan
-2021-08-11,Total,92,Saskatchewan
 2021-08-12,Far North West,19,Saskatchewan
 2021-08-12,Far North Central,2,Saskatchewan
 2021-08-12,Far North East,21,Saskatchewan
@@ -5231,7 +4858,6 @@ date,HR,cases,province
 2021-08-12,South West,11,Saskatchewan
 2021-08-12,South Central,1,Saskatchewan
 2021-08-12,South East,0,Saskatchewan
-2021-08-12,Total,142,Saskatchewan
 2021-08-13,Far North West,12,Saskatchewan
 2021-08-13,Far North Central,2,Saskatchewan
 2021-08-13,Far North East,6,Saskatchewan
@@ -5245,7 +4871,6 @@ date,HR,cases,province
 2021-08-13,South West,3,Saskatchewan
 2021-08-13,South Central,0,Saskatchewan
 2021-08-13,South East,1,Saskatchewan
-2021-08-13,Total,128,Saskatchewan
 2021-08-14,Far North West,4,Saskatchewan
 2021-08-14,Far North Central,3,Saskatchewan
 2021-08-14,Far North East,11,Saskatchewan
@@ -5259,7 +4884,6 @@ date,HR,cases,province
 2021-08-14,South West,1,Saskatchewan
 2021-08-14,South Central,4,Saskatchewan
 2021-08-14,South East,1,Saskatchewan
-2021-08-14,Total,126,Saskatchewan
 2021-08-15,Far North West,5,Saskatchewan
 2021-08-15,Far North Central,4,Saskatchewan
 2021-08-15,Far North East,2,Saskatchewan
@@ -5273,7 +4897,6 @@ date,HR,cases,province
 2021-08-15,South West,5,Saskatchewan
 2021-08-15,South Central,4,Saskatchewan
 2021-08-15,South East,1,Saskatchewan
-2021-08-15,Total,142,Saskatchewan
 2021-08-16,Far North West,9,Saskatchewan
 2021-08-16,Far North Central,1,Saskatchewan
 2021-08-16,Far North East,4,Saskatchewan
@@ -5287,7 +4910,6 @@ date,HR,cases,province
 2021-08-16,South West,6,Saskatchewan
 2021-08-16,South Central,1,Saskatchewan
 2021-08-16,South East,0,Saskatchewan
-2021-08-16,Total,87,Saskatchewan
 2021-08-17,Far North West,11,Saskatchewan
 2021-08-17,Far North Central,1,Saskatchewan
 2021-08-17,Far North East,1,Saskatchewan
@@ -5301,7 +4923,6 @@ date,HR,cases,province
 2021-08-17,South West,0,Saskatchewan
 2021-08-17,South Central,0,Saskatchewan
 2021-08-17,South East,0,Saskatchewan
-2021-08-17,Total,108,Saskatchewan
 2021-08-18,Far North West,3,Saskatchewan
 2021-08-18,Far North Central,5,Saskatchewan
 2021-08-18,Far North East,20,Saskatchewan
@@ -5315,7 +4936,6 @@ date,HR,cases,province
 2021-08-18,South West,1,Saskatchewan
 2021-08-18,South Central,2,Saskatchewan
 2021-08-18,South East,2,Saskatchewan
-2021-08-18,Total,128,Saskatchewan
 2021-08-19,Far North West,26,Saskatchewan
 2021-08-19,Far North Central,0,Saskatchewan
 2021-08-19,Far North East,5,Saskatchewan
@@ -5329,7 +4949,6 @@ date,HR,cases,province
 2021-08-19,South West,0,Saskatchewan
 2021-08-19,South Central,1,Saskatchewan
 2021-08-19,South East,2,Saskatchewan
-2021-08-19,Total,178,Saskatchewan
 2021-08-20,Far North West,9,Saskatchewan
 2021-08-20,Far North Central,1,Saskatchewan
 2021-08-20,Far North East,2,Saskatchewan
@@ -5343,7 +4962,6 @@ date,HR,cases,province
 2021-08-20,South West,0,Saskatchewan
 2021-08-20,South Central,5,Saskatchewan
 2021-08-20,South East,2,Saskatchewan
-2021-08-20,Total,198,Saskatchewan
 2021-08-21,Far North West,4,Saskatchewan
 2021-08-21,Far North Central,2,Saskatchewan
 2021-08-21,Far North East,6,Saskatchewan
@@ -5357,7 +4975,6 @@ date,HR,cases,province
 2021-08-21,South West,3,Saskatchewan
 2021-08-21,South Central,2,Saskatchewan
 2021-08-21,South East,0,Saskatchewan
-2021-08-21,Total,140,Saskatchewan
 2021-08-22,Far North West,2,Saskatchewan
 2021-08-22,Far North Central,2,Saskatchewan
 2021-08-22,Far North East,1,Saskatchewan
@@ -5371,7 +4988,6 @@ date,HR,cases,province
 2021-08-22,South West,2,Saskatchewan
 2021-08-22,South Central,2,Saskatchewan
 2021-08-22,South East,2,Saskatchewan
-2021-08-22,Total,153,Saskatchewan
 2021-08-23,Far North West,7,Saskatchewan
 2021-08-23,Far North Central,1,Saskatchewan
 2021-08-23,Far North East,1,Saskatchewan
@@ -5385,7 +5001,6 @@ date,HR,cases,province
 2021-08-23,South West,2,Saskatchewan
 2021-08-23,South Central,1,Saskatchewan
 2021-08-23,South East,1,Saskatchewan
-2021-08-23,Total,176,Saskatchewan
 2021-08-24,Far North West,17,Saskatchewan
 2021-08-24,Far North Central,2,Saskatchewan
 2021-08-24,Far North East,5,Saskatchewan
@@ -5399,7 +5014,6 @@ date,HR,cases,province
 2021-08-24,South West,0,Saskatchewan
 2021-08-24,South Central,0,Saskatchewan
 2021-08-24,South East,1,Saskatchewan
-2021-08-24,Total,138,Saskatchewan
 2021-08-25,Far North West,4,Saskatchewan
 2021-08-25,Far North Central,1,Saskatchewan
 2021-08-25,Far North East,12,Saskatchewan
@@ -5413,7 +5027,6 @@ date,HR,cases,province
 2021-08-25,South West,5,Saskatchewan
 2021-08-25,South Central,0,Saskatchewan
 2021-08-25,South East,2,Saskatchewan
-2021-08-25,Total,216,Saskatchewan
 2021-08-26,Far North West,3,Saskatchewan
 2021-08-26,Far North Central,1,Saskatchewan
 2021-08-26,Far North East,8,Saskatchewan
@@ -5427,7 +5040,6 @@ date,HR,cases,province
 2021-08-26,South West,4,Saskatchewan
 2021-08-26,South Central,0,Saskatchewan
 2021-08-26,South East,2,Saskatchewan
-2021-08-26,Total,161,Saskatchewan
 2021-08-27,Far North West,4,Saskatchewan
 2021-08-27,Far North Central,7,Saskatchewan
 2021-08-27,Far North East,17,Saskatchewan
@@ -5441,7 +5053,6 @@ date,HR,cases,province
 2021-08-27,South West,3,Saskatchewan
 2021-08-27,South Central,1,Saskatchewan
 2021-08-27,South East,1,Saskatchewan
-2021-08-27,Total,259,Saskatchewan
 2021-08-28,Far North West,4,Saskatchewan
 2021-08-28,Far North Central,2,Saskatchewan
 2021-08-28,Far North East,28,Saskatchewan
@@ -5455,7 +5066,6 @@ date,HR,cases,province
 2021-08-28,South West,3,Saskatchewan
 2021-08-28,South Central,1,Saskatchewan
 2021-08-28,South East,1,Saskatchewan
-2021-08-28,Total,371,Saskatchewan
 2021-08-29,Far North West,1,Saskatchewan
 2021-08-29,Far North Central,2,Saskatchewan
 2021-08-29,Far North East,5,Saskatchewan
@@ -5469,7 +5079,6 @@ date,HR,cases,province
 2021-08-29,South West,2,Saskatchewan
 2021-08-29,South Central,3,Saskatchewan
 2021-08-29,South East,0,Saskatchewan
-2021-08-29,Total,256,Saskatchewan
 2021-08-30,Far North West,2,Saskatchewan
 2021-08-30,Far North Central,3,Saskatchewan
 2021-08-30,Far North East,10,Saskatchewan
@@ -5483,7 +5092,6 @@ date,HR,cases,province
 2021-08-30,South West,0,Saskatchewan
 2021-08-30,South Central,1,Saskatchewan
 2021-08-30,South East,0,Saskatchewan
-2021-08-30,Total,200,Saskatchewan
 2021-08-31,Far North West,5,Saskatchewan
 2021-08-31,Far North Central,0,Saskatchewan
 2021-08-31,Far North East,30,Saskatchewan
@@ -5497,7 +5105,6 @@ date,HR,cases,province
 2021-08-31,South West,1,Saskatchewan
 2021-08-31,South Central,1,Saskatchewan
 2021-08-31,South East,2,Saskatchewan
-2021-08-31,Total,274,Saskatchewan
 2021-09-01,Far North West,8,Saskatchewan
 2021-09-01,Far North Central,4,Saskatchewan
 2021-09-01,Far North East,8,Saskatchewan
@@ -5511,7 +5118,6 @@ date,HR,cases,province
 2021-09-01,South West,2,Saskatchewan
 2021-09-01,South Central,0,Saskatchewan
 2021-09-01,South East,0,Saskatchewan
-2021-09-01,Total,327,Saskatchewan
 2021-09-02,Far North West,4,Saskatchewan
 2021-09-02,Far North Central,2,Saskatchewan
 2021-09-02,Far North East,16,Saskatchewan
@@ -5525,7 +5131,6 @@ date,HR,cases,province
 2021-09-02,South West,0,Saskatchewan
 2021-09-02,South Central,1,Saskatchewan
 2021-09-02,South East,2,Saskatchewan
-2021-09-02,Total,271,Saskatchewan
 2021-09-03,Far North West,10,Saskatchewan
 2021-09-03,Far North Central,0,Saskatchewan
 2021-09-03,Far North East,8,Saskatchewan
@@ -5539,7 +5144,6 @@ date,HR,cases,province
 2021-09-03,South West,8,Saskatchewan
 2021-09-03,South Central,0,Saskatchewan
 2021-09-03,South East,3,Saskatchewan
-2021-09-03,Total,419,Saskatchewan
 2021-09-04,Far North West,8,Saskatchewan
 2021-09-04,Far North Central,1,Saskatchewan
 2021-09-04,Far North East,15,Saskatchewan
@@ -5553,7 +5157,6 @@ date,HR,cases,province
 2021-09-04,South West,5,Saskatchewan
 2021-09-04,South Central,1,Saskatchewan
 2021-09-04,South East,5,Saskatchewan
-2021-09-04,Total,355,Saskatchewan
 2021-09-05,Far North West,8,Saskatchewan
 2021-09-05,Far North Central,0,Saskatchewan
 2021-09-05,Far North East,3,Saskatchewan
@@ -5567,7 +5170,6 @@ date,HR,cases,province
 2021-09-05,South West,1,Saskatchewan
 2021-09-05,South Central,2,Saskatchewan
 2021-09-05,South East,2,Saskatchewan
-2021-09-05,Total,389,Saskatchewan
 2021-09-06,Far North West,9,Saskatchewan
 2021-09-06,Far North Central,0,Saskatchewan
 2021-09-06,Far North East,10,Saskatchewan
@@ -5581,7 +5183,6 @@ date,HR,cases,province
 2021-09-06,South West,8,Saskatchewan
 2021-09-06,South Central,5,Saskatchewan
 2021-09-06,South East,4,Saskatchewan
-2021-09-06,Total,399,Saskatchewan
 2021-09-07,Far North West,4,Saskatchewan
 2021-09-07,Far North Central,2,Saskatchewan
 2021-09-07,Far North East,30,Saskatchewan
@@ -5595,7 +5196,6 @@ date,HR,cases,province
 2021-09-07,South West,4,Saskatchewan
 2021-09-07,South Central,0,Saskatchewan
 2021-09-07,South East,6,Saskatchewan
-2021-09-07,Total,309,Saskatchewan
 2021-09-08,Far North West,18,Saskatchewan
 2021-09-08,Far North Central,3,Saskatchewan
 2021-09-08,Far North East,20,Saskatchewan
@@ -5609,7 +5209,6 @@ date,HR,cases,province
 2021-09-08,South West,1,Saskatchewan
 2021-09-08,South Central,1,Saskatchewan
 2021-09-08,South East,2,Saskatchewan
-2021-09-08,Total,409,Saskatchewan
 2021-09-09,Far North West,5,Saskatchewan
 2021-09-09,Far North Central,4,Saskatchewan
 2021-09-09,Far North East,15,Saskatchewan
@@ -5623,7 +5222,6 @@ date,HR,cases,province
 2021-09-09,South West,6,Saskatchewan
 2021-09-09,South Central,0,Saskatchewan
 2021-09-09,South East,11,Saskatchewan
-2021-09-09,Total,289,Saskatchewan
 2021-09-10,Far North West,9,Saskatchewan
 2021-09-10,Far North Central,4,Saskatchewan
 2021-09-10,Far North East,9,Saskatchewan
@@ -5637,7 +5235,6 @@ date,HR,cases,province
 2021-09-10,South West,1,Saskatchewan
 2021-09-10,South Central,3,Saskatchewan
 2021-09-10,South East,2,Saskatchewan
-2021-09-10,Total,437,Saskatchewan
 2021-09-11,Far North West,14,Saskatchewan
 2021-09-11,Far North Central,1,Saskatchewan
 2021-09-11,Far North East,15,Saskatchewan
@@ -5651,7 +5248,6 @@ date,HR,cases,province
 2021-09-11,South West,4,Saskatchewan
 2021-09-11,South Central,4,Saskatchewan
 2021-09-11,South East,4,Saskatchewan
-2021-09-11,Total,343,Saskatchewan
 2021-09-12,Far North West,3,Saskatchewan
 2021-09-12,Far North Central,0,Saskatchewan
 2021-09-12,Far North East,12,Saskatchewan
@@ -5665,7 +5261,6 @@ date,HR,cases,province
 2021-09-12,South West,6,Saskatchewan
 2021-09-12,South Central,2,Saskatchewan
 2021-09-12,South East,4,Saskatchewan
-2021-09-12,Total,423,Saskatchewan
 2021-09-13,Far North West,9,Saskatchewan
 2021-09-13,Far North Central,0,Saskatchewan
 2021-09-13,Far North East,4,Saskatchewan
@@ -5679,7 +5274,6 @@ date,HR,cases,province
 2021-09-13,South West,3,Saskatchewan
 2021-09-13,South Central,4,Saskatchewan
 2021-09-13,South East,3,Saskatchewan
-2021-09-13,Total,452,Saskatchewan
 2021-09-14,Far North West,7,Saskatchewan
 2021-09-14,Far North Central,4,Saskatchewan
 2021-09-14,Far North East,30,Saskatchewan
@@ -5693,7 +5287,6 @@ date,HR,cases,province
 2021-09-14,South West,5,Saskatchewan
 2021-09-14,South Central,5,Saskatchewan
 2021-09-14,South East,5,Saskatchewan
-2021-09-14,Total,508,Saskatchewan
 2021-09-15,Far North West,11,Saskatchewan
 2021-09-15,Far North Central,4,Saskatchewan
 2021-09-15,Far North East,25,Saskatchewan
@@ -5707,7 +5300,6 @@ date,HR,cases,province
 2021-09-15,South West,5,Saskatchewan
 2021-09-15,South Central,3,Saskatchewan
 2021-09-15,South East,6,Saskatchewan
-2021-09-15,Total,476,Saskatchewan
 2021-09-16,Far North West,10,Saskatchewan
 2021-09-16,Far North Central,0,Saskatchewan
 2021-09-16,Far North East,25,Saskatchewan
@@ -5721,7 +5313,6 @@ date,HR,cases,province
 2021-09-16,South West,1,Saskatchewan
 2021-09-16,South Central,2,Saskatchewan
 2021-09-16,South East,1,Saskatchewan
-2021-09-16,Total,438,Saskatchewan
 2021-09-17,Far North West,10,Saskatchewan
 2021-09-17,Far North Central,0,Saskatchewan
 2021-09-17,Far North East,19,Saskatchewan
@@ -5735,7 +5326,6 @@ date,HR,cases,province
 2021-09-17,South West,12,Saskatchewan
 2021-09-17,South Central,11,Saskatchewan
 2021-09-17,South East,10,Saskatchewan
-2021-09-17,Total,472,Saskatchewan
 2021-09-18,Far North West,14,Saskatchewan
 2021-09-18,Far North Central,1,Saskatchewan
 2021-09-18,Far North East,21,Saskatchewan
@@ -5749,7 +5339,6 @@ date,HR,cases,province
 2021-09-18,South West,6,Saskatchewan
 2021-09-18,South Central,5,Saskatchewan
 2021-09-18,South East,5,Saskatchewan
-2021-09-18,Total,500,Saskatchewan
 2021-09-19,Far North West,4,Saskatchewan
 2021-09-19,Far North Central,0,Saskatchewan
 2021-09-19,Far North East,9,Saskatchewan
@@ -5763,7 +5352,6 @@ date,HR,cases,province
 2021-09-19,South West,8,Saskatchewan
 2021-09-19,South Central,8,Saskatchewan
 2021-09-19,South East,8,Saskatchewan
-2021-09-19,Total,542,Saskatchewan
 2021-09-20,Far North West,11,Saskatchewan
 2021-09-20,Far North Central,1,Saskatchewan
 2021-09-20,Far North East,11,Saskatchewan
@@ -5777,7 +5365,6 @@ date,HR,cases,province
 2021-09-20,South West,5,Saskatchewan
 2021-09-20,South Central,6,Saskatchewan
 2021-09-20,South East,4,Saskatchewan
-2021-09-20,Total,516,Saskatchewan
 2021-09-21,Far North West,0,Saskatchewan
 2021-09-21,Far North Central,3,Saskatchewan
 2021-09-21,Far North East,30,Saskatchewan
@@ -5791,7 +5378,6 @@ date,HR,cases,province
 2021-09-21,South West,4,Saskatchewan
 2021-09-21,South Central,8,Saskatchewan
 2021-09-21,South East,4,Saskatchewan
-2021-09-21,Total,369,Saskatchewan
 2021-09-22,Far North West,3,Saskatchewan
 2021-09-22,Far North Central,0,Saskatchewan
 2021-09-22,Far North East,14,Saskatchewan
@@ -5805,7 +5391,6 @@ date,HR,cases,province
 2021-09-22,South West,5,Saskatchewan
 2021-09-22,South Central,6,Saskatchewan
 2021-09-22,South East,10,Saskatchewan
-2021-09-22,Total,424,Saskatchewan
 2021-09-23,Far North West,3,Saskatchewan
 2021-09-23,Far North Central,5,Saskatchewan
 2021-09-23,Far North East,3,Saskatchewan
@@ -5819,7 +5404,6 @@ date,HR,cases,province
 2021-09-23,South West,14,Saskatchewan
 2021-09-23,South Central,1,Saskatchewan
 2021-09-23,South East,3,Saskatchewan
-2021-09-23,Total,459,Saskatchewan
 2021-09-24,Far North West,8,Saskatchewan
 2021-09-24,Far North Central,0,Saskatchewan
 2021-09-24,Far North East,8,Saskatchewan
@@ -5833,7 +5417,6 @@ date,HR,cases,province
 2021-09-24,South West,10,Saskatchewan
 2021-09-24,South Central,7,Saskatchewan
 2021-09-24,South East,8,Saskatchewan
-2021-09-24,Total,528,Saskatchewan
 2021-09-25,Far North West,15,Saskatchewan
 2021-09-25,Far North Central,1,Saskatchewan
 2021-09-25,Far North East,10,Saskatchewan
@@ -5847,7 +5430,6 @@ date,HR,cases,province
 2021-09-25,South West,13,Saskatchewan
 2021-09-25,South Central,8,Saskatchewan
 2021-09-25,South East,6,Saskatchewan
-2021-09-25,Total,491,Saskatchewan
 2021-09-26,Far North West,7,Saskatchewan
 2021-09-26,Far North Central,0,Saskatchewan
 2021-09-26,Far North East,6,Saskatchewan
@@ -5861,7 +5443,6 @@ date,HR,cases,province
 2021-09-26,South West,9,Saskatchewan
 2021-09-26,South Central,22,Saskatchewan
 2021-09-26,South East,6,Saskatchewan
-2021-09-26,Total,549,Saskatchewan
 2021-09-27,Far North West,7,Saskatchewan
 2021-09-27,Far North Central,0,Saskatchewan
 2021-09-27,Far North East,14,Saskatchewan
@@ -5875,7 +5456,6 @@ date,HR,cases,province
 2021-09-27,South West,10,Saskatchewan
 2021-09-27,South Central,0,Saskatchewan
 2021-09-27,South East,5,Saskatchewan
-2021-09-27,Total,397,Saskatchewan
 2021-09-28,Far North West,2,Saskatchewan
 2021-09-28,Far North Central,2,Saskatchewan
 2021-09-28,Far North East,14,Saskatchewan
@@ -5889,7 +5469,6 @@ date,HR,cases,province
 2021-09-28,South West,8,Saskatchewan
 2021-09-28,South Central,4,Saskatchewan
 2021-09-28,South East,4,Saskatchewan
-2021-09-28,Total,448,Saskatchewan
 2021-09-29,Far North West,6,Saskatchewan
 2021-09-29,Far North Central,0,Saskatchewan
 2021-09-29,Far North East,10,Saskatchewan
@@ -5903,7 +5482,6 @@ date,HR,cases,province
 2021-09-29,South West,13,Saskatchewan
 2021-09-29,South Central,10,Saskatchewan
 2021-09-29,South East,3,Saskatchewan
-2021-09-29,Total,394,Saskatchewan
 2021-09-30,Far North West,5,Saskatchewan
 2021-09-30,Far North Central,0,Saskatchewan
 2021-09-30,Far North East,7,Saskatchewan
@@ -5917,7 +5495,6 @@ date,HR,cases,province
 2021-09-30,South West,22,Saskatchewan
 2021-09-30,South Central,6,Saskatchewan
 2021-09-30,South East,12,Saskatchewan
-2021-09-30,Total,602,Saskatchewan
 2021-10-01,Far North West,5,Saskatchewan
 2021-10-01,Far North Central,1,Saskatchewan
 2021-10-01,Far North East,10,Saskatchewan
@@ -5931,7 +5508,6 @@ date,HR,cases,province
 2021-10-01,South West,13,Saskatchewan
 2021-10-01,South Central,16,Saskatchewan
 2021-10-01,South East,10,Saskatchewan
-2021-10-01,Total,470,Saskatchewan
 2021-10-02,Far North West,7,Saskatchewan
 2021-10-02,Far North Central,0,Saskatchewan
 2021-10-02,Far North East,5,Saskatchewan
@@ -5945,7 +5521,6 @@ date,HR,cases,province
 2021-10-02,South West,11,Saskatchewan
 2021-10-02,South Central,30,Saskatchewan
 2021-10-02,South East,6,Saskatchewan
-2021-10-02,Total,480,Saskatchewan
 2021-10-03,Far North West,0,Saskatchewan
 2021-10-03,Far North Central,3,Saskatchewan
 2021-10-03,Far North East,9,Saskatchewan
@@ -5959,7 +5534,6 @@ date,HR,cases,province
 2021-10-03,South West,4,Saskatchewan
 2021-10-03,South Central,5,Saskatchewan
 2021-10-03,South East,4,Saskatchewan
-2021-10-03,Total,354,Saskatchewan
 2021-10-04,Far North West,5,Saskatchewan
 2021-10-04,Far North Central,1,Saskatchewan
 2021-10-04,Far North East,13,Saskatchewan
@@ -5973,7 +5547,6 @@ date,HR,cases,province
 2021-10-04,South West,15,Saskatchewan
 2021-10-04,South Central,4,Saskatchewan
 2021-10-04,South East,10,Saskatchewan
-2021-10-04,Total,444,Saskatchewan
 2021-10-05,Far North West,4,Saskatchewan
 2021-10-05,Far North Central,0,Saskatchewan
 2021-10-05,Far North East,10,Saskatchewan
@@ -5987,7 +5560,6 @@ date,HR,cases,province
 2021-10-05,South West,3,Saskatchewan
 2021-10-05,South Central,2,Saskatchewan
 2021-10-05,South East,1,Saskatchewan
-2021-10-05,Total,242,Saskatchewan
 2021-10-06,Far North West,7,Saskatchewan
 2021-10-06,Far North Central,1,Saskatchewan
 2021-10-06,Far North East,13,Saskatchewan
@@ -6001,7 +5573,6 @@ date,HR,cases,province
 2021-10-06,South West,1,Saskatchewan
 2021-10-06,South Central,1,Saskatchewan
 2021-10-06,South East,11,Saskatchewan
-2021-10-06,Total,478,Saskatchewan
 2021-10-07,Far North West,10,Saskatchewan
 2021-10-07,Far North Central,0,Saskatchewan
 2021-10-07,Far North East,24,Saskatchewan
@@ -6015,7 +5586,6 @@ date,HR,cases,province
 2021-10-07,South West,7,Saskatchewan
 2021-10-07,South Central,9,Saskatchewan
 2021-10-07,South East,21,Saskatchewan
-2021-10-07,Total,650,Saskatchewan
 2021-10-08,Far North West,9,Saskatchewan
 2021-10-08,Far North Central,1,Saskatchewan
 2021-10-08,Far North East,14,Saskatchewan
@@ -6029,7 +5599,6 @@ date,HR,cases,province
 2021-10-08,South West,18,Saskatchewan
 2021-10-08,South Central,6,Saskatchewan
 2021-10-08,South East,14,Saskatchewan
-2021-10-08,Total,576,Saskatchewan
 2021-10-09,Far North West,3,Saskatchewan
 2021-10-09,Far North Central,0,Saskatchewan
 2021-10-09,Far North East,12,Saskatchewan
@@ -6043,7 +5612,6 @@ date,HR,cases,province
 2021-10-09,South West,12,Saskatchewan
 2021-10-09,South Central,1,Saskatchewan
 2021-10-09,South East,10,Saskatchewan
-2021-10-09,Total,503,Saskatchewan
 2021-10-10,Far North West,4,Saskatchewan
 2021-10-10,Far North Central,0,Saskatchewan
 2021-10-10,Far North East,32,Saskatchewan
@@ -6057,7 +5625,6 @@ date,HR,cases,province
 2021-10-10,South West,7,Saskatchewan
 2021-10-10,South Central,4,Saskatchewan
 2021-10-10,South East,9,Saskatchewan
-2021-10-10,Total,506,Saskatchewan
 2021-10-11,Far North West,4,Saskatchewan
 2021-10-11,Far North Central,0,Saskatchewan
 2021-10-11,Far North East,12,Saskatchewan
@@ -6071,7 +5638,6 @@ date,HR,cases,province
 2021-10-11,South West,7,Saskatchewan
 2021-10-11,South Central,6,Saskatchewan
 2021-10-11,South East,3,Saskatchewan
-2021-10-11,Total,425,Saskatchewan
 2021-10-12,Far North West,0,Saskatchewan
 2021-10-12,Far North Central,0,Saskatchewan
 2021-10-12,Far North East,17,Saskatchewan
@@ -6085,7 +5651,6 @@ date,HR,cases,province
 2021-10-12,South West,2,Saskatchewan
 2021-10-12,South Central,3,Saskatchewan
 2021-10-12,South East,2,Saskatchewan
-2021-10-12,Total,271,Saskatchewan
 2021-10-13,Far North West,4,Saskatchewan
 2021-10-13,Far North Central,0,Saskatchewan
 2021-10-13,Far North East,19,Saskatchewan
@@ -6099,7 +5664,6 @@ date,HR,cases,province
 2021-10-13,South West,1,Saskatchewan
 2021-10-13,South Central,3,Saskatchewan
 2021-10-13,South East,2,Saskatchewan
-2021-10-13,Total,327,Saskatchewan
 2021-10-14,Far North West,1,Saskatchewan
 2021-10-14,Far North Central,0,Saskatchewan
 2021-10-14,Far North East,14,Saskatchewan
@@ -6113,7 +5677,6 @@ date,HR,cases,province
 2021-10-14,South West,0,Saskatchewan
 2021-10-14,South Central,4,Saskatchewan
 2021-10-14,South East,11,Saskatchewan
-2021-10-14,Total,314,Saskatchewan
 2021-10-15,Far North West,5,Saskatchewan
 2021-10-15,Far North Central,0,Saskatchewan
 2021-10-15,Far North East,10,Saskatchewan
@@ -6127,7 +5690,6 @@ date,HR,cases,province
 2021-10-15,South West,4,Saskatchewan
 2021-10-15,South Central,6,Saskatchewan
 2021-10-15,South East,5,Saskatchewan
-2021-10-15,Total,311,Saskatchewan
 2021-10-16,Far North West,3,Saskatchewan
 2021-10-16,Far North Central,0,Saskatchewan
 2021-10-16,Far North East,12,Saskatchewan
@@ -6141,7 +5703,6 @@ date,HR,cases,province
 2021-10-16,South West,1,Saskatchewan
 2021-10-16,South Central,3,Saskatchewan
 2021-10-16,South East,6,Saskatchewan
-2021-10-16,Total,410,Saskatchewan
 2021-10-17,Far North West,2,Saskatchewan
 2021-10-17,Far North Central,0,Saskatchewan
 2021-10-17,Far North East,5,Saskatchewan
@@ -6155,7 +5716,6 @@ date,HR,cases,province
 2021-10-17,South West,3,Saskatchewan
 2021-10-17,South Central,5,Saskatchewan
 2021-10-17,South East,5,Saskatchewan
-2021-10-17,Total,321,Saskatchewan
 2021-10-18,Far North West,0,Saskatchewan
 2021-10-18,Far North Central,0,Saskatchewan
 2021-10-18,Far North East,12,Saskatchewan
@@ -6169,7 +5729,6 @@ date,HR,cases,province
 2021-10-18,South West,7,Saskatchewan
 2021-10-18,South Central,12,Saskatchewan
 2021-10-18,South East,0,Saskatchewan
-2021-10-18,Total,279,Saskatchewan
 2021-10-19,Far North West,0,Saskatchewan
 2021-10-19,Far North Central,0,Saskatchewan
 2021-10-19,Far North East,5,Saskatchewan
@@ -6183,7 +5742,6 @@ date,HR,cases,province
 2021-10-19,South West,2,Saskatchewan
 2021-10-19,South Central,2,Saskatchewan
 2021-10-19,South East,3,Saskatchewan
-2021-10-19,Total,274,Saskatchewan
 2021-10-20,Far North West,3,Saskatchewan
 2021-10-20,Far North Central,0,Saskatchewan
 2021-10-20,Far North East,1,Saskatchewan
@@ -6197,7 +5755,6 @@ date,HR,cases,province
 2021-10-20,South West,2,Saskatchewan
 2021-10-20,South Central,1,Saskatchewan
 2021-10-20,South East,5,Saskatchewan
-2021-10-20,Total,247,Saskatchewan
 2021-10-21,Far North West,3,Saskatchewan
 2021-10-21,Far North Central,0,Saskatchewan
 2021-10-21,Far North East,11,Saskatchewan
@@ -6211,7 +5768,6 @@ date,HR,cases,province
 2021-10-21,South West,8,Saskatchewan
 2021-10-21,South Central,9,Saskatchewan
 2021-10-21,South East,10,Saskatchewan
-2021-10-21,Total,355,Saskatchewan
 2021-10-22,Far North West,0,Saskatchewan
 2021-10-22,Far North Central,0,Saskatchewan
 2021-10-22,Far North East,20,Saskatchewan
@@ -6225,7 +5781,6 @@ date,HR,cases,province
 2021-10-22,South West,0,Saskatchewan
 2021-10-22,South Central,7,Saskatchewan
 2021-10-22,South East,15,Saskatchewan
-2021-10-22,Total,301,Saskatchewan
 2021-10-23,Far North West,7,Saskatchewan
 2021-10-23,Far North Central,0,Saskatchewan
 2021-10-23,Far North East,4,Saskatchewan
@@ -6239,7 +5794,6 @@ date,HR,cases,province
 2021-10-23,South West,5,Saskatchewan
 2021-10-23,South Central,2,Saskatchewan
 2021-10-23,South East,15,Saskatchewan
-2021-10-23,Total,231,Saskatchewan
 2021-10-24,Far North West,0,Saskatchewan
 2021-10-24,Far North Central,0,Saskatchewan
 2021-10-24,Far North East,7,Saskatchewan
@@ -6253,7 +5807,6 @@ date,HR,cases,province
 2021-10-24,South West,1,Saskatchewan
 2021-10-24,South Central,6,Saskatchewan
 2021-10-24,South East,17,Saskatchewan
-2021-10-24,Total,237,Saskatchewan
 2021-10-25,Far North West,1,Saskatchewan
 2021-10-25,Far North Central,0,Saskatchewan
 2021-10-25,Far North East,15,Saskatchewan
@@ -6267,7 +5820,6 @@ date,HR,cases,province
 2021-10-25,South West,1,Saskatchewan
 2021-10-25,South Central,0,Saskatchewan
 2021-10-25,South East,3,Saskatchewan
-2021-10-25,Total,170,Saskatchewan
 2021-10-26,Far North West,3,Saskatchewan
 2021-10-26,Far North Central,0,Saskatchewan
 2021-10-26,Far North East,8,Saskatchewan
@@ -6281,7 +5833,6 @@ date,HR,cases,province
 2021-10-26,South West,1,Saskatchewan
 2021-10-26,South Central,0,Saskatchewan
 2021-10-26,South East,4,Saskatchewan
-2021-10-26,Total,127,Saskatchewan
 2021-10-27,Far North West,0,Saskatchewan
 2021-10-27,Far North Central,0,Saskatchewan
 2021-10-27,Far North East,9,Saskatchewan
@@ -6295,7 +5846,6 @@ date,HR,cases,province
 2021-10-27,South West,1,Saskatchewan
 2021-10-27,South Central,0,Saskatchewan
 2021-10-27,South East,8,Saskatchewan
-2021-10-27,Total,226,Saskatchewan
 2021-10-28,Far North West,0,Saskatchewan
 2021-10-28,Far North Central,0,Saskatchewan
 2021-10-28,Far North East,11,Saskatchewan
@@ -6309,7 +5859,6 @@ date,HR,cases,province
 2021-10-28,South West,6,Saskatchewan
 2021-10-28,South Central,1,Saskatchewan
 2021-10-28,South East,8,Saskatchewan
-2021-10-28,Total,237,Saskatchewan
 2021-10-29,Far North West,0,Saskatchewan
 2021-10-29,Far North Central,0,Saskatchewan
 2021-10-29,Far North East,8,Saskatchewan
@@ -6323,7 +5872,6 @@ date,HR,cases,province
 2021-10-29,South West,0,Saskatchewan
 2021-10-29,South Central,0,Saskatchewan
 2021-10-29,South East,13,Saskatchewan
-2021-10-29,Total,238,Saskatchewan
 2021-10-30,Far North West,0,Saskatchewan
 2021-10-30,Far North Central,0,Saskatchewan
 2021-10-30,Far North East,2,Saskatchewan
@@ -6337,7 +5885,6 @@ date,HR,cases,province
 2021-10-30,South West,2,Saskatchewan
 2021-10-30,South Central,2,Saskatchewan
 2021-10-30,South East,1,Saskatchewan
-2021-10-30,Total,189,Saskatchewan
 2021-10-31,Far North West,1,Saskatchewan
 2021-10-31,Far North Central,0,Saskatchewan
 2021-10-31,Far North East,0,Saskatchewan
@@ -6351,7 +5898,6 @@ date,HR,cases,province
 2021-10-31,South West,1,Saskatchewan
 2021-10-31,South Central,0,Saskatchewan
 2021-10-31,South East,6,Saskatchewan
-2021-10-31,Total,170,Saskatchewan
 2021-11-01,Far North West,0,Saskatchewan
 2021-11-01,Far North Central,0,Saskatchewan
 2021-11-01,Far North East,3,Saskatchewan
@@ -6365,7 +5911,6 @@ date,HR,cases,province
 2021-11-01,South West,3,Saskatchewan
 2021-11-01,South Central,1,Saskatchewan
 2021-11-01,South East,3,Saskatchewan
-2021-11-01,Total,128,Saskatchewan
 2021-11-02,Far North West,0,Saskatchewan
 2021-11-02,Far North Central,0,Saskatchewan
 2021-11-02,Far North East,2,Saskatchewan
@@ -6379,7 +5924,6 @@ date,HR,cases,province
 2021-11-02,South West,0,Saskatchewan
 2021-11-02,South Central,1,Saskatchewan
 2021-11-02,South East,0,Saskatchewan
-2021-11-02,Total,107,Saskatchewan
 2021-11-03,Far North West,2,Saskatchewan
 2021-11-03,Far North Central,0,Saskatchewan
 2021-11-03,Far North East,6,Saskatchewan
@@ -6393,7 +5937,6 @@ date,HR,cases,province
 2021-11-03,South West,1,Saskatchewan
 2021-11-03,South Central,0,Saskatchewan
 2021-11-03,South East,11,Saskatchewan
-2021-11-03,Total,172,Saskatchewan
 2021-11-04,Far North West,6,Saskatchewan
 2021-11-04,Far North Central,0,Saskatchewan
 2021-11-04,Far North East,3,Saskatchewan
@@ -6407,7 +5950,6 @@ date,HR,cases,province
 2021-11-04,South West,2,Saskatchewan
 2021-11-04,South Central,0,Saskatchewan
 2021-11-04,South East,14,Saskatchewan
-2021-11-04,Total,189,Saskatchewan
 2021-11-05,Far North West,1,Saskatchewan
 2021-11-05,Far North Central,0,Saskatchewan
 2021-11-05,Far North East,0,Saskatchewan
@@ -6421,7 +5963,6 @@ date,HR,cases,province
 2021-11-05,South West,4,Saskatchewan
 2021-11-05,South Central,1,Saskatchewan
 2021-11-05,South East,10,Saskatchewan
-2021-11-05,Total,142,Saskatchewan
 2021-11-06,Far North West,1,Saskatchewan
 2021-11-06,Far North Central,0,Saskatchewan
 2021-11-06,Far North East,5,Saskatchewan
@@ -6435,7 +5976,6 @@ date,HR,cases,province
 2021-11-06,South West,0,Saskatchewan
 2021-11-06,South Central,2,Saskatchewan
 2021-11-06,South East,13,Saskatchewan
-2021-11-06,Total,173,Saskatchewan
 2021-11-07,Far North West,0,Saskatchewan
 2021-11-07,Far North Central,0,Saskatchewan
 2021-11-07,Far North East,0,Saskatchewan
@@ -6449,7 +5989,6 @@ date,HR,cases,province
 2021-11-07,South West,1,Saskatchewan
 2021-11-07,South Central,0,Saskatchewan
 2021-11-07,South East,8,Saskatchewan
-2021-11-07,Total,157,Saskatchewan
 2021-11-08,Far North West,1,Saskatchewan
 2021-11-08,Far North Central,0,Saskatchewan
 2021-11-08,Far North East,1,Saskatchewan
@@ -6463,7 +6002,6 @@ date,HR,cases,province
 2021-11-08,South West,2,Saskatchewan
 2021-11-08,South Central,1,Saskatchewan
 2021-11-08,South East,5,Saskatchewan
-2021-11-08,Total,100,Saskatchewan
 2021-11-09,Far North West,1,Saskatchewan
 2021-11-09,Far North Central,0,Saskatchewan
 2021-11-09,Far North East,1,Saskatchewan
@@ -6477,7 +6015,6 @@ date,HR,cases,province
 2021-11-09,South West,0,Saskatchewan
 2021-11-09,South Central,0,Saskatchewan
 2021-11-09,South East,6,Saskatchewan
-2021-11-09,Total,86,Saskatchewan
 2021-11-10,Far North West,2,Saskatchewan
 2021-11-10,Far North Central,0,Saskatchewan
 2021-11-10,Far North East,0,Saskatchewan
@@ -6491,7 +6028,6 @@ date,HR,cases,province
 2021-11-10,South West,3,Saskatchewan
 2021-11-10,South Central,0,Saskatchewan
 2021-11-10,South East,12,Saskatchewan
-2021-11-10,Total,120,Saskatchewan
 2021-11-11,Far North West,1,Saskatchewan
 2021-11-11,Far North Central,0,Saskatchewan
 2021-11-11,Far North East,4,Saskatchewan
@@ -6505,7 +6041,6 @@ date,HR,cases,province
 2021-11-11,South West,4,Saskatchewan
 2021-11-11,South Central,0,Saskatchewan
 2021-11-11,South East,10,Saskatchewan
-2021-11-11,Total,182,Saskatchewan
 2021-11-12,Far North West,0,Saskatchewan
 2021-11-12,Far North Central,0,Saskatchewan
 2021-11-12,Far North East,0,Saskatchewan
@@ -6519,7 +6054,6 @@ date,HR,cases,province
 2021-11-12,South West,2,Saskatchewan
 2021-11-12,South Central,1,Saskatchewan
 2021-11-12,South East,4,Saskatchewan
-2021-11-12,Total,122,Saskatchewan
 2021-11-13,Far North West,0,Saskatchewan
 2021-11-13,Far North Central,0,Saskatchewan
 2021-11-13,Far North East,0,Saskatchewan
@@ -6533,7 +6067,6 @@ date,HR,cases,province
 2021-11-13,South West,1,Saskatchewan
 2021-11-13,South Central,0,Saskatchewan
 2021-11-13,South East,3,Saskatchewan
-2021-11-13,Total,53,Saskatchewan
 2021-11-14,Far North West,0,Saskatchewan
 2021-11-14,Far North Central,0,Saskatchewan
 2021-11-14,Far North East,0,Saskatchewan
@@ -6547,7 +6080,6 @@ date,HR,cases,province
 2021-11-14,South West,2,Saskatchewan
 2021-11-14,South Central,0,Saskatchewan
 2021-11-14,South East,1,Saskatchewan
-2021-11-14,Total,110,Saskatchewan
 2021-11-15,Far North West,0,Saskatchewan
 2021-11-15,Far North Central,0,Saskatchewan
 2021-11-15,Far North East,0,Saskatchewan
@@ -6561,7 +6093,6 @@ date,HR,cases,province
 2021-11-15,South West,1,Saskatchewan
 2021-11-15,South Central,0,Saskatchewan
 2021-11-15,South East,1,Saskatchewan
-2021-11-15,Total,97,Saskatchewan
 2021-11-16,Far North West,1,Saskatchewan
 2021-11-16,Far North Central,0,Saskatchewan
 2021-11-16,Far North East,1,Saskatchewan
@@ -6575,7 +6106,6 @@ date,HR,cases,province
 2021-11-16,South West,0,Saskatchewan
 2021-11-16,South Central,2,Saskatchewan
 2021-11-16,South East,0,Saskatchewan
-2021-11-16,Total,84,Saskatchewan
 2021-11-17,Far North West,0,Saskatchewan
 2021-11-17,Far North Central,0,Saskatchewan
 2021-11-17,Far North East,1,Saskatchewan
@@ -6589,7 +6119,6 @@ date,HR,cases,province
 2021-11-17,South West,0,Saskatchewan
 2021-11-17,South Central,0,Saskatchewan
 2021-11-17,South East,8,Saskatchewan
-2021-11-17,Total,150,Saskatchewan
 2021-11-18,Far North West,2,Saskatchewan
 2021-11-18,Far North Central,0,Saskatchewan
 2021-11-18,Far North East,0,Saskatchewan
@@ -6603,7 +6132,6 @@ date,HR,cases,province
 2021-11-18,South West,0,Saskatchewan
 2021-11-18,South Central,0,Saskatchewan
 2021-11-18,South East,5,Saskatchewan
-2021-11-18,Total,96,Saskatchewan
 2021-11-19,Far North West,1,Saskatchewan
 2021-11-19,Far North Central,0,Saskatchewan
 2021-11-19,Far North East,0,Saskatchewan
@@ -6617,7 +6145,6 @@ date,HR,cases,province
 2021-11-19,South West,0,Saskatchewan
 2021-11-19,South Central,0,Saskatchewan
 2021-11-19,South East,1,Saskatchewan
-2021-11-19,Total,89,Saskatchewan
 2021-11-20,Far North West,1,Saskatchewan
 2021-11-20,Far North Central,0,Saskatchewan
 2021-11-20,Far North East,2,Saskatchewan
@@ -6631,7 +6158,6 @@ date,HR,cases,province
 2021-11-20,South West,1,Saskatchewan
 2021-11-20,South Central,0,Saskatchewan
 2021-11-20,South East,3,Saskatchewan
-2021-11-20,Total,185,Saskatchewan
 2021-11-21,Far North West,1,Saskatchewan
 2021-11-21,Far North Central,0,Saskatchewan
 2021-11-21,Far North East,0,Saskatchewan
@@ -6645,7 +6171,6 @@ date,HR,cases,province
 2021-11-21,South West,1,Saskatchewan
 2021-11-21,South Central,0,Saskatchewan
 2021-11-21,South East,1,Saskatchewan
-2021-11-21,Total,62,Saskatchewan
 2021-11-22,Far North West,0,Saskatchewan
 2021-11-22,Far North Central,0,Saskatchewan
 2021-11-22,Far North East,0,Saskatchewan
@@ -6659,7 +6184,6 @@ date,HR,cases,province
 2021-11-22,South West,0,Saskatchewan
 2021-11-22,South Central,2,Saskatchewan
 2021-11-22,South East,0,Saskatchewan
-2021-11-22,Total,73,Saskatchewan
 2021-11-23,Far North West,2,Saskatchewan
 2021-11-23,Far North Central,0,Saskatchewan
 2021-11-23,Far North East,0,Saskatchewan
@@ -6673,7 +6197,6 @@ date,HR,cases,province
 2021-11-23,South West,0,Saskatchewan
 2021-11-23,South Central,1,Saskatchewan
 2021-11-23,South East,2,Saskatchewan
-2021-11-23,Total,69,Saskatchewan
 2021-11-24,Far North West,6,Saskatchewan
 2021-11-24,Far North Central,0,Saskatchewan
 2021-11-24,Far North East,3,Saskatchewan
@@ -6687,7 +6210,6 @@ date,HR,cases,province
 2021-11-24,South West,0,Saskatchewan
 2021-11-24,South Central,0,Saskatchewan
 2021-11-24,South East,7,Saskatchewan
-2021-11-24,Total,90,Saskatchewan
 2021-11-25,Far North West,0,Saskatchewan
 2021-11-25,Far North Central,0,Saskatchewan
 2021-11-25,Far North East,1,Saskatchewan
@@ -6701,7 +6223,6 @@ date,HR,cases,province
 2021-11-25,South West,2,Saskatchewan
 2021-11-25,South Central,1,Saskatchewan
 2021-11-25,South East,2,Saskatchewan
-2021-11-25,Total,96,Saskatchewan
 2021-11-26,Far North West,0,Saskatchewan
 2021-11-26,Far North Central,0,Saskatchewan
 2021-11-26,Far North East,0,Saskatchewan
@@ -6715,7 +6236,6 @@ date,HR,cases,province
 2021-11-26,South West,0,Saskatchewan
 2021-11-26,South Central,2,Saskatchewan
 2021-11-26,South East,1,Saskatchewan
-2021-11-26,Total,109,Saskatchewan
 2021-11-27,Far North West,0,Saskatchewan
 2021-11-27,Far North Central,0,Saskatchewan
 2021-11-27,Far North East,0,Saskatchewan
@@ -6729,7 +6249,6 @@ date,HR,cases,province
 2021-11-27,South West,1,Saskatchewan
 2021-11-27,South Central,0,Saskatchewan
 2021-11-27,South East,9,Saskatchewan
-2021-11-27,Total,73,Saskatchewan
 2021-11-28,Far North West,0,Saskatchewan
 2021-11-28,Far North Central,0,Saskatchewan
 2021-11-28,Far North East,0,Saskatchewan
@@ -6743,7 +6262,6 @@ date,HR,cases,province
 2021-11-28,South West,0,Saskatchewan
 2021-11-28,South Central,0,Saskatchewan
 2021-11-28,South East,3,Saskatchewan
-2021-11-28,Total,52,Saskatchewan
 2021-11-29,Far North West,0,Saskatchewan
 2021-11-29,Far North Central,0,Saskatchewan
 2021-11-29,Far North East,0,Saskatchewan
@@ -6757,7 +6275,6 @@ date,HR,cases,province
 2021-11-29,South West,1,Saskatchewan
 2021-11-29,South Central,1,Saskatchewan
 2021-11-29,South East,0,Saskatchewan
-2021-11-29,Total,49,Saskatchewan
 2021-11-30,Far North West,1,Saskatchewan
 2021-11-30,Far North Central,0,Saskatchewan
 2021-11-30,Far North East,0,Saskatchewan
@@ -6771,7 +6288,6 @@ date,HR,cases,province
 2021-11-30,South West,0,Saskatchewan
 2021-11-30,South Central,1,Saskatchewan
 2021-11-30,South East,1,Saskatchewan
-2021-11-30,Total,43,Saskatchewan
 2021-12-01,Far North West,1,Saskatchewan
 2021-12-01,Far North Central,0,Saskatchewan
 2021-12-01,Far North East,0,Saskatchewan
@@ -6785,7 +6301,6 @@ date,HR,cases,province
 2021-12-01,South West,1,Saskatchewan
 2021-12-01,South Central,1,Saskatchewan
 2021-12-01,South East,5,Saskatchewan
-2021-12-01,Total,82,Saskatchewan
 2021-12-02,Far North West,1,Saskatchewan
 2021-12-02,Far North Central,0,Saskatchewan
 2021-12-02,Far North East,1,Saskatchewan
@@ -6799,7 +6314,6 @@ date,HR,cases,province
 2021-12-02,South West,1,Saskatchewan
 2021-12-02,South Central,1,Saskatchewan
 2021-12-02,South East,0,Saskatchewan
-2021-12-02,Total,73,Saskatchewan
 2021-12-03,Far North West,0,Saskatchewan
 2021-12-03,Far North Central,0,Saskatchewan
 2021-12-03,Far North East,0,Saskatchewan
@@ -6813,7 +6327,6 @@ date,HR,cases,province
 2021-12-03,South West,0,Saskatchewan
 2021-12-03,South Central,1,Saskatchewan
 2021-12-03,South East,2,Saskatchewan
-2021-12-03,Total,79,Saskatchewan
 2021-12-04,Far North West,0,Saskatchewan
 2021-12-04,Far North Central,0,Saskatchewan
 2021-12-04,Far North East,3,Saskatchewan
@@ -6827,7 +6340,6 @@ date,HR,cases,province
 2021-12-04,South West,0,Saskatchewan
 2021-12-04,South Central,1,Saskatchewan
 2021-12-04,South East,1,Saskatchewan
-2021-12-04,Total,70,Saskatchewan
 2021-12-05,Far North West,0,Saskatchewan
 2021-12-05,Far North Central,0,Saskatchewan
 2021-12-05,Far North East,0,Saskatchewan
@@ -6841,7 +6353,6 @@ date,HR,cases,province
 2021-12-05,South West,0,Saskatchewan
 2021-12-05,South Central,3,Saskatchewan
 2021-12-05,South East,0,Saskatchewan
-2021-12-05,Total,69,Saskatchewan
 2021-12-06,Far North West,1,Saskatchewan
 2021-12-06,Far North Central,0,Saskatchewan
 2021-12-06,Far North East,0,Saskatchewan
@@ -6855,7 +6366,6 @@ date,HR,cases,province
 2021-12-06,South West,0,Saskatchewan
 2021-12-06,South Central,1,Saskatchewan
 2021-12-06,South East,0,Saskatchewan
-2021-12-06,Total,48,Saskatchewan
 2021-12-07,Far North West,0,Saskatchewan
 2021-12-07,Far North Central,0,Saskatchewan
 2021-12-07,Far North East,4,Saskatchewan
@@ -6869,7 +6379,6 @@ date,HR,cases,province
 2021-12-07,South West,0,Saskatchewan
 2021-12-07,South Central,1,Saskatchewan
 2021-12-07,South East,0,Saskatchewan
-2021-12-07,Total,49,Saskatchewan
 2021-12-08,Far North West,0,Saskatchewan
 2021-12-08,Far North Central,0,Saskatchewan
 2021-12-08,Far North East,0,Saskatchewan
@@ -6883,7 +6392,6 @@ date,HR,cases,province
 2021-12-08,South West,0,Saskatchewan
 2021-12-08,South Central,1,Saskatchewan
 2021-12-08,South East,2,Saskatchewan
-2021-12-08,Total,49,Saskatchewan
 2021-12-09,Far North West,0,Saskatchewan
 2021-12-09,Far North Central,0,Saskatchewan
 2021-12-09,Far North East,0,Saskatchewan
@@ -6897,7 +6405,6 @@ date,HR,cases,province
 2021-12-09,South West,1,Saskatchewan
 2021-12-09,South Central,2,Saskatchewan
 2021-12-09,South East,1,Saskatchewan
-2021-12-09,Total,63,Saskatchewan
 2021-12-10,Far North West,0,Saskatchewan
 2021-12-10,Far North Central,0,Saskatchewan
 2021-12-10,Far North East,0,Saskatchewan
@@ -6911,4 +6418,120 @@ date,HR,cases,province
 2021-12-10,South West,1,Saskatchewan
 2021-12-10,South Central,3,Saskatchewan
 2021-12-10,South East,1,Saskatchewan
-2021-12-10,Total,69,Saskatchewan
+2021-12-11,Far North West,0,Saskatchewan
+2021-12-11,Far North Central,0,Saskatchewan
+2021-12-11,Far North East,0,Saskatchewan
+2021-12-11,North West,1,Saskatchewan
+2021-12-11,North Central,1,Saskatchewan
+2021-12-11,North East,0,Saskatchewan
+2021-12-11,Saskatoon,22,Saskatchewan
+2021-12-11,Central West,0,Saskatchewan
+2021-12-11,Central East,2,Saskatchewan
+2021-12-11,Regina,11,Saskatchewan
+2021-12-11,South West,0,Saskatchewan
+2021-12-11,South Central,0,Saskatchewan
+2021-12-11,South East,5,Saskatchewan
+2021-12-12,Far North West,0,Saskatchewan
+2021-12-12,Far North Central,0,Saskatchewan
+2021-12-12,Far North East,0,Saskatchewan
+2021-12-12,North West,1,Saskatchewan
+2021-12-12,North Central,0,Saskatchewan
+2021-12-12,North East,0,Saskatchewan
+2021-12-12,Saskatoon,9,Saskatchewan
+2021-12-12,Central West,0,Saskatchewan
+2021-12-12,Central East,2,Saskatchewan
+2021-12-12,Regina,10,Saskatchewan
+2021-12-12,South West,0,Saskatchewan
+2021-12-12,South Central,0,Saskatchewan
+2021-12-12,South East,0,Saskatchewan
+2021-12-13,Far North West,0,Saskatchewan
+2021-12-13,Far North Central,0,Saskatchewan
+2021-12-13,Far North East,0,Saskatchewan
+2021-12-13,North West,1,Saskatchewan
+2021-12-13,North Central,0,Saskatchewan
+2021-12-13,North East,0,Saskatchewan
+2021-12-13,Saskatoon,9,Saskatchewan
+2021-12-13,Central West,0,Saskatchewan
+2021-12-13,Central East,2,Saskatchewan
+2021-12-13,Regina,13,Saskatchewan
+2021-12-13,South West,0,Saskatchewan
+2021-12-13,South Central,0,Saskatchewan
+2021-12-13,South East,1,Saskatchewan
+2021-12-14,Far North West,1,Saskatchewan
+2021-12-14,Far North Central,0,Saskatchewan
+2021-12-14,Far North East,0,Saskatchewan
+2021-12-14,North West,2,Saskatchewan
+2021-12-14,North Central,2,Saskatchewan
+2021-12-14,North East,0,Saskatchewan
+2021-12-14,Saskatoon,13,Saskatchewan
+2021-12-14,Central West,0,Saskatchewan
+2021-12-14,Central East,4,Saskatchewan
+2021-12-14,Regina,13,Saskatchewan
+2021-12-14,South West,0,Saskatchewan
+2021-12-14,South Central,0,Saskatchewan
+2021-12-14,South East,0,Saskatchewan
+2021-12-15,Far North West,0,Saskatchewan
+2021-12-15,Far North Central,0,Saskatchewan
+2021-12-15,Far North East,1,Saskatchewan
+2021-12-15,North West,0,Saskatchewan
+2021-12-15,North Central,5,Saskatchewan
+2021-12-15,North East,8,Saskatchewan
+2021-12-15,Saskatoon,7,Saskatchewan
+2021-12-15,Central West,0,Saskatchewan
+2021-12-15,Central East,2,Saskatchewan
+2021-12-15,Regina,16,Saskatchewan
+2021-12-15,South West,1,Saskatchewan
+2021-12-15,South Central,0,Saskatchewan
+2021-12-15,South East,0,Saskatchewan
+2021-12-16,Far North West,0,Saskatchewan
+2021-12-16,Far North Central,0,Saskatchewan
+2021-12-16,Far North East,0,Saskatchewan
+2021-12-16,North West,1,Saskatchewan
+2021-12-16,North Central,0,Saskatchewan
+2021-12-16,North East,0,Saskatchewan
+2021-12-16,Saskatoon,21,Saskatchewan
+2021-12-16,Central West,1,Saskatchewan
+2021-12-16,Central East,3,Saskatchewan
+2021-12-16,Regina,17,Saskatchewan
+2021-12-16,South West,0,Saskatchewan
+2021-12-16,South Central,0,Saskatchewan
+2021-12-16,South East,0,Saskatchewan
+2021-12-17,Far North West,0,Saskatchewan
+2021-12-17,Far North Central,0,Saskatchewan
+2021-12-17,Far North East,0,Saskatchewan
+2021-12-17,North West,0,Saskatchewan
+2021-12-17,North Central,0,Saskatchewan
+2021-12-17,North East,0,Saskatchewan
+2021-12-17,Saskatoon,24,Saskatchewan
+2021-12-17,Central West,0,Saskatchewan
+2021-12-17,Central East,1,Saskatchewan
+2021-12-17,Regina,11,Saskatchewan
+2021-12-17,South West,0,Saskatchewan
+2021-12-17,South Central,0,Saskatchewan
+2021-12-17,South East,1,Saskatchewan
+2021-12-18,Far North West,0,Saskatchewan
+2021-12-18,Far North Central,0,Saskatchewan
+2021-12-18,Far North East,0,Saskatchewan
+2021-12-18,North West,0,Saskatchewan
+2021-12-18,North Central,0,Saskatchewan
+2021-12-18,North East,0,Saskatchewan
+2021-12-18,Saskatoon,24,Saskatchewan
+2021-12-18,Central West,1,Saskatchewan
+2021-12-18,Central East,1,Saskatchewan
+2021-12-18,Regina,16,Saskatchewan
+2021-12-18,South West,0,Saskatchewan
+2021-12-18,South Central,1,Saskatchewan
+2021-12-18,South East,1,Saskatchewan
+2021-12-19,Far North West,0,Saskatchewan
+2021-12-19,Far North Central,0,Saskatchewan
+2021-12-19,Far North East,0,Saskatchewan
+2021-12-19,North West,0,Saskatchewan
+2021-12-19,North Central,1,Saskatchewan
+2021-12-19,North East,0,Saskatchewan
+2021-12-19,Saskatoon,25,Saskatchewan
+2021-12-19,Central West,1,Saskatchewan
+2021-12-19,Central East,3,Saskatchewan
+2021-12-19,Regina,21,Saskatchewan
+2021-12-19,South West,0,Saskatchewan
+2021-12-19,South Central,3,Saskatchewan
+2021-12-19,South East,2,Saskatchewan

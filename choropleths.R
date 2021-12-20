@@ -3,8 +3,9 @@
 library(data.table)
 library(ggplot2)
 library(viridis)
- library(vistime)
- library(plotly)
+library(vistime)
+library(plotly)
+library(RColorBrewer)
 # library(stringr)
 # library(sf)
 # library(forcats)
@@ -78,7 +79,7 @@ jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=cases&loc=canada")$
     fwrite(file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv"))
 
 # tightened education interventions
-TEI <- fread(file.path(PROJECT_FOLDER, "Classifications/educational_interventions")) %>% 
+TEI <- fread(file.path(PROJECT_FOLDER, "Classifications/educational_interventions.csv")) %>% 
     dplyr::filter(grepl("tigh", tolower(action))) %>%
     dplyr::filter(!grepl("eas", tolower(action))) %>% # some of the restrictions are marked tightening/easing - those are easing
     dplyr::filter(!grepl("guidance|strengthened|distributed|amended|working with|extended online teacher-led|implemented new measures|mask|release|update", tolower(what))) %>%
@@ -103,10 +104,10 @@ TEI <- fread(file.path(PROJECT_FOLDER, "Classifications/educational_intervention
 
 # get the wave dates from the "refresh_the_data.csv" file
 
-ggplot(Canada_Data, aes(x=date)) +
-    geom_point(aes(y=cases)) +
-    geom_line(aes(y=spline)) +
-    geom_vline(xintercept = Canada_Wave_Dates)
+# ggplot(Canada_Data, aes(x=date)) +
+#     geom_point(aes(y=cases)) +
+#     geom_line(aes(y=spline)) +
+#     geom_vline(xintercept = Canada_Wave_Dates)
 
 y_min_max <- plotly_build(
     TEI %>% 
