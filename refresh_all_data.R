@@ -11,6 +11,7 @@ library(ggplot2)
 library(vistime)
 library(sf)
 library(plotly)
+# library(doParallel)
 
 PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
 # PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project"
@@ -28,25 +29,50 @@ source(sprintf("%s/function_header.R", PROJECT_FOLDER))
 
 start_time <- Sys.time()
 
-
 ###################################################################
 ############################################ TIME-INVARIANT METRICS
 ###################################################################
+
 if(! file.exists(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv")))
 {
+    province_folder_map <- data.table(
+        number = 61:73, 
+        alpha = c("NL", "PE", "NS", "NB", "QC", "ON", "MB", "SK", "AB", "BC", "YT", "NT", "NU"), 
+        province = c("Newfoundland and Labrador", "Prince Edward Island", "Nova Scotia", "New Brunswick", 
+             "Quebec", "Ontario", "Manitoba", "Saskatchewan", "Alberta", "British Columbia", 
+             "Yukon", "Northwest Territories", "Nunavut"
+        )
+    )
+    
     the_profiles <- list()
     
     for(province_folder in Sys.glob(file.path(PROJECT_FOLDER, "98-401*")) %>% .[!grepl(".zip", .)])
     {
-        for(file in Sys.glob(file.path(province_folder, "*_CSV_*"))){ the_profiles[[file]] <- cbind(fread(file), file_name=file) }
+        for(file in Sys.glob(file.path(province_folder, "*_CSV_*")))
+        {
+            folder_number <- file %>% basename %>% gsub("98-401-X20160|_English_CSV_data.csv", "", .) %>% as.numeric
+            the_profiles[[file]] <- cbind(
+                fread(file), 
+                file_name = file, 
+                alpha = province_folder_map[number == folder_number, alpha],
+                province = province_folder_map[number == folder_number, province]
+            )
+        }
     }
     
     prepare_CSD_table <- function(theTable, geoCodes)
     {
         profiles <- list()
+        
+        # num_cores <- detectCores(logical = TRUE)
+        # cl <- makeCluster(num_cores-2)  
+        # registerDoParallel(cl) 
     
+        # foreach(code=geoCodes, .packages='dplyr') %dopar%
         for(code in geoCodes)
         {
+            print(code)
+            
             if(! code %in% unique(theTable$geo_code)) next
     
             temp <- theTable %>% dplyr::filter(geo_code == code)
@@ -58,17 +84,18 @@ if(! file.exists(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv"
                 .[1:2] %>%
                 {.[1] : .[2]} %>%
                 temp[.,] %>%
-                .[! grepl("Total|$0_to_14|$15_to_64|$65.*over|$85.*over", attribute)] %>%
+                # .[! grepl("Total|$0_to_14*|$15_to_64|$65.*over|$85.*over", attribute)] %>%
                 dplyr::mutate(value = value_if_number_else_NA(value))
     
             sum_cohorts <- \(...) subset_table %>%
                 dplyr::filter(attribute %in% list(...)) %>%
-                tally(value) %>%
-                pull(n)
+                dplyr::tally(value) %>%
+                dplyr::pull(n)
     
             profiles[[code]] <- data.table(
+                    alpha = unique(subset_table$alpha),
+                    province = unique(subset_table$province),
                     geo_code = unique(subset_table$geo_code),
-                    alt_geo_code = unique(subset_table$alt_geo_code),
                     geo_name = unique(subset_table$geo_name),
                     "cohort_0_to_4" = sum_cohorts("0_to_4_years"),
                     "cohort_5_to_19" = sum_cohorts("5_to_9_years", "10_to_14_years", "15_to_19_years"),
@@ -78,17 +105,20 @@ if(! file.exists(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv"
                                             "90_to_94_years", "95_to_99_years", "100_years_and_over")
                 ) %>%
                 dplyr::mutate(
-                total_population = `cohort_0_to_4` + `cohort_5_to_19` + `cohort_20_to_44` + `cohort_45_to_64` + `cohort_65_and_older`,
-                total_dwellings = temp %>%
-                dplyr::filter(grepl("total_private_dwellings", tolower(attribute))) %>%
-                dplyr::pull(value) %>%
-                as.numeric
-            )
+                    total_population = `cohort_0_to_4` + `cohort_5_to_19` + `cohort_20_to_44` + `cohort_45_to_64` + `cohort_65_and_older`,
+                    total_dwellings = temp %>%
+                        dplyr::filter(grepl("total_private_dwellings", tolower(attribute))) %>%
+                        dplyr::pull(value) %>%
+                        as.numeric %>%
+                        unique
+                )
         }
+        # stopCluster(cl)
     
         return(rbindlist(profiles))
     }
 
+    # parallelise this loop - not important, since it's only run once
     start_time <- Sys.time()
     CSD_data <- rbindlist(the_profiles) %>%
         data.table %>%
@@ -98,124 +128,125 @@ if(! file.exists(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv"
             attribute=`dim:_profile_of_census_subdivisions_(2247)`,
             value=`dim:_sex_(3):_member_id:_[1]:_total_-_sex`
         ) %>%
-        dplyr::select(geo_code, geo_name, alt_geo_code, attribute, value) %>%
         dplyr::mutate(attribute = attribute %>% gsub(',', '', .) %>% gsub(' ', '_', .)) %>%
-        prepare_CSD_table(., unique(.$geo_code))
+        prepare_CSD_table(., unique(.$geo_code)) %>%
+        add_HRs(uid_column = "geo_code", province_column = "province")
+        
     print(Sys.time() - start_time)
     fwrite(CSD_data, file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv"))
-    
+} else {
+    CSD_data <- fread(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv"))
 }
-CSD_data <- fread(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv"))
 
 ############################################ CATEGORICAL AND CONTINUOUS REMOTENESS
 
 writeLines("\nreading and parsing local SAC info")
-
-# https://www23.statcan.gc.ca/imdb/p3VD.pl?Function=getVD&TVD=314312&CVD=314313&CPV=A&CST=01012016&CLV=1&MLV=3
-raw_CMAs <- data.table(names=readLines("Classifications/raw_CMAs.txt"))
-CMAs <- data.table(GeoUID=numeric(), region=numeric(), title=character(), class=character()) # , sac_code=numeric(), cma_type=character()
-for(index in 1:nrow(raw_CMAs))
 {
-    the_number <- str_extract(raw_CMAs$names[index], "[0-9]+")
-    the_name <- gsub(paste0(the_number, " - "), '', raw_CMAs$names[index])
-
-    if(nchar(the_number) == 3)
+    # https://www23.statcan.gc.ca/imdb/p3VD.pl?Function=getVD&TVD=314312&CVD=314313&CPV=A&CST=01012016&CLV=1&MLV=3
+    raw_CMAs <- data.table(names=readLines("Classifications/raw_CMAs.txt"))
+    CMAs <- data.table(GeoUID=numeric(), region=numeric(), title=character(), class=character()) # , sac_code=numeric(), cma_type=character()
+    for(index in 1:nrow(raw_CMAs))
     {
-        cma_name <- gsub("--", "-", the_name)
-        cma_number <-  the_number
-    } else {
-        CMAs <- rbind(CMAs, list(GeoUID = as.integer(the_number), region = the_name, class = "CMA", title =  cma_name))
+        the_number <- str_extract(raw_CMAs$names[index], "[0-9]+")
+        the_name <- gsub(paste0(the_number, " - "), '', raw_CMAs$names[index])
+    
+        if(nchar(the_number) == 3)
+        {
+            cma_name <- gsub("--", "-", the_name)
+            cma_number <-  the_number
+        } else {
+            CMAs <- rbind(CMAs, list(GeoUID = as.integer(the_number), region = the_name, class = "CMA", title =  cma_name))
+        }
     }
-}
-
-# https://www23.statcan.gc.ca/imdb/p3VD.pl?Function=getVD&TVD=314312&CVD=314313&CPV=B&CST=01012016&CLV=1&MLV=3
-raw_CAs <- data.table(names=readLines("Classifications/raw_CAs.txt"))
-CAs <- data.table(GeoUID=numeric(), region=numeric(), title=character(), class=character()) # , sac_code=numeric(), cma_type=character(), sac_type=character()
-for(index in 1:nrow(raw_CAs))
-{
-    the_number <- str_extract(raw_CAs$names[index], "[0-9]+")
-    the_name <- gsub(paste0(the_number, " - "), '', raw_CAs$names[index])
-
-    if(nchar(the_number) == 3)
+    
+    # https://www23.statcan.gc.ca/imdb/p3VD.pl?Function=getVD&TVD=314312&CVD=314313&CPV=B&CST=01012016&CLV=1&MLV=3
+    raw_CAs <- data.table(names=readLines("Classifications/raw_CAs.txt"))
+    CAs <- data.table(GeoUID=numeric(), region=numeric(), title=character(), class=character()) # , sac_code=numeric(), cma_type=character(), sac_type=character()
+    for(index in 1:nrow(raw_CAs))
     {
-        ca_name <- gsub("--", "-", the_name)
-        ca_number <- the_number
-    } else {
-        CAs <- rbind(CAs, list(GeoUID = as.integer(the_number),region = the_name,class = "CA",title = ca_name))
+        the_number <- str_extract(raw_CAs$names[index], "[0-9]+")
+        the_name <- gsub(paste0(the_number, " - "), '', raw_CAs$names[index])
+    
+        if(nchar(the_number) == 3)
+        {
+            ca_name <- gsub("--", "-", the_name)
+            ca_number <- the_number
+        } else {
+            CAs <- rbind(CAs, list(GeoUID = as.integer(the_number),region = the_name,class = "CA",title = ca_name))
+        }
     }
+    
+    # https://www23.statcan.gc.ca/imdb/p3VD.pl?Function=getVD&TVD=314312&CVD=314314&CPV=996&CST=01012016&CLV=2&MLV=3
+    MIZ_strong <- {fread("Classifications/raw_MIZ_strong.csv") %>%
+            dplyr::mutate(
+                title = "Strong MIZ",
+                GeoUID = unlist(lapply(Code, str_extract, "[0-9]+")),
+                region = unlist(lapply(Code, str_sub, start=8)),
+                class = "Strong"
+            ) %>%
+            dplyr::select(-Code, -`Census subdivision`)}
+    
+    # https://www23.statcan.gc.ca/imdb/p3VD.pl?Function=getVD&TVD=314312&CVD=314314&CPV=997&CST=01012016&CLV=2&MLV=3
+    MIZ_moderate <- {fread("Classifications/raw_MIZ_moderate.csv") %>%
+            dplyr::mutate(
+                title = "Moderate MIZ",
+                GeoUID = unlist(lapply(Code, str_extract, "[0-9]+")),
+                region = unlist(lapply(Code, str_sub, start=8)),
+                class = "Moderate"
+            ) %>%
+            dplyr::select(-Code, -`Census subdivision`)}
+    
+    # http://www23.statcan.gc.ca/imdb/p3VD.pl?Function=getVD&TVD=314312&CVD=314314&CPV=998&CST=01012016&CLV=2&MLV=3
+    MIZ_weak <- {fread("Classifications/raw_MIZ_weak.csv") %>%
+            dplyr::mutate(
+                title = "Weak MIZ",
+                GeoUID = unlist(lapply(Code, str_extract, "[0-9]+")),
+                region = unlist(lapply(Code, str_sub, start=8)),
+                class = "Weak"
+            ) %>%
+            dplyr::select(-Code, -`Census subdivision`)}
+    
+    # http://www23.statcan.gc.ca/imdb/p3VD.pl?Function=getVD&TVD=314312&CVD=314314&CPV=999&CST=01012016&CLV=2&MLV=3
+    MIZ_none <- {fread("Classifications/raw_MIZ_none.csv") %>%
+            dplyr::mutate(
+                title = "No MIZ",
+                GeoUID = unlist(lapply(Code, str_extract, "[0-9]+")),
+                region = unlist(lapply(Code, str_sub, start=8)),
+                class = "None"
+            ) %>%
+            dplyr::select(-Code, -`Census subdivision`)}
+    
+    Influence_Info <- rbind(CMAs, CAs, MIZ_strong, MIZ_moderate, MIZ_weak, MIZ_none, fill=T) %>%
+        dplyr::mutate(
+            title = paste0(title, " (", class, ")"),
+            geo_code = as.integer(GeoUID)
+        ) %>%
+        dplyr::mutate(
+            is_CMA = (class == "CMA"), 
+            is_CA = (class == "CA"),
+            is_MIZ_strong = (class == "Strong"),
+            is_MIZ_moderate = (class == "Moderate"),
+            is_MIZ_weak = (class == "Weak"),
+            is_MIZ_none= (class == "None")
+        ) %>%
+        dplyr::rename_with(tolower) %>%
+        dplyr::select(-geouid)
+    
+    # writeLines("\nStatCan Index of Remoteness scores")
+    # Index_of_Remoteness <- fread("Classifications/Index_of_remoteness.csv") %>%
+    #     dplyr::select(CSDuid, Index_of_remoteness) %>%
+    #     dplyr::rename(geo_code = CSDuid) %>%
+    #     dplyr::mutate(Index_of_remoteness = as.numeric(Index_of_remoteness)) %>%
+    #     suppressWarnings() %>%
+    #     dplyr::rename_with(tolower)
 }
-
-# https://www23.statcan.gc.ca/imdb/p3VD.pl?Function=getVD&TVD=314312&CVD=314314&CPV=996&CST=01012016&CLV=2&MLV=3
-MIZ_strong <- {fread("Classifications/raw_MIZ_strong.csv") %>%
-        dplyr::mutate(
-            title = "Strong MIZ",
-            GeoUID = unlist(lapply(Code, str_extract, "[0-9]+")),
-            region = unlist(lapply(Code, str_sub, start=8)),
-            class = "Strong"
-        ) %>%
-        dplyr::select(-Code, -`Census subdivision`)}
-
-# https://www23.statcan.gc.ca/imdb/p3VD.pl?Function=getVD&TVD=314312&CVD=314314&CPV=997&CST=01012016&CLV=2&MLV=3
-MIZ_moderate <- {fread("Classifications/raw_MIZ_moderate.csv") %>%
-        dplyr::mutate(
-            title = "Moderate MIZ",
-            GeoUID = unlist(lapply(Code, str_extract, "[0-9]+")),
-            region = unlist(lapply(Code, str_sub, start=8)),
-            class = "Moderate"
-        ) %>%
-        dplyr::select(-Code, -`Census subdivision`)}
-
-# http://www23.statcan.gc.ca/imdb/p3VD.pl?Function=getVD&TVD=314312&CVD=314314&CPV=998&CST=01012016&CLV=2&MLV=3
-MIZ_weak <- {fread("Classifications/raw_MIZ_weak.csv") %>%
-        dplyr::mutate(
-            title = "Weak MIZ",
-            GeoUID = unlist(lapply(Code, str_extract, "[0-9]+")),
-            region = unlist(lapply(Code, str_sub, start=8)),
-            class = "Weak"
-        ) %>%
-        dplyr::select(-Code, -`Census subdivision`)}
-
-# http://www23.statcan.gc.ca/imdb/p3VD.pl?Function=getVD&TVD=314312&CVD=314314&CPV=999&CST=01012016&CLV=2&MLV=3
-MIZ_none <- {fread("Classifications/raw_MIZ_none.csv") %>%
-        dplyr::mutate(
-            title = "No MIZ",
-            GeoUID = unlist(lapply(Code, str_extract, "[0-9]+")),
-            region = unlist(lapply(Code, str_sub, start=8)),
-            class = "None"
-        ) %>%
-        dplyr::select(-Code, -`Census subdivision`)}
-
-Influence_Info <- rbind(CMAs, CAs, MIZ_strong, MIZ_moderate, MIZ_weak, MIZ_none, fill=T) %>%
-    dplyr::mutate(
-        title = paste0(title, " (", class, ")"),
-        geo_code = as.integer(GeoUID)
-    ) %>%
-    dplyr::mutate(
-        is_CMA = (class == "CMA"), 
-        is_CA = (class == "CA"),
-        is_MIZ_strong = (class == "Strong"),
-        is_MIZ_moderate = (class == "Moderate"),
-        is_MIZ_weak = (class == "Weak"),
-        is_MIZ_none= (class == "None1")
-    ) %>%
-    dplyr::rename_with(tolower) %>%
-    dplyr::select(-geouid)
-
-
-writeLines("\nStatCan Index of Remoteness scores")
-Index_of_Remoteness <- fread("Classifications/Index_of_remoteness.csv") %>%
-    dplyr::select(CSDuid, Index_of_remoteness) %>%
-    dplyr::rename(geo_code = CSDuid) %>%
-    dplyr::mutate(Index_of_remoteness = as.numeric(Index_of_remoteness)) %>%
-    suppressWarnings() %>%
-    dplyr::rename_with(tolower)
 
 # assemble the complete table we need for the correlation before
 
 writeLines("\nassembling Total Geography Table")
 Total_Data_Geo <- data.table(Reduce(
         function(x, y, ...) merge(x, y, by=c("geo_code"), all = TRUE, ...),
-        list(CSD_data, Influence_Info, Index_of_Remoteness)
+        list(CSD_data, Influence_Info) # , Index_of_Remoteness)
     )) %>%
     dplyr::mutate(
         province = lookup_provinces(geo_code),
@@ -228,12 +259,13 @@ Total_Data_Geo <- data.table(Reduce(
         is_miz_weak = ifelse(is.na(is_miz_weak), FALSE, is_miz_weak),
         is_miz_none = ifelse(is.na(is_miz_none), FALSE, is_miz_none)
     ) %>%
-    dplyr::select(-region, -alt_geo_code, -type, -title) %>%
-    add_HRs("geo_code", "province") # %>%
+    dplyr::select(-region, -type, -title) %>%
+    dplyr::filter(!is.na(HRUID2018))
+    # add_HRs("geo_code", "province") # %>%
     # dplyr::relocate("csduid2016", "region", "province", "HR", "class", "index_of_remoteness", "population_density")
     saveRDS(Total_Data_Geo, sprintf("%s/Classifications/Total_CSD_Info.rda", PROJECT_FOLDER))
     
-PHU_shapes <- readRDS(file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda"))
+# PHU_shapes <- readRDS(file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda"))
     
 if(!file.exists(file.path(PROJECT_FOLDER, "Classifications/PHUs_hosting_airports.csv")))
 {
@@ -293,15 +325,15 @@ PHU_information <- Total_Data_Geo[,
     lapply(.SD, sum, na=TRUE),
         .SDcols = setdiff(
             names(Total_Data_Geo),
-            c("geo_code", "geo_name", "class", "province", "HR", "HRUID2018")
+            c("geo_code", "geo_name", "class", "province", "HR", "HRUID2018", "province", "alpha")
         ),
         by=.(HRUID2018, province, HR)
     ] %>%
     merge(readRDS(file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda")), by=c("HRUID2018")) %>%
     merge(fread(file.path(PROJECT_FOLDER, "Classifications/PHUs_hosting_airports.csv")), by=c("HRUID2018"), all=TRUE) %>%
     dplyr::mutate(airports = ifelse(is.na(airports), 0, airports)) %>%
-    merge(LTCHs_per_PHU %>% dplyr::mutate(HRUID2018 = as.numeric(HRUID2018)), by=c("HRUID2018")) %>%
-    dplyr::rename()
+    merge(LTCHs_per_PHU %>% dplyr::mutate(HRUID2018 = as.numeric(HRUID2018)), by=c("HRUID2018"), all=TRUE) %>%
+    dplyr::mutate(LTCHs = ifelse(is.na(LTCHs), 0, LTCHs))
     
 ###################################################################
 ############################################ TIME-DEPENDENT METRICS
@@ -372,7 +404,7 @@ interventions <- read.xlsx(
     dplyr::mutate(effective.until = effective.until %>% as.numeric) %>%
     dplyr::filter(abs(effective.until-date.implemented)>14) %>% # we'll assume that the effective interventions must last at least two weeks
     data.table
-
+ 
 ###### EDUCATION INTERVENTIONS
 
 # tightened education interventions
@@ -400,7 +432,7 @@ TEI <- interventions %>%
 #         col.end="effective.until",
 #         col.color="colour",
 #         show_labels=FALSE
-#     ))$x$layout$yaxis$range
+#     ))$x$layout$yaxis$rangec
 # 
 # TEI_plot <- TEI %>%
 #     dplyr::filter(!grepl("can", tolower(alpha))) %>%
@@ -470,6 +502,22 @@ lockdown_interventions_in_waves <- LDM %>%
 fread("https://health-infobase.canada.ca/src/data/covidLive/vaccination-coverage-byAgeAndSex.csv") %>%
     fwrite(sprintf("%s/CaseDataTables/canada_wide_vacc_data_official.csv", PROJECT_FOLDER))
 
+# vaxx_info <- fread(file.path(PROJECT_FOLDER, "/CaseDataTables/canada_wide_vacc_data_official.csv")) %>%
+#     group_by(pruid, prfname, week_end) %>%
+#     dplyr::summarise(
+#         VIs_AL1D=sum(as.numeric(numtotal_atleast1dose), na.rm=TRUE),
+#         VIs_FULL=sum(as.numeric(numtotal_fully), na.rm=TRUE)
+#     ) %>%
+#     suppressWarnings %>%
+#     data.table
+
+check_the_vaxx_waves <- function(x, wave_number=1)
+{
+    if(nrow(x) ==  0) return("None")
+    if( (abs(min(x$week_end) - Canada_Wave_Dates[wave_number])<7) & (abs(max(x$week_end) - Canada_Wave_Dates[wave_number+1])<7) ){ return("Entire") }
+    return("Partial")
+}
+
 vaxx_info <- fread(file.path(PROJECT_FOLDER, "/CaseDataTables/canada_wide_vacc_data_official.csv")) %>%
     group_by(pruid, prfname, week_end) %>%
     dplyr::summarise(
@@ -477,7 +525,25 @@ vaxx_info <- fread(file.path(PROJECT_FOLDER, "/CaseDataTables/canada_wide_vacc_d
         VIs_FULL=sum(as.numeric(numtotal_fully), na.rm=TRUE)
     ) %>%
     suppressWarnings %>%
-    data.table
+    data.table %>%
+    dplyr::mutate(week_end = as.Date(week_end))
+
+haha <- list(
+    `1` = vaxx_info[prfname == "Ontario"][(week_end>=Canada_Wave_Dates[1]) & (week_end<=Canada_Wave_Dates[2])],
+    `2` = vaxx_info[prfname == "Ontario"][(week_end>=Canada_Wave_Dates[2]) & (week_end<=Canada_Wave_Dates[3])],
+    `3` = vaxx_info[prfname == "Ontario"][(week_end>=Canada_Wave_Dates[3]) & (week_end<=Canada_Wave_Dates[4])],
+    `4` = vaxx_info[prfname == "Ontario"][(week_end>=Canada_Wave_Dates[4]) & (week_end<=Canada_Wave_Dates[5])]
+) %>%
+unlist(lapply(1:4, \(xx) check_the_vaxx_waves( .[[xx]], wave_number=xx)))
+
+haha[[3]] %>% check_the_waves(wave_number=3)
+    
+
+(\(x)
+{
+    if( (abs(min(x$week_end) - Canada_Wave_Dates[1])<7) & (abs(max(x$week_end) - Canada_Wave_Dates[2])<7) ){ return("Entire") } 
+})
+
     
 vaccine_interventions_in_waves <- vaxx_info %>%
     dplyr::pull(pruid) %>%
@@ -741,78 +807,16 @@ Total_Case_Data <- fread(file.path(PROJECT_FOLDER, "CaseDataTables/Total_Case_Da
     dplyr::summarise(incidence = sum(cases, na.rm=TRUE)) %>%
     data.table
     
-All_Data <- merge(Total_Case_Data, interventions_by_wave_province, by=c("province", "pruid", "wave"), all=TRUE) %>%
-    merge(PHU_information, by=c("province", "HRUID2018", "HR"), all=TRUE)
+Regression_Data <- Total_Case_Data %>%
+    merge(interventions_by_wave_province, by=c("province", "pruid", "wave"), all=TRUE) %>%
+    merge(PHU_information, by=c("province", "HRUID2018", "HR"), all=TRUE) %>%
+    dplyr::filter(!is.na(HRUID2018)) %>%
+    dplyr::mutate(
+        LIs = factor(ifelse(is.na(LIs), "None", LIs)),
+        EIs = factor(ifelse(is.na(EIs), "None", EIs)),
+        VIs_AL1D = ifelse(is.na(VIs_AL1D), 0, VIs_AL1D),
+        VIs_FULL = ifelse(is.na(VIs_FULL), 0, VIs_FULL)
+    ) %>%
+    st_sf
+    saveRDS(Total_Case_Data, file=file.path(PROJECT_FOLDER, "CaseDataFiles/regression_data.rda"))
 
-# writeLines("\nMeasures of Remoteness")
-# Regions <- merge(
-#         st_read("Canada_CSD_shapefiles/lcsd000b16a_e.shp") %>% dplyr::select(CSDUID, geometry, CSDNAME, PRUID, PRNAME),
-#         readRDS("Classifications/Total_CSD_Info.rda"), # %>% dplyr::select(-geometry),
-#         by.x="CSDUID", by.y="csduid2016",
-#         all=TRUE
-#     )  %>%
-#     dplyr::select(-csd_type, -cd_uid, -PRNAME) %>%
-#     dplyr::mutate( class = unlist(lapply(class, function(x) if(is.na(x) || (x=="NA")) "Not given" else x )) ) %>%
-#     dplyr::mutate(
-#         # index_of_remoteness = unlist(lapply(index_of_remoteness, function(x) if(x==".") NA else as.numeric(x) )),
-#         num_csds = 1,
-#         province = factor(province),
-#         region = factor(region),
-#         CSDUID = factor(CSDUID),
-#         mR_score = as.integer(unlist(lapply(class, CSD_score_normal))),
-#         class = factor(class)
-#     )
-#     saveRDS(Regions, sprintf("%s/CaseDataTables/Regions.rda", PROJECT_FOLDER))
-# 
-# writeLines("\nSaving geometry shape file for the provinces and territories")
-# saveRDS(
-#     Regions %>%
-#         data.table %>%
-#         .[, .(geometry=st_union(geometry) %>% st_cast("MULTIPOLYGON")), by=.(province)] %>%
-#         dplyr::mutate(area_sq_km = as.numeric(st_area(geometry))/1000**2),
-#     sprintf("%s/Classifications/All_Province_Shapes.rds", PROJECT_FOLDER)
-# )
-#
-# print(Sys.time() - start_time)
-# 
-# 
-# 
-# 
-# 
-# is.Date <- function(theList)
-# {
-#    return( unlist(lapply(
-#         theList,
-#         \(x) as.character(x) %>% substr(start = 1, stop = 10) %>% as.Date(tz = 'UTC', format = '%Y-%m-%d') %>% is.na() %>% `!`
-#     )) )
-# }    
-    
-    
- ########################################################################################################
-
-# # eased educational interventions
-# EEI <- fread(file.path(PROJECT_FOLDER, "Classifications/educational_interventions")) %>% 
-#     dplyr::filter(grepl("eas", tolower(action))) %>%
-#     dplyr::filter(!grepl("tigh", tolower(action))) %>%
-#     dplyr::filter(!grepl("guidance|strengthened|distributed|amended|working with|extended online teacher-led|implemented new measures|mask|release|update", tolower(what))) %>%
-#     dplyr::mutate(
-#         what = substr(what, start=1, stop=20),
-#         effective.until = ifelse(is.na(effective.until), Sys.Date(), effective.until) %>% as.Date(., origin="1970-01-01"),
-#         jurisdiction = ifelse(is.na(jurisdiction), "Canada", jurisdiction),
-#         color = "green",
-#         alpha = lookup_alphas(jurisdiction)
-#     )
-
-# Air_Traffic <- fread(file.path(PROJECT_FOLDER, "Domestic_and_International_itinerant_movements/23100008.csv")) %>%
-#     dplyr::mutate(
-#         year = str_split(REF_DATE, "-")[[1]][1],
-#         month = str_split(REF_DATE, "-")[[1]][2]) %>%
-#     dplyr::rename_with(\(x) x %>% tolower() %>% gsub(' ', '_', .)) %>%
-#     dplyr::select(year, month, airports, domestic_and_international_itinerant_movements, type_of_operation, uom, value)
-
-# the intervention data set is fucked up for vaccination, so we're just going with vaccinations
-    
-    
-    
-    
-    

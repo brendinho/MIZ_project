@@ -416,6 +416,13 @@ how_much_of_the_wave <- function(the_dates, which_wave = 1)
     return("Entire")
 }
 
+is.Date <- function(theList)
+{
+   return( unlist(lapply(
+        theList,
+        \(x) as.character(x) %>% substr(start = 1, stop = 10) %>% as.Date(tz = 'UTC', format = '%Y-%m-%d') %>% is.na() %>% `!`
+    )) )
+}
 
 get.Date <- function(theList)
 {
