@@ -1,5 +1,9 @@
 rm(list=ls())
 
+# for some reason, running the complete script in RStudio results in the interventions
+# data table being read and parsed incorrectly. I'm not sure why, gut I'll find a way
+# around that for the purpose for the GitHub
+
 library(dplyr)
 library(data.table)
 library(jsonlite)
@@ -29,18 +33,19 @@ source(sprintf("%s/function_header.R", PROJECT_FOLDER))
 
 start_time <- Sys.time()
 
-###################################################################
-############################################ TIME-INVARIANT METRICS
-###################################################################
+#####################################
+############## TIME-INVARIANT METRICS
+#####################################
 
-if(! file.exists(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv")))
+if(!file.exists(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv")))
 {
     province_folder_map <- data.table(
         number = 61:73, 
-        alpha = c("NL", "PE", "NS", "NB", "QC", "ON", "MB", "SK", "AB", "BC", "YT", "NT", "NU"), 
-        province = c("Newfoundland and Labrador", "Prince Edward Island", "Nova Scotia", "New Brunswick", 
-             "Quebec", "Ontario", "Manitoba", "Saskatchewan", "Alberta", "British Columbia", 
-             "Yukon", "Northwest Territories", "Nunavut"
+        alpha = c("NL", "PE", "NS", "NB", "QC", "ON", "MB", "SK", 
+                  "AB", "BC", "YT", "NT", "NU"), 
+        province = c("Newfoundland and Labrador", "Prince Edward Island", "Nova Scotia", 
+             "New Brunswick", "Quebec", "Ontario", "Manitoba", "Saskatchewan", "Alberta", 
+             "British Columbia", "Yukon", "Northwest Territories", "Nunavut"
         )
     )
     
@@ -50,7 +55,11 @@ if(! file.exists(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv"
     {
         for(file in Sys.glob(file.path(province_folder, "*_CSV_*")))
         {
-            folder_number <- file %>% basename %>% gsub("98-401-X20160|_English_CSV_data.csv", "", .) %>% as.numeric
+            folder_number <- file %>% 
+                basename %>% 
+                gsub("98-401-X20160|_English_CSV_data.csv", "", .) %>% 
+                as.numeric
+            
             the_profiles[[file]] <- cbind(
                 fread(file), 
                 file_name = file, 
@@ -84,7 +93,6 @@ if(! file.exists(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv"
                 .[1:2] %>%
                 {.[1] : .[2]} %>%
                 temp[.,] %>%
-                # .[! grepl("Total|$0_to_14*|$15_to_64|$65.*over|$85.*over", attribute)] %>%
                 dplyr::mutate(value = value_if_number_else_NA(value))
     
             sum_cohorts <- \(...) subset_table %>%
@@ -98,14 +106,19 @@ if(! file.exists(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv"
                     geo_code = unique(subset_table$geo_code),
                     geo_name = unique(subset_table$geo_name),
                     "cohort_0_to_4" = sum_cohorts("0_to_4_years"),
-                    "cohort_5_to_19" = sum_cohorts("5_to_9_years", "10_to_14_years", "15_to_19_years"),
-                    "cohort_20_to_44" = sum_cohorts("20_to_24_years", "25_to_29_years", "30_to_34_years", "35_to_39_years", "40_to_44_years"),
-                    "cohort_45_to_64" = sum_cohorts("45_to_49_years", "50_to_54_years", "55_to_59_years", "60_to_64_years"),
-                    "cohort_65_and_older" = sum_cohorts("65_to_69_years", "70_to_74_years", "75_to_79_years", "80_to_84_years", "85_to_89_years",
-                                            "90_to_94_years", "95_to_99_years", "100_years_and_over")
+                    "cohort_5_to_19" = sum_cohorts("5_to_9_years", "10_to_14_years", 
+                                                   "15_to_19_years"),
+                    "cohort_20_to_44" = sum_cohorts("20_to_24_years", "25_to_29_years", 
+                        "30_to_34_years", "35_to_39_years", "40_to_44_years"),
+                    "cohort_45_to_64" = sum_cohorts("45_to_49_years", "50_to_54_years", 
+                        "55_to_59_years", "60_to_64_years"),
+                    "cohort_65_and_older" = sum_cohorts("65_to_69_years", "70_to_74_years",
+                        "75_to_79_years", "80_to_84_years", "85_to_89_years", "90_to_94_years",
+                        "95_to_99_years", "100_years_and_over")
                 ) %>%
                 dplyr::mutate(
-                    total_population = `cohort_0_to_4` + `cohort_5_to_19` + `cohort_20_to_44` + `cohort_45_to_64` + `cohort_65_and_older`,
+                    total_population = `cohort_0_to_4` + `cohort_5_to_19` + `cohort_20_to_44` +
+                        `cohort_45_to_64` + `cohort_65_and_older`,
                     total_dwellings = temp %>%
                         dplyr::filter(grepl("total_private_dwellings", tolower(attribute))) %>%
                         dplyr::pull(value) %>%
@@ -138,13 +151,13 @@ if(! file.exists(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv"
     CSD_data <- fread(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv"))
 }
 
-############################################ CATEGORICAL AND CONTINUOUS REMOTENESS
+############## CATEGORICAL AND CONTINUOUS REMOTENESS
 
 writeLines("\nreading and parsing local SAC info")
 {
     # https://www23.statcan.gc.ca/imdb/p3VD.pl?Function=getVD&TVD=314312&CVD=314313&CPV=A&CST=01012016&CLV=1&MLV=3
     raw_CMAs <- data.table(names=readLines("Classifications/raw_CMAs.txt"))
-    CMAs <- data.table(GeoUID=numeric(), region=numeric(), title=character(), class=character()) # , sac_code=numeric(), cma_type=character()
+    CMAs <- data.table(GeoUID=numeric(), region=numeric(), title=character(), class=character())
     for(index in 1:nrow(raw_CMAs))
     {
         the_number <- str_extract(raw_CMAs$names[index], "[0-9]+")
@@ -155,13 +168,18 @@ writeLines("\nreading and parsing local SAC info")
             cma_name <- gsub("--", "-", the_name)
             cma_number <-  the_number
         } else {
-            CMAs <- rbind(CMAs, list(GeoUID = as.integer(the_number), region = the_name, class = "CMA", title =  cma_name))
+            CMAs <- rbind(CMAs, list(
+                GeoUID = as.integer(the_number), 
+                region = the_name, 
+                class = "CMA", 
+                title =  cma_name
+            ))
         }
     }
     
     # https://www23.statcan.gc.ca/imdb/p3VD.pl?Function=getVD&TVD=314312&CVD=314313&CPV=B&CST=01012016&CLV=1&MLV=3
     raw_CAs <- data.table(names=readLines("Classifications/raw_CAs.txt"))
-    CAs <- data.table(GeoUID=numeric(), region=numeric(), title=character(), class=character()) # , sac_code=numeric(), cma_type=character(), sac_type=character()
+    CAs <- data.table(GeoUID=numeric(), region=numeric(), title=character(), class=character())
     for(index in 1:nrow(raw_CAs))
     {
         the_number <- str_extract(raw_CAs$names[index], "[0-9]+")
@@ -172,7 +190,12 @@ writeLines("\nreading and parsing local SAC info")
             ca_name <- gsub("--", "-", the_name)
             ca_number <- the_number
         } else {
-            CAs <- rbind(CAs, list(GeoUID = as.integer(the_number),region = the_name,class = "CA",title = ca_name))
+            CAs <- rbind(CAs, list(
+                GeoUID = as.integer(the_number),
+                region = the_name,
+                class = "CA",
+                title = ca_name
+            ))
         }
     }
     
@@ -261,22 +284,24 @@ Total_Data_Geo <- data.table(Reduce(
     ) %>%
     dplyr::select(-region, -type, -title) %>%
     dplyr::filter(!is.na(HRUID2018))
-    # add_HRs("geo_code", "province") # %>%
-    # dplyr::relocate("csduid2016", "region", "province", "HR", "class", "index_of_remoteness", "population_density")
     saveRDS(Total_Data_Geo, sprintf("%s/Classifications/Total_CSD_Info.rda", PROJECT_FOLDER))
-    
-# PHU_shapes <- readRDS(file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda"))
     
 if(!file.exists(file.path(PROJECT_FOLDER, "Classifications/PHUs_hosting_airports.csv")))
 {
-    Airport_Locations <- st_read(file.path(PROJECT_FOLDER, "Airports_Aeroports_en_shape/Airports_Aeroports_en_shape.shp"))
+    PHU_shapes <- readRDS(file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda"))
+    
+    Airport_Locations <- st_read(file.path(
+        PROJECT_FOLDER, 
+        "Airports_Aeroports_en_shape/Airports_Aeroports_en_shape.shp"
+    ))
     
     which_PHUs <- function(icaos)
     {
         return(unlist(lapply(
             icaos,
             \(xx) st_intersects(
-                data.table(Airport_Locations)[ICAO == xx, geometry] %>% st_sf() %>% st_transform(3857), 
+                Airport_Locations %>% dplyr::filter(ICAO == xx) %>% dplyr::pull(geometry) %>% 
+                    st_sf() %>% st_transform(3857), 
                 PHU_shapes$geometry %>% st_sf() %>% st_transform(3857)
             ) %>% .[1] %>% .[[1]] %>% PHU_shapes[., HRUID2018]
         )))
@@ -289,14 +314,18 @@ if(!file.exists(file.path(PROJECT_FOLDER, "Classifications/PHUs_hosting_airports
         setNames(c("HRUID2018", "airports")) %>%
         dplyr::mutate(HRUID2018 = as.character(HRUID2018)) %>%
         dplyr::rename()
-    fwrite(PHUs_with_airports, file.path(PROJECT_FOLDER, "Classifications/PHUs_hosting_airports.csv"))
+    fwrite(PHUs_with_airports, file.path(
+        PROJECT_FOLDER, "Classifications/PHUs_hosting_airports.csv"
+    ))
     print(Sys.time() - start_time)
 }
 
 if(!file.exists(file.path(PROJECT_FOLDER, "/CaseDataTables/canada_wide_vacc_data_official.csv")))
 {
-    fread("https://health-infobase.canada.ca/src/data/covidLive/vaccination-coverage-byAgeAndSex.csv") %>%
-        fwrite(file.path(PROJECT_FOLDER, "/CaseDataTables/canada_wide_vacc_data_official.csv"))
+    fread(
+        "https://health-infobase.canada.ca/src/data/covidLive/vaccination-coverage-byAgeAndSex.csv"
+    ) %>%
+    fwrite(file.path(PROJECT_FOLDER, "/CaseDataTables/canada_wide_vacc_data_official.csv"))
 }
 
 #### LONG TERM CARE HOES
@@ -329,34 +358,49 @@ PHU_information <- Total_Data_Geo[,
         ),
         by=.(HRUID2018, province, HR)
     ] %>%
-    merge(readRDS(file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda")), by=c("HRUID2018")) %>%
-    merge(fread(file.path(PROJECT_FOLDER, "Classifications/PHUs_hosting_airports.csv")), by=c("HRUID2018"), all=TRUE) %>%
+    merge(
+        readRDS(file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda")), 
+        by = c("HRUID2018")
+    ) %>%
+    merge(
+        fread(file.path(PROJECT_FOLDER, "Classifications/PHUs_hosting_airports.csv")), 
+        by = c("HRUID2018"), 
+        all=TRUE
+    ) %>%
     dplyr::mutate(airports = ifelse(is.na(airports), 0, airports)) %>%
-    merge(LTCHs_per_PHU %>% dplyr::mutate(HRUID2018 = as.numeric(HRUID2018)), by=c("HRUID2018"), all=TRUE) %>%
+    merge(
+        LTCHs_per_PHU %>% 
+            dplyr::mutate(HRUID2018 = as.numeric(HRUID2018)), 
+        by=c("HRUID2018"), 
+        all=TRUE
+    ) %>%
     dplyr::mutate(LTCHs = ifelse(is.na(LTCHs), 0, LTCHs))
     
-###################################################################
-############################################ TIME-DEPENDENT METRICS
-###################################################################
+#####################################
+############## TIME-DEPENDENT METRICS
+#####################################
 
 # WAVE DATES
+# 
+# if(!file.exists(file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv")))
+# {
+#     jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=cases&loc=canada")$cases %>%
+#         fwrite(file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv"))
+# }
+# 
+# # retrieved 27 Nov 2021
+# if(! file.exists(file.path(PROJECT_FOLDER, "covid-19-intervention-scan-data-tables-en.xlsx")) )
+# {
+#     download.file(
+#         "https://www.cihi.ca/sites/default/files/document/covid-19-intervention-scan-data-tables-en.xlsx",
+#         file.path(PROJECT_FOLDER, "covid-19-intervention-scan-data-tables-en.xlsx")
+#     )
+# }
 
-if(!file.exists(file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv")))
-{
-    jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=cases&loc=canada")$cases %>%
-        fwrite(file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv"))
-}
-
-# retrieved 27 Nov 2021
-if(! file.exists(file.path(PROJECT_FOLDER, "covid-19-intervention-scan-data-tables-en.xlsx")) )
-{
-    download.file(
-        "https://www.cihi.ca/sites/default/files/document/covid-19-intervention-scan-data-tables-en.xlsx",
-        file.path(PROJECT_FOLDER, "covid-19-intervention-scan-data-tables-en.xlsx")
-    )
-}
-
-LUT <- rbind(province_LUT, list("Canada", "Can.", "CN", -1, "Canada")) %>% dplyr::select(province, abbreviations)
+LUT <- rbind(
+        province_LUT, 
+        list("Canada", "Can.", "CN", -1, "Canada")
+    ) %>% dplyr::select(province, abbreviations)
 
 interventions <- read.xlsx(
         sprintf("%s/%s", PROJECT_FOLDER, "covid-19-intervention-scan-data-tables-en.xlsx"),
@@ -368,41 +412,47 @@ interventions <- read.xlsx(
     mutate(
         date.announced = convertToDate(date.announced) %>% as.integer,
         date.implemented = convertToDate(date.implemented) %>% as.integer,
+        jurisdiction = dplyr::recode(jurisdiction, "Nun." = "Nvt.")
+    ) %>%
+    dplyr::mutate(
         jurisdiction = left_join(., LUT, by=c("jurisdiction" = "abbreviations"))$province,
         type = unlist(lapply(type, \(x) str_split(x, '-')[[1]][2] %>% trimws)),
         indigenous.population.group = dplyr::recode(
-            indigenous.population.group, 
+            indigenous.population.group,
             "No"=FALSE, "Yes"=TRUE, .default=NA
         ),
         summary = tolower(summary),
-        
         who = unlist(lapply(
             summary,
             \(x) gsub('^.*who:\\s*|\\s*what.*$', '', x)
         )),
-        
         what = unlist(lapply(
             summary,
             \(x)  gsub('^.*what:\\s*|\\s*effective until.*$', '', x)
         )),
-        
         effective.until = unlist(lapply(
             summary,
-            \(x) if(grepl("effective until", x)) gsub('^.*effective until\\s*|\\.', '', x) else ""
-        )) %>% 
-            gsub("\t|\n|:", "", .) %>% 
+            \(x){
+                if(grepl("effective until", x)) gsub('^.*effective until\\s*|\\.', '', x) else ""
+            }
+        )) %>%
+            gsub("\t|\n|:", "", .) %>%
             trimws,
-        effective.until = unlist(lapply( effective.until, \(x) unlist(lapply(x, date_corrector)) )),
-        
+        effective.until = unlist(lapply(
+            effective.until,
+            \(x) unlist(lapply(x, date_corrector))
+        )),
         category = category %>% tolower %>% trimws,
-        
         jurisdiction = ifelse(is.na(jurisdiction), "all Canada", jurisdiction)
     ) %>%
     dplyr::select(-summary) %>%
     dplyr::filter(!is.na(date.implemented) & (effective.until != "-1")) %>%
-    dplyr::mutate(effective.until = ifelse(effective.until == "", as.numeric(Sys.Date()), effective.until)) %>%
+    dplyr::mutate(
+        effective.until = ifelse(effective.until == "", as.numeric(Sys.Date()), effective.until)
+    ) %>%
     dplyr::mutate(effective.until = effective.until %>% as.numeric) %>%
-    dplyr::filter(abs(effective.until-date.implemented)>14) %>% # we'll assume that the effective interventions must last at least two weeks
+    dplyr::filter(abs(effective.until-date.implemented)>14) %>% 
+    # we'll assume that the effective interventions must last at least two weeks
     data.table
  
 ###### EDUCATION INTERVENTIONS
@@ -412,11 +462,14 @@ TEI <- interventions %>%
     dplyr::filter(grepl("education", tolower(type))) %>%
     dplyr::filter(grepl("provincial", tolower(level))) %>%
     dplyr::filter(grepl("clos|open", tolower(category))) %>% 
-    dplyr::filter(grepl("tigh", tolower(action)) & !grepl("eas", tolower(action))) %>% # some of the restrictions are marked tightening/easing - those are easing
-    dplyr::filter(!grepl("guidance|strengthened|distributed|amended|working with|extended online teacher-led|implemented new measures|mask|release|update", tolower(what))) %>%
+    dplyr::filter(grepl("tigh", tolower(action)) & !grepl("eas", tolower(action))) %>% 
+    # some of the restrictions are marked tightening/easing - those are easing
+    dplyr::filter(!grepl("guidance|strengthened|distributed|amended", tolower(what))) %>%
+    dplyr::filter(!grepl("working with|extended online teacher-led", tolower(what))) %>%
+    dplyr::filter(!grepl("implemented new measures|mask|release|update", tolower(what))) %>%
     dplyr::mutate(
         what = substr(what, start=1, stop=20),
-        effective.until = ifelse(is.na(effective.until), Sys.Date(), effective.until), # %>% as.Date(., origin="1970-01-01"),
+        effective.until = ifelse(is.na(effective.until), Sys.Date(), effective.until),
         jurisdiction = ifelse(is.na(jurisdiction), "Canada", jurisdiction),
         colour = "red",
         alpha = lookup_alphas(jurisdiction)
@@ -464,12 +517,26 @@ educational_interventions_in_waves <- TEI %>%
     dplyr::mutate(effective.until = pmin(effective.until, Sys.time(), na.rm=T)) %>% 
     split(by="jurisdiction") %>% 
     lapply(. %>%  select(-jurisdiction)) %>%
-    lapply( \(tab) mapply(`:`, tab$date.implemented, tab$effective.until) %>% unlist %>% unique %>% sort ) %>%
+    lapply( \(tab) mapply(`:`, tab$date.implemented, tab$effective.until) %>% 
+        unlist %>% unique %>% sort 
+    ) %>%
     list( # turn this into an lapply
-        data.table(name = names(.), wave=1, EIs=unlist(lapply(., \(x) x %>% how_much_of_the_wave(1)))),
-        data.table(name = names(.), wave=2, EIs=unlist(lapply(., \(x) x %>% how_much_of_the_wave(2)))),
-        data.table(name = names(.), wave=3, EIs=unlist(lapply(., \(x) x %>% how_much_of_the_wave(3)))),
-        data.table(name = names(.), wave=4, EIs=unlist(lapply(., \(x) x %>% how_much_of_the_wave(4))))
+        data.table(
+            name = names(.), wave = 1, 
+            EIs = unlist(lapply(., \(x) x %>% how_much_of_the_wave(1)))
+        ),
+        data.table(
+            name = names(.), wave = 2, 
+            EIs = unlist(lapply(., \(x) x %>% how_much_of_the_wave(2)))
+        ),
+        data.table(
+            name = names(.), wave = 3, 
+            EIs = unlist(lapply(., \(x) x %>% how_much_of_the_wave(3)))
+        ),
+        data.table(
+            name = names(.), wave = 4, 
+            EIs = unlist(lapply(., \(x) x %>% how_much_of_the_wave(4)))
+        )
     ) %>%
     tail(-1) %>%
     rbindlist() %>%
@@ -479,8 +546,15 @@ educational_interventions_in_waves <- TEI %>%
  
 # lockdown measures
 LDM <- interventions %>% 
-    dplyr::filter(grepl("clos", tolower(category)) & grepl("essential|recrea", tolower(type)) & grepl("provincial", tolower(level))) %>%
-    dplyr::filter(grepl("tigh", tolower(action)) & !grepl("eas", tolower(action))) %>% # some of the restrictions are marked tightening/easing - those are easing
+    dplyr::filter(
+        grepl("clos", tolower(category)) & 
+        grepl("essential|recrea", tolower(type)) & 
+        grepl("provincial", tolower(level))
+    ) %>%
+    dplyr::filter(
+        grepl("tigh", tolower(action)) & 
+            !grepl("eas", tolower(action))
+    ) %>%
     dplyr::filter(grepl("clos", tolower(what)))
 
 lockdown_interventions_in_waves <- LDM %>%
@@ -488,91 +562,140 @@ lockdown_interventions_in_waves <- LDM %>%
     dplyr::mutate(effective.until = pmin(effective.until, Sys.time(), na.rm=T)) %>% 
     split(by="jurisdiction") %>% 
     lapply(. %>%  select(-jurisdiction)) %>%
-    lapply( \(tab) mapply(`:`, tab$date.implemented, tab$effective.until) %>% unlist %>% unique %>% sort ) %>%
+    lapply( \(tab) mapply(`:`, tab$date.implemented, tab$effective.until) %>% 
+                unlist %>% unique %>% sort
+    ) %>%
     list( # turn this into an lapply
-        data.table(name = names(.), wave=1, LIs=unlist(lapply(., \(x) x %>% how_much_of_the_wave(1)))),
-        data.table(name = names(.), wave=2, LIs=unlist(lapply(., \(x) x %>% how_much_of_the_wave(2)))),
-        data.table(name = names(.), wave=3, LIs=unlist(lapply(., \(x) x %>% how_much_of_the_wave(3)))),
-        data.table(name = names(.), wave=4, LIs=unlist(lapply(., \(x) x %>% how_much_of_the_wave(4))))
+        data.table(
+            name = names(.),
+            wave = 1, 
+            LIs=unlist(lapply(., \(x) x %>% how_much_of_the_wave(1)))
+        ),
+        data.table(
+            name = names(.), wave = 2, 
+            LIs=unlist(lapply(., \(x) x %>% how_much_of_the_wave(2)))
+        ),
+        data.table(
+            name = names(.), wave = 3, 
+            LIs = unlist(lapply(., \(x) x %>% how_much_of_the_wave(3)))
+        ),
+        data.table(
+            name = names(.), wave = 4, 
+            LIs=unlist(lapply(., \(x) x %>% how_much_of_the_wave(4)))
+        )
     ) %>%
     tail(-1) %>%
     rbindlist() %>%
     dplyr::rename(province = name)
 
-fread("https://health-infobase.canada.ca/src/data/covidLive/vaccination-coverage-byAgeAndSex.csv") %>%
+################# VACCINATION
+
+fread(
+    "https://health-infobase.canada.ca/src/data/covidLive/vaccination-coverage-byAgeAndSex.csv"
+    ) %>%
     fwrite(sprintf("%s/CaseDataTables/canada_wide_vacc_data_official.csv", PROJECT_FOLDER))
 
-# vaxx_info <- fread(file.path(PROJECT_FOLDER, "/CaseDataTables/canada_wide_vacc_data_official.csv")) %>%
-#     group_by(pruid, prfname, week_end) %>%
-#     dplyr::summarise(
-#         VIs_AL1D=sum(as.numeric(numtotal_atleast1dose), na.rm=TRUE),
-#         VIs_FULL=sum(as.numeric(numtotal_fully), na.rm=TRUE)
-#     ) %>%
-#     suppressWarnings %>%
-#     data.table
-
-check_the_vaxx_waves <- function(x, wave_number=1)
-{
-    if(nrow(x) ==  0) return("None")
-    if( (abs(min(x$week_end) - Canada_Wave_Dates[wave_number])<7) & (abs(max(x$week_end) - Canada_Wave_Dates[wave_number+1])<7) ){ return("Entire") }
-    return("Partial")
-}
-
-vaxx_info <- fread(file.path(PROJECT_FOLDER, "/CaseDataTables/canada_wide_vacc_data_official.csv")) %>%
+vaxx_info <- fread(file.path(
+        PROJECT_FOLDER, 
+        "/CaseDataTables/canada_wide_vacc_data_official.csv"
+    )) %>%
+    dplyr::filter(prfname != "Canada") %>%
     group_by(pruid, prfname, week_end) %>%
     dplyr::summarise(
         VIs_AL1D=sum(as.numeric(numtotal_atleast1dose), na.rm=TRUE),
         VIs_FULL=sum(as.numeric(numtotal_fully), na.rm=TRUE)
     ) %>%
-    suppressWarnings %>%
     data.table %>%
-    dplyr::mutate(week_end = as.Date(week_end))
+    dplyr::mutate(
+        week_end = as.Date(week_end),
+        province = lookup_provinces(pruid)
+    ) %>%
+    dplyr::select(-prfname)
 
-haha <- list(
-    `1` = vaxx_info[prfname == "Ontario"][(week_end>=Canada_Wave_Dates[1]) & (week_end<=Canada_Wave_Dates[2])],
-    `2` = vaxx_info[prfname == "Ontario"][(week_end>=Canada_Wave_Dates[2]) & (week_end<=Canada_Wave_Dates[3])],
-    `3` = vaxx_info[prfname == "Ontario"][(week_end>=Canada_Wave_Dates[3]) & (week_end<=Canada_Wave_Dates[4])],
-    `4` = vaxx_info[prfname == "Ontario"][(week_end>=Canada_Wave_Dates[4]) & (week_end<=Canada_Wave_Dates[5])]
-) %>%
-unlist(lapply(1:4, \(xx) check_the_vaxx_waves( .[[xx]], wave_number=xx)))
-
-haha[[3]] %>% check_the_waves(wave_number=3)
-    
-
-(\(x)
+vaxx_implementation <- function(the_vaxx_table, prov)
 {
-    if( (abs(min(x$week_end) - Canada_Wave_Dates[1])<7) & (abs(max(x$week_end) - Canada_Wave_Dates[2])<7) ){ return("Entire") } 
-})
-
+    proportion_vaccination <- \(x, wave_number=1)
+    {
+        if(nrow(x) ==  0) return("None")
+        the_table <- x %>% 
+            dplyr::filter(wave == wave_number)
+        if(nrow(the_table) == 0) return("None")
+        if( 
+            (abs(min(the_table$week_end) - Canada_Wave_Dates[wave_number])<7) & 
+            (abs(max(the_table$week_end) - Canada_Wave_Dates[wave_number+1])<7) 
+        ){ return("Entire") }
+        return("Partial")
+    }
     
-vaccine_interventions_in_waves <- vaxx_info %>%
+    temp_table <- the_vaxx_table %>% 
+        dplyr::filter(province == prov) %>% 
+        ### ask Seyed whether we're looking at 'at least one dose' or 'fully vaccinated'
+        dplyr::filter(VIs_AL1D != 0)
+    
+    return( rbindlist( lapply( 1:4, \(xx)
+    {
+        temp_table %>%
+            dplyr::filter(
+                (week_end>=Canada_Wave_Dates[xx]) & 
+                    (week_end<=Canada_Wave_Dates[xx+1])
+            ) %>%
+            dplyr::mutate(wave = xx) %>%
+            proportion_vaccination(wave_number = xx) %>%
+            data.table %>%
+            setNames(c("VIs")) %>%
+            dplyr::mutate(wave = xx, province = lookup_province(unique(temp_table$pruid)))
+    })))
+}
+
+categorical_vaccination <- lapply(
+        unique(vaxx_info$province), 
+        \(x) vaxx_implementation(vaxx_info, x)
+    ) %>%
+    rbindlist()
+    
+vaccination_in_waves <- vaxx_info %>%
     dplyr::pull(pruid) %>%
     .[.!=1] %>%
     unique %>%
     list(
-        lapply(., \(x){ vaxx_info %>% dplyr::filter(pruid == x) %>% dplyr::filter(week_end <= Canada_Wave_Dates[2]) %>% dplyr::arrange(week_end) %>% tail(1) %>% dplyr::mutate(wave=1) }) %>% rbindlist,
+        lapply(., \(x){ 
+            vaxx_info %>% dplyr::filter(pruid == x) %>% 
+                dplyr::filter(week_end <= Canada_Wave_Dates[2]) %>% 
+                dplyr::arrange(week_end) %>% 
+                tail(1) %>% 
+                dplyr::mutate(wave=1) }
+            ) %>% rbindlist,
         lapply(., \(x){ vaxx_info %>% dplyr::filter(pruid == x) %>% dplyr::filter(week_end <= Canada_Wave_Dates[3]) %>% dplyr::arrange(week_end) %>% tail(1) %>% dplyr::mutate(wave=2) }) %>% rbindlist,
         lapply(., \(x){ vaxx_info %>% dplyr::filter(pruid == x) %>% dplyr::filter(week_end <= Canada_Wave_Dates[4]) %>% dplyr::arrange(week_end) %>% tail(1) %>% dplyr::mutate(wave=3) }) %>% rbindlist,
         lapply(., \(x){ vaxx_info %>% dplyr::filter(pruid == x) %>% dplyr::filter(week_end <= Canada_Wave_Dates[5]) %>% dplyr::arrange(week_end) %>% tail(1) %>% dplyr::mutate(wave=4) }) %>% rbindlist
     ) %>%
     tail(-1) %>%
-    rbindlist %>%
-    dplyr::mutate(province = lookup_provinces(pruid)) %>%
-    dplyr::select(-prfname)
+    rbindlist
 
-province_UIDs <- vaccine_interventions_in_waves %>% dplyr::filter(!is.na(pruid)) %>% dplyr::select(province, pruid) %>% unique
-   
-interventions_by_wave_province <- vaccine_interventions_in_waves %>%
-    merge(educational_interventions_in_waves, by=c("province", "wave"), all=TRUE) %>%
-    merge(lockdown_interventions_in_waves, by=c("province", "wave"), all=TRUE) %>%
-    merge(province_UIDs, by=c("province")) %>%
+full_vaccination_info <- merge(
+        categorical_vaccination, 
+        vaccination_in_waves, 
+        by=c("province", "wave"), 
+        all=TRUE
+    ) %>%
+    dplyr::select(-week_end) %>%
     dplyr::mutate(
         VIs_AL1D = ifelse(is.na(VIs_AL1D), 0, VIs_AL1D),
-        VIs_FULL = ifelse(is.na(VIs_FULL), 0, VIs_FULL)
+        VIs_FULL = ifelse(is.na(VIs_FULL), 0, VIs_FULL),
+        pruid = lookup_province_UIDs(province)
+    )
+   
+interventions_by_wave_province <- full_vaccination_info %>%
+    merge(educational_interventions_in_waves, by=c("province", "wave"), all=TRUE) %>%
+    merge(lockdown_interventions_in_waves, by=c("province", "wave"), all=TRUE) %>%
+    # merge(province_UIDs, by=c("province")) %>%
+    dplyr::mutate(
+        VIs_AL1D = ifelse(is.na(VIs_AL1D), 0, VIs_AL1D),
+        VIs_FULL = ifelse(is.na(VIs_FULL), 0, VIs_FULL),
+        # pruid = dplyr::coalesce(pruid.x, pruid.y)
     ) %>%
-    dplyr::select(-pruid.x, -week_end) %>%
-    dplyr::rename(pruid = pruid.y) %>%
-    dplyr::arrange(pruid, province)
+    dplyr::filter(!grepl("all canada", tolower(province))) %>% 
+    dplyr::filter(!is.na(pruid))
     
 ###################################################################
 ############################################ COVID INCIDENCE DATA
@@ -798,8 +921,9 @@ if(FALSE)
 
 Total_Case_Data <- fread(file.path(PROJECT_FOLDER, "CaseDataTables/Total_Case_Data.csv")) %>%
     dplyr::filter(!is.na(HRUID2018)) %>%
-    merge(province_UIDs, by=c("province")) %>%
-    dplyr::mutate(wave = 4) %>%
+    merge(province_LUT %>% dplyr::select(province, SGC), by=c("province")) %>%    
+    dplyr::rename(pruid = SGC) %>%
+    dplyr::mutate(wave = 4, pruid = as.integer(pruid)) %>%
     dplyr::mutate(wave = ifelse(date < Canada_Wave_Dates[4], 3, wave)) %>%
     dplyr::mutate(wave = ifelse(date < Canada_Wave_Dates[3], 2, wave)) %>%
     dplyr::mutate(wave = ifelse(date < Canada_Wave_Dates[2], 1, wave)) %>%
@@ -818,5 +942,5 @@ Regression_Data <- Total_Case_Data %>%
         VIs_FULL = ifelse(is.na(VIs_FULL), 0, VIs_FULL)
     ) %>%
     st_sf
-    saveRDS(Total_Case_Data, file=file.path(PROJECT_FOLDER, "CaseDataFiles/regression_data.rda"))
+    saveRDS(Regression_Data, file=file.path(PROJECT_FOLDER, "CaseDataFiles/regression_data.rda"))
 

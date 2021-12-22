@@ -154,7 +154,10 @@ lookup_alpha <- function(x)
     if(grepl("canada", tolower(x))) return("CAN")
     return("")
 }
-lookup_alphas <- function(theList) unlist(lapply(theList, lookup_alpha)) 
+lookup_alphas <- function(theList) unlist(lapply(theList, lookup_alpha))
+
+lookup_province_UID <- function(prov_name) province_LUT[province==prov_name, as.numeric(SGC)]
+lookup_province_UIDs <- function(theList) unlist(lapply(theList, lookup_province_UID))
 
 HA_crosswalk <- fread(sprintf("%s/Classifications/health_region_crosswalk.csv", PROJECT_FOLDER)) %>%
     unique() %>%
