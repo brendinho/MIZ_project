@@ -938,6 +938,7 @@ Regression_Data <- Total_Case_Data %>%
     dplyr::mutate(
         LIs = factor(ifelse(is.na(LIs), "None", LIs)),
         EIs = factor(ifelse(is.na(EIs), "None", EIs)),
+        VIs = factor(ifelse(is.na(VIs), "None", VIs)),
         VIs_AL1D = ifelse(is.na(VIs_AL1D), 0, VIs_AL1D),
         VIs_FULL = ifelse(is.na(VIs_FULL), 0, VIs_FULL)
     ) %>%
