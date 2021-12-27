@@ -1,16 +1,17 @@
+rm(list=ls())
+
 library(data.table)
 library(dplyr)
 library(glmnet)
 library(caret)
 library(ggplot2)
 
+PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
+
 ## things to fix:
 ## 
 ## 1) change the add_HRs function to equally divide the numerical columns instead of copying the values directly (maybe through an optional function argument)
-## 4) include interaction terms in the model
 ## 5) figure out graphing for the results
-## 7) make it a penalised regression (ridge, for example)
-## 8) clarify with Seyed whether we're looking at 'only 1 dose' or 'full vaccination' for the vaccine regressor
 
 # calculate r**2
 r2 <- function(truth, prediction) {
@@ -32,60 +33,115 @@ factor_to_num <- function(factor_sequence)
     )))
 }
 
+cohorts <- function(start_age, end_age, ...)
+{ # getting the names of added cohorts - I'm just lazy 
+    
+    col_names = c(
+        sprintf(
+            "cohort_%s_to_%s", 
+            seq(start_age, end_age-4, by=5), 
+            seq(start_age+4, end_age, by=5)
+        ),
+        unlist(list(...))
+    )
+    return(parse(text = paste(col_names, collapse=" + ")))
+}
+
 Import <- readRDS(file.path(PROJECT_FOLDER, "CaseDataFiles/regression_data.rda")) %>%
     data.table() %>%
-    dplyr::select(-geometry) %>%
-    dplyr::mutate(EIs = factor_to_num(EIs), LIs = factor_to_num(LIs), VIs = factor_to_num(VIs)) %>%
+    dplyr::mutate(
+        EIs = factor_to_num(EIs),
+        LIs = factor_to_num(LIs),
+        VIs = factor_to_num(VIs),
+        # group_0_to_4 = eval(cohorts(0,4))/total_population,
+        group_5_to_19 = eval(cohorts(5, 19))/total_population,
+        group_20_to_49 = eval(cohorts(20, 49))/total_population,
+        group_50_to_64 = eval(cohorts(50, 64))/total_population,
+        group_65_plus = eval(cohorts(65, 99, "cohort_100_plus"))/total_population
+    ) %>%
     # adding interaction terms
     dplyr::mutate(
-        school_closure_child_interaction = EIs*cohort_0_to_4,
-        # movement restriction intervention
-        MRI_cohort_0_to_4 = LIs*cohort_0_to_4,
-        MRI_cohort_5_to_19 = LIs*cohort_5_to_19,
-        MRI_cohort_20_to_44 = LIs*cohort_20_to_44,
-        MRI_cohort_45_to_64 = LIs*cohort_45_to_64,
-        MRI_cohort_65_and_older = LIs*cohort_65_and_older
-    )
+        interaction_children_school_closures = EIs*group_5_to_19,
+        
+        interaction_popdensity_cma = pop_density*is_cma,
+        interaction_popdensity_ca = pop_density*is_ca,
+        interaction_popdensity_strong = pop_density*is_miz_strong,
+        interaction_popdensity_moderate = pop_density*is_miz_moderate,
+        interaction_popdensity_weak = pop_density*is_miz_weak,
+        interaction_popdensity_none = pop_density*is_miz_none,
+        
+        interaction_LTCH_65_plus = LTCHs*group_65_plus,
+        
+        # interaction_lockdown_0_to_4 = LIs*group_0_to_4,
+        interaction_lockdown_5_to_19 = LIs*group_5_to_19,
+        interaction_lockdown_20_to_49 = LIs*group_20_to_49,
+        interaction_lockdown_50_to_64 = LIs*group_50_to_64,
+        interaction_lockdown_65_plus = LIs*group_65_plus
+    ) %>%
+    dplyr::select(-geometry, -VIs_FULL, -starts_with("cohort"), -airports, -area_sq_km, -total_dwellings)
+
 
 # add the log of the incidence from the previous wave
 Data <- rbind(
-    
-    # first wave is unadulterated
-    Import %>% dplyr::filter(wave==1) %>% dplyr::mutate(log_previous_wave_incidence=0),
-    
-    # second wave with the log(incidence) of the first wave attached
-    merge(
-        Import %>% dplyr::filter(wave == 2),
-        Import %>% 
-            dplyr::filter(wave == 1) %>% 
-            dplyr::mutate(log_previous_wave_incidence = ifelse(incidence==0, 0, log(incidence))) %>%
-            dplyr::select(pruid, HRUID2018, log_previous_wave_incidence),
-        by=c("pruid", "HRUID2018"),
-        all = TRUE
-    ),
-    
-    # third wave with the log(incidence) of the second wave attached
-    merge(
-        Import %>% dplyr::filter(wave == 3),
-        Import %>% 
-            dplyr::filter(wave == 2) %>% 
-            dplyr::mutate(log_previous_wave_incidence = ifelse(incidence==0, 0, log(incidence))) %>%
-            dplyr::select(pruid, HRUID2018, log_previous_wave_incidence),
-        by=c("pruid", "HRUID2018"),
-        all = TRUE
-    ),
-    
-    # fourth wave with the log(incidence) of the third wave attached
-    merge(
-        Import %>% dplyr::filter(wave == 4),
-        Import %>% 
-            dplyr::filter(wave == 3) %>% 
-            dplyr::mutate(log_previous_wave_incidence = ifelse(incidence==0, 0, log(incidence))) %>%
-            dplyr::select(pruid, HRUID2018, log_previous_wave_incidence),
-        by=c("pruid", "HRUID2018"),
-        all = TRUE
-    )
-)
+        # first wave is unadulterated
+        Import %>% dplyr::filter(wave==1) %>%
+            dplyr::mutate(
+                previous_wave_incidence = 0,
+                interaction_vaccination_5_to_19 = 0,
+                interaction_vaccination_20_to_49 = 0,
+                interaction_vaccination_50_to_64 = 0,
+                interaction_vaccination_65_plus = 0,
+            ),
+        # second wave with the log(incidence) of the first wave attached
+        merge(
+            Import %>% dplyr::filter(wave == 2) %>%
+                dplyr::mutate(
+                    interaction_vaccination_5_to_19 = 0,
+                    interaction_vaccination_20_to_49 = VIs_AL1D/(total_population-VIs_AL1D)*group_20_to_49,
+                    interaction_vaccination_50_to_64 = VIs_AL1D/(total_population-VIs_AL1D)*group_50_to_64,
+                    interaction_vaccination_65_plus = VIs_AL1D/(total_population-VIs_AL1D)*group_65_plus,
+                ),
+            Import %>% 
+                dplyr::filter(wave == 1) %>% 
+                dplyr::rename(previous_wave_incidence = incidence) %>%
+                dplyr::select(pruid, HRUID2018, previous_wave_incidence),
+            by=c("pruid", "HRUID2018"),
+            all = TRUE
+        ),
+        # third wave with the log(incidence) of the second wave attached
+        merge(
+            Import %>% dplyr::filter(wave == 3) %>%    
+                dplyr::mutate(
+                    interaction_vaccination_5_to_19 = VIs/(total_population-VIs_AL1D)*group_5_to_19,
+                    interaction_vaccination_20_to_49 = VIs_AL1D/(total_population-VIs_AL1D)*group_20_to_49,
+                    interaction_vaccination_50_to_64 = VIs_AL1D/(total_population-VIs_AL1D)*group_50_to_64,
+                    interaction_vaccination_65_plus = VIs_AL1D/(total_population-VIs_AL1D)*group_65_plus,
+                ),
+            Import %>% 
+                dplyr::filter(wave == 2) %>% 
+                dplyr::rename(previous_wave_incidence = incidence) %>%
+                dplyr::select(pruid, HRUID2018, previous_wave_incidence),
+            by=c("pruid", "HRUID2018"),
+            all = TRUE
+        ),
+        # fourth wave with the log(incidence) of the third wave attached
+        merge(
+            Import %>% dplyr::filter(wave == 4) %>%    
+                dplyr::mutate(
+                    interaction_vaccination_5_to_19 = VIs/(total_population-VIs_AL1D)*group_5_to_19,
+                    interaction_vaccination_20_to_49 = VIs_AL1D/(total_population-VIs_AL1D)*group_20_to_49,
+                    interaction_vaccination_50_to_64 = VIs_AL1D/(total_population-VIs_AL1D)*group_50_to_64,
+                    interaction_vaccination_65_plus = VIs_AL1D/(total_population-VIs_AL1D)*group_65_plus,
+                ),
+            Import %>% 
+                dplyr::filter(wave == 3) %>% 
+                dplyr::rename(previous_wave_incidence = incidence) %>%
+                dplyr::select(pruid, HRUID2018, previous_wave_incidence),
+            by=c("pruid", "HRUID2018"),
+            all = TRUE
+        )
+    ) %>%
+    dplyr::mutate(log_previous_wave_incidence = ifelse(previous_wave_incidence==0, 0, log(previous_wave_incidence)))
 
 # # MUST DO - check why Saskatchewan as no wave 1 information at all
 # merge(
@@ -98,20 +154,22 @@ Data <- rbind(
 # ) %>% filter(is.na(wave.x) | is.na(wave.y))
 
 Coefficients <- data.table()
+r2s <- data.table()
 
 for(wave_number in 1:4)
 {
     reg_data <- Data %>%
         dplyr::filter(wave == wave_number) %>%
         # information not needed ofr debugging anymore
-        dplyr::select(-province, -HRUID2018, -HR, -pruid) %>%
+        dplyr::select(-province, -HRUID2018, -HR, -pruid, -VIs_AL1D, -log_previous_wave_incidence, -total_population) %>%
         # take out the columns with only a sing e value, since we can't regress on those
         select(where(~n_distinct(.) > 1)) %>%
         # for columns that were all the same value, then any interaction columns using that
         # regressor will be duplicated, so we remove them from the end of the table
-        .[, which(! duplicated( t( . ) ) ), with = FALSE]
+        .[, which(! duplicated( t( . ) ) ), with = FALSE] %>%
+        dplyr::select_if(! names(.) %in% c("VIs", "EIs", "LIs"))
     
-    tIndices <- sample(1:nrow(Wave_Data), 0.7*nrow(Wave_Data))
+    tIndices <- sample(1:nrow(reg_data), 0.7*nrow(reg_data))
 
     training_set <- reg_data[tIndices,]
     testing_set  <- reg_data[-tIndices,]
@@ -166,61 +224,96 @@ for(wave_number in 1:4)
             wave = wave_number
         )
     ) %>% suppressWarnings
+    
+    r2s <- rbind(
+        r2s,
+        data.table(
+            r2_60pc_training_fit = r2(y_train, training_predictions),
+            r2_40pc_testing_fit = r2(y_test,  testing_predictions)
+        )
+    )
 }
 
+Coefficients2 <- Coefficients %>%
+    dplyr:: filter(!grepl("intercept", tolower(regressor))) %>%
+    dplyr::mutate(graph_factor = unlist(lapply(
+        regressor,
+        \(xx)
+        {            
+            if(grepl("density", tolower(xx))) return("Density")
+            if(grepl("ca|cma|miz|strong|moderate|weak|none", tolower(xx))) return("Remoteness")
+            if(grepl("closure|Is", xx)) return("Interventions")
+            if(grepl("group", tolower(xx))) return("Cohort")
+            if(grepl("lockdown", tolower(xx))) return("Lockdown")
+            if(grepl("vaccination", tolower(xx))) return("Vaccination")
+            return("General")
+        }
+    ))) %>%
+    dplyr::mutate(graph_factor = factor(graph_factor)) %>%
+    # dplyr::filter((abs(coefficient)<=100) & (wave != 4)) %>%
+    dplyr::mutate( regressor = dplyr::recode(regressor,
+         "group_0_to_4" = "0-4",
+         "group_5_to_19" = "5-19",
+         "group_20_to_49" = "20-49",
+         "group_50_to_64" = "50-64",
+         "group_65_plus" = "65+",
+         
+         "total_population" = "Population",
+         "total_dwellings" = "Dwellings",
+         
+         "is_cma" = "CMAs",
+         "is_ca" = "CAs",
+         "is_miz_strong" = "MIZ Strong",
+         "is_miz_moderate" = "MIZ Moderate",
+         "is_miz_weak" = "MIZ Weak",
+         "is_miz_none" = "MIZ None",
+         
+         "previous_wave_incidence" = "Y[i-1]",
+         "log_previous_wave_incidence" = "log(Y[i-1])",
+         
+         "interaction_lockdown_5_to_19" = "LI : 05-19",
+         "interaction_lockdown_20_to_49" = "LI : 20-49",
+         "interaction_lockdown_50_to_64" = "LI : 50-64",
+         "interaction_lockdown_65_plus" = "LI : 65+",
+         
+         "pop_density" = "Density",
+         
+         "interaction_popdensity_ca" = "Den : CAs",
+         "interaction_popdensity_cma" = "Den : CMAs",
+         "interaction_popdensity_strong" = "Den : MIZ Strong",
+         "interaction_popdensity_moderate" = "Den : MIZ Moderate",
+         "interaction_popdensity_weak" = "Den : MIZ Weak",
+         "interaction_popdensity_none" = "Den : MIZ None",
+         
+         "interaction_children_school_closures" = "EI : 05-19",
+         "interaction_LTCH_65_plus" = "LTCHs : 65+",
+         
+         "interaction_vaccination_20_to_49" = "Vaxx : 20-49",
+         "interaction_vaccination_5_to_19" = "Vaxx : 05-19",
+         "interaction_vaccination_50_to_64" = "Vaxx : 50-64",
+         "interaction_vaccination_65_plus" = "Vaxx : 65+"
+    ))
+
 pl_regression <- ggplot(
-        Coefficients %>% dplyr::mutate( regressor = dplyr::recode(regressor,
-            "(Intercept)" = "Intercept",
-            "cohort_0_to_4" = "0-4",
-            "cohort_5_to_19" = "5-19",
-            "cohort_20_to_44" = "20-44",
-            "cohort_45_to_64" = "45-64",
-            "cohort_65_and_older" = "65+",
-            "total_population" = "Population",
-            "total_dwellings" = "Dwellings",
-            "is_cma" = "CMAs",
-            "is_ca" = "CAs",
-            "is_miz_strong" = "Strong",
-            "is_miz_moderate" = "Moderate",
-            "is_miz_weak" = "Weak",
-            "is_miz_none" = "None",
-            "airports" = "Airports",
-            "school_closure_child_interaction" = "EIs : 5-19",
-            "MRI_cohort_0_to_4" = "LIs : 0-4",
-            "MRI_cohort_5_to_19" = "LIs : 5-19",
-            "MRI_cohort_20_to_44" = "LIs : 20-44",
-            "MRI_cohort_45_to_64" = "LIs : 45-66",
-            "MRI_cohort_65_and_older" = "LIs : 65+",
-            "log_previous_wave_incidence" = "log(Y[i-1])"
-        )),
-        aes(x=str_wrap(regressor,20), y=log(coefficient))
+        Coefficients2,
+        aes(x=str_wrap(regressor,20), y=log(abs(coefficient)))
     ) +
-    geom_point(size=5) +
+    geom_point(size=4) +
     geom_hline(yintercept=0, linetype="dashed", colour="grey", size=1) +
-    facet_grid(wave~.) +
+    facet_grid(wave~graph_factor, scales="free", space="free_x") +
     theme_bw() +
     theme(
-        axis.text = element_text(size=15),
+        axis.text = element_text(size=12),
         axis.text.x = element_text(angle=45, hjust=1),
         axis.title = element_text(size=15),
-        strip.text = element_text(size=15)
+        strip.text = element_text(size=13)
     ) +
-    labs(x="Regressor", y="log(Coefficient)")
+    labs(x="Regressor", y="log( |Coefficient| )", title="Colon (:) foir interaction terms. Den (population density), LTCH (long-term care homes), Y[i-1] (previous wave incidence), EI (school closure), Vaxx (vaccination)")
+
+plot(pl_regression)
 
 ggsave(
-        pl_regression, 
+        pl_regression,
         file = file.path(PROJECT_FOLDER, "Graphs/regression_coefficients.png"),
-        width=15, height=10
+        width=15, height=7
     )
-
-
- # the_model <- lm(
-#     incidence ~ is_cma + is_ca + is_miz_strong + is_miz_moderate + is_miz_weak + is_miz_none +
-#         airports + LTCHs + 
-#         VIs_AL1D + EIs + LIs +
-#         # total_dwellings + I(log(total_population)) +
-#         cohort_0_to_4 + cohort_5_to_19 + cohort_20_to_44 + cohort_45_to_64 + cohort_65_and_older +
-#         total_dwellings,
-#     data = Data[wave == 1]
-#     
-# )

@@ -20,8 +20,6 @@ library(plotly)
 PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
 # PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project"
 
-# options(java.parameters = "-Xmx4g" )
-# library(XLConnect)
 library(openxlsx)
 
 setwd(PROJECT_FOLDER)
@@ -37,7 +35,7 @@ start_time <- Sys.time()
 ############## TIME-INVARIANT METRICS
 #####################################
 
-if(!file.exists(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv")))
+if(! file.exists(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv")))
 {
     province_folder_map <- data.table(
         number = 61:73, 
@@ -105,20 +103,35 @@ if(!file.exists(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv")
                     province = unique(subset_table$province),
                     geo_code = unique(subset_table$geo_code),
                     geo_name = unique(subset_table$geo_name),
-                    "cohort_0_to_4" = sum_cohorts("0_to_4_years"),
-                    "cohort_5_to_19" = sum_cohorts("5_to_9_years", "10_to_14_years", 
-                                                   "15_to_19_years"),
-                    "cohort_20_to_44" = sum_cohorts("20_to_24_years", "25_to_29_years", 
-                        "30_to_34_years", "35_to_39_years", "40_to_44_years"),
-                    "cohort_45_to_64" = sum_cohorts("45_to_49_years", "50_to_54_years", 
-                        "55_to_59_years", "60_to_64_years"),
-                    "cohort_65_and_older" = sum_cohorts("65_to_69_years", "70_to_74_years",
-                        "75_to_79_years", "80_to_84_years", "85_to_89_years", "90_to_94_years",
-                        "95_to_99_years", "100_years_and_over")
+                    cohort_0_to_4 = sum_cohorts("0_to_4_years"),
+                    cohort_5_to_9 = sum_cohorts("5_to_9_years"),
+                    cohort_10_to_14 = sum_cohorts("10_to_14_years"),
+                    cohort_15_to_19 = sum_cohorts("15_to_19_years"),
+                    cohort_20_to_24 = sum_cohorts("20_to_24_years"),
+                    cohort_25_to_29 = sum_cohorts("25_to_29_years"),
+                    cohort_30_to_34 = sum_cohorts("30_to_34_years"),
+                    cohort_35_to_39 = sum_cohorts("35_to_39_years"),
+                    cohort_40_to_44 = sum_cohorts("40_to_44_years"),
+                    cohort_45_to_49 = sum_cohorts("45_to_49_years"),
+                    cohort_50_to_54 = sum_cohorts("50_to_54_years"),
+                    cohort_55_to_59 = sum_cohorts("55_to_59_years"),
+                    cohort_60_to_64 = sum_cohorts("60_to_64_years"),
+                    cohort_65_to_69 = sum_cohorts("65_to_69_years"),
+                    cohort_70_to_74 = sum_cohorts("70_to_74_years"),
+                    cohort_75_to_79 = sum_cohorts("75_to_79_years"),
+                    cohort_80_to_84 = sum_cohorts("80_to_84_years"),
+                    cohort_85_to_89 = sum_cohorts("85_to_89_years"),
+                    cohort_90_to_94 = sum_cohorts("90_to_94_years"),
+                    cohort_95_to_99 = sum_cohorts("95_to_99_years"),
+                    cohort_100_plus = sum_cohorts("100_years_and_over")
                 ) %>%
                 dplyr::mutate(
-                    total_population = `cohort_0_to_4` + `cohort_5_to_19` + `cohort_20_to_44` +
-                        `cohort_45_to_64` + `cohort_65_and_older`,
+                    total_population = cohort_0_to_4 + cohort_5_to_9 + cohort_10_to_14 + 
+                        cohort_15_to_19 + cohort_20_to_24 + cohort_25_to_29 + cohort_30_to_34 + 
+                        cohort_35_to_39 + cohort_40_to_44 + cohort_45_to_49 + cohort_50_to_54 + 
+                        cohort_55_to_59 + cohort_60_to_64 + cohort_65_to_69 + cohort_70_to_74 + 
+                        cohort_75_to_79 + cohort_80_to_84 + cohort_85_to_89 + cohort_90_to_94 + 
+                        cohort_95_to_99 + cohort_100_plus,
                     total_dwellings = temp %>%
                         dplyr::filter(grepl("total_private_dwellings", tolower(attribute))) %>%
                         dplyr::pull(value) %>%
@@ -147,9 +160,11 @@ if(!file.exists(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv")
         
     print(Sys.time() - start_time)
     fwrite(CSD_data, file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv"))
-} else {
-    CSD_data <- fread(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv"))
 }
+    
+CSD_data <- fread(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv"))
+
+stop()
 
 ############## CATEGORICAL AND CONTINUOUS REMOTENESS
 
@@ -265,60 +280,63 @@ writeLines("\nreading and parsing local SAC info")
 }
 
 # assemble the complete table we need for the correlation before
-
-writeLines("\nassembling Total Geography Table")
-Total_Data_Geo <- data.table(Reduce(
-        function(x, y, ...) merge(x, y, by=c("geo_code"), all = TRUE, ...),
-        list(CSD_data, Influence_Info) # , Index_of_Remoteness)
-    )) %>%
-    dplyr::mutate(
-        province = lookup_provinces(geo_code),
-        geo_name = coalesce(geo_name, region),
-        class  = ifelse(is.na(class), "", class),
-        is_cma = ifelse(is.na(is_cma), FALSE, is_cma),
-        is_ca = ifelse(is.na(is_ca), FALSE, is_ca),
-        is_miz_strong = ifelse(is.na(is_miz_strong), FALSE, is_miz_strong),
-        is_miz_moderate = ifelse(is.na(is_miz_moderate), FALSE, is_miz_moderate),
-        is_miz_weak = ifelse(is.na(is_miz_weak), FALSE, is_miz_weak),
-        is_miz_none = ifelse(is.na(is_miz_none), FALSE, is_miz_none)
-    ) %>%
-    dplyr::select(-region, -type, -title) %>%
-    dplyr::filter(!is.na(HRUID2018))
-    saveRDS(Total_Data_Geo, sprintf("%s/Classifications/Total_CSD_Info.rda", PROJECT_FOLDER))
-    
-if(!file.exists(file.path(PROJECT_FOLDER, "Classifications/PHUs_hosting_airports.csv")))
+if(!file.exists( sprintf("%s/Classifications/Total_CSD_Info.rda", PROJECT_FOLDER) ))
 {
-    PHU_shapes <- readRDS(file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda"))
-    
-    Airport_Locations <- st_read(file.path(
-        PROJECT_FOLDER, 
-        "Airports_Aeroports_en_shape/Airports_Aeroports_en_shape.shp"
-    ))
-    
-    which_PHUs <- function(icaos)
-    {
-        return(unlist(lapply(
-            icaos,
-            \(xx) st_intersects(
-                Airport_Locations %>% dplyr::filter(ICAO == xx) %>% dplyr::pull(geometry) %>% 
-                    st_sf() %>% st_transform(3857), 
-                PHU_shapes$geometry %>% st_sf() %>% st_transform(3857)
-            ) %>% .[1] %>% .[[1]] %>% PHU_shapes[., HRUID2018]
-        )))
-    }
-    
-    start_time <- Sys.time()
-    PHUs_with_airports <- which_PHUs(unique(Airport_Locations$ICAO)) %>%
-        table %>% 
-        data.table %>% 
-        setNames(c("HRUID2018", "airports")) %>%
-        dplyr::mutate(HRUID2018 = as.character(HRUID2018)) %>%
-        dplyr::rename()
-    fwrite(PHUs_with_airports, file.path(
-        PROJECT_FOLDER, "Classifications/PHUs_hosting_airports.csv"
-    ))
-    print(Sys.time() - start_time)
+    Total_Data_Geo <- data.table(Reduce(
+            function(x, y, ...) merge(x, y, by=c("geo_code"), all = TRUE, ...),
+            list(CSD_data, Influence_Info) # , Index_of_Remoteness)
+        )) %>%
+        dplyr::mutate(
+            province = lookup_provinces(geo_code),
+            geo_name = coalesce(geo_name, region),
+            class  = ifelse(is.na(class), "", class),
+            is_cma = ifelse(is.na(is_cma), FALSE, is_cma),
+            is_ca = ifelse(is.na(is_ca), FALSE, is_ca),
+            is_miz_strong = ifelse(is.na(is_miz_strong), FALSE, is_miz_strong),
+            is_miz_moderate = ifelse(is.na(is_miz_moderate), FALSE, is_miz_moderate),
+            is_miz_weak = ifelse(is.na(is_miz_weak), FALSE, is_miz_weak),
+            is_miz_none = ifelse(is.na(is_miz_none), FALSE, is_miz_none)
+        ) %>%
+        dplyr::select(-region, -type, -title) %>%
+        dplyr::filter(!is.na(HRUID2018))
+    saveRDS(Total_Data_Geo, sprintf("%s/Classifications/Total_CSD_Info.rda", PROJECT_FOLDER))
 }
+    
+Total_Data_Geo <- readRDS(sprintf("%s/Classifications/Total_CSD_Info.rda", PROJECT_FOLDER))
+    
+# if(!file.exists(file.path(PROJECT_FOLDER, "Classifications/PHUs_hosting_airports.csv")))
+# {
+#     PHU_shapes <- readRDS(file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda"))
+#     
+#     Airport_Locations <- st_read(file.path(
+#         PROJECT_FOLDER, 
+#         "Airports_Aeroports_en_shape/Airports_Aeroports_en_shape.shp"
+#     ))
+#     
+#     which_PHUs <- function(icaos)
+#     {
+#         return(unlist(lapply(
+#             icaos,
+#             \(xx) st_intersects(
+#                 Airport_Locations %>% dplyr::filter(ICAO == xx) %>% dplyr::pull(geometry) %>% 
+#                     st_sf() %>% st_transform(3857), 
+#                 PHU_shapes$geometry %>% st_sf() %>% st_transform(3857)
+#             ) %>% .[1] %>% .[[1]] %>% PHU_shapes[., HRUID2018]
+#         )))
+#     }
+#     
+#     start_time <- Sys.time()
+#     PHUs_with_airports <- which_PHUs(unique(Airport_Locations$ICAO)) %>%
+#         table %>% 
+#         data.table %>% 
+#         setNames(c("HRUID2018", "airports")) %>%
+#         dplyr::mutate(HRUID2018 = as.character(HRUID2018)) %>%
+#         dplyr::rename()
+#     fwrite(PHUs_with_airports, file.path(
+#         PROJECT_FOLDER, "Classifications/PHUs_hosting_airports.csv"
+#     ))
+#     print(Sys.time() - start_time)
+# }
 
 if(!file.exists(file.path(PROJECT_FOLDER, "/CaseDataTables/canada_wide_vacc_data_official.csv")))
 {
@@ -402,78 +420,92 @@ LUT <- rbind(
         list("Canada", "Can.", "CN", -1, "Canada")
     ) %>% dplyr::select(province, abbreviations)
 
-interventions <- read.xlsx(
-        sprintf("%s/%s", PROJECT_FOLDER, "covid-19-intervention-scan-data-tables-en.xlsx"),
-        sheet = "Intervention scan",
-        startRow = 3
-    ) %>%
-    rename_with(\(x) x %>% tolower %>% gsub("intervention.", "", .))  %>%
-    filter(!grepl("end", tolower(entry.id))) %>%
-    mutate(
-        date.announced = convertToDate(date.announced) %>% as.integer,
-        date.implemented = convertToDate(date.implemented) %>% as.integer,
-        jurisdiction = dplyr::recode(jurisdiction, "Nun." = "Nvt.")
-    ) %>%
-    dplyr::mutate(
-        jurisdiction = left_join(., LUT, by=c("jurisdiction" = "abbreviations"))$province,
-        type = unlist(lapply(type, \(x) str_split(x, '-')[[1]][2] %>% trimws)),
-        indigenous.population.group = dplyr::recode(
-            indigenous.population.group,
-            "No"=FALSE, "Yes"=TRUE, .default=NA
-        ),
-        summary = tolower(summary),
-        who = unlist(lapply(
-            summary,
-            \(x) gsub('^.*who:\\s*|\\s*what.*$', '', x)
-        )),
-        what = unlist(lapply(
-            summary,
-            \(x)  gsub('^.*what:\\s*|\\s*effective until.*$', '', x)
-        )),
-        effective.until = unlist(lapply(
-            summary,
-            \(x){
-                if(grepl("effective until", x)) gsub('^.*effective until\\s*|\\.', '', x) else ""
-            }
-        )) %>%
-            gsub("\t|\n|:", "", .) %>%
-            trimws,
-        effective.until = unlist(lapply(
-            effective.until,
-            \(x) unlist(lapply(x, date_corrector))
-        )),
-        category = category %>% tolower %>% trimws,
-        jurisdiction = ifelse(is.na(jurisdiction), "all Canada", jurisdiction)
-    ) %>%
-    dplyr::select(-summary) %>%
-    dplyr::filter(!is.na(date.implemented) & (effective.until != "-1")) %>%
-    dplyr::mutate(
-        effective.until = ifelse(effective.until == "", as.numeric(Sys.Date()), effective.until)
-    ) %>%
-    dplyr::mutate(effective.until = effective.until %>% as.numeric) %>%
-    dplyr::filter(abs(effective.until-date.implemented)>14) %>% 
-    # we'll assume that the effective interventions must last at least two weeks
-    data.table
+if(! file.exists(file.path(PROJECT_FOLDER, "Classifications/iterventions.csv")))
+{
+    interventions <- read.xlsx(
+            sprintf("%s/%s", PROJECT_FOLDER, "covid-19-intervention-scan-data-tables-en.xlsx"),
+            sheet = "Intervention scan",
+            startRow = 3
+        ) %>%
+        rename_with(\(x) x %>% tolower %>% gsub("intervention.", "", .))  %>%
+        filter(!grepl("end", tolower(entry.id))) %>%
+        mutate(
+            date.announced = convertToDate(date.announced) %>% as.integer,
+            date.implemented = convertToDate(date.implemented) %>% as.integer,
+            jurisdiction = dplyr::recode(jurisdiction, "Nun." = "Nvt.")
+        ) %>%
+        dplyr::mutate(
+            jurisdiction = left_join(., LUT, by=c("jurisdiction" = "abbreviations"))$province,
+            type = unlist(lapply(type, \(x) str_split(x, '-')[[1]][2] %>% trimws)),
+            indigenous.population.group = dplyr::recode(
+                indigenous.population.group,
+                "No"=FALSE, "Yes"=TRUE, .default=NA
+            ),
+            summary = tolower(summary),
+            who = unlist(lapply(
+                summary,
+                \(x) gsub('^.*who:\\s*|\\s*what.*$', '', x)
+            )),
+            what = unlist(lapply(
+                summary,
+                \(x)  gsub('^.*what:\\s*|\\s*effective until.*$', '', x)
+            )),
+            effective.until = unlist(lapply(
+                summary,
+                \(x){
+                    if(grepl("effective until", x)) gsub('^.*effective until\\s*|\\.', '', x) else ""
+                }
+            )) %>%
+                gsub("\t|\n|:", "", .) %>%
+                trimws,
+            effective.until = unlist(lapply(
+                effective.until,
+                \(x) unlist(lapply(x, date_corrector))
+            )),
+            category = category %>% tolower %>% trimws,
+            jurisdiction = ifelse(is.na(jurisdiction), "all Canada", jurisdiction)
+        ) %>%
+        dplyr::select(-summary) %>%
+        dplyr::filter(!is.na(date.implemented) & (effective.until != "-1")) %>%
+        dplyr::mutate(
+            effective.until = ifelse(effective.until == "", as.numeric(Sys.Date()), effective.until)
+        ) %>%
+        dplyr::mutate(effective.until = effective.until %>% as.numeric) %>%
+        dplyr::filter(abs(effective.until-date.implemented)>14) %>% 
+        # we'll assume that the effective interventions must last at least two weeks
+        data.table()
+        fwrite(interventions, file.path(PROJECT_FOLDER, "Classifications/iterventions.csv"))
+}
+    
+interventions <- fread(file.path(PROJECT_FOLDER, "Classifications/iterventions.csv"))
+
+stop()
  
 ###### EDUCATION INTERVENTIONS
 
-# tightened education interventions
-TEI <- interventions %>% 
-    dplyr::filter(grepl("education", tolower(type))) %>%
-    dplyr::filter(grepl("provincial", tolower(level))) %>%
-    dplyr::filter(grepl("clos|open", tolower(category))) %>% 
-    dplyr::filter(grepl("tigh", tolower(action)) & !grepl("eas", tolower(action))) %>% 
-    # some of the restrictions are marked tightening/easing - those are easing
-    dplyr::filter(!grepl("guidance|strengthened|distributed|amended", tolower(what))) %>%
-    dplyr::filter(!grepl("working with|extended online teacher-led", tolower(what))) %>%
-    dplyr::filter(!grepl("implemented new measures|mask|release|update", tolower(what))) %>%
-    dplyr::mutate(
-        what = substr(what, start=1, stop=20),
-        effective.until = ifelse(is.na(effective.until), Sys.Date(), effective.until),
-        jurisdiction = ifelse(is.na(jurisdiction), "Canada", jurisdiction),
-        colour = "red",
-        alpha = lookup_alphas(jurisdiction)
-    )
+if(!file.exists( file.path(PROJCT_FOLDER, "Classifications/tightened_educational_restrictions.R") ))
+{
+    # tightened education interventions
+    TEI <- interventions %>% 
+        dplyr::filter(grepl("education", tolower(type))) %>%
+        dplyr::filter(grepl("provincial", tolower(level))) %>%
+        dplyr::filter(grepl("clos|open", tolower(category))) %>% 
+        dplyr::filter(grepl("tigh", tolower(action)) & !grepl("eas", tolower(action))) %>% 
+        # some of the restrictions are marked tightening/easing - those are easing
+        dplyr::filter(!grepl("guidance|strengthened|distributed|amended", tolower(what))) %>%
+        dplyr::filter(!grepl("working with|extended online teacher-led", tolower(what))) %>%
+        dplyr::filter(!grepl("implemented new measures|mask|release|update", tolower(what))) %>%
+        dplyr::mutate(
+            what = substr(what, start=1, stop=20),
+            effective.until = ifelse(is.na(effective.until), Sys.Date(), effective.until),
+            jurisdiction = ifelse(is.na(jurisdiction), "Canada", jurisdiction),
+            colour = "red",
+            alpha = lookup_alphas(jurisdiction)
+        )
+        fwrite(TEI, file.path(PROJECT_FOLDER, "Classifications/tightened_educational_restrictions.R"))
+}
+
+TEI <- fread(file.path(PROJCT_FOLDER, "Classifications/tightened_educational_restrictions.R"))
 
 # y_min_max <- plotly_build(
 #     TEI %>%
@@ -590,10 +622,13 @@ lockdown_interventions_in_waves <- LDM %>%
 
 ################# VACCINATION
 
-fread(
-    "https://health-infobase.canada.ca/src/data/covidLive/vaccination-coverage-byAgeAndSex.csv"
+if(!file.exists( sprintf("%s/CaseDataTables/canada_wide_vacc_data_official.csv", PROJECT_FOLDER) ))
+{
+    fread(
+        "https://health-infobase.canada.ca/src/data/covidLive/vaccination-coverage-byAgeAndSex.csv"
     ) %>%
     fwrite(sprintf("%s/CaseDataTables/canada_wide_vacc_data_official.csv", PROJECT_FOLDER))
+}
 
 vaxx_info <- fread(file.path(
         PROJECT_FOLDER, 
@@ -661,16 +696,30 @@ vaccination_in_waves <- vaxx_info %>%
         lapply(., \(x){ 
             vaxx_info %>% dplyr::filter(pruid == x) %>% 
                 dplyr::filter(week_end <= Canada_Wave_Dates[2]) %>% 
-                dplyr::arrange(week_end) %>% 
-                tail(1) %>% 
+                dplyr::arrange(week_end) %>% tail(1) %>% 
                 dplyr::mutate(wave=1) }
             ) %>% rbindlist,
-        lapply(., \(x){ vaxx_info %>% dplyr::filter(pruid == x) %>% dplyr::filter(week_end <= Canada_Wave_Dates[3]) %>% dplyr::arrange(week_end) %>% tail(1) %>% dplyr::mutate(wave=2) }) %>% rbindlist,
-        lapply(., \(x){ vaxx_info %>% dplyr::filter(pruid == x) %>% dplyr::filter(week_end <= Canada_Wave_Dates[4]) %>% dplyr::arrange(week_end) %>% tail(1) %>% dplyr::mutate(wave=3) }) %>% rbindlist,
-        lapply(., \(x){ vaxx_info %>% dplyr::filter(pruid == x) %>% dplyr::filter(week_end <= Canada_Wave_Dates[5]) %>% dplyr::arrange(week_end) %>% tail(1) %>% dplyr::mutate(wave=4) }) %>% rbindlist
-    ) %>%
-    tail(-1) %>%
-    rbindlist
+        lapply(., \(x){ 
+            vaxx_info %>% dplyr::filter(pruid == x) %>% 
+                dplyr::filter(week_end <= Canada_Wave_Dates[3]) %>% 
+                dplyr::arrange(week_end) %>% tail(1) %>% 
+                dplyr::mutate(wave=2) }
+            ) %>% rbindlist,
+        lapply(., \(x){ 
+            vaxx_info %>% dplyr::filter(pruid == x) %>% 
+                dplyr::filter(week_end <= Canada_Wave_Dates[4]) %>% 
+                dplyr::arrange(week_end) %>% tail(1) %>% 
+                dplyr::mutate(wave=3) }
+            ) %>% rbindlist,
+        lapply(., \(x){ 
+            vaxx_info %>% dplyr::filter(pruid == x) %>% 
+                dplyr::filter(week_end <= Canada_Wave_Dates[5]) %>% 
+                dplyr::arrange(week_end) %>% tail(1) %>% 
+                dplyr::mutate(wave=4) }
+            ) %>% rbindlist
+        ) %>%
+        tail(-1) %>%
+        rbindlist
 
 full_vaccination_info <- merge(
         categorical_vaccination, 
@@ -930,7 +979,7 @@ Total_Case_Data <- fread(file.path(PROJECT_FOLDER, "CaseDataTables/Total_Case_Da
     dplyr::group_by(HRUID2018,HR, province, pruid, wave) %>%
     dplyr::summarise(incidence = sum(cases, na.rm=TRUE)) %>%
     data.table
-    
+
 Regression_Data <- Total_Case_Data %>%
     merge(interventions_by_wave_province, by=c("province", "pruid", "wave"), all=TRUE) %>%
     merge(PHU_information, by=c("province", "HRUID2018", "HR"), all=TRUE) %>%
@@ -940,6 +989,10 @@ Regression_Data <- Total_Case_Data %>%
         EIs = factor(ifelse(is.na(EIs), "None", EIs)),
         VIs = factor(ifelse(is.na(VIs), "None", VIs)),
         VIs_AL1D = ifelse(is.na(VIs_AL1D), 0, VIs_AL1D),
+        area_sq_km =  as.numeric(st_area(geometry))/1000**2
+    ) %>%
+    dplyr::mutate(
+        pop_density = as.numeric(total_population/area_sq_km),
         VIs_FULL = ifelse(is.na(VIs_FULL), 0, VIs_FULL)
     ) %>%
     st_sf
