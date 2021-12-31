@@ -126,13 +126,13 @@ if(! file.exists(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv"
                     cohort_100_plus = sum_cohorts("100_years_and_over")
                 ) %>%
                 dplyr::mutate(
-                    total_population = cohort_0_to_4 + cohort_5_to_9 + cohort_10_to_14 + 
+                    CSD_population = cohort_0_to_4 + cohort_5_to_9 + cohort_10_to_14 + 
                         cohort_15_to_19 + cohort_20_to_24 + cohort_25_to_29 + cohort_30_to_34 + 
                         cohort_35_to_39 + cohort_40_to_44 + cohort_45_to_49 + cohort_50_to_54 + 
                         cohort_55_to_59 + cohort_60_to_64 + cohort_65_to_69 + cohort_70_to_74 + 
                         cohort_75_to_79 + cohort_80_to_84 + cohort_85_to_89 + cohort_90_to_94 + 
                         cohort_95_to_99 + cohort_100_plus,
-                    total_dwellings = temp %>%
+                    CSD_dwellings = temp %>%
                         dplyr::filter(grepl("total_private_dwellings", tolower(attribute))) %>%
                         dplyr::pull(value) %>%
                         as.numeric %>%
@@ -163,8 +163,6 @@ if(! file.exists(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv"
 }
     
 CSD_data <- fread(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv"))
-
-stop()
 
 ############## CATEGORICAL AND CONTINUOUS REMOTENESS
 
@@ -376,6 +374,7 @@ PHU_information <- Total_Data_Geo[,
         ),
         by=.(HRUID2018, province, HR)
     ] %>%
+    dplyr::rename(PHU_population = CSD_population, PHU_dwellings = CSD_dwellings) %>%
     merge(
         readRDS(file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda")), 
         by = c("HRUID2018")
@@ -393,6 +392,12 @@ PHU_information <- Total_Data_Geo[,
         all=TRUE
     ) %>%
     dplyr::mutate(LTCHs = ifelse(is.na(LTCHs), 0, LTCHs))
+
+province_populations <- PHU_information %>% 
+    dplyr::select(province, PHU_population) %>% 
+    unique() %>% 
+    dplyr::group_by(province) %>% 
+    dplyr::summarise(PROV_population = sum(PHU_population, na.rm=TRUE))
     
 #####################################
 ############## TIME-DEPENDENT METRICS
@@ -479,11 +484,11 @@ if(! file.exists(file.path(PROJECT_FOLDER, "Classifications/iterventions.csv")))
     
 interventions <- fread(file.path(PROJECT_FOLDER, "Classifications/iterventions.csv"))
 
-stop()
+# stop()
  
 ###### EDUCATION INTERVENTIONS
 
-if(!file.exists( file.path(PROJCT_FOLDER, "Classifications/tightened_educational_restrictions.R") ))
+if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/tightened_educational_restrictions.R") ))
 {
     # tightened education interventions
     TEI <- interventions %>% 
@@ -505,7 +510,7 @@ if(!file.exists( file.path(PROJCT_FOLDER, "Classifications/tightened_educational
         fwrite(TEI, file.path(PROJECT_FOLDER, "Classifications/tightened_educational_restrictions.R"))
 }
 
-TEI <- fread(file.path(PROJCT_FOLDER, "Classifications/tightened_educational_restrictions.R"))
+TEI <- fread(file.path(PROJECT_FOLDER, "Classifications/tightened_educational_restrictions.R"))
 
 # y_min_max <- plotly_build(
 #     TEI %>%
@@ -548,7 +553,7 @@ educational_interventions_in_waves <- TEI %>%
     dplyr::select(jurisdiction, date.implemented, effective.until) %>% 
     dplyr::mutate(effective.until = pmin(effective.until, Sys.time(), na.rm=T)) %>% 
     split(by="jurisdiction") %>% 
-    lapply(. %>%  select(-jurisdiction)) %>%
+    lapply(. %>%  dplyr::select(-jurisdiction)) %>%
     lapply( \(tab) mapply(`:`, tab$date.implemented, tab$effective.until) %>% 
         unlist %>% unique %>% sort 
     ) %>%
@@ -593,7 +598,7 @@ lockdown_interventions_in_waves <- LDM %>%
     dplyr::select(jurisdiction, date.implemented, effective.until) %>% 
     dplyr::mutate(effective.until = pmin(effective.until, Sys.time(), na.rm=T)) %>% 
     split(by="jurisdiction") %>% 
-    lapply(. %>%  select(-jurisdiction)) %>%
+    lapply(. %>%  dplyr::select(-jurisdiction)) %>%
     lapply( \(tab) mapply(`:`, tab$date.implemented, tab$effective.until) %>% 
                 unlist %>% unique %>% sort
     ) %>%
@@ -637,8 +642,8 @@ vaxx_info <- fread(file.path(
     dplyr::filter(prfname != "Canada") %>%
     group_by(pruid, prfname, week_end) %>%
     dplyr::summarise(
-        VIs_AL1D=sum(as.numeric(numtotal_atleast1dose), na.rm=TRUE),
-        VIs_FULL=sum(as.numeric(numtotal_fully), na.rm=TRUE)
+        PROV_vaxx_AL1D=sum(as.numeric(numtotal_atleast1dose), na.rm=TRUE),
+        PROV_vaxx_FULL=sum(as.numeric(numtotal_fully), na.rm=TRUE)
     ) %>%
     data.table %>%
     dplyr::mutate(
@@ -665,7 +670,7 @@ vaxx_implementation <- function(the_vaxx_table, prov)
     temp_table <- the_vaxx_table %>% 
         dplyr::filter(province == prov) %>% 
         ### ask Seyed whether we're looking at 'at least one dose' or 'fully vaccinated'
-        dplyr::filter(VIs_AL1D != 0)
+        dplyr::filter(PROV_vaxx_AL1D != 0)
     
     return( rbindlist( lapply( 1:4, \(xx)
     {
@@ -729,8 +734,8 @@ full_vaccination_info <- merge(
     ) %>%
     dplyr::select(-week_end) %>%
     dplyr::mutate(
-        VIs_AL1D = ifelse(is.na(VIs_AL1D), 0, VIs_AL1D),
-        VIs_FULL = ifelse(is.na(VIs_FULL), 0, VIs_FULL),
+        PROV_vaxx_AL1D = ifelse(is.na(PROV_vaxx_AL1D), 0, PROV_vaxx_AL1D),
+        PROV_vaxx_FULL = ifelse(is.na(PROV_vaxx_FULL), 0, PROV_vaxx_FULL),
         pruid = lookup_province_UIDs(province)
     )
    
@@ -739,8 +744,8 @@ interventions_by_wave_province <- full_vaccination_info %>%
     merge(lockdown_interventions_in_waves, by=c("province", "wave"), all=TRUE) %>%
     # merge(province_UIDs, by=c("province")) %>%
     dplyr::mutate(
-        VIs_AL1D = ifelse(is.na(VIs_AL1D), 0, VIs_AL1D),
-        VIs_FULL = ifelse(is.na(VIs_FULL), 0, VIs_FULL),
+        PROV_vaxx_AL1D = ifelse(is.na(PROV_vaxx_AL1D), 0, PROV_vaxx_AL1D),
+        PROV_vaxx_FULL = ifelse(is.na(PROV_vaxx_FULL), 0, PROV_vaxx_FULL),
         # pruid = dplyr::coalesce(pruid.x, pruid.y)
     ) %>%
     dplyr::filter(!grepl("all canada", tolower(province))) %>% 
@@ -980,21 +985,20 @@ Total_Case_Data <- fread(file.path(PROJECT_FOLDER, "CaseDataTables/Total_Case_Da
     dplyr::summarise(incidence = sum(cases, na.rm=TRUE)) %>%
     data.table
 
+stop()
+
 Regression_Data <- Total_Case_Data %>%
     merge(interventions_by_wave_province, by=c("province", "pruid", "wave"), all=TRUE) %>%
     merge(PHU_information, by=c("province", "HRUID2018", "HR"), all=TRUE) %>%
+    merge(province_populations, by=c("province"), all=TRUE) %>%
     dplyr::filter(!is.na(HRUID2018)) %>%
     dplyr::mutate(
         LIs = factor(ifelse(is.na(LIs), "None", LIs)),
         EIs = factor(ifelse(is.na(EIs), "None", EIs)),
         VIs = factor(ifelse(is.na(VIs), "None", VIs)),
-        VIs_AL1D = ifelse(is.na(VIs_AL1D), 0, VIs_AL1D),
-        area_sq_km =  as.numeric(st_area(geometry))/1000**2
+        PHU_area_km2 =  as.numeric(st_area(geometry))/1000**2
     ) %>%
-    dplyr::mutate(
-        pop_density = as.numeric(total_population/area_sq_km),
-        VIs_FULL = ifelse(is.na(VIs_FULL), 0, VIs_FULL)
-    ) %>%
+    dplyr::mutate(PHU_pop_density = as.numeric(PHU_population/PHU_area_km2)) %>%
     st_sf
     saveRDS(Regression_Data, file=file.path(PROJECT_FOLDER, "CaseDataFiles/regression_data.rda"))
 

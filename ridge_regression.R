@@ -5,13 +5,19 @@ library(dplyr)
 library(glmnet)
 library(caret)
 library(ggplot2)
+library(car)
+library(stringr)
+library(ppcor)
 
 PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
+# PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project"
+
+source(sprintf("%s/function_header.R", PROJECT_FOLDER))
 
 ## things to fix:
 ## 
 ## 1) change the add_HRs function to equally divide the numerical columns instead of copying the values directly (maybe through an optional function argument)
-## 5) figure out graphing for the results
+## 2) figure out why there is no Saskatchewan data for the first wave
 
 # calculate r**2
 r2 <- function(truth, prediction) {
@@ -19,7 +25,7 @@ r2 <- function(truth, prediction) {
     sst <- sum((truth - mean(truth))^2)
     return(1 - sse/sst)
 }
-
+ # for None/Partial/Entire factors, convert them to 0/1/2
 factor_to_num <- function(factor_sequence)
 {
     return(unlist(lapply(
@@ -47,28 +53,31 @@ cohorts <- function(start_age, end_age, ...)
     return(parse(text = paste(col_names, collapse=" + ")))
 }
 
-Import <- readRDS(file.path(PROJECT_FOLDER, "CaseDataFiles/regression_data.rda")) %>%
+# import the pre-prepared regression data
+Imported <- readRDS(file.path(PROJECT_FOLDER, "CaseDataFiles/regression_data.rda")) %>%
     data.table() %>%
+    # changing the None/Partial/Entire values to 0/1/2
     dplyr::mutate(
         EIs = factor_to_num(EIs),
         LIs = factor_to_num(LIs),
         VIs = factor_to_num(VIs),
+        # the 0-4 cohort is for reference
         # group_0_to_4 = eval(cohorts(0,4))/total_population,
-        group_5_to_19 = eval(cohorts(5, 19))/total_population,
-        group_20_to_49 = eval(cohorts(20, 49))/total_population,
-        group_50_to_64 = eval(cohorts(50, 64))/total_population,
-        group_65_plus = eval(cohorts(65, 99, "cohort_100_plus"))/total_population
+        group_5_to_19 = eval(cohorts(5, 19))/PHU_population,
+        group_20_to_49 = eval(cohorts(20, 49))/PHU_population,
+        group_50_to_64 = eval(cohorts(50, 64))/PHU_population,
+        group_65_plus = eval(cohorts(65, 99, "cohort_100_plus"))/PHU_population
     ) %>%
     # adding interaction terms
     dplyr::mutate(
         interaction_children_school_closures = EIs*group_5_to_19,
         
-        interaction_popdensity_cma = pop_density*is_cma,
-        interaction_popdensity_ca = pop_density*is_ca,
-        interaction_popdensity_strong = pop_density*is_miz_strong,
-        interaction_popdensity_moderate = pop_density*is_miz_moderate,
-        interaction_popdensity_weak = pop_density*is_miz_weak,
-        interaction_popdensity_none = pop_density*is_miz_none,
+        interaction_popdensity_cma = PHU_pop_density*is_cma,
+        interaction_popdensity_ca = PHU_pop_density*is_ca,
+        interaction_popdensity_strong = PHU_pop_density*is_miz_strong,
+        interaction_popdensity_moderate = PHU_pop_density*is_miz_moderate,
+        interaction_popdensity_weak = PHU_pop_density*is_miz_weak,
+        interaction_popdensity_none = PHU_pop_density*is_miz_none,
         
         interaction_LTCH_65_plus = LTCHs*group_65_plus,
         
@@ -78,97 +87,106 @@ Import <- readRDS(file.path(PROJECT_FOLDER, "CaseDataFiles/regression_data.rda")
         interaction_lockdown_50_to_64 = LIs*group_50_to_64,
         interaction_lockdown_65_plus = LIs*group_65_plus
     ) %>%
-    dplyr::select(-geometry, -VIs_FULL, -starts_with("cohort"), -airports, -area_sq_km, -total_dwellings)
-
-
-# add the log of the incidence from the previous wave
+    # taking away the unnecessary columns. later we'll do regression on the entire\
+    # glmnet matrix, so no stray columns
+    dplyr::select(
+        -geometry, -PROV_vaxx_FULL, -starts_with("cohort"), -airports, 
+        -PHU_area_km2, -PHU_dwellings
+    )
+    
+# add the incidence and log(incidence) from the previous wave
 Data <- rbind(
-        # first wave is unadulterated
-        Import %>% dplyr::filter(wave==1) %>%
+    # first wave is unadulterated
+    Imported %>% dplyr::filter(wave==1) %>%
+        dplyr::mutate(
+            previous_wave_incidence = 0,
+            interaction_vaccination_5_to_19 = 0,
+            interaction_vaccination_20_to_49 = 0,
+            interaction_vaccination_50_to_64 = 0,
+            interaction_vaccination_65_plus = 0,
+        ),
+    # second wave with the incidence of the first wave attached
+    merge(
+        Imported %>% dplyr::filter(wave == 2) %>%
+            dplyr::group_by(province, pruid) %>%
             dplyr::mutate(
-                previous_wave_incidence = 0,
-                interaction_vaccination_5_to_19 = 0,
-                interaction_vaccination_20_to_49 = 0,
-                interaction_vaccination_50_to_64 = 0,
-                interaction_vaccination_65_plus = 0,
+            interaction_vaccination_5_to_19 = 0,
+            interaction_vaccination_20_to_49 = PROV_vaxx_AL1D/PROV_population*group_20_to_49,
+            interaction_vaccination_50_to_64 = PROV_vaxx_AL1D/PROV_population*group_50_to_64,
+            interaction_vaccination_65_plus = PROV_vaxx_AL1D/PROV_population*group_65_plus,
             ),
-        # second wave with the log(incidence) of the first wave attached
-        merge(
-            Import %>% dplyr::filter(wave == 2) %>%
-                dplyr::mutate(
-                    interaction_vaccination_5_to_19 = 0,
-                    interaction_vaccination_20_to_49 = VIs_AL1D/(total_population-VIs_AL1D)*group_20_to_49,
-                    interaction_vaccination_50_to_64 = VIs_AL1D/(total_population-VIs_AL1D)*group_50_to_64,
-                    interaction_vaccination_65_plus = VIs_AL1D/(total_population-VIs_AL1D)*group_65_plus,
-                ),
-            Import %>% 
-                dplyr::filter(wave == 1) %>% 
-                dplyr::rename(previous_wave_incidence = incidence) %>%
-                dplyr::select(pruid, HRUID2018, previous_wave_incidence),
-            by=c("pruid", "HRUID2018"),
-            all = TRUE
-        ),
-        # third wave with the log(incidence) of the second wave attached
-        merge(
-            Import %>% dplyr::filter(wave == 3) %>%    
-                dplyr::mutate(
-                    interaction_vaccination_5_to_19 = VIs/(total_population-VIs_AL1D)*group_5_to_19,
-                    interaction_vaccination_20_to_49 = VIs_AL1D/(total_population-VIs_AL1D)*group_20_to_49,
-                    interaction_vaccination_50_to_64 = VIs_AL1D/(total_population-VIs_AL1D)*group_50_to_64,
-                    interaction_vaccination_65_plus = VIs_AL1D/(total_population-VIs_AL1D)*group_65_plus,
-                ),
-            Import %>% 
-                dplyr::filter(wave == 2) %>% 
-                dplyr::rename(previous_wave_incidence = incidence) %>%
-                dplyr::select(pruid, HRUID2018, previous_wave_incidence),
-            by=c("pruid", "HRUID2018"),
-            all = TRUE
-        ),
-        # fourth wave with the log(incidence) of the third wave attached
-        merge(
-            Import %>% dplyr::filter(wave == 4) %>%    
-                dplyr::mutate(
-                    interaction_vaccination_5_to_19 = VIs/(total_population-VIs_AL1D)*group_5_to_19,
-                    interaction_vaccination_20_to_49 = VIs_AL1D/(total_population-VIs_AL1D)*group_20_to_49,
-                    interaction_vaccination_50_to_64 = VIs_AL1D/(total_population-VIs_AL1D)*group_50_to_64,
-                    interaction_vaccination_65_plus = VIs_AL1D/(total_population-VIs_AL1D)*group_65_plus,
-                ),
-            Import %>% 
-                dplyr::filter(wave == 3) %>% 
-                dplyr::rename(previous_wave_incidence = incidence) %>%
-                dplyr::select(pruid, HRUID2018, previous_wave_incidence),
-            by=c("pruid", "HRUID2018"),
-            all = TRUE
-        )
-    ) %>%
-    dplyr::mutate(log_previous_wave_incidence = ifelse(previous_wave_incidence==0, 0, log(previous_wave_incidence)))
+        Imported %>% 
+            dplyr::filter(wave == 1) %>% 
+            dplyr::rename(previous_wave_incidence = incidence) %>%
+            dplyr::select(pruid, HRUID2018, previous_wave_incidence),
+        by=c("pruid", "HRUID2018"),
+        all = TRUE
+    ),
+    # third wave with the incidence of the second wave attached
+    merge(
+        Imported %>% dplyr::filter(wave == 3) %>%    
+            dplyr::mutate(
+            interaction_vaccination_5_to_19 = PROV_vaxx_AL1D/PROV_population*group_5_to_19,
+            interaction_vaccination_20_to_49 = PROV_vaxx_AL1D/PROV_population*group_20_to_49,
+            interaction_vaccination_50_to_64 = PROV_vaxx_AL1D/PROV_population*group_50_to_64,
+            interaction_vaccination_65_plus = PROV_vaxx_AL1D/PROV_population*group_65_plus,
+            ),
+        Imported %>% 
+            dplyr::filter(wave == 2) %>% 
+            dplyr::rename(previous_wave_incidence = incidence) %>%
+            dplyr::select(pruid, HRUID2018, previous_wave_incidence),
+        by=c("pruid", "HRUID2018"),
+        all = TRUE
+    ),
+    # fourth wave with the incidence of the third wave attached
+    merge(
+        Imported %>% dplyr::filter(wave == 4) %>%    
+            dplyr::mutate(
+            interaction_vaccination_5_to_19 = PROV_vaxx_AL1D/PROV_population*group_5_to_19,
+            interaction_vaccination_20_to_49 = PROV_vaxx_AL1D/PROV_population*group_20_to_49,
+            interaction_vaccination_50_to_64 = PROV_vaxx_AL1D/PROV_population*group_50_to_64,
+            interaction_vaccination_65_plus = PROV_vaxx_AL1D/PROV_population*group_65_plus,
+            ),
+        Imported %>% 
+            dplyr::filter(wave == 3) %>% 
+            dplyr::rename(previous_wave_incidence = incidence) %>%
+            dplyr::select(pruid, HRUID2018, previous_wave_incidence),
+        by=c("pruid", "HRUID2018"),
+        all = TRUE
+    )
+) %>%
+dplyr::mutate(
+    # if there was zero incidence, just set the log incidence to zero
+    log_previous_wave_incidence=ifelse(previous_wave_incidence==0, 0, log(previous_wave_incidence))
+)
 
-# # MUST DO - check why Saskatchewan as no wave 1 information at all
-# merge(
-#     Data %>% dplyr::filter(wave==1) %>% dplyr::select(province, HR) %>%
-#         dplyr::mutate(wave=1),
-#     Data %>% dplyr::filter(wave==2) %>% dplyr::select(province, HR) %>%
-#         dplyr::mutate(wave=2),
-#     by=c("province", "HR"),
-#     all = TRUE
-# ) %>% filter(is.na(wave.x) | is.na(wave.y))
-
+# tables for descriptive data
 Coefficients <- data.table()
 r2s <- data.table()
+VIFs <- data.table()
+MSEs <- data.table()
+optimal_lambdas <- data.table()
 
+start_time <- Sys.time()
 for(wave_number in 1:4)
 {
+    ##### UNSTANDARDISED REGRESION
+    
     reg_data <- Data %>%
         dplyr::filter(wave == wave_number) %>%
-        # information not needed ofr debugging anymore
-        dplyr::select(-province, -HRUID2018, -HR, -pruid, -VIs_AL1D, -log_previous_wave_incidence, -total_population) %>%
-        # take out the columns with only a sing e value, since we can't regress on those
-        select(where(~n_distinct(.) > 1)) %>%
+        # information not needed for debugging anymore
+        dplyr::select(
+            -province, -HRUID2018, -HR, -pruid, -PROV_vaxx_AL1D, -log_previous_wave_incidence, 
+            -PROV_population, -PHU_population, -wave
+        ) %>%
+        # take out the columns with only a single value, since we can't regress on those
+        dplyr::select(where(~n_distinct(.) > 1)) %>%
         # for columns that were all the same value, then any interaction columns using that
         # regressor will be duplicated, so we remove them from the end of the table
-        .[, which(! duplicated( t( . ) ) ), with = FALSE] %>%
-        dplyr::select_if(! names(.) %in% c("VIs", "EIs", "LIs"))
-    
+        .[, which(! duplicated( t( . ) ) ), with = FALSE]
+        
+    # 70/30 split for training/testing
+    # # getting random indices
     tIndices <- sample(1:nrow(reg_data), 0.7*nrow(reg_data))
 
     training_set <- reg_data[tIndices,]
@@ -181,7 +199,7 @@ for(wave_number in 1:4)
 
     dummies_for_training <- predict(dummies, newdata = training_set)
     dummies_for_testing  <- predict(dummies, newdata = testing_set)
-
+    
     # proceed with training the model
     x_train <- as.matrix(dummies_for_training)
     y_train <- training_set$incidence
@@ -192,8 +210,8 @@ for(wave_number in 1:4)
 
     # find the optimal lambda hyperparameter value
     # alpha = 0 for ridge regression
-    lambda_options <- 10**seq(3, -3, by = -.1)
-    ridge_regressions <- glmnet(
+    lambda_options <- 10**seq(5, -5, by = -.1)
+    trace <- glmnet(
         x_train, y_train,
         nlambda = length(lambda_options),
         alpha = 0,
@@ -201,38 +219,72 @@ for(wave_number in 1:4)
         lambda = lambda_options
     )
 
+    # n-fold cross-validation
     glm_fit <- cv.glmnet(x_train, y_train, alpha=0, lambda=lambda_options)
 
     optimal_lambda = glm_fit$lambda.min
 
+    best_model <- glmnet(x_train, y_train, alpha=0, lambda=optimal_lambda)
+
     # predictions with the training data
-    training_predictions <- predict(ridge_regressions, s=optimal_lambda, newx = x_train)
+    training_predictions <- predict(best_model, s=optimal_lambda, newx = x_train)
 
     # predictions with the testing data
-    testing_predictions <- predict(ridge_regressions, s=optimal_lambda, newx = x_test)
+    testing_predictions <- predict(best_model, s=optimal_lambda, newx = x_test)
 
-    r2(y_train, training_predictions)
-    r2(y_test,  testing_predictions)
-
-    coeffs <- coef(glm_fit, s="lambda.min")
+    ##### COLLECTING DATA FOR GRAPHS
     
+    coeffs <- coef(best_model, s="lambda.min")
     Coefficients <- rbind(
         Coefficients,
         data.table(
-            regressor = coeffs@Dimnames[[1]], 
-            coefficient = coeffs@x, 
+            regressor = coeffs@Dimnames[[1]],
+            coefficient = coeffs@x,
             wave = wave_number
         )
     ) %>% suppressWarnings
+    
+
+    optimal_lambdas <- rbind(
+        optimal_lambdas,
+        data.table(wave=wave_number, lambda=optimal_lambda)
+    )
+    
+    aliased_columns <- unique(rownames(
+        which(
+            alias(lm(incidence ~ ., data = reg_data))[["Complete"]] != "2", 
+            arr.ind=TRUE
+        )
+    ))
+    
+    vif <- car::vif(lm(incidence ~ ., data = reg_data %>% dplyr::select(-any_of(aliased_columns))))
+    
+    VIFs <- rbind(VIFs, data.table(
+        regressor = names(vif),
+        value = as.numeric(vif),
+        wave = wave_number
+    ))
+    
+    MSEs <- rbind(
+        MSEs,
+        data.table(
+            wave = wave_number, lambda=glm_fit$lambda, meann = glm_fit$cvm, 
+            sdd = glm_fit$cvsd, upper = glm_fit$cvup, lower = glm_fit$cvlo
+        )
+    )
     
     r2s <- rbind(
         r2s,
         data.table(
             r2_60pc_training_fit = r2(y_train, training_predictions),
-            r2_40pc_testing_fit = r2(y_test,  testing_predictions)
+            r2_40pc_testing_fit = r2(y_test,  testing_predictions),
+            wave = wave_number
         )
     )
 }
+print(Sys.time() - start_time)
+
+##### plot of the standardised regression coefficients
 
 Coefficients2 <- Coefficients %>%
     dplyr:: filter(!grepl("intercept", tolower(regressor))) %>%
@@ -296,7 +348,7 @@ Coefficients2 <- Coefficients %>%
 
 pl_regression <- ggplot(
         Coefficients2,
-        aes(x=str_wrap(regressor,20), y=log(abs(coefficient)))
+        aes(x=str_wrap(regressor,20), y=coefficient)
     ) +
     geom_point(size=4) +
     geom_hline(yintercept=0, linetype="dashed", colour="grey", size=1) +
@@ -308,12 +360,58 @@ pl_regression <- ggplot(
         axis.title = element_text(size=15),
         strip.text = element_text(size=13)
     ) +
-    labs(x="Regressor", y="log( |Coefficient| )", title="Colon (:) foir interaction terms. Den (population density), LTCH (long-term care homes), Y[i-1] (previous wave incidence), EI (school closure), Vaxx (vaccination)")
-
-plot(pl_regression)
+    labs(
+        x="Regressor", 
+        y="Standardised Coefficient", 
+        title="Colon (:) for interaction terms. Den (population density), LTCH (long-term care
+            homes), Y[i-1] (previous wave incidence), EI (school closure), Vaxx (vaccination)"
+    )
 
 ggsave(
         pl_regression,
         file = file.path(PROJECT_FOLDER, "Graphs/regression_coefficients.png"),
         width=15, height=7
     )
+
+##### plot of MSE vs lambda for the unstandardised regression
+
+pl_MSEs <- ggplot(MSEs, aes(x=log10(lambda), y=meann, ymin=lower, ymax=upper)) +
+    geom_ribbon(fill="red", alpha=0.1) +
+    geom_vline(aes(xintercept=log10(lambda)), optimal_lambdas, colour="black") +
+    geom_point(size=1, colour="red") +
+    facet_grid(wave~., scale="free_y") +
+    theme_bw() +
+    theme(
+        
+    ) +
+    labs(x="log10(lambda)", y="MSE") +
+    scale_x_continuous(expand = c(0,0)) +
+    scale_y_continuous(expand = c(0,0))
+
+ggsave(pl_MSEs, file=file.path(PROJECT_FOLDER, "Graphs/MSE_plot.png"), height=9, width=12)
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
