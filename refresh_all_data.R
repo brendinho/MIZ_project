@@ -441,7 +441,8 @@ if(! file.exists(file.path(PROJECT_FOLDER, "Classifications/iterventions.csv")))
         ) %>%
         dplyr::mutate(
             jurisdiction = left_join(., LUT, by=c("jurisdiction" = "abbreviations"))$province,
-            type = unlist(lapply(type, \(x) str_split(x, '-')[[1]][2] %>% trimws)),
+            # # be careful - the dash ion the code below is longer than the standard one
+            type = unlist(lapply(type, \(xx){ str_split(xx, '-')[[1]][2] %>% trimws })),
             indigenous.population.group = dplyr::recode(
                 indigenous.population.group,
                 "No"=FALSE, "Yes"=TRUE, .default=NA
@@ -484,11 +485,11 @@ if(! file.exists(file.path(PROJECT_FOLDER, "Classifications/iterventions.csv")))
     
 interventions <- fread(file.path(PROJECT_FOLDER, "Classifications/iterventions.csv"))
 
-# stop()
+# s
  
 ###### EDUCATION INTERVENTIONS
 
-if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/tightened_educational_restrictions.R") ))
+if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/tightened_educational_restrictions.csv") ))
 {
     # tightened education interventions
     TEI <- interventions %>% 
@@ -507,10 +508,10 @@ if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/tightened_educationa
             colour = "red",
             alpha = lookup_alphas(jurisdiction)
         )
-        fwrite(TEI, file.path(PROJECT_FOLDER, "Classifications/tightened_educational_restrictions.R"))
+        fwrite(TEI, file.path(PROJECT_FOLDER, "Classifications/tightened_educational_restrictions.csv"))
 }
 
-TEI <- fread(file.path(PROJECT_FOLDER, "Classifications/tightened_educational_restrictions.R"))
+TEI <- fread(file.path(PROJECT_FOLDER, "Classifications/tightened_educational_restrictions.csv"))
 
 # y_min_max <- plotly_build(
 #     TEI %>%

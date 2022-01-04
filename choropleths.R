@@ -29,78 +29,96 @@ setwd(PROJECT_FOLDER)
 
 ################################# WAVE DATES FROM EVERY HR
 
-Total_Case_Data <- fread(sprintf("%s/CaseDataTables/Total_Case_Data.csv", PROJECT_FOLDER))
+# Total_Case_Data <- fread(sprintf("%s/CaseDataTables/Total_Case_Data.csv", PROJECT_FOLDER))
+# 
+# wave_dates <- list()
+# wave_plots <- list()
+# 
+# spline_parameter <- 0.75
+# 
+# find_wave_indices_here <- function(timeSeries)
+# {
+#     data_table <- data.table(cases = timeSeries) %>%
+#         dplyr::mutate(
+#             index = 1:nrow(.), 
+#             spline = predict(smooth.spline(index, cases, spar=spline_parameter))$y
+#         )
+#     
+#     valley_indices <- localMaxima(-data_table$spline) %>% 
+#         .[! . %in% c(1:50, (nrow(data_table)-15):nrow(data_table))]
+#     
+#     return(valley_indices)
+# }
+# 
+# for(prov in c("Ontario")) # unique(Total_Case_Data$province) %>% .[!grepl("Alberta", .)])
+# {
+#     print(prov)
+#     temp <- Total_Case_Data %>% dplyr::filter(province == prov)
+#     for(PHU in unique(temp$HR) %>% .[!grepl("reported|total", tolower(.))])
+#     {
+#         writeLines(sprintf("\t%s", PHU))
+#         case_data <- temp %>%
+#             dplyr::filter(HR == PHU) %>%
+#             dplyr::mutate(cases = ifelse(cases<0, NA, cases)) %>%
+#             dplyr::mutate(
+#                 cases = ifelse(cases<0 | is.na(cases), 0, cases),
+#                 index = as.numeric(date),
+#                 loes = predict(loess(cases~index)),
+#                 spline = predict(smooth.spline(index, cases, spar=spline_parameter))$y # o.83
+#             ) %>%
+#             dplyr::arrange(date)
+#         
+#         temp_waves <- case_data[find_wave_indices_here(case_data$spline)] %>%
+#             dplyr::mutate(wave=2:(nrow(.)+1))
+#         
+#         pl_waves <- ggplot(case_data, aes(x=date)) +
+#             geom_line(aes(y=cases)) +
+#             geom_point(aes(y=cases)) +
+#             geom_line(aes(y=spline), colour="blue", size=2) +
+#             geom_ribbon(aes(
+#                 ymin=pmax(0, spline-sd(spline)),ymax=spline+sd(spline)), 
+#                 fill="blue", alpha=0.1
+#             ) +
+#             geom_vline(
+#                 xintercept = temp_waves$date, 
+#                 colour = "darkgreen", size=1, linetype = "dashed"
+#             ) +
+#             theme_bw() +
+#             theme(
+#                 axis.text = element_text(size=15),
+#                 axis.title = element_text(size=15),
+#                 axis.text.x = element_text(angle=45, hjust=1)
+#             ) +
+#             labs(x="Date", y=sprintf("Incidence (%s, %s)", prov, PHU)) +
+#             scale_x_date(breaks="1 month", date_labels="%b %Y", expand=c(0,0)) +
+#             scale_y_continuous(expand = c(0, 0))
+#         
+#         wave_dates[[paste(prov, PHU, sep="_") %>% gsub(" +", "_", .)]] <- temp_waves
+#         wave_plots[[paste(prov, PHU, sep="_") %>% gsub(" +", "_", .)]] <- pl_waves
+#     }
+# }
 
-wave_dates <- list()
-wave_plots <- list()
-
-for(prov in unique(Total_Case_Data$province) %>% .[!grepl("Alberta", .)])
-{
-    print(prov)
-    temp <- Total_Case_Data %>% dplyr::filter(province == prov)
-    for(PHU in unique(temp$HR) %>% .[!grepl("reported|total", tolower(.))])
-    {
-        writeLines(sprintf("\t%s", PHU))
-        case_data <- temp %>%
-            dplyr::filter(HR == PHU) %>%
-            dplyr::mutate(cases = ifelse(cases<0, NA, cases)) %>%
-            dplyr::mutate(
-                cases = ifelse(cases<0 | is.na(cases), 0, cases),
-                index = as.numeric(date),
-                loes = predict(loess(cases~index)),
-                spline = predict(smooth.spline(index, cases, spar=0.83))$y
-            ) %>%
-            dplyr::arrange(date)
-        
-        temp_waves <- case_data[find_wave_indices(case_data$spline)] %>% dplyr::mutate(wave=2:(nrow(.)+1))
-        
-        pl_waves <- ggplot(case_data, aes(x=date)) +
-            geom_line(aes(y=cases)) +
-            geom_point(aes(y=cases)) +
-            geom_line(aes(y=spline), colour="blue", size=2) +
-            geom_ribbon(aes(ymin=pmax(0, spline-sd(spline)), ymax=spline+sd(spline)), fill="blue", alpha=0.1) +
-            geom_vline(xintercept = temp_waves$date, colour = "darkgreen", size=1, linetype = "dashed") +
-            theme_bw() +
-            theme(
-                axis.text = element_text(size=15),
-                axis.title = element_text(size=15),
-                axis.text.x = element_text(angle=45, hjust=1)
-            ) +
-            labs(x="Date", y=sprintf("Incidence (%s, %s)", prov, PHU)) +
-            scale_x_date(breaks="1 month", date_labels="%b %Y", expand=c(0,0)) +
-            scale_y_continuous(expand = c(0, 0))
-        
-        wave_dates[[paste(prov, PHU, sep="_")]] <- temp_waves
-        wave_plots[[paste(prov, PHU, sep="_")]] <- pl_waves
-    }
-}
+##################### SOMETHING ELSE
 
 jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=cases&loc=canada")$cases %>%
     fwrite(file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv"))
 
 # tightened education interventions
-TEI <- fread(file.path(PROJECT_FOLDER, "Classifications/educational_interventions.csv")) %>% 
-    dplyr::filter(grepl("tigh", tolower(action))) %>%
-    dplyr::filter(!grepl("eas", tolower(action))) %>% # some of the restrictions are marked tightening/easing - those are easing
-    dplyr::filter(!grepl("guidance|strengthened|distributed|amended|working with|extended online teacher-led|implemented new measures|mask|release|update", tolower(what))) %>%
-    dplyr::mutate(
-        what = substr(what, start=1, stop=20),
-        effective.until = ifelse(is.na(effective.until), Sys.Date(), effective.until) %>% as.Date(., origin="1970-01-01"),
-        jurisdiction = ifelse(is.na(jurisdiction), "Canada", jurisdiction),
-        alpha = lookup_alphas(jurisdiction),
-        blank_colour = NA
-    ) %>%
+TEI <- fread(file.path(PROJECT_FOLDER, "Classifications/tightened_educational_restrictions.R")) %>%
     merge(
         cbind(
-            jurisdiction = unique(.$jurisdiction), 
+            jurisdiction = unique(.$jurisdiction),
             colour = colorRampPalette(brewer.pal(
                 8,
                 "Dark2"
             ))( length(unique(.$jurisdiction)) )
-        ), 
+        ),
         by="jurisdiction"
     ) %>%
-    dplyr::select(-what, -who, -action, -`primary.source.(news.release.or.specific.resource)`,-secondary.source, -entry.id, -jurisdiction)
+    dplyr::select(
+        -what, -who, -action, -`primary.source.(news.release.or.specific.resource)`,
+        -secondary.source, -entry.id, -jurisdiction
+    )
 
 # get the wave dates from the "refresh_the_data.csv" file
 
@@ -110,8 +128,19 @@ TEI <- fread(file.path(PROJECT_FOLDER, "Classifications/educational_intervention
 #     geom_vline(xintercept = Canada_Wave_Dates)
 
 y_min_max <- plotly_build(
-    TEI %>% 
-        gg_vistime(col.event="alpha", col.group="alpha", col.start="date.implemented", col.end="effective.until",col.color="colour", show_labels=FALSE)
+    TEI %>%
+        dplyr::mutate(
+            date.implemented = as.POSIXct(as.Date(date.implemented, origin="1970-01-01")),
+            effective.until  = as.POSIXct(as.Date(effective.until,  origin="1970-01-01"))
+        ) %>%
+        gg_vistime(
+            col.event="alpha", 
+            col.group="alpha", 
+            col.start="date.implemented", 
+            col.end="effective.until",
+            col.color="colour", 
+            show_labels=FALSE
+        )
     )$x$layout$yaxis$range
 
 TEI_plot <- TEI %>% dplyr::filter(!grepl("can", tolower(alpha))) %>%

@@ -350,10 +350,11 @@ find_wave_indices <- function(timeSeries)
     data_table <- data.table(cases = timeSeries) %>%
         dplyr::mutate(
             index = 1:nrow(.), 
-            spline = predict(smooth.spline(index, cases, spar=0.8))$y
+            spline = predict(smooth.spline(index, cases, spar=0.7))$y
         )
     
-    valley_indices <- localMaxima(-data_table$spline) %>% .[! . %in% c(1:50, (nrow(data_table)-15):nrow(data_table))]
+    valley_indices <- localMaxima(-data_table$spline) %>% 
+        .[! . %in% c(1:50, (nrow(data_table)-15):nrow(data_table))]
     
     return(valley_indices)
 }
