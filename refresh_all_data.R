@@ -404,21 +404,21 @@ province_populations <- PHU_information %>%
 #####################################
 
 # WAVE DATES
-# 
-# if(!file.exists(file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv")))
-# {
-#     jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=cases&loc=canada")$cases %>%
-#         fwrite(file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv"))
-# }
-# 
-# # retrieved 27 Nov 2021
-# if(! file.exists(file.path(PROJECT_FOLDER, "covid-19-intervention-scan-data-tables-en.xlsx")) )
-# {
-#     download.file(
-#         "https://www.cihi.ca/sites/default/files/document/covid-19-intervention-scan-data-tables-en.xlsx",
-#         file.path(PROJECT_FOLDER, "covid-19-intervention-scan-data-tables-en.xlsx")
-#     )
-# }
+
+if(!file.exists(file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv")))
+{
+    jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=cases&loc=canada")$cases %>%
+        fwrite(file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv"))
+}
+
+# retrieved 27 Nov 2021
+if(! file.exists(file.path(PROJECT_FOLDER, "covid-19-intervention-scan-data-tables-en.xlsx")) )
+{
+    download.file(
+        "https://www.cihi.ca/sites/default/files/document/covid-19-intervention-scan-data-tables-en.xlsx",
+        file.path(PROJECT_FOLDER, "covid-19-intervention-scan-data-tables-en.xlsx")
+    )
+}
 
 LUT <- rbind(
         province_LUT, 
@@ -482,15 +482,13 @@ if(! file.exists(file.path(PROJECT_FOLDER, "Classifications/iterventions.csv")))
         data.table()
         fwrite(interventions, file.path(PROJECT_FOLDER, "Classifications/iterventions.csv"))
 }
-    
-interventions <- fread(file.path(PROJECT_FOLDER, "Classifications/iterventions.csv"))
 
-# s
- 
 ###### EDUCATION INTERVENTIONS
 
 if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/tightened_educational_restrictions.csv") ))
 {
+    interventions <- fread(file.path(PROJECT_FOLDER, "Classifications/iterventions.csv"))
+    
     # tightened education interventions
     TEI <- interventions %>% 
         dplyr::filter(grepl("education", tolower(type))) %>%
@@ -512,43 +510,6 @@ if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/tightened_educationa
 }
 
 TEI <- fread(file.path(PROJECT_FOLDER, "Classifications/tightened_educational_restrictions.csv"))
-
-# y_min_max <- plotly_build(
-#     TEI %>%
-#     dplyr::mutate(date.implemented=as.Date(date.implemented, origin="1970-01-01"), effective.until=as.Date(effective.until, origin="1970-01-01")) %>%
-#     gg_vistime(
-#         col.event="alpha",
-#         col.group="alpha",
-#         col.start="date.implemented",
-#         col.end="effective.until",
-#         col.color="colour",
-#         show_labels=FALSE
-#     ))$x$layout$yaxis$rangec
-# 
-# TEI_plot <- TEI %>%
-#     dplyr::filter(!grepl("can", tolower(alpha))) %>%
-#     dplyr::mutate(
-#         date.implemented=as.Date(date.implemented, origin="1970-01-01"),
-#         effective.until=as.Date(effective.until, origin="1970-01-01")
-#     ) %>%
-#     gg_vistime(col.event="alpha", col.group="alpha", col.start="date.implemented", col.end="effective.until", col.color="colour", show_labels=FALSE) +
-#     geom_vline(xintercept=Canada_Wave_Dates %>% as.POSIXct, size=1) +
-#     scale_x_datetime(
-#         breaks = seq(
-#             # min(as.POSIXct(TEI$date.implemented %>% as.Date(origin="1970-01-01"))),
-#             as.POSIXct(Canada_Wave_Dates[1]), # from the start of the data we have
-#             as.POSIXct(Sys.Date()),
-#             "months"),
-#         date_labels = "%b %Y",
-#         expand = c(0,0)
-#     ) +
-#     theme(
-#         axis.text.x = element_text(angle=45, hjust=1),
-#         axis.text = element_text(size = 13),
-#         axis.title = element_text(size = 15)
-#     ) +
-#     labs(x="Month", y="Province")
-# ggsave(TEI_plot, file = file.path(PROJECT_FOLDER, "Graphs/TEI_plot.png"), width=10, height=7)
 
 educational_interventions_in_waves <- TEI %>%
     dplyr::select(jurisdiction, date.implemented, effective.until) %>% 
@@ -594,6 +555,8 @@ LDM <- interventions %>%
             !grepl("eas", tolower(action))
     ) %>%
     dplyr::filter(grepl("clos", tolower(what)))
+    fwrite(LDM, file.path(PROJECT_FOLDER, "Classifications/lockdown_measures.csv"))
+
 
 lockdown_interventions_in_waves <- LDM %>%
     dplyr::select(jurisdiction, date.implemented, effective.until) %>% 
@@ -652,6 +615,7 @@ vaxx_info <- fread(file.path(
         province = lookup_provinces(pruid)
     ) %>%
     dplyr::select(-prfname)
+    fwrite(vaxx_info, file.path(PROJECT_FOLDER, "Classifications/vaxx_info_dates.csv"))
 
 vaxx_implementation <- function(the_vaxx_table, prov)
 {
@@ -986,8 +950,6 @@ Total_Case_Data <- fread(file.path(PROJECT_FOLDER, "CaseDataTables/Total_Case_Da
     dplyr::summarise(incidence = sum(cases, na.rm=TRUE)) %>%
     data.table
 
-stop()
-
 Regression_Data <- Total_Case_Data %>%
     merge(interventions_by_wave_province, by=c("province", "pruid", "wave"), all=TRUE) %>%
     merge(PHU_information, by=c("province", "HRUID2018", "HR"), all=TRUE) %>%
@@ -1003,3 +965,41 @@ Regression_Data <- Total_Case_Data %>%
     st_sf
     saveRDS(Regression_Data, file=file.path(PROJECT_FOLDER, "CaseDataFiles/regression_data.rda"))
 
+####################################################
+    
+    # y_min_max <- plotly_build(
+    #     TEI %>%
+    #     dplyr::mutate(date.implemented=as.Date(date.implemented, origin="1970-01-01"), effective.until=as.Date(effective.until, origin="1970-01-01")) %>%
+    #     gg_vistime(
+    #         col.event="alpha",
+    #         col.group="alpha",
+    #         col.start="date.implemented",
+    #         col.end="effective.until",
+    #         col.color="colour",
+    #         show_labels=FALSE
+    #     ))$x$layout$yaxis$rangec
+    # 
+    # TEI_plot <- TEI %>%
+    #     dplyr::filter(!grepl("can", tolower(alpha))) %>%
+    #     dplyr::mutate(
+    #         date.implemented=as.Date(date.implemented, origin="1970-01-01"),
+    #         effective.until=as.Date(effective.until, origin="1970-01-01")
+    #     ) %>%
+    #     gg_vistime(col.event="alpha", col.group="alpha", col.start="date.implemented", col.end="effective.until", col.color="colour", show_labels=FALSE) +
+    #     geom_vline(xintercept=Canada_Wave_Dates %>% as.POSIXct, size=1) +
+    #     scale_x_datetime(
+    #         breaks = seq(
+    #             # min(as.POSIXct(TEI$date.implemented %>% as.Date(origin="1970-01-01"))),
+    #             as.POSIXct(Canada_Wave_Dates[1]), # from the start of the data we have
+    #             as.POSIXct(Sys.Date()),
+    #             "months"),
+    #         date_labels = "%b %Y",
+    #         expand = c(0,0)
+    #     ) +
+    #     theme(
+    #         axis.text.x = element_text(angle=45, hjust=1),
+    #         axis.text = element_text(size = 13),
+    #         axis.title = element_text(size = 15)
+    #     ) +
+    #     labs(x="Month", y="Province")
+    # ggsave(TEI_plot, file = file.path(PROJECT_FOLDER, "Graphs/TEI_plot.png"), width=10, height=7)

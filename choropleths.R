@@ -98,59 +98,73 @@ setwd(PROJECT_FOLDER)
 #     }
 # }
 
+get.Dates <- function(theList)
+{
+    do.call("c", lapply(
+        theList,
+        \(xx) as.Date(xx, origin="1970-01-01")
+    ))
+}
+
 ##################### SOMETHING ELSE
 
-jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=cases&loc=canada")$cases %>%
-    fwrite(file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv"))
+# jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=cases&loc=canada")$cases %>%
+#     fwrite(file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv"))
 
-# tightened education interventions
-TEI <- fread(file.path(PROJECT_FOLDER, "Classifications/tightened_educational_restrictions.R")) %>%
-    merge(
-        cbind(
-            jurisdiction = unique(.$jurisdiction),
-            colour = colorRampPalette(brewer.pal(
-                8,
-                "Dark2"
-            ))( length(unique(.$jurisdiction)) )
-        ),
-        by="jurisdiction"
+# verified
+# function to find the overlaps of multiple timelines, per required jurisdiction
+valmorphanize <- function(DATA, JURIS)
+{
+    DATA %>% dplyr::filter(jurisdiction == JURIS) %>%
+        split(1:nrow(.)) %>%
+        lapply(\(xx) seq(xx$date.implemented, xx$effective.until)) %>%
+        unlist %>% unname %>% unique %>% sort %>%
+        (\(xx) {c(min(xx), max(xx), xx[which(diff(xx)>1)], xx[which(diff(xx)>1)+1])}) %>%
+        sort %>% split(., ceiling(seq_along(.)/2)) %>%
+        lapply(\(xx) data.table(JURIS, t(xx))) %>% rbindlist %>%
+        setNames(c("jurisdiction", "start", "end")) %>%
+        dplyr::mutate(across(c("start", "end"), ~as.Date(.x, origin="1970-01-01")))
+}
+
+TEI  <- fread(file.path(PROJECT_FOLDER, "Classifications/tightened_educational_restrictions.R"))
+LDM <- fread(file.path(PROJECT_FOLDER, "Classifications/lockdown_measures.csv"))
+VAX <- fread(file.path(PROJECT_FOLDER, "Classifications/vaxx_info_dates.csv")) %>% 
+    dplyr::mutate(date.implemented = as.numeric(week_end)-7, effective.until = week_end, jurisdiction = province)
+
+timelines <- rbind(
+        lapply(unique(VAX$jurisdiction), \(xx) valmorphanize(VAX, xx)) %>% rbindlist %>% dplyr::mutate(measure = "Vaccination", colour = "lightgreen"),
+        lapply(unique(LDM$jurisdiction), \(xx) valmorphanize(LDM, xx)) %>% rbindlist %>% dplyr::mutate(measure = "Lockdown", colour = "lightblue"),
+        lapply(unique(TEI$jurisdiction), \(xx) valmorphanize(TEI, xx)) %>% rbindlist %>% dplyr::mutate(measure = "School Closure", colour = "red")
     ) %>%
-    dplyr::select(
-        -what, -who, -action, -`primary.source.(news.release.or.specific.resource)`,
-        -secondary.source, -entry.id, -jurisdiction
-    )
-
-# get the wave dates from the "refresh_the_data.csv" file
-
-# ggplot(Canada_Data, aes(x=date)) +
-#     geom_point(aes(y=cases)) +
-#     geom_line(aes(y=spline)) +
-#     geom_vline(xintercept = Canada_Wave_Dates)
+    dplyr::mutate(alpha = lookup_alphas(jurisdiction))
 
 y_min_max <- plotly_build(
-    TEI %>%
+    timelines %>%
         dplyr::mutate(
-            date.implemented = as.POSIXct(as.Date(date.implemented, origin="1970-01-01")),
-            effective.until  = as.POSIXct(as.Date(effective.until,  origin="1970-01-01"))
+            start = as.POSIXct(as.Date(start, origin="1970-01-01")),
+            end  = as.POSIXct(as.Date(end,  origin="1970-01-01"))
         ) %>%
         gg_vistime(
-            col.event="alpha", 
-            col.group="alpha", 
-            col.start="date.implemented", 
-            col.end="effective.until",
-            col.color="colour", 
+            col.event="measure", 
+            col.group="measure", 
+            col.start="start", 
+            col.end="end",
+            # col.color="colour", 
             show_labels=FALSE
         )
     )$x$layout$yaxis$range
 
-TEI_plot <- TEI %>% dplyr::filter(!grepl("can", tolower(alpha))) %>%
-    gg_vistime(col.event="alpha", col.group="alpha", col.start="date.implemented", col.end="effective.until",col.color="colour", show_labels=FALSE) +
-    geom_vline(xintercept=Canada_Wave_Dates) +
+# pl_timeline <- 
+    
+    timelines[alpha == "NS"] %>%
+    gg_vistime(col.event="measure", col.group="alpha", col.color="colour") +
+    geom_vline(xintercept = as.POSIXct(Canada_Wave_Dates)) + # wave dates are defined in the function header
     scale_x_datetime(
         breaks = seq(
-            min(as.POSIXct(TEI$date.implemented)),
+            min(as.POSIXct(timelines$start)),
             as.POSIXct(Sys.Date()),
-            "months"),
+            "months"
+        ),
         date_labels = "%b %Y",
         expand = c(0,0)
     ) +
@@ -160,7 +174,38 @@ TEI_plot <- TEI %>% dplyr::filter(!grepl("can", tolower(alpha))) %>%
         axis.title = element_text(size = 15)
     ) +
     labs(x="Month", y="Province")
-    ggsave(TEI_plot, file = file.path(PROJECT_FOLDER, "Graphs/TEI_plot.png"), width=10, height=7)
+    ggsave(pl_timeline, file = file.path(PROJECT_FOLDER, "Graphs/TEI_plot.png"), width=10, height=7)
+    
+    pres <- data.table(
+        Position = rep(c("President", "Vice"), each = 3),
+        Name = c("Washington", rep(c("Adams", "Jefferson"), 2), "Burr"),
+        start = c("1789-03-29", "1797-02-03", "1801-02-03"),
+        end = c("1797-02-03", "1801-02-03", "1809-02-03"),
+        color = c("#cbb69d", "#603913", "#c69c6e")
+    ) %>%
+    rbind(
+        data.table("President", "Washington", "1803-01-01", "1815-01-01", "#cbb69d") %>% setNames(names(pres)),
+        data.table("Vice", "Washington", "1798-01-01", "1805-07-15", "#603913") %>% setNames(names(pres))
+    )
+    gg_vistime(pres, col.event = "Position", col.group = "Name", title = "Presidents of the USA")
+    
+    gg2_vistime <- function (data, col.event = "event", col.start = "start", col.end = "end", 
+              col.group = "group", col.color = "color", col.fontcolor = "fontcolor", 
+              optimize_y = TRUE, linewidth = NULL, title = NULL, show_labels = TRUE, 
+              background_lines = NULL, ...) 
+    {
+        checked_dat <- validate_input(data, col.event, col.start, 
+                                      col.end, col.group, col.color, col.fontcolor, col.tooltip = NULL, 
+                                      optimize_y, linewidth, title, show_labels, background_lines, 
+                                      list(...))
+        cleaned_dat <- vistime_data(checked_dat$data, checked_dat$col.event, 
+                                    checked_dat$col.start, checked_dat$col.end, checked_dat$col.group, 
+                                    checked_dat$col.color, checked_dat$col.fontcolor, checked_dat$col.tooltip, 
+                                    optimize_y)
+        total <- plot_ggplot(cleaned_dat, linewidth, title, show_labels, 
+                             background_lines)
+        return(total)
+    }
     
 # # eased educational interventions
 # EEI <- fread(file.path(PROJECT_FOLDER, "Classifications/educational_interventions")) %>% 
