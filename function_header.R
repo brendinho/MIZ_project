@@ -13,8 +13,8 @@ library(dplyr)
 library(data.table)
 library(segmented)
 
-PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
-# PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project/"
+# PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
+PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project/"
 
 # shorthand
 meann <- function(...) mean(..., na.rm=TRUE)
@@ -28,6 +28,15 @@ z_transform <- function(x) (x-meann(x))/sdd(x)
 
 # calculating the weekly moving average to smooth the case incidence data
 weekly_moving_average <- function(x) stats::filter(x, rep(1,7), sides = 1)/7
+
+# convert vectors of integers to dates from the beginning of (Unix) time
+get.Dates <- function(theList)
+{
+    do.call("c", lapply(
+        theList,
+        \(xx) as.Date(xx, origin="1970-01-01")
+    ))
+}
 
 # calculating teh r^2 of the LASSO regression 
 calculate_r_squared <- function(actual, predicted)

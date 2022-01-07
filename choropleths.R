@@ -1,11 +1,11 @@
- rm(list=ls())
+rm(list=ls())
 
 library(data.table)
 library(ggplot2)
-library(viridis)
+# library(viridis)
 library(vistime)
 library(plotly)
-library(RColorBrewer)
+# library(RColorBrewer)
 # library(stringr)
 # library(sf)
 # library(forcats)
@@ -19,42 +19,277 @@ library(RColorBrewer)
 # library(foreach)
 # library(doParallel)
 
-PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
-# PROJECT_FOLDER <- '/home/bren/Documents/GitHub/MIZ_project'
+# PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
+PROJECT_FOLDER <- '/home/bren/Documents/GitHub/MIZ_project'
 
 source(file.path(PROJECT_FOLDER, "function_header.R"))
 setwd(PROJECT_FOLDER)
 
-# dir.create(file.path(PROJECT_FOLDER, "Graphs"), showWarnings=FALSE)
+dir.create(file.path(PROJECT_FOLDER, "Graphs"), showWarnings=FALSE)
 
-################################# WAVE DATES FROM EVERY HR
+##################### INTERVENTION TIMELINES
 
-# Total_Case_Data <- fread(sprintf("%s/CaseDataTables/Total_Case_Data.csv", PROJECT_FOLDER))
+# # verified
+# # function to parse and collate the overlaps of multiple timelines, per required jurisdiction
+# valmorphanize <- function(DATA, JURIS)
+# {
+#     DATA %>% dplyr::filter(jurisdiction == JURIS) %>%
+#         split(1:nrow(.)) %>%
+#         lapply(\(xx) seq(xx$date.implemented, xx$effective.until)) %>%
+#         unlist %>% unname %>% unique %>% sort %>%
+#         (\(xx) {c(min(xx), max(xx), xx[which(diff(xx)>1)], xx[which(diff(xx)>1)+1])}) %>%
+#         sort %>% split(., ceiling(seq_along(.)/2)) %>%
+#         lapply(\(xx) data.table(JURIS, t(xx))) %>% rbindlist %>%
+#         setNames(c("jurisdiction", "start", "end")) %>%
+#         dplyr::mutate(across(c("start", "end"), ~as.Date(.x, origin="1970-01-01")))
+# }
+# 
+# TEI  <- fread(file.path(PROJECT_FOLDER, "Classifications/tightened_educational_restrictions.R"))
+# LDM <- fread(file.path(PROJECT_FOLDER, "Classifications/lockdown_measures.csv"))
+# VAX <- fread(file.path(PROJECT_FOLDER, "Classifications/vaxx_info_dates.csv")) %>%
+#     dplyr::mutate(date.implemented = as.numeric(week_end)-7, effective.until = week_end, jurisdiction = province)
+# 
+# if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/timeline_data.csv") ))
+# {
+#     timelines <- rbind(
+#             lapply(unique(VAX$jurisdiction), \(xx) valmorphanize(VAX, xx)) %>% rbindlist %>%
+#                 dplyr::mutate(measure = "Vaccination", colour = "lightgreen"),
+#             lapply(unique(LDM$jurisdiction), \(xx) valmorphanize(LDM, xx)) %>% rbindlist %>%
+#                 dplyr::mutate(measure = "Lockdown", colour = "lightblue"),
+#             lapply(unique(TEI$jurisdiction), \(xx) valmorphanize(TEI, xx)) %>% rbindlist %>%
+#                 dplyr::mutate(measure = "School Closure", colour = "red")
+#         ) %>%
+#         dplyr::mutate(alpha = lookup_alphas(jurisdiction)) %>%
+#         dplyr::rename(province = jurisdiction)
+# 
+#     fwrite(timelines, file.path(PROJECT_FOLDER, "Classifications/timeline_data.csv"))
+# }
+# timelines <- fread(file.path(PROJECT_FOLDER, "Classifications/timeline_data.csv"))
+# 
+# # make a dummy plot to get the y min and max for the vertical wave lines
+# y_min_max <- plotly_build(
+#     timelines %>%
+#         dplyr::mutate(
+#             start = as.POSIXct(as.Date(start, origin="1970-01-01")),
+#             end  = as.POSIXct(as.Date(end,  origin="1970-01-01"))
+#         ) %>%
+#         gg_vistime(
+#             col.event="measure",
+#             col.group="measure",
+#             col.start="start",
+#             col.end="end",
+#             # col.color="colour",
+#             show_labels=FALSE
+#         )
+#     )$x$layout$yaxis$range
+# 
+# # alter the library code to get all interventions of the same type on the same line
+# pl_timeline <- timelines %>%
+#     gg_vistime(col.event="measure", col.group="alpha", col.color="colour", show_labels=FALSE) +
+#     geom_vline(xintercept = as.POSIXct(Canada_Wave_Dates)) + # wave dates are defined in the function header
+#     scale_x_datetime(
+#         breaks = seq(
+#             min(as.POSIXct(timelines$start)),
+#             as.POSIXct(Sys.Date()),
+#             "months"
+#         ),
+#         date_labels = "%b %Y",
+#         expand = c(0,0)
+#     ) +
+#     theme(
+#         axis.text.x = element_text(angle=45, hjust=1),
+#         axis.text = element_text(size = 13),
+#         axis.title = element_text(size = 15)
+#     ) +
+#     labs(x="Month", y="Province")
+#     ggsave(pl_timeline, file = file.path(PROJECT_FOLDER, "Graphs/interventions_plot.png"), width=10, height=6)
+    
+##################### AIRPORT LOCATIONS ON THE MAP
+
+All_Canada <- st_sf(readRDS(file.path(PROJECT_FOLDER, "All_Canada.rds")))
+
+All_Provinces <- st_sf(readRDS(file.path(PROJECT_FOLDER, "All_Provinces.rds"))) %>%
+    merge(., province_LUT %>% dplyr::select(province, abbreviations, alpha), all=TRUE, by="province")
+
+Airport_Locations <- st_read(file.path(PROJECT_FOLDER, "Airports_Aeroports_en_shape/Airports_Aeroports_en_shape.shp"))
+
+# upper_Mannville_oil_gas_fields <- st_read(file.path(PROJECT_FOLDER, "upper_mannville_oil_and_gas_fields/fg1925_py_ll.shp"))
+# lower_Mannville_oil_gas_fields <- st_read(file.path(PROJECT_FOLDER, "lower_mannville_oil_and_gas_fields/fg1923_py_ll.shp"))
+
+Canada_map_with_HRs_and_airports <- ggplot() +
+    geom_sf(data = All_Canada, fill="lightgrey", colour="black", inherit.aes=FALSE, size=0.5) +
+    geom_sf(data = All_Provinces, fill=NA, colour="black", inherit.aes=FALSE, size=0.5) +
+    # geom_sf(data = HR_shapes, aes(fill=HR), colour="black", inherit.aes=FALSE, size=0.5) +
+    # geom_sf(data = upper_Mannville_oil_gas_fields, inherit.aes=FALSE, size=1, pch=3, colour="green") +
+    # geom_sf(data = lower_Mannville_oil_gas_fields, inherit.aes=FALSE, size=1, pch=3, colour="green") +
+    geom_sf(data = Airport_Locations, inherit.aes=FALSE, size=5, pch=13, colour='red') +
+    # geom_sf(data=All_Provinces, fill=NA, inherit.aes=FALSE) +
+    theme_minimal() +
+    theme(
+        panel.grid = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        legend.text = element_text(size=13),
+        legend.title = element_text(size=13),
+        legend.key.height = unit(1, 'cm'),
+        plot.background = element_rect(fill="white", colour="white"),
+        legend.position="none"
+    ) +
+    coord_sf(datum=NA) +
+    labs(x="", y="") # +
+    # guides(colour = guide_legend(legend.title.align=0.5))
+    # ggsave(SAC_map_with_census_info_SAC, file=sprintf("%s/Graphs/SAC_choropleth.png", PROJECT_FOLDER))
+    # system(sprintf("convert %s/Graphs/SAC_choropleth.png -trim %s/Graphs/SAC_choropleth.png", PROJECT_FOLDER, PROJECT_FOLDER))
+    ggsave(Canada_map_with_HRs_and_airports, file=sprintf("%s/Graphs/Canada_airports.png", PROJECT_FOLDER), width=15, height=6)
+    system(sprintf("convert %s/Graphs/Canada_airports.png -trim %s/Graphs/Canada_airports.png", PROJECT_FOLDER, PROJECT_FOLDER))
+
+##################### WAVE ANLYSIS AND PLOTS
+    
+Total_Case_Data <- fread(sprintf("%s/CaseDataTables/Total_Case_Data.csv", PROJECT_FOLDER))
+
+Regions <- data.table(readRDS("CaseDataTables/Regions.rda"))
+
+if(!file.exists( file.path(PROJECT_FOLDER, "CaseDataTables/canada_total_cases.csv") ))
+{
+    Canada_case_data <- jsonlite::fromJSON("https://api.opencovid.ca/timeseries?loc=canada")$cases %>%
+        dplyr::mutate(date_report=as.Date(date_report, format="%d-%m-%Y"))
+        fwrite(Canada_case_data, file.path(PROJECT_FOLDER, "CaseDataTables/canada_total_cases.csv"))
+}
+
+Canada_case_data <- fread(file.path(PROJECT_FOLDER, "CaseDataTables/canada_total_cases.csv")) %>%
+    dplyr::mutate(
+        index = as.numeric(date_report),
+        smooth_spline = pmax(predict(smooth.spline(index, cases, spar=0.75))$y, 0),
+        moving_average = weekly_moving_average(cases)
+
+    ) 
+    
+pl_canada_waves <- ggplot(
+        Canada_case_data[date_report < "2021-12-23"], 
+        aes(x=date_report)
+    ) +
+    geom_point(aes(y = cases)) +   
+    geom_line(aes(y = moving_average), size = 1, colour = "blue") +
+    geom_line(aes(y = smooth_spline), size = 1, colour = "red") +
+    theme_bw() +
+    theme(
+        axis.title = element_text(size = 15),
+        axis.text = element_text(size = 13),
+        axis.text.x = element_text(angle=45, hjust=1)
+    ) +
+    geom_vline(xintercept = Canada_Wave_Dates) +
+    scale_x_date(expand = c(0,0), date_breaks = "1 month" , date_labels = "%d-%b-%yy") +
+    scale_y_continuous(expand = c(0,0)) +
+    labs(x="Date", y="Cases")
+    ggsave(pl_canada_waves, file=file.path(PROJECT_FOLDER, "Graphs/canada_waves.png"), height=6, width=15)
+    
+
+# canada_wave_break_point_analysis <- ggplot(canada, aes(x=date)) +
+#     geom_point(aes(y=cases), size=0.5) +
+#     geom_line(aes(y=fit), size=0.75, colour="blue") +
+#     geom_point(data=all_breaks_waves, aes(x=date, y=fit), pch=21, fill=NA, size=5, colour="red", stroke=1) +
+#     geom_point(data=all_breaks_waves, aes(x=date, y=fit), pch=21, fill=NA, size=6, colour="red", stroke=1) +
+#     labs(x="Date", y="Value") +
+#     theme_bw() +
+#     theme(
+#         axis.text = element_text(size=12),
+#         axis.title = element_text(size=17),
+#         axis.text.x = element_text(angle=45, vjust=1, hjust=1),
+#         strip.text = element_text(size=15)
+#     ) +
+#     scale_x_date(date_breaks = "1 month" , date_labels = "%b %Y", expand=c(0,0)) +
+#     facet_wrap(~type, scale="free", ncol=2) +
+#     geom_vline(xintercept=breaks_waves[1], linetype="dashed", color = "blue", size=0.5) +
+#     geom_vline(xintercept=breaks_waves[2], linetype="dashed", color = "blue", size=0.5) +
+#     geom_vline(xintercept=breaks_waves[3], linetype="dashed", color = "blue", size=0.5) +
+#     geom_text(data=all_breaks_waves, aes(x=date, y=fit, label=label), size=7, colour="red", nudge_y=1.5)
+# 
+# ggsave(canada_wave_break_point_analysis, file=file.path(PROJECT_FOLDER, "Graphs/canada_wave_break_points.png"), width=20, height=7)
+
+# Canada_waves <-  ggplot(canada, aes(date, cases)) +
+#     theme_bw() +
+#     theme(
+#         axis.text = element_text(size=13),
+#         axis.text.x = element_text(angle=45, vjust=1, hjust=1),
+#         axis.title = element_text(size=13)
+#     ) +
+#     labs(y="Daily Incidence", x="") +
+#     scale_x_date(date_breaks = "1 month" , date_labels = "%d-%b-%Y", expand=c(0,0)) +
+#     scale_y_continuous(expand=c(0,0), breaks=seq(0, 15000, by=3000)) +
+#     annotate(geom = "rect", xmin=min(canada_temp$date), xmax=breaks_waves[1], ymin=-Inf, ymax=Inf, fill="orange", alpha=0.1) +
+#     annotate(geom = "rect", xmin=breaks_waves[1], xmax=breaks_waves[2], ymin=-Inf, ymax=Inf, fill="orange", alpha=0.3) +
+#     annotate(geom = "rect", xmin=breaks_waves[2], xmax=breaks_waves[3], ymin=-Inf, ymax=Inf, fill="orange", alpha=0.5) +
+#     geom_vline(xintercept=breaks_waves[1], linetype="dashed", color = "red", size=0.5) +
+#     geom_vline(xintercept=breaks_waves[2], linetype="dashed", color = "red", size=0.5) +
+#     geom_vline(xintercept=breaks_waves[3], linetype="dashed", color = "red", size=0.5) +
+#     geom_bar(stat="identity", fill="lightblue") +
+#     geom_line(aes(y=moving_avg_seven_days), colour="red", size=1)
+# 
+#     ggsave(Canada_waves, file=sprintf("%s/Graphs/canada_waves.png", PROJECT_FOLDER), height=5, width=10)
+#     system(sprintf("convert %s/Graphs/canada_waves.png -trim %s/Graphs/canada_waves.png", PROJECT_FOLDER, PROJECT_FOLDER))
+
+##############################################
+
+
+
+    
+
+# figure_2_num_csds_per_hr <- ggplot(
+#         Regions[, .(N=.N), by=.(province, HR, HRUID2018)],
+#         aes(x=factor(HR), y=N, fill=province, group=province)
+#     ) +
+#     geom_bar(stat="identity", position="dodge") +# 
+#     theme_bw() +
+#     theme(
+#         axis.text.x = element_text(angle=90, hjust=1)
+#     )
+# 
+# figure_2_pop_per_hr <- ggplot(
+#         Regions[, sum(population), by=.(province, HR)],
+#         aes(x=factor(HR), y=V1, fill=province, group=province)
+#     ) +
+#     geom_bar(stat="identity", position="dodge") +
+#     theme_bw() +
+#     theme(
+#         axis.text.x = element_text(angle=90, hjust=1)
+#     )
+
+################################# GETTING THE GEO INFORMATION (wave dates, wave graph, sf shapes)
+
+# # saveRDS(st_union(Regions$geometry), sprintf("%s/All_Canada.rds", PROJECT_FOLDER))
+# # saveRDS(Regions[, .(geometry=st_union(geometry)%>% st_cast("MULTIPOLYGON")), by=.(province)], sprintf("%s/All_Provinces.rds", PROJECT_FOLDER))
+# 
+# HR_shapes <- Regions %>%
+#     dplyr::group_by(HRUID2018) %>%
+#     dplyr::summarise(geometry=st_union(geometry) %>% st_cast("MULTIPOLYGON")) %>%
+#     data.table()
 # 
 # wave_dates <- list()
 # wave_plots <- list()
 # 
 # spline_parameter <- 0.75
 # 
+# # as opposed to the Canada dates, this calculates with a epicurve
 # find_wave_indices_here <- function(timeSeries)
 # {
 #     data_table <- data.table(cases = timeSeries) %>%
 #         dplyr::mutate(
-#             index = 1:nrow(.), 
+#             index = 1:nrow(.),
 #             spline = predict(smooth.spline(index, cases, spar=spline_parameter))$y
 #         )
 #     
-#     valley_indices <- localMaxima(-data_table$spline) %>% 
+#     valley_indices <- localMaxima(-data_table$spline) %>%
 #         .[! . %in% c(1:50, (nrow(data_table)-15):nrow(data_table))]
 #     
 #     return(valley_indices)
 # }
 # 
-# for(prov in c("Ontario")) # unique(Total_Case_Data$province) %>% .[!grepl("Alberta", .)])
+# # calculate the wave dates and plot for each PHU in each province
+# for(prov in unique(Total_Case_Data$province))
 # {
 #     print(prov)
 #     temp <- Total_Case_Data %>% dplyr::filter(province == prov)
-#     for(PHU in unique(temp$HR) %>% .[!grepl("reported|total", tolower(.))])
+#     for(PHU in unique(temp$HR) %>% .[!grepl("reported|total| ", tolower(.))] %>% .[which(nchar(.) != 0)])
 #     {
 #         writeLines(sprintf("\t%s", PHU))
 #         case_data <- temp %>%
@@ -76,11 +311,11 @@ setwd(PROJECT_FOLDER)
 #             geom_point(aes(y=cases)) +
 #             geom_line(aes(y=spline), colour="blue", size=2) +
 #             geom_ribbon(aes(
-#                 ymin=pmax(0, spline-sd(spline)),ymax=spline+sd(spline)), 
+#                 ymin=pmax(0, spline-sd(spline)),ymax=spline+sd(spline)),
 #                 fill="blue", alpha=0.1
 #             ) +
 #             geom_vline(
-#                 xintercept = temp_waves$date, 
+#                 xintercept = temp_waves$date,
 #                 colour = "darkgreen", size=1, linetype = "dashed"
 #             ) +
 #             theme_bw() +
@@ -93,157 +328,102 @@ setwd(PROJECT_FOLDER)
 #             scale_x_date(breaks="1 month", date_labels="%b %Y", expand=c(0,0)) +
 #             scale_y_continuous(expand = c(0, 0))
 #         
-#         wave_dates[[paste(prov, PHU, sep="_") %>% gsub(" +", "_", .)]] <- temp_waves
-#         wave_plots[[paste(prov, PHU, sep="_") %>% gsub(" +", "_", .)]] <- pl_waves
+#         wave_dates[[paste(prov, PHU, sep="_") %>% gsub(" +|-", "_", .)]] <- temp_waves
+#         wave_plots[[paste(prov, PHU, sep="_") %>% gsub(" +|-", "_", .)]] <- pl_waves
 #     }
 # }
 
-get.Dates <- function(theList)
-{
-    do.call("c", lapply(
-        theList,
-        \(xx) as.Date(xx, origin="1970-01-01")
-    ))
-}
 
-##################### SOMETHING ELSE
-
-# jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=cases&loc=canada")$cases %>%
-#     fwrite(file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv"))
-
-# verified
-# function to find the overlaps of multiple timelines, per required jurisdiction
-valmorphanize <- function(DATA, JURIS)
-{
-    DATA %>% dplyr::filter(jurisdiction == JURIS) %>%
-        split(1:nrow(.)) %>%
-        lapply(\(xx) seq(xx$date.implemented, xx$effective.until)) %>%
-        unlist %>% unname %>% unique %>% sort %>%
-        (\(xx) {c(min(xx), max(xx), xx[which(diff(xx)>1)], xx[which(diff(xx)>1)+1])}) %>%
-        sort %>% split(., ceiling(seq_along(.)/2)) %>%
-        lapply(\(xx) data.table(JURIS, t(xx))) %>% rbindlist %>%
-        setNames(c("jurisdiction", "start", "end")) %>%
-        dplyr::mutate(across(c("start", "end"), ~as.Date(.x, origin="1970-01-01")))
-}
-
-TEI  <- fread(file.path(PROJECT_FOLDER, "Classifications/tightened_educational_restrictions.R"))
-LDM <- fread(file.path(PROJECT_FOLDER, "Classifications/lockdown_measures.csv"))
-VAX <- fread(file.path(PROJECT_FOLDER, "Classifications/vaxx_info_dates.csv")) %>% 
-    dplyr::mutate(date.implemented = as.numeric(week_end)-7, effective.until = week_end, jurisdiction = province)
-
-timelines <- rbind(
-        lapply(unique(VAX$jurisdiction), \(xx) valmorphanize(VAX, xx)) %>% rbindlist %>% dplyr::mutate(measure = "Vaccination", colour = "lightgreen"),
-        lapply(unique(LDM$jurisdiction), \(xx) valmorphanize(LDM, xx)) %>% rbindlist %>% dplyr::mutate(measure = "Lockdown", colour = "lightblue"),
-        lapply(unique(TEI$jurisdiction), \(xx) valmorphanize(TEI, xx)) %>% rbindlist %>% dplyr::mutate(measure = "School Closure", colour = "red")
-    ) %>%
-    dplyr::mutate(alpha = lookup_alphas(jurisdiction))
-
-y_min_max <- plotly_build(
-    timelines %>%
-        dplyr::mutate(
-            start = as.POSIXct(as.Date(start, origin="1970-01-01")),
-            end  = as.POSIXct(as.Date(end,  origin="1970-01-01"))
-        ) %>%
-        gg_vistime(
-            col.event="measure", 
-            col.group="measure", 
-            col.start="start", 
-            col.end="end",
-            # col.color="colour", 
-            show_labels=FALSE
-        )
-    )$x$layout$yaxis$range
-
-# pl_timeline <- 
-    
-    timelines[alpha == "NS"] %>%
-    gg_vistime(col.event="measure", col.group="alpha", col.color="colour") +
-    geom_vline(xintercept = as.POSIXct(Canada_Wave_Dates)) + # wave dates are defined in the function header
-    scale_x_datetime(
-        breaks = seq(
-            min(as.POSIXct(timelines$start)),
-            as.POSIXct(Sys.Date()),
-            "months"
-        ),
-        date_labels = "%b %Y",
-        expand = c(0,0)
-    ) +
-    theme(
-        axis.text.x = element_text(angle=45, hjust=1),
-        axis.text = element_text(size = 13),
-        axis.title = element_text(size = 15)
-    ) +
-    labs(x="Month", y="Province")
-    ggsave(pl_timeline, file = file.path(PROJECT_FOLDER, "Graphs/TEI_plot.png"), width=10, height=7)
-    
-    pres <- data.table(
-        Position = rep(c("President", "Vice"), each = 3),
-        Name = c("Washington", rep(c("Adams", "Jefferson"), 2), "Burr"),
-        start = c("1789-03-29", "1797-02-03", "1801-02-03"),
-        end = c("1797-02-03", "1801-02-03", "1809-02-03"),
-        color = c("#cbb69d", "#603913", "#c69c6e")
-    ) %>%
-    rbind(
-        data.table("President", "Washington", "1803-01-01", "1815-01-01", "#cbb69d") %>% setNames(names(pres)),
-        data.table("Vice", "Washington", "1798-01-01", "1805-07-15", "#603913") %>% setNames(names(pres))
-    )
-    gg_vistime(pres, col.event = "Position", col.group = "Name", title = "Presidents of the USA")
-    
-    gg2_vistime <- function (data, col.event = "event", col.start = "start", col.end = "end", 
-              col.group = "group", col.color = "color", col.fontcolor = "fontcolor", 
-              optimize_y = TRUE, linewidth = NULL, title = NULL, show_labels = TRUE, 
-              background_lines = NULL, ...) 
-    {
-        checked_dat <- validate_input(data, col.event, col.start, 
-                                      col.end, col.group, col.color, col.fontcolor, col.tooltip = NULL, 
-                                      optimize_y, linewidth, title, show_labels, background_lines, 
-                                      list(...))
-        cleaned_dat <- vistime_data(checked_dat$data, checked_dat$col.event, 
-                                    checked_dat$col.start, checked_dat$col.end, checked_dat$col.group, 
-                                    checked_dat$col.color, checked_dat$col.fontcolor, checked_dat$col.tooltip, 
-                                    optimize_y)
-        total <- plot_ggplot(cleaned_dat, linewidth, title, show_labels, 
-                             background_lines)
-        return(total)
-    }
-    
-# # eased educational interventions
-# EEI <- fread(file.path(PROJECT_FOLDER, "Classifications/educational_interventions")) %>% 
-#     dplyr::filter(grepl("eas", tolower(action))) %>%
-#     dplyr::filter(!grepl("tigh", tolower(action))) %>%
-#     dplyr::filter(!grepl("guidance|strengthened|distributed|amended|working with|extended online teacher-led|implemented new measures|mask|release|update", tolower(what))) %>%
-#     dplyr::mutate(
-#         what = substr(what, start=1, stop=20),
-#         effective.until = ifelse(is.na(effective.until), Sys.Date(), effective.until) %>% as.Date(., origin="1970-01-01"),
-#         jurisdiction = ifelse(is.na(jurisdiction), "Canada", jurisdiction),
-#         color = "green",
-#         alpha = lookup_alphas(jurisdiction)
-#     ) %>% 
-#     dplyr::select(-what, -who, -action, -color, -`primary.source.(news.release.or.specific.resource)`,-secondary.source, -entry.id, -jurisdiction)
-
-    
-
-
-
-# All_Waves <- rbindlist(wave_dates)
-
-### CHOROPLETHS
-
+# Total_Case_Data <- fread(sprintf("%s/CaseDataTables/Total_Case_Data.csv", PROJECT_FOLDER))
+# 
+# wave_dates <- list()
+# wave_plots <- list()
+# 
+# spline_parameter <- 0.75
+# 
+# # as opposed to the Canada dates, this calculates with a epicurve
+# find_wave_indices_here <- function(timeSeries)
+# {
+#     data_table <- data.table(cases = timeSeries) %>%
+#         dplyr::mutate(
+#             index = 1:nrow(.),
+#             spline = predict(smooth.spline(index, cases, spar=spline_parameter))$y
+#         )
+# 
+#     valley_indices <- localMaxima(-data_table$spline) %>%
+#         .[! . %in% c(1:50, (nrow(data_table)-15):nrow(data_table))]
+# 
+#     return(valley_indices)
+# }
+# 
+# # calculate the wave dates and plot for each PHU in each province
+# for(prov in unique(Total_Case_Data$province))
+# {
+#     print(prov)
+#     temp <- Total_Case_Data %>% dplyr::filter(province == prov)
+#     for(PHU in unique(temp$HR) %>% .[!grepl("reported|total| ", tolower(.))] %>% .[which(nchar(.) != 0)])
+#     {
+#         writeLines(sprintf("\t%s", PHU))
+#         case_data <- temp %>%
+#             dplyr::filter(HR == PHU) %>%
+#             dplyr::mutate(cases = ifelse(cases<0, NA, cases)) %>%
+#             dplyr::mutate(
+#                 cases = ifelse(cases<0 | is.na(cases), 0, cases),
+#                 index = as.numeric(date),
+#                 loes = predict(loess(cases~index)),
+#                 spline = predict(smooth.spline(index, cases, spar=spline_parameter))$y # o.83
+#             ) %>%
+#             dplyr::arrange(date)
+# 
+#         temp_waves <- case_data[find_wave_indices_here(case_data$spline)] %>%
+#             dplyr::mutate(wave=2:(nrow(.)+1))
+# 
+#         pl_waves <- ggplot(case_data, aes(x=date)) +
+#             geom_line(aes(y=cases)) +
+#             geom_point(aes(y=cases)) +
+#             geom_line(aes(y=spline), colour="blue", size=2) +
+#             geom_ribbon(aes(
+#                 ymin=pmax(0, spline-sd(spline)),ymax=spline+sd(spline)),
+#                 fill="blue", alpha=0.1
+#             ) +
+#             geom_vline(
+#                 xintercept = temp_waves$date,
+#                 colour = "darkgreen", size=1, linetype = "dashed"
+#             ) +
+#             theme_bw() +
+#             theme(
+#                 axis.text = element_text(size=15),
+#                 axis.title = element_text(size=15),
+#                 axis.text.x = element_text(angle=45, hjust=1)
+#             ) +
+#             labs(x="Date", y=sprintf("Incidence (%s, %s)", prov, PHU)) +
+#             scale_x_date(breaks="1 month", date_labels="%b %Y", expand=c(0,0)) +
+#             scale_y_continuous(expand = c(0, 0))
+# 
+#         wave_dates[[paste(prov, PHU, sep="_") %>% gsub(" +|-", "_", .)]] <- temp_waves
+#         wave_plots[[paste(prov, PHU, sep="_") %>% gsub(" +|-", "_", .)]] <- pl_waves
+#     }
+# }
+# 
 # Regions <- data.table(readRDS("CaseDataTables/Regions.rda"))
-
-# saveRDS(st_union(Regions$geometry), sprintf("%s/All_Canada.rds", PROJECT_FOLDER))
-# saveRDS(Regions[, .(geometry=st_union(geometry)%>% st_cast("MULTIPOLYGON")), by=.(province)], sprintf("%s/All_Provinces.rds", PROJECT_FOLDER))
-
+# 
+# # saveRDS(st_union(Regions$geometry), sprintf("%s/All_Canada.rds", PROJECT_FOLDER))
+# # saveRDS(Regions[, .(geometry=st_union(geometry)%>% st_cast("MULTIPOLYGON")), by=.(province)], sprintf("%s/All_Provinces.rds", PROJECT_FOLDER))
+# 
 # All_Canada <- st_sf(readRDS(file.path(PROJECT_FOLDER, "All_Canada.rds")))
 # All_Provinces <- st_sf(readRDS(file.path(PROJECT_FOLDER, "All_Provinces.rds"))) %>%
 #     merge(., province_LUT %>% dplyr::select(province, abbreviations, alpha), all=TRUE, by="province")
 # 
 # HR_shapes <- Regions %>%
+#     dplyr::group_by(HRUID2018) %>%
+#     dplyr::summarise(geometry=st_union(geometry) %>% st_cast("MULTIPOLYGON"))
+# 
+# 
+# 
+# 
 #     data.table %>%
+#     
 #     .[, .(geometry=st_union(geometry) %>% st_cast("MULTIPOLYGON")), by=.(HRUID2018)]
-#     # .[, .(geometry=st_union(geometry) %>% st_cast("POLYGON")), by=.(HRUID2018)]
-#     # .[, .(geometry=st_combine(geometry) %>% st_cast("MULTIPOLYGON")), by=.(HRUID2018)]
-#     # .[, .(geometry=st_boundary(geometry) %>% st_cast("MULTIPOLYGON")), by=.(HRUID2018)]
 #     saveRDS(HR_shapes, file=file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda"))
 # 
 # HR_shapes <- readRDS(file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda"))
@@ -280,57 +460,7 @@ y_min_max <- plotly_build(
 #     dplyr::mutate(HR = factor(transitory$HR)) %>%
 #     st_sf()
 # 
-# Airport_Locations <- st_read(file.path(PROJECT_FOLDER, "Airports_Aeroports_en_shape/Airports_Aeroports_en_shape.shp"))
-# 
-# upper_Mannville_oil_gas_fields <- st_read(file.path(PROJECT_FOLDER, "upper_mannville_oil_and_gas_fields/fg1925_py_ll.shp"))
-# lower_Mannville_oil_gas_fields <- st_read(file.path(PROJECT_FOLDER, "lower_mannville_oil_and_gas_fields/fg1923_py_ll.shp"))
-# 
-# Canada_map_with_HRs_and_airports <- ggplot() +
-#     geom_sf(data = All_Canada, fill="lightblue", colour="black", inherit.aes=FALSE, size=0.5) +
-#     geom_sf(data = All_Provinces, fill=NA, colour="black", inherit.aes=FALSE, size=0.5) +
-#     # geom_sf(data = HF_shapes, aes(fill=HR), colour="black", inherit.aes=FALSE, size=0.5) +
-#     geom_sf(data = upper_Mannville_oil_gas_fields, inherit.aes=FALSE, size=1, pch=3, colour="green") +
-#     geom_sf(data = lower_Mannville_oil_gas_fields, inherit.aes=FALSE, size=1, pch=3, colour="green") +
-#     geom_sf(data = Airport_Locations, inherit.aes=FALSE, size=4, pch=13, colour='red') +
-#     # geom_sf(data=All_Provinces, fill=NA, inherit.aes=FALSE) +
-#     theme_minimal() +
-#     theme(
-#         panel.grid = element_blank(),
-#         axis.text = element_blank(),
-#         axis.ticks = element_blank(),
-#         legend.text = element_text(size=13),
-#         legend.title = element_text(size=13),
-#         legend.key.height = unit(1, 'cm'),
-#         plot.background = element_rect(fill="white", colour="white"),
-#         legend.position="none"
-#     ) +
-#     coord_sf(datum=NA) +
-#     labs(x="", y="") # +
-#     # guides(colour = guide_legend(legend.title.align=0.5))
-#     # ggsave(SAC_map_with_census_info_SAC, file=sprintf("%s/Graphs/SAC_choropleth.png", PROJECT_FOLDER))
-#     # system(sprintf("convert %s/Graphs/SAC_choropleth.png -trim %s/Graphs/SAC_choropleth.png", PROJECT_FOLDER, PROJECT_FOLDER))
-#     ggsave(Canada_map_with_HRs_and_airports, file=sprintf("%s/Graphs/Canada_airports.png", PROJECT_FOLDER), width=15, height=6)
-#     system(sprintf("convert %s/Graphs/Canada_airports.png -trim %s/Graphs/Canada_airports.png", PROJECT_FOLDER, PROJECT_FOLDER))
 
-# figure_2_num_csds_per_hr <- ggplot(
-#         Regions[, .(N=.N), by=.(province, HR, HRUID2018)],
-#         aes(x=factor(HR), y=N, fill=province, group=province)
-#     ) +
-#     geom_bar(stat="identity", position="dodge") +# 
-#     theme_bw() +
-#     theme(
-#         axis.text.x = element_text(angle=90, hjust=1)
-#     )
-# 
-# figure_2_pop_per_hr <- ggplot(
-#         Regions[, sum(population), by=.(province, HR)],
-#         aes(x=factor(HR), y=V1, fill=province, group=province)
-#     ) +
-#     geom_bar(stat="identity", position="dodge") +
-#     theme_bw() +
-#     theme(
-#         axis.text.x = element_text(angle=90, hjust=1)
-#     )
 
 
 # province_metrics <- Regions[, .(
@@ -544,73 +674,7 @@ y_min_max <- plotly_build(
 # # animate(p, fps = 25, renderer = av_renderer("out.mkv"))
 # print(Sys.time() - start_time)
 
-##### BREAK POINT ANALYSIS
 
-# saveRDS(seg_reg, file=file.path(PROJECT_FOLDER, "Classifications/all_breaks_waves.rda"))
-
-# this makes sure that the dates stay the same during repeated runs
-# seg_reg <- readRDS(file.path(PROJECT_FOLDER, "Classifications/all_breaks_waves.rda"))
-
-# canada <- rbind(
-#         canada_temp %>% dplyr::mutate(fit = fitted(seg_reg), cases=log(cases), type="log(Incidence)"),
-#         canada_temp %>% dplyr::mutate(fit = exp(fitted(seg_reg)), type="Incidence")
-#     )
-# 
-# break_dates <- canada_temp[index %in% floor(data.frame(seg_reg$psi)$`Est.`)]
-# breaks_waves <- break_dates$date[c(2, 5, 7)]
-# 
-# all_breaks_waves <- rbind(
-#         break_dates %>% dplyr::arrange(date) %>% dplyr::mutate(type="Incidence", label=1:nrow(.)),
-#         break_dates %>% dplyr::arrange(date) %>% dplyr::mutate(type="log(Incidence)", cases=log(cases), label=1:nrow(.))
-#     ) %>%
-#     merge(canada %>%
-#     select(date, fit, type), by=c("date", "type"))
-# 
-# canada_wave_break_point_analysis <- ggplot(canada, aes(x=date)) +
-#     geom_point(aes(y=cases), size=0.5) +
-#     geom_line(aes(y=fit), size=0.75, colour="blue") +
-#     geom_point(data=all_breaks_waves, aes(x=date, y=fit), pch=21, fill=NA, size=5, colour="red", stroke=1) +
-#     geom_point(data=all_breaks_waves, aes(x=date, y=fit), pch=21, fill=NA, size=6, colour="red", stroke=1) +
-#     labs(x="Date", y="Value") +
-#     theme_bw() +
-#     theme(
-#         axis.text = element_text(size=12),
-#         axis.title = element_text(size=17),
-#         axis.text.x = element_text(angle=45, vjust=1, hjust=1),
-#         strip.text = element_text(size=15)
-#     ) +
-#     scale_x_date(date_breaks = "1 month" , date_labels = "%b %Y", expand=c(0,0)) +
-#     facet_wrap(~type, scale="free", ncol=2) +
-#     geom_vline(xintercept=breaks_waves[1], linetype="dashed", color = "blue", size=0.5) +
-#     geom_vline(xintercept=breaks_waves[2], linetype="dashed", color = "blue", size=0.5) +
-#     geom_vline(xintercept=breaks_waves[3], linetype="dashed", color = "blue", size=0.5) +
-#     geom_text(data=all_breaks_waves, aes(x=date, y=fit, label=label), size=7, colour="red", nudge_y=1.5)
-# 
-# ggsave(canada_wave_break_point_analysis, file=file.path(PROJECT_FOLDER, "Graphs/canada_wave_break_points.png"), width=20, height=7)
-
-# Canada_waves <-  ggplot(canada, aes(date, cases)) +
-#     theme_bw() +
-#     theme(
-#         axis.text = element_text(size=13),
-#         axis.text.x = element_text(angle=45, vjust=1, hjust=1),
-#         axis.title = element_text(size=13)
-#     ) +
-#     labs(y="Daily Incidence", x="") +
-#     scale_x_date(date_breaks = "1 month" , date_labels = "%d-%b-%Y", expand=c(0,0)) +
-#     scale_y_continuous(expand=c(0,0), breaks=seq(0, 15000, by=3000)) +
-#     annotate(geom = "rect", xmin=min(canada_temp$date), xmax=breaks_waves[1], ymin=-Inf, ymax=Inf, fill="orange", alpha=0.1) +
-#     annotate(geom = "rect", xmin=breaks_waves[1], xmax=breaks_waves[2], ymin=-Inf, ymax=Inf, fill="orange", alpha=0.3) +
-#     annotate(geom = "rect", xmin=breaks_waves[2], xmax=breaks_waves[3], ymin=-Inf, ymax=Inf, fill="orange", alpha=0.5) +
-#     geom_vline(xintercept=breaks_waves[1], linetype="dashed", color = "red", size=0.5) +
-#     geom_vline(xintercept=breaks_waves[2], linetype="dashed", color = "red", size=0.5) +
-#     geom_vline(xintercept=breaks_waves[3], linetype="dashed", color = "red", size=0.5) +
-#     geom_bar(stat="identity", fill="lightblue") +
-#     geom_line(aes(y=moving_avg_seven_days), colour="red", size=1)
-# 
-#     ggsave(Canada_waves, file=sprintf("%s/Graphs/canada_waves.png", PROJECT_FOLDER), height=5, width=10)
-#     system(sprintf("convert %s/Graphs/canada_waves.png -trim %s/Graphs/canada_waves.png", PROJECT_FOLDER, PROJECT_FOLDER))
-
-##############################################
 
 
 # # a map of the health regions of each province colour coded and aR score given

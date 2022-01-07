@@ -1,0 +1,42 @@
+province,start,end,measure,colour,alpha
+Newfoundland and Labrador,2020-12-12,2021-12-18,Vaccination,lightgreen,NL
+Prince Edward Island,2020-12-19,2021-12-18,Vaccination,lightgreen,PE
+Nova Scotia,2020-12-12,2021-12-18,Vaccination,lightgreen,NS
+New Brunswick,2020-12-19,2021-12-18,Vaccination,lightgreen,NB
+Quebec,2020-12-12,2021-12-18,Vaccination,lightgreen,QC
+Ontario,2021-01-09,2021-12-18,Vaccination,lightgreen,ON
+Manitoba,2020-12-12,2021-12-18,Vaccination,lightgreen,MB
+Saskatchewan,2020-12-12,2021-12-18,Vaccination,lightgreen,SK
+Alberta,2020-12-19,2021-12-18,Vaccination,lightgreen,AB
+British Columbia,2020-12-12,2021-12-18,Vaccination,lightgreen,BC
+Yukon,2020-12-12,2021-12-18,Vaccination,lightgreen,YT
+Northwest Territories,2020-12-12,2021-12-18,Vaccination,lightgreen,NT
+Nunavut,2020-12-12,2021-12-18,Vaccination,lightgreen,NU
+Alberta,2020-03-17,2022-01-06,Lockdown,lightblue,AB
+British Columbia,2020-03-17,2022-01-06,Lockdown,lightblue,BC
+Manitoba,2020-03-20,2022-01-06,Lockdown,lightblue,MB
+New Brunswick,2020-03-17,2022-01-06,Lockdown,lightblue,NB
+Newfoundland and Labrador,2020-03-14,2022-01-06,Lockdown,lightblue,NL
+Nova Scotia,2020-03-13,2022-01-06,Lockdown,lightblue,NS
+Northwest Territories,2020-03-16,2022-01-06,Lockdown,lightblue,NT
+Nunavut,2020-03-19,2022-01-06,Lockdown,lightblue,NU
+Ontario,2020-03-17,2022-01-06,Lockdown,lightblue,ON
+Prince Edward Island,2020-03-15,2022-01-06,Lockdown,lightblue,PE
+Quebec,2020-03-16,2022-01-06,Lockdown,lightblue,QC
+Saskatchewan,2020-03-16,2022-01-06,Lockdown,lightblue,SK
+Yukon,2020-03-18,2022-01-06,Lockdown,lightblue,YT
+Alberta,2020-03-15,2021-12-27,School Closure,red,AB
+British Columbia,2020-03-16,2021-12-27,School Closure,red,BC
+Manitoba,2020-03-23,2021-12-27,School Closure,red,MB
+New Brunswick,2020-03-19,2021-12-27,School Closure,red,NB
+Newfoundland and Labrador,2020-03-17,2021-12-27,School Closure,red,NL
+Nova Scotia,2020-03-30,2020-05-19,School Closure,red,NS
+Nova Scotia,2021-04-26,2021-12-27,School Closure,red,NS
+Northwest Territories,2020-03-16,2021-12-27,School Closure,red,NT
+Nunavut,2020-03-17,2021-12-27,School Closure,red,NU
+Ontario,2020-03-14,2020-09-08,School Closure,red,ON
+Ontario,2021-04-15,2021-12-27,School Closure,red,ON
+Prince Edward Island,2020-03-27,2020-05-11,School Closure,red,PE
+Quebec,2020-03-22,2021-12-27,School Closure,red,QC
+Saskatchewan,2020-03-20,2021-12-27,School Closure,red,SK
+Yukon,2020-03-18,2021-12-27,School Closure,red,YT
