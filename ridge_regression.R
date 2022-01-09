@@ -4,12 +4,12 @@ library(data.table)
 library(dplyr)
 library(glmnet)
 library(cowplot)
-# library(caret)
 library(ggplot2)
-# library(car)
 library(stringr)
 library(ppcor)
 library(hdi)
+library(boot)
+library(boot.pval)
 
 PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
 # PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project"
@@ -55,321 +55,291 @@ cohorts <- function(start_age, end_age, ...)
     return(parse(text = paste(col_names, collapse=" + ")))
 }
 
-if(!file.exists( file.path(PROJECT_FOLDER, "CaseDataTables/temp_cleaned_regression_data.csv") ))
+# don't do the regression again if a file already exists
+if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/regression_coefficents.csv") ))
 {
-    # import the pre-prepared regression data
-    Imported <- readRDS(file.path(PROJECT_FOLDER, "CaseDataFiles/regression_data.rda")) %>%
-        data.table() %>%
-        # changing the None/Partial/Entire values to 0/1/2
-        dplyr::mutate(
-            EIs = factor_to_num(EIs),
-            LIs = factor_to_num(LIs),
-            VIs = factor_to_num(VIs),
-            # the 0-4 cohort is for reference
-            group_0_to_4 = eval(cohorts(0, 4)), #/total_population,
-            group_5_to_19 = eval(cohorts(5, 19)), #/PHU_population,
-            group_20_to_49 = eval(cohorts(20, 49)), #/PHU_population,
-            group_50_to_64 = eval(cohorts(50, 64)), #/PHU_population,
-            group_65_plus = eval(cohorts(65, 99, "cohort_100_plus")) # /PHU_population
-            # group_0_to_19 = eval(cohorts(0, 19)), #/PHU_population,
-            # group_20_to_49 = eval(cohorts(20, 49)), #/PHU_population,
-            # group_50_to_64 = eval(cohorts(50, 64)), #/PHU_population
-        ) %>%
-        # adding interaction terms
-        dplyr::mutate(
-            # interaction_children_school_closures = EIs*group_0_to_19,
-            interaction_children_school_closures = EIs*group_5_to_19,
-            
-            interaction_popdensity_cma = PHU_pop_density*is_cma,
-            interaction_popdensity_ca = PHU_pop_density*is_ca,
-            interaction_popdensity_strong = PHU_pop_density*is_miz_strong,
-            interaction_popdensity_moderate = PHU_pop_density*is_miz_moderate,
-            interaction_popdensity_weak = PHU_pop_density*is_miz_weak,
-            interaction_popdensity_none = PHU_pop_density*is_miz_none,
-            
-            # interaction_LTCH_65_plus = LTCHs*group_65_plus,
-            
-            interaction_lockdown_0_to_4 = LIs*group_0_to_4,
-            interaction_lockdown_5_to_19 = LIs*group_5_to_19,
-            interaction_lockdown_20_to_49 = LIs*group_20_to_49,
-            interaction_lockdown_50_to_64 = LIs*group_50_to_64,
-            interaction_lockdown_65_plus = LIs*group_65_plus
-            
-            # interaction_lockdown_0_to_19 = LIs*group_0_to_19,
-            # interaction_lockdown_20_to_49 = LIs*group_20_to_49,
-            # interaction_lockdown_50_to_64 = LIs*group_50_to_64,
+    if(!file.exists( file.path(PROJECT_FOLDER, "CaseDataTables/temp_cleaned_regression_data.csv") ))
+    {
+        # import the pre-prepared regression data
+        Imported <- readRDS(file.path(PROJECT_FOLDER, "CaseDataFiles/regression_data.rda")) %>%
+            data.table() %>%
+            # changing the None/Partial/Entire values to 0/1/2
+            dplyr::mutate(
+                EIs = factor_to_num(EIs),
+                LIs = factor_to_num(LIs),
+                VIs = factor_to_num(VIs),
+                group_0_to_4 = eval(cohorts(0, 4)),
+                group_5_to_19 = eval(cohorts(5, 19)),
+                group_20_to_49 = eval(cohorts(20, 49)),
+                group_50_to_64 = eval(cohorts(50, 64)),
+                group_65_plus = eval(cohorts(65, 99, "cohort_100_plus"))
+            ) %>%
+            # adding interaction terms
+            dplyr::mutate(
+                interaction_children_school_closures = EIs*group_5_to_19,
+                
+                interaction_popdensity_cma = PHU_pop_density*is_cma,
+                interaction_popdensity_ca = PHU_pop_density*is_ca,
+                interaction_popdensity_strong = PHU_pop_density*is_miz_strong,
+                interaction_popdensity_moderate = PHU_pop_density*is_miz_moderate,
+                interaction_popdensity_weak = PHU_pop_density*is_miz_weak,
+                interaction_popdensity_none = PHU_pop_density*is_miz_none,
+                
+                interaction_LTCH_65_plus = LTCHs*group_65_plus,
+                
+                interaction_lockdown_0_to_4 = LIs*group_0_to_4,
+                interaction_lockdown_5_to_19 = LIs*group_5_to_19,
+                interaction_lockdown_20_to_49 = LIs*group_20_to_49,
+                interaction_lockdown_50_to_64 = LIs*group_50_to_64,
+                interaction_lockdown_65_plus = LIs*group_65_plus
 
+            ) %>%
+            # taking away the unnecessary columns. later we'll do regression on the entire
+            # glmnet matrix, so no stray columns
+            dplyr::select(
+                -geometry, -PROV_vaxx_FULL, -starts_with("cohort"), -airports, 
+                -PHU_area_km2, -PHU_dwellings
+            )
+            
+        # add the incidence and log(incidence) from the previous wave
+        Regression_Data <- rbind(
+            # first wave is unadulterated
+            Imported %>% dplyr::filter(wave==1) %>%
+                dplyr::mutate(
+                    previous_wave_incidence = 0,
+                    interaction_vaccination_0_to_4 = 0,
+                    interaction_vaccination_5_to_19 = 0,
+                    interaction_vaccination_20_to_49 = 0,
+                    interaction_vaccination_50_to_64 = 0,
+                    interaction_vaccination_65_plus = 0,
+                ),
+            # second wave with the incidence of the first wave attached
+            merge(
+                Imported %>% dplyr::filter(wave == 2) %>%
+                    dplyr::group_by(province, pruid) %>%
+                    dplyr::mutate(
+                    interaction_vaccination_0_to_4 = 0,
+                    interaction_vaccination_5_to_19 = 0,
+                    interaction_vaccination_20_to_49 = PROV_vaxx_AL1D*group_20_to_49/PROV_population,
+                    interaction_vaccination_50_to_64 = PROV_vaxx_AL1D*group_50_to_64/PROV_population,
+                    interaction_vaccination_65_plus = PROV_vaxx_AL1D*group_65_plus/PROV_population
+                    ),
+                Imported %>% 
+                    dplyr::filter(wave == 1) %>% 
+                    dplyr::rename(previous_wave_incidence = incidence) %>%
+                    dplyr::select(pruid, HRUID2018, previous_wave_incidence),
+                by=c("pruid", "HRUID2018"),
+                all = TRUE
+            ),
+            # third wave with the incidence of the second wave attached
+            merge(
+                Imported %>% dplyr::filter(wave == 3) %>%    
+                    dplyr::mutate(
+                    interaction_vaccination_0_to_4 = PROV_vaxx_AL1D*group_0_to_4/PROV_population,
+                    interaction_vaccination_5_to_19 = PROV_vaxx_AL1D*group_5_to_19/PROV_population,
+                    interaction_vaccination_20_to_49 = PROV_vaxx_AL1D*group_20_to_49/PROV_population,
+                    interaction_vaccination_50_to_64 = PROV_vaxx_AL1D*group_50_to_64/PROV_population,
+                    interaction_vaccination_65_plus = PROV_vaxx_AL1D*group_65_plus/PROV_population
+                    ),
+                Imported %>% 
+                    dplyr::filter(wave == 2) %>% 
+                    dplyr::rename(previous_wave_incidence = incidence) %>%
+                    dplyr::select(pruid, HRUID2018, previous_wave_incidence),
+                by=c("pruid", "HRUID2018"),
+                all = TRUE
+            ),
+            # fourth wave with the incidence of the third wave attached
+            merge(
+                Imported %>% dplyr::filter(wave == 4) %>%    
+                    dplyr::mutate(
+                    interaction_vaccination_0_to_4 = PROV_vaxx_AL1D*group_0_to_4/PROV_population,
+                    interaction_vaccination_5_to_19 = PROV_vaxx_AL1D*group_5_to_19/PROV_population,
+                    interaction_vaccination_20_to_49 = PROV_vaxx_AL1D*group_20_to_49/PROV_population,
+                    interaction_vaccination_50_to_64 = PROV_vaxx_AL1D*group_50_to_64/PROV_population,
+                    interaction_vaccination_65_plus = PROV_vaxx_AL1D*group_65_plus/PROV_population
+                    ),
+                Imported %>% 
+                    dplyr::filter(wave == 3) %>% 
+                    dplyr::rename(previous_wave_incidence = incidence) %>%
+                    dplyr::select(pruid, HRUID2018, previous_wave_incidence),
+                by=c("pruid", "HRUID2018"),
+                all = TRUE
+            )
         ) %>%
-        # taking away the unnecessary columns. later we'll do regression on the entire
-        # glmnet matrix, so no stray columns
-        dplyr::select(
-            -geometry, -PROV_vaxx_FULL, -starts_with("cohort"), -airports, 
-            -PHU_area_km2, -PHU_dwellings
+        dplyr::mutate(
+            # if there was zero incidence, just set the log incidence to zero
+            log_previous_wave_incidence=ifelse(
+                previous_wave_incidence==0, 
+                0, 
+                log(previous_wave_incidence)
+            )
         )
         
-    # add the incidence and log(incidence) from the previous wave
-    Data <- rbind(
-        # first wave is unadulterated
-        Imported %>% dplyr::filter(wave==1) %>%
+        fwrite(Data, file=file.path(PROJECT_FOLDER, "CaseDataTables/temp_cleaned_regression_data.csv"))
+    }
+    
+    Regression_Data <- fread(file.path(
+        PROJECT_FOLDER, 
+        "CaseDataTables/temp_cleaned_regression_data.csv"
+    ))
+    
+    # tables for descriptive data
+    Information <- data.table()
+    r2s <- data.table()
+    VIFs <- data.table()
+    optimal_lambdas <- data.table()
+    MSEs <- data.table()
+    
+    start_time <- Sys.time()
+    for(wave_number in 1:4)
+    {
+        reg_data_here <- Regression_Data %>%
+            dplyr::filter(wave == wave_number) %>%
+            # information not needed for debugging anymore
+            dplyr::select(
+                -province, -HRUID2018, -HR, -pruid, -PROV_vaxx_AL1D, -log_previous_wave_incidence, 
+                -PROV_population, -PHU_population, -wave
+            ) %>%
+            # take out the columns with only a single value, since we can't regress on those
+            dplyr::select(where(~n_distinct(.) > 1)) %>%
+            # for columns that were all the same value, then any interaction columns using that
+            # regressor will be duplicated, so we remove them from the end of the table
+            .[, which(! duplicated( t( . ) ) ), with = FALSE] %>%
+            # the Saskatchewan official; data starts quite a few months behind the other data, so that
+            # the previous_wave_incidence columns for the second wave are not filled. so, we'll have to 
+            # kill those rows so that they don't unduly influence the regression
+            dplyr::filter(
+                if("previous_wave_incidence" %in% names(.)) !is.na(previous_wave_incidence) else TRUE 
+            )
+        
+        aliased_columns <- unique(rownames(
+            which(
+                alias(lm(incidence ~ ., data = reg_data_here))[["Complete"]] != "2", 
+                arr.ind=TRUE
+            )
+        ))
+        
+        reg_data_here <- reg_data_here %>% dplyr::select(-any_of(aliased_columns))
+        
+        x_full <- as.matrix(reg_data_here %>% dplyr::select(-incidence))
+        y_full <- as.matrix(reg_data_here$incidence, ncol=1)
+        
+        cv_model <- cv.glmnet(
+            x = x_full,
+            y = y_full,
+            alpha = 0,
+            family = "gaussian",
+            lower = 0,
+            upper = 1
+        )
+
+        optim.lambda <- cv_model$lambda.min
+    
+        glm_fit <- glmnet(x_full, y_full, alpha = 0, lambda = optim.lambda)
+        ridge_predictions <- predict(glm_fit, s = optim.lambda, newx = x_full)
+    
+        # hybrid approach for StackExchange
+        # https://stackoverflow.com/questions/60181310/standard-error-of-ridge-logistic-regression-coefficient-using-caret
+        
+        ridge_fit = ridge.proj(
+            x = x_full,
+            y = y_full,
+            family="gaussian",
+            lambda = optim.lambda
+        )
+    
+        Information.Ridge <- cbind(ridge_fit$bhat, ridge_fit$se, ridge_fit$pval, ridge_fit$sds
+            ) %>%
+            data.table(regressor = rownames(.)) %>%
+            dplyr::rename(coefficient=V1, se=V2, p.value=V3, sds=V4) %>%
             dplyr::mutate(
-                previous_wave_incidence = 0,
-                # interaction_vaccination_0_to_19 = 0,
-                interaction_vaccination_0_to_4 = 0,
-                interaction_vaccination_5_to_19 = 0,
-                interaction_vaccination_20_to_49 = 0,
-                interaction_vaccination_50_to_64 = 0,
-                interaction_vaccination_65_plus = 0,
-            ),
-        # second wave with the incidence of the first wave attached
-        merge(
-            Imported %>% dplyr::filter(wave == 2) %>%
-                dplyr::group_by(province, pruid) %>%
-                dplyr::mutate(
-                interaction_vaccination_0_to_4 = 0,
-                interaction_vaccination_5_to_19 = 0,
-                # interaction_vaccination_0_to_19 = 0,
-                interaction_vaccination_20_to_49 = PROV_vaxx_AL1D*group_20_to_49/PROV_population,
-                interaction_vaccination_50_to_64 = PROV_vaxx_AL1D*group_50_to_64/PROV_population,
-                interaction_vaccination_65_plus = PROV_vaxx_AL1D*group_65_plus/PROV_population
-                ),
-            Imported %>% 
-                dplyr::filter(wave == 1) %>% 
-                dplyr::rename(previous_wave_incidence = incidence) %>%
-                dplyr::select(pruid, HRUID2018, previous_wave_incidence),
-            by=c("pruid", "HRUID2018"),
-            all = TRUE
-        ),
-        # third wave with the incidence of the second wave attached
-        merge(
-            Imported %>% dplyr::filter(wave == 3) %>%    
-                dplyr::mutate(
-                interaction_vaccination_0_to_4 = PROV_vaxx_AL1D*group_0_to_4/PROV_population,
-                interaction_vaccination_5_to_19 = PROV_vaxx_AL1D*group_5_to_19/PROV_population,
-                # interaction_vaccination_0_to_19 = PROV_vaxx_AL1D, #/PROV_population*group_0_to_19,
-                interaction_vaccination_20_to_49 = PROV_vaxx_AL1D*group_20_to_49/PROV_population,
-                interaction_vaccination_50_to_64 = PROV_vaxx_AL1D*group_50_to_64/PROV_population,
-                interaction_vaccination_65_plus = PROV_vaxx_AL1D*group_65_plus/PROV_population
-                ),
-            Imported %>% 
-                dplyr::filter(wave == 2) %>% 
-                dplyr::rename(previous_wave_incidence = incidence) %>%
-                dplyr::select(pruid, HRUID2018, previous_wave_incidence),
-            by=c("pruid", "HRUID2018"),
-            all = TRUE
-        ),
-        # fourth wave with the incidence of the third wave attached
-        merge(
-            Imported %>% dplyr::filter(wave == 4) %>%    
-                dplyr::mutate(
-                interaction_vaccination_0_to_4 = PROV_vaxx_AL1D*group_0_to_4/PROV_population,
-                interaction_vaccination_5_to_19 = PROV_vaxx_AL1D*group_5_to_19/PROV_population,
-                # interaction_vaccination_0_to_19 = PROV_vaxx_AL1D, #/PROV_population*group_0_to_19,
-                interaction_vaccination_20_to_49 = PROV_vaxx_AL1D*group_20_to_49/PROV_population,
-                interaction_vaccination_50_to_64 = PROV_vaxx_AL1D*group_50_to_64/PROV_population,
-                interaction_vaccination_65_plus = PROV_vaxx_AL1D*group_65_plus/PROV_population
-                ),
-            Imported %>% 
-                dplyr::filter(wave == 3) %>% 
-                dplyr::rename(previous_wave_incidence = incidence) %>%
-                dplyr::select(pruid, HRUID2018, previous_wave_incidence),
-            by=c("pruid", "HRUID2018"),
-            all = TRUE
+                type = "Ridge",
+                wave = wave_number,
+                CI025 = coefficient-1.96*se,
+                CI975 = coefficient+1.96*se
+            ) %>%
+            dplyr::relocate(wave, regressor)
+        
+        # comparison with OLS regression
+        OLS_model <- lm(
+            incidence ~ ., 
+            data = reg_data_here %>% dplyr::select(-any_of(aliased_columns))
         )
-    ) %>%
-    dplyr::mutate(
-        # if there was zero incidence, just set the log incidence to zero
-        log_previous_wave_incidence=ifelse(
-            previous_wave_incidence==0, 
-            0, 
-            log(previous_wave_incidence)
-        )
-    )
+        
+        # OLS.confidence <- confint(OLS_model, level=0.95) %>% 
+        #     data.table(regressor=rownames(.)) %>% 
+        #     dplyr::rename(OLS.CI025=`2.5 %`, OLS.CI975=`97.5 %`) %>% 
+        #     dplyr::mutate(wave = wave_number) %>% 
+        #     dplyr::relocate(wave, regressor)
+        
     
-    fwrite(Data, file=file.path(PROJECT_FOLDER, "CaseDataTables/temp_cleaned_regression_data.csv"))
-
+        Information.OLS <- summary(OLS_model)$coefficients %>%
+            data.table(regressor=rownames(.)) %>% 
+            dplyr::rename(
+                coefficient = Estimate, 
+                se = `Std. Error`,
+                p.value = `Pr(>|t|)`, 
+                t.value = `t value`,
+            ) %>%
+            dplyr::mutate(
+                type = "OLS",
+                wave = wave_number,
+                CI025 = coefficient-1.96*se,
+                CI975 = coefficient+1.96*se
+            ) %>%
+            dplyr::relocate(wave, regressor)
+        
+        RSS <- c(crossprod(OLS_model$residuals))
+        MSE <- RSS / length(OLS_model$residuals)
+        RMSE <- sqrt(MSE)
+        
+        vif <- car::vif(OLS_model)
+        
+        ##### COLLECTING DATA
+    
+        Information <- rbind(
+            Information,
+            Information.Ridge, 
+            Information.OLS,
+            fill = TRUE
+        )
+    
+        optimal_lambdas <- rbind(
+            optimal_lambdas,
+            data.table(wave=wave_number, lambda=optim.lambda)
+        )
+        
+        VIFs <- rbind(VIFs, data.table(
+            regressor = names(vif),
+            value = as.numeric(vif),
+            wave = wave_number
+        ))
+        
+        MSEs <- rbind(
+            MSEs,
+            data.table(
+                wave = wave_number, lambda=cv_model$lambda, meann = cv_model$cvm,
+                sdd = cv_model$cvsd, upper = cv_model$cvup, lower = cv_model$cvlo
+            )
+        )
+        
+        r2s <- rbind(
+            r2s,
+            data.table(
+                wave = wave_number,
+                ridge = r2(y_full, ridge_predictions),
+                OLS = summary(OLS_model)$r.squared
+            )
+        )
+    }
+    print(Sys.time() - start_time)
+    
+    fwrite(Information, file=file.path(PROJECT_FOLDER, "Classifications/regression_coefficents.csv"))
 }
 
-Regression_Data <- fread(file.path(
-    PROJECT_FOLDER, 
-    "CaseDataTables/temp_cleaned_regression_data.csv"
-))
+Information <- fread(file.path(PROJECT_FOLDER, "Classifications/regression_coefficents.csv"))
 
-# stop()
-
-# tables for descriptive data
-Information <- data.table()
-r2s <- data.table()
-VIFs <- data.table()
-optimal_lambdas <- data.table()
-MSEs <- data.table()
-
-start_time <- Sys.time()
-for(wave_number in 1:4)
-{
-    reg_data_here <- Regression_Data %>%
-        dplyr::filter(wave == wave_number) %>%
-        # information not needed for debugging anymore
-        dplyr::select(
-            -province, -HRUID2018, -HR, -pruid, -PROV_vaxx_AL1D, -log_previous_wave_incidence, 
-            -PROV_population, -PHU_population, -wave
-        ) %>%
-        # take out the columns with only a single value, since we can't regress on those
-        dplyr::select(where(~n_distinct(.) > 1)) %>%
-        # for columns that were all the same value, then any interaction columns using that
-        # regressor will be duplicated, so we remove them from the end of the table
-        .[, which(! duplicated( t( . ) ) ), with = FALSE] %>%
-        # the Saskatchewan official; data starts quite a few months behind the other data, so that
-        # the previous_wave_incidence columns for the second wave are not filled. so, we'll have to 
-        # kill those rows so that they don't unduly influence the regression
-        dplyr::filter(
-            if("previous_wave_incidence" %in% names(.)) !is.na(previous_wave_incidence) else TRUE 
-        )
-    
-    aliased_columns <- unique(rownames(
-        which(
-            alias(lm(incidence ~ ., data = reg_data_here))[["Complete"]] != "2", 
-            arr.ind=TRUE
-        )
-    ))
-    
-    reg_data_here <- reg_data_here %>% dplyr::select(-any_of(aliased_columns))
-    
-    x_full <- as.matrix(reg_data_here %>% dplyr::select(-incidence))
-    y_full <- as.matrix(reg_data_here$incidence, ncol=1)
-    
-    ridge_models <- glmnet(x_full, y_full, alpha=0)
-    
-    cv_model <- cv.glmnet(
-        x = x_full,
-        y = y_full,
-        alpha = 0,
-        family = "gaussian"
-    )
-    
-    optim.lambda <- cv_model$lambda.min
-    
-    # glm_fit <- glmnet(x_full, y_full, alpha = 0, lambda = optim.lambda)
-    # 
-    # y_predicted <- predict(ridge_models, s=optim.lambda, newx=x_full)
-    
-    # hybrid approach for StackExchange
-    # https://stackoverflow.com/questions/60181310/standard-error-of-ridge-logistic-regression-coefficient-using-caret
-    
-    ridge_fit = ridge.proj(
-        x = x_full,
-        y = y_full,
-        family="gaussian",
-        lambda = optim.lambda
-    )
-    
-    # Information.Ridge <- cbind(ridge_fit$bhat, ridge_fit$se, ridge_fit$pval, ridge_fit$sds) %>% 
-    #     data.table(regressor = rownames(.)) %>% 
-    #     dplyr::rename(Ridge.coefficient=V1, Ridge.se=V2, Ridge.p.value=V3, Ridge.sds=V4) %>% 
-    #     dplyr::mutate(
-    #         wave = wave_number,
-    #         Ridge.CI025 = Ridge.coefficient-1.96*Ridge.se,
-    #         Ridge.CI975 = Ridge.coefficient+1.96*Ridge.se
-    #     ) %>%
-    #     dplyr::relocate(wave, regressor)
-
-    # uniform columns for ggplot grouping
-    Information.Ridge <- cbind(ridge_fit$bhat, ridge_fit$se, ridge_fit$pval, ridge_fit$sds
-        ) %>%
-        data.table(regressor = rownames(.)) %>%
-        dplyr::rename(coefficient=V1, se=V2, p.value=V3, sds=V4) %>%
-        dplyr::mutate(
-            type = "Ridge",
-            wave = wave_number,
-            CI025 = coefficient-1.96*se,
-            CI975 = coefficient+1.96*se
-        ) %>%
-        dplyr::relocate(wave, regressor)
-    
-    # glm_fit$beta %>% as.matrix %>% data.table(regressor=rownames(.))
-    
-    OLS_model <- lm(
-        incidence ~ ., 
-        data = reg_data_here %>% dplyr::select(-any_of(aliased_columns))
-    )
-    
-    # OLS.confidence <- confint(OLS_model, level=0.95) %>% 
-    #     data.table(regressor=rownames(.)) %>% 
-    #     dplyr::rename(OLS.CI025=`2.5 %`, OLS.CI975=`97.5 %`) %>% 
-    #     dplyr::mutate(wave = wave_number) %>% 
-    #     dplyr::relocate(wave, regressor)
-    
-    # Information.OLS <- summary(OLS_model)$coefficients %>%
-    #     data.table(regressor=rownames(.)) %>% 
-    #     dplyr::rename(
-    #         OLS.coefficient=Estimate, 
-    #         OLS.se=`Std. Error`,
-    #         OLS.p.value=`Pr(>|t|)`, 
-    #         OLS.t=`t value`,
-    #     ) %>%
-    #     dplyr::mutate(
-    #         wave = wave_number,
-    #         OLS.CI025 = OLS.coefficient-1.96*OLS.se,
-    #         OLS.CI975 = OLS.coefficient+1.96*OLS.se
-    #     ) %>%
-    #     dplyr::relocate(wave, regressor)
-
-    Information.OLS <- summary(OLS_model)$coefficients %>%
-        data.table(regressor=rownames(.)) %>% 
-        dplyr::rename(
-            coefficient = Estimate, 
-            se = `Std. Error`,
-            p.value = `Pr(>|t|)`, 
-            t.value = `t value`,
-        ) %>%
-        dplyr::mutate(
-            type = "OLS",
-            wave = wave_number,
-            CI025 = coefficient-1.96*se,
-            CI975 = coefficient+1.96*se
-        ) %>%
-        dplyr::relocate(wave, regressor)
-    
-    
-    vif <- car::vif(OLS_model)
-    
-    ##### COLLECTING DATA FOR GRAPHS
-
-    Information <- rbind(
-        Information,
-        Information.Ridge, 
-        Information.OLS,
-        fill = TRUE
-    )
-
-    optimal_lambdas <- rbind(
-        optimal_lambdas,
-        data.table(wave=wave_number, lambda=optim.lambda)
-    )
-    
-    VIFs <- rbind(VIFs, data.table(
-        regressor = names(vif),
-        value = as.numeric(vif),
-        wave = wave_number
-    ))
-    
-    MSEs <- rbind(
-        MSEs,
-        data.table(
-            wave = wave_number, lambda=cv_model$lambda, meann = cv_model$cvm,
-            sdd = cv_model$cvsd, upper = cv_model$cvup, lower = cv_model$cvlo
-        )
-    )
-    
-    # r2s <- rbind(
-    #     r2s,
-    #     data.table(
-    #         wave = wave_number,
-    #         ridge = r2(y_full, y_predicted),
-    #         OLS = summary(OLS_model)$r.squared
-    #     )
-    # )
-}
-print(Sys.time() - start_time)
+stop()
 
 # to find the culprits for the large VIFs, check the table of correlations
 # pcor(x_full)
@@ -384,13 +354,12 @@ Coefficients <- Information %>%
     dplyr::mutate(graph_factor = unlist(lapply(
         regressor,
         \(xx)
-        {            
+        {
             if(grepl("density", tolower(xx))) return("Density")
             if(grepl("ca|cma|miz|strong|moderate|weak|none", tolower(xx))) return("Remoteness")
             if(grepl("closure|Is", xx)) return("Interventions")
             if(grepl("group", tolower(xx))) return("Cohort")
-            if(grepl("lockdown", tolower(xx))) return("Lockdown")
-            if(grepl("vaccination", tolower(xx))) return("Vaccination")
+            if(grepl("lockdown|vaccination", tolower(xx))) return("Intervention")
             return("General")
         }
     ))) %>%
@@ -402,37 +371,37 @@ Coefficients <- Information %>%
          "group_20_to_49" = "20-49",
          "group_50_to_64" = "50-64",
          "group_65_plus" = "65+",
-         
+
          "total_population" = "Population",
          "total_dwellings" = "Dwellings",
-         
+
          "is_cma" = "CMAs",
          "is_ca" = "CAs",
          "is_miz_strong" = "MIZ Strong",
          "is_miz_moderate" = "MIZ Moderate",
          "is_miz_weak" = "MIZ Weak",
          "is_miz_none" = "MIZ None",
-         
+
          "previous_wave_incidence" = "Y[i-1]",
          "log_previous_wave_incidence" = "log(Y[i-1])",
-         
+
          "interaction_lockdown_5_to_19" = "LI : 05-19",
          "interaction_lockdown_20_to_49" = "LI : 20-49",
          "interaction_lockdown_50_to_64" = "LI : 50-64",
          "interaction_lockdown_65_plus" = "LI : 65+",
-         
+
          "PHU_pop_density" = "Density",
-         
+
          "interaction_popdensity_ca" = "Den : CAs",
          "interaction_popdensity_cma" = "Den : CMAs",
          "interaction_popdensity_strong" = "Den : MIZ Strong",
          "interaction_popdensity_moderate" = "Den : MIZ Moderate",
          "interaction_popdensity_weak" = "Den : MIZ Weak",
          "interaction_popdensity_none" = "Den : MIZ None",
-         
+
          "interaction_children_school_closures" = "EI : 05-19",
          "interaction_LTCH_65_plus" = "LTCHs : 65+",
-         
+
          "interaction_vaccination_20_to_49" = "Vaxx : 20-49",
          "interaction_vaccination_5_to_19" = "Vaxx : 05-19",
          "interaction_vaccination_0_to_4" = "Vaxx : 00-04",
@@ -440,9 +409,67 @@ Coefficients <- Information %>%
          "interaction_vaccination_65_plus" = "Vaxx : 65+"
     ))
 
+Reduce(
+        function(x, y) merge(x, y, by = c("wave", "regressor"), all = TRUE),
+        list(
+            Information %>% dplyr::select(regressor, wave) %>% unique(),
+            Information %>% filter(type == "Ridge") %>% setNames(sprintf("Ridge.%s", names(.))) %>%
+                dplyr::rename(wave= Ridge.wave, regressor=Ridge.regressor),
+            Information %>% filter(type == "OLS") %>% setNames(sprintf("OLS.%s", names(.))) %>%
+                dplyr::rename(wave=OLS.wave, regressor=OLS.regressor)
+        )
+    ) %>%
+    dplyr::filter(!grepl("intercept", tolower(regressor))) %>%
+    dplyr::select(wave, regressor, matches("coefficient|CI|p.value")) %>%
+    dplyr::filter(wave == 2) %>%
+    dplyr::mutate(regressor = dplyr::recode(regressor,
+        "E" = "School Closures",
+        "group_0_to_4" = "$C_{0-4}$",
+        "group_5_to_19" = "$C_{5-19}$",
+        "group_20_to_49" = "$C_{20-49}$",
+        "group_50_to_64" = "$C_{50-64}$",
+        "group_65_plus" = "$C_{\\ge65}$",
+        "PHU_pop_density" = "$D$",
+        "interaction_children_school_closures" = "$E\\cdot C_{5-19}$",
+        "is_cma" = "$\\text{CMA}$",
+        "is_ca" = "$\\text{CA}$",
+        "is_miz_strong" = "$\\text{MIZ}_{\\text{strong}}$",
+        "is_miz_moderate" = "$\\text{MIZ}_{\\text{moderate}}$",
+        "is_miz_weak" = "$\\text{MIZ}_{\\text{weak}}$",
+        "is_miz_none" = "$\\text{MIZ}_{\\text{none}}$",
+        "previous_wave_incidence" = "$Y_{u-1}$",
+        "interaction_popdensity_cma" = "$D\\cdot\\text{CMA}$",
+        "interaction_popdensity_ca" = "$D\\cdot\\text{CA}$",
+        "interaction_popdensity_moderate" = "$D\\cdot\\text{MIZ}_{\\text{moderate}}$",
+        "interaction_popdensity_strong" = "$D\\cdot\\text{MIZ}_{\\text{strong}}$",
+        "interaction_popdensity_weak" = "$D\\cdot\\text{MIZ}_{\\text{weak}}$",
+        "interaction_popdensity_none" = "$D\\cdot\\text{MIZ}_{\\text{none}}$",
+        "interaction_vaccination_20_to_49" = "$v_{\\text{prov}}\\cdot C_{20-49}$",
+        "interaction_vaccination_50_to_64" = "$v_{\\text{prov}}\\cdot C_{50-64}$",
+        "interaction_vaccination_50_to_64" = "$v_{\\text{prov}}\\cdot C_{50-64}$",
+        "interaction_vaccination_65_plus" = "$v_{\\text{prov}}\\cdot C_{\\ge65}$"
+    )) %>%
+    dplyr::mutate(
+        Ridge = ifelse(
+            Ridge.p.value < 0.001,
+            sprintf("$%.3f (%.3f, %.3f), p < 0.001$", Ridge.coefficient, Ridge.CI025, Ridge.CI975),
+            sprintf("$%.3f (%.3f, %.3f), p = %.3f$", Ridge.coefficient, Ridge.CI025, Ridge.CI975, Ridge.p.value)
+        ),
+        OLS = ifelse(
+            OLS.p.value < 0.001,
+            sprintf("$%.3f (%.3f, %.3f), p < 0.001$", OLS.coefficient, OLS.CI025, OLS.CI975),
+            sprintf("$%.3f (%.3f, %.3f), p = %.3f$", OLS.coefficient, OLS.CI025, OLS.CI975, OLS.p.value)
+        )
+    ) %>%
+    dplyr::select(wave, regressor, Ridge, OLS) %>%
+    fwrite("~/Desktop/latex_regression_coefficients.csv")
+
+# example report
+# https://arxiv.org/pdf/2111.12272.pdf
+
 pl_regression <- ggplot(
-        Coefficients,
-        aes(x=str_wrap(regressor,20), y=coefficient, group=type, colour=type, fill=type)
+        Coefficients %>% dplyr::filter(type == "Ridge"),
+        aes(x=str_wrap(regressor,20), y=coefficient, group=signif, colour=signif)
     ) +
     geom_point(size=2) +
     geom_errorbar(aes(ymin=CI025, ymax=CI975)) +
@@ -469,13 +496,17 @@ pl_regression <- ggplot(
 
 print(pl_regression)
 
-stop()
-    
 ggsave(
-        pl_regression,
-        file = file.path(PROJECT_FOLDER, "Graphs/regression_coefficients.png"),
-        width=15, height=9
-    )
+    pl_regression,
+    file = file.path(PROJECT_FOLDER, "Graphs/regression_coefficients.png"),
+    width=15, height=9
+)
+
+ggplot(Coefficients, aes())
+
+
+
+    
 
 pl_significance_grid <- ggplot(Coefficients, aes(x=regressor, y=type)) +
     geom_tile(aes(fill=signif), colour="black") +
@@ -515,71 +546,137 @@ ggsave(
         
 ##################################################
 
-# # cross-validation to find the optimal lambda
-# cv_fit <- cv.glmnet(
-#     y = y_full,
-#     x = x_full,
-#     alpha = 0,
-#     # lambdas = seq(0, 1000, by=0.1),
-#     family= "gaussian",
-#     type.measure = "mse"
-# )
-# 
-# lambda_opt <- cv_fit$lambda.min
-# 
-# ridge_predictions <- predict(glm_fit, s=lambda_opt, newx=x_full)
-# 
-# print(r2(y_full, ridge_predictions))
-# 
-# lambda_0_model   <- glmnet(x=x_full, y=y_full, alpha=0, lambda=0)
-# lambda_0_predictions  <- predict(lambda_0_model, s=0, newx=x_full)
-# 
-#     # # USEFUL FOR COMPARING THE COEFFICIENTS THAT WE GET FROM THESE TWO CODE SNIPPETS
-# glm_fit <- glmnet(x=x_full, y=y_full, alpha=0, lambda=optim.lambda)
-# 
-# coeffs <- coef(glm_fit, s="lambda.min")
-# Coefficients <- rbind(
-#     Coefficients,
-#     data.table(
-#         wave = wave_number,
-#         regressor = coeffs@Dimnames[[1]],
-#         coefficient = coeffs@x
-#     )
-# ) %>% suppressWarnings
-#
-# # PRELIM CODE FRO THE SAME WEBPAGE
-# 
-# lambda <- 10^seq(-5,4,length.out=25)
-# 
-# Ridge1 <- train(
-#     x = reg_data_here %>% dplyr::select(-incidence, -EIs),
-#     y = y_full, 
-#     method = 'glmnet',
-#     family="binomial",
-#     trControl = trainControl("cv", number = 10),
-#     tuneGrid = expand.grid(alpha = 0, lambda = lambda)
-# )
+# (not bootstrapping since Ben Bolker doesn't like it : https://stats.stackexchange.com/questions/410173/lasso-regression-p-values-and-coefficients)
 
-        
-        
-        
-        
-        
-        
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+# # BOOTSTRAPPING glmnet to find p values and stuff 
+# confidence_interval <- function(vector, interval) {
+#     # Standard deviation of sample
+#     vec_sd <- sd(vector)
+#     # Sample size
+#     n <- length(vector)
+#     # Mean of sample
+#     vec_mean <- mean(vector)
+#     # Error according to t distribution
+#     error <- qt((interval + 1)/2, df = n - 1) * vec_sd / sqrt(n)
+#     # Confidence interval as a vector
+#     result <- c("lower" = vec_mean - error, "upper" = vec_mean + error)
+#     return(result)
+# }
+# 
+# start_time <- Sys.time()
+# # bootstrapping glmnet to get 95% two-sided CI and p values
+# coeffs <- data.table()
+# for(iter in 1:10000)
+# {
+# }
+# print(Sys.time() - start_time)
+# 
+# get_the_stats <- function(reg)
+# {
+#     vec <- coeffs[regressor==reg, coeff]
+#     
+#     # calculate the mean of a sampled set
+#     tt <- \(x, ind) mean(x[ind])
+#     
+#     ootstrap <- boot(vec, tt, 10000) 
+#     cis <- boot.ci(ootstrap)%>% suppressWarnings %>% .$normal %>% as.numeric
+#     p <- boot.pval(ootstrap)
+#     
+#     return(list(avg=mean(vec), CI025=cis[2], CI975=cis[3], pval=p))
+# }
+# 
+# get_the_stats("is_cma")
+
+
+
+# confidence_interval <- function(vector, interval) {
+#     # Standard deviation of sample
+#     vec_sd <- sd(vector)
+#     # Sample size
+#     n <- length(vector)
+#     # Mean of sample
+#     vec_mean <- mean(vector)
+#     # Error according to t distribution
+#     error <- qt((interval + 1)/2, df = n - 1) * vec_sd / sqrt(n)
+#     # Confidence interval as a vector
+#     result <- c("lower" = vec_mean - error, "upper" = vec_mean + error)
+#     return(result)
+# }
+# 
+# start_time <- Sys.time()
+# # bootstrapping glmnet to get 95% two-sided CI and p values
+# coeffs <- data.table()
+# for(iter in 1:10000)
+# {
+#     cv_model <- cv.glmnet(
+#         x = x_full,
+#         y = y_full,
+#         alpha = 0,
+#         family = "gaussian",
+#         lower = 0,
+#         upper = 1
+#     )
+#     
+#     optim.lambda <- cv_model$lambda.min
+#     
+#     glm_fit <- glmnet(x_full, y_full, alpha = 0, lambda = optim.lambda)
+#     ridge_predictions <- predict(glm_fit, s = optim.lambda, newx = x_full)
+#     
+#     coeffs <- rbind(
+#         coeffs,
+#         data.table(
+#             regressor=rownames(glm_fit$beta), 
+#             coeff=glm_fit$beta@x, 
+#             instance=iter
+#         )
+#     )
+# }
+# 
+# get_the_stats <- function(reg)
+# {
+#     vec <- coeffs[regressor==reg, coeff]
+#     
+#     # calculate the mean of a sampled set
+#     tt <- \(x, ind) mean(x[ind])
+#     
+#     ootstrap <- boot(vec, tt, 10000) 
+#     cis <- boot.ci(ootstrap)%>% suppressWarnings %>% .$normal %>% as.numeric
+#     p <- boot.pval(ootstrap)
+#     
+#     return(list(avg=mean(vec), CI025=cis[2], CI975=cis[3], pval=p))
+# }
+# 
+# print(get_the_stats("is_cma"))
+# 
+# print(Sys.time() - start_time)
+# stop()
+# 
+# glm_CI <- coeffs %>% 
+#     dplyr::group_by(regressor) %>% 
+#     dplyr::summarise(
+#         mean_coef = mean(coeff),
+#         CI025 = CI(coeff, 0.95)$low,
+#         CI975 = CI(coeff, 0.95)$up
+#         
+#     )
+# 
+# print(Sys.time() - start_time)
+# 
+# stop()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

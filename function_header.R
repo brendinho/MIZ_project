@@ -474,6 +474,24 @@ date_corrector <- function(theDateString)
     return(string)
 }
 
+# calculate the confidence interval of some data
+CI <- function(data, two_sided_inter) 
+{
+    meann <- mean(data)
+    sdd<- sd(data)
+    N <- length(data)
+    if(N < 50)
+    {
+        T_or_N <- qt( (two_sided_inter+1)/2, df=N-1) 
+    } else {
+        T_or_N <- qnorm((two_sided_inter+1)/2)
+    }
+    
+    error <- T_or_N*sdd/sqrt(N)
+    
+    return(list(low=meann-error, up=meann+error))
+}
+
 
 
 # add_wave_numbers <- function(input_table, case_col="cases", date_col="date", num_waves=4, days_apart=45) 
