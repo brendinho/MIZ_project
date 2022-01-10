@@ -13,8 +13,11 @@ library(dplyr)
 library(data.table)
 library(segmented)
 
-# PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
-PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project/"
+if(getElement(Sys.info(), "sysname") == "Windows"){
+    PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
+} else {
+    PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project"
+}
 
 # shorthand
 meann <- function(...) mean(..., na.rm=TRUE)

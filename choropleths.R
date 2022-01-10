@@ -19,11 +19,13 @@ library(plotly)
 # library(foreach)
 # library(doParallel)
 
-# PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
-PROJECT_FOLDER <- '/home/bren/Documents/GitHub/MIZ_project'
+if(getElement(Sys.info(), "sysname") == "Windows"){
+    PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
+} else {
+    PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project"
+}
 
 source(file.path(PROJECT_FOLDER, "function_header.R"))
-setwd(PROJECT_FOLDER)
 
 dir.create(file.path(PROJECT_FOLDER, "Graphs"), showWarnings=FALSE)
 

@@ -17,8 +17,11 @@ library(sf)
 library(plotly)
 # library(doParallel)
 
-# PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
-PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project"
+if(getElement(Sys.info(), "sysname") == "Windows"){
+    PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
+} else {
+    PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project"
+}
 
 library(openxlsx)
 
@@ -301,6 +304,10 @@ if(!file.exists( sprintf("%s/Classifications/Total_CSD_Info.rda", PROJECT_FOLDER
 }
     
 Total_Data_Geo <- readRDS(sprintf("%s/Classifications/Total_CSD_Info.rda", PROJECT_FOLDER))
+
+# Total_Data_Geo  %>% dplyr::select(geo_code, HRUID2018) %>% unique() %>% dplyr::pull(geo_code) %>% table() %>% data.table %>% .[N>1] -> fall_into_multiple_PHUS
+# 
+# fall_into_multiple_PHUs <- Total_Data_Geo[, .(count=.N), by=geo_code][count>1]
     
 # if(!file.exists(file.path(PROJECT_FOLDER, "Classifications/PHUs_hosting_airports.csv")))
 # {
@@ -545,7 +552,7 @@ educational_interventions_in_waves <- TEI %>%
 ###### LOCKDOWNS
  
 # lockdown measures
-LDM <- interventions %>% 
+LDM <- fread(file.path(PROJECT_FOLDER, "Classifications/interventions.csv")) %>% 
     dplyr::filter(
         grepl("clos", tolower(category)) & 
         grepl("essential|recrea", tolower(type)) & 
@@ -966,7 +973,4 @@ Regression_Data <- Total_Case_Data %>%
     ) %>%
     dplyr::mutate(PHU_pop_density = as.numeric(PHU_population/PHU_area_km2)) %>%
     st_sf
-    # saveRDS(Regression_Data, file=file.path(PROJECT_FOLDER, "CaseDataFiles/regression_data.rda"))
-
-####################################################
-    
+    saveRDS(Regression_Data, file=file.path(PROJECT_FOLDER, "CaseDataFiles/regression_data.rda"))
