@@ -691,6 +691,12 @@ pl_regression_by_wave <-  ggplot(
     ) +
     labs(x="Epidemiological Wave", y="Regression Coefficient")
 
+ggsave(
+    pl_regression_by_wave, 
+    file = file.path(PROJECT_FOLDER, "Graphs/regression_by_wave.png"),
+    height=15, width=10 
+)
+
 # 
 # pl_significance_grid <- ggplot(Coefficients, aes(x=regressor, y=type)) +
 #     geom_tile(aes(fill=signif), colour="black") +
