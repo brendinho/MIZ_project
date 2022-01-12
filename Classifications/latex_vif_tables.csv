@@ -1,0 +1,102 @@
+wave,regressor,value
+1,$\text{CMA}$,2.617
+1,$\text{CA}$,3.493
+1,$\text{MIZ}_{\text{strong}}$,8.521
+1,$\text{MIZ}_{\text{moderate}}$,7.124
+1,$\text{MIZ}_{\text{weak}}$,2.228
+1,$\text{MIZ}_{\text{none}}$,4.307
+1,LTCHs,12.590
+1,$D$,3.375
+1,$C_{0-4}$,132.824
+1,$C_{5-19}$,145.535
+1,$C_{20-49}$,59.544
+1,$C_{50-64}$,229.043
+1,$C_{\ge65}$,80.165
+1,$D\cdot\text{CMA}$,7.842
+1,$D\cdot\text{CA}$,4.220
+1,$D\cdot\text{MIZ}_{\text{strong}}$,7.466
+1,$D\cdot\text{MIZ}_{\text{moderate}}$,10.158
+1,$D\cdot\text{MIZ}_{\text{weak}}$,3.052
+1,$D\cdot\text{MIZ}_{\text{none}}$,4.032
+1,interaction_LTCH_65_plus,25.104
+2,EIs,6.967
+2,$\text{CMA}$,4.035
+2,$\text{CA}$,3.647
+2,$\text{MIZ}_{\text{strong}}$,9.881
+2,$\text{MIZ}_{\text{moderate}}$,8.063
+2,$\text{MIZ}_{\text{weak}}$,2.252
+2,$\text{MIZ}_{\text{none}}$,22.292
+2,LTCHs,14.932
+2,$D$,4.482
+2,$C_{0-4}$,203.895
+2,$C_{5-19}$,221.666
+2,$C_{20-49}$,1175.709
+2,$C_{50-64}$,1996.453
+2,$C_{\ge65}$,611.007
+2,$E\cdot C_{5-19}$,50.719
+2,$D\cdot\text{CMA}$,4.460
+2,$D\cdot\text{CA}$,3.291
+2,$D\cdot\text{MIZ}_{\text{strong}}$,8.319
+2,$D\cdot\text{MIZ}_{\text{moderate}}$,9.850
+2,$D\cdot\text{MIZ}_{\text{weak}}$,3.624
+2,$D\cdot\text{MIZ}_{\text{none}}$,9.431
+2,interaction_LTCH_65_plus,23.293
+2,$Y_{u-1}$,4.223
+2,$v_{\text{prov}}\cdot C_{20-49}$,1117.670
+2,$v_{\text{prov}}\cdot C_{50-64}$,2086.176
+2,$v_{\text{prov}}\cdot C_{\ge65}$,621.918
+3,EIs,5.676
+3,$\text{CMA}$,9.952
+3,$\text{CA}$,4.381
+3,$\text{MIZ}_{\text{strong}}$,12.130
+3,$\text{MIZ}_{\text{moderate}}$,6.527
+3,$\text{MIZ}_{\text{weak}}$,2.781
+3,$\text{MIZ}_{\text{none}}$,5.368
+3,LTCHs,12.284
+3,$D$,3.205
+3,$C_{0-4}$,533572.077
+3,$C_{5-19}$,747348.918
+3,$C_{20-49}$,180639.218
+3,$C_{50-64}$,520148.112
+3,$C_{\ge65}$,123220.822
+3,$E\cdot C_{5-19}$,83.169
+3,$D\cdot\text{CMA}$,8.688
+3,$D\cdot\text{CA}$,7.219
+3,$D\cdot\text{MIZ}_{\text{strong}}$,16.749
+3,$D\cdot\text{MIZ}_{\text{moderate}}$,14.652
+3,$D\cdot\text{MIZ}_{\text{weak}}$,5.574
+3,$D\cdot\text{MIZ}_{\text{none}}$,4.993
+3,interaction_LTCH_65_plus,24.339
+3,$Y_{u-1}$,14.242
+3,$v_{\text{prov}}\cdot C_{0-4}$,525885.758
+3,$v_{\text{prov}}\cdot C_{5-19},751377.952
+3,$v_{\text{prov}}\cdot C_{20-49}$,174924.539
+3,$v_{\text{prov}}\cdot C_{50-64}$,524217.356
+3,$v_{\text{prov}}\cdot C_{\ge65}$,124026.283
+4,EIs,1.930
+4,$\text{CMA}$,4.522
+4,$\text{CA}$,3.739
+4,$\text{MIZ}_{\text{strong}}$,9.372
+4,$\text{MIZ}_{\text{moderate}}$,7.049
+4,$\text{MIZ}_{\text{weak}}$,2.011
+4,$\text{MIZ}_{\text{none}}$,5.357
+4,LTCHs,11.637
+4,$D$,2.979
+4,$C_{0-4}$,354770.963
+4,$C_{5-19}$,542843.851
+4,$C_{20-49}$,151710.718
+4,$C_{50-64}$,567542.425
+4,$C_{\ge65}$,151224.270
+4,$D\cdot\text{CMA}$,6.711
+4,$D\cdot\text{CA}$,3.722
+4,$D\cdot\text{MIZ}_{\text{strong}}$,7.739
+4,$D\cdot\text{MIZ}_{\text{moderate}}$,7.708
+4,$D\cdot\text{MIZ}_{\text{weak}}$,3.013
+4,$D\cdot\text{MIZ}_{\text{none}}$,4.819
+4,interaction_LTCH_65_plus,23.732
+4,$Y_{u-1}$,13.207
+4,$v_{\text{prov}}\cdot C_{0-4}$,360335.485
+4,$v_{\text{prov}}\cdot C_{5-19},546896.566
+4,$v_{\text{prov}}\cdot C_{20-49}$,146792.162
+4,$v_{\text{prov}}\cdot C_{50-64}$,566884.856
+4,$v_{\text{prov}}\cdot C_{\ge65}$,150635.798

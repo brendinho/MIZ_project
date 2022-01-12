@@ -12,6 +12,7 @@ library(boot)
 library(boot.pval)
 library(xtable)
 library(EnvStats)
+library(reshape)
 
 if(getElement(Sys.info(), "sysname") == "Windows"){
     PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
@@ -187,9 +188,10 @@ if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/regression_results.r
     MSEs <- data.table()
     predictions <- data.table()
     cv_models <- list()
+    fits <- list()
     
     start_time <- Sys.time()
-    for(wave_number in 1:4)
+    for(wave_number in 2) #1:4)
     {
         reg_data_here <- Regression_Data %>%
             dplyr::filter(wave == wave_number) %>%
@@ -228,6 +230,8 @@ if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/regression_results.r
         
         x_full <- as.matrix(reg_data_here %>% dplyr::select(-incidence))
         y_full <- as.matrix(reg_data_here$incidence, ncol=1)
+        
+        fits[[wave_number]] <- glmnet(x_full, y_full, alpha = 0)
         
         cv_model <- cv.glmnet(
             x = x_full,
@@ -377,6 +381,7 @@ if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/regression_results.r
             VIF = VIFs,
             goodness = r2s,
             predictions = predictions,
+            fits = fits,
             cv = cv_models
         ),
         file = file.path(PROJECT_FOLDER, "Classifications/regression_results.rda")
@@ -388,6 +393,42 @@ Regression_Data <- readRDS(file.path(PROJECT_FOLDER, "Classifications/regression
 stop()
 
 ############## INFO FOR LATEX TABLES
+
+pretty_variable_names <- function(tab)
+{
+    return(tab %>% dplyr::mutate(regressor = dplyr::recode(regressor,
+        "LTCHs" = "LTCH",
+        "E" = "School Closures",
+        "E" = "EI",
+        "group_0_to_4" = "$C_{0-4}$",
+        "group_5_to_19" = "$C_{5-19}$",
+        "group_20_to_49" = "$C_{20-49}$",
+        "group_50_to_64" = "$C_{50-64}$",
+        "group_65_plus" = "$C_{\\ge65}$",
+        "PHU_pop_density" = "$D$",
+        "interaction_children_school_closures" = "$E\\cdot C_{5-19}$",
+        "is_cma" = "CMA",
+        "is_ca" = "CA",
+        "is_miz_strong" = "MIZ\textsubscript{strong}",
+        "is_miz_moderate" = "MIZ\textsubscript{mod}$",
+        "is_miz_weak" = "MIZ\textsubscript{weak}",
+        "is_miz_none" = "MIZ\textsubscript{none}",
+        "previous_wave_incidence" = "$Y_{u-1}$",
+        "interaction_popdensity_cma" = "$D\\cdot\\text{CMA}$",
+        "interaction_popdensity_ca" = "$D\\cdot\\text{CA}$",
+        "interaction_popdensity_moderate" = "$D\\cdot\\text{MIZ}_{\\text{moderate}}$",
+        "interaction_popdensity_strong" = "$D\\cdot\\text{MIZ}_{\\text{strong}}$",
+        "interaction_popdensity_weak" = "$D\\cdot\\text{MIZ}_{\\text{weak}}$",
+        "interaction_popdensity_none" = "$D\\cdot\\text{MIZ}_{\\text{none}}$",
+        "interaction_vaccination_0_to_4" = "$v_{\\text{prov}}\\cdot C_{0-4}$",
+        "interaction_vaccination_5_to_19" = "$v_{\\text{prov}}\\cdot C_{5-19}",
+        "interaction_vaccination_20_to_49" = "$v_{\\text{prov}}\\cdot C_{20-49}$",
+        "interaction_vaccination_50_to_64" = "$v_{\\text{prov}}\\cdot C_{50-64}$",
+        "interaction_vaccination_50_to_64" = "$v_{\\text{prov}}\\cdot C_{50-64}$",
+        "interaction_vaccination_65_plus" = "$v_{\\text{prov}}\\cdot C_{\\ge65}$",
+        "interaction_LTCHs_65_plus" = "\\text{LTCH}\\cdot C_{\\ge65}"
+    )))
+}
 
 Reduce(
     function(x, y) merge(x, y, by = c("wave", "regressor"), all = TRUE),
@@ -409,33 +450,7 @@ Reduce(
     dplyr::filter(!grepl("intercept", tolower(regressor))) %>%
     dplyr::select(wave, regressor, matches("coefficient|CI|p.value")) %>%
     dplyr::filter(wave == 2) %>%
-    dplyr::mutate(regressor = dplyr::recode(regressor,
-        "E" = "School Closures",
-        "group_0_to_4" = "$C_{0-4}$",
-        "group_5_to_19" = "$C_{5-19}$",
-        "group_20_to_49" = "$C_{20-49}$",
-        "group_50_to_64" = "$C_{50-64}$",
-        "group_65_plus" = "$C_{\\ge65}$",
-        "PHU_pop_density" = "$D$",
-        "interaction_children_school_closures" = "$E\\cdot C_{5-19}$",
-        "is_cma" = "$\\text{CMA}$",
-        "is_ca" = "$\\text{CA}$",
-        "is_miz_strong" = "$\\text{MIZ}_{\\text{strong}}$",
-        "is_miz_moderate" = "$\\text{MIZ}_{\\text{moderate}}$",
-        "is_miz_weak" = "$\\text{MIZ}_{\\text{weak}}$",
-        "is_miz_none" = "$\\text{MIZ}_{\\text{none}}$",
-        "previous_wave_incidence" = "$Y_{u-1}$",
-        "interaction_popdensity_cma" = "$D\\cdot\\text{CMA}$",
-        "interaction_popdensity_ca" = "$D\\cdot\\text{CA}$",
-        "interaction_popdensity_moderate" = "$D\\cdot\\text{MIZ}_{\\text{moderate}}$",
-        "interaction_popdensity_strong" = "$D\\cdot\\text{MIZ}_{\\text{strong}}$",
-        "interaction_popdensity_weak" = "$D\\cdot\\text{MIZ}_{\\text{weak}}$",
-        "interaction_popdensity_none" = "$D\\cdot\\text{MIZ}_{\\text{none}}$",
-        "interaction_vaccination_20_to_49" = "$v_{\\text{prov}}\\cdot C_{20-49}$",
-        "interaction_vaccination_50_to_64" = "$v_{\\text{prov}}\\cdot C_{50-64}$",
-        "interaction_vaccination_50_to_64" = "$v_{\\text{prov}}\\cdot C_{50-64}$",
-        "interaction_vaccination_65_plus" = "$v_{\\text{prov}}\\cdot C_{\\ge65}$"
-    )) %>%
+    pretty_variable_names %>%
     dplyr::mutate(
         Ridge.hdi = ifelse(
             Ridge.hdi.p.value < 0.001,
@@ -455,7 +470,6 @@ Reduce(
     dplyr::select(wave, regressor, Ridge.hdi, Ridge.glmnet, OLS) %>%
     fwrite(file.path(PROJECT_FOLDER, "Classifications/latex_regression_coefficients.csv"))
 
- 
 Regression_Data$data %>%
     dplyr::select(
         -province, -HRUID2018, -HR, -pruid, -wave, -incidence, -PROV_population,
@@ -495,8 +509,16 @@ Regression_Data$data %>%
         "is_miz_weak" = "MIZ textsubscript{weak}",
         "is_miz_none" = "MIZ textsubscript{none}"
     )) %>%
-    fwrite(file.path(PROJECT_FOLDER, "Classifications/regression_descriptives.csv"))
+    fwrite(file.path(PROJECT_FOLDER, "Classifications/latex_regression_descriptives.csv"))
 
+Regression_Data$VIF %>%
+    dplyr::mutate(value = sprintf("%.3f", value)) %>%
+    dplyr::relocate(wave, regressor, value) %>%
+    pretty_variable_names() %>%
+    fwrite(file.path(PROJECT_FOLDER, "Classifications/regression_vif_tables.csv"))
+
+############# GRAPH PLOTTING CODE
+    
 Residuals <- rbind(
         data.table(
             wave = Regression_Data$predictions$wave, 
@@ -510,137 +532,165 @@ Residuals <- rbind(
             incidence = Regression_Data$predictions$incidence,
             value=Regression_Data$predictions[, incidence-lm]
         )
-    ) 
+    ) %>%
+    dplyr::mutate(wave = paste0("Wave ", wave))
 
 Residual_plot <- ggplot(Residuals, aes(x=incidence, y=value)) +
-        geom_hline(yintercept=0) +
-        geom_point(colour="blue", size=2) +
-        facet_grid(wave~regression) +
-        theme_bw() +
-        theme(
-            axis.text = element_text(size=13),
-            axis.title = element_text(size=15),
-            strip.text=  element_text(size=13)
-        ) +
-        labs(x="Incidence", y="Residual")
+    geom_hline(yintercept=0) +
+    geom_point(colour="blue", size=2) +
+    facet_grid(wave~regression) +
+    theme_bw() +
+    theme(
+        axis.text = element_text(size=13),
+        axis.title = element_text(size=15),
+        strip.text=  element_text(size=13)
+    ) +
+    labs(x="Incidence", y="Residual")
 
 ggsave(Residual_plot, file=file.path(PROJECT_FOLDER, "Graphs/residuals_plot.png"), width=10, height=6)
 
-# ############## PLOTTING GRAPHS
-# 
-# 
+pl_MSEs <- ggplot(
+        Regression_Data$MSE %>% dplyr::mutate(wave = paste0("Wave ", wave)), 
+        aes(x=log10(lambda), y=meann, ymin=lower, ymax=upper)
+    ) +
+    geom_ribbon(fill="red", alpha=0.1) +
+    geom_vline(
+        data = Regression_Data$optimal_lambdas %>% dplyr::mutate(wave = paste0("Wave ", wave)), 
+        aes(xintercept=log10(optimal.lambda)),
+        colour="black"
+    ) +
+    geom_point(size=1, colour="red") +
+    facet_grid(wave~., scale="free_y") +
+    theme_bw() +
+    theme(
+        axis.text = element_text(size = 13),
+        axis.title = element_text(size = 15),
+        strip.text = element_text(size = 13)
+    ) +
+    labs(x="Log(lambda)", y="Ridge Regression MSE") +
+    scale_x_continuous(expand = c(0,0)) +
+    scale_y_continuous(expand = c(0,0))
+
+ggsave(pl_MSEs, file=file.path(PROJECT_FOLDER, "Graphs/MSE_plot.png"), height=7, width=11)
+
+Coeff_vs_Lambda <- rbindlist(lapply (
+    1:length(Regression_Data$fits),
+    function(xx)
+    {
+        Regression_Data$fits[[xx]] %>% 
+            coef %>% 
+            as.matrix %>% 
+            as.data.frame %>% 
+            dplyr::mutate(regressor=rownames(.)) %>% 
+            reshape::melt(id="regressor") %>%
+            dplyr::mutate(
+                variable = as.numeric(gsub('s', '', variable)),
+                wave = paste0("Wave ", xx)
+            ) %>%
+            merge(Regression_Data$fits[[4]]$lambda %>% 
+                    data.table(lambda=., variable=(1:length(.))-1)) %>%
+            dplyr::filter(!grepl("intercept", tolower(regressor)))
+    }
+))
+
+pl_coeff_lambda <- ggplot(Coeff_vs_Lambda, aes(x=lambda, y=value, colour=regressor)) +
+    scale_x_log10() +
+    geom_line() +
+    labs(x="Lambda", y="Coefficients") +
+    facet_grid(wave~., scale="free_y") +
+    theme_bw() +
+    theme(
+        legend.position = "none",
+        axis.text = element_text(size = 13),
+        axis.title = element_text(size = 15),
+        strip.text = element_text(size = 13)
+    )
+    
+ggsave(
+    pl_coeff_lambda, 
+    file = file.path(PROJECT_FOLDER, "Graphs/coeffs_vs_lambda.png"), 
+    height = 7, width = 11
+)
+
 # # to find the culprits for the large VIFs, check the table of correlations
 # # pcor(x_full)
-# 
-# ##### plot of the standardised regression coefficients
-# 
-# Coefficients <- Information %>%
-#     dplyr::filter(!grepl("intercept", tolower(regressor))) %>%
-#     # dplyr::filter(type == "OLS") %>%
-#     dplyr::filter(type == "Ridge") %>%
-#     dplyr::mutate(signif=ifelse(p.value<0.05, TRUE, FALSE)) %>%
-#     dplyr::mutate(graph_factor = unlist(lapply(
-#         regressor,
-#         \(xx)
-#         {
-#             if(grepl("density", tolower(xx))) return("Density")
-#             if(grepl("ca|cma|miz|strong|moderate|weak|none", tolower(xx))) return("Remoteness")
-#             if(grepl("closure|Is", xx)) return("Interventions")
-#             if(grepl("group", tolower(xx))) return("Cohort")
-#             if(grepl("lockdown|vaccination", tolower(xx))) return("Intervention")
-#             return("General")
-#         }
-#     ))) %>%
-#     dplyr::mutate(graph_factor = factor(graph_factor)) %>%
-#     # dplyr::filter((abs(coefficient)<=100) & (wave != 4)) %>%
-#     dplyr::mutate( regressor = dplyr::recode(regressor,
-#          "group_0_to_4" = "0-4",
-#          "group_5_to_19" = "5-19",
-#          "group_20_to_49" = "20-49",
-#          "group_50_to_64" = "50-64",
-#          "group_65_plus" = "65+",
-# 
-#          "total_population" = "Population",
-#          "total_dwellings" = "Dwellings",
-# 
-#          "is_cma" = "CMAs",
-#          "is_ca" = "CAs",
-#          "is_miz_strong" = "MIZ Strong",
-#          "is_miz_moderate" = "MIZ Moderate",
-#          "is_miz_weak" = "MIZ Weak",
-#          "is_miz_none" = "MIZ None",
-# 
-#          "previous_wave_incidence" = "Y[i-1]",
-#          "log_previous_wave_incidence" = "log(Y[i-1])",
-# 
-#          "interaction_lockdown_5_to_19" = "LI : 05-19",
-#          "interaction_lockdown_20_to_49" = "LI : 20-49",
-#          "interaction_lockdown_50_to_64" = "LI : 50-64",
-#          "interaction_lockdown_65_plus" = "LI : 65+",
-# 
-#          "PHU_pop_density" = "Density",
-# 
-#          "interaction_popdensity_ca" = "Den : CAs",
-#          "interaction_popdensity_cma" = "Den : CMAs",
-#          "interaction_popdensity_strong" = "Den : MIZ Strong",
-#          "interaction_popdensity_moderate" = "Den : MIZ Moderate",
-#          "interaction_popdensity_weak" = "Den : MIZ Weak",
-#          "interaction_popdensity_none" = "Den : MIZ None",
-# 
-#          "interaction_children_school_closures" = "EI : 05-19",
-#          "interaction_LTCH_65_plus" = "LTCHs : 65+",
-# 
-#          "interaction_vaccination_20_to_49" = "Vaxx : 20-49",
-#          "interaction_vaccination_5_to_19" = "Vaxx : 05-19",
-#          "interaction_vaccination_0_to_4" = "Vaxx : 00-04",
-#          "interaction_vaccination_50_to_64" = "Vaxx : 50-64",
-#          "interaction_vaccination_65_plus" = "Vaxx : 65+"
-#     ))
-# 
-# 
-# # example report
-# # https://arxiv.org/pdf/2111.12272.pdf
-# 
-# pl_regression <- ggplot(
-#         Coefficients %>% dplyr::filter(type == "Ridge"),
-#         aes(x=str_wrap(regressor,20), y=coefficient, group=signif, colour=signif)
-#     ) +
-#     geom_point(size=2) +
-#     geom_errorbar(aes(ymin=CI025, ymax=CI975)) +
-#     geom_hline(yintercept=0, linetype="dashed", colour="grey", size=1) +
-#     facet_grid(wave~graph_factor, scales="free", space="free_x") +
-#     theme_bw() +
-#     theme(
-#         axis.text = element_text(size=12),
-#         axis.text.x = element_text(angle=45, hjust=1),
-#         axis.title = element_text(size=15),
-#         strip.text = element_text(size=13),
-#         panel.spacing.y = unit(1, "lines")
-#     ) +
-#     labs(
-#         x="Regressor", 
-#         y="Coefficients", 
-#         title="Colon (:) for interaction terms. Den (population density), LTCH (long-term care
-#             homes), Y[i-1] (previous wave incidence), EI (school closure), Vaxx (vaccination)"
-#     ) +
-#     guides(
-#         fill = guide_legend(title = "Regression\nType"), 
-#         colour = guide_legend(title = "Regression\nType")
-#     )
-# 
-# print(pl_regression)
-# 
-# ggsave(
-#     pl_regression,
-#     file = file.path(PROJECT_FOLDER, "Graphs/regression_coefficients.png"),
-#     width=15, height=9
-# )
-# 
-# ggplot(Coefficients, aes())
-# 
-# 
-# 
-#     
+
+Coefficients <- Regression_Data$information %>%
+    dplyr::filter(!grepl("intercept", tolower(regressor))) %>%
+    # dplyr::filter(type == "OLS") %>%
+    # dplyr::filter(type == "Ridge.glmnet") %>%
+    dplyr::mutate(signif=ifelse(p.value<0.05, TRUE, FALSE)) %>%
+    dplyr::mutate(graph_factor = unlist(lapply(
+        regressor,
+        \(xx)
+        {
+            if(grepl("density", tolower(xx))) return("Density")
+            if(grepl("ca|cma|miz|strong|moderate|weak|none", tolower(xx))) return("Remoteness")
+            if(grepl("closure|Is", xx)) return("Interventions")
+            if(grepl("group", tolower(xx))) return("Cohort")
+            if(grepl("lockdown|vaccination", tolower(xx))) return("Intervention")
+            return("General")
+        }
+    ))) %>%
+    dplyr::mutate(graph_factor = factor(graph_factor)) %>%
+    pretty_variable_names()
+
+# example report
+# https://arxiv.org/pdf/2111.12272.pdf
+
+pl_regression <- ggplot(
+        Coefficients %>% 
+            dplyr::filter(type %in% c("Ridge.hdi", "OLS")) %>% # 
+            dplyr::mutate(wave = paste0("Wave ", wave)) %>%
+            dplyr::mutate(type = dplyr::recode(type, "Ridge.hdi" = "Ridge")),
+        aes(x=str_wrap(regressor, 20), y=coefficient, group=type, colour=type, shape=type, fill=type)
+    ) +
+    geom_point(size=2) +
+    geom_errorbar(aes(ymin=CI025, ymax=CI975)) +
+    geom_hline(yintercept=0, linetype="dashed", colour="grey", size=1) +
+    facet_grid(wave~., scales="free", space="free_x") +# graph_factor
+    theme_bw() +
+    theme(
+        axis.text = element_text(size=12),
+        axis.text.x = element_text(angle=45, hjust=1),
+        axis.title = element_text(size=15),
+        strip.text = element_text(size=13),
+        # legend.position = "none"
+        # panel.spacing.y = unit(1, "lines")
+    ) +
+    labs(x="Regressor", y="Coefficients") +
+    guides(
+        fill = guide_legend(title = "Regression\nType"),
+        colour = guide_legend(title = "Regression\nType"),
+        shape = guide_legend(title = "Regression\nType")
+    )
+
+ggsave(
+    pl_regression,
+    file = file.path(PROJECT_FOLDER, "Graphs/regression_coefficients.png"),
+    width=10, height=7
+)
+
+pl_regression_by_wave <-  ggplot(
+        Regression_Data$information %>% 
+            dplyr::filter(type %in% c("OLS", "Ridge.hdi")) %>%
+            dplyr::filter(!grepl("intercept", regressor)) %>%
+            pretty_variable_names() %>%
+            dplyr::rename("Regression" = "type") %>%
+            dplyr::mutate(Regression = dplyr::recode(Regression, "Ridge.hdi" = "Ridge")),
+        aes(x=wave, y=coefficient, ymin=CI025, ymax=CI975, 
+            group=Regression, fill=Regression, colour=Regression)
+    ) +
+    geom_point() +
+    geom_errorbar(aes(ymin=CI025, ymax=CI975)) +
+    geom_hline(yintercept=0, linetype="dashed", colour="grey", size=1) +
+    facet_wrap(regressor~., scale="free", ncol=4) +
+    theme_bw() +
+    theme(
+        
+    ) +
+    labs(x="Epidemiological Wave", y="Regression Coefficient")
+
 # 
 # pl_significance_grid <- ggplot(Coefficients, aes(x=regressor, y=type)) +
 #     geom_tile(aes(fill=signif), colour="black") +
@@ -662,21 +712,6 @@ ggsave(Residual_plot, file=file.path(PROJECT_FOLDER, "Graphs/residuals_plot.png"
 # 
 # ##### plot of MSE vs lambda for the unstandardised regression
 # 
-# # pl_MSEs <- ggplot(MSEs, aes(x=log10(lambda), y=meann, ymin=lower, ymax=upper)) +
-# #     geom_ribbon(fill="red", alpha=0.1) +
-# #     geom_vline(aes(xintercept=log10(lambda)), optimal_lambdas, colour="black") +
-# #     geom_point(size=1, colour="red") +
-# #     facet_grid(wave~., scale="free_y") +
-# #     theme_bw() +
-# #     theme(
-# #         
-# #     ) +
-# #     labs(x="log10(lambda)", y="MSE") +
-# #     scale_x_continuous(expand = c(0,0)) +
-# #     scale_y_continuous(expand = c(0,0))
-# # 
-# # ggsave(pl_MSEs, file=file.path(PROJECT_FOLDER, "Graphs/MSE_plot.png"), height=9, width=12)
-# #         
 #         
 # ##################################################
 # 
