@@ -1,102 +1,98 @@
 wave,regressor,value
-1,CMA,2.617
-1,CA,3.493
-1,MIZ	extsubscript{strong},8.521
-1,MIZ	extsubscript{mod}$,7.124
-1,MIZ	extsubscript{weak},2.228
-1,MIZ	extsubscript{none},4.307
-1,LTCH,12.590
-1,$D$,3.375
-1,$C_{0-4}$,132.824
-1,$C_{5-19}$,145.535
-1,$C_{20-49}$,59.544
-1,$C_{50-64}$,229.043
-1,$C_{\ge65}$,80.165
-1,$D\cdot\text{CMA}$,7.842
-1,$D\cdot\text{CA}$,4.220
-1,$D\cdot\text{MIZ}_{\text{strong}}$,7.466
-1,$D\cdot\text{MIZ}_{\text{moderate}}$,10.158
-1,$D\cdot\text{MIZ}_{\text{weak}}$,3.052
-1,$D\cdot\text{MIZ}_{\text{none}}$,4.032
-1,interaction_LTCH_65_plus,25.104
-2,EIs,6.967
-2,CMA,4.035
-2,CA,3.647
-2,MIZ	extsubscript{strong},9.881
-2,MIZ	extsubscript{mod}$,8.063
-2,MIZ	extsubscript{weak},2.252
-2,MIZ	extsubscript{none},22.292
-2,LTCH,14.932
-2,$D$,4.482
-2,$C_{0-4}$,203.895
-2,$C_{5-19}$,221.666
-2,$C_{20-49}$,1175.709
-2,$C_{50-64}$,1996.453
-2,$C_{\ge65}$,611.007
-2,$E\cdot C_{5-19}$,50.719
-2,$D\cdot\text{CMA}$,4.460
-2,$D\cdot\text{CA}$,3.291
-2,$D\cdot\text{MIZ}_{\text{strong}}$,8.319
-2,$D\cdot\text{MIZ}_{\text{moderate}}$,9.850
-2,$D\cdot\text{MIZ}_{\text{weak}}$,3.624
-2,$D\cdot\text{MIZ}_{\text{none}}$,9.431
-2,interaction_LTCH_65_plus,23.293
-2,$Y_{u-1}$,4.223
-2,$v_{\text{prov}}\cdot C_{20-49}$,1117.670
-2,$v_{\text{prov}}\cdot C_{50-64}$,2086.176
-2,$v_{\text{prov}}\cdot C_{\ge65}$,621.918
-3,EIs,5.676
-3,CMA,9.952
-3,CA,4.381
-3,MIZ	extsubscript{strong},12.130
-3,MIZ	extsubscript{mod}$,6.527
-3,MIZ	extsubscript{weak},2.781
-3,MIZ	extsubscript{none},5.368
-3,LTCH,12.284
-3,$D$,3.205
-3,$C_{0-4}$,533572.077
-3,$C_{5-19}$,747348.918
-3,$C_{20-49}$,180639.218
-3,$C_{50-64}$,520148.112
-3,$C_{\ge65}$,123220.822
-3,$E\cdot C_{5-19}$,83.169
-3,$D\cdot\text{CMA}$,8.688
-3,$D\cdot\text{CA}$,7.219
-3,$D\cdot\text{MIZ}_{\text{strong}}$,16.749
-3,$D\cdot\text{MIZ}_{\text{moderate}}$,14.652
-3,$D\cdot\text{MIZ}_{\text{weak}}$,5.574
+1,CMA,2.479
+1,CA,3.415
+1,MIZ	extsubscript{strong},8.352
+1,MIZ	extsubscript{mod}$,7.099
+1,MIZ	extsubscript{weak},2.159
+1,MIZ	extsubscript{none},4.198
+1,LTCH,6.761
+1,,2.756
+1,$C_{0-4}$,131.977
+1,,144.788
+1,$C_{20-49}$,55.684
+1,$C_{50-64}$,228.883
+1,$C_{\ge65}$,77.856
+1,$D\cdot\text{CMA}$,5.016
+1,,4.034
+1,$D\cdot\text{MIZ}_{\text{strong}}$,7.175
+1,$D\cdot\text{MIZ}_{\text{moderate}}$,9.505
+1,$D\cdot\text{MIZ}_{\text{weak}}$,2.383
+1,$D\cdot\text{MIZ}_{\text{none}}$,4.029
+2,E,5.529
+2,CMA,3.621
+2,CA,3.450
+2,MIZ	extsubscript{strong},9.874
+2,MIZ	extsubscript{mod}$,7.826
+2,MIZ	extsubscript{weak},2.248
+2,MIZ	extsubscript{none},22.069
+2,LTCH,6.843
+2,,3.601
+2,$C_{0-4}$,203.170
+2,,216.782
+2,$C_{20-49}$,1169.889
+2,$C_{50-64}$,1978.201
+2,$C_{\ge65}$,611.003
+2,$E\cdot C_{5-19}$,46.320
+2,$D\cdot\text{CMA}$,4.459
+2,,3.284
+2,$D\cdot\text{MIZ}_{\text{strong}}$,7.210
+2,$D\cdot\text{MIZ}_{\text{moderate}}$,9.028
+2,$D\cdot\text{MIZ}_{\text{weak}}$,3.526
+2,$D\cdot\text{MIZ}_{\text{none}}$,9.365
+2,$Y_{u-1}$,4.157
+2,$v_{\text{prov}}\cdot C_{20-49}$,1086.133
+2,$v_{\text{prov}}\cdot C_{50-64}$,2035.041
+2,$v_{\text{prov}}\cdot C_{\ge65}$,611.804
+3,E,4.851
+3,CMA,9.389
+3,CA,4.093
+3,MIZ	extsubscript{strong},11.665
+3,MIZ	extsubscript{mod}$,6.504
+3,MIZ	extsubscript{weak},2.780
+3,MIZ	extsubscript{none},5.359
+3,LTCH,7.065
+3,,2.885
+3,$C_{0-4}$,533476.685
+3,,747340.857
+3,$C_{20-49}$,179634.952
+3,$C_{50-64}$,519250.031
+3,$C_{\ge65}$,123194.858
+3,$E\cdot C_{5-19}$,82.177
+3,$D\cdot\text{CMA}$,8.683
+3,,7.167
+3,$D\cdot\text{MIZ}_{\text{strong}}$,13.829
+3,$D\cdot\text{MIZ}_{\text{moderate}}$,14.626
+3,$D\cdot\text{MIZ}_{\text{weak}}$,5.559
 3,$D\cdot\text{MIZ}_{\text{none}}$,4.993
-3,interaction_LTCH_65_plus,24.339
-3,$Y_{u-1}$,14.242
-3,$v_{\text{prov}}\cdot C_{0-4}$,525885.758
-3,$v_{\text{prov}}\cdot C_{5-19},751377.952
-3,$v_{\text{prov}}\cdot C_{20-49}$,174924.539
-3,$v_{\text{prov}}\cdot C_{50-64}$,524217.356
-3,$v_{\text{prov}}\cdot C_{\ge65}$,124026.283
-4,EIs,1.930
-4,CMA,4.522
-4,CA,3.739
-4,MIZ	extsubscript{strong},9.372
-4,MIZ	extsubscript{mod}$,7.049
-4,MIZ	extsubscript{weak},2.011
-4,MIZ	extsubscript{none},5.357
-4,LTCH,11.637
-4,$D$,2.979
-4,$C_{0-4}$,354770.963
-4,$C_{5-19}$,542843.851
-4,$C_{20-49}$,151710.718
-4,$C_{50-64}$,567542.425
-4,$C_{\ge65}$,151224.270
-4,$D\cdot\text{CMA}$,6.711
-4,$D\cdot\text{CA}$,3.722
-4,$D\cdot\text{MIZ}_{\text{strong}}$,7.739
-4,$D\cdot\text{MIZ}_{\text{moderate}}$,7.708
-4,$D\cdot\text{MIZ}_{\text{weak}}$,3.013
-4,$D\cdot\text{MIZ}_{\text{none}}$,4.819
-4,interaction_LTCH_65_plus,23.732
-4,$Y_{u-1}$,13.207
-4,$v_{\text{prov}}\cdot C_{0-4}$,360335.485
-4,$v_{\text{prov}}\cdot C_{5-19},546896.566
-4,$v_{\text{prov}}\cdot C_{20-49}$,146792.162
-4,$v_{\text{prov}}\cdot C_{50-64}$,566884.856
-4,$v_{\text{prov}}\cdot C_{\ge65}$,150635.798
+3,$Y_{u-1}$,14.241
+3,$v_{\text{prov}}\cdot C_{0-4}$,525793.605
+3,$v_{\text{prov}}\cdot C_{5-19},751370.205
+3,$v_{\text{prov}}\cdot C_{20-49}$,174126.304
+3,$v_{\text{prov}}\cdot C_{50-64}$,523505.044
+3,$v_{\text{prov}}\cdot C_{\ge65}$,124024.580
+4,E,1.902
+4,CMA,4.025
+4,CA,3.534
+4,MIZ	extsubscript{strong},9.331
+4,MIZ	extsubscript{mod}$,6.992
+4,MIZ	extsubscript{weak},1.964
+4,MIZ	extsubscript{none},5.339
+4,LTCH,7.047
+4,,2.483
+4,$C_{0-4}$,348196.447
+4,,522924.729
+4,$C_{20-49}$,150013.661
+4,$C_{50-64}$,567305.142
+4,$C_{\ge65}$,151119.490
+4,$D\cdot\text{CMA}$,6.578
+4,,3.716
+4,$D\cdot\text{MIZ}_{\text{strong}}$,6.851
+4,$D\cdot\text{MIZ}_{\text{moderate}}$,7.152
+4,$D\cdot\text{MIZ}_{\text{weak}}$,2.554
+4,$D\cdot\text{MIZ}_{\text{none}}$,4.815
+4,$Y_{u-1}$,13.202
+4,$v_{\text{prov}}\cdot C_{0-4}$,353864.293
+4,$v_{\text{prov}}\cdot C_{5-19},527386.205
+4,$v_{\text{prov}}\cdot C_{20-49}$,145447.005
+4,$v_{\text{prov}}\cdot C_{50-64}$,566525.778
+4,$v_{\text{prov}}\cdot C_{\ge65}$,150454.075

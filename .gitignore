@@ -55,3 +55,4 @@ canada_complete*.csv
 
 # not syncing the unzipped province csvs
 98-401-X2016*/*
+CaseDataFiles/regression_data.rda

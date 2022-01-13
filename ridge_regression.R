@@ -89,7 +89,7 @@ if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/regression_results.r
             interaction_popdensity_weak = PHU_pop_density*is_miz_weak,
             interaction_popdensity_none = PHU_pop_density*is_miz_none,
             
-            interaction_LTCH_65_plus = LTCHs*group_65_plus,
+            # interaction_LTCH_65_plus = LTCHs*group_65_plus,
             
             interaction_lockdown_0_to_4 = LIs*group_0_to_4,
             interaction_lockdown_5_to_19 = LIs*group_5_to_19,
@@ -191,7 +191,8 @@ if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/regression_results.r
     fits <- list()
     
     start_time <- Sys.time()
-    for(wave_number in 2) #1:4)
+    
+    for(wave_number in 1:4)
     {
         reg_data_here <- Regression_Data %>%
             dplyr::filter(wave == wave_number) %>%
@@ -390,47 +391,59 @@ if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/regression_results.r
 
 Regression_Data <- readRDS(file.path(PROJECT_FOLDER, "Classifications/regression_results.rda"))
 
-stop()
-
 ############## INFO FOR LATEX TABLES
 
 pretty_variable_names <- function(tab)
 {
-    return(tab %>% dplyr::mutate(regressor = dplyr::recode(regressor,
-        "LTCHs" = "LTCH",
-        "E" = "School Closures",
-        "E" = "EI",
-        "group_0_to_4" = "$C_{0-4}$",
-        "group_5_to_19" = "$C_{5-19}$",
-        "group_20_to_49" = "$C_{20-49}$",
-        "group_50_to_64" = "$C_{50-64}$",
-        "group_65_plus" = "$C_{\\ge65}$",
-        "PHU_pop_density" = "$D$",
-        "interaction_children_school_closures" = "$E\\cdot C_{5-19}$",
-        "is_cma" = "CMA",
-        "is_ca" = "CA",
-        "is_miz_strong" = "MIZ\textsubscript{strong}",
-        "is_miz_moderate" = "MIZ\textsubscript{mod}$",
-        "is_miz_weak" = "MIZ\textsubscript{weak}",
-        "is_miz_none" = "MIZ\textsubscript{none}",
-        "previous_wave_incidence" = "$Y_{u-1}$",
-        "interaction_popdensity_cma" = "$D\\cdot\\text{CMA}$",
-        "interaction_popdensity_ca" = "$D\\cdot\\text{CA}$",
-        "interaction_popdensity_moderate" = "$D\\cdot\\text{MIZ}_{\\text{moderate}}$",
-        "interaction_popdensity_strong" = "$D\\cdot\\text{MIZ}_{\\text{strong}}$",
-        "interaction_popdensity_weak" = "$D\\cdot\\text{MIZ}_{\\text{weak}}$",
-        "interaction_popdensity_none" = "$D\\cdot\\text{MIZ}_{\\text{none}}$",
-        "interaction_vaccination_0_to_4" = "$v_{\\text{prov}}\\cdot C_{0-4}$",
-        "interaction_vaccination_5_to_19" = "$v_{\\text{prov}}\\cdot C_{5-19}",
-        "interaction_vaccination_20_to_49" = "$v_{\\text{prov}}\\cdot C_{20-49}$",
-        "interaction_vaccination_50_to_64" = "$v_{\\text{prov}}\\cdot C_{50-64}$",
-        "interaction_vaccination_50_to_64" = "$v_{\\text{prov}}\\cdot C_{50-64}$",
-        "interaction_vaccination_65_plus" = "$v_{\\text{prov}}\\cdot C_{\\ge65}$",
-        "interaction_LTCHs_65_plus" = "\\text{LTCH}\\cdot C_{\\ge65}"
-    )))
+    return(
+        tab %>% 
+            dplyr::mutate(pretty_regressor = factor(regressor, levels = c(
+                "LTCHs", "previous_wave_incidence",
+                "group_0_to_4", "group_5-19", "group_20_to_49", "group_50_to_64", "group_65_plus",
+                "interaction_vaccination_0_to_4", "interaction_vaccination_5_to_19", "interaction_vaccination_20_to_49",
+                "interaction_vaccination_50_to_64", "interaction_vaccination_65_plus", "EIs", 
+                "interaction_children_school_closures",
+                "is_cma", "is_ca", "is_miz_strong", "is_miz_moderate", "is_miz_weak", "is_miz_none", "PU_pop_density", 
+                "interaction_popdensity_cma", "interaction_popdensity_strong", "interaction_popdensity_moderate", 
+                "interaction_popdensity_weak", "interaction_popdensity_none"
+            ))) %>%
+            dplyr::mutate(pretty_regressor = dplyr::recode(regressor,
+                "LTCHs" = "LTCH",
+                "School Closures" = "E",
+                "EIs" = "E",
+                "group_0_to_4" = "$C_{0-4}$",
+                "group_5_to_19" = "$C_{5-19}$",
+                "group_20_to_49" = "$C_{20-49}$",
+                "group_50_to_64" = "$C_{50-64}$",
+                "group_65_plus" = "$C_{\\ge65}$",
+                "PHU_pop_density" = "$D$",
+                "interaction_children_school_closures" = "$E\\cdot C_{5-19}$",
+                "is_cma" = "CMA",
+                "is_ca" = "CA",
+                "is_miz_strong" = "MIZ\textsubscript{strong}",
+                "is_miz_moderate" = "MIZ\textsubscript{mod}$",
+                "is_miz_weak" = "MIZ\textsubscript{weak}",
+                "is_miz_none" = "MIZ\textsubscript{none}",
+                "previous_wave_incidence" = "$Y_{u-1}$",
+                "interaction_popdensity_cma" = "$D\\cdot\\text{CMA}$",
+                "interaction_popdensity_ca" = "$D\\cdot\\text{CA}$",
+                "interaction_popdensity_moderate" = "$D\\cdot\\text{MIZ}_{\\text{moderate}}$",
+                "interaction_popdensity_strong" = "$D\\cdot\\text{MIZ}_{\\text{strong}}$",
+                "interaction_popdensity_weak" = "$D\\cdot\\text{MIZ}_{\\text{weak}}$",
+                "interaction_popdensity_none" = "$D\\cdot\\text{MIZ}_{\\text{none}}$",
+                "interaction_vaccination_0_to_4" = "$v_{\\text{prov}}\\cdot C_{0-4}$",
+                "interaction_vaccination_5_to_19" = "$v_{\\text{prov}}\\cdot C_{5-19}",
+                "interaction_vaccination_20_to_49" = "$v_{\\text{prov}}\\cdot C_{20-49}$",
+                "interaction_vaccination_50_to_64" = "$v_{\\text{prov}}\\cdot C_{50-64}$",
+                "interaction_vaccination_50_to_64" = "$v_{\\text{prov}}\\cdot C_{50-64}$",
+                "interaction_vaccination_65_plus" = "$v_{\\text{prov}}\\cdot C_{\\ge65}$",
+                "interaction_LTCH_65_plus" = "\\text{LTCH}\\cdot C_{\\ge65}",
+                "interaction_LTCHs_65_plus" = "\\text{LTCH}\\cdot C_{\\ge65}"
+            ))
+        )
 }
 
-Reduce(
+latex_regression_coefficients <- Reduce(
     function(x, y) merge(x, y, by = c("wave", "regressor"), all = TRUE),
     list(
         Regression_Data$information %>% dplyr::select(regressor, wave) %>% unique(),
@@ -449,28 +462,30 @@ Reduce(
     )) %>%
     dplyr::filter(!grepl("intercept", tolower(regressor))) %>%
     dplyr::select(wave, regressor, matches("coefficient|CI|p.value")) %>%
-    dplyr::filter(wave == 2) %>%
-    pretty_variable_names %>%
     dplyr::mutate(
         Ridge.hdi = ifelse(
             Ridge.hdi.p.value < 0.001,
-            sprintf("$%.3f (%.3f, %.3f), p < 0.001$",
+            sprintf("$%.4f (%.4f, %.4f), p < 0.001$",
                     Ridge.hdi.coefficient, Ridge.hdi.CI025, Ridge.hdi.CI975),
-            sprintf("$%.3f (%.3f, %.3f), p = %.3f$",
+            sprintf("$%.4f (%.4f, %.4f), p = %.4f$",
                     Ridge.hdi.coefficient, Ridge.hdi.CI025, Ridge.hdi.CI975, Ridge.hdi.p.value)
         ),
         Ridge.glmnet = sprintf("$%.3f$", Ridge.glmnet.coefficient),
         OLS = ifelse(
             OLS.p.value < 0.001,
-            sprintf("$%.3f (%.3f, %.3f), p < 0.001$", OLS.coefficient, OLS.CI025, OLS.CI975),
-            sprintf("$%.3f (%.3f, %.3f), p = %.3f$", OLS.coefficient, OLS.CI025, OLS.CI975,
+            sprintf("$%.4f (%.4f, %.4f), p < 0.001$", OLS.coefficient, OLS.CI025, OLS.CI975),
+            sprintf("$%.4f (%.4f, %.4f), p = %.4f$", OLS.coefficient, OLS.CI025, OLS.CI975,
                     OLS.p.value)
         )
     ) %>%
-    dplyr::select(wave, regressor, Ridge.hdi, Ridge.glmnet, OLS) %>%
-    fwrite(file.path(PROJECT_FOLDER, "Classifications/latex_regression_coefficients.csv"))
+    dplyr::select(wave, regressor, Ridge.hdi, Ridge.glmnet, OLS)
 
-Regression_Data$data %>%
+fwrite(
+    latex_regression_coefficients %>% pretty_variable_names() %>% arrange(regressor), 
+    file=file.path(PROJECT_FOLDER, "Classifications/latex_regression_coefficients.csv")
+)
+
+latex_regression_descriptives <- Regression_Data$data %>%
     dplyr::select(
         -province, -HRUID2018, -HR, -pruid, -wave, -incidence, -PROV_population,
         -matches("interaction|previous|vaxx"), -VIs, -EIs, -LIs
@@ -508,14 +523,16 @@ Regression_Data$data %>%
         "is_miz_weak" = "MIZ textsubscript{weak}",
         "is_miz_weak" = "MIZ textsubscript{weak}",
         "is_miz_none" = "MIZ textsubscript{none}"
-    )) %>%
-    fwrite(file.path(PROJECT_FOLDER, "Classifications/latex_regression_descriptives.csv"))
+    ))
+fwrite(latex_regression_descriptives, file=file.path(PROJECT_FOLDER, "Classifications/latex_regression_descriptives.csv"))
 
-Regression_Data$VIF %>%
+latex_vif_tables <- Regression_Data$VIF %>%
     dplyr::mutate(value = sprintf("%.3f", value)) %>%
     dplyr::relocate(wave, regressor, value) %>%
-    pretty_variable_names() %>%
-    fwrite(file.path(PROJECT_FOLDER, "Classifications/regression_vif_tables.csv"))
+    pretty_variable_names()
+fwrite(latex_vif_tables, file.path(PROJECT_FOLDER, "Classifications/regression_vif_tables.csv"))
+
+stop()
 
 ############# GRAPH PLOTTING CODE
     
@@ -533,21 +550,24 @@ Residuals <- rbind(
             value=Regression_Data$predictions[, incidence-lm]
         )
     ) %>%
-    dplyr::mutate(wave = paste0("Wave ", wave))
+    dplyr::mutate( 
+        # wave = paste0("Wave ", wave),
+        full_title = sprintf("Wave %i - %s", wave, regression)
+    )
 
 Residual_plot <- ggplot(Residuals, aes(x=incidence, y=value)) +
     geom_hline(yintercept=0) +
     geom_point(colour="blue", size=2) +
-    facet_grid(wave~regression) +
+    facet_wrap(full_title~., scale="free", ncol=2) +
     theme_bw() +
     theme(
         axis.text = element_text(size=13),
         axis.title = element_text(size=15),
         strip.text=  element_text(size=13)
     ) +
-    labs(x="Incidence", y="Residual")
+    labs(x="Predicted Incidence", y="Residual")
 
-ggsave(Residual_plot, file=file.path(PROJECT_FOLDER, "Graphs/residuals_plot.png"), width=10, height=6)
+ggsave(Residual_plot, file=file.path(PROJECT_FOLDER, "Graphs/residuals_plot.png"), width=9, height=8)
 
 pl_MSEs <- ggplot(
         Regression_Data$MSE %>% dplyr::mutate(wave = paste0("Wave ", wave)), 
@@ -674,7 +694,7 @@ ggsave(
 pl_regression_by_wave <-  ggplot(
         Regression_Data$information %>% 
             dplyr::filter(type %in% c("OLS", "Ridge.hdi")) %>%
-            dplyr::filter(!grepl("intercept", regressor)) %>%
+            dplyr::filter(!grepl("intercept", tolower(regressor))) %>%
             pretty_variable_names() %>%
             dplyr::rename("Regression" = "type") %>%
             dplyr::mutate(Regression = dplyr::recode(Regression, "Ridge.hdi" = "Ridge")),
@@ -696,6 +716,32 @@ ggsave(
     file = file.path(PROJECT_FOLDER, "Graphs/regression_by_wave.png"),
     height=15, width=10 
 )
+
+pl_regression_by_wave_hdi_only <-  ggplot(
+        Regression_Data$information %>% 
+            dplyr::filter(type %in% c("Ridge.hdi")) %>%
+            dplyr::filter(!grepl("intercept", tolower(regressor))) %>%
+            pretty_variable_names() %>%
+            dplyr::rename("Regression" = "type") %>%
+            dplyr::mutate(Regression = dplyr::recode(Regression, "Ridge.hdi" = "Ridge")),
+        aes(x=wave, y=coefficient, ymin=CI025, ymax=CI975)
+        ) +
+    geom_point() +
+    geom_errorbar(aes(ymin=CI025, ymax=CI975)) +
+    geom_hline(yintercept=0, linetype="dashed", colour="grey", size=1) +
+    facet_wrap(pretty_regressor~., scale="free", ncol=4) +
+    theme_bw() +
+    theme(
+        
+    ) +
+    labs(x="Epidemiological Wave", y="Regression Coefficient")
+
+ggsave(
+    pl_regression_by_wave_hdi_only, 
+    file = file.path(PROJECT_FOLDER, "Graphs/regression_by_wave_hdi_only.png"),
+    height=15, width=10 
+)
+
 
 # 
 # pl_significance_grid <- ggplot(Coefficients, aes(x=regressor, y=type)) +
