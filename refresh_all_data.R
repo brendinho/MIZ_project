@@ -958,6 +958,8 @@ Total_Case_Data <- fread(file.path(PROJECT_FOLDER, "CaseDataTables/Total_Case_Da
     dplyr::summarise(incidence = sum(cases, na.rm=TRUE)) %>%
     data.table
 
+stop()
+
 # there's no Saskatchewan data for the first wave (not until October), and I can't match with the Toronto
 # API data since they use different regions to group the incidences
 Regression_Data <- Total_Case_Data %>%

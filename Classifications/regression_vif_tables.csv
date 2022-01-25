@@ -1,98 +1,96 @@
-wave,regressor,value
-1,CMA,2.479
-1,CA,3.415
-1,MIZ	extsubscript{strong},8.352
-1,MIZ	extsubscript{mod}$,7.099
-1,MIZ	extsubscript{weak},2.159
-1,MIZ	extsubscript{none},4.198
-1,LTCH,6.761
-1,,2.756
-1,$C_{0-4}$,131.977
-1,,144.788
-1,$C_{20-49}$,55.684
-1,$C_{50-64}$,228.883
-1,$C_{\ge65}$,77.856
-1,$D\cdot\text{CMA}$,5.016
-1,,4.034
-1,$D\cdot\text{MIZ}_{\text{strong}}$,7.175
-1,$D\cdot\text{MIZ}_{\text{moderate}}$,9.505
-1,$D\cdot\text{MIZ}_{\text{weak}}$,2.383
-1,$D\cdot\text{MIZ}_{\text{none}}$,4.029
-2,E,5.529
-2,CMA,3.621
-2,CA,3.450
-2,MIZ	extsubscript{strong},9.874
-2,MIZ	extsubscript{mod}$,7.826
-2,MIZ	extsubscript{weak},2.248
-2,MIZ	extsubscript{none},22.069
-2,LTCH,6.843
-2,,3.601
-2,$C_{0-4}$,203.170
-2,,216.782
-2,$C_{20-49}$,1169.889
-2,$C_{50-64}$,1978.201
-2,$C_{\ge65}$,611.003
-2,$E\cdot C_{5-19}$,46.320
-2,$D\cdot\text{CMA}$,4.459
-2,,3.284
-2,$D\cdot\text{MIZ}_{\text{strong}}$,7.210
-2,$D\cdot\text{MIZ}_{\text{moderate}}$,9.028
-2,$D\cdot\text{MIZ}_{\text{weak}}$,3.526
-2,$D\cdot\text{MIZ}_{\text{none}}$,9.365
-2,$Y_{u-1}$,4.157
-2,$v_{\text{prov}}\cdot C_{20-49}$,1086.133
-2,$v_{\text{prov}}\cdot C_{50-64}$,2035.041
-2,$v_{\text{prov}}\cdot C_{\ge65}$,611.804
-3,E,4.851
-3,CMA,9.389
-3,CA,4.093
-3,MIZ	extsubscript{strong},11.665
-3,MIZ	extsubscript{mod}$,6.504
-3,MIZ	extsubscript{weak},2.780
-3,MIZ	extsubscript{none},5.359
-3,LTCH,7.065
-3,,2.885
-3,$C_{0-4}$,533476.685
-3,,747340.857
-3,$C_{20-49}$,179634.952
-3,$C_{50-64}$,519250.031
-3,$C_{\ge65}$,123194.858
-3,$E\cdot C_{5-19}$,82.177
-3,$D\cdot\text{CMA}$,8.683
-3,,7.167
-3,$D\cdot\text{MIZ}_{\text{strong}}$,13.829
-3,$D\cdot\text{MIZ}_{\text{moderate}}$,14.626
-3,$D\cdot\text{MIZ}_{\text{weak}}$,5.559
-3,$D\cdot\text{MIZ}_{\text{none}}$,4.993
-3,$Y_{u-1}$,14.241
-3,$v_{\text{prov}}\cdot C_{0-4}$,525793.605
-3,$v_{\text{prov}}\cdot C_{5-19},751370.205
-3,$v_{\text{prov}}\cdot C_{20-49}$,174126.304
-3,$v_{\text{prov}}\cdot C_{50-64}$,523505.044
-3,$v_{\text{prov}}\cdot C_{\ge65}$,124024.580
-4,E,1.902
-4,CMA,4.025
-4,CA,3.534
-4,MIZ	extsubscript{strong},9.331
-4,MIZ	extsubscript{mod}$,6.992
-4,MIZ	extsubscript{weak},1.964
-4,MIZ	extsubscript{none},5.339
-4,LTCH,7.047
-4,,2.483
-4,$C_{0-4}$,348196.447
-4,,522924.729
-4,$C_{20-49}$,150013.661
-4,$C_{50-64}$,567305.142
-4,$C_{\ge65}$,151119.490
-4,$D\cdot\text{CMA}$,6.578
-4,,3.716
-4,$D\cdot\text{MIZ}_{\text{strong}}$,6.851
-4,$D\cdot\text{MIZ}_{\text{moderate}}$,7.152
-4,$D\cdot\text{MIZ}_{\text{weak}}$,2.554
-4,$D\cdot\text{MIZ}_{\text{none}}$,4.815
-4,$Y_{u-1}$,13.202
-4,$v_{\text{prov}}\cdot C_{0-4}$,353864.293
-4,$v_{\text{prov}}\cdot C_{5-19},527386.205
-4,$v_{\text{prov}}\cdot C_{20-49}$,145447.005
-4,$v_{\text{prov}}\cdot C_{50-64}$,566525.778
-4,$v_{\text{prov}}\cdot C_{\ge65}$,150454.075
+wave,regressor,value,pretty_regressor
+1,is_cma,2.479,CMA
+1,is_ca,3.415,CA
+1,is_miz_strong,8.352,MIZ	extsubscript{strong}
+1,is_miz_moderate,7.099,MIZ	extsubscript{mod}$
+1,is_miz_weak,2.159,MIZ	extsubscript{weak}
+1,is_miz_none,4.198,MIZ	extsubscript{none}
+1,LTCHs,6.761,LTCH
+1,PHU_pop_density,2.756,$D$
+1,group_0_to_4,131.977,$C_{0-4}$
+1,group_5_to_19,144.788,$C_{5-19}$
+1,group_20_to_49,55.684,$C_{20-49}$
+1,group_50_to_64,228.883,$C_{50-64}$
+1,group_65_plus,77.856,$C_{\ge65}$
+1,interaction_popdensity_cma,5.016,$D\cdot\text{CMA}$
+1,interaction_popdensity_ca,4.034,$D\cdot\text{CA}$
+1,interaction_popdensity_strong,7.175,$D\cdot\text{MIZ}_{\text{strong}}$
+1,interaction_popdensity_moderate,9.505,$D\cdot\text{MIZ}_{\text{moderate}}$
+1,interaction_popdensity_weak,2.383,$D\cdot\text{MIZ}_{\text{weak}}$
+1,interaction_popdensity_none,4.029,$D\cdot\text{MIZ}_{\text{none}}$
+2,EIs,5.529,E
+2,is_cma,3.621,CMA
+2,is_ca,3.450,CA
+2,is_miz_strong,9.874,MIZ	extsubscript{strong}
+2,is_miz_moderate,7.826,MIZ	extsubscript{mod}$
+2,is_miz_weak,2.248,MIZ	extsubscript{weak}
+2,is_miz_none,22.069,MIZ	extsubscript{none}
+2,LTCHs,6.843,LTCH
+2,PHU_pop_density,3.601,$D$
+2,group_0_to_4,203.170,$C_{0-4}$
+2,group_5_to_19,216.782,$C_{5-19}$
+2,group_20_to_49,1169.889,$C_{20-49}$
+2,group_50_to_64,1978.201,$C_{50-64}$
+2,group_65_plus,611.003,$C_{\ge65}$
+2,interaction_children_school_closures,46.320,$E\cdot C_{5-19}$
+2,interaction_popdensity_cma,4.459,$D\cdot\text{CMA}$
+2,interaction_popdensity_ca,3.284,$D\cdot\text{CA}$
+2,interaction_popdensity_strong,7.210,$D\cdot\text{MIZ}_{\text{strong}}$
+2,interaction_popdensity_moderate,9.028,$D\cdot\text{MIZ}_{\text{moderate}}$
+2,interaction_popdensity_weak,3.526,$D\cdot\text{MIZ}_{\text{weak}}$
+2,interaction_popdensity_none,9.365,$D\cdot\text{MIZ}_{\text{none}}$
+2,previous_wave_incidence,4.157,$Y_{u-1}$
+2,interaction_vaccination_20_to_49,1086.133,$v_{\text{prov}}\cdot C_{20-49}$
+2,interaction_vaccination_50_to_64,2035.041,$v_{\text{prov}}\cdot C_{50-64}$
+2,interaction_vaccination_65_plus,611.804,$v_{\text{prov}}\cdot C_{\ge65}$
+3,EIs,3.956,E
+3,is_cma,9.311,CMA
+3,is_ca,4.085,CA
+3,is_miz_strong,11.663,MIZ	extsubscript{strong}
+3,is_miz_moderate,6.503,MIZ	extsubscript{mod}$
+3,is_miz_weak,2.694,MIZ	extsubscript{weak}
+3,is_miz_none,5.005,MIZ	extsubscript{none}
+3,LTCHs,6.623,LTCH
+3,PHU_pop_density,2.885,$D$
+3,group_0_to_4,384.541,$C_{0-4}$
+3,group_5_to_19,56213.578,$C_{5-19}$
+3,group_20_to_49,95463.748,$C_{20-49}$
+3,group_50_to_64,311795.078,$C_{50-64}$
+3,group_65_plus,113034.683,$C_{\ge65}$
+3,interaction_children_school_closures,64.777,$E\cdot C_{5-19}$
+3,interaction_popdensity_cma,8.511,$D\cdot\text{CMA}$
+3,interaction_popdensity_ca,7.042,$D\cdot\text{CA}$
+3,interaction_popdensity_strong,13.752,$D\cdot\text{MIZ}_{\text{strong}}$
+3,interaction_popdensity_moderate,14.501,$D\cdot\text{MIZ}_{\text{moderate}}$
+3,interaction_popdensity_weak,5.293,$D\cdot\text{MIZ}_{\text{weak}}$
+3,interaction_popdensity_none,4.605,$D\cdot\text{MIZ}_{\text{none}}$
+3,previous_wave_incidence,14.162,$Y_{u-1}$
+3,interaction_vaccination_5_to_19,54552.908,$v_{\text{prov}}\cdot C_{5-19}
+3,interaction_vaccination_20_to_49,92549.544,$v_{\text{prov}}\cdot C_{20-49}$
+3,interaction_vaccination_50_to_64,315379.471,$v_{\text{prov}}\cdot C_{50-64}$
+3,interaction_vaccination_65_plus,113517.076,$v_{\text{prov}}\cdot C_{\ge65}$
+4,EIs,1.896,E
+4,is_cma,3.575,CMA
+4,is_ca,3.521,CA
+4,is_miz_strong,9.223,MIZ	extsubscript{strong}
+4,is_miz_moderate,6.927,MIZ	extsubscript{mod}$
+4,is_miz_weak,1.962,MIZ	extsubscript{weak}
+4,is_miz_none,4.788,MIZ	extsubscript{none}
+4,LTCHs,7.035,LTCH
+4,PHU_pop_density,2.463,$D$
+4,group_0_to_4,264.585,$C_{0-4}$
+4,group_5_to_19,72572.338,$C_{5-19}$
+4,group_20_to_49,122231.239,$C_{20-49}$
+4,group_50_to_64,480229.472,$C_{50-64}$
+4,group_65_plus,142246.586,$C_{\ge65}$
+4,interaction_popdensity_cma,6.419,$D\cdot\text{CMA}$
+4,interaction_popdensity_ca,3.690,$D\cdot\text{CA}$
+4,interaction_popdensity_strong,6.840,$D\cdot\text{MIZ}_{\text{strong}}$
+4,interaction_popdensity_moderate,7.073,$D\cdot\text{MIZ}_{\text{moderate}}$
+4,interaction_popdensity_weak,2.482,$D\cdot\text{MIZ}_{\text{weak}}$
+4,interaction_popdensity_none,4.417,$D\cdot\text{MIZ}_{\text{none}}$
+4,previous_wave_incidence,12.585,$Y_{u-1}$
+4,interaction_vaccination_5_to_19,70873.454,$v_{\text{prov}}\cdot C_{5-19}
+4,interaction_vaccination_20_to_49,117835.934,$v_{\text{prov}}\cdot C_{20-49}$
+4,interaction_vaccination_50_to_64,481901.174,$v_{\text{prov}}\cdot C_{50-64}$
+4,interaction_vaccination_65_plus,141865.164,$v_{\text{prov}}\cdot C_{\ge65}$
