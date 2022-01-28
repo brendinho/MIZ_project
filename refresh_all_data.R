@@ -5,16 +5,9 @@ library(data.table)
 library(jsonlite)
 library(stringr)
 library(sf)
-library(ggplot2)
-library(vistime)
-library(plotly)
 library(openxlsx)
 
-if(getElement(Sys.info(), "sysname") == "Windows"){
-    PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
-} else {
-    PROJECT_FOLDER <- "/home/brendon/Documents/GitHub/MIZ_project"
-}
+PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
 
 setwd(PROJECT_FOLDER)
 
@@ -282,7 +275,7 @@ if(!file.exists(file.path(PROJECT_FOLDER, "/CaseDataTables/canada_wide_vacc_data
     fwrite(file.path(PROJECT_FOLDER, "/CaseDataTables/canada_wide_vacc_data_official.csv"))
 }
 
-#### LONG TERM CARE HOES
+#### LONG TERM CARE HOMES
 
 if(! file.exists(file.path(PROJECT_FOLDER, "Classifications/LTCH_locations.csv")))
 {

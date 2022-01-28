@@ -1,8 +1,6 @@
 ##################################################
 ## Project: COVID-19 regression 
 ## Script purpose: header file for functions
-## Date written: 2021-09-08
-## Last edited: 2021-09-08
 ## Script author: Brendon Phillips 
 ## Institution: York University 
 ## Lab: ABM_Lab
@@ -11,13 +9,8 @@
 
 library(dplyr)
 library(data.table)
-# library(segmented)
 
-if(getElement(Sys.info(), "sysname") == "Windows"){
-    PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
-} else {
-    PROJECT_FOLDER <- "/home/brendon/Documents/GitHub/MIZ_project"
-}
+PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
 
 trim_image <- function(xx){ system(sprintf("convert %s/Graphs/%s -trim %s/Graphs/%s", PROJECT_FOLDER, xx, PROJECT_FOLDER, xx)) }
 
