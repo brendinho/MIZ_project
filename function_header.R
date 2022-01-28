@@ -11,13 +11,15 @@
 
 library(dplyr)
 library(data.table)
-library(segmented)
+# library(segmented)
 
 if(getElement(Sys.info(), "sysname") == "Windows"){
     PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
 } else {
-    PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project"
+    PROJECT_FOLDER <- "/home/brendon/Documents/GitHub/MIZ_project"
 }
+
+trim_image <- function(xx){ system(sprintf("convert %s/Graphs/%s -trim %s/Graphs/%s", PROJECT_FOLDER, xx, PROJECT_FOLDER, xx)) }
 
 # shorthand
 meann <- function(...) mean(..., na.rm=TRUE)
@@ -372,6 +374,12 @@ find_wave_indices <- function(timeSeries)
 }
 
 # doing the wave analysis for all of Canada
+
+if(!file.exists(file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv")))
+{
+  jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=cases&loc=canada")$cases %>%
+    fwrite(file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv"))
+}
 
 Canada_Data <- fread(file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv")) %>%
     dplyr::select(-cumulative_cases) %>%

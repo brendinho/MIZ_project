@@ -2,28 +2,12 @@ rm(list=ls())
 
 library(data.table)
 library(ggplot2)
-# library(viridis)
 library(vistime)
 library(plotly)
-# library(RColorBrewer)
 library(stringr)
 library(sf)
-# library(forcats)
-# library(ggpubr)
-# library(gganimate)
-# library(tidyr)
-# library(future)
-# library(gapminder)
-# library(av)
-# library(transformr)
-# library(foreach)
-# library(doParallel)
 
-if(getElement(Sys.info(), "sysname") == "Windows"){
-    PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
-} else {
-    PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project"
-}
+PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
 
 source(file.path(PROJECT_FOLDER, "function_header.R"))
 
@@ -104,77 +88,58 @@ pl_timeline <- timelines %>%
         axis.title = element_text(size = 15)
     ) +
     labs(x="Month", y="Province")
-    ggsave(pl_timeline, file = file.path(PROJECT_FOLDER, "Graphs/interventionsplot.png"), width=10, height=6)
+    # ggsave(pl_timeline, file = file.path(PROJECT_FOLDER, "Graphs/interventionsplot.png"), width=10, height=6)
     
 ##################### AIRPORT LOCATIONS ON THE MAP
 
-# All_Canada <- st_sf(readRDS(file.path(PROJECT_FOLDER, "All_Canada.rds")))
-# 
-# All_Provinces <- readRDS(file.path(PROJECT_FOLDER, "All_Provinces.rds")) %>%
-#     st_sf() %>%
-#     merge(
-#         province_LUT %>% dplyr::select(province, abbreviations, alpha), 
-#         all=TRUE, by="province"
-#     )
-# 
-# Airport_Locations <- st_read(file.path(
-#         PROJECT_FOLDER, 
-#         "Airports_Aeroports_en_shape/Airports_Aeroports_en_shape.shp"
-#     ))
-# 
-# upper_Mannville_oil_gas_fields <- st_read(file.path(
-#         PROJECT_FOLDER, 
-#         "upper_mannville_oil_and_gas_fields/fg1925_py_ll.shp"
-#     ))
-# 
-# lower_Mannville_oil_gas_fields <- st_read(file.path(
-#         PROJECT_FOLDER, 
-#         "lower_mannville_oil_and_gas_fields/fg1923_py_ll.shp"
-#     ))
-# 
-# Canada_map_with_HRs_and_airports <- ggplot() +
-#     geom_sf(
-#         data = All_Canada, fill="lightgrey", colour="black", 
-#         inherit.aes=FALSE, size=0.5
-#     ) +
-#     geom_sf(
-#         data = All_Provinces, fill=NA, colour="black", 
-#         inherit.aes=FALSE, size=0.5
-#     ) +
-#     # geom_sf(data = HR_shapes, aes(fill=HR), colour="black", 
-#     # inherit.aes=FALSE, size=0.5) +
-#     # geom_sf(data = upper_Mannville_oil_gas_fields, 
-#     # inherit.aes=FALSE, size=1, pch=3, colour="green") +
-#     # geom_sf(data = lower_Mannville_oil_gas_fields, 
-#     # inherit.aes=FALSE, size=1, pch=3, colour="green") +
-#     geom_sf(
-#         data = Airport_Locations, inherit.aes=FALSE, size=5, 
-#         pch=13, colour='red'
-#     ) +
-#     theme_minimal() +
-#     theme(
-#         panel.grid = element_blank(),
-#         axis.text = element_blank(),
-#         axis.ticks = element_blank(),
-#         legend.text = element_text(size=13),
-#         legend.title = element_text(size=13),
-#         legend.key.height = unit(1, 'cm'),
-#         plot.background = element_rect(fill="white", colour="white"),
-#         legend.position="none"
-#     ) +
-#     coord_sf(datum=NA) +
-#     labs(x="", y="")
-# 
-# ggsave(
-#         Canada_map_with_HRs_and_airports, 
-#         file = sprintf("%s/Graphs/Canada_airports.png", PROJECT_FOLDER), 
-#         width=15, height=6
-#     )
-# 
-# system(sprintf(
-#     "convert %s/Graphs/Canada_airports.png -trim %s/Graphs/Canada_airports.png", 
-#     PROJECT_FOLDER, PROJECT_FOLDER
-#     ))
+All_LTCHs <- fread(file.path(PROJECT_FOLDER, "Classifications/LTCH_locations.csv")) %>%
+    dplyr::mutate(geometry = lapply(geometry, \(xx) st_point(as.numeric(strsplit(xx, "\\|")[[1]])))) %>%
+    st_sf() %>%
+    dplyr::mutate(geometry = st_sfc(geometry))
+    st_crs(All_LTCHs$geometry) = 4326
+
+All_Canada <- st_sf(readRDS(file.path(PROJECT_FOLDER, "Spatial_Features/All_Canada.rds")))
+
+All_Provinces <- readRDS(file.path(PROJECT_FOLDER, "Spatial_Features/All_Provinces.rds")) %>%
+    st_sf() %>%
+    merge(
+        province_LUT %>% dplyr::select(province, abbreviations, alpha),
+        all=TRUE, by="province"
+    )
+
+Canada_map_with_HRs_and_LTCHs <- ggplot() +
+    geom_sf(
+        data = All_Canada, fill="lightgrey", colour="black",
+        inherit.aes=FALSE, size=0.5
+    ) +
+    geom_sf(
+        data = All_Provinces, fill=NA, colour="black",
+        inherit.aes=FALSE, size=0.5
+    ) +
+    geom_sf(
+        data = All_LTCHs$geometry, inherit.aes=FALSE, size=2,
+        pch=8, colour='red'
+    ) +
+    theme_minimal() +
+    theme(
+        panel.grid = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        legend.text = element_text(size=13),
+        legend.title = element_text(size=13),
+        legend.key.height = unit(1, 'cm'),
+        plot.background = element_rect(fill="white", colour="white"),
+        legend.position="none"
+    ) +
+    coord_sf(datum=NA) +
+    labs(x="", y="")
+
+ggsave(
+        Canada_map_with_HRs_and_LTCHs,
+        file = sprintf("%s/Graphs/Canada_ltch.png", PROJECT_FOLDER),
+        width=15, height=6
+    )
+    trim_image("Canada_ltch.png")
 
 ##################### WAVE ANLYSIS AND PLOTS
     

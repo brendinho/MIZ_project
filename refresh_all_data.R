@@ -1,29 +1,20 @@
 rm(list=ls())
 
-# for some reason, running the complete script in RStudio results in the interventions
-# data table being read and parsed incorrectly. I'm not sure why, gut I'll find a way
-# around that for the purpose for the GitHub
-
 library(dplyr)
 library(data.table)
 library(jsonlite)
-library(cancensus)
-library(CanCovidData)
 library(stringr)
 library(sf)
 library(ggplot2)
 library(vistime)
-library(sf)
 library(plotly)
-# library(doParallel)
+library(openxlsx)
 
 if(getElement(Sys.info(), "sysname") == "Windows"){
     PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
 } else {
-    PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project"
+    PROJECT_FOLDER <- "/home/brendon/Documents/GitHub/MIZ_project"
 }
-
-library(openxlsx)
 
 setwd(PROJECT_FOLDER)
 
@@ -33,10 +24,6 @@ dir.create(file.path(".", "Graphs"), showWarnings=FALSE)
 source(sprintf("%s/function_header.R", PROJECT_FOLDER))
 
 start_time <- Sys.time()
-
-#####################################
-############## TIME-INVARIANT METRICS
-#####################################
 
 if(! file.exists(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv")))
 {
@@ -74,11 +61,6 @@ if(! file.exists(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv"
     {
         profiles <- list()
         
-        # num_cores <- detectCores(logical = TRUE)
-        # cl <- makeCluster(num_cores-2)  
-        # registerDoParallel(cl) 
-    
-        # foreach(code=geoCodes, .packages='dplyr') %dopar%
         for(code in geoCodes)
         {
             print(code)
@@ -142,12 +124,9 @@ if(! file.exists(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv"
                         unique
                 )
         }
-        # stopCluster(cl)
-    
         return(rbindlist(profiles))
     }
 
-    # parallelise this loop - not important, since it's only run once
     start_time <- Sys.time()
     CSD_data <- rbindlist(the_profiles) %>%
         data.table %>%
@@ -166,8 +145,6 @@ if(! file.exists(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv"
 }
     
 CSD_data <- fread(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv"))
-
-############## CATEGORICAL AND CONTINUOUS REMOTENESS
 
 writeLines("\nreading and parsing local SAC info")
 {
@@ -270,14 +247,6 @@ writeLines("\nreading and parsing local SAC info")
         ) %>%
         dplyr::rename_with(tolower) %>%
         dplyr::select(-geouid)
-    
-    # writeLines("\nStatCan Index of Remoteness scores")
-    # Index_of_Remoteness <- fread("Classifications/Index_of_remoteness.csv") %>%
-    #     dplyr::select(CSDuid, Index_of_remoteness) %>%
-    #     dplyr::rename(geo_code = CSDuid) %>%
-    #     dplyr::mutate(Index_of_remoteness = as.numeric(Index_of_remoteness)) %>%
-    #     suppressWarnings() %>%
-    #     dplyr::rename_with(tolower)
 }
 
 # assemble the complete table we need for the correlation before
@@ -304,44 +273,6 @@ if(!file.exists( sprintf("%s/Classifications/Total_CSD_Info.rda", PROJECT_FOLDER
 }
     
 Total_Data_Geo <- readRDS(sprintf("%s/Classifications/Total_CSD_Info.rda", PROJECT_FOLDER))
-
-# Total_Data_Geo  %>% dplyr::select(geo_code, HRUID2018) %>% unique() %>% dplyr::pull(geo_code) %>% table() %>% data.table %>% .[N>1] -> fall_into_multiple_PHUS
-# 
-# fall_into_multiple_PHUs <- Total_Data_Geo[, .(count=.N), by=geo_code][count>1]
-    
-# if(!file.exists(file.path(PROJECT_FOLDER, "Classifications/PHUs_hosting_airports.csv")))
-# {
-#     PHU_shapes <- readRDS(file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda"))
-#     
-#     Airport_Locations <- st_read(file.path(
-#         PROJECT_FOLDER, 
-#         "Airports_Aeroports_en_shape/Airports_Aeroports_en_shape.shp"
-#     ))
-#     
-#     which_PHUs <- function(icaos)
-#     {
-#         return(unlist(lapply(
-#             icaos,
-#             \(xx) st_intersects(
-#                 Airport_Locations %>% dplyr::filter(ICAO == xx) %>% dplyr::pull(geometry) %>% 
-#                     st_sf() %>% st_transform(3857), 
-#                 PHU_shapes$geometry %>% st_sf() %>% st_transform(3857)
-#             ) %>% .[1] %>% .[[1]] %>% PHU_shapes[., HRUID2018]
-#         )))
-#     }
-#     
-#     start_time <- Sys.time()
-#     PHUs_with_airports <- which_PHUs(unique(Airport_Locations$ICAO)) %>%
-#         table %>% 
-#         data.table %>% 
-#         setNames(c("HRUID2018", "airports")) %>%
-#         dplyr::mutate(HRUID2018 = as.character(HRUID2018)) %>%
-#         dplyr::rename()
-#     fwrite(PHUs_with_airports, file.path(
-#         PROJECT_FOLDER, "Classifications/PHUs_hosting_airports.csv"
-#     ))
-#     print(Sys.time() - start_time)
-# }
 
 if(!file.exists(file.path(PROJECT_FOLDER, "/CaseDataTables/canada_wide_vacc_data_official.csv")))
 {
@@ -406,24 +337,12 @@ province_populations <- PHU_information %>%
     dplyr::group_by(province) %>% 
     dplyr::summarise(PROV_population = sum(PHU_population, na.rm=TRUE))
     
-#####################################
-############## TIME-DEPENDENT METRICS
-#####################################
-
-# WAVE DATES
-
-if(!file.exists(file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv")))
-{
-    jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=cases&loc=canada")$cases %>%
-        fwrite(file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv"))
-}
-
 # retrieved 27 Nov 2021
-if(! file.exists(file.path(PROJECT_FOLDER, "covid-19-intervention-scan-data-tables-en.xlsx")) )
+if(! file.exists(file.path(PROJECT_FOLDER, "Interventions/covid-19-intervention-scan-data-tables-en.xlsx")) )
 {
     download.file(
         "https://www.cihi.ca/sites/default/files/document/covid-19-intervention-scan-data-tables-en.xlsx",
-        file.path(PROJECT_FOLDER, "covid-19-intervention-scan-data-tables-en.xlsx")
+        file.path(PROJECT_FOLDER, "Interventions/covid-19-intervention-scan-data-tables-en.xlsx")
     )
 }
 
@@ -448,7 +367,7 @@ if(! file.exists(file.path(PROJECT_FOLDER, "Classifications/interventions.csv"))
         ) %>%
         dplyr::mutate(
             jurisdiction = left_join(., LUT, by=c("jurisdiction" = "abbreviations"))$province,
-            # # be careful - the dash ion the code below is longer than the standard one
+            # # be careful - the dash in the code below is longer than the standard one
             # — 
             type = unlist(lapply(type, \(xx){ str_split(xx, '—')[[1]][2] %>% trimws })),
             indigenous.population.group = dplyr::recode(
@@ -755,7 +674,6 @@ if(FALSE)
         dplyr::filter(! HSDA %in% c("All", "Unknown", "Out of Canada")) %>%
         dplyr::rename(date=Date, HR=HSDA, cases=Cases_Reported) %>%
         dplyr::mutate(date=as.Date(date), province="British Columbia") %>%
-        # add_wave_numbers() %>% .[['cases']] %>%
         data.table()
     fwrite(BC_cases, sprintf("%s/CaseDataTables/BC_cases.csv", PROJECT_FOLDER))
     
@@ -768,7 +686,6 @@ if(FALSE)
         dplyr::mutate(Nom = Nom %>% replace_accents() %>% trim_numbers()) %>%
         dplyr::rename(date=Date, HR=Nom, cases=cas_quo_tot_n) %>%
         dplyr::mutate(date=as.Date(date), province="Quebec", cases = as.numeric(cases)) %>%
-        # add_wave_numbers() %>% .[['cases']] %>%
         data.table()
     fwrite(QC_cases, sprintf("%s/CaseDataTables/QC_cases.csv", PROJECT_FOLDER))
     
@@ -780,7 +697,6 @@ if(FALSE)
         dplyr::select(province, date_report, health_region, cases) %>%
         dplyr::rename(date=date_report, HR=health_region) %>%
         dplyr::mutate(date=as.Date(date), province="Manitoba") %>%
-        # add_wave_numbers() %>% .[['cases']] %>%
         data.table()
     fwrite(MB_cases, sprintf("%s/CaseDataTables/MB_cases.csv", PROJECT_FOLDER))
     
@@ -792,7 +708,6 @@ if(FALSE)
         dplyr::select("Date", "Region", "New Cases") %>%
         dplyr::rename(date=Date, HR=Region, cases="New Cases") %>%
         dplyr::mutate(date=as.Date(date), province="Saskatchewan") %>%
-        # add_wave_numbers() %>% .[['cases']] %>%
         data.table()
     fwrite(SK_cases, sprintf("%s/CaseDataTables/SK_cases.csv", PROJECT_FOLDER))
     
@@ -809,7 +724,6 @@ if(FALSE)
         dplyr::select(province, date_report, health_region, cases) %>%
         dplyr::rename(date=date_report, HR=health_region) %>%
         dplyr::mutate(date=as.Date(date), province="Prince Edward Island") %>%
-        # add_wave_numbers() %>% .[['cases']] %>%
         data.table()
     fwrite(PE_cases, sprintf("%s/CaseDataTables/PE_cases.csv", PROJECT_FOLDER))
     
@@ -821,7 +735,6 @@ if(FALSE)
         dplyr::select(province, date_report, health_region, cases) %>%
         dplyr::rename(date=date_report, HR=health_region) %>%
         dplyr::mutate(date=as.Date(date), province="Northwest Territories", HR="Northwest Territories") %>%
-        # add_wave_numbers() %>% .[['cases']] %>%
         data.table()
     fwrite(NT_cases, sprintf("%s/CaseDataTables/NT_cases.csv", PROJECT_FOLDER))
     
@@ -833,7 +746,6 @@ if(FALSE)
         dplyr::select(province, date_report, health_region, cases) %>%
         dplyr::rename(date=date_report, HR=health_region) %>%
         dplyr::mutate(date=as.Date(date), province="Yukon") %>%
-        # add_wave_numbers() %>% .[['cases']] %>%
         data.table()
     fwrite(YT_cases, sprintf("%s/CaseDataTables/YT_cases.csv", PROJECT_FOLDER))
     
@@ -845,7 +757,6 @@ if(FALSE)
         dplyr::select(province, date_report, health_region, cases) %>%
         dplyr::rename(date=date_report, HR=health_region) %>%
         dplyr::mutate(date=as.Date(date), province="Nunavut") %>%
-        # add_wave_numbers() %>% .[['cases']] %>%
         data.table()
     fwrite(NU_cases, sprintf("%s/CaseDataTables/NU_cases.csv", PROJECT_FOLDER))
     
@@ -855,15 +766,11 @@ if(FALSE)
     ################################## ONTARIO
     
     writeLines("\nOntario - cases")
-    # Ontario data for confirmed cases - useful for delay distribution, etc
-    # https://data.ontario.ca/dataset/status-of-covid-19-cases-in-ontario/resource/8a88fe6d-d8fb-41a3-9d04-f0550a44999f
     ON_cases <- fread("https://data.ontario.ca/dataset/f4f86e54-872d-43f8-8a86-3892fd3cb5e6/resource/8a88fe6d-d8fb-41a3-9d04-f0550a44999f/download/daily_change_in_cases_by_phu.csv") %>%
         dplyr::select(-Total) %>%
         melt(id.vars="Date") %>%
         dplyr::rename(date=Date, HR=variable, cases=value) %>%
-        # dplyr::mutate(HR = standard_HR_names(HR)) %>%
         dplyr::mutate(province = "Ontario", date=as.Date(date)) %>%
-        # add_wave_numbers() %>% .[['cases']] %>%
         data.table()
     fwrite(ON_cases, sprintf("%s/CaseDataTables/ON_cases.csv", PROJECT_FOLDER))
     
@@ -873,7 +780,6 @@ if(FALSE)
     ################################## ALBERTA
     
     writeLines("\nAlberta")
-    # Alberta data from https://www.alberta.ca/stats/covid-19-alberta-statistics.htm#data-export
     AB_cases <- fread("https://www.alberta.ca/data/stats/covid-19-alberta-statistics-data.csv") %>%
         dplyr::select(-V1) %>%
         dplyr::rename(date="Date reported", HR="Alberta Health Services Zone", type="Case type", age="Age group", status="Case status") %>%
@@ -883,7 +789,6 @@ if(FALSE)
         dplyr::tally() %>%
         dplyr::rename(cases=n) %>%
         dplyr::mutate(province="Alberta") %>%
-        # add_wave_numbers() %>% .[['cases']] %>%
         data.table()
     fwrite(AB_cases, sprintf("%s/CaseDataTables/AB_cases.csv", PROJECT_FOLDER))
     
@@ -895,7 +800,6 @@ if(FALSE)
         dplyr::select(province, date_report, health_region, cases) %>%
         dplyr::rename(date=date_report, HR=health_region) %>%
         dplyr::mutate(date=as.Date(date)) %>%
-        # add_wave_numbers() %>% .[['cases']] %>%
         data.table()
     fwrite(NB_cases, sprintf("%s/CaseDataTables/NB_cases.csv", PROJECT_FOLDER))
     
@@ -907,7 +811,6 @@ if(FALSE)
         dplyr::select(province, date_report, health_region, cases) %>%
         dplyr::rename(date=date_report, HR=health_region) %>%
         dplyr::mutate(date=as.Date(date)) %>%
-        # add_wave_numbers() %>% .[['cases']] %>%
         data.table()
     fwrite(NS_cases, sprintf("%s/CaseDataTables/NS_cases.csv", PROJECT_FOLDER))
     
@@ -919,7 +822,6 @@ if(FALSE)
         dplyr::select(province, date_report, health_region, cases) %>%
         dplyr::rename(date=date_report, HR=health_region) %>%
         dplyr::mutate(date=as.Date(date), province="Newfoundland and Labrador") %>%
-        # add_wave_numbers() %>% .[['cases']] %>%
         data.table()
     fwrite(NL_cases, sprintf("%s/CaseDataTables/NL_cases.csv", PROJECT_FOLDER))
     
@@ -957,8 +859,6 @@ Total_Case_Data <- fread(file.path(PROJECT_FOLDER, "CaseDataTables/Total_Case_Da
     dplyr::group_by(HRUID2018,HR, province, pruid, wave) %>%
     dplyr::summarise(incidence = sum(cases, na.rm=TRUE)) %>%
     data.table
-
-stop()
 
 # there's no Saskatchewan data for the first wave (not until October), and I can't match with the Toronto
 # API data since they use different regions to group the incidences

@@ -8,16 +8,13 @@ library(ggplot2)
 library(stringr)
 library(ppcor)
 library(hdi)
-# library(boot)
-# library(boot.pval)
 library(xtable)
-# library(EnvStats)
 library(reshape)
 
 if(getElement(Sys.info(), "sysname") == "Windows"){
     PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
 } else {
-    PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project"
+    PROJECT_FOLDER <- "/home/brendon/Documents/GitHub/MIZ_project"
 }
 
 source(sprintf("%s/function_header.R", PROJECT_FOLDER))
@@ -464,22 +461,6 @@ if(!file.exists( file.path(
     }
     
     print(Sys.time() - start_time)
-    
-    # # for bug fixing, and checking output without writing an output object
-    # Regression_Data <- list(
-    #     raw_data = Regression_Data,
-    #     covariates = covariates,
-    #     information = Information,
-    #     optimal_lambdas = optimal_lambdas,
-    #     MSE = MSEs,
-    #     VIF = VIFs,
-    #     goodness = r2s,
-    #     predictions = predictions,
-    #     fits = fits,
-    #     cv = cv_models,
-    #     correlations = correlations,
-    #     added_var_data = added_var_data
-    # )
 
     saveRDS(
         list(
@@ -681,8 +662,10 @@ fwrite(
 latex_vif_tables <- Regression_Data$VIF %>%
     dplyr::mutate(value = sprintf("%.3f", value)) %>%
     dplyr::relocate(wave, regressor, value) %>%
-    pretty_variable_names()
-
+    pretty_variable_names() %>%
+    dplyr::select(-regressor) %>%
+    dplyr::relocate(wave, pretty_regressor)
+  
 fwrite(
     latex_vif_tables, 
     file.path(PROJECT_FOLDER, "Classifications/regression_vif_tables.csv")
@@ -1010,172 +993,4 @@ ggsave(
     file = file.path(PROJECT_FOLDER, "Graphs/regression_added_variable_plots.png"),
     height=15, width=10
 )
-
-
-# pl_added_variable <- 
-    
-    ggplot(
-        Added_Variable_Data %>% dplyr::filter(wave == 2), 
-        
-    ) + 
-   
-
-
-# 
-# pl_significance_grid <- ggplot(Coefficients, aes(x=regressor, y=type)) +
-#     geom_tile(aes(fill=signif), colour="black") +
-#     theme(
-#         axis.title = element_text(size=15),
-#         axis.text = element_text(size=13),
-#         axis.text.x = element_text(angle=45, hjust=1),
-#     ) +
-#     labs(x="Regressor", y="Regression Type") + 
-#     guides(
-#         fill = guide_legend(title = "p<0.05")
-#     )
-# 
-# ggsave(
-#     pl_significance_grid,
-#     file = file.path(PROJECT_FOLDER, "Graphs/significance_grid.png"),
-#     width=15, height=7
-# )
-# 
-# ##### plot of MSE vs lambda for the unstandardised regression
-# 
-#         
-# ##################################################
-# 
-# # (not bootstrapping since Ben Bolker doesn't like it : https://stats.stackexchange.com/questions/410173/lasso-regression-p-values-and-coefficients)
-# 
-# # # BOOTSTRAPPING glmnet to find p values and stuff 
-# # confidence_interval <- function(vector, interval) {
-# #     # Standard deviation of sample
-# #     vec_sd <- sd(vector)
-# #     # Sample size
-# #     n <- length(vector)
-# #     # Mean of sample
-# #     vec_mean <- mean(vector)
-# #     # Error according to t distribution
-# #     error <- qt((interval + 1)/2, df = n - 1) * vec_sd / sqrt(n)
-# #     # Confidence interval as a vector
-# #     result <- c("lower" = vec_mean - error, "upper" = vec_mean + error)
-# #     return(result)
-# # }
-# # 
-# # start_time <- Sys.time()
-# # # bootstrapping glmnet to get 95% two-sided CI and p values
-# # coeffs <- data.table()
-# # for(iter in 1:10000)
-# # {
-# # }
-# # print(Sys.time() - start_time)
-# # 
-# # get_the_stats <- function(reg)
-# # {
-# #     vec <- coeffs[regressor==reg, coeff]
-# #     
-# #     # calculate the mean of a sampled set
-# #     tt <- \(x, ind) mean(x[ind])
-# #     
-# #     ootstrap <- boot(vec, tt, 10000) 
-# #     cis <- boot.ci(ootstrap)%>% suppressWarnings %>% .$normal %>% as.numeric
-# #     p <- boot.pval(ootstrap)
-# #     
-# #     return(list(avg=mean(vec), CI025=cis[2], CI975=cis[3], pval=p))
-# # }
-# # 
-# # get_the_stats("is_cma")
-# 
-# 
-# 
-# # confidence_interval <- function(vector, interval) {
-# #     # Standard deviation of sample
-# #     vec_sd <- sd(vector)
-# #     # Sample size
-# #     n <- length(vector)
-# #     # Mean of sample
-# #     vec_mean <- mean(vector)
-# #     # Error according to t distribution
-# #     error <- qt((interval + 1)/2, df = n - 1) * vec_sd / sqrt(n)
-# #     # Confidence interval as a vector
-# #     result <- c("lower" = vec_mean - error, "upper" = vec_mean + error)
-# #     return(result)
-# # }
-# # 
-# # start_time <- Sys.time()
-# # # bootstrapping glmnet to get 95% two-sided CI and p values
-# # coeffs <- data.table()
-# # for(iter in 1:10000)
-# # {
-# #     cv_model <- cv.glmnet(
-# #         x = x_full,
-# #         y = y_full,
-# #         alpha = 0,
-# #         family = "gaussian",
-# #         lower = 0,
-# #         upper = 1
-# #     )
-# #     
-# #     optim.lambda <- cv_model$lambda.min
-# #     
-# #     glm_fit <- glmnet(x_full, y_full, alpha = 0, lambda = optim.lambda)
-# #     ridge_predictions <- predict(glm_fit, s = optim.lambda, newx = x_full)
-# #     
-# #     coeffs <- rbind(
-# #         coeffs,
-# #         data.table(
-# #             regressor=rownames(glm_fit$beta), 
-# #             coeff=glm_fit$beta@x, 
-# #             instance=iter
-# #         )
-# #     )
-# # }
-# # 
-# # get_the_stats <- function(reg)
-# # {
-# #     vec <- coeffs[regressor==reg, coeff]
-# #     
-# #     # calculate the mean of a sampled set
-# #     tt <- \(x, ind) mean(x[ind])
-# #     
-# #     ootstrap <- boot(vec, tt, 10000) 
-# #     cis <- boot.ci(ootstrap)%>% suppressWarnings %>% .$normal %>% as.numeric
-# #     p <- boot.pval(ootstrap)
-# #     
-# #     return(list(avg=mean(vec), CI025=cis[2], CI975=cis[3], pval=p))
-# # }
-# # 
-# # print(get_the_stats("is_cma"))
-# # 
-# # print(Sys.time() - start_time)
-# # stop()
-# # 
-# # glm_CI <- coeffs %>% 
-# #     dplyr::group_by(regressor) %>% 
-# #     dplyr::summarise(
-# #         mean_coef = mean(coeff),
-# #         CI025 = CI(coeff, 0.95)$low,
-# #         CI975 = CI(coeff, 0.95)$up
-# #         
-# #     )
-# # 
-# # print(Sys.time() - start_time)
-# # 
-# # stop()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 

@@ -10,7 +10,7 @@ library(directlabels)
 
 PROJECT_FOLDER <- "~/Documents/GitHub/MIZ_project/"
 
-source(sprintf("%s/NOW_function_header.R", PROJECT_FOLDER))
+source(sprintf("%s/function_header.R", PROJECT_FOLDER))
 
 intervention_dates <- readWorksheetFromFile(
         sprintf("%s/%s", PROJECT_FOLDER, "Classifications/covid-19-intervention-timeline-in-canada-en.xlsx"),

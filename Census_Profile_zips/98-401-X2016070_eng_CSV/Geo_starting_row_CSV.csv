@@ -1,0 +1,738 @@
+﻿Geo Code,Geo Name,Line Number
+"5901003","Elkford",2
+"5901006","Sparwood",2249
+"5901012","Fernie",4496
+"5901017","East Kootenay A",6743
+"5901019","East Kootenay B",8990
+"5901022","Cranbrook",11237
+"5901028","Kimberley",13484
+"5901035","East Kootenay C",15731
+"5901037","East Kootenay E",17978
+"5901039","Invermere",20225
+"5901040","Radium Hot Springs",22472
+"5901043","Canal Flats",24719
+"5901046","East Kootenay F",26966
+"5901048","East Kootenay G",29213
+"5901801","Tobacco Plains 2",31460
+"5901802","Isidore's Ranch 4",33707
+"5901803","Kootenay 1",35954
+"5901804","Columbia Lake 3",38201
+"5901805","Cassimayooks (Mayook) 5",40448
+"5901806","Shuswap",42695
+"5903004","Creston",44942
+"5903010","Central Kootenay A",47189
+"5903011","Salmo",49436
+"5903013","Central Kootenay B",51683
+"5903015","Nelson",53930
+"5903017","Central Kootenay C",56177
+"5903019","Slocan",58424
+"5903023","Kaslo",60671
+"5903027","Silverton",62918
+"5903032","New Denver",65165
+"5903039","Central Kootenay D",67412
+"5903041","Central Kootenay E",69659
+"5903043","Central Kootenay F",71906
+"5903045","Castlegar",74153
+"5903047","Central Kootenay G",76400
+"5903050","Nakusp",78647
+"5903052","Central Kootenay H",80894
+"5903056","Central Kootenay I",83141
+"5903058","Central Kootenay J",85388
+"5903060","Central Kootenay K",87635
+"5903807","Creston 1",89882
+"5905005","Fruitvale",92129
+"5905009","Montrose",94376
+"5905014","Trail",96623
+"5905018","Warfield",98870
+"5905023","Rossland",101117
+"5905026","Kootenay Boundary A",103364
+"5905030","Kootenay Boundary B / Lower Columbia-Old-Glory",105611
+"5905032","Grand Forks",107858
+"5905037","Midway",110105
+"5905042","Greenwood",112352
+"5905050","Kootenay Boundary C / Christina Lake",114599
+"5905052","Kootenay Boundary D / Rural Grand Forks",116846
+"5905054","Kootenay Boundary E / West Boundary",119093
+"5907005","Osoyoos",121340
+"5907009","Keremeos",123587
+"5907014","Oliver",125834
+"5907022","Okanagan-Similkameen A",128081
+"5907024","Princeton",130328
+"5907026","Okanagan-Similkameen B",132575
+"5907028","Okanagan-Similkameen C",134822
+"5907035","Summerland",137069
+"5907041","Penticton",139316
+"5907047","Okanagan-Similkameen D",141563
+"5907049","Okanagan-Similkameen E",143810
+"5907051","Okanagan-Similkameen F",146057
+"5907053","Okanagan-Similkameen G",148304
+"5907055","Okanagan-Similkameen H",150551
+"5907801","Lower Similkameen 2",152798
+"5907802","Osoyoos 1",155045
+"5907803","Penticton 1",157292
+"5907805","Chopaka 7 & 8",159539
+"5907806","Blind Creek 6",161786
+"5907807","Chuchuwayha 2",164033
+"5907808","Alexis 9",166280
+"5907809","Ashnola 10",168527
+"5909009","Hope",170774
+"5909014","Fraser Valley A",173021
+"5909016","Fraser Valley B",175268
+"5909020","Chilliwack",177515
+"5909027","Harrison Hot Springs",179762
+"5909032","Kent",182009
+"5909034","Fraser Valley D",184256
+"5909035","Fraser Valley H",186503
+"5909036","Fraser Valley E",188750
+"5909048","Fraser Valley C",190997
+"5909052","Abbotsford",193244
+"5909056","Mission",195491
+"5909060","Fraser Valley F",197738
+"5909062","Fraser Valley G",199985
+"5909804","Chawathil 4",202232
+"5909805","Inkahtsaph 6",204479
+"5909806","Kopchitchin 2",206726
+"5909807","Ohamil 1",208973
+"5909808","Puckatholetchin 11",211220
+"5909809","Saddle Rock 9",213467
+"5909810","Lukseetsissum 9",215714
+"5909812","Schkam 2",217961
+"5909814","Skawahlook 1",220208
+"5909815","Speyum 3",222455
+"5909816","Spuzzum 1",224702
+"5909817","Tuckkwiowhum 1",226949
+"5909818","Yale Town 1",229196
+"5909819","Kahmoose 4",231443
+"5909821","Kwawkwawapilt 6",233690
+"5909824","Skwah 4",235937
+"5909825","Skwali 3",238184
+"5909826","Skway 5",240431
+"5909827","Soowahlie 14",242678
+"5909830","Tzeachten 13",244925
+"5909831","Yakweakwioose 12",247172
+"5909832","Seabird Island",249419
+"5909833","Scowlitz 1",251666
+"5909834","Tseatah 2",253913
+"5909835","Aitchelitch 9",256160
+"5909836","Boston Bar 1A",258407
+"5909837","Cheam 1",260654
+"5909838","Schelowat 1",262901
+"5909839","Chehalis 5",265148
+"5909841","Stullawheets 8",267395
+"5909842","Douglas 8",269642
+"5909843","Peters 1",271889
+"5909844","Popkum 1",274136
+"5909845","Skookumchuck 4",276383
+"5909847","Bucktum 4",278630
+"5909848","Tipella 7",280877
+"5909849","Skwahla 2",283124
+"5909850","Boothroyd 13",285371
+"5909852","Paqulh",287618
+"5909875","Q'alatkú7em",289865
+"5909876","Albert Flat 5",292112
+"5909877","Upper Sumas 6",294359
+"5909878","Matsqui Main 2",296606
+"5909879","Holachten 8",298853
+"5909880","Lakahahmen 11",301100
+"5909881","Skweahm 10",303347
+"5909882","Squawkum Creek 3",305594
+"5909883","Sachteen",307841
+"5909884","Skowkale",310088
+"5909885","Squiaala",312335
+"5915001","Langley",314582
+"5915002","Langley",316829
+"5915004","Surrey",319076
+"5915007","White Rock",321323
+"5915011","Delta",323570
+"5915015","Richmond",325817
+"5915020","Greater Vancouver A",328064
+"5915022","Vancouver",330311
+"5915025","Burnaby",332558
+"5915029","New Westminster",334805
+"5915034","Coquitlam",337052
+"5915036","Belcarra",339299
+"5915038","Anmore",341546
+"5915039","Port Coquitlam",343793
+"5915043","Port Moody",346040
+"5915046","North Vancouver",348287
+"5915051","North Vancouver",350534
+"5915055","West Vancouver",352781
+"5915062","Bowen Island",355028
+"5915065","Lions Bay",357275
+"5915070","Pitt Meadows",359522
+"5915075","Maple Ridge",361769
+"5915801","Semiahmoo",364016
+"5915802","Tsawwassen",366263
+"5915803","Musqueam 2",368510
+"5915804","Coquitlam 2",370757
+"5915805","Coquitlam 1",373004
+"5915806","Burrard Inlet 3",375251
+"5915807","Mission 1",377498
+"5915808","Capilano 5",379745
+"5915809","Barnston Island 3",381992
+"5915810","Musqueam 4",384239
+"5915811","Seymour Creek 2",386486
+"5915813","Katzie 2",388733
+"5915816","McMillan Island 6",390980
+"5915825","Matsqui 4",393227
+"5915830","Katzie 1",395474
+"5915835","Langley 5",397721
+"5915840","Whonnock 1",399968
+"5917005","North Saanich",402215
+"5917010","Sidney",404462
+"5917015","Central Saanich",406709
+"5917021","Saanich",408956
+"5917027","Saltspring Island",411203
+"5917029","Southern Gulf Islands",413450
+"5917030","Oak Bay",415697
+"5917034","Victoria",417944
+"5917040","Esquimalt",420191
+"5917041","Colwood",422438
+"5917042","Metchosin",424685
+"5917044","Langford",426932
+"5917047","View Royal",429179
+"5917049","Highlands",431426
+"5917052","Sooke",433673
+"5917054","Juan de Fuca (Part 1)",435920
+"5917056","Juan de Fuca (Part 2)",438167
+"5917801","Cole Bay 3",440414
+"5917802","Union Bay 4",442661
+"5917803","East Saanich 2",444908
+"5917804","South Saanich 1",447155
+"5917805","Galiano Island 9",449402
+"5917809","Becher Bay 1",451649
+"5917811","Esquimalt",453896
+"5917812","New Songhees 1A",456143
+"5917815","Gordon River 2",458390
+"5917819","T'Sou-ke",460637
+"5919008","North Cowichan",462884
+"5919012","Duncan",465131
+"5919013","Cowichan Valley D",467378
+"5919015","Cowichan Valley G",469625
+"5919016","Lake Cowichan",471872
+"5919017","Cowichan Valley H",474119
+"5919021","Ladysmith",476366
+"5919033","Cowichan Valley F",478613
+"5919035","Cowichan Valley I",480860
+"5919043","Cowichan Valley A",483107
+"5919046","Cowichan Valley B",485354
+"5919049","Cowichan Valley C",487601
+"5919051","Cowichan Valley E",489848
+"5919801","Halalt 2",492095
+"5919802","Squaw-hay-one 11",494342
+"5919803","Tsussie 6",496589
+"5919804","Chemainus 13",498836
+"5919808","Kil-pah-las 3",501083
+"5919809","Penelakut Island 7",503330
+"5919811","Shingle Point 4",505577
+"5919812","Cowichan Lake",507824
+"5919814","Malachan 11",510071
+"5919815","Malahat 11",512318
+"5919816","Oyster Bay 12",514565
+"5919817","Portier Pass 5",516812
+"5919818","Theik 2",519059
+"5919820","Est-Patrolas 4",521306
+"5919821","Tzart-Lam 5",523553
+"5919822","Cowichan",525800
+"5921007","Nanaimo",528047
+"5921008","Lantzville",530294
+"5921010","Nanaimo A",532541
+"5921014","Nanaimo B",534788
+"5921016","Nanaimo C",537035
+"5921018","Parksville",539282
+"5921023","Qualicum Beach",541529
+"5921030","Nanaimo E",543776
+"5921032","Nanaimo F",546023
+"5921034","Nanaimo G",548270
+"5921036","Nanaimo H",550517
+"5921804","Nanaimo Town 1",552764
+"5921805","Nanoose",555011
+"5921806","Qualicum",557258
+"5921807","Nanaimo River",559505
+"5923008","Port Alberni",561752
+"5923019","Ucluelet",563999
+"5923025","Tofino",566246
+"5923033","Alberni-Clayoquot B",568493
+"5923035","Alberni-Clayoquot D",570740
+"5923037","Alberni-Clayoquot E",572987
+"5923039","Alberni-Clayoquot F",575234
+"5923047","Alberni-Clayoquot A",577481
+"5923049","Alberni-Clayoquot C",579728
+"5923801","Ahahswinis 1",581975
+"5923802","Alberni 2",584222
+"5923803","Anacla 12",586469
+"5923804","Clakamucus 2",588716
+"5923805","Elhlateese 2",590963
+"5923806","Hesquiat 1",593210
+"5923807","Ittatsoo 1",595457
+"5923808","Marktosis 15",597704
+"5923809","Numukamis 1",599951
+"5923810","Macoah 1",602198
+"5923813","Opitsat 1",604445
+"5923814","Sachsa 4",606692
+"5923816","Tsahaheh 1",608939
+"5923822","Klehkoot 2",611186
+"5923823","Esowista 3",613433
+"5923824","Refuge Cove 6",615680
+"5923825","Tin Wis 11",617927
+"5924025","Gold River",620174
+"5924029","Zeballos",622421
+"5924030","Tahsis",624668
+"5924034","Campbell River",626915
+"5924039","Sayward",629162
+"5924042","Strathcona D (Oyster Bay - Buttle Lake)",631409
+"5924048","Strathcona A",633656
+"5924052","Strathcona B",635903
+"5924054","Strathcona C",638150
+"5924803","Ahaminaquus 12",640397
+"5924804","Campbell River 11",642644
+"5924805","Chenahkint 12",644891
+"5924806","Houpsitas 6",647138
+"5924812","Quinsam 12",649385
+"5924813","Village Island 1",651632
+"5924814","Yuquot 1",653879
+"5924817","Cape Mudge 10",656126
+"5924818","Squirrel Cove 8",658373
+"5924820","Tork 7",660620
+"5924833","Oclucje 7",662867
+"5924835","Tsa Xana 18",665114
+"5924836","Ehatis 11",667361
+"5924840","Homalco 9",669608
+"5926005","Comox",671855
+"5926010","Courtenay",674102
+"5926014","Cumberland",676349
+"5926021","Comox Valley A",678596
+"5926022","Comox Valley B (Lazo North)",680843
+"5926024","Comox Valley C (Puntledge - Black Creek)",683090
+"5926801","Comox 1",685337
+"5926802","Pentledge 2",687584
+"5927008","Powell River",689831
+"5927010","Powell River A",692078
+"5927012","Powell River B",694325
+"5927016","Powell River C",696572
+"5927018","Powell River D",698819
+"5927020","Powell River E",701066
+"5927802","Sliammon 1",703313
+"5927806","Sechelt (Part)",705560
+"5929005","Gibsons",707807
+"5929011","Sechelt",710054
+"5929018","Sunshine Coast A",712301
+"5929022","Sunshine Coast B",714548
+"5929024","Sunshine Coast D",716795
+"5929026","Sunshine Coast E",719042
+"5929028","Sunshine Coast F",721289
+"5929801","Chekwelp 26",723536
+"5929803","Sechelt (Part)",725783
+"5931006","Squamish",728030
+"5931012","Pemberton",730277
+"5931017","Squamish-Lillooet C",732524
+"5931020","Whistler",734771
+"5931021","Squamish-Lillooet D",737018
+"5931026","Lillooet",739265
+"5931032","Squamish-Lillooet A",741512
+"5931034","Squamish-Lillooet B",743759
+"5931801","Cheakamus 11",746006
+"5931802","Kowtain 17",748253
+"5931806","Seaichem 16",750500
+"5931807","Stawamus 24",752747
+"5931808","Waiwakum 14",754994
+"5931809","Yekwaupsum 18",757241
+"5931812","Nesuch 3",759488
+"5931813","Bridge River 1",761735
+"5931814","Cayoosh Creek 1",763982
+"5931815","Chilhil 6",766229
+"5931816","Fountain 1",768476
+"5931817","Fountain 3",770723
+"5931818","Fountain 10",772970
+"5931819","Fountain 11",775217
+"5931820","Fountain 12",777464
+"5931821","Lillooet 1",779711
+"5931822","Fountain Creek 8",781958
+"5931823","McCartney's Flat 4",784205
+"5931824","Seton Lake 5",786452
+"5931826","Necait 6",788699
+"5931827","Nesikep 6",790946
+"5931828","Pashilqua 2",793193
+"5931829","Pavilion 1",795440
+"5931831","Slosh 1",797687
+"5931832","Towinock 2",799934
+"5931833","Mission 5",802181
+"5931842","Fountain 1B",804428
+"5931843","Mount Currie",806675
+"5931844","Nequatque",808922
+"5933006","Merritt",811169
+"5933008","Thompson-Nicola M (Beautiful Nicola Valley - North)",813416
+"5933012","Thompson-Nicola N (Beautiful Nicola Valley - South)",815663
+"5933015","Lytton",817910
+"5933019","Ashcroft",820157
+"5933024","Cache Creek",822404
+"5933028","Clinton",824651
+"5933032","Thompson-Nicola E (Bonaparte Plateau)",826898
+"5933035","Logan Lake",829145
+"5933037","Thompson-Nicola I (Blue Sky Country)",831392
+"5933039","Thompson-Nicola J (Copper Desert Country)",833639
+"5933042","Kamloops",835886
+"5933044","Thompson-Nicola P (Rivers and the Peaks)",838133
+"5933045","Sun Peaks Mountain",840380
+"5933054","Chase",842627
+"5933060","Thompson-Nicola L (Grasslands)",844874
+"5933067","Clearwater",847121
+"5933068","Thompson-Nicola A (Wells Gray Country)",849368
+"5933070","Thompson-Nicola B (Thompson Headwaters)",851615
+"5933072","Thompson-Nicola O (Lower North Thompson)",853862
+"5933074","Barriere",856109
+"5933801","Coldwater 1",858356
+"5933802","Douglas Lake 3",860603
+"5933803","Hamilton Creek 2",862850
+"5933805","Joeyaska 2",865097
+"5933806","Nicola Lake 1",867344
+"5933807","Nicola Mameet 1",869591
+"5933808","Nooaitch 10",871838
+"5933809","Paul's Basin 2",874085
+"5933810","Chuchhraischin",876332
+"5933811","Zoht 4",878579
+"5933812","Bonaparte 3",880826
+"5933813","Halhalaeden",883073
+"5933814","Canoe Creek 1",885320
+"5933817","Skeetchestn",887567
+"5933819","High Bar 1",889814
+"5933821","Canoe Creek 2",892061
+"5933823","Kitzowit 20",894308
+"5933824","Skuppah 2A",896555
+"5933825","Inklyuhkinatko 2",898802
+"5933828","Basque 18",901049
+"5933829","Klahkamich 17",903296
+"5933831","Kleetlekut 22",905543
+"5933832","Klickkumcheen 18",907790
+"5933833","Inkluckcheen",910037
+"5933834","Kumcheen 1",912284
+"5933836","Lower Hat Creek 2",914531
+"5933837","Peq-Paq 22",916778
+"5933839","Lytton 4A",919025
+"5933840","Lytton 4E",921272
+"5933841","Lytton 9A",923519
+"5933842","Lytton 9B",925766
+"5933844","Ashcroft 4",928013
+"5933845","105 Mile Post 2",930260
+"5933846","Oregon Jack Creek 5",932507
+"5933848","Nickel Palm 4",934754
+"5933849","Siska Flat",937001
+"5933850","Nickeyeah 25",939248
+"5933851","Nicomen 1",941495
+"5933852","Nohomeen 23",943742
+"5933853","Nuuautin 2",945989
+"5933854","Paska Island 3",948236
+"5933855","Papyum 27",950483
+"5933857","Pemynoos 9",952730
+"5933858","Seah 5",954977
+"5933859","Shackan 11",957224
+"5933861","Kloklowuck 7",959471
+"5933865","Skuppah 4",961718
+"5933866","Skwayaynope 26",963965
+"5933868","Spintlum Flat 3",966212
+"5933870","Nkaih 10",968459
+"5933872","Marble Canyon 3",970706
+"5933873","Stryen 9",972953
+"5933874","Tsaukan 12",975200
+"5933875","Upper Hat Creek 1",977447
+"5933876","Upper Nepa 6",979694
+"5933877","Whispering Pines 4",981941
+"5933878","Yawaucht 11",984188
+"5933879","Zacht 5",986435
+"5933880","Kamloops 1",988682
+"5933881","Spences Bridge",990929
+"5933882","Kanaka Bar",993176
+"5933884","Sahhaltkum 4",995423
+"5933886","Nekalliston 2",997670
+"5933887","North Thompson 1",999917
+"5933888","Louis Creek 4",1002164
+"5933889","Squaam 2",1004411
+"5933895","Shawniken 4B",1006658
+"5933896","Nekliptum 1",1008905
+"5933897","Boothroyd 8A (Part)",1011152
+"5933898","Neskonlith",1013399
+"5935010","Kelowna",1015646
+"5935012","Central Okanagan",1017893
+"5935016","Lake Country",1020140
+"5935018","Peachland",1022387
+"5935020","Central Okanagan J",1024634
+"5935029","West Kelowna",1026881
+"5935801","Duck Lake 7",1029128
+"5935802","Tsinstikeptum 9",1031375
+"5935803","Tsinstikeptum 10",1033622
+"5937005","Lumby",1035869
+"5937010","Coldstream",1038116
+"5937014","Vernon",1040363
+"5937017","North Okanagan B",1042610
+"5937021","North Okanagan C",1044857
+"5937022","North Okanagan D",1047104
+"5937023","North Okanagan E",1049351
+"5937024","Spallumcheen",1051598
+"5937028","Armstrong",1053845
+"5937033","Enderby",1056092
+"5937041","North Okanagan F",1058339
+"5937801","Okanagan (Part) 1",1060586
+"5937802","Enderby 2",1062833
+"5937803","Priest's Valley 6",1065080
+"5937805","Harris 3",1067327
+"5939007","Golden",1069574
+"5939011","Columbia-Shuswap A",1071821
+"5939019","Revelstoke",1074068
+"5939023","Columbia-Shuswap B",1076315
+"5939032","Salmon Arm",1078562
+"5939037","Columbia-Shuswap C",1080809
+"5939039","Columbia-Shuswap D",1083056
+"5939043","Columbia-Shuswap E",1085303
+"5939044","Columbia-Shuswap F",1087550
+"5939045","Sicamous",1089797
+"5939801","Chum Creek 2",1092044
+"5939802","Hustalen 1",1094291
+"5939803","North Bay 5",1096538
+"5939804","Okanagan (Part) 1",1098785
+"5939805","Quaaout 1",1101032
+"5939806","Salmon River 1",1103279
+"5939807","Scotch Creek 4",1105526
+"5939808","Switsemalph 3",1107773
+"5939811","Switsemalph",1110020
+"5941005","One Hundred Mile House",1112267
+"5941009","Williams Lake",1114514
+"5941010","Cariboo D",1116761
+"5941012","Cariboo E",1119008
+"5941013","Quesnel",1121255
+"5941014","Cariboo F",1123502
+"5941015","Cariboo G",1125749
+"5941016","Cariboo H",1127996
+"5941017","Cariboo L",1130243
+"5941019","Cariboo A",1132490
+"5941021","Cariboo B",1134737
+"5941025","Wells",1136984
+"5941026","Cariboo C",1139231
+"5941027","Cariboo I",1141478
+"5941039","Cariboo J",1143725
+"5941041","Cariboo K",1145972
+"5941801","Alkali Lake 1",1148219
+"5941802","Canim Lake 1",1150466
+"5941803","Canim Lake 4",1152713
+"5941804","Canoe Creek 3",1154960
+"5941805","Deep Creek 2",1157207
+"5941806","Dog Creek 1",1159454
+"5941807","Dog Creek 2",1161701
+"5941808","Lohbiee 3",1163948
+"5941809","Quesnel 1",1166195
+"5941810","Soda Creek 1",1168442
+"5941811","Johny Sticks 2",1170689
+"5941812","Williams Lake 1",1172936
+"5941813","Canim Lake 2",1175183
+"5941817","Alexis Creek 14",1177430
+"5941818","Alexis Creek 16",1179677
+"5941821","Anahim's Flat 1",1181924
+"5941827","Charley Boy's Meadow 3",1184171
+"5941828","Chilco Lake 1",1186418
+"5941829","Chilco Lake 1A",1188665
+"5941831","Tanakut 4",1190912
+"5941833","Kluskus 1",1193159
+"5941834","Louis Squinas Ranch 14",1195406
+"5941835","Coglistiko River 29",1197653
+"5941837","Nazco 20",1199900
+"5941838","Puntzi Lake 2",1202147
+"5941839","Redstone Flat 1",1204394
+"5941840","Squinas 2",1206641
+"5941841","Stone 1",1208888
+"5941844","Agats Meadow 8",1211135
+"5941845","Thomas Squinas Ranch 2A",1213382
+"5941848","Alexis Creek 21",1215629
+"5941849","Baptiste Meadow 2",1217876
+"5941850","Toosey 1",1220123
+"5941851","Towdystan Lake 3",1222370
+"5941852","Trout Lake Alec 16",1224617
+"5941854","Ulkatcho 13",1226864
+"5941855","Windy Mouth 7",1229111
+"5941856","Alexis Creek 34",1231358
+"5941858","Cahoose 10",1233605
+"5941859","Blackwater Meadow 11",1235852
+"5941860","Cahoose 12",1238099
+"5941861","Betty Creek 18",1240346
+"5941862","Salmon River Meadow 7",1242593
+"5941863","Tzetzi Lake 11",1244840
+"5941864","Sundayman's Meadow 3",1247087
+"5941866","Euchinico Creek 17",1249334
+"5941868","Sandy Harry 4",1251581
+"5941871","Fishtrap 19",1253828
+"5941872","Swan Lake 3",1256075
+"5941873","Alkali Lake 4A",1258322
+"5941876","Lezbye 6",1260569
+"5941879","Michel Gardens 36",1262816
+"5941880","Ulkatcho 14A",1265063
+"5941881","Baezaeko River 27",1267310
+"5941882","Alexandria",1269557
+"5941883","Anahim's Meadow",1271804
+"5941884","Garden",1274051
+"5941885","Little Springs",1276298
+"5943008","Alert Bay",1278545
+"5943012","Port McNeill",1280792
+"5943017","Port Alice",1283039
+"5943023","Port Hardy",1285286
+"5943027","Mount Waddington B",1287533
+"5943031","Mount Waddington C",1289780
+"5943033","Mount Waddington D",1292027
+"5943037","Mount Waddington A",1294274
+"5943804","Fort Rupert 1",1296521
+"5943806","Tsulquate 4",1298768
+"5943807","Dead Point 5",1301015
+"5943808","Gwayasdums 1",1303262
+"5943809","Hopetown 10A",1305509
+"5943813","Quaee 7",1307756
+"5943815","Kippase 2",1310003
+"5943816","Quatsino Subdivision 18",1312250
+"5943817","Thomas Point 5",1314497
+"5943835","Nimpkish 2",1316744
+"5943836","Hope Island 1",1318991
+"5943837","Alert Bay",1321238
+"5945006","Central Coast A",1323485
+"5945010","Central Coast C",1325732
+"5945012","Central Coast D",1327979
+"5945014","Central Coast E",1330226
+"5945801","Bella Bella 1",1332473
+"5945802","Bella Coola 1",1334720
+"5945803","Katit 1",1336967
+"5947007","Port Edward",1339214
+"5947012","Prince Rupert",1341461
+"5947016","Skeena-Queen Charlotte A",1343708
+"5947021","Skeena-Queen Charlotte C",1345955
+"5947023","Masset",1348202
+"5947026","Queen Charlotte",1350449
+"5947027","Skeena-Queen Charlotte D",1352696
+"5947030","Port Clements",1354943
+"5947032","Skeena-Queen Charlotte E",1357190
+"5947803","Masset 1",1359437
+"5947804","Skidegate 1",1361684
+"5947806","Kulkayu (Hartley Bay) 4",1363931
+"5947807","Dolphin Island 1",1366178
+"5947809","Lax Kw'alaams 1",1368425
+"5947810","S1/2 Tsimpsean 2",1370672
+"5949005","Kitimat",1372919
+"5949011","Terrace",1375166
+"5949013","Kitimat-Stikine C (Part 1)",1377413
+"5949018","Kitimat-Stikine E",1379660
+"5949020","Kitimat-Stikine C (Part 2)",1381907
+"5949022","Hazelton",1384154
+"5949024","New Hazelton",1386401
+"5949028","Kitimat-Stikine B",1388648
+"5949032","Stewart",1390895
+"5949035","Nisga'a",1393142
+"5949038","Kitimat-Stikine F",1395389
+"5949039","Kitimat-Stikine A",1397636
+"5949041","Kitimat-Stikine D",1399883
+"5949802","Kitasoo 1",1402130
+"5949803","Kitamaat 2",1404377
+"5949804","Kitsumkaylum 1",1406624
+"5949805","Kshish 4",1408871
+"5949807","Kulspai 6",1411118
+"5949810","Coryatsaqua (Moricetown) 2",1413365
+"5949811","Hagwilget 1",1415612
+"5949812","Gitanmaax 1",1417859
+"5949813","Kispiox 1",1420106
+"5949814","Gitsegukla 1",1422353
+"5949815","Gitanyow 1",1424600
+"5949816","Gitwangak 1",1426847
+"5949817","Moricetown 1",1429094
+"5949818","Sik-e-dakh 2",1431341
+"5949819","Babine 17",1433588
+"5949820","Bulkley River 19",1435835
+"5949832","Iskut 6",1438082
+"5949843","Guhthe Tah 12",1440329
+"5949844","Kitselas 1",1442576
+"5949845","Dease Lake 9",1444823
+"5949846","Tahltan 1",1447070
+"5949847","Telegraph Creek",1449317
+"5951007","Vanderhoof",1451564
+"5951009","Fraser Lake",1453811
+"5951013","Fort St. James",1456058
+"5951015","Bulkley-Nechako C",1458305
+"5951017","Bulkley-Nechako D",1460552
+"5951019","Bulkley-Nechako F",1462799
+"5951022","Burns Lake",1465046
+"5951028","Bulkley-Nechako B",1467293
+"5951031","Bulkley-Nechako E",1469540
+"5951032","Granisle",1471787
+"5951034","Houston",1474034
+"5951038","Telkwa",1476281
+"5951043","Smithers",1478528
+"5951051","Bulkley-Nechako A",1480775
+"5951053","Bulkley-Nechako G",1483022
+"5951801","Ye Koo Che 3",1485269
+"5951802","Nautley (Fort Fraser) 1",1487516
+"5951803","Nak'azdli (Necoslie 1)",1489763
+"5951804","Sowchea 3",1492010
+"5951805","Binche 2 (Pinchie 2)",1494257
+"5951806","Seaspunkut 4",1496504
+"5951807","Stellaquo (Stella) 1",1498751
+"5951809","Stony Creek 1",1500998
+"5951810","Tache 1",1503245
+"5951811","Tacla Lake (Ferry Landing) 9",1505492
+"5951813","Laketown 3",1507739
+"5951814","Dzitline Lee 9",1509986
+"5951815","Burns Lake 18",1512233
+"5951818","Cheslatta 1",1514480
+"5951819","Omineca 1",1516727
+"5951820","Palling 1",1518974
+"5951821","Duncan Lake 2",1521221
+"5951822","Francois Lake 7",1523468
+"5951823","Skins Lake 16A",1525715
+"5951824","Skins Lake 16B",1527962
+"5951825","Tatla West 11",1530209
+"5951826","Uncha Lake 13A",1532456
+"5951827","Woyenne 27",1534703
+"5951828","Babine 6",1536950
+"5951829","Babine 25",1539197
+"5951830","Jean Baptiste 28",1541444
+"5951833","Tatla't East 2",1543691
+"5951840","Williams Prairie Meadow 1A",1545938
+"5951844","Poison Creek 17A",1548185
+"5951845","Tadinlay 15",1550432
+"5951846","Nedoats 11",1552679
+"5951847","Babine Lake 21B",1554926
+"5951848","North Tacla Lake",1557173
+"5951849","Mission Lands 17",1559420
+"5953007","Valemount",1561667
+"5953012","McBride",1563914
+"5953019","Fraser-Fort George H",1566161
+"5953023","Prince George",1568408
+"5953033","Mackenzie",1570655
+"5953038","Fraser-Fort George A",1572902
+"5953042","Fraser-Fort George C",1575149
+"5953044","Fraser-Fort George D",1577396
+"5953046","Fraser-Fort George E",1579643
+"5953048","Fraser-Fort George F",1581890
+"5953050","Fraser-Fort George G",1584137
+"5953801","Fort George (Shelley) 2",1586384
+"5953802","McLeod Lake 1",1588631
+"5955003","Tumbler Ridge",1590878
+"5955005","Pouce Coupe",1593125
+"5955010","Chetwynd",1595372
+"5955014","Dawson Creek",1597619
+"5955021","Peace River D",1599866
+"5955023","Peace River E",1602113
+"5955025","Hudson's Hope",1604360
+"5955030","Taylor",1606607
+"5955034","Fort St. John",1608854
+"5955040","Peace River B",1611101
+"5955042","Peace River C",1613348
+"5955801","East Moberly Lake 169",1615595
+"5955802","West Moberly Lake 168A",1617842
+"5955803","Blueberry River 205",1620089
+"5955804","Doig River 206",1622336
+"5955807","Fort Ware 1",1624583
+"5955808","Halfway River 168",1626830
+"5955812","Ingenika Point",1629077
+"5957022","Stikine Region",1631324
+"5957802","Unnamed 10",1633571
+"5957803","Five Mile Point 3",1635818
+"5957804","Good Hope Lake",1638065
+"5957813","Lower Post",1640312
+"5957814","Liard River 3",1642559
+"5959007","Northern Rockies",1644806
+"5959805","Fontas 1",1647053
+"5959806","Fort Nelson 2",1649300
+"5959809","Kahntah 3",1651547
+"5959810","Prophet River 4",1653794
