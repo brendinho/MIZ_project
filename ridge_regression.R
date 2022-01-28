@@ -66,7 +66,7 @@ if(!file.exists( file.path(
     # import the pre-prepared regression data
     Imported <- readRDS(file.path(
             PROJECT_FOLDER, 
-            "CaseDataFiles/regression_data.rda"
+            "Classifications/regression_data.rda"
         )) %>%
         data.table() %>%
         # changing the None/Partial/Entire values to 0/1/2

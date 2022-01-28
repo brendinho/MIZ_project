@@ -18,7 +18,7 @@ if(getElement(Sys.info(), "sysname") == "Windows"){
 
 setwd(PROJECT_FOLDER)
 
-dir.create(file.path(".", "CaseDataFiles"), showWarnings=FALSE)
+dir.create(file.path(".", "Classifications"), showWarnings=FALSE)
 dir.create(file.path(".", "Graphs"), showWarnings=FALSE)
 
 source(sprintf("%s/function_header.R", PROJECT_FOLDER))
@@ -254,7 +254,7 @@ if(!file.exists( sprintf("%s/Classifications/Total_CSD_Info.rda", PROJECT_FOLDER
 {
     Total_Data_Geo <- data.table(Reduce(
             function(x, y, ...) merge(x, y, by=c("geo_code"), all = TRUE, ...),
-            list(CSD_data, Influence_Info) # , Index_of_Remoteness)
+            list(CSD_data, Influence_Info)
         )) %>%
         dplyr::mutate(
             province = lookup_provinces(geo_code),
@@ -314,7 +314,7 @@ PHU_information <- Total_Data_Geo[,
     ] %>%
     dplyr::rename(PHU_population = CSD_population, PHU_dwellings = CSD_dwellings) %>%
     merge(
-        readRDS(file.path(PROJECT_FOLDER, "Classifications/HR_shapes.rda")), 
+        readRDS(file.path(PROJECT_FOLDER, "Spatial_Features/All_HRs.rds")), 
         by = c("HRUID2018")
     ) %>%
     merge(
@@ -875,4 +875,4 @@ Regression_Data <- Total_Case_Data %>%
     ) %>%
     dplyr::mutate(PHU_pop_density = as.numeric(PHU_population/PHU_area_km2)) %>%
     st_sf
-    saveRDS(Regression_Data, file=file.path(PROJECT_FOLDER, "CaseDataFiles/regression_data.rda"))
+    saveRDS(Regression_Data, file=file.path(PROJECT_FOLDER, "Classifications/regression_data.rda"))
