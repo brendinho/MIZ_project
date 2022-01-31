@@ -374,7 +374,6 @@ if(!file.exists( file.path(
             dplyr::rename(OLS.CI025=`2.5 %`, OLS.CI975=`97.5 %`) %>%
             dplyr::mutate(wave = wave_number) %>%
             dplyr::relocate(wave, regressor)
-        
     
         Information.OLS <- summary(OLS_model)$coefficients %>%
             data.table(regressor=rownames(.)) %>% 
