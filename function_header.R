@@ -212,7 +212,7 @@ add_HRs <- function(table, uid_column, province_column, raw_numbers=FALSE)
         
         if(! UID %in% unique(c(HR_info_mine$CSDUID2016, HR_info_StatCan$CSDUID2016))) next
 
-        if(here[row_index, get(province_column)] %in% c("British Columbia", "BC"))
+        if(here[row_index, tolower(get(province_column))] %in% c("british columbia", "bc"))
         {
             prospectives <- HR_info_mine[CSDUID2016 == UID, c("HR", "HRUID2018")]
         } else {
@@ -460,7 +460,6 @@ date_corrector <- function(theDateString)
     
     the_split <- strsplit(theDateString, '-')[[1]]
     len <- length(the_split);
-    
     string <- theDateString
     if(len == 2) 
     {
@@ -471,11 +470,11 @@ date_corrector <- function(theDateString)
     
     string <- string  %>% 
         gsub("-+", "-", .) %>%
-        (\(x) if(nchar(the_split[1]) == 2) as.Date(x, format="%m-%d-%Y") else as.Date(x)) %>%
-        as.numeric %>% 
-        as.character
+        (\(x) if(nchar(the_split[1]) == 2) as.Date(x, format="%%Y-%m-%d") else as.Date(x)) 
     
-    return(string)
+    # return(string)
+    
+    return(as.character(string))
 }
 
 # calculate the confidence interval of some data
@@ -495,6 +494,27 @@ CI <- function(data, two_sided_inter)
     
     return(list(low=meann-error, up=meann+error))
 }
+
+# cbind, but evening the tables by filling rows with NAs and remove duplicated columns
+# may not be safe if the form of the data isn't checked first
+cbind.fillNA <- function(x, y)
+{
+    x.mat <- as.matrix(x)
+    y.mat <- as.matrix(y)
+    
+    lengths <- max(nrow(x.mat), nrow(y.mat))
+    
+    if(nrow(x.mat) < lengths){
+        x.mat <- rbind(x.mat, rep(NA, abs(lengths - nrow(x.mat))))
+        result <- cbind(y.mat, x.mat)
+    } else {
+        y.mat <- rbind(y.mat, rep(NA, abs(lengths - nrow(y.mat))))
+        result <- cbind(x.mat, y.mat)
+    }
+    
+    return(result %>% data.table %>% subset(select=which(!duplicated(names(.)))))
+}   
+
 
 
 
