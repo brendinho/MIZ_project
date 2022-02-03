@@ -284,8 +284,9 @@ writeLines("\nreading and parsing local SAC info")
             by = c("HRUID2018")
         ) %>%
         merge(LTCHs_per_PHU, by=c("HRUID2018"), all=TRUE) %>%
-        dplyr::mutate(LTCHs = replace(LTCHs, is.na(LTCHs), 0))
-
+        dplyr::mutate(LTCHs = replace(LTCHs, is.na(LTCHs), 0)) %>%
+        dplyr::group_by(province) %>%
+        dplyr::mutate(PROV_population = sum(PHU_population))
 }
 
 if(!file.exists(file.path(PROJECT_FOLDER, "/CaseDataTables/canada_wide_vacc_data_official.csv")))
@@ -296,12 +297,12 @@ if(!file.exists(file.path(PROJECT_FOLDER, "/CaseDataTables/canada_wide_vacc_data
     fwrite(file.path(PROJECT_FOLDER, "/CaseDataTables/canada_wide_vacc_data_official.csv"))
 }
 
-# province_populations <- PHU_information %>% 
-#     dplyr::select(province, PHU_population) %>% 
-#     unique() %>% 
-#     dplyr::group_by(province) %>% 
-#     dplyr::summarise(PROV_population = sum(PHU_population, na.rm=TRUE))
-#     
+province_populations <- PHU_information %>%
+    dplyr::select(province, PHU_population) %>%
+    unique() %>%
+    dplyr::group_by(province) %>%
+    dplyr::summarise(PROV_population = sum(PHU_population, na.rm=TRUE))
+
 # # retrieved 27 Nov 2021
 # if(! file.exists(file.path(PROJECT_FOLDER, "Interventions/covid-19-intervention-scan-data-tables-en.xlsx")) )
 # {
@@ -317,6 +318,32 @@ if(!file.exists(file.path(PROJECT_FOLDER, "/CaseDataTables/canada_wide_vacc_data
             province_LUT,
             list("Canada", "Can.", "CN", -1, "Canada")
         ) %>% dplyr::select(province, abbreviations)
+    
+    if(!file.exists( sprintf("%s/CaseDataTables/canada_wide_vacc_data_official.csv", PROJECT_FOLDER) ))
+    {
+        UofT_api_vaccine_data <- jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=avaccine&loc=prov")$avaccine %>%
+            dplyr::mutate(date_vaccine_administered=as.Date(date_vaccine_administered, format="%d-%m-%Y"))
+        fwrite(UofT_api_vaccine_data, file=sprintf("%s/CaseDataTables/UofT_vaccines.csv", PROJECT_FOLDER))
+    }
+    
+    vaxx_info <- fread(file.path(
+        PROJECT_FOLDER,
+        "/CaseDataTables/canada_wide_vacc_data_official.csv"
+    )) %>%
+        dplyr::filter(prfname != "Canada") %>%
+        group_by(pruid, prfname, week_end) %>%
+        dplyr::summarise(
+            PROV_vaxx_AL1D=sum(as.numeric(numtotal_atleast1dose), na.rm=TRUE),
+            PROV_vaxx_FULL=sum(as.numeric(numtotal_fully), na.rm=TRUE)
+        ) %>%
+        data.table %>%
+        dplyr::mutate(
+            week_end = as.Date(week_end),
+            province = lookup_provinces(pruid)
+        ) %>%
+        dplyr::select(-prfname)
+    fwrite(vaxx_info, file.path(PROJECT_FOLDER, "Classifications/vaxx_info_dates.csv"))
+    
     
     interventions <- read.xlsx(
             sprintf("%s/%s", PROJECT_FOLDER, "Interventions/scan-data-tables-covid-19-intervention-update13-en.xlsx"),
@@ -476,31 +503,7 @@ if(!file.exists(file.path(PROJECT_FOLDER, "/CaseDataTables/canada_wide_vacc_data
 #         fwrite(sprintf("%s/CaseDataTables/canada_wide_vacc_data_official.csv", PROJECT_FOLDER))
 # }
 
-if(!file.exists( sprintf("%s/CaseDataTables/canada_wide_vacc_data_official.csv", PROJECT_FOLDER) ))
-{
-UofT_api_vaccine_data <- jsonlite::fromJSON("https://api.opencovid.ca/timeseries?stat=avaccine&loc=prov")$avaccine %>%
-        dplyr::mutate(date_vaccine_administered=as.Date(date_vaccine_administered, format="%d-%m-%Y"))
-    fwrite(UofT_api_vaccine_data, file=sprintf("%s/CaseDataTables/UofT_vaccines.csv", PROJECT_FOLDER))
-}
 
-# vaxx_info <- fread(file.path(
-#         PROJECT_FOLDER, 
-#         "/CaseDataTables/canada_wide_vacc_data_official.csv"
-#     )) %>%
-#     dplyr::filter(prfname != "Canada") %>%
-#     group_by(pruid, prfname, week_end) %>%
-#     dplyr::summarise(
-#         PROV_vaxx_AL1D=sum(as.numeric(numtotal_atleast1dose), na.rm=TRUE),
-#         PROV_vaxx_FULL=sum(as.numeric(numtotal_fully), na.rm=TRUE)
-#     ) %>%
-#     data.table %>%
-#     dplyr::mutate(
-#         week_end = as.Date(week_end),
-#         province = lookup_provinces(pruid)
-#     ) %>%
-#     dplyr::select(-prfname)
-#     fwrite(vaxx_info, file.path(PROJECT_FOLDER, "Classifications/vaxx_info_dates.csv"))
-    
 
 
     
