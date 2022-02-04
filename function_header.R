@@ -412,12 +412,32 @@ canada_waves <- list(
     
 )
 
-how_much_of_the_wave <- function(the_dates, which_wave = 1)
-{
+how_much_of_the_wave <- function(date_input, which_wave = 1)
+{ # assuming that the dates are a set of dates, not a range
+    # they will be converted to integers
+    
     # if there are no dates, return 0
-    if(length(the_dates) == 0) return("None")
+    if(length(date_input) == 0) return("None")
+    # if a range is given, then generate a series of integers - there
+    # is def a more efficient way to do this, but I can't be fucked right now
+    # make sure the names are "start" and "end"
+    if(typeof(date_input) %in% c("list"))
+    { 
+        the_dates <- c()
+        for(index in 1:nrow(date_input))
+        {
+            the_dates <- c(
+                the_dates,
+                date_input[index, seq(as.numeric(start), as.numeric(end))]
+            )
+        }
+        the_dates <- unique(the_dates) 
+    } else {
+        the_dates <- date_input
+    }
+    
     # sort the integer dates
-    theDates <- sort(unique(the_dates))
+    theDates <- sort(unique(as.integer(the_dates)))
     # select a valid wave
     if(! which_wave %in% 1:4) return(NA)
     #select the dates of the wave requested
@@ -514,6 +534,17 @@ cbind.fillNA <- function(x, y)
     
     return(result %>% data.table %>% subset(select=which(!duplicated(names(.)))))
 }   
+
+# cbind to an empty table
+# Tyler Rinker's answer to "cbind a dataframe with an empty dataframe"
+# https://stackoverflow.com/questions/7962267/cbind-a-dataframe-with-an-empty-dataframe-cbind-fill
+cbind.fill <- function(...){
+    nm <- list(...) 
+    nm <- lapply(nm, as.matrix)
+    n <- max(sapply(nm, nrow)) 
+    do.call(cbind, lapply(nm, function (x) 
+        rbind(x, matrix(, n-nrow(x), ncol(x))))) 
+}
 
 
 

@@ -3,15 +3,13 @@ rm(list=ls())
 library(data.table)
 library(dplyr)
 library(glmnet)
-library(cowplot)
 library(ggplot2)
 library(stringr)
 library(ppcor)
 library(hdi)
 library(xtable)
-library(reshape)
 
-ROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
+PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
 
 source(sprintf("%s/function_header.R", PROJECT_FOLDER))
 
@@ -53,10 +51,10 @@ cohorts <- function(start_age, end_age, ...)
 }
 
 # don't do the regression again if a results file already exists
-if(!file.exists( file.path(
-    PROJECT_FOLDER,
-    "Classifications/regression_results.rda")
-))
+# if(!file.exists( file.path(
+#     PROJECT_FOLDER,
+#     "Classifications/regression_results.rda")
+# ))
 {
     # import the pre-prepared regression data
     Imported <- readRDS(file.path(
@@ -64,11 +62,13 @@ if(!file.exists( file.path(
             "Classifications/regression_data.rda"
         )) %>%
         data.table() %>%
+        dplyr::mutate(
+            daycares = factor_to_num(daycares),
+            education = factor_to_num(education),
+            work_from_home = factor_to_num(work_from_home)
+        ) %>%
         # changing the None/Partial/Entire values to 0/1/2
         dplyr::mutate(
-            EIs = factor_to_num(EIs),
-            LIs = factor_to_num(LIs),
-            VIs = factor_to_num(VIs),
             group_0_to_4 = eval(cohorts(0, 4)),
             group_5_to_19 = eval(cohorts(5, 19)),
             group_20_to_49 = eval(cohorts(20, 49)),
@@ -77,17 +77,17 @@ if(!file.exists( file.path(
         ) %>%
         # adding interaction terms
         dplyr::mutate(
-            interaction_children_school_closures = EIs*group_5_to_19,
+            interaction_babies_daycare_colsures = daycares*group_0_to_4,
             
-            interaction_lockdown_0_to_4 = LIs*group_0_to_4,
-            interaction_lockdown_5_to_19 = LIs*group_5_to_19,
-            interaction_lockdown_20_to_49 = LIs*group_20_to_49,
-            interaction_lockdown_50_to_64 = LIs*group_50_to_64,
-            interaction_lockdown_65_plus = LIs*group_65_plus
+            interaction_children_school_closures = education*group_5_to_19,
 
+            # should we discount work from home for essential workers
+            interaction_20_to_49_WFH = work_from_home*group_20_to_49,
+            interaction_50_to_64_WFH = work_from_home*group_50_to_64,
+            interaction_65_plus_WFH = work_from_home*group_65_plus
         ) %>%
         dplyr::select(
-            -geometry, -PROV_vaxx_FULL, -starts_with("cohort"), -airports, 
+            -geometry, -PROV_vaxx_FULL, -starts_with("cohort"),
             -PHU_area_km2, -PHU_dwellings
         )
         
@@ -224,61 +224,6 @@ if(!file.exists( file.path(
         reg_data_here <- reg_data_here %>% 
             dplyr::select(-any_of(aliased_columns)) %>%
             dplyr::filter(! incidence %in% outlying_incidences)
-        
-        added_variable_plot <- function(data_tab=reg_data_here, response="incidence", covar="is_miz_moderate")
-        {
-            if(response == covar) return(data.table())
-            if(! response %in% names(data_tab)) return(data.table())
-            if(! covar %in% names(data_tab)) return(data.table())
-            
-            # writeLines(sprintf("\tCovariate: %s", covar))
-            
-            # the Y regression
-            Y_x_full <- as.matrix(data_tab %>% dplyr::select(-dplyr::any_of(c(response, covar))))
-            Y_y_full <- as.matrix(data_tab[[response]], ncol=1)
-            
-            Y_cv_model <- cv.glmnet(Y_x_full, Y_y_full, alpha = 0, family = "gaussian")
-            Y_glm_fit <- glmnet(Y_x_full, Y_y_full, alpha = 0, lambda = Y_cv_model$lambda.min)
-            Y_ridge_predictions <- predict(Y_glm_fit, s = Y_cv_model$lambda.min, newx = Y_x_full)
-
-            Y_regression_residuals <- Y_y_full - Y_ridge_predictions
-            
-            # print(Y_regression_residuals)
-            # print("here")
-
-            # the X regression
-            X_x_full <- as.matrix(data_tab %>% dplyr::select(-dplyr::any_of(c(covar, response))))
-            X_y_full <- as.matrix(data_tab[[covar]], ncol=1)
-            
-            output <- tryCatch(
-                {
-                    X_cv_model <- cv.glmnet(X_x_full, X_y_full, alpha = 0, family = "gaussian")
-                    X_glm_fit <- glmnet(X_x_full, X_y_full, alpha = 0, lambda = X_cv_model$lambda.min)
-                    X_ridge_predictions <- predict(X_glm_fit, s = X_cv_model$lambda.min, newx = X_x_full)
-                    
-                    X_regression_residuals <- X_y_full - X_ridge_predictions
-                    
-                    all_resid <- data.table(
-                        regressor =  covar,
-                        wave = wave_number,
-                        x = as.numeric(X_regression_residuals),
-                        y = as.numeric(Y_regression_residuals)
-                    )
-                },
-                error = function(e){ writeLines(sprintf(
-                    "\twave: %s, covariate: %s,\n\t\terror: %s.\n", 
-                    wave_number, covar, e
-                )) },
-                warning = function(w) message(w)
-            )
-            
-            return(output)
-        }
-        
-        added_var_data[[wave_number]] <- rbindlist(lapply(
-            reg_data_here %>% names %>% .[. != "incidence"],
-            \(xx) added_variable_plot(reg_data_here, "incidence", xx)
-        ))
         
         correlations[[wave_number]] <- Reduce(
             function(x, y) merge(x, y, by="regressor", all=TRUE),
@@ -452,6 +397,7 @@ if(!file.exists( file.path(
         )
         
         cv_models[[wave_number]] <- cv_model
+    
     }
     
     print(Sys.time() - start_time)
@@ -474,3 +420,59 @@ if(!file.exists( file.path(
         file=file.path(PROJECT_FOLDER, "Classifications/regression_results.rda")
     )
 }
+
+# added_variable_plot <- function(data_tab=reg_data_here, response="incidence", covar="is_miz_moderate")
+# {
+#     if(response == covar) return(data.table())
+#     if(! response %in% names(data_tab)) return(data.table())
+#     if(! covar %in% names(data_tab)) return(data.table())
+#     
+#     # writeLines(sprintf("\tCovariate: %s", covar))
+#     
+#     # the Y regression
+#     Y_x_full <- as.matrix(data_tab %>% dplyr::select(-dplyr::any_of(c(response, covar))))
+#     Y_y_full <- as.matrix(data_tab[[response]], ncol=1)
+#     
+#     Y_cv_model <- cv.glmnet(Y_x_full, Y_y_full, alpha = 0, family = "gaussian")
+#     Y_glm_fit <- glmnet(Y_x_full, Y_y_full, alpha = 0, lambda = Y_cv_model$lambda.min)
+#     Y_ridge_predictions <- predict(Y_glm_fit, s = Y_cv_model$lambda.min, newx = Y_x_full)
+#     
+#     Y_regression_residuals <- Y_y_full - Y_ridge_predictions
+#     
+#     # print(Y_regression_residuals)
+#     # print("here")
+#     
+#     # the X regression
+#     X_x_full <- as.matrix(data_tab %>% dplyr::select(-dplyr::any_of(c(covar, response))))
+#     X_y_full <- as.matrix(data_tab[[covar]], ncol=1)
+#     
+#     output <- tryCatch(
+#         {
+#             X_cv_model <- cv.glmnet(X_x_full, X_y_full, alpha = 0, family = "gaussian")
+#             X_glm_fit <- glmnet(X_x_full, X_y_full, alpha = 0, lambda = X_cv_model$lambda.min)
+#             X_ridge_predictions <- predict(X_glm_fit, s = X_cv_model$lambda.min, newx = X_x_full)
+#             
+#             X_regression_residuals <- X_y_full - X_ridge_predictions
+#             
+#             all_resid <- data.table(
+#                 regressor =  covar,
+#                 wave = wave_number,
+#                 x = as.numeric(X_regression_residuals),
+#                 y = as.numeric(Y_regression_residuals)
+#             )
+#         },
+#         error = function(e){ writeLines(sprintf(
+#             "\twave: %s, covariate: %s,\n\t\terror: %s.\n", 
+#             wave_number, covar, e
+#         )) },
+#         warning = function(w) message(w)
+#     )
+#     
+#     return(output)
+# }
+# 
+# added_var_data[[wave_number]] <- rbindlist(lapply(
+#     reg_data_here %>% names %>% .[. != "incidence"],
+#     \(xx) added_variable_plot(reg_data_here, "incidence", xx)
+# ))
+

@@ -15,20 +15,22 @@ dir.create(file.path(PROJECT_FOLDER, "Graphs"), showWarnings=FALSE)
 
 ##################### INTERVENTION TIMELINES
 
-# verified
-# function to parse and collate the overlaps of multiple timelines, per required jurisdiction
-valmorphanize <- function(DATA, JURIS)
-{
-    DATA %>% dplyr::filter(jurisdiction == JURIS) %>%
-        split(1:nrow(.)) %>%
-        lapply(\(xx) seq(xx$date.implemented, xx$effective.until)) %>%
-        unlist %>% unname %>% unique %>% sort %>%
-        (\(xx) {c(min(xx), max(xx), xx[which(diff(xx)>1)], xx[which(diff(xx)>1)+1])}) %>%
-        sort %>% split(., ceiling(seq_along(.)/2)) %>%
-        lapply(\(xx) data.table(JURIS, t(xx))) %>% rbindlist %>%
-        setNames(c("jurisdiction", "start", "end")) %>%
-        dplyr::mutate(across(c("start", "end"), ~as.Date(.x, origin="1970-01-01")))
-}
+
+# # OUTDATED
+# # verified
+# # function to parse and collate the overlaps of multiple timelines, per required jurisdiction
+# valmorphanize <- function(DATA, JURIS)
+# {
+#     DATA %>% dplyr::filter(jurisdiction == JURIS) %>%
+#         split(1:nrow(.)) %>%
+#         lapply(\(xx) seq(xx$date.implemented, xx$effective.until)) %>%
+#         unlist %>% unname %>% unique %>% sort %>%
+#         (\(xx) {c(min(xx), max(xx), xx[which(diff(xx)>1)], xx[which(diff(xx)>1)+1])}) %>%
+#         sort %>% split(., ceiling(seq_along(.)/2)) %>%
+#         lapply(\(xx) data.table(JURIS, t(xx))) %>% rbindlist %>%
+#         setNames(c("jurisdiction", "start", "end")) %>%
+#         dplyr::mutate(across(c("start", "end"), ~as.Date(.x, origin="1970-01-01")))
+# }
 
 TEI  <- fread(file.path(PROJECT_FOLDER, "Classifications/tightened_educational_restrictions.R"))
 LDM <- fread(file.path(PROJECT_FOLDER, "Classifications/lockdown_measures.csv"))
@@ -286,51 +288,51 @@ Regression_Data <- readRDS(file.path(
 ############## INFO FOR LATEX TABLES
 
 pretty_variable_names <- function(tab) return( tab %>% 
-                                                   dplyr::mutate(pretty_regressor = factor(regressor, levels = c(
-                                                       "LTCHs", "previous_wave_incidence", "group_0_to_4", "group_5-19", 
-                                                       "group_20_to_49", "group_50_to_64", "group_65_plus",
-                                                       "interaction_vaccination_0_to_4", "interaction_vaccination_5_to_19", 
-                                                       "interaction_vaccination_20_to_49", "interaction_vaccination_50_to_64", 
-                                                       "interaction_vaccination_65_plus", "EIs",
-                                                       "interaction_children_school_closures", "is_cma", "is_ca", 
-                                                       "is_miz_strong", "is_miz_moderate", "is_miz_weak", "is_miz_none", 
-                                                       "PHU_pop_density", "interaction_popdensity_cma", 
-                                                       "interaction_popdensity_strong", "interaction_popdensity_moderate", 
-                                                       "interaction_popdensity_weak", "interaction_popdensity_none"
-                                                   ))) %>%
-                                                   dplyr::mutate(pretty_regressor = dplyr::recode(regressor,
-                                                                                                  "LTCHs" = "LTCH",
-                                                                                                  "School Closures" = "$E$",
-                                                                                                  "EIs" = "E",
-                                                                                                  "group_0_to_4" = "$C_{0-4}$",
-                                                                                                  "group_5_to_19" = "$C_{5-19}$",
-                                                                                                  "group_20_to_49" = "$C_{20-49}$",
-                                                                                                  "group_50_to_64" = "$C_{50-64}$",
-                                                                                                  "group_65_plus" = "$C_{\\ge65}$",
-                                                                                                  "PHU_pop_density" = "$D$",
-                                                                                                  "interaction_children_school_closures" = "$E\\cdot C_{5-19}$",
-                                                                                                  "is_cma" = "CMA",
-                                                                                                  "is_ca" = "CA",
-                                                                                                  "is_miz_strong" = "Strong",
-                                                                                                  "is_miz_moderate" = "Moderate",
-                                                                                                  "is_miz_weak" = "Weak",
-                                                                                                  "is_miz_none" = "None",
-                                                                                                  "previous_wave_incidence" = "$Y_{u-1}$",
-                                                                                                  "interaction_popdensity_cma" = "$D\\cdot\\text{CMA}$",
-                                                                                                  "interaction_popdensity_ca" = "$D\\cdot\\text{CA}$",
-                                                                                                  "interaction_popdensity_moderate"="$D\\cdot\\text{MIZ}_{\\text{moderate}}$",
-                                                                                                  "interaction_popdensity_strong" = "$D\\cdot\\text{MIZ}_{\\text{strong}}$",
-                                                                                                  "interaction_popdensity_weak" = "$D\\cdot\\text{MIZ}_{\\text{weak}}$",
-                                                                                                  "interaction_popdensity_none" = "$D\\cdot\\text{MIZ}_{\\text{none}}$",
-                                                                                                  "interaction_vaccination_0_to_4" = "$v_{\\text{prov}}\\cdot C_{0-4}$",
-                                                                                                  "interaction_vaccination_5_to_19" = "$v_{\\text{prov}}\\cdot C_{5-19}",
-                                                                                                  "interaction_vaccination_20_to_49" = "$v_{\\text{prov}}\\cdot C_{20-49}$",
-                                                                                                  "interaction_vaccination_50_to_64" = "$v_{\\text{prov}}\\cdot C_{50-64}$",
-                                                                                                  "interaction_vaccination_50_to_64" = "$v_{\\text{prov}}\\cdot C_{50-64}$",
-                                                                                                  "interaction_vaccination_65_plus" = "$v_{\\text{prov}}\\cdot C_{\\ge65}$",
-                                                                                                  "interaction_LTCH_65_plus" = "\\text{LTCH}\\cdot C_{\\ge65}",
-                                                                                                  "interaction_LTCHs_65_plus" = "\\text{LTCH}\\cdot C_{\\ge65}"
-                                                   )))
+dplyr::mutate(pretty_regressor = factor(regressor, levels = c(
+    "LTCHs", "previous_wave_incidence", "group_0_to_4", "group_5-19", 
+    "group_20_to_49", "group_50_to_64", "group_65_plus",
+    "interaction_vaccination_0_to_4", "interaction_vaccination_5_to_19", 
+    "interaction_vaccination_20_to_49", "interaction_vaccination_50_to_64", 
+    "interaction_vaccination_65_plus", "EIs",
+    "interaction_children_school_closures", "is_cma", "is_ca", 
+    "is_miz_strong", "is_miz_moderate", "is_miz_weak", "is_miz_none", 
+    "PHU_pop_density", "interaction_popdensity_cma", 
+    "interaction_popdensity_strong", "interaction_popdensity_moderate", 
+    "interaction_popdensity_weak", "interaction_popdensity_none"
+))) %>%
+dplyr::mutate(pretty_regressor = dplyr::recode(regressor,
+    "LTCHs" = "LTCH",
+    "School Closures" = "$E$",
+    "EIs" = "E",
+    "group_0_to_4" = "$C_{0-4}$",
+    "group_5_to_19" = "$C_{5-19}$",
+    "group_20_to_49" = "$C_{20-49}$",
+    "group_50_to_64" = "$C_{50-64}$",
+    "group_65_plus" = "$C_{\\ge65}$",
+    "PHU_pop_density" = "$D$",
+    "interaction_children_school_closures" = "$E\\cdot C_{5-19}$",
+    "is_cma" = "CMA",
+    "is_ca" = "CA",
+    "is_miz_strong" = "Strong",
+    "is_miz_moderate" = "Moderate",
+    "is_miz_weak" = "Weak",
+    "is_miz_none" = "None",
+    "previous_wave_incidence" = "$Y_{u-1}$",
+    "interaction_popdensity_cma" = "$D\\cdot\\text{CMA}$",
+    "interaction_popdensity_ca" = "$D\\cdot\\text{CA}$",
+    "interaction_popdensity_moderate"="$D\\cdot\\text{MIZ}_{\\text{moderate}}$",
+    "interaction_popdensity_strong" = "$D\\cdot\\text{MIZ}_{\\text{strong}}$",
+    "interaction_popdensity_weak" = "$D\\cdot\\text{MIZ}_{\\text{weak}}$",
+    "interaction_popdensity_none" = "$D\\cdot\\text{MIZ}_{\\text{none}}$",
+    "interaction_vaccination_0_to_4" = "$v_{\\text{prov}}\\cdot C_{0-4}$",
+    "interaction_vaccination_5_to_19" = "$v_{\\text{prov}}\\cdot C_{5-19}",
+    "interaction_vaccination_20_to_49" = "$v_{\\text{prov}}\\cdot C_{20-49}$",
+    "interaction_vaccination_50_to_64" = "$v_{\\text{prov}}\\cdot C_{50-64}$",
+    "interaction_vaccination_50_to_64" = "$v_{\\text{prov}}\\cdot C_{50-64}$",
+    "interaction_vaccination_65_plus" = "$v_{\\text{prov}}\\cdot C_{\\ge65}$",
+    "interaction_LTCH_65_plus" = "\\text{LTCH}\\cdot C_{\\ge65}",
+    "interaction_LTCHs_65_plus" = "\\text{LTCH}\\cdot C_{\\ge65}"
+)))
 
 latex_regression_coefficients <- Reduce(
     function(x, y) merge(x, y, by = c("wave", "regressor"), all = TRUE),
