@@ -51,10 +51,7 @@ cohorts <- function(start_age, end_age, ...)
 }
 
 # don't do the regression again if a results file already exists
-# if(!file.exists( file.path(
-#     PROJECT_FOLDER,
-#     "Classifications/regression_results.rda")
-# ))
+# if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/regression_results.rda") ))
 {
     # import the pre-prepared regression data
     Imported <- readRDS(file.path(
@@ -77,7 +74,7 @@ cohorts <- function(start_age, end_age, ...)
         ) %>%
         # adding interaction terms
         dplyr::mutate(
-            interaction_babies_daycare_colsures = daycares*group_0_to_4,
+            interaction_babies_daycare_closures = daycares*group_0_to_4,
             
             interaction_children_school_closures = education*group_5_to_19,
 
@@ -217,7 +214,7 @@ cohorts <- function(start_age, end_age, ...)
         outlying_incidences <- unique(boxplot(reg_data_here$incidence)$out)
         
         aliased_columns <- unique(rownames(which(
-            alias(lm(incidence ~ ., data = reg_data_here))[["Complete"]] != "2", 
+            alias(lm(incidence ~ ., data = reg_data_here))[["Complete"]] != "0", 
             arr.ind=TRUE
         )))
         
@@ -397,7 +394,6 @@ cohorts <- function(start_age, end_age, ...)
         )
         
         cv_models[[wave_number]] <- cv_model
-    
     }
     
     print(Sys.time() - start_time)

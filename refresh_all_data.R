@@ -379,8 +379,8 @@ province_populations <- PHU_information %>%
         dplyr::mutate(
             jurisdiction = left_join(., LUT, by=c("jurisdiction" = "abbreviations"))$province,
             # # be careful - the dash in the code below is longer than the standard one
-            # '-' 
-            type = unlist(lapply(type, \(xx){ str_split(xx, '-')[[1]][2] %>% trimws })),
+            # '—' 
+            type = unlist(lapply(type, \(xx){ str_split(xx, '—')[[1]][2] %>% trimws })),
             indigenous.population.group = dplyr::recode(
                 indigenous.population.group,
                 "No"=FALSE, "Yes"=TRUE, .default=NA
@@ -420,7 +420,6 @@ province_populations <- PHU_information %>%
         dplyr::arrange(jurisdiction, type, date.implemented)
     
     tuple_table <- interventions %>% 
-        # filter(jurisdiction == "Quebec") %>%
         dplyr::select(jurisdiction, type) %>% 
         unique
     
@@ -467,7 +466,7 @@ province_populations <- PHU_information %>%
     
     tuple_table <- interventions_display_table %>% 
         dplyr::select(jurisdiction, type) %>% 
-        unique %>% .[1]
+        unique
     
     categorical_interventions_table <- lapply(
             unique(interventions_display_table$jurisdiction),
