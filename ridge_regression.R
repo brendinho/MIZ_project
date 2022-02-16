@@ -59,16 +59,12 @@ cohorts <- function(start_age, end_age, ...)
 # CHANGE TO THE MODEL
 # 
 # Xin and Seyed have taken out the interaction terms to favour the inclusion of the NPI
-# metrics as factors. glmnet and hdi libraries accept their data sets as matrices of 
-# numerical values, and do not yet accept data.frame or data.table formats, only matrix.
-# 
-# therefore, the only regression that we can do is OLS. with that, we proceed
-# 
-# I've also changed the output file suffix to reflect that this is purely OLS regression
+# metrics as factors. 
+#
 #####################################
 
 # don't do the regression again if a results file already exists
-if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/regression_results_OLS.rda") ))
+if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/regression_results.rda") ))
 {
     # import the pre-prepared regression data
     Imported <- readRDS(file.path(
@@ -188,14 +184,8 @@ if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/regression_results_O
         
         outlying_incidences <- unique(boxplot(reg_data_here$incidence)$out)
         
-        aliased_columns <- unique(rownames(which(
-            alias(lm(incidence ~ ., data = reg_data_here))[["Complete"]] != "0", 
-            arr.ind=TRUE
-        )))
-        
-        reg_data_here <- reg_data_here %>% 
-            dplyr::select(-any_of(aliased_columns)) %>%
-            dplyr::filter(! incidence %in% outlying_incidences)
+        # remove outlying cumulative incidences
+        reg_data_here <- reg_data_here %>% dplyr::filter(! incidence %in% outlying_incidences)
         
         # correlations[[wave_number]] <- Reduce(
         #     function(x, y) merge(x, y, by="regressor", all=TRUE),
@@ -233,64 +223,77 @@ if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/regression_results_O
         #         )) %>% 
         #     dplyr::mutate(wave = wave_number) %>%
         #     dplyr::relocate(wave)
-        # 
-        # x_full <- as.matrix(reg_data_here %>% dplyr::select(-incidence))
-        y_full <- as.matrix(reg_data_here$incidence, ncol=1)
 
-        # fits[[wave_number]] <- glmnet(x_full, y_full, alpha = 0)
-        # 
-        # cv_model <- cv.glmnet(
-        #     x = reg_data_here %>% dplyr::select(-incidence) %>% data.frame,
-        #     y = y_full,
-        #     alpha = 0,
-        #     family = "gaussian",
-        #     lower = 0,
-        #     upper = 1
-        # )
+        # turning the categorical variables into dummies
+        x_full <- model.matrix(~ .-1, reg_data_here %>% dplyr::select(-incidence))
+        y_full <- as.matrix(reg_data_here$incidence, ncol=1)
         
-        # 
-        # optim.lambda <- cv_model$lambda.min
-        # 
-        # glm_fit <- glmnet(x_full, y_full, alpha = 0, lambda = optim.lambda)
-        # ridge_predictions <- predict(glm_fit, s = optim.lambda, newx = x_full)
-        # 
+        # find aliased regressors
+        aliased_columns <- unique(rownames(which(
+            alias(lm(y_full ~ x_full))[["Complete"]] != "0", 
+            arr.ind=TRUE
+        )))
+        
+        # find and remove aliased_regressors and columns with only one unique value
+        x_full <- x_full %>%
+            .[, ! colnames(.) %in% gsub("x_full", "", aliased_columns)] %>%
+            data.frame %>% 
+            .[vapply(., function(x) length(unique(x)) > 1, logical(1L))] %>%
+            as.matrix
+        
+        reg_data_here <- reg_data_here %>% dplyr::select(-any_of(aliased_columns))
+        
+        fits[[wave_number]] <- glmnet(x_full, y_full, alpha = 0)
+
+        cv_model <- cv.glmnet(
+            x = x_full,
+            y = y_full,
+            alpha = 0,
+            family = "gaussian",
+            lower = 0,
+            upper = 1
+        )
+
+        optim.lambda <- cv_model$lambda.min
+
+        glm_fit <- glmnet(x_full, y_full, alpha = 0, lambda = optim.lambda)
+        ridge_predictions <- predict(glm_fit, s = optim.lambda, newx = x_full)
+
         # print("here1")
-        # 
-        # Information.Ridge.glmnet <- data.table(
-        #     type = "Ridge.glmnet",
-        #     wave = wave_number,
-        #     regressor = glm_fit$beta@Dimnames[[1]],
-        #     coefficient = glm_fit$beta@x
-        # )
-        # 
-        # print("here1")
-        # 
-        # ridge_fit = ridge.proj(
-        #     x = x_full,
-        #     y = y_full,
-        #     family="gaussian",
-        #     lambda = optim.lambda
-        # )
-        # 
-        # print("here1")
-        # 
-        # Information.Ridge.hdi <- cbind(
-        #         ridge_fit$bhat, ridge_fit$se, ridge_fit$pval, ridge_fit$sds
-        #     ) %>%
-        #     data.table(regressor = rownames(.)) %>%
-        #     dplyr::rename(coefficient=V1, se=V2, p.value=V3, sds=V4) %>%
-        #     dplyr::mutate(
-        #         type = "Ridge.hdi",
-        #         wave = wave_number,
-        #         CI025 = coefficient-1.96*se,
-        #         CI975 = coefficient+1.96*se
-        #     ) %>%
-        #     dplyr::relocate(wave, regressor)
-        # 
-        # print("here1")
+
+        Information.Ridge.glmnet <- data.table(
+            type = "Ridge.glmnet",
+            wave = wave_number,
+            regressor = glm_fit$beta@Dimnames[[1]],
+            coefficient = glm_fit$beta@x
+        )
+
+        # print("here2")
+
+        ridge_fit = ridge.proj(
+            x = x_full,
+            y = y_full,
+            family="gaussian",
+            lambda = optim.lambda
+        )
+
+        # print("here3")
+
+        Information.Ridge.hdi <- cbind(
+                ridge_fit$bhat, ridge_fit$se, ridge_fit$pval, ridge_fit$sds
+            ) %>%
+            data.table(regressor = rownames(.)) %>%
+            dplyr::rename(coefficient=V1, se=V2, p.value=V3, sds=V4) %>%
+            dplyr::mutate(
+                type = "Ridge.hdi",
+                wave = wave_number,
+                CI025 = coefficient-1.96*se,
+                CI975 = coefficient+1.96*se
+            ) %>%
+            dplyr::relocate(wave, regressor)
         
         # comparison with OLS regression
-        OLS_model <- lm(incidence ~ ., data = reg_data_here)
+        OLS_model <- lm(y_full ~ x_full)
         
         OLS.confidence <- confint(OLS_model, level=0.95) %>%
             data.table(regressor=rownames(.)) %>%
@@ -321,55 +324,53 @@ if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/regression_results_O
         MSE <- RSS / length(OLS_model$residuals)
         RMSE <- sqrt(MSE)
         
-        vif <- car::vif(OLS_model)
+        # this looks weird because this dear little princess function needs a written model
+        # to run, rather than just the two named matrices, so I've made one
+        vif <- car::vif(lm(
+            x_full %>% colnames %>% paste(collapse="+") %>% paste0("y~", .),
+            cbind(data.frame(y=y_full), x_full)
+        ))
         
         ##### COLLECTING DATA
 
-        # covariates[[wave_number]] <- paste(names(reg_data_here), collapse=", ")
+        covariates[[wave_number]] <- paste(names(reg_data_here), collapse=", ")
     
         Information <- rbind(
             Information,
-            # Information.Ridge.glmnet,
-            # Information.Ridge.hdi, 
+            Information.Ridge.glmnet,
+            Information.Ridge.hdi,
             Information.OLS,
             fill = TRUE
         )
     
-        # optimal_lambdas <- rbind(
-        #     optimal_lambdas,
-        #     data.table(wave=wave_number, optimal.lambda=optim.lambda)
-        # )
-        if(wave_number == 1){
-            VIFs <- rbind(VIFs, data.table(
-                regressor = rownames(data.frame(vif)),
-                value = as.numeric(vif),
-                wave = wave_number
-            ))
-        } else {
-            VIFs <- rbind(VIFs, data.table(
-                regressor = rownames(data.frame(vif)),
-                value = as.numeric(data.table(vif)$GVIF),
-                wave = wave_number
-            ))
-        }
+        optimal_lambdas <- rbind(
+            optimal_lambdas,
+            data.table(wave=wave_number, optimal.lambda=optim.lambda)
+        )
         
-        # MSEs <- rbind(MSEs, data.table(
-        #     wave = wave_number, 
-        #     lambda = cv_model$lambda, 
-        #     meann = cv_model$cvm,
-        #     sdd = cv_model$cvsd, 
-        #     upper = cv_model$cvup, 
-        #     lower = cv_model$cvlo
-        # ))
+        VIFs <- rbind(VIFs, data.table(
+            regressor = rownames(data.frame(vif)),
+            value = as.numeric(vif),
+            wave = wave_number
+        ))
+        
+        MSEs <- rbind(MSEs, data.table(
+            wave = wave_number,
+            lambda = cv_model$lambda,
+            meann = cv_model$cvm,
+            sdd = cv_model$cvsd,
+            upper = cv_model$cvup,
+            lower = cv_model$cvlo
+        ))
         
         r2s <- rbind(
             r2s,
             data.table(
                 wave = wave_number,
-                # Ridge.r2 = r2(y_full, ridge_predictions),
-                # Ridge.RMSE = cv_model$cvm %>%
-                #     .[which(cv_model$lambda == optim.lambda)] %>%
-                #     sqrt(),
+                Ridge.r2 = r2(y_full, ridge_predictions),
+                Ridge.RMSE = cv_model$cvm %>%
+                    .[which(cv_model$lambda == optim.lambda)] %>%
+                    sqrt(),
                 OLS.r2 = summary(OLS_model)$r.squared,
                 OLS.RMSE = RMSE
             )
@@ -380,12 +381,12 @@ if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/regression_results_O
             data.table(
                 wave = wave_number,
                 incidence = as.numeric(y_full), 
-                # glmnet = as.numeric(ridge_predictions), 
+                glmnet = as.numeric(ridge_predictions),
                 lm = unname(predict(OLS_model))
             )
         )
         
-        # cv_models[[wave_number]] <- cv_model
+        cv_models[[wave_number]] <- cv_model
     }
     
     print(Sys.time() - start_time)
@@ -405,6 +406,6 @@ if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/regression_results_O
             correlations = correlations,
             added_var_data = added_var_data
         ),
-        file=file.path(PROJECT_FOLDER, "Classifications/regression_results_OLS.rda")
+        file=file.path(PROJECT_FOLDER, "Classifications/regression_results.rda")
     )
 }

@@ -208,7 +208,7 @@ ggsave(
 
 Regression_Data <- readRDS(file.path(
     PROJECT_FOLDER,
-    "Classifications/regression_results_OLS.rda"
+    "Classifications/regression_results.rda"
 ))
 
 ############## INFO FOR LATEX TABLES
@@ -264,8 +264,10 @@ dplyr::mutate(pretty_regressor = dplyr::recode(regressor,
     "interaction_50_to_64_WFH" = "$Y\\cdot C_{50-64}$",
     "interaction_65_plus_WFH" = "$Y\\cdot C_{\\ge65}$",
     "interaction_babies_daycare_closures" = "$X\\cdot C_{0-4}$",
+    "daycares0" = "$X_{none}$",
     "daycares1" = "$X_{partial}$",
     "daycares2" = "$X_{entire}$",
+    "education0" = "$E_{none}$",
     "education1" = "$E_{partial}$",
     "education2" = "$E_{entire}$",
     "work_from_home1" = "$Y_{partial}$",
@@ -277,7 +279,9 @@ dplyr::mutate(pretty_regressor = dplyr::recode(regressor,
 latex_regression_coefficients <- Reduce(
     function(x, y) merge(x, y, by = c("wave", "regressor"), all = TRUE),
     list(
-        Regression_Data$information %>% dplyr::select(regressor, wave) %>% 
+        Regression_Data$information %>% 
+            dplyr::select(regressor, wave) %>% 
+            dplyr::mutate(regressor = gsub("x_full", "", regressor)) %>%
             unique(),
         Regression_Data$information %>% filter(type == "Ridge.glmnet") %>%
             dplyr::select(wave, regressor, coefficient) %>%
@@ -293,47 +297,29 @@ latex_regression_coefficients <- Reduce(
         Regression_Data$information %>% filter(type == "OLS") %>% 
             dplyr::select(-type) %>%
             setNames(sprintf("OLS.%s", names(.))) %>%
-            dplyr::rename(wave=OLS.wave, regressor=OLS.regressor)
+            dplyr::rename(wave=OLS.wave, regressor=OLS.regressor) %>%
+            dplyr::mutate(regressor = gsub("x_full", "", regressor))
     )) %>%
     # take out the all NA rows
     Filter(function(x) !all(is.na(x)), .) %>%
     dplyr::filter(!grepl("intercept", tolower(regressor))) %>%
     dplyr::select(wave, regressor, matches("coefficient|CI|p.value")) %>%
     dplyr::mutate(
-        # Ridge.hdi = ifelse(
-        #     Ridge.hdi.p.value < 0.001,
-        #     sprintf(
-        #         "$%.4f\\;(%.4f,\\;%.4f),\\;p < 0.001$",
-        #         Ridge.hdi.coefficient, Ridge.hdi.CI025, Ridge.hdi.CI975
-        #     ),
-        #     sprintf("$%.4f\\;(%.4f,\\;%.4f),\\;p = %.4f$",
-        #             Ridge.hdi.coefficient, Ridge.hdi.CI025, 
-        #             Ridge.hdi.CI975, Ridge.hdi.p.value
-        #     )
-        # ),
-        # Ridge.glmnet = sprintf("$%.3f$", Ridge.glmnet.coefficient),
-        # OLS = ifelse(
-        #     OLS.p.value < 0.001,
-        #     sprintf("$%.4f\\;(%.4f,\\;%.4f),\\;p < 0.001$", 
-        #             OLS.coefficient, OLS.CI025, OLS.CI975
-        #     ),
-        #     sprintf("$%.4f\\;(%.4f,\\;%.4f),\\;p = %.4f$", 
-        #             OLS.coefficient, OLS.CI025, OLS.CI975,
-        #             OLS.p.value
-        #     )
-        # )
         OLS.coefficient = sprintf("%.4f", OLS.coefficient),
         OLS.p.value = sprintf("%.4f", OLS.p.value),
-        OlS.confidence_interval = sprintf("(%.4f, %.4f)", OLS.CI025, OLS.CI975)
+        OLS.confidence = sprintf("(%.4f, %.4f)", OLS.CI025, OLS.CI975),
+        Ridge.coefficient = sprintf("%.4f", Ridge.glmnet.coefficient),
+        Ridge.confidence = sprintf("(%.4f, %.4f)", Ridge.hdi.CI025, Ridge.hdi.CI975),
+        Ridge.p.value = sprintf("%.4f", Ridge.hdi.p.value)
     ) %>%
-    dplyr::select(wave, regressor, matches("OLS"), -matches("\\.CI")) # Ridge.hdi, Ridge.glmnet, 
+    dplyr::select(wave, regressor, matches("OLS|Ridge"), -matches("\\.CI|hdi|glm"))
 
-latex_regression_coefficients %>% 
-    pretty_variable_names() %>% 
-    dplyr::select(-regressor) %>% 
-    dplyr::relocate(pretty_regressor) %>% 
-    xtable() %>% 
-    print.xtable(include.rownames=FALSE)
+# latex_regression_coefficients %>% 
+#     pretty_variable_names() %>% 
+#     dplyr::select(-regressor) %>% 
+#     dplyr::relocate(wave, pretty_regressor, OLS.coefficient, OLS.confidence, OLS.p.value, Ridge.coefficient, Ridge.confidence, Ridge.p.value) %>% 
+#     xtable() %>% 
+#     print.xtable(include.rownames=FALSE)
 
 # latex_regression_coefficients %>%
 #     pretty_variable_names() %>%
@@ -345,20 +331,20 @@ latex_regression_coefficients %>%
 #     xtable %>%
 #     print.xtable(include.rownames=FALSE)
 
-Reduce(
-        function(x, y) merge(x, y, by="regressor", all=TRUE),
-        list(
-            Regression_Data$VIF %>% dplyr::filter(wave==1) %>% dplyr::rename(value_wave_1 = value) %>% dplyr::select(-wave),
-            Regression_Data$VIF %>% dplyr::filter(wave==2) %>% dplyr::rename(value_wave_2 = value) %>% dplyr::select(-wave),
-            Regression_Data$VIF %>% dplyr::filter(wave==3) %>% dplyr::rename(value_wave_3 = value) %>% dplyr::select(-wave),
-            Regression_Data$VIF %>% dplyr::filter(wave==4) %>% dplyr::rename(value_wave_4 = value) %>% dplyr::select(-wave)
-        )
-    ) %>%
-    pretty_variable_names() %>%
-    dplyr::relocate(pretty_regressor) %>%
-    dplyr::select(-regressor) %>%
-    xtable %>%
-    print.xtable(include.rownames=FALSE)
+# Reduce(
+#         function(x, y) merge(x, y, by="regressor", all=TRUE),
+#         list(
+#             Regression_Data$VIF %>% dplyr::filter(wave==1) %>% dplyr::rename(value_wave_1 = value) %>% dplyr::select(-wave),
+#             Regression_Data$VIF %>% dplyr::filter(wave==2) %>% dplyr::rename(value_wave_2 = value) %>% dplyr::select(-wave),
+#             Regression_Data$VIF %>% dplyr::filter(wave==3) %>% dplyr::rename(value_wave_3 = value) %>% dplyr::select(-wave),
+#             Regression_Data$VIF %>% dplyr::filter(wave==4) %>% dplyr::rename(value_wave_4 = value) %>% dplyr::select(-wave)
+#         )
+#     ) %>%
+#     pretty_variable_names() %>%
+#     dplyr::relocate(pretty_regressor) %>%
+#     dplyr::select(-regressor) %>%
+#     xtable %>%
+#     print.xtable(include.rownames=FALSE)
 
 # Regression_Data$information %>%
 #     dplyr::select(wave, Ridge.r2, OLS.r2, Ridge.RMSE, OLS.RMSE) %>%
