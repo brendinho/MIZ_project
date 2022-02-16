@@ -9,7 +9,8 @@ library(ppcor)
 library(hdi)
 library(xtable)
 
-PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
+# PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
+PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project/"
 
 source(sprintf("%s/function_header.R", PROJECT_FOLDER))
 
@@ -20,6 +21,7 @@ r2 <- function(truth, prediction) {
     return(1 - sse/sst)
 }
  # for None/Partial/Entire factors, convert them to 0/1/2
+# returning numbers, since the glmnet and hdi libraries don't take categorical values
 factor_to_num <- function(factor_sequence)
 {
      return(unlist(lapply(
@@ -32,13 +34,15 @@ factor_to_num <- function(factor_sequence)
             if(grepl("whole|entire|complete|present|yes|true|1", tolower(x))) 
                 return(2)
             return(NA)
-        } 
+        }
     )))
 }
 
+# programmatic way of getting the names of the cohorts as a parsable expression
+# readable by dplyr - I'm just lazy
+# names not following the <> to <> pattern can be given manually
 cohorts <- function(start_age, end_age, ...)
-{ # getting the names of added cohorts - I'm just lazy 
-    
+{
     col_names = c(
         sprintf(
             "cohort_%s_to_%s", 
@@ -50,8 +54,21 @@ cohorts <- function(start_age, end_age, ...)
     return(parse(text = paste(col_names, collapse=" + ")))
 }
 
+#####################################
+# 
+# CHANGE TO THE MODEL
+# 
+# Xin and Seyed have taken out the interaction terms to favour the inclusion of the NPI
+# metrics as factors. glmnet and hdi libraries accept their data sets as matrices of 
+# numerical values, and do not yet accept data.frame or data.table formats, only matrix.
+# 
+# therefore, the only regression that we can do is OLS. with that, we proceed
+# 
+# I've also changed the output file suffix to reflect that this is purely OLS regression
+#####################################
+
 # don't do the regression again if a results file already exists
-# if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/regression_results.rda") ))
+if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/regression_results_OLS.rda") ))
 {
     # import the pre-prepared regression data
     Imported <- readRDS(file.path(
@@ -73,101 +90,58 @@ cohorts <- function(start_age, end_age, ...)
             group_65_plus = eval(cohorts(65, 99, "cohort_100_plus"))
         ) %>%
         # adding interaction terms
-        dplyr::mutate(
-            interaction_babies_daycare_closures = daycares*group_0_to_4,
-            
-            interaction_children_school_closures = education*group_5_to_19,
-
-            # should we discount work from home for essential workers
-            interaction_20_to_49_WFH = work_from_home*group_20_to_49,
-            interaction_50_to_64_WFH = work_from_home*group_50_to_64,
-            interaction_65_plus_WFH = work_from_home*group_65_plus
-        ) %>%
+        # dplyr::mutate(
+        #     interaction_babies_daycare_closures = daycares*group_0_to_4,
+        #     
+        #     interaction_children_school_closures = education*group_5_to_19,
+        # 
+        #     # should we discount work from home for essential workers
+        #     interaction_20_to_49_WFH = work_from_home*group_20_to_49,
+        #     interaction_50_to_64_WFH = work_from_home*group_50_to_64,
+        #     interaction_65_plus_WFH = work_from_home*group_65_plus
+        # ) %>%
         dplyr::select(
             -geometry, -PROV_vaxx_FULL, -starts_with("cohort"),
             -PHU_area_km2, -PHU_dwellings
         )
-        
-    # add the incidence and log(incidence) from the previous wave
-    Regression_Data <- rbind(
-        # first wave is unadulterated
-        Imported %>% dplyr::filter(wave==1) %>%
-            dplyr::mutate(
-                previous_wave_incidence = 0,
-                interaction_vaccination_5_to_19 = 0,
-                interaction_vaccination_20_to_49 = 0,
-                interaction_vaccination_50_to_64 = 0,
-                interaction_vaccination_65_plus = 0,
-            ),
-        # second wave with the incidence of the first wave attached
-        merge(
-            Imported %>% dplyr::filter(wave == 2) %>%
-                dplyr::group_by(province, pruid) %>%
-                dplyr::mutate(
-                interaction_vaccination_5_to_19 = 0,
-                interaction_vaccination_20_to_49 = 
-                    PROV_vaxx_AL1D*group_20_to_49/PROV_population,
-                interaction_vaccination_50_to_64 = 
-                    PROV_vaxx_AL1D*group_50_to_64/PROV_population,
-                interaction_vaccination_65_plus = 
-                    PROV_vaxx_AL1D*group_65_plus/PROV_population
-                ),
-            Imported %>% 
-                dplyr::filter(wave == 1) %>% 
-                dplyr::rename(previous_wave_incidence = incidence) %>%
-                dplyr::select(pruid, HRUID2018, previous_wave_incidence),
-            by=c("pruid", "HRUID2018"),
-            all = TRUE
-        ),
-        # third wave with the incidence of the second wave attached
-        merge(
-            Imported %>% dplyr::filter(wave == 3) %>%    
-                dplyr::mutate(
-                interaction_vaccination_5_to_19 = 
-                    PROV_vaxx_AL1D*group_5_to_19/PROV_population,
-                interaction_vaccination_20_to_49 = 
-                    PROV_vaxx_AL1D*group_20_to_49/PROV_population,
-                interaction_vaccination_50_to_64 = 
-                    PROV_vaxx_AL1D*group_50_to_64/PROV_population,
-                interaction_vaccination_65_plus = 
-                    PROV_vaxx_AL1D*group_65_plus/PROV_population
-                ),
-            Imported %>% 
-                dplyr::filter(wave == 2) %>% 
-                dplyr::rename(previous_wave_incidence = incidence) %>%
-                dplyr::select(pruid, HRUID2018, previous_wave_incidence),
-            by=c("pruid", "HRUID2018"),
-            all = TRUE
-        ),
-        # fourth wave with the incidence of the third wave attached
-        merge(
-            Imported %>% dplyr::filter(wave == 4) %>%    
-                dplyr::mutate(
-                interaction_vaccination_5_to_19 = 
-                    PROV_vaxx_AL1D*group_5_to_19/PROV_population,
-                interaction_vaccination_20_to_49 = 
-                    PROV_vaxx_AL1D*group_20_to_49/PROV_population,
-                interaction_vaccination_50_to_64 = 
-                    PROV_vaxx_AL1D*group_50_to_64/PROV_population,
-                interaction_vaccination_65_plus = 
-                    PROV_vaxx_AL1D*group_65_plus/PROV_population
-                ),
-            Imported %>% 
-                dplyr::filter(wave == 3) %>% 
-                dplyr::rename(previous_wave_incidence = incidence) %>%
-                dplyr::select(pruid, HRUID2018, previous_wave_incidence),
-            by=c("pruid", "HRUID2018"),
-            all = TRUE
-        )
-    ) %>%
-    dplyr::mutate(
-        # if there was zero incidence, just set the log incidence to zero
-        log_previous_wave_incidence=ifelse(
-            previous_wave_incidence==0, 
-            0, 
-            log(previous_wave_incidence)
-        )
+    
+    # done separately so that we can sum the previous cumulative incidences of all waves
+    # there is definitely a more idiomatic way to do this, but I'm waving a white flag here
+    Regression_Data_wave_1 <- Imported %>% dplyr::filter(wave == 1) %>%
+        dplyr::mutate( previous_waves_incidence = 0)
+    
+    Regression_Data_wave_2 <- merge( # now adding up all the incidence from all the previous waves
+        Imported %>% dplyr::filter(wave == 2),
+        Imported[wave<2, .(previous_waves_incidence=sum(incidence)), by=HRUID2018],
+        by = c("HRUID2018")
     )
+    
+    Regression_Data_wave_3 <- merge( # now adding up all the incidence from all the previous waves
+        Imported %>% dplyr::filter(wave == 3),
+        Imported[wave<3, .(previous_waves_incidence=sum(incidence)), by=HRUID2018],
+        by = c("HRUID2018")
+    )
+    
+    Regression_Data_wave_4 <- merge( # now adding up all the incidence from all the previous waves
+        Imported %>% dplyr::filter(wave == 4),
+        Imported[wave<4, .(previous_waves_incidence=sum(incidence)), by=HRUID2018],
+        by = c("HRUID2018")
+    )
+        
+    # categorical variables for the NPIs
+    Regression_Data <- rbind(
+          Regression_Data_wave_1,
+          Regression_Data_wave_2,
+          Regression_Data_wave_3,
+          Regression_Data_wave_4
+      ) %>%
+      dplyr::mutate(
+          daycares = factor(daycares),
+          education = factor(education),
+          work_from_home = factor(work_from_home),
+          prov_vacc_prop = PROV_vaxx_AL1D/PHU_population
+          
+      )
     
     # tables for descriptive data
     covariates <- list()
@@ -184,6 +158,8 @@ cohorts <- function(start_age, end_age, ...)
     
     start_time <- Sys.time()
     
+    ### ALL THE GLM-SPECIFIC CODE HAS BEEN COMMENTED, RATHER THAN REMOVED
+    
     for(wave_number in 1:4)
     {
         writeLines(sprintf("Wave: %s", wave_number))
@@ -192,9 +168,8 @@ cohorts <- function(start_age, end_age, ...)
             dplyr::filter(wave == wave_number) %>%
             # information not needed for debugging anymore
             dplyr::select(
-                -province, -HRUID2018, -HR, -pruid, -PROV_vaxx_AL1D, 
-                -log_previous_wave_incidence, -PROV_population, -PHU_population, 
-                -wave
+                -province, -HRUID2018, -HR, -pruid, -PROV_vaxx_AL1D,  
+                -PROV_population, -PHU_population, -wave, -PHU_pop_density
             ) %>%
             # take out the columns with only a single value
             dplyr::select(where(~n_distinct(.) > 1)) %>%
@@ -222,94 +197,100 @@ cohorts <- function(start_age, end_age, ...)
             dplyr::select(-any_of(aliased_columns)) %>%
             dplyr::filter(! incidence %in% outlying_incidences)
         
-        correlations[[wave_number]] <- Reduce(
-            function(x, y) merge(x, y, by="regressor", all=TRUE),
-            list(
-                reg_data_here %>% 
-                    dplyr::select(-dplyr::starts_with("interaction")) %>% 
-                    pcor(.) %>% 
-                    .$estimate %>%
-                    data.table(regressor=rownames(.), .) %>% 
-                    dplyr::select(regressor, incidence) %>%
-                    dplyr::rename(partial_corr.val = incidence),
-                reg_data_here %>% 
-                    dplyr::select(-dplyr::starts_with("interaction")) %>% 
-                    pcor(.) %>% 
-                    .$p.value %>% 
-                    round(., 4) %>%
-                    data.table(regressor=rownames(.), .) %>% 
-                    dplyr::select(regressor, incidence) %>%
-                    dplyr::rename(partial_corr.p = incidence),
-                reg_data_here %>% 
-                    dplyr::select(-dplyr::starts_with("interaction")) %>% 
-                    cor(.) %>% 
-                    data.table(regressor=rownames(.), .) %>% 
-                    dplyr::select(regressor, incidence) %>% 
-                    dplyr::rename(normal_cor.val = incidence),
-                reg_data_here %>%
-                    .[, 
-                        lapply(.SD, \(x) round(cor.test(incidence, x)$p.value, 4)), 
-                        .SDcols = names(reg_data_here) %>% 
-                          .[!grepl("interaction", .)]
-                    ] %>% 
-                    data.table(regressor = names(.), transpose(.)) %>% 
-                    dplyr::rename(normal_corr.p = V1) %>% 
-                    dplyr::select(regressor, normal_corr.p)
-                )) %>% 
-            dplyr::mutate(wave = wave_number) %>%
-            dplyr::relocate(wave)
-        
-        x_full <- as.matrix(reg_data_here %>% dplyr::select(-incidence))
+        # correlations[[wave_number]] <- Reduce(
+        #     function(x, y) merge(x, y, by="regressor", all=TRUE),
+        #     list(
+        #         reg_data_here %>% 
+        #             dplyr::select(-dplyr::starts_with("interaction")) %>% 
+        #             pcor(.) %>% 
+        #             .$estimate %>%
+        #             data.table(regressor=rownames(.), .) %>% 
+        #             dplyr::select(regressor, incidence) %>%
+        #             dplyr::rename(partial_corr.val = incidence),
+        #         reg_data_here %>% 
+        #             dplyr::select(-dplyr::starts_with("interaction")) %>% 
+        #             pcor(.) %>% 
+        #             .$p.value %>% 
+        #             round(., 4) %>%
+        #             data.table(regressor=rownames(.), .) %>% 
+        #             dplyr::select(regressor, incidence) %>%
+        #             dplyr::rename(partial_corr.p = incidence),
+        #         reg_data_here %>% 
+        #             dplyr::select(-dplyr::starts_with("interaction")) %>% 
+        #             cor(.) %>% 
+        #             data.table(regressor=rownames(.), .) %>% 
+        #             dplyr::select(regressor, incidence) %>% 
+        #             dplyr::rename(normal_cor.val = incidence),
+        #         reg_data_here %>%
+        #             .[, 
+        #                 lapply(.SD, \(x) round(cor.test(incidence, x)$p.value, 4)), 
+        #                 .SDcols = names(reg_data_here) %>% 
+        #                   .[!grepl("interaction", .)]
+        #             ] %>% 
+        #             data.table(regressor = names(.), transpose(.)) %>% 
+        #             dplyr::rename(normal_corr.p = V1) %>% 
+        #             dplyr::select(regressor, normal_corr.p)
+        #         )) %>% 
+        #     dplyr::mutate(wave = wave_number) %>%
+        #     dplyr::relocate(wave)
+        # 
+        # x_full <- as.matrix(reg_data_here %>% dplyr::select(-incidence))
         y_full <- as.matrix(reg_data_here$incidence, ncol=1)
-        
-        fits[[wave_number]] <- glmnet(x_full, y_full, alpha = 0)
-        
-        cv_model <- cv.glmnet(
-            x = x_full,
-            y = y_full,
-            alpha = 0,
-            family = "gaussian",
-            lower = 0,
-            upper = 1
-        )
 
-        optim.lambda <- cv_model$lambda.min
-    
-        glm_fit <- glmnet(x_full, y_full, alpha = 0, lambda = optim.lambda)
-        ridge_predictions <- predict(glm_fit, s = optim.lambda, newx = x_full)
+        # fits[[wave_number]] <- glmnet(x_full, y_full, alpha = 0)
+        # 
+        # cv_model <- cv.glmnet(
+        #     x = reg_data_here %>% dplyr::select(-incidence) %>% data.frame,
+        #     y = y_full,
+        #     alpha = 0,
+        #     family = "gaussian",
+        #     lower = 0,
+        #     upper = 1
+        # )
         
-        Information.Ridge.glmnet <- data.table(
-            type = "Ridge.glmnet",
-            wave = wave_number,
-            regressor = glm_fit$beta@Dimnames[[1]],
-            coefficient = glm_fit$beta@x
-        )
-        
-        ridge_fit = ridge.proj(
-            x = x_full,
-            y = y_full,
-            family="gaussian",
-            lambda = optim.lambda
-        )
-    
-        Information.Ridge.hdi <- cbind(
-                ridge_fit$bhat, ridge_fit$se, ridge_fit$pval, ridge_fit$sds
-            ) %>%
-            data.table(regressor = rownames(.)) %>%
-            dplyr::rename(coefficient=V1, se=V2, p.value=V3, sds=V4) %>%
-            dplyr::mutate(
-                type = "Ridge.hdi",
-                wave = wave_number,
-                CI025 = coefficient-1.96*se,
-                CI975 = coefficient+1.96*se
-            ) %>%
-            dplyr::relocate(wave, regressor)
+        # 
+        # optim.lambda <- cv_model$lambda.min
+        # 
+        # glm_fit <- glmnet(x_full, y_full, alpha = 0, lambda = optim.lambda)
+        # ridge_predictions <- predict(glm_fit, s = optim.lambda, newx = x_full)
+        # 
+        # print("here1")
+        # 
+        # Information.Ridge.glmnet <- data.table(
+        #     type = "Ridge.glmnet",
+        #     wave = wave_number,
+        #     regressor = glm_fit$beta@Dimnames[[1]],
+        #     coefficient = glm_fit$beta@x
+        # )
+        # 
+        # print("here1")
+        # 
+        # ridge_fit = ridge.proj(
+        #     x = x_full,
+        #     y = y_full,
+        #     family="gaussian",
+        #     lambda = optim.lambda
+        # )
+        # 
+        # print("here1")
+        # 
+        # Information.Ridge.hdi <- cbind(
+        #         ridge_fit$bhat, ridge_fit$se, ridge_fit$pval, ridge_fit$sds
+        #     ) %>%
+        #     data.table(regressor = rownames(.)) %>%
+        #     dplyr::rename(coefficient=V1, se=V2, p.value=V3, sds=V4) %>%
+        #     dplyr::mutate(
+        #         type = "Ridge.hdi",
+        #         wave = wave_number,
+        #         CI025 = coefficient-1.96*se,
+        #         CI975 = coefficient+1.96*se
+        #     ) %>%
+        #     dplyr::relocate(wave, regressor)
+        # 
+        # print("here1")
         
         # comparison with OLS regression
-        OLS_model <- lm(
-            incidence ~ ., 
-            data = reg_data_here %>% dplyr::select(-any_of(aliased_columns))
-        )
+        OLS_model <- lm(incidence ~ ., data = reg_data_here)
         
         OLS.confidence <- confint(OLS_model, level=0.95) %>%
             data.table(regressor=rownames(.)) %>%
@@ -344,40 +325,51 @@ cohorts <- function(start_age, end_age, ...)
         
         ##### COLLECTING DATA
 
-        covariates[[wave_number]] <- paste(names(reg_data_here), collapse=", ")
+        # covariates[[wave_number]] <- paste(names(reg_data_here), collapse=", ")
     
         Information <- rbind(
             Information,
-            Information.Ridge.glmnet,
-            Information.Ridge.hdi, 
+            # Information.Ridge.glmnet,
+            # Information.Ridge.hdi, 
             Information.OLS,
             fill = TRUE
         )
     
-        optimal_lambdas <- rbind(
-            optimal_lambdas,
-            data.table(wave=wave_number, optimal.lambda=optim.lambda)
-        )
+        # optimal_lambdas <- rbind(
+        #     optimal_lambdas,
+        #     data.table(wave=wave_number, optimal.lambda=optim.lambda)
+        # )
+        if(wave_number == 1){
+            VIFs <- rbind(VIFs, data.table(
+                regressor = rownames(data.frame(vif)),
+                value = as.numeric(vif),
+                wave = wave_number
+            ))
+        } else {
+            VIFs <- rbind(VIFs, data.table(
+                regressor = rownames(data.frame(vif)),
+                value = as.numeric(data.table(vif)$GVIF),
+                wave = wave_number
+            ))
+        }
         
-        VIFs <- rbind(VIFs, data.table(
-            regressor = names(vif),
-            value = as.numeric(vif),
-            wave = wave_number
-        ))
-        
-        MSEs <- rbind(MSEs, data.table(
-            wave = wave_number, lambda = cv_model$lambda, meann = cv_model$cvm,
-            sdd = cv_model$cvsd, upper = cv_model$cvup, lower = cv_model$cvlo
-        ))
+        # MSEs <- rbind(MSEs, data.table(
+        #     wave = wave_number, 
+        #     lambda = cv_model$lambda, 
+        #     meann = cv_model$cvm,
+        #     sdd = cv_model$cvsd, 
+        #     upper = cv_model$cvup, 
+        #     lower = cv_model$cvlo
+        # ))
         
         r2s <- rbind(
             r2s,
             data.table(
                 wave = wave_number,
-                Ridge.r2 = r2(y_full, ridge_predictions),
-                Ridge.RMSE = cv_model$cvm %>%
-                    .[which(cv_model$lambda == optim.lambda)] %>%
-                    sqrt(),
+                # Ridge.r2 = r2(y_full, ridge_predictions),
+                # Ridge.RMSE = cv_model$cvm %>%
+                #     .[which(cv_model$lambda == optim.lambda)] %>%
+                #     sqrt(),
                 OLS.r2 = summary(OLS_model)$r.squared,
                 OLS.RMSE = RMSE
             )
@@ -388,12 +380,12 @@ cohorts <- function(start_age, end_age, ...)
             data.table(
                 wave = wave_number,
                 incidence = as.numeric(y_full), 
-                glmnet = as.numeric(ridge_predictions), 
+                # glmnet = as.numeric(ridge_predictions), 
                 lm = unname(predict(OLS_model))
             )
         )
         
-        cv_models[[wave_number]] <- cv_model
+        # cv_models[[wave_number]] <- cv_model
     }
     
     print(Sys.time() - start_time)
@@ -413,62 +405,6 @@ cohorts <- function(start_age, end_age, ...)
             correlations = correlations,
             added_var_data = added_var_data
         ),
-        file=file.path(PROJECT_FOLDER, "Classifications/regression_results.rda")
+        file=file.path(PROJECT_FOLDER, "Classifications/regression_results_OLS.rda")
     )
 }
-
-# added_variable_plot <- function(data_tab=reg_data_here, response="incidence", covar="is_miz_moderate")
-# {
-#     if(response == covar) return(data.table())
-#     if(! response %in% names(data_tab)) return(data.table())
-#     if(! covar %in% names(data_tab)) return(data.table())
-#     
-#     # writeLines(sprintf("\tCovariate: %s", covar))
-#     
-#     # the Y regression
-#     Y_x_full <- as.matrix(data_tab %>% dplyr::select(-dplyr::any_of(c(response, covar))))
-#     Y_y_full <- as.matrix(data_tab[[response]], ncol=1)
-#     
-#     Y_cv_model <- cv.glmnet(Y_x_full, Y_y_full, alpha = 0, family = "gaussian")
-#     Y_glm_fit <- glmnet(Y_x_full, Y_y_full, alpha = 0, lambda = Y_cv_model$lambda.min)
-#     Y_ridge_predictions <- predict(Y_glm_fit, s = Y_cv_model$lambda.min, newx = Y_x_full)
-#     
-#     Y_regression_residuals <- Y_y_full - Y_ridge_predictions
-#     
-#     # print(Y_regression_residuals)
-#     # print("here")
-#     
-#     # the X regression
-#     X_x_full <- as.matrix(data_tab %>% dplyr::select(-dplyr::any_of(c(covar, response))))
-#     X_y_full <- as.matrix(data_tab[[covar]], ncol=1)
-#     
-#     output <- tryCatch(
-#         {
-#             X_cv_model <- cv.glmnet(X_x_full, X_y_full, alpha = 0, family = "gaussian")
-#             X_glm_fit <- glmnet(X_x_full, X_y_full, alpha = 0, lambda = X_cv_model$lambda.min)
-#             X_ridge_predictions <- predict(X_glm_fit, s = X_cv_model$lambda.min, newx = X_x_full)
-#             
-#             X_regression_residuals <- X_y_full - X_ridge_predictions
-#             
-#             all_resid <- data.table(
-#                 regressor =  covar,
-#                 wave = wave_number,
-#                 x = as.numeric(X_regression_residuals),
-#                 y = as.numeric(Y_regression_residuals)
-#             )
-#         },
-#         error = function(e){ writeLines(sprintf(
-#             "\twave: %s, covariate: %s,\n\t\terror: %s.\n", 
-#             wave_number, covar, e
-#         )) },
-#         warning = function(w) message(w)
-#     )
-#     
-#     return(output)
-# }
-# 
-# added_var_data[[wave_number]] <- rbindlist(lapply(
-#     reg_data_here %>% names %>% .[. != "incidence"],
-#     \(xx) added_variable_plot(reg_data_here, "incidence", xx)
-# ))
-

@@ -7,7 +7,8 @@ library(plotly)
 library(stringr)
 library(sf)
 
-PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
+# PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
+PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project"
 
 source(file.path(PROJECT_FOLDER, "function_header.R"))
 
@@ -17,7 +18,7 @@ dir.create(file.path(PROJECT_FOLDER, "Graphs"), showWarnings=FALSE)
 
 # get the code from the refresh_data file
     
-##################### AIRPORT LOCATIONS ON THE MAP
+##################### LTCH LOCATIONS ON THE MAP
 
 All_LTCHs <- fread(file.path(PROJECT_FOLDER, "Classifications/LTCH_locations.csv")) %>%
     dplyr::mutate(geometry = lapply(geometry, \(xx) st_point(as.numeric(strsplit(xx, "\\|")[[1]])))) %>%
@@ -144,7 +145,7 @@ pl_canada_waves <- ggplot(
 
 ggsave(
         pl_canada_waves,
-        file = file.path(PROJECT_FOLDER, "Graphs/canadawaves.png"),
+        file = file.path(PROJECT_FOLDER, "Graphs/canada_waves.png"),
         height=5, width=10
     )
 
@@ -152,7 +153,7 @@ ggsave(
 
 Regions <- data.table(readRDS(file.path(
         PROJECT_FOLDER,
-        "CaseDataTables/Regions.rda"
+        "Spatial_Features/Regions.rda"
     )))
 
 province_metrics <- Regions[, .(
@@ -171,12 +172,13 @@ scaling <- province_metrics[, max(num_HR)/max(num_csd)]
 SAC_distribution <- ggplot(
         province_metrics,
         aes(x=str_wrap(alpha, 15), group=province)
+        # aes(x=str_wrap(province, 15), group=province)
     ) +
     geom_bar(aes(y=num_HR), position="dodge", stat="identity") +
     geom_line(aes(y=num_csd*scaling, group=1), colour="blue", alpha=0.75, size=2) +
     scale_y_continuous(
         sec.axis=sec_axis(trans=~./scaling, name="Census subdivisions contained"),
-        expand=c(0,0)
+        expand=c(0,0), limits = c(0, 35), breaks = seq(0, 35, by=5)
     ) +
     labs(y="Public Health Units", x="Province") +
     theme_bw() +
@@ -198,7 +200,7 @@ SAC_distribution <- ggplot(
 
 ggsave(
         SAC_distribution,
-        file=sprintf("%s/Graphs/SACdistribution.png", PROJECT_FOLDER),
+        file=sprintf("%s/Graphs/SAC_distribution.png", PROJECT_FOLDER),
         width=10, height=4
     )
 
@@ -206,7 +208,7 @@ ggsave(
 
 Regression_Data <- readRDS(file.path(
     PROJECT_FOLDER,
-    "Classifications/regression_results.rda"
+    "Classifications/regression_results_OLS.rda"
 ))
 
 ############## INFO FOR LATEX TABLES
@@ -226,15 +228,15 @@ dplyr::mutate(pretty_regressor = factor(regressor, levels = c(
 ))) %>%
 dplyr::mutate(pretty_regressor = dplyr::recode(regressor,
     "LTCHs" = "LTCH",
-    "education" = "School",
-    "daycares" = "Daycare",
-    "work_from_home" = "WFH",
-    "EIs" = "E",
-    "group_0_to_4" = "$C_{0-4}$",
-    "group_5_to_19" = "$C_{5-19}$",
-    "group_20_to_49" = "$C_{20-49}$",
-    "group_50_to_64" = "$C_{50-64}$",
-    "group_65_plus" = "$C_{\\ge65}$",
+    "education" = "$E$",
+    "daycares" = "$X$",
+    "work_from_home" = "$Y$",
+    "EIs" = "$E$",
+    "group_0_to_4" = "$A_{0-4}$",
+    "group_5_to_19" = "$A_{5-19}$",
+    "group_20_to_49" = "$A_{20-49}$",
+    "group_50_to_64" = "$A_{50-64}$",
+    "group_65_plus" = "$A_{65+}$",
     "PHU_pop_density" = "$D$",
     "interaction_children_school_closures" = "$E\\cdot C_{5-19}$",
     "is_cma" = "CMA",
@@ -243,25 +245,33 @@ dplyr::mutate(pretty_regressor = dplyr::recode(regressor,
     "is_miz_moderate" = "Moderate",
     "is_miz_weak" = "Weak",
     "is_miz_none" = "None",
-    "previous_wave_incidence" = "$Y_{u-1}$",
+    "previous_wave_incidence" = "$C_{u-1}$",
     "interaction_popdensity_cma" = "$D\\cdot\\text{CMA}$",
     "interaction_popdensity_ca" = "$D\\cdot\\text{CA}$",
-    "interaction_popdensity_moderate"="$D\\cdot\\text{MIZ}_{\\text{moderate}}$",
-    "interaction_popdensity_strong" = "$D\\cdot\\text{MIZ}_{\\text{strong}}$",
-    "interaction_popdensity_weak" = "$D\\cdot\\text{MIZ}_{\\text{weak}}$",
-    "interaction_popdensity_none" = "$D\\cdot\\text{MIZ}_{\\text{none}}$",
-    "interaction_vaccination_0_to_4" = "$v_{\\text{prov}}\\cdot C_{0-4}$",
-    "interaction_vaccination_5_to_19" = "$v_{\\text{prov}}\\cdot C_{5-19}",
-    "interaction_vaccination_20_to_49" = "$v_{\\text{prov}}\\cdot C_{20-49}$",
-    "interaction_vaccination_50_to_64" = "$v_{\\text{prov}}\\cdot C_{50-64}$",
-    "interaction_vaccination_50_to_64" = "$v_{\\text{prov}}\\cdot C_{50-64}$",
-    "interaction_vaccination_65_plus" = "$v_{\\text{prov}}\\cdot C_{\\ge65}$",
+    "interaction_popdensity_moderate"="$D\\cdot\\text{Moderate}$",
+    "interaction_popdensity_strong" = "$D\\cdot\\text{Strong}$",
+    "interaction_popdensity_weak" = "$D\\cdot\\text{Weak}$",
+    "interaction_popdensity_none" = "$D\\cdot\\text{None}$",
+    "interaction_vaccination_0_to_4" = "$v_{prov}\\cdot C_{0-4}$",
+    "interaction_vaccination_5_to_19" = "$v_{prov}\\cdot C_{5-19}$",
+    "interaction_vaccination_20_to_49" = "$v_{prov}\\cdot C_{20-49}$",
+    "interaction_vaccination_50_to_64" = "$v_{prov}\\cdot C_{50-64}$",
+    "interaction_vaccination_50_to_64" = "$v_{prov}\\cdot C_{50-64}$",
+    "interaction_vaccination_65_plus" = "$v_{prov}\\cdot C_{\\ge65}$",
     "interaction_LTCH_65_plus" = "$\\text{LTCH}\\cdot C_{\\ge65}$",
     "interaction_LTCHs_65_plus" = "$\\text{LTCH}\\cdot C_{\\ge65}$",
-    "interaction_20_to_49_WFH" = "$\\text{WFH}\\cdot C_{20-49}$",
-    "interaction_50_to_64_WFH" = "$\\text{WFH}\\cdot C_{50-64}$",
-    "interaction_65_plus_WFH" = "$\\text{WFH}\\cdot C_{\\ge65}$",
-    "interaction_babies_daycare_closures" = "$\\text{Daycare}\\cdot C_{0-4}$"
+    "interaction_20_to_49_WFH" = "$Y\\cdot C_{20-49}$",
+    "interaction_50_to_64_WFH" = "$Y\\cdot C_{50-64}$",
+    "interaction_65_plus_WFH" = "$Y\\cdot C_{\\ge65}$",
+    "interaction_babies_daycare_closures" = "$X\\cdot C_{0-4}$",
+    "daycares1" = "$X_{partial}$",
+    "daycares2" = "$X_{entire}$",
+    "education1" = "$E_{partial}$",
+    "education2" = "$E_{entire}$",
+    "work_from_home1" = "$Y_{partial}$",
+    "work_from_home2" = "$Y_{entire}$",
+    "prov_vacc_prop" = "$v_p$",
+    "previous_waves_incidence" = "$C_{previous}$"
 )))
 
 latex_regression_coefficients <- Reduce(
@@ -285,51 +295,75 @@ latex_regression_coefficients <- Reduce(
             setNames(sprintf("OLS.%s", names(.))) %>%
             dplyr::rename(wave=OLS.wave, regressor=OLS.regressor)
     )) %>%
+    # take out the all NA rows
+    Filter(function(x) !all(is.na(x)), .) %>%
     dplyr::filter(!grepl("intercept", tolower(regressor))) %>%
     dplyr::select(wave, regressor, matches("coefficient|CI|p.value")) %>%
     dplyr::mutate(
-        Ridge.hdi = ifelse(
-            Ridge.hdi.p.value < 0.001,
-            sprintf(
-                "$%.4f\\;(%.4f,\\;%.4f),\\;p < 0.001$",
-                Ridge.hdi.coefficient, Ridge.hdi.CI025, Ridge.hdi.CI975
-            ),
-            sprintf("$%.4f\\;(%.4f,\\;%.4f),\\;p = %.4f$",
-                    Ridge.hdi.coefficient, Ridge.hdi.CI025, 
-                    Ridge.hdi.CI975, Ridge.hdi.p.value
-            )
-        ),
-        Ridge.glmnet = sprintf("$%.3f$", Ridge.glmnet.coefficient),
-        OLS = ifelse(
-            OLS.p.value < 0.001,
-            sprintf("$%.4f\\;(%.4f,\\;%.4f),\\;p < 0.001$", 
-                    OLS.coefficient, OLS.CI025, OLS.CI975
-            ),
-            sprintf("$%.4f\\;(%.4f,\\;%.4f),\\;p = %.4f$", 
-                    OLS.coefficient, OLS.CI025, OLS.CI975,
-                    OLS.p.value
-            )
-        )
+        # Ridge.hdi = ifelse(
+        #     Ridge.hdi.p.value < 0.001,
+        #     sprintf(
+        #         "$%.4f\\;(%.4f,\\;%.4f),\\;p < 0.001$",
+        #         Ridge.hdi.coefficient, Ridge.hdi.CI025, Ridge.hdi.CI975
+        #     ),
+        #     sprintf("$%.4f\\;(%.4f,\\;%.4f),\\;p = %.4f$",
+        #             Ridge.hdi.coefficient, Ridge.hdi.CI025, 
+        #             Ridge.hdi.CI975, Ridge.hdi.p.value
+        #     )
+        # ),
+        # Ridge.glmnet = sprintf("$%.3f$", Ridge.glmnet.coefficient),
+        # OLS = ifelse(
+        #     OLS.p.value < 0.001,
+        #     sprintf("$%.4f\\;(%.4f,\\;%.4f),\\;p < 0.001$", 
+        #             OLS.coefficient, OLS.CI025, OLS.CI975
+        #     ),
+        #     sprintf("$%.4f\\;(%.4f,\\;%.4f),\\;p = %.4f$", 
+        #             OLS.coefficient, OLS.CI025, OLS.CI975,
+        #             OLS.p.value
+        #     )
+        # )
+        OLS.coefficient = sprintf("%.4f", OLS.coefficient),
+        OLS.p.value = sprintf("%.4f", OLS.p.value),
+        OlS.confidence_interval = sprintf("(%.4f, %.4f)", OLS.CI025, OLS.CI975)
     ) %>%
-    dplyr::select(wave, regressor, Ridge.hdi, Ridge.glmnet, OLS)
+    dplyr::select(wave, regressor, matches("OLS"), -matches("\\.CI")) # Ridge.hdi, Ridge.glmnet, 
 
-# latex_regression_coefficients %>% 
+latex_regression_coefficients %>% 
+    pretty_variable_names() %>% 
+    dplyr::select(-regressor) %>% 
+    dplyr::relocate(pretty_regressor) %>% 
+    xtable() %>% 
+    print.xtable(include.rownames=FALSE)
+
+# latex_regression_coefficients %>%
 #     pretty_variable_names() %>%
-#     dplyr::select(-regressor) %>% 
-#     dplyr::rename(regressor = pretty_regressor) %>% 
-#     dplyr::relocate(regressor) %>% 
-#     dplyr::filter(wave == 2) %>% 
-#     dplyr::select(-wave, -Ridge.glmnet) %>% 
-#     xtable %>% 
-#     print.xtable(include.rownames=FALSE)
-
-# Regression_Data$VIF %>% 
-#     dplyr::filter(wave == 2) %>% 
-#     pretty_variable_names() %>% 
-#     dplyr::select(-regressor) %>% 
-#     dplyr::relocate(pretty_regressor) %>% 
+#     dplyr::select(-regressor) %>%
+#     dplyr::rename(regressor = pretty_regressor) %>%
+#     dplyr::relocate(regressor) %>%
+#     dplyr::filter(wave == 4) %>%
+#     dplyr::select(-wave, -Ridge.glmnet) %>%
 #     xtable %>%
 #     print.xtable(include.rownames=FALSE)
+
+Reduce(
+        function(x, y) merge(x, y, by="regressor", all=TRUE),
+        list(
+            Regression_Data$VIF %>% dplyr::filter(wave==1) %>% dplyr::rename(value_wave_1 = value) %>% dplyr::select(-wave),
+            Regression_Data$VIF %>% dplyr::filter(wave==2) %>% dplyr::rename(value_wave_2 = value) %>% dplyr::select(-wave),
+            Regression_Data$VIF %>% dplyr::filter(wave==3) %>% dplyr::rename(value_wave_3 = value) %>% dplyr::select(-wave),
+            Regression_Data$VIF %>% dplyr::filter(wave==4) %>% dplyr::rename(value_wave_4 = value) %>% dplyr::select(-wave)
+        )
+    ) %>%
+    pretty_variable_names() %>%
+    dplyr::relocate(pretty_regressor) %>%
+    dplyr::select(-regressor) %>%
+    xtable %>%
+    print.xtable(include.rownames=FALSE)
+
+# Regression_Data$information %>%
+#     dplyr::select(wave, Ridge.r2, OLS.r2, Ridge.RMSE, OLS.RMSE) %>%
+#     xtable() %>%
+#     print.xtable(include.rownames = FALSE)
 
 fwrite(
     latex_regression_coefficients %>% 
@@ -348,7 +382,9 @@ fwrite(
 fwrite(
     latex_regression_coefficients %>% 
         pretty_variable_names() %>% 
-        dplyr::arrange(regressor), 
+        dplyr::arrange(wave, pretty_regressor) %>%
+        dplyr::select(-regressor) %>%
+        dplyr::relocate(pretty_regressor),
     file = file.path(
         PROJECT_FOLDER, 
         "Classifications/latex_regression_coefficients.csv"
@@ -372,28 +408,28 @@ latex_regression_descriptives <- Regression_Data$raw_data %>%
     dplyr::summarise(across(
         names(.),
         \(x) sprintf(
-            "%.3f (%.3f), range: (%.3f,\\;%.3f), IQR: %.3f",
+            "%.3f (%.3f), range: (%.3f, %.3f), IQR: %.3f",
             mean(x), sd(x), min(x), max(x), IQR(x)
         )
     )) %>%
     as.list %>%
     data.table(regressor = names(.), description = .) %>%
     dplyr::mutate(regressor = dplyr::recode(regressor,
-        "PHU_population (x 1000)" = "Population",
-        "PHU_pop_density" = "Population Density",
-        "group_0_to_4 (x 100)" = "$C_{0-4}$",
-        "group_5_to_19 (x 100)" = "$C_{5-19}$",
-        "group_20_to_49 (x 100)" = "$C_{20-49}$",
-        "group_50_to_64 (x 100)" = "$C_{50-64}$",
-        "group_65_plus (x 100)" = "$C_{\\ge65}$",
+        "PHU_population" = "Population (PHU, x 1000)",
+        "PHU_pop_density" = "Population Density (PHU)",
+        "group_0_to_4" = "$C_{0-4}$ (x 100)",
+        "group_5_to_19" = "$C_{5-19}$ (x 100)",
+        "group_20_to_49" = "$C_{20-49}$ (x 100)",
+        "group_50_to_64" = "$C_{50-64}$ (x 100)",
+        "group_65_plus" = "$C_{\\ge65}$ (x 100)",
         "is_cma" = "CMA",
         "is_ca" = "CA",
-        "is_miz_strong" = "MIZ textsubscript{strong}",
-        "is_miz_moderate" = "MIZ textsubscript{mod}",
-        "is_miz_weak" = "MIZ textsubscript{weak}",
-        "is_miz_weak" = "MIZ textsubscript{weak}",
-        "is_miz_none" = "MIZ textsubscript{none}"
+        "is_miz_strong" = "Strong",
+        "is_miz_moderate" = "Moderate",
+        "is_miz_weak" = "Weak",
+        "is_miz_none" = "None"
     ))
+# latex_regression_descriptives %>% xtable %>% print.xtable(include.rownames=FALSE)
 fwrite(
     latex_regression_descriptives, 
     file = file.path(
@@ -412,6 +448,8 @@ fwrite(
     latex_vif_tables, 
     file.path(PROJECT_FOLDER, "Classifications/regression_vif_tables.csv")
 )
+
+stop()
 
 ############# GRAPH PLOTTING CODE
 
@@ -622,39 +660,36 @@ graph_parsing_sugar <- function(xx)
     dplyr::mutate(pretty_regressor = dplyr::recode(regressor,
         "is_cma" ="(R1)~CMA", 
         "is_ca" = "(R2)~CA",
-        "is_miz_strong" = "(R3)~Strong",
-        "is_miz_moderate" = "(R4)~Moderate", 
-        "is_miz_weak" = "(R5)~Weak",
-        "is_miz_none" = "(R6)~None",
+        "is_miz_strong" = "(R3)~MIZ['S']",
+        "is_miz_moderate" = "(R4)~MIZ['M']", 
+        "is_miz_weak" = "(R5)~MIZ['W']",
+        "is_miz_none" = "(R6)~MIZ['N']",
         "LTCHs" = "(R7)~LTCH",
-        "group_0_to_4" = "(A1)~C['0-4']",
-        "group_5_to_19" = "(A2)~C['5-19']",
-        "group_20_to_49" = "(A3)~C['20-49']",
-        "group_50_to_64" = "(A4)~C['50-64']",
-        "group_65_plus" = "(A5)~C['\u2265 65']",
+        "group_0_to_4" = "(A1)~A['0-4']",
+        "group_5_to_19" = "(A2)~A['5-19']",
+        "group_20_to_49" = "(A3)~A['20-49']",
+        "group_50_to_64" = "(A4)~A['50-64']",
+        "group_65_plus" = "(A5)~A['65+']",
         # "(D1)~D\U00B7" - I can;t find out how to get the centre dot
         # without an error, so will fix this later on
-        "previous_wave_incidence" = "(P)~Y['u-1']",
+        "previous_wave_incidence" = "(P)~C['u-1']",
         "PHU_pop_density" = "(D0)~D",
         "interaction_popdensity_cma" = "(D1)~D:CMA", 
         "interaction_popdensity_ca" = "(D2)~D:CA",
-        "interaction_popdensity_strong" = "(D3)~D:MIZ['strong']",
-        "interaction_popdensity_moderate" = "(D4)~D:MIZ['mod']", 
-        "interaction_popdensity_weak" = "(D5)~D:MIZ['weak']",
-        "interaction_popdensity_none" = "(D6)~D:MIZ['none']",
-        "interaction_children_school_closures" = "(S1)~E:C['5-19']",
-        "interaction_vaccination_0_to_4" = "(V1)~v['prov']:C['0-4']",
-        "interaction_vaccination_5_to_19" = "(V2)~v['prov']:C['5-19']",
-        "interaction_vaccination_20_to_49" = "(V3)~v['prov']:C['20-49']",
-        "interaction_vaccination_50_to_64" = "(V4)~v['prov']:C['50-64']",
-        "interaction_vaccination_65_plus" = "(V5)~v['prov']:C['\u2265 65']",
-        "interaction_20_to_49_WFH" = "(W1)~WFH:C['20-49']",
-        "interaction_50_to_64_WFH" = "(W2)~WFH:C['50-64']",
-        "interaction_65_plus_WFH" = "(W3)~WFH:C['\u2265 65']",
-        "education" = "(S)~School",
-        "work_from_home" = "(W0)~WFH",
-        "daycares" = "(B0)~Daycares",
-        "interaction_babies_daycare_closures" = "(B1)~Daycares:C['0-4']"
+        
+        "interaction_children_school_closures" = "(S1)~E:A['5-19']",
+        "interaction_vaccination_0_to_4" = "(V1)~v['p']:A['0-4']",
+        "interaction_vaccination_5_to_19" = "(V2)~v['p']:A['5-19']",
+        "interaction_vaccination_20_to_49" = "(V3)~v['p']:A['20-49']",
+        "interaction_vaccination_50_to_64" = "(V4)~v['p']:A['50-64']",
+        "interaction_vaccination_65_plus" = "(V5)~v['p']:A['65+']", # \u2265 
+        "interaction_20_to_49_WFH" = "(W1)~Y:A['20-49']",
+        "interaction_50_to_64_WFH" = "(W2)~Y:A['50-64']",
+        "interaction_65_plus_WFH" = "(W3)~Y:A['65+']",
+        "education" = "(S)~E",
+        "work_from_home" = "(W0)~Y",
+        "daycares" = "(B0)~X", 
+        "interaction_babies_daycare_closures" = "(B1)~X:A['0-4']"
     ))
 )}
 
@@ -680,7 +715,7 @@ pl_regression_by_wave_hdi_only <- ggplot(
         axis.title = element_text(size = 15),
         strip.text = element_text(size = 13)
     ) +
-    labs(x="Epidemiological Wave", y="Regression Coefficient")
+    labs(x="Pandemic Wave", y="Regression Coefficient")
 
 ggsave(
     pl_regression_by_wave_hdi_only, 

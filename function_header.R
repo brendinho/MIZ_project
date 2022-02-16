@@ -10,7 +10,8 @@
 library(dplyr)
 library(data.table)
 
-PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
+# PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
+PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project"
 
 trim_image <- function(xx){ system(sprintf("convert %s/Graphs/%s -trim %s/Graphs/%s", PROJECT_FOLDER, xx, PROJECT_FOLDER, xx)) }
 

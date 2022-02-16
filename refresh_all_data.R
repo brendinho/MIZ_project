@@ -8,7 +8,9 @@ library(sf)
 library(openxlsx)
 library(CanCovidData)
 
-PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
+# Ubuntu apparently doesn't like the rstudio API, so I manually set the project folder
+# PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
+PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project/"
 
 setwd(PROJECT_FOLDER)
 
@@ -19,6 +21,8 @@ source(sprintf("%s/function_header.R", PROJECT_FOLDER))
 
 start_time <- Sys.time()
 
+# the province profiles are mostly greater than 2505MB, so re-unzip the province profile zips, 
+# else this code makes no sense
 if(! file.exists(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv")))
 {
     province_folder_map <- data.table(
@@ -138,6 +142,7 @@ if(! file.exists(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv"
     fwrite(CSD_data, file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv"))
 }
 
+# reload the data that we cleaned in the above loop
 CSD_data <- fread(file.path(PROJECT_FOLDER, "Classifications/CSD_age_cohorts.csv"))
 
 writeLines("\nreading and parsing local SAC info")
@@ -226,6 +231,7 @@ writeLines("\nreading and parsing local SAC info")
             ) %>%
             dplyr::select(-Code, -`Census subdivision`)}
 
+    # get all the remoteness information together and make a table for merging
     Influence_Info <- rbind(CMAs, CAs, MIZ_strong, MIZ_moderate, MIZ_weak, MIZ_none, fill=T) %>%
         dplyr::mutate(
             title = paste0(title, " (", class, ")"),
@@ -243,7 +249,7 @@ writeLines("\nreading and parsing local SAC info")
         dplyr::select(-geouid)
 }
 
-#### LONG TERM CARE HOMES
+#### number of LONG TERM CARE HOMES per PHU
 {
     LTCHs_per_PHU <- fread(file.path(PROJECT_FOLDER, "ODHF_v1.1/odhf_v1.1.csv")) %>%
         dplyr::rename_with(tolower) %>%
@@ -290,6 +296,7 @@ writeLines("\nreading and parsing local SAC info")
         dplyr::mutate(PROV_population = sum(PHU_population))
 }
 
+# get canada-wide vaccine administration data
 if(!file.exists(file.path(PROJECT_FOLDER, "/CaseDataTables/canada_wide_vacc_data_official.csv")))
 {
     fread(
@@ -304,15 +311,6 @@ province_populations <- PHU_information %>%
     dplyr::group_by(province) %>%
     dplyr::summarise(PROV_population = sum(PHU_population, na.rm=TRUE))
 
-# # retrieved 27 Nov 2021
-# if(! file.exists(file.path(PROJECT_FOLDER, "Interventions/covid-19-intervention-scan-data-tables-en.xlsx")) )
-# {
-#     download.file(
-#         "https://www.cihi.ca/sites/default/files/document/covid-19-intervention-scan-data-tables-en.xlsx",
-#         file.path(PROJECT_FOLDER, "Interventions/covid-19-intervention-scan-data-tables-en.xlsx")
-#     )
-# }
-
 ############ INTERVENTIONS
 {
     LUT <- rbind(
@@ -320,6 +318,7 @@ province_populations <- PHU_information %>%
             list("Canada", "Can.", "CN", -1, "Canada")
         ) %>% dplyr::select(province, abbreviations)
     
+    # vaccine administration data at the provincial level
     if(!file.exists( sprintf("%s/CaseDataTables/canada_wide_vacc_data_official.csv", PROJECT_FOLDER) ))
     {
         UofT_api_vaccine_data <- 
@@ -346,7 +345,19 @@ province_populations <- PHU_information %>%
         dplyr::select(-prfname)
     fwrite(vaxx_info, file.path(PROJECT_FOLDER, "Classifications/vaxx_info_dates.csv"))
     
+    # # retrieved 27 Nov 2021
+    # CIHI intervention scan metadata
+    # if(! file.exists(file.path(PROJECT_FOLDER, "Interventions/covid-19-intervention-scan-data-tables-en.xlsx")) )
+    # {
+    #     download.file(
+    #         "https://www.cihi.ca/sites/default/files/document/covid-19-intervention-scan-data-tables-en.xlsx",
+    #         file.path(PROJECT_FOLDER, "Interventions/covid-19-intervention-scan-data-tables-en.xlsx")
+    #     )
+    # }
     
+    # NPIs, specifically work-from-home, daycare closure and school closure mandates
+    # manually taken from the timeline on the CIHI webpage, and then cross-referenced with their intervention scan file,
+    # cleaned and parsed
     interventions <- read.xlsx(
             sprintf("%s/%s", PROJECT_FOLDER, "Interventions/scan-data-tables-covid-19-intervention-update13-en.xlsx"),
             sheet = "Intervention scan",
@@ -419,10 +430,12 @@ province_populations <- PHU_information %>%
         dplyr::select(entry.id, jurisdiction, type, action, date.implemented) %>%
         dplyr::arrange(jurisdiction, type, date.implemented)
     
+    # table of jurisdiction-type pairs used later for parsing
     tuple_table <- interventions %>% 
         dplyr::select(jurisdiction, type) %>% 
         unique
     
+    # for each legal jurisdiction-type combination, sort out the timeline by tightening-easing-tightening pattern
     interventions_display_table <- rbindlist(
         lapply(
             1:nrow(tuple_table),
@@ -464,10 +477,8 @@ province_populations <- PHU_information %>%
         ) %>%
         dplyr::filter(!is.na(start))
     
-    tuple_table <- interventions_display_table %>% 
-        dplyr::select(jurisdiction, type) %>% 
-        unique
-    
+
+    # table of whether the intervention was in place for none, part or the entire wave
     categorical_interventions_table <- lapply(
             unique(interventions_display_table$jurisdiction),
             \(xx){ 
@@ -502,14 +513,17 @@ province_populations <- PHU_information %>%
         rbindlist(fill=TRUE) %>%
         replace(is.na(.), "None")
         
-
+    # # use gg_vistime to plot the timelines of the interventions
+    # # there is a problem with the library where timelines of the same rank
+    # # aren't necessarily placed on the same level, so better to do them
+    # # intervention-by-intervention
     # interventions_timelimes_plot <- interventions_display_table %>%
     #     gg_vistime(
-    #         col.start = "start", 
-    #         col.end = "end", 
-    #         col.event = "type", #"type", 
-    #         col.group = "jurisdiction", 
-    #         col.color = "colour", 
+    #         col.start = "start",
+    #         col.end = "end",
+    #         col.event = "type", #"type",
+    #         col.group = "jurisdiction",
+    #         col.color = "colour",
     #         show_labels = FALSE
     #     ) +
     #     geom_vline(xintercept = as.POSIXct(Canada_Wave_Dates)) + # wave dates are defined in the function header
@@ -520,7 +534,7 @@ province_populations <- PHU_information %>%
     #     ) +
     #     scale_x_datetime(
     #         breaks = seq(
-    #             min(as.POSIXct(display_table$start)),
+    #             min(as.POSIXct(interventions_display_table$start)),
     #             as.POSIXct(Sys.Date()),
     #             "months"
     #         ),
@@ -529,8 +543,8 @@ province_populations <- PHU_information %>%
     #     ) +
     #     labs(x="Month", y="Province")
     # ggsave(
-    #     interventions_timelimes_plot, 
-    #     file = file.path(PROJECT_FOLDER, "Graphs/interventionsplot.png"), 
+    #     interventions_timelimes_plot,
+    #     file = file.path(PROJECT_FOLDER, "Graphs/interventionsplot.png"),
     #     width=10, height=12
     # )
     
@@ -567,7 +581,7 @@ province_populations <- PHU_information %>%
         tail(-1) %>%
         rbindlist %>% 
         dplyr::select(-pruid, -week_end)
-    
+    # all the interventions together(school, daycare closures, work-from-home, vaccine administration)
     interventions_by_wave_province <- merge(
         vaccination_in_waves, 
         categorical_interventions_table, all=TRUE) %>% 
