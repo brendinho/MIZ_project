@@ -53,7 +53,7 @@ cohorts <- function(start_age, end_age, ...)
     )
     return(parse(text = paste(col_names, collapse=" + ")))
 }
-
+ 
 #####################################
 # 
 # CHANGE TO THE MODEL
@@ -85,17 +85,6 @@ if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/regression_results.r
             group_50_to_64 = eval(cohorts(50, 64)),
             group_65_plus = eval(cohorts(65, 99, "cohort_100_plus"))
         ) %>%
-        # adding interaction terms
-        # dplyr::mutate(
-        #     interaction_babies_daycare_closures = daycares*group_0_to_4,
-        #     
-        #     interaction_children_school_closures = education*group_5_to_19,
-        # 
-        #     # should we discount work from home for essential workers
-        #     interaction_20_to_49_WFH = work_from_home*group_20_to_49,
-        #     interaction_50_to_64_WFH = work_from_home*group_50_to_64,
-        #     interaction_65_plus_WFH = work_from_home*group_65_plus
-        # ) %>%
         dplyr::select(
             -geometry, -PROV_vaxx_FULL, -starts_with("cohort"),
             -PHU_area_km2, -PHU_dwellings
@@ -182,47 +171,12 @@ if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/regression_results.r
                     !is.na(previous_wave_incidence) else TRUE 
             )
         
+        # not including outliers in the regression
+        # no great loss to the data, plus more stable regression results
         outlying_incidences <- unique(boxplot(reg_data_here$incidence)$out)
         
         # remove outlying cumulative incidences
         reg_data_here <- reg_data_here %>% dplyr::filter(! incidence %in% outlying_incidences)
-        
-        # correlations[[wave_number]] <- Reduce(
-        #     function(x, y) merge(x, y, by="regressor", all=TRUE),
-        #     list(
-        #         reg_data_here %>% 
-        #             dplyr::select(-dplyr::starts_with("interaction")) %>% 
-        #             pcor(.) %>% 
-        #             .$estimate %>%
-        #             data.table(regressor=rownames(.), .) %>% 
-        #             dplyr::select(regressor, incidence) %>%
-        #             dplyr::rename(partial_corr.val = incidence),
-        #         reg_data_here %>% 
-        #             dplyr::select(-dplyr::starts_with("interaction")) %>% 
-        #             pcor(.) %>% 
-        #             .$p.value %>% 
-        #             round(., 4) %>%
-        #             data.table(regressor=rownames(.), .) %>% 
-        #             dplyr::select(regressor, incidence) %>%
-        #             dplyr::rename(partial_corr.p = incidence),
-        #         reg_data_here %>% 
-        #             dplyr::select(-dplyr::starts_with("interaction")) %>% 
-        #             cor(.) %>% 
-        #             data.table(regressor=rownames(.), .) %>% 
-        #             dplyr::select(regressor, incidence) %>% 
-        #             dplyr::rename(normal_cor.val = incidence),
-        #         reg_data_here %>%
-        #             .[, 
-        #                 lapply(.SD, \(x) round(cor.test(incidence, x)$p.value, 4)), 
-        #                 .SDcols = names(reg_data_here) %>% 
-        #                   .[!grepl("interaction", .)]
-        #             ] %>% 
-        #             data.table(regressor = names(.), transpose(.)) %>% 
-        #             dplyr::rename(normal_corr.p = V1) %>% 
-        #             dplyr::select(regressor, normal_corr.p)
-        #         )) %>% 
-        #     dplyr::mutate(wave = wave_number) %>%
-        #     dplyr::relocate(wave)
 
         # turning the categorical variables into dummies
         x_full <- model.matrix(~ .-1, reg_data_here %>% dplyr::select(-incidence))
@@ -257,9 +211,7 @@ if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/regression_results.r
         optim.lambda <- cv_model$lambda.min
 
         glm_fit <- glmnet(x_full, y_full, alpha = 0, lambda = optim.lambda)
-        ridge_predictions <- predict(glm_fit, s = optim.lambda, newx = x_full)
-
-        # print("here1")
+        glm_predictions <- predict(glm_fit, s = optim.lambda, newx = x_full)
 
         Information.Ridge.glmnet <- data.table(
             type = "Ridge.glmnet",
@@ -267,17 +219,14 @@ if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/regression_results.r
             regressor = glm_fit$beta@Dimnames[[1]],
             coefficient = glm_fit$beta@x
         )
-
-        # print("here2")
-
+        
         ridge_fit = ridge.proj(
             x = x_full,
             y = y_full,
             family="gaussian",
             lambda = optim.lambda
         )
-
-        # print("here3")
+        hdi_predictions <- x_full %*% matrix(ridge_fit$bhat, ncol=1)
 
         Information.Ridge.hdi <- cbind(
                 ridge_fit$bhat, ridge_fit$se, ridge_fit$pval, ridge_fit$sds
@@ -367,12 +316,13 @@ if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/regression_results.r
             r2s,
             data.table(
                 wave = wave_number,
-                Ridge.r2 = r2(y_full, ridge_predictions),
-                Ridge.RMSE = cv_model$cvm %>%
+                glm.r2 = r2(y_full, glm_predictions),
+                hdi.r2 = r2(y_full, hdi_predictions),
+                glm.RMSE = cv_model$cvm %>%
                     .[which(cv_model$lambda == optim.lambda)] %>%
                     sqrt(),
-                OLS.r2 = summary(OLS_model)$r.squared,
-                OLS.RMSE = RMSE
+                ols.r2 = summary(OLS_model)$r.squared,
+                ols.RMSE = RMSE
             )
         )
         
@@ -381,7 +331,8 @@ if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/regression_results.r
             data.table(
                 wave = wave_number,
                 incidence = as.numeric(y_full), 
-                glmnet = as.numeric(ridge_predictions),
+                glmnet = as.numeric(glm_predictions),
+                hdi = as.numeric(hdi_predictions),
                 lm = unname(predict(OLS_model))
             )
         )
@@ -402,9 +353,7 @@ if(!file.exists( file.path(PROJECT_FOLDER, "Classifications/regression_results.r
             goodness = r2s,
             predictions = predictions,
             fits = fits,
-            cv = cv_models,
-            correlations = correlations,
-            added_var_data = added_var_data
+            cv = cv_models
         ),
         file=file.path(PROJECT_FOLDER, "Classifications/regression_results.rda")
     )

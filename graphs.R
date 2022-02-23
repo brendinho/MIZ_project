@@ -6,6 +6,7 @@ library(vistime)
 library(plotly)
 library(stringr)
 library(sf)
+library(xtable)
 
 # PROJECT_FOLDER <- dirname(rstudioapi::getSourceEditorContext()$path)
 PROJECT_FOLDER <- "/home/bren/Documents/GitHub/MIZ_project"
@@ -14,195 +15,194 @@ source(file.path(PROJECT_FOLDER, "function_header.R"))
 
 dir.create(file.path(PROJECT_FOLDER, "Graphs"), showWarnings=FALSE)
 
-##################### INTERVENTION TIMELINES
-
-# get the code from the refresh_data file
-    
-##################### LTCH LOCATIONS ON THE MAP
-
-All_LTCHs <- fread(file.path(PROJECT_FOLDER, "Classifications/LTCH_locations.csv")) %>%
-    dplyr::mutate(geometry = lapply(geometry, \(xx) st_point(as.numeric(strsplit(xx, "\\|")[[1]])))) %>%
-    st_sf() %>%
-    dplyr::mutate(geometry = st_sfc(geometry))
-    st_crs(All_LTCHs$geometry) = 4326
-
-All_Canada <- st_sf(readRDS(file.path(PROJECT_FOLDER, "Spatial_Features/All_Canada.rds")))
-
-All_Provinces <- readRDS(file.path(PROJECT_FOLDER, "Spatial_Features/All_Provinces.rds")) %>%
-    st_sf() %>%
-    merge(
-        province_LUT %>% dplyr::select(province, abbreviations, alpha),
-        all=TRUE, by="province"
-    )
-
-Canada_map_with_HRs_and_LTCHs <- ggplot() +
-    geom_sf(
-        data = All_Canada, fill="lightgrey", colour="black",
-        inherit.aes=FALSE, size=0.5
-    ) +
-    geom_sf(
-        data = All_Provinces, fill=NA, colour="black",
-        inherit.aes=FALSE, size=0.5
-    ) +
-    geom_sf(
-        data = All_LTCHs$geometry, inherit.aes=FALSE, size=2,
-        pch=8, colour='red'
-    ) +
-    theme_minimal() +
-    theme(
-        panel.grid = element_blank(),
-        axis.text = element_blank(),
-        axis.ticks = element_blank(),
-        legend.text = element_text(size=13),
-        legend.title = element_text(size=13),
-        legend.key.height = unit(1, 'cm'),
-        plot.background = element_rect(fill="white", colour="white"),
-        legend.position="none"
-    ) +
-    coord_sf(datum=NA) +
-    labs(x="", y="")
-
-ggsave(
-        Canada_map_with_HRs_and_LTCHs,
-        file = sprintf("%s/Graphs/Canada_ltch.png", PROJECT_FOLDER),
-        width=15, height=6
-    )
-    trim_image("Canada_ltch.png")
-
-##################### WAVE ANLYSIS AND PLOTS
-    
-Total_Case_Data <- fread(sprintf(
-        "%s/CaseDataTables/Total_Case_Data.csv",
-        PROJECT_FOLDER
-    ))
-
-Regions <- data.table(readRDS(file.path(PROJECT_FOLDER, "Spatial_Features/Regions.rda")))
-
-if(!file.exists(
-    file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv")
-))
-{
-    Canada_case_data <- jsonlite::fromJSON(
-        "https://api.opencovid.ca/timeseries?loc=canada")$cases %>%
-        dplyr::mutate(date_report=as.Date(date_report, format="%d-%m-%Y"))
-    fwrite(
-        Canada_case_data,
-        file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv")
-    )
-}
-
-Canada_case_data <- fread(file.path(PROJECT_FOLDER,
-    "CaseDataTables/all_canada.csv")) %>%
-    dplyr::mutate(
-        index = as.numeric(date_report),
-        smooth_spline = pmax(predict(smooth.spline(index,cases,spar=0.75))$y,0),
-        moving_average = weekly_moving_average(cases)
-    )
-
-shade_colour <- "yellow"
-threshold_date <- as.Date("2021-12-01")
-
-pl_canada_waves <- ggplot(
-        Canada_case_data[date_report < threshold_date],
-        aes(x=date_report)
-    ) +
-    annotate("rect",
-        xmin = Canada_Wave_Dates[1], xmax = Canada_Wave_Dates[2],
-        ymin = -Inf, ymax = Inf, fill = shade_colour, alpha = 0.1
-    ) +
-    annotate("rect",
-        xmin = Canada_Wave_Dates[2], xmax = Canada_Wave_Dates[3],
-        ymin = -Inf, ymax = Inf, fill = shade_colour, alpha = 0.25
-    ) +
-    annotate("rect",
-         xmin = Canada_Wave_Dates[3], xmax = Canada_Wave_Dates[4],
-         ymin = -Inf, ymax = Inf, fill = shade_colour, alpha = 0.4
-    ) +
-    annotate("rect",
-        xmin = Canada_Wave_Dates[4], xmax = Canada_Wave_Dates[5],
-        ymin = -Inf, ymax = Inf, fill = shade_colour, alpha = 0.5
-    ) +
-    annotate("rect",
-        xmin = Canada_Wave_Dates[5], xmax = threshold_date,
-        ymin = -Inf, ymax = Inf, fill = shade_colour, alpha = 0.6
-    ) +
-    geom_point(aes(y = cases), size = 2) +
-    geom_line(aes(y = moving_average), size = 1.5, colour = "red") +
-    # geom_line(aes(y = smooth_spline), size = 1, colour = "red") +
-    theme_bw() +
-    theme(
-        axis.title = element_text(size = 15),
-        axis.text = element_text(size = 13),
-        axis.text.x = element_text(angle=45, hjust=1)
-    ) +
-    geom_vline(xintercept = Canada_Wave_Dates) +
-    scale_x_date(expand=c(0,0), date_breaks="1 month", date_labels="%d %b %y")+
-    scale_y_continuous(
-        expand = c(0,0),
-        breaks = Canada_case_data[, seq(min(cases), max(cases), by=2000)]
-    ) +
-    labs(x="Date", y="Cases")
-
-ggsave(
-        pl_canada_waves,
-        file = file.path(PROJECT_FOLDER, "Graphs/canada_waves.png"),
-        height=5, width=10
-    )
+# ##################### INTERVENTION TIMELINES
+# 
+# # get the code from the refresh_data file
+#     
+# ##################### LTCH LOCATIONS ON THE MAP
+# 
+# All_LTCHs <- fread(file.path(PROJECT_FOLDER, "Classifications/LTCH_locations.csv")) %>%
+#     dplyr::mutate(geometry = lapply(geometry, \(xx) st_point(as.numeric(strsplit(xx, "\\|")[[1]])))) %>%
+#     st_sf() %>%
+#     dplyr::mutate(geometry = st_sfc(geometry))
+#     st_crs(All_LTCHs$geometry) = 4326
+# 
+# All_Canada <- st_sf(readRDS(file.path(PROJECT_FOLDER, "Spatial_Features/All_Canada.rds")))
+# 
+# All_Provinces <- readRDS(file.path(PROJECT_FOLDER, "Spatial_Features/All_Provinces.rds")) %>%
+#     st_sf() %>%
+#     merge(
+#         province_LUT %>% dplyr::select(province, abbreviations, alpha),
+#         all=TRUE, by="province"
+#     )
+# 
+# Canada_map_with_HRs_and_LTCHs <- ggplot() +
+#     geom_sf(
+#         data = All_Canada, fill="lightgrey", colour="black",
+#         inherit.aes=FALSE, size=0.5
+#     ) +
+#     geom_sf(
+#         data = All_Provinces, fill=NA, colour="black",
+#         inherit.aes=FALSE, size=0.5
+#     ) +
+#     geom_sf(
+#         data = All_LTCHs$geometry, inherit.aes=FALSE, size=2,
+#         pch=8, colour='red'
+#     ) +
+#     theme_minimal() +
+#     theme(
+#         panel.grid = element_blank(),
+#         axis.text = element_blank(),
+#         axis.ticks = element_blank(),
+#         legend.text = element_text(size=13),
+#         legend.title = element_text(size=13),
+#         legend.key.height = unit(1, 'cm'),
+#         plot.background = element_rect(fill="white", colour="white"),
+#         legend.position="none"
+#     ) +
+#     coord_sf(datum=NA) +
+#     labs(x="", y="")
+# 
+# ggsave(
+#         Canada_map_with_HRs_and_LTCHs,
+#         file = sprintf("%s/Graphs/Canada_ltch.png", PROJECT_FOLDER),
+#         width=15, height=6
+#     )
+#     trim_image("Canada_ltch.png")
+# 
+# ##################### WAVE ANLYSIS AND PLOTS
+#     
+# Total_Case_Data <- fread(sprintf(
+#         "%s/CaseDataTables/Total_Case_Data.csv",
+#         PROJECT_FOLDER
+#     ))
+# 
+# Regions <- data.table(readRDS(file.path(PROJECT_FOLDER, "Spatial_Features/Regions.rda")))
+# 
+# if(!file.exists(
+#     file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv")
+# ))
+# {
+#     Canada_case_data <- jsonlite::fromJSON(
+#         "https://api.opencovid.ca/timeseries?loc=canada")$cases %>%
+#         dplyr::mutate(date_report=as.Date(date_report, format="%d-%m-%Y"))
+#     fwrite(
+#         Canada_case_data,
+#         file.path(PROJECT_FOLDER, "CaseDataTables/all_canada.csv")
+#     )
+# }
+# 
+# Canada_case_data <- fread(file.path(PROJECT_FOLDER,
+#     "CaseDataTables/all_canada.csv")) %>%
+#     dplyr::mutate(
+#         index = as.numeric(date_report),
+#         smooth_spline = pmax(predict(smooth.spline(index,cases,spar=0.75))$y,0),
+#         moving_average = weekly_moving_average(cases)
+#     )
+# 
+# shade_colour <- "yellow"
+# threshold_date <- as.Date("2021-12-01")
+# 
+# pl_canada_waves <- ggplot(
+#         Canada_case_data[date_report < threshold_date],
+#         aes(x=date_report)
+#     ) +
+#     annotate("rect",
+#         xmin = Canada_Wave_Dates[1], xmax = Canada_Wave_Dates[2],
+#         ymin = -Inf, ymax = Inf, fill = shade_colour, alpha = 0.1
+#     ) +
+#     annotate("rect",
+#         xmin = Canada_Wave_Dates[2], xmax = Canada_Wave_Dates[3],
+#         ymin = -Inf, ymax = Inf, fill = shade_colour, alpha = 0.25
+#     ) +
+#     annotate("rect",
+#          xmin = Canada_Wave_Dates[3], xmax = Canada_Wave_Dates[4],
+#          ymin = -Inf, ymax = Inf, fill = shade_colour, alpha = 0.4
+#     ) +
+#     annotate("rect",
+#         xmin = Canada_Wave_Dates[4], xmax = Canada_Wave_Dates[5],
+#         ymin = -Inf, ymax = Inf, fill = shade_colour, alpha = 0.5
+#     ) +
+#     annotate("rect",
+#         xmin = Canada_Wave_Dates[5], xmax = threshold_date,
+#         ymin = -Inf, ymax = Inf, fill = shade_colour, alpha = 0.6
+#     ) +
+#     geom_point(aes(y = cases), size = 2) +
+#     geom_line(aes(y = moving_average), size = 1.5, colour = "red") +
+#     # geom_line(aes(y = smooth_spline), size = 1, colour = "red") +
+#     theme_bw() +
+#     theme(
+#         axis.title = element_text(size = 15),
+#         axis.text = element_text(size = 13),
+#         axis.text.x = element_text(angle=45, hjust=1)
+#     ) +
+#     geom_vline(xintercept = Canada_Wave_Dates) +
+#     scale_x_date(expand=c(0,0), date_breaks="1 month", date_labels="%d %b %y")+
+#     scale_y_continuous(
+#         expand = c(0,0),
+#         breaks = Canada_case_data[, seq(min(cases), max(cases), by=2000)]
+#     ) +
+#     labs(x="Date", y="Cases")
+# 
+# ggsave(
+#         pl_canada_waves,
+#         file = file.path(PROJECT_FOLDER, "Graphs/canada_waves.png"),
+#         height=5, width=10
+#     )
 
 ################## GRAPH SAC STATISTICS
 
-Regions <- data.table(readRDS(file.path(
-        PROJECT_FOLDER,
-        "Spatial_Features/Regions.rda"
-    )))
-
-province_metrics <- Regions[, .(
-        num_HR = length(unique(HR)),
-        num_csd = sum(num_csds, na.rm=TRUE),
-        population = sum(population, na.rm=TRUE),
-        area_sq_km = as.numeric(sum(st_area(geometry), na.rm=TRUE)/1000**2)
-    ), by=.(province)] %>%
-    dplyr::mutate(
-        province = factor(province, levels=as.character(.[order(num_csd)]$province)),
-    ) %>%
-    merge(., province_LUT, by="province", all=TRUE)
-
-scaling <- province_metrics[, max(num_HR)/max(num_csd)]
-
-SAC_distribution <- ggplot(
-        province_metrics,
-        aes(x=str_wrap(alpha, 15), group=province)
-        # aes(x=str_wrap(province, 15), group=province)
-    ) +
-    geom_bar(aes(y=num_HR), position="dodge", stat="identity") +
-    geom_line(aes(y=num_csd*scaling, group=1), colour="blue", alpha=0.75, size=2) +
-    scale_y_continuous(
-        sec.axis=sec_axis(trans=~./scaling, name="Census subdivisions contained"),
-        expand=c(0,0), limits = c(0, 35), breaks = seq(0, 35, by=5)
-    ) +
-    labs(y="Public Health Units", x="Province") +
-    theme_bw() +
-    theme(
-        axis.text.y = element_text(size=13),
-        axis.title = element_text(size=15),
-        legend.title = element_text(size=15),
-        legend.text = element_text(size=14),
-        axis.text.x = element_text(size=14), #, angle=45, hjust=1), # angle=45, vjust=1, hjust=1
-        legend.position = "top",
-        legend.direction="horizontal",
-        axis.line.y.right = element_line(color = "blue"),
-        axis.ticks.y.right = element_line(color = "blue"),
-        axis.title.y.right = element_text(color = "blue"),
-        axis.text.y.right = element_text(color = "blue"),
-    ) +
-    scale_fill_brewer(type="div", palette="BrBG") +
-    guides(fill=guide_legend(title="Number of health regions", nrow=1))
-
-ggsave(
-        SAC_distribution,
-        file=sprintf("%s/Graphs/SAC_distribution.png", PROJECT_FOLDER),
-        width=10, height=4
-    )
+# Regions <- data.table(readRDS(file.path(
+#         PROJECT_FOLDER,
+#         "Spatial_Features/Regions.rda"
+#     )))
+# province_metrics <- Regions[, .(
+#         num_HR = length(unique(HR)),
+#         num_csd = sum(num_csds, na.rm=TRUE),
+#         population = sum(population, na.rm=TRUE),
+#         area_sq_km = as.numeric(sum(st_area(geometry), na.rm=TRUE)/1000**2)
+#     ), by=.(province)] %>%
+#     dplyr::mutate(
+#         province = factor(province, levels=as.character(.[order(num_csd)]$province)),
+#     ) %>%
+#     merge(., province_LUT, by="province", all=TRUE)
+# 
+# scaling <- province_metrics[, max(num_HR)/max(num_csd)]
+# 
+# SAC_distribution <- ggplot(
+#         province_metrics,
+#         aes(x=str_wrap(alpha, 15), group=province)
+#         # aes(x=str_wrap(province, 15), group=province)
+#     ) +
+#     geom_bar(aes(y=num_HR), position="dodge", stat="identity") +
+#     geom_line(aes(y=num_csd*scaling, group=1), colour="blue", alpha=0.75, size=2) +
+#     scale_y_continuous(
+#         sec.axis=sec_axis(trans=~./scaling, name="Census subdivisions contained"),
+#         expand=c(0,0), limits = c(0, 35), breaks = seq(0, 35, by=5)
+#     ) +
+#     labs(y="Public Health Units", x="Province") +
+#     theme_bw() +
+#     theme(
+#         axis.text.y = element_text(size=13),
+#         axis.title = element_text(size=15),
+#         legend.title = element_text(size=15),
+#         legend.text = element_text(size=14),
+#         axis.text.x = element_text(size=14), #, angle=45, hjust=1), # angle=45, vjust=1, hjust=1
+#         legend.position = "top",
+#         legend.direction="horizontal",
+#         axis.line.y.right = element_line(color = "blue"),
+#         axis.ticks.y.right = element_line(color = "blue"),
+#         axis.title.y.right = element_text(color = "blue"),
+#         axis.text.y.right = element_text(color = "blue"),
+#     ) +
+#     scale_fill_brewer(type="div", palette="BrBG") +
+#     guides(fill=guide_legend(title="Number of health regions", nrow=1))
+# 
+# ggsave(
+#         SAC_distribution,
+#         file=sprintf("%s/Graphs/SAC_distribution.png", PROJECT_FOLDER),
+#         width=10, height=4
+#     )
 
 ###################### REGRESSION STATISTICS
 
@@ -308,11 +308,12 @@ latex_regression_coefficients <- Reduce(
         OLS.coefficient = sprintf("%.4f", OLS.coefficient),
         OLS.p.value = sprintf("%.4f", OLS.p.value),
         OLS.confidence = sprintf("(%.4f, %.4f)", OLS.CI025, OLS.CI975),
-        Ridge.coefficient = sprintf("%.4f", Ridge.glmnet.coefficient),
-        Ridge.confidence = sprintf("(%.4f, %.4f)", Ridge.hdi.CI025, Ridge.hdi.CI975),
-        Ridge.p.value = sprintf("%.4f", Ridge.hdi.p.value)
+        GLM.coefficient = sprintf("%.4f", Ridge.glmnet.coefficient),
+        HDI.coefficient = sprintf("%.4f", Ridge.hdi.coefficient),
+        HDI.confidence = sprintf("(%.4f, %.4f)", Ridge.hdi.CI025, Ridge.hdi.CI975),
+        HDI.p.value = sprintf("%.4f", Ridge.hdi.p.value)
     ) %>%
-    dplyr::select(wave, regressor, matches("OLS|Ridge"), -matches("\\.CI|hdi|glm"))
+    dplyr::select(wave, regressor, matches("OLS|GLM|HDI"), -matches("\\.CI|Ridge"))
 
 # latex_regression_coefficients %>% 
 #     pretty_variable_names() %>% 
@@ -331,39 +332,39 @@ latex_regression_coefficients <- Reduce(
 #     xtable %>%
 #     print.xtable(include.rownames=FALSE)
 
-# Reduce(
-#         function(x, y) merge(x, y, by="regressor", all=TRUE),
-#         list(
-#             Regression_Data$VIF %>% dplyr::filter(wave==1) %>% dplyr::rename(value_wave_1 = value) %>% dplyr::select(-wave),
-#             Regression_Data$VIF %>% dplyr::filter(wave==2) %>% dplyr::rename(value_wave_2 = value) %>% dplyr::select(-wave),
-#             Regression_Data$VIF %>% dplyr::filter(wave==3) %>% dplyr::rename(value_wave_3 = value) %>% dplyr::select(-wave),
-#             Regression_Data$VIF %>% dplyr::filter(wave==4) %>% dplyr::rename(value_wave_4 = value) %>% dplyr::select(-wave)
-#         )
-#     ) %>%
-#     pretty_variable_names() %>%
-#     dplyr::relocate(pretty_regressor) %>%
-#     dplyr::select(-regressor) %>%
-#     xtable %>%
-#     print.xtable(include.rownames=FALSE)
+Reduce(
+        function(x, y) merge(x, y, by="regressor", all=TRUE),
+        list(
+            Regression_Data$VIF %>% dplyr::filter(wave==1) %>% dplyr::rename(VIF_wave_1 = value) %>% dplyr::select(-wave),
+            Regression_Data$VIF %>% dplyr::filter(wave==2) %>% dplyr::rename(VIF_wave_2 = value) %>% dplyr::select(-wave),
+            Regression_Data$VIF %>% dplyr::filter(wave==3) %>% dplyr::rename(VIF_wave_3 = value) %>% dplyr::select(-wave),
+            Regression_Data$VIF %>% dplyr::filter(wave==4) %>% dplyr::rename(VIF_wave_4 = value) %>% dplyr::select(-wave)
+        )
+    ) %>%
+    pretty_variable_names() %>%
+    dplyr::relocate(pretty_regressor) %>%
+    dplyr::select(-regressor) %>%
+    xtable %>%
+    print.xtable(include.rownames=FALSE)
 
 # Regression_Data$information %>%
 #     dplyr::select(wave, Ridge.r2, OLS.r2, Ridge.RMSE, OLS.RMSE) %>%
 #     xtable() %>%
 #     print.xtable(include.rownames = FALSE)
 
-fwrite(
-    latex_regression_coefficients %>% 
-        pretty_variable_names() %>%
-        dplyr::select(-regressor, -wave) %>%
-        dplyr::rename(regressor = pretty_regressor) %>%
-        dplyr::relocate(regressor) %>%
-        dplyr::filter(wave == 2) %>%
-        dplyr::select(-wave, -Ridge.glmnet), 
-    file = file.path(
-        PROJECT_FOLDER, 
-        "Classifications/latex_regression_coefficients_wave_2.csv"
-    )
-)
+# fwrite(
+#     latex_regression_coefficients %>% 
+#         pretty_variable_names() %>%
+#         dplyr::select(-regressor, -wave) %>%
+#         dplyr::rename(regressor = pretty_regressor) %>%
+#         dplyr::relocate(regressor) %>%
+#         dplyr::filter(wave == 2) %>%
+#         dplyr::select(-wave, -Ridge.glmnet), 
+#     file = file.path(
+#         PROJECT_FOLDER, 
+#         "Classifications/latex_regression_coefficients_wave_2.csv"
+#     )
+# )
 
 fwrite(
     latex_regression_coefficients %>% 
@@ -401,7 +402,7 @@ latex_regression_descriptives <- Regression_Data$raw_data %>%
     as.list %>%
     data.table(regressor = names(.), description = .) %>%
     dplyr::mutate(regressor = dplyr::recode(regressor,
-        "PHU_population" = "Population (PHU, x 1000)",
+        "PHU_population" = "Population (PHU, x1000)",
         "PHU_pop_density" = "Population Density (PHU)",
         "group_0_to_4" = "$C_{0-4}$ (x 100)",
         "group_5_to_19" = "$C_{5-19}$ (x 100)",
